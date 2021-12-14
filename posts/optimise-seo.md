@@ -1,3 +1,22 @@
+---
+title: Responsibilities as a developer for optimised SEO.
+linktitle: TODO
+description: TODO
+date: 2017-02-01
+publishdate: 2017-02-01
+lastmod: 2017-02-01
+keywords: [ssg,static,performance,security]
+menu:
+docs:
+parent: "about"
+weight: 30
+weight: 30
+sections_weight: 30
+draft: true
+aliases: []
+toc: false
+---
+
 # Responsibilities as a developer for optimised SEO.
 
 Go to one of your websites you have developed and turn JavaScript off, does the page still function as it should?
@@ -8,17 +27,17 @@ debt before you do. Here are some tricks and  tips in order to boost your page r
 
 ## How does Google Crawl
 
-When Google crawls a new website, it sends a normal HTTP GET request to the site and get's back a barebones
-version then loads and
+When Google crawls a new website, it sends a normal HTTP GET request to the site and retrieves a barebones version of 
+the page. Then proceeds to render and load JavaScript for that page. It now has two versions, one that has been server
+side rendered and one with JavaScript enabled. It proceeds to make a comparison between these two versions and if they
+see a difference, they will continue to keep rendering on for the long term. If they don't see any difference, rendering
+is usually switched off.
 
-- HTTP get request for the site, and get back the HTML loads and runs the javascript.
-- Goes into rendering, looks into differences between rendered version of content and HTML version of content
-- If there is a difference, they will keep rendering switched on for the long term.
-- If they don't see a difference, they will switch off the rendering.
-- Google is comparing between the two versions.
-- Might take a month to see ranking changes.
-  https://www.onely.com/blog/googles-two-waves-of-indexing/
+I say this loosely, as 9 times out of 10 this is the case, but sometimes they may choose to continue to index the 
+rendered version of the page, and visa versa. 
 
+https://www.onely.com/blog/googles-two-waves-of-indexing/
+  
 ## Client Side Rendering (CSR)
 
 The next question I
@@ -68,17 +87,15 @@ Google sees guest posts as promotion for the author’s site, so any links withi
 
 Therefore, a nofollow tag must be present to prevent Google from thinking you’re involved in some kind of link scheme.
 
-
 ## Semantics
 
 Best HTML
 Use headings, sections, paragraphs.
 Using captions and alt text.
 
-
 ## Frameworks
 
-
+**Stop using Angular, Vue or React to serve your front-end website**
 
 ## No JS fallbacks
 
@@ -104,8 +121,8 @@ A common example would be:
 
 ### Styling
 
-Applying no JS styles can be a bit of pain. A neat trick is to have a `scss` file with all of your no JavaScript styling
-and compile it as a separate CSS file, let's call it `no-js.css`. In the header of you can encapsulate this CSS file 
+Applying no JS styles can be a bit of pain. A neat trick is to have a `.scss` file with all of your no JavaScript styling
+and compile it as a separate CSS file, let's call it `no-js.css`. In the header of you can encapsulate the CSS file 
 in a `<noscript>` element, to only display when the client has no JS.
 
 ```html
@@ -121,11 +138,39 @@ will avoid any layout shifts and styling glitches. It also helps our code bases 
 
 ### Checkbox Hack
 
-Let's take an accordion for an example. The user clicks on a tab or header and content is expanded usually using 
-`min-height`. 
+I use the checkbox hack religiously. It's extremely useful and helps with emulating a JavaScript **click** event
+handler. A `<input type="checkbox">` is used in conjunction with a `<label>` and an element you are trying to control.
 
+```html
+<input type="checkbox" id="toggle">
+<label for="toggle">Do Something</label>
+<div class="card">Control me</div>
+```
 
+Then with CSS, you hide the checkbox entirely (using `display: none;` or `position: absolute`) and style the label to be
+a button or control for the element you are trying to manipulate. The label acts as a substitute for the input as we have
+used the `for` attribute. When someone clicks the label, it will toggle the checkbox on or off. Now we can target styles 
+that specify only when the input is checked (or when someone clicks the label).
 
+```css
+#toggle:checked ~ .card {
+    display: block;
+}
+
+#toggle:checked ~ label {
+    background-color: red;
+}
+```
+
+There are a tonne of things you can do with the checkbox hack, but let's take an accordion for an example. The user 
+clicks on a tab or header and content is expanded and becomes visible. Using the previous example, when the user clicks
+the label (our accordion header), we can expand the hidden content.
+
+**TODO: Insert CODEPEN**
+
+**Note:** There are only certain things we can achieve using CSS, we should only be adding JS to **enhance** the users
+experience. This should be done at the **very minimum** as a no JS fallback, to help increase usability across the 
+board.
 
 ## Imagery
 
@@ -265,52 +310,59 @@ npm. Below is an example of image compressing using the `cwebp`, `jpegoptim`, `o
 # Author - Ainsley Clark
 
 # Set Variables
-PUBLIC_PATH="./public/images" # Set your public path here.
+PUBLIC_PATH="./public" # Set your public path here.
 WEBP_QUALITY=80
 JPG_QUALITY=80
 PNG_OPTIMIZATION_LEVEL=2
 
-# Convert to WebP.
 echo '--------------------------------------------'
-echo 'Processing files and converting to webp'
+echo 'Converting to WebP'
 echo '--------------------------------------------'
-find ${PUBLIC_PATH} -type f \( -name "*.png" -or -name "*.jpg" -or -name "*.jpeg"  \) | xargs -P ${WEBP_QUALITY} -I {} sh -c 'cwebp -q 80 $1 -o "${1%}.webp"' _ {} \;
+if hash cwebp 2>/dev/null; then
+	find ${PUBLIC_PATH} -type f \( -name "*.png" -or -name "*.jpg" -or -name "*.jpeg" \) | xargs -P 8 -I {} sh -c 'cwebp -q '$WEBP_QUALITY' $1 -o "${1%.*}.webp"' _ {} \;
+else
+	echo "Install cwebp to convert to images to .webp"
+fi
 
-# Compress JPGSs.
+echo '--------------------------------------------'
+echo 'Converting to AVIF'
+echo '--------------------------------------------'
+if hash avifenc 2>/dev/null; then
+	find ${PUBLIC_PATH} -type f \( -name "*.png" -or -name "*.jpg" -or -name "*.jpeg" \) | xargs -P 8 -I {} sh -c 'avifenc --min 0 --max 63 --speed 6 -a end-usage=q -a cq-level=18 -a tune=ssim $1 "${1%.*}.avif"' _ {} \;
+else
+	echo "Install avifenc to convert to images to .avif"
+fi
+
 echo '--------------------------------------------'
 echo 'Compressing JPG images'
 echo '--------------------------------------------'
 if hash jpegoptim 2>/dev/null; then
-	for image in $(find ${PUBLIC_PATH} -type f \( -name "*.jpg" -or -name "*.jpeg"  \)); do
-		# Remove all metadata and try to optimize jpeg image to match the maximum size.
-		jpegoptim --strip-all --overwrite --max=$JPG_QUALITY $image
-	done;
+	find ${PUBLIC_PATH} -type f \( -name "*.jpg" -or -name "*.jpeg" \) | xargs -P 8 -I {} sh -c 'jpegoptim --strip-all --overwrite --max='$JPG_QUALITY' $1' _ {} \;
 else
 	echo "Install jpegoptim to optimize JPEG images"
 fi
 
-# Compress PNGs.
 echo '--------------------------------------------'
 echo 'Compressing PNG images'
 echo '--------------------------------------------'
 if hash optipng 2>/dev/null; then
-	for image in $(find ${PUBLIC_PATH} -type f \( -name "*.png" \)); do
-		# Optimize PNG with a give level (higher = slower) and remove all metadata.
-		optipng -clobber -strip all -o $PNG_OPTIMIZATION_LEVEL $image
-	done;
+	find ${PUBLIC_PATH} -type f \( -name "*.png" \) | xargs -P 8 -I {} sh -c 'optipng -clobber -strip all -o '$PNG_OPTIMIZATION_LEVEL' $1' _ {} \;
 else
 	echo "Install optipng to optimize PNG images"
 fi
 
-# Optimise SVGs
 echo '--------------------------------------------'
 echo 'Optimising SVG images'
 echo '--------------------------------------------'
 if hash svgo 2>/dev/null; then
 	svgo -f ${PUBLIC_PATH}
 else
-	echo "Install svgo to optimize PNG images"
+	echo "Install svgo to optimize SVG images"
 fi
 ```
 
 ## Wrapping up
+
+It's clear that with just a little extra time and effort as a developer you can help increase the PSI and your chances
+to rank highly. A lot of responsibility falls on a developer to ensure a website is SEO friendly, and by using just
+some of the tips and tricks above can ensure you won't be left behind in the SERP's.
