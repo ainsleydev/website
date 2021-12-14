@@ -1,7 +1,4 @@
-Responsibilities as a developer for optimised SEO.
-
-Best SEO practices for dev
-
+# Responsibilities as a developer for optimised SEO.
 
 ## Intro
 Go to one of your websites you have developed and turn JavaScript off, does the page still function as it should?
