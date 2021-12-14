@@ -33,7 +33,7 @@ Indexing has two possible ways of happening either:
 - First wave, right away, indexed as fast as possible.
 - Second wave, wait for rendering.
 
-Progressivly enhance website, add behavior or additional features such as animation.
+Progressively enhance website, add behavior or additional features such as animation.
 
 Using javascript to load or RESIZE content
 
@@ -202,14 +202,11 @@ no JS fallback.
 </picture>
 ```
 
-**Note:**
-FIND 1px example
-
 ### Optimisation
 
 We don't have to stop there, we can take advantage of the (relatively) new image format's
 [WebP](https://developers.google.com/speed/webp) and [AVIF](https://aomedia.org/av1-features/). Both of which provide a 
-far more superior compression to the original JPG and PNG codecs. AVIF has even said to 
+far more superior compression level to the original JPG and PNG codecs. AVIF has even said to 
 [have an edge](https://www.coywolf.news/webmaster/avif-versus-webp-image-format/) on WebP with smaller files and deeper 
 colours. 
 
