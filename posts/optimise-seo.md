@@ -92,10 +92,28 @@ from it. Progressive enhancement should be considered at the very beginning of a
 markup. I have seen and witnessed a tonne of developers using JavaScript at **every opportunity**, and sometimes it's 
 really not necessary. 
 
+### The power of `<noscript>`
+
+The `<noscript>` tag has magical powers, it only renders the markup inside the element when users have disabled scripts
+in their browsers. It can be used in both `<head>` and `<body>`.  When used inside <head>, the <noscript> element could 
+only contain <link>, <style>, and <meta> elements. 
+
+A common example would be:
+
+```html
+<noscript>
+    <h1>Sorry, you need to enable JavaScript to use this page.</h1>
+</noscript>
+
+```
+
+
+
+
 ### Styling
 
 Applying no JS styles can be a bit of pain. A neat trick is to have a `scss` file with all of your no JavaScript styling
-and compile it as a seperate CSS file, let's call it `no-js.css`. In the footer of your 
+and compile it as a separate CSS file, let's call it `no-js.css`. In the header of you can encapsulate t
 
 ### Checkbox Hack
 
@@ -296,3 +314,5 @@ else
 	echo "Install svgo to optimize PNG images"
 fi
 ```
+
+## Wrapping up
