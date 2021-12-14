@@ -1,6 +1,5 @@
 # Responsibilities as a developer for optimised SEO.
 
-## Intro
 Go to one of your websites you have developed and turn JavaScript off, does the page still function as it should?
 Is all the content rendered? Do images a layouts appear correctly on the page? If the answer is no, it may be
 time to consider refactoring your code base to allow for a more SEO friendly website. As developers, it may be
@@ -92,8 +91,8 @@ sometimes it's really not necessary.
 ### The power of `<noscript>`
 
 The `<noscript>` tag has magical powers, it only renders the markup inside the element when users have disabled scripts
-in their browsers. It can be used in both `<head>` and `<body>`.  When used inside <head>, the <noscript> element could 
-only contain <link>, <style>, and <meta> elements. 
+in their browsers. It can be used in both `<head>` and `<body>`.  When used inside `<head>`, the `<noscript>` element 
+can only contain `<link>`, `<style>`, and `<meta>` elements. 
 
 A common example would be:
 
@@ -128,14 +127,11 @@ Let's take an accordion for an example. The user clicks on a tab or header and c
 
 
 
-### 
-
-CSS STYLING NO-JS.CSS
-
-
 ## Imagery
 
-INTRO
+A lot of recommendations in Google's [Page Speed Insights](https://pagespeed.web.dev/) stems from improperly sized and
+large images. It's important to use the embrace the tools around you as a developer to optimise imagery so the user 
+still receives rich and detailed images, but is still a quick and efficient on initial page load.
 
 ### Lazy loading
 
