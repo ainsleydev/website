@@ -86,11 +86,11 @@ Using captions and alt text.
 
 ## No JS fallbacks
 
-Use CSS when you can, ask yourself, can this be achieved using CSS only? If the answer is yes, do it! I get it, JS is
-a lot easier to implement, and saves a lot of time, but it should be used to enhance the users journey, not detract
-from it. Progressive enhancement should be considered at the very beginning of a site build when you're fleshing out your
-markup. I have seen and witnessed a tonne of developers using JavaScript at **every opportunity**, and sometimes it's 
-really not necessary. 
+Only use JavaScript when you have too! Ask yourself, can this be achieved using CSS only? If the answer is yes, do it! 
+I get it, JS is a lot easier to implement, and saves a lot of time, but it should be used to enhance the users journey, 
+not detract from it. Progressive enhancement should be considered at the very beginning of a site build when you're 
+fleshing out your markup. I have seen and witnessed a tonne of developers using JavaScript at **every opportunity**, and 
+sometimes it's really not necessary. 
 
 ### The power of `<noscript>`
 
@@ -104,16 +104,25 @@ A common example would be:
 <noscript>
     <h1>Sorry, you need to enable JavaScript to use this page.</h1>
 </noscript>
-
 ```
-
-
-
 
 ### Styling
 
 Applying no JS styles can be a bit of pain. A neat trick is to have a `scss` file with all of your no JavaScript styling
-and compile it as a separate CSS file, let's call it `no-js.css`. In the header of you can encapsulate t
+and compile it as a separate CSS file, let's call it `no-js.css`. In the header of you can encapsulate this CSS file 
+in a `<noscript>` element, to only display when the client has no JS.
+
+```html
+<head>
+   <noscript>
+       <link rel="stylesheet" href="/css/no-js.css">
+   </noscript>
+</head>
+
+This makes things a lot simpler, we can define some CSS for our page instead of adding a `no-js` class to the body. This
+will avoid any layout shifts and styling glitches. It also helps our code bases a lot more maintainable.
+
+```
 
 ### Checkbox Hack
 
