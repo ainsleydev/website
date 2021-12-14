@@ -118,11 +118,10 @@ in a `<noscript>` element, to only display when the client has no JS.
        <link rel="stylesheet" href="/css/no-js.css">
    </noscript>
 </head>
+```
 
 This makes things a lot simpler, we can define some CSS for our page instead of adding a `no-js` class to the body. This
 will avoid any layout shifts and styling glitches. It also helps our code bases a lot more maintainable.
-
-```
 
 ### Checkbox Hack
 
