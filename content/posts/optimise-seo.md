@@ -82,7 +82,6 @@ markup so the end user receives all of the HTML rendered. The client only has to
 imagery.
 
 ```html
-
 <html>
 	<body>
 		<article>
@@ -363,9 +362,9 @@ reduced.
 </figure>
 ```
 
-Most [lazy loading libraries](https://github.com/verlok/vanilla-lazyload) use the `data-src` attribute and when
-The user has scrolled passed a particular point on the windowsY offset, it replaces `data-src` with `src` which
-therefore loads the asset on the clients computer.
+Most [lazy loading libraries](https://github.com/verlok/vanilla-lazyload) use the `data-src` attribute and when the user
+has scrolled passed a particular point on the windowsY offset, it replaces `data-src` with `src` which therefore loads
+the asset on the clients' computer.
 
 However, this is all achieved by JavaScript, how can we add a fallback for clients with no javascript?
 
@@ -438,6 +437,7 @@ accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
 Below is an example of loading AVIF and WebP images in a `<picture>` element. It may look drastic and long-winded, but
 it's key for delivering high quality, compressed images to your users. Here we are specifying AVIF and WebP lazy loaded
 images for multiple screen resolutions with a no JS fallback.
+
 Instead of writing this out everytime you need an image, you can simply make a reusable ==partial== to render the
 markup that takes in the image path, sizes and any additional attributes.
 
@@ -472,7 +472,7 @@ conversion on an image upload for example. [Squidge](https://github.com/ainsleyc
 that offers this functionality, that's completely free.
 
 For a more humble approach, I usually compress all images in a `public` folder when running production scripts using
-npm. Below is an example of image compressing using the `cwebp`, `jpegoptim`, `optipng` and `svgo` libraries.
+npm. Below is an example of image compressing using the `cwebp`, `avifenc`, `jpegoptim`, `optipng` and `svgo` libraries.
 
 ```bash
 #!/bin/bash
