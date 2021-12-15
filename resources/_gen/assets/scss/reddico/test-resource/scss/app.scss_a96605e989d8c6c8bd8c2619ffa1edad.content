@@ -13,9 +13,6 @@
  * environment the current build state is in.
  * Do not modify!
  */
-.h1 {
-  background: https://resources.reddico.io/reddico/test-resource/; }
-
 /*  ====================
     Abstracts
     ==================== */

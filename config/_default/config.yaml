@@ -7,8 +7,17 @@ params:
   images:
     - images/site-feature-image.jpg
 googleAnalytics: UA-PROPERTY_ID
-disableKinds: ["sitemap", "RSS"]
+disableKinds: ["taxonomy", "taxonomyTerm"]
 ignoreErrors: ["error-disable-taxonomy"]
+sitemap:
+    changefreq: monthly
+    filename: sitemap.xml
+    priority: 0.5
+markup:
+    tableOfContents:
+        endLevel: 2
+        ordered: false
+        startLevel: 2
 module:
     mounts:
         - source: "./themes/reddico/node_modules/vanilla-lazyload/dist/lazyload.js"
