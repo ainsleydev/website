@@ -5,7 +5,7 @@ description: TODO
 date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-02-01
-keywords: [ssg,static,performance,security]
+keywords: [seo,developer,performance,best-pratices]
 menu:
 docs:
 parent: "about"
@@ -25,40 +25,60 @@ time to consider refactoring your code base to allow for a more SEO friendly web
 easier to use a particular framework or library or even add functionality via JavaScript, but consider the technical
 debt before you do. Here are some tricks and  tips in order to boost your page rankings from a technical view point.
 
-## How does Google Crawl
+## How does Google Crawl?
 
-When Google crawls a new website, it sends a normal HTTP GET request to the site and retrieves a barebones version of 
+When Google crawls a new website, it sends a normal HTTP GET request to the site and retrieves a bare-bones version of 
 the page. Then proceeds to render and load JavaScript for that page. It now has two versions, one that has been server
 side rendered and one with JavaScript enabled. It proceeds to make a comparison between these two versions and if they
 see a difference, they will continue to keep rendering on for the long term. If they don't see any difference, rendering
 is usually switched off.
 
+Source: https://www.onely.com/blog/googles-two-waves-of-indexing/
+
 I say this loosely, as 9 times out of 10 this is the case, but sometimes they may choose to continue to index the 
-rendered version of the page, and visa versa. 
+rendered version of the page, and visa versa. Ultimately there is a 
+[two phased approach](https://www.botify.com/blog/client-side-server-side-rendering-seo) to evaluating a web page, and
+JavaScript content might be missed on the first 'wave' of processing and not included in Google's index.
+JS can also slow search engine bots down, which on large sites can introduce crawl budget issues (evaluating websites
+can cost a large amount of money in resources).
 
-https://www.onely.com/blog/googles-two-waves-of-indexing/
-  
-## Client Side Rendering (CSR)
+## Rendering
 
+Rendering is the process of populating templates with data from APIs or databases. It can happen either on the sever
+or client side. It allows for rich data to be displayed in your markup from different sources. Below is a comparison
+between both server and client side rendering.
+
+### Server Side Rendering (SSR)
+
+Is the traditional rendering method. When you request a page, the server does the heavy lifting and processes all the
+markup so the end user receives all of the HTML rendered. 
+
+### Client Side Rendering (CSR)
+
+Is the p
+
+```html
+<html>
+    <body>
+        <div id="app"></div>
+    </body>
+    <script src="client-side-framework.js"></script>
+    <script src="app.js"></script>
+</html>
+```
 The next question I
 
 Using javascript to render content in the browser.
-
-Rendering is the process of populating templates with data from API's or databases, it can happen on server or client side.
-
-When it happens on server side it ....
-
-Indexing has two possible ways of happening either:
-- First wave, right away, indexed as fast as possible.
-- Second wave, wait for rendering.
-
 Progressively enhance website, add behavior or additional features such as animation.
-
 Using javascript to load or RESIZE content
-
-Example for navigation, only need one nav.
-
 Want to make sure google see's all the content on the page.
+
+> With server-side rendering, whenever you want to see a new web page, you have to go out and get it, this is analogous 
+> to you driving over to the supermarket every time you want to eat. With client-side rendering, you go to the 
+> supermarket once and spend 45 minutes walking around buying a bunch of food for the month. Then, whenever you want to 
+> eat, you just open the fridge.”
+> - [Adam Zerner](https://medium.com/@benjburkholder/javascript-seo-server-side-rendering-vs-client-side-rendering-bc06b8ca2383)
+
 
 ## Frameworks
 
@@ -67,6 +87,107 @@ https://www.botify.com/blog/client-side-server-side-rendering-seo
 
 
 https://developers.google.com/search/docs/advanced/javascript/javascript-seo-basics
+
+
+## Frameworks
+
+**Stop using Angular, Vue or React to serve your front-end website**
+
+
+## Semantics
+
+Using the correct semantic HTML, has a huge amount of benefits, not only for SEO, including:
+
+- Good basis for accessibility and assistive technologies. 
+- Displays to bots (crawlers) what you are trying to achieve.
+- Makes your codebase a lot more readable to other developers.
+
+A simple example:
+
+```html
+<p>This is an example to show you the <span style="font-weight: bold;">importance</span> of <span style="font-style: italic">text formatting</span></p>
+```
+
+This doesn't describe what the element is supposed to be doing.
+
+```html
+<button>Click me</button>
+```
+
+This is the correct markup, `<button>`'s have native browser styling and built-in keyboard accessibility. 
+
+```html
+<html>
+    <body>
+        <div class="header">
+            <div class="logo">
+                <img src="/logo.svg" alt="Logo">
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="ainsley.dev">Home</a></li>
+                    <li><a href="ainsley.dev">About</a></li>
+                    <li><a href="ainsley.dev">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="aside">
+                <h2>Aside</h2>
+            </div>
+            <div class="article">
+                <div class="section">
+                    <h1>Amazing website</h1>
+                    <p>Tagline</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Designed by <a href="https://ainsley.dev">Ainsley Clark</a></p>
+        </div>
+    </body>
+</html>
+```
+
+That isn't pretty, but it works. I think we can do a lot better:
+
+```html
+<html>
+    <body>
+        <header>
+            <figure class="logo">
+                <img src="/logo.svg" alt="Logo">
+            </figure>
+            <nav>
+                <ul>
+                    <li><a href="ainsley.dev">Home</a></li>
+                    <li><a href="ainsley.dev">About</a></li>
+                    <li><a href="ainsley.dev">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <aside>
+                <h2>Aside</h2>
+            </aside>
+            <article>
+                <section>
+                    <h1>Amazing website</h1>
+                    <p>Tagline</p>
+                </section>
+            </article>
+        </div>
+        <footer>
+            <p>Designed by <a href="https://ainsley.dev">Ainsley Clark</a></p>
+        </footer>
+    </body>
+</html>
+```
+
+You can see how much easier that is to read. Each element describes what it's doing, which isn't just benefical for your
+eyes, but for SEO too. [Search engines give more importance](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML)
+to keywords inside headings than non-sematics `<div>`'s etc. So it's **extremely** important to keep this in mind when
+your devving up your next website. Think about what the element is describing before just using another `<div>`.
 
 ## Linking
 
@@ -86,16 +207,6 @@ The same goes for guest posts published on your site with a link back to the aut
 Google sees guest posts as promotion for the author’s site, so any links within the content are not considered natural links.
 
 Therefore, a nofollow tag must be present to prevent Google from thinking you’re involved in some kind of link scheme.
-
-## Semantics
-
-Best HTML
-Use headings, sections, paragraphs.
-Using captions and alt text.
-
-## Frameworks
-
-**Stop using Angular, Vue or React to serve your front-end website**
 
 ## No JS fallbacks
 
@@ -121,9 +232,9 @@ A common example would be:
 
 ### Styling
 
-Applying no JS styles can be a bit of pain. A neat trick is to have a `.scss` file with all of your no JavaScript styling
-and compile it as a separate CSS file, let's call it `no-js.css`. In the header of you can encapsulate the CSS file 
-in a `<noscript>` element, to only display when the client has no JS.
+Applying no JS styles can be a bit of pain. A neat trick is to have a `.scss` file with all of your no JS styling and 
+compile it as a separate CSS file, let's call it `no-js.css`. In the header of you can encapsulate the CSS file in a 
+`<noscript>` element, to only display when the client has no JS.
 
 ```html
 <head>
