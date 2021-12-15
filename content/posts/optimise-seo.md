@@ -55,7 +55,7 @@ can cost a large amount of money in resources).
 
 ## Rendering
 
-Rendering is the process of populating templates with data from APIs or databases. It can happen either on the sever
+Rendering is the process of populating templates (HTML) with data from APIs or databases. It can happen either on the sever
 or client side. It allows for rich data to be displayed in your markup from different sources. Below is a comparison
 between both server and client side rendering.
 
@@ -346,8 +346,8 @@ board.
 ## Imagery
 
 A lot of recommendations in Google's [Page Speed Insights](https://pagespeed.web.dev/) stems from improperly sized and
-large images. It's important to use the embrace the tools around you as a developer to optimise imagery so the user
-still receives rich and detailed images, but is still a quick and efficient on initial page load.
+uncompressed images. It's important to use the embrace the tools around you as a developer to optimise imagery so the
+user still receives rich and detailed images, but is still a quick and efficient on initial page load.
 
 ### Lazy loading
 
