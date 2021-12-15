@@ -67,11 +67,11 @@ below.
 
 ```html
 <html>
-    <body>
-        <div id="app"></div>
-    </body>
-    <script src="client-side-framework.js"></script>
-    <script src="app.js"></script>
+	<body>
+		<div id="app"></div>
+	</body>
+	<script src="client-side-framework.js"></script>
+	<script src="app.js"></script>
 </html>
 ```
 
@@ -82,16 +82,17 @@ markup so the end user receives all of the HTML rendered. The client only has to
 imagery.
 
 ```html
+
 <html>
-		<body>
-				<article>
-						<section>
-								<h1>My title</h1>
-								<p>All my lovely content</p>
-						</section>
-				</article>
-		</body>
-		<script src="app.js"></script>
+	<body>
+		<article>
+			<section>
+				<h1>My title</h1>
+				<p>All my lovely content</p>
+			</section>
+		</article>
+	</body>
+	<script src="app.js"></script>
 </html>
 ```
 
