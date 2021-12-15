@@ -1,0 +1,15 @@
+languageCode: "en-gb"
+title: "ainsley.dev"
+theme: "ainsley.dev"
+params:
+  title: Title of the site
+  description: Description of the site
+  images:
+    - images/site-feature-image.jpg
+googleAnalytics: UA-PROPERTY_ID
+disableKinds: ["sitemap", "RSS"]
+ignoreErrors: ["error-disable-taxonomy"]
+module:
+    mounts:
+        - source: "./themes/reddico/node_modules/vanilla-lazyload/dist/lazyload.js"
+          target: "assets/js/lazyload.js"

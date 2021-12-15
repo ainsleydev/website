@@ -1,0 +1,25 @@
+<!-- =====================
+    Picture
+    ===================== -->
+{{ if .url }}
+	{{- $resource := resources.Get .url -}}
+	{{ if $resource -}}
+		<!-- Variables -->
+		{{ $mobile := $resource.Resize "767x" }}
+		{{ $tablet := $resource.Resize "1024x" }}
+		<picture {{ with .class }}class="{{ . }}"{{ end }}>
+			<!-- Mobile -->
+			<source media="(max-width: 767px)" {{ if .lazy }} class="lazy lazy-hide" data-{{ end }}srcset="{{ $mobile.Permalink }}">
+			<!-- Tablet -->
+			<source media="(max-width: 1024px)" {{ if .lazy }} class="lazy lazy-hide" data-{{ end }}srcset="{{ $tablet.Permalink }}">
+			<!-- Original -->
+			<img {{ if .lazy }} class="lazy lazy-hide" data-{{ end }}src="{{ $resource.Permalink }}" alt="{{ with .alt }}{{ . }}{{ end }}">
+			<!-- NoScript -->
+			{{ if .lazy }}
+			<noscript>
+				<img src="{{ $resource.Permalink }}" alt="{{ with .alt }}{{ . }}{{ end }}">
+			</noscript>
+			{{ end }}
+		</picture>
+	{{- end }}
+{{ end -}}

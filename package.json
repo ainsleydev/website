@@ -1,0 +1,33 @@
+{
+	"name": "resource-boilerplate",
+	"version": "1.0.0",
+	"description": "Boilerplate for creating resources",
+	"main": "index.js",
+	"scripts": {
+		"setup": "sudo chmod -R 777 ./bin && ./bin/setup-deps.sh && ./bin/setup.sh",
+		"setup:deps": "sudo chmod -R 777 ./bin && ./bin/setup-deps.sh",
+		"serve": "hugo server",
+		"build": "npm run hugo:clean && hugo --theme=reddico --environment development",
+		"build:staging": "npm run hugo:clean && hugo --theme=reddico --environment staging --config config-staging.yml --minify && npm run image",
+		"build:production": "npm run hugo:clean && hugo --theme=reddico --environment production --config config-production.yml --minify && npm run image",
+		"build:prod": "npm run build:production",
+		"hugo:clean": "rm -rf public",
+		"image": "sudo chmod -R 777 ./bin && ./bin/image-optim.sh",
+		"clean": "prettier --config ./config/.prettierrc --write ./**/*.{css,scss,json,js} --ignore-path ./config/.prettierignore && npx eslint -c ./config/.eslintrc assets/js/app.js --fix",
+		"lint": "npm run lint:scss && npm run lint:js",
+		"lint:scss": "sass-lint --config ./config/.sass-lint.yml '**/*.scss' --verbose --no-exit",
+		"lint:js": "npx eslint -c ./config/.eslintrc **/*.js"
+	},
+	"author": "Reddico",
+	"license": "MIT",
+	"dependencies": {
+		"smoothscroll-polyfill": "^0.4.4",
+		"vanilla-lazyload": "^17.4.0"
+	},
+	"devDependencies": {
+		"eslint": "^7.32.0",
+		"hugo-bin-extended": "^0.88.1",
+		"prettier": "^2.4.1",
+		"sass-lint": "^1.13.1"
+	}
+}

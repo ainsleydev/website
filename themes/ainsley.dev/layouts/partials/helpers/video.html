@@ -1,0 +1,17 @@
+<!-- =====================
+    Video
+    ===================== -->
+{{- $resource := .filename -}}
+<!-- Filetypes -->
+{{ $videowebm := replace $resource ".mp4" ".webm" }}
+{{ $videoogg := replace $resource ".mp4" ".ogv" }}
+{{ $postFolder := "themes/reddico/static/videos" }}
+{{ if fileExists $postFolder }}
+	<video {{ with .class }} class="{{ . }}" {{ end }} {{ with .attributes -}} {{ . | safeHTMLAttr}} {{- end }} {{ with .poster }} poster="{{ . }}" {{ end }} preload="auto" >
+		{{ range readDir $postFolder }}
+			{{ if or (eq .Name $resource) (eq .Name $videowebm) (eq .Name $videoogg) }}
+				<source src='/videos/{{ .Name }}' type=video/mp4>
+			{{ end }}
+		{{ end }}
+	</video>
+{{ end }}

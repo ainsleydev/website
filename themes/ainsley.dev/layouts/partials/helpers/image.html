@@ -1,0 +1,15 @@
+<!-- =====================
+    Image
+    ===================== -->
+{{ if .url }}
+	{{- $resource := resources.Get .url -}}
+	{{ if $resource -}}
+		<!-- Variables -->
+		<img class="{{ if .lazy }} lazy lazy-hide {{ end }} {{ with .class }}{{ . }}{{ end }}" {{ if .lazy }}data-{{ end }}src="{{ $resource.Permalink }}" alt="{{ with .alt }}{{ . }}{{ end }}">
+		{{ if .lazy }}
+		<noscript>
+			<img class="{{ with .class }}{{ . }}{{ end }}" src="{{ $resource.Permalink }}" alt="{{ with .alt }}{{ . }}{{ end }}">
+		</noscript>
+		{{ end }}
+	{{- end }}
+{{ end -}}
