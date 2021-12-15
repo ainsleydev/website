@@ -83,15 +83,15 @@ imagery.
 
 ```html
 <html>
-    <body>
-        <article>
+		<body>
+				<article>
 						<section>
 								<h1>My title</h1>
 								<p>All my lovely content</p>
 						</section>
 				</article>
-    </body>
-    <script src="app.js"></script>
+		</body>
+		<script src="app.js"></script>
 </html>
 ```
 
