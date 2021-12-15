@@ -117,7 +117,8 @@ the content we have written is visible on this first `wave` of indexing.
 
 I get it, adding a JS framework to your site makes for an **extremely** easy development experience. JS frameworks have
 come a long way in the last few years and are ever so increasingly popular. But using a JS framework in conjunction with
-CSR (client side rendering) has massive SEO implications to your site.
+CSR (client side rendering) has [massive SEO implications](https://medium.com/@benjburkholder/javascript-seo-server-side-rendering-vs-client-side-rendering-bc06b8ca2383)
+to your site.
 
 Full JavaScript websites built on libraries like React and Angular may be [completely blank until they’re rendered](https://www.botify.com/blog/client-side-server-side-rendering-seo),
 depending on how they’re coded (as shown above). When Googlebot sees that the DOM has changed by CSS/JS it assesses the
