@@ -44,6 +44,8 @@ is usually switched off.
 
 Source: https://www.onely.com/blog/googles-two-waves-of-indexing/
 
+**TODO: Add an image**
+
 I say this loosely, as 9 times out of 10 this is the case, but sometimes they may choose to continue to index the
 rendered version of the page, and visa versa. Ultimately there is a
 [two phased approach](https://www.botify.com/blog/client-side-server-side-rendering-seo) to evaluating a web page, and
@@ -57,12 +59,6 @@ Rendering is the process of populating templates with data from APIs or database
 or client side. It allows for rich data to be displayed in your markup from different sources. Below is a comparison
 between both server and client side rendering.
 
-### Server Side Rendering (SSR)
-
-Is the traditional rendering method. When you request a page, the server does the heavy lifting and processes all the
-markup so the end user receives all of the HTML rendered. The client only has to download assets such as JS, CSS and
-imagery.
-
 ### Client Side Rendering (CSR)
 
 Is a dynamic rendering method. The content is rendered using JavaScript inside the browser usually via a framework such
@@ -75,6 +71,26 @@ below.
         <div id="app"></div>
     </body>
     <script src="client-side-framework.js"></script>
+    <script src="app.js"></script>
+</html>
+```
+
+### Server Side Rendering (SSR)
+
+Is the traditional rendering method. When you request a page, the server does the heavy lifting and processes all the
+markup so the end user receives all of the HTML rendered. The client only has to download assets such as JS, CSS and
+imagery.
+
+```html
+<html>
+    <body>
+        <article>
+						<section>
+								<h1>My title</h1>
+								<p>All my lovely content</p>
+						</section>
+				</article>
+    </body>
     <script src="app.js"></script>
 </html>
 ```
@@ -137,7 +153,7 @@ below.
 Much better, let's see a more detailed example:
 
 ```html
-<html>
+<html lang="en-GB">
     <body>
         <div class="header">
             <div class="logo">
@@ -172,7 +188,7 @@ Much better, let's see a more detailed example:
 That isn't pretty, but it works. I think we can do a lot better:
 
 ```html
-<html>
+<html lang="en-GB">
     <body>
         <header>
             <figure class="logo">
@@ -204,18 +220,18 @@ That isn't pretty, but it works. I think we can do a lot better:
 </html>
 ```
 
-You can see how much easier that is to read. Each element describes what it's doing, which isn't just benefical for your
+You can see how much easier that is to read. Each element describes what it's doing, which isn't just beneficial for your
 eyes, but for SEO too. [Search engines give more importance](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML)
-to keywords inside headings than non-sematics `<div>`'s etc. So it's **extremely** important to keep this in mind when
-your devving up your next website. Think about what the element is describing before just using another `<div>`.
+to keywords inside headings than non-semantics `<div>`'s etc. So it's **extremely** important to keep this in mind when
+you're developing your next website. Think about what the element is describing before just using another `<div>`.
 
 ## Linking
 
 Internal links, boost rankings. Google follows links to discover content on websites and to rank this content in the
 SERP's. Here's a few tips on linking in your website.
 
-1. Do not rely on `<div>` or `<span>` or use javascript handlers, crawlers will have problems following the link as well as
-using an assistive technologies.
+1. Do not rely on `<div>` or `<span>` or use javascript handlers, crawlers will have problems following the link as well
+as using assistive technologies.
 
 ```html
 <!-- Wrong -->
@@ -225,9 +241,10 @@ using an assistive technologies.
 <a href="/home">Home</a>
 ```
 
-2. Never have an empty link or anchor text. Anchor text is really helpful for ranking. Google uses anchor text in order
+2. Never have an empty link or anchor text. Anchor text is really helpful for rankings. Google uses anchor text in order
 to qualify the resources you create a reference to. [Broken internal links](https://www.semrush.com/blog/internal-links-guide-to-building-strategy-that-works/)
-also result in both users and crawlers being sent to 404 pages, which doesn't communicate authority.
+also result in both users and crawlers being sent to 404 pages, which doesn't communicate authority and send the right
+signals to Googlebot.
 
 ```html
 <!-- Wrong -->
@@ -253,7 +270,7 @@ also result in both users and crawlers being sent to 404 pages, which doesn't co
 
 ## No JS fallbacks
 
-Only use JavaScript when you have too! Ask yourself, can this be achieved using CSS only? If the answer is yes, do it!
+Only use JS when you have too! Ask yourself, can this be achieved using CSS only? If the answer is yes, do it!
 I get it, JS is a lot easier to implement, and saves a lot of time, but it should be used to enhance the users journey,
 not detract from it. Progressive enhancement should be considered at the very beginning of a site build when you're
 fleshing out your markup. I have seen and witnessed a tonne of developers using JavaScript at **every opportunity**, and
@@ -292,8 +309,8 @@ will avoid any layout shifts and styling glitches. It also helps our code bases 
 
 ### Checkbox Hack
 
-I use the checkbox hack religiously. It's extremely useful and helps with emulating a JavaScript **click** event
-handler. A `<input type="checkbox">` is used in conjunction with a `<label>` and an element you are trying to control.
+I use the checkbox hack religiously. It's extremely useful and helps with emulating a JS **click** event handler. A
+`<input type="checkbox">` is used in conjunction with a `<label>` and an element you are trying to control.
 
 ```html
 <input type="checkbox" id="toggle">
