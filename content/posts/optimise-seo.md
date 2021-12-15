@@ -8,11 +8,18 @@ lastmod: 2017-02-01
 keywords: [seo,developer,performance,best-pratices]
 menu:
 docs:
+categories:
+- Development
+tags:
+- Development
+- Go
+- fast
+- Blogging
 parent: "about"
 weight: 30
 weight: 30
 sections_weight: 30
-draft: true
+draft: false
 aliases: []
 toc: false
 ---
@@ -106,11 +113,17 @@ Using the correct semantic HTML has a huge amount of benefits, not only for SEO,
 A simple example:
 
 ```html
-<p>This is an example to show you the <span style="font-weight: bold;">importance</span> of <span style="font-style: italic">text formatting</span></p>
+<p>This is an example to show you the <span style="font-weight: bold;">importance</span> of <span style="font-style: italic">semantics</span></p>
 ```
 
+Here are using CSS to manipulate the style of an element, instead of using the browsers pre-formatted styles as shown
+below.
 
-This is the correct markup, `<button>`'s have native browser styling and built-in keyboard accessibility.
+```html
+<p>This is an example to show you the <strong>importance</strong> of <em>semantics</span></p>
+```
+
+Much better, let's see a more detailed example:
 
 ```html
 <html>
@@ -188,26 +201,44 @@ your devving up your next website. Think about what the element is describing be
 ## Linking
 
 Internal links, boost rankings. Google follows links to discover content on websites and to rank this content in the
-SERP's. If a pos
+SERP's. Here's a few tips on linking in your website.
 
-Do not rely on `<div>` or `<span>` or use javascript handlers, crawlers will have problems following the link as well as
+1. Do not rely on `<div>` or `<span>` or use javascript handlers, crawlers will have problems following the link as well as
 using an assistive technologies.
 
-Sitemap helps but doesn't replace coherent internal linking.
+```html
+<!-- Wrong -->
+<span onclick="goTo('home')">Home</span>
+
+<!-- Right -->
+<a href="/home">Home</a>
+```
+
+2. Never have an empty link or anchor text. Anchor text is really helpful for ranking. Google uses anchor text in order
+to qualify the resources you create a reference to. [Broken internal links](https://www.semrush.com/blog/internal-links-guide-to-building-strategy-that-works/)
+also result in both users and crawlers being sent to 404 pages, which doesn't communicate authority.
+
+```html
+<!-- Wrong -->
+<a href=""></a>
+
+<!-- Right -->
+<a href="/home">Home</a>
+```
+
+3. Only use `rel=nofollow` on external links. It restricts Googlebot's visibility through your site.
+
+```html
+<!-- Wrong, it's an internal link! -->
+<a href="/home" rel="nofollow"></a>
+
+<!-- Right -->
+<a href="/home">Home</a>
+```
 
 > Internal links can help Google discover more articles within a site, so the anchor text should provide context to what
 > the linked page is about. Nothing wrong using long anchor text.
 > [John Mueller](https://www.searchenginejournal.com/top-seo-insights-google-john-mueller/278829/)
-
-
-42. Nofollow Links In Guest Posts
-    If you’re submitting a guest post to another site with a link back to your site, that link has to have a nofollow tag on it.
-
-The same goes for guest posts published on your site with a link back to the author’s site.
-
-Google sees guest posts as promotion for the author’s site, so any links within the content are not considered natural links.
-
-Therefore, a nofollow tag must be present to prevent Google from thinking you’re involved in some kind of link scheme.
 
 ## No JS fallbacks
 
