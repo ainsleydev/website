@@ -6,27 +6,16 @@ date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-02-01
 keywords: [seo,developer,performance,best-pratices]
-menu:
-docs:
-categories:
-- Development
 tags:
 - Development
 - Go
 - fast
 - Blogging
-parent: "about"
-weight: 30
-weight: 30
-sections_weight: 30
 draft: false
 aliases: []
-toc: false
 ---
 
 https://docs.google.com/presentation/d/1v5J1GJO6irV_4yhU9GF6r847EREBST0sLRz4nnUOsQ0/edit#slide=id.gb566807306_0_60
-
-# Responsibilities as a developer for optimised SEO.
 
 Go to one of your websites you have developed and turn JavaScript off, does the page still function as it should?
 Is all the content rendered? Do images a layouts appear correctly on the page? If the answer is no, it may be

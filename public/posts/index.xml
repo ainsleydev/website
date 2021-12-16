@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on ainsley.dev</title>
+    <link>https://ainsley.dev/posts/</link>
+    <description>Recent content in Posts on ainsley.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Wed, 01 Feb 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://ainsley.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Responsibilities as a developer for optimised SEO.</title>
+      <link>https://ainsley.dev/posts/optimise-seo/</link>
+      <pubDate>Wed, 01 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ainsley.dev/posts/optimise-seo/</guid>
+      <description>https://docs.google.com/presentation/d/1v5J1GJO6irV_4yhU9GF6r847EREBST0sLRz4nnUOsQ0/edit#slide=id.gb566807306_0_60 Go to one of your websites you have developed and turn JavaScript off, does the page still function as it should? Is all the content rendered? Do images a layouts appear correctly on the page? If the answer is no, it may be time to consider refactoring your code base to allow for a more SEO friendly website. As developers, it may be easier to use a particular framework or library or even add functionality via JavaScript, but consider the technical debt before you do.</description>
+    </item>
+    
+  </channel>
+</rss>
