@@ -18,18 +18,18 @@ aliases: []
 https://docs.google.com/presentation/d/1v5J1GJO6irV_4yhU9GF6r847EREBST0sLRz4nnUOsQ0/edit#slide=id.gb566807306_0_60
 
 Go to one of your websites you have developed and turn JavaScript off, does the page still function as it should?
-Is all the content rendered? Do images a layouts appear correctly on the page? If the answer is no, it may be
+Is all the content rendered? Do images and layouts appear correctly on the page? If the answer is no, it may be
 time to consider refactoring your code base to allow for a more SEO friendly website. As developers, it may be
 easier to use a particular framework or library or even add functionality via JavaScript, but consider the technical
-debt before you do. Here are some tricks and  tips in order to boost your page rankings from a technical view point.
+debt before you do. Here are some tricks and tips in order to boost your page rankings from a technical viewpoint.
 
 ## How does Google Crawl?
 
 When Google crawls a new website, it sends a normal HTTP GET request to the site and retrieves a bare-bones version of
-the page. Then proceeds to render and load JavaScript for that page. It now has two versions, one that has been server
-side rendered and one with JavaScript enabled. It proceeds to make a comparison between these two versions and if they
-see a difference, they will continue to keep rendering on for the long term. If they don't see any difference, rendering
-is usually switched off.
+the page. It then proceeds to render and load JavaScript for that page. It now has two versions, one that has been server
+side rendered and one with JavaScript enabled. It proceeds to make a comparison between these two versions and if it
+sees a difference, they will continue to keep rendering on for the long term. If they don't see any difference,
+rendering is usually switched off.
 
 Source: https://www.onely.com/blog/googles-two-waves-of-indexing/
 
@@ -42,16 +42,18 @@ JavaScript content might be missed on the first 'wave' of processing and not inc
 JS can also slow search engine bots down, which on large sites can introduce crawl budget issues (evaluating websites
 can cost a large amount of money in resources).
 
+**TODO: Add source**
+
 ## Rendering
 
-Rendering is the process of populating templates (HTML) with data from APIs or databases. It can happen either on the sever
-or client side. It allows for rich data to be displayed in your markup from different sources. Below is a comparison
-between both server and client side rendering.
+Rendering is the process of populating templates (HTML) with data from APIs or databases. It can happen either on the
+server or client side. It allows for rich data to be displayed in your markup from different sources. Below is a
+comparison between both server and client side rendering.
 
 ### Client Side Rendering (CSR)
 
-Is a dynamic rendering method. The content is rendered using JavaScript inside the browser usually via a framework such
-as React or Vue. Content is parsed dynamically and there is little HTML content being rendered on first load, as shown
+CSR is a dynamic rendering method. The content is rendered using JavaScript inside the browser usually via a framework
+such as React or Vue. Content is parsed dynamically and there is little HTML content being rendered on first load, as shown
 below.
 
 ```html
@@ -66,8 +68,8 @@ below.
 
 ### Server Side Rendering (SSR)
 
-Is the traditional rendering method. When you request a page, the server does the heavy lifting and processes all the
-markup so the end user receives all of the HTML rendered. The client only has to download assets such as JS, CSS and
+SSR is the traditional rendering method. When you request a page, the server does the heavy lifting and processes all the
+markup so the end user receives all the HTML rendered. The client only has to download assets such as JS, CSS and
 imagery.
 
 ```html
@@ -86,15 +88,15 @@ imagery.
 
 ### Takeaways
 
-We know that Google limit's the amount of time spent on processing rendering dynamic content passed as it's heavy on
-resources and take's a lot longer to index. With that in mind, how can we expect Google to see all of our lovely, well
+We know that Google limits the amount of time spent on processing rendering dynamic content passed as it's heavy on
+resources and takes a lot longer to index. With that in mind, how can we expect Google to see all of our lovely, well
 written content, if it has to render it? It's detrimental to on-page SEO.
 
 JS should be used to progressively enhance the websites you develop and add additional features and behaviour such as
 animation. **It should not be used to display content that Google might find difficult to index.** We want to ensure all
 the content we have written is visible on this first `wave` of indexing.
 
-> With server-side rendering, whenever you want to see a new web page, you have to go out and get it, this is analogous
+> With server-side rendering, whenever you want to see a new web page, you have to go out and get it. This is analogous
 > to you driving over to the supermarket every time you want to eat. With client-side rendering, you go to the
 > supermarket once and spend 45 minutes walking around buying a bunch of food for the month. Then, whenever you want to
 > eat, you just open the fridge.”
@@ -110,11 +112,11 @@ CSR (client side rendering) has [massive SEO implications](https://medium.com/@b
 to your site.
 
 Full JavaScript websites built on libraries like React and Angular may be [completely blank until they’re rendered](https://www.botify.com/blog/client-side-server-side-rendering-seo),
-depending on how they’re coded (as shown above). When Googlebot sees that the DOM has changed by CSS/JS it assesses the
-page to see if any additional information has been added. If links or content are added by JS, they will be
-**down-weighted** in their performance nad thus have a less positive effect on rankings.
+depending on how they’re coded (as shown above). When Googlebot sees that the DOM has been changed by CSS/JS it assesses
+the page to see if any additional information has been added. If links or content are added by JS, they will be
+**down-weighted** in their performance and thus have a less positive effect on rankings.
 
-For example: Links will not pass any weight at all to the page it is linking to if generated by JS, but will be
+For example: Links will not pass any weight at all to the page they are linking to if generated by JS, but will be
 followed. Content will be considered as secondary style content if added by JS and seen as less important.
 
 Source: Samuel Banks.
@@ -123,9 +125,9 @@ Source: Samuel Banks.
 
 Using the correct semantic HTML has a huge amount of benefits, not only for SEO, including:
 
-- Good basis for accessibility and assistive technologies.
-- Displays to bots (crawlers) what you are trying to achieve.
-- Makes your codebase a lot more readable to other developers.
+- Creating a good basis for accessibility and assistive technologies.
+- Displaying to bots (crawlers) what you are trying to achieve.
+- Making your codebase a lot more readable to other developers.
 
 A simple example:
 
@@ -133,14 +135,14 @@ A simple example:
 <p>This is an example to show you the <span style="font-weight: bold;">importance</span> of <span style="font-style: italic">semantics</span></p>
 ```
 
-Here are using CSS to manipulate the style of an element, instead of using the browsers pre-formatted styles as shown
+Here we are using CSS to manipulate the style of an element, instead of using the browsers pre-formatted styles as shown
 below.
 
 ```html
 <p>This is an example to show you the <strong>importance</strong> of <em>semantics</span></p>
 ```
 
-Much better, let's see a more detailed example:
+Even better, let's see a more detailed example:
 
 ```html
 <html lang="en-GB">
@@ -217,10 +219,10 @@ you're developing your next website. Think about what the element is describing 
 
 ## Linking
 
-Internal links, boost rankings. Google follows links to discover content on websites and to rank this content in the
-SERP's. Here's a few tips on linking in your website.
+Internal links boost rankings. Google follows links to discover content on websites and to rank this content in the
+SERPs. Here are a few tips on linking in your website.
 
-1. Do not rely on `<div>` or `<span>` or use javascript handlers, crawlers will have problems following the link as well
+1. Do not rely on `<div>` or `<span>` or use JavaScript handlers. Crawlers will have problems following the link as well
 as using assistive technologies.
 
 ```html
@@ -260,8 +262,8 @@ signals to Googlebot.
 
 ## No JS fallbacks
 
-Only use JS when you have too! Ask yourself, can this be achieved using CSS only? If the answer is yes, do it!
-I get it, JS is a lot easier to implement, and saves a lot of time, but it should be used to enhance the users journey,
+Only use JS when you have to! Ask yourself, can this be achieved using CSS only? If the answer is yes, do it!
+I get it, JS is a lot easier to implement, and saves a lot of time, but it should be used to enhance the user's journey,
 not detract from it. Progressive enhancement should be considered at the very beginning of a site build when you're
 fleshing out your markup. I have seen and witnessed a tonne of developers using JavaScript at **every opportunity**, and
 sometimes it's really not necessary.
@@ -283,8 +285,8 @@ A common example would be:
 ### Styling
 
 Applying no JS styles can be a bit of pain. A neat trick is to have a `.scss` file with all of your no JS styling and
-compile it as a separate CSS file, let's call it `no-js.css`. In the header of you can encapsulate the CSS file in a
-`<noscript>` element, to only display when the client has no JS.
+compile it as a separate CSS file, let's call it `no-js.css`. In the `<head>` you can encapsulate the CSS file in a
+`<noscript>` element to only display when the client has no JS.
 
 ```html
 <head>
@@ -294,8 +296,9 @@ compile it as a separate CSS file, let's call it `no-js.css`. In the header of y
 </head>
 ```
 
-This makes things a lot simpler, we can define some CSS for our page instead of adding a `no-js` class to the body. This
-will avoid any layout shifts and styling glitches. It also helps our code bases a lot more maintainable.
+This makes things a lot simpler, as we can define some CSS for our page instead of adding a `no-js` class to the body.
+This will avoid any layout shifts and styling glitches. It also helps our code bases become a lot more maintainable and
+easier to read.
 
 ### Checkbox Hack
 
@@ -329,22 +332,22 @@ the label (our accordion header), we can expand the hidden content.
 
 **TODO: Insert CODEPEN**
 
-**Note:** There are only certain things we can achieve using CSS, we should only be adding JS to **enhance** the users
+**Note:** There are only certain things we can achieve using CSS. We should only be adding JS to **enhance** the user's
 experience. This should be done at the **very minimum** as a no JS fallback, to help increase usability across the
 board.
 
 ## Imagery
 
-A lot of recommendations in Google's [Page Speed Insights](https://pagespeed.web.dev/) stems from improperly sized and
-uncompressed images. It's important to use the embrace the tools around you as a developer to optimise imagery so the
-user still receives rich and detailed images, but is still a quick and efficient on initial page load.
+A lot of recommendations in Google's [Page Speed Insights](https://pagespeed.web.dev/) stem from improperly sized and
+uncompressed images. It's important to use and embrace the tools around you as a developer to optimise imagery, so the
+user still receives rich and detailed images which are still quick and efficient on initial page load.
 
 ### Lazy loading
 
 Images should be [lazy loaded](https://www.imperva.com/learn/performance/lazy-loading/), meaning the image
 should only be loaded once the user has scrolled to that part of the page. This ensures that assets below the fold
-are only loaded when needed, thus saving system resources and increases initial load time as the bandwidth has
-reduced.
+are only loaded when needed, thus saving system resources and increasing LCP (largest contentful paint) as the bandwidth
+has reduced.
 
 ```html
 <figure>
@@ -353,10 +356,10 @@ reduced.
 ```
 
 Most [lazy loading libraries](https://github.com/verlok/vanilla-lazyload) use the `data-src` attribute and when the user
-has scrolled passed a particular point on the windowsY offset, it replaces `data-src` with `src` which therefore loads
-the asset on the clients' computer.
+has scrolled past a particular point on the windows Y offset, it replaces `data-src` with `src` which therefore loads
+the asset on the client's computer.
 
-However, this is all achieved by JavaScript, how can we add a fallback for clients with no javascript?
+However, if this is all achieved by JavaScript, how can we add a fallback for clients with no javascript?
 
 ```html
 <figure>
@@ -368,14 +371,14 @@ However, this is all achieved by JavaScript, how can we add a fallback for clien
 ```
 
 Here we are saying **when JavaScript is not enabled, render this image** with the `src` attribute instead of `data-src`.
-We would need to add some styling to the `<img>` that is lazy loaded to ensure that it isn't displayed on no JS clients.
-This can be as simple as adding `display: none` to all images with a class of `lazy`.
+We would need to add some styling to the `<img>` that is lazy loaded to ensure that it isn't displayed on browsers with
+JS disabled. This can be as simple as adding `display: none` to all images with a class of `lazy`.
 
 ### Sizes
 
 You've just downloaded a crystal clear image from [Unsplash](https://unsplash.com/) for your new hero, it's 1920 by 1080
 pixels which is perfect for HD resolutions, but what about mobile and tablet? **We don't need to serve a huge image to
-client's with smaller viewports**.
+clients with smaller viewports**.
 
 Step in `<picture>` with `<source>`.
 
@@ -410,13 +413,13 @@ no JS fallback.
 
 ### Optimisation
 
-We don't have to stop there, we can take advantage of the (relatively) new image format's
-[WebP](https://developers.google.com/speed/webp) and [AVIF](https://aomedia.org/av1-features/). Both of which provide a
-far more superior compression level to the original JPG and PNG codecs. AVIF has even said to
+We don't have to stop there, we can take advantage of the (relatively) new image formats
+[WebP](https://developers.google.com/speed/webp) and [AVIF](https://aomedia.org/av1-features/). Both of these provide a
+far more superior compression level to the original JPG and PNG codecs. AVIF has even been said to
 [have an edge](https://www.coywolf.news/webmaster/avif-versus-webp-image-format/) on WebP with smaller files and deeper
 colours.
 
-By using the `<picture>` element, the browser obtains the first image that matches its abilities. Chrome for example
+By using the `<picture>` element, the browser obtains the first image that matches its abilities. Chrome, for example,
 supports the `.avif` and `.webp` file extensions. We can tell this by using Google's inspector and taking a look at the
 request headers.
 
@@ -425,10 +428,10 @@ accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
 ```
 
 Below is an example of loading AVIF and WebP images in a `<picture>` element. It may look drastic and long-winded, but
-it's key for delivering high quality, compressed images to your users. Here we are specifying AVIF and WebP lazy loaded
+it's key for delivering high quality compressed images to your users. Here we are specifying AVIF and WebP lazy loaded
 images for multiple screen resolutions with a no JS fallback.
 
-Instead of writing this out everytime you need an image, you can simply make a reusable ==partial== to render the
+Instead of writing this out every time you need an image, you can simply make a reusable ==partial== to render the
 markup that takes in the image path, sizes and any additional attributes.
 
 ```html
@@ -458,8 +461,12 @@ markup that takes in the image path, sizes and any additional attributes.
 
 You can install the [cwebp](https://developers.google.com/speed/webp/download) and
 [libavif](https://github.com/AOMediaCodec/libavif) libraries on any server, and they can be configured for automatic
-conversion on an image upload for example. [Squidge](https://github.com/ainsleyclark/squidge) is a free WordPress plugin
-that offers this functionality, that's completely free.
+conversion on an image upload.
+
+[Squidge](https://github.com/ainsleyclark/squidge) is a WordPress plugin that offers this functionality and is
+completely free. It uses the native `cwebp`, `avifenc` libraries to compress your images and comes with a really simple
+API to display images. A CLI is also bundled in, so you can regenerate our entire media library to become more SEO
+friendly. Check it out [here](https://wordpress.org/plugins/squidge/)
 
 For a more humble approach, I usually compress all images in a `public` folder when running production scripts using
 npm. Below is an example of image compressing using the `cwebp`, `avifenc`, `jpegoptim`, `optipng` and `svgo` libraries.
@@ -526,5 +533,5 @@ fi
 ## Wrapping up
 
 It's clear that with just a little extra time and effort as a developer you can help increase the PSI and your chances
-to rank highly. A lot of responsibility falls on a developer to ensure a website is SEO friendly, and by using just
-some of the tips and tricks above can ensure you won't be left behind in the SERP's.
+of ranking highly. A lot of responsibility falls on a developer to ensure a website is SEO friendly, but using just
+some of the tips and tricks above will ensure that you or your client's website won't be left behind in the SERPs.
