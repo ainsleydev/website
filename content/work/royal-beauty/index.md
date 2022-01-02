@@ -34,3 +34,5 @@ draft: false
 
 
 ## Testimonial
+Amazing web designer and developer, he made for me a tailored website within short time, great ideas, he listened to all
+my needs, very responsive and super professional, highly recommend. Thanks, Ainsley!!
