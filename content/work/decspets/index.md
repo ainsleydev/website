@@ -1,7 +1,7 @@
 ---
 title: "Launching Dec’s Pets into the E-Commerce market"
 date: 2022-01-02T10:48:28+01:00
-draft: true
+draft: false
 ---
 
 **Insert Lead paragraph here.**
@@ -47,6 +47,7 @@ for the body to create clean, crisp and readable content. Different emojis were 
 Pets "Paw" illustration was used was a watermark in certain pages to create a consitent brand language.
 
 ## Development
+We wan
 
 ## Results
 

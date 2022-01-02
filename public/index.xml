@@ -13,7 +13,7 @@
       <pubDate>Wed, 01 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://ainsley.dev/posts/optimise-seo/</guid>
-      <description>https://docs.google.com/presentation/d/1v5J1GJO6irV_4yhU9GF6r847EREBST0sLRz4nnUOsQ0/edit#slide=id.gb566807306_0_60 Go to one of your websites you have developed and turn JavaScript off, does the page still function as it should? Is all the content rendered? Do images a layouts appear correctly on the page? If the answer is no, it may be time to consider refactoring your code base to allow for a more SEO friendly website. As developers, it may be easier to use a particular framework or library or even add functionality via JavaScript, but consider the technical debt before you do.</description>
+      <description>https://docs.google.com/presentation/d/1v5J1GJO6irV_4yhU9GF6r847EREBST0sLRz4nnUOsQ0/edit#slide=id.gb566807306_0_60 Go to one of your websites you have developed and turn JavaScript off, does the page still function as it should? Is all the content rendered? Do images and layouts appear correctly on the page? If the answer is no, it may be time to consider refactoring your code base to allow for a more SEO friendly website. As developers, it may be easier to use a particular framework or library or even add functionality via JavaScript, but consider the technical debt before you do.</description>
     </item>
     
   </channel>

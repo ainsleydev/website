@@ -118,16 +118,16 @@ if (!doNotTrack) {
                 <p><a href="https://docs.google.com/presentation/d/1v5J1GJO6irV_4yhU9GF6r847EREBST0sLRz4nnUOsQ0/edit#slide=id.gb566807306_0_60" target="_blank" rel="noopener">https://docs.google.com/presentation/d/1v5J1GJO6irV_4yhU9GF6r847EREBST0sLRz4nnUOsQ0/edit#slide=id.gb566807306_0_60</a>
 </p>
 <p>Go to one of your websites you have developed and turn JavaScript off, does the page still function as it should?
-Is all the content rendered? Do images a layouts appear correctly on the page? If the answer is no, it may be
+Is all the content rendered? Do images and layouts appear correctly on the page? If the answer is no, it may be
 time to consider refactoring your code base to allow for a more SEO friendly website. As developers, it may be
 easier to use a particular framework or library or even add functionality via JavaScript, but consider the technical
-debt before you do. Here are some tricks and  tips in order to boost your page rankings from a technical view point.</p>
+debt before you do. Here are some tricks and tips in order to boost your page rankings from a technical viewpoint.</p>
 <h2 id="how-does-google-crawl">How does Google Crawl?</h2>
 <p>When Google crawls a new website, it sends a normal HTTP GET request to the site and retrieves a bare-bones version of
-the page. Then proceeds to render and load JavaScript for that page. It now has two versions, one that has been server
-side rendered and one with JavaScript enabled. It proceeds to make a comparison between these two versions and if they
-see a difference, they will continue to keep rendering on for the long term. If they don&rsquo;t see any difference, rendering
-is usually switched off.</p>
+the page. It then proceeds to render and load JavaScript for that page. It now has two versions, one that has been server
+side rendered and one with JavaScript enabled. It proceeds to make a comparison between these two versions and if it
+sees a difference, they will continue to keep rendering on for the long term. If they don&rsquo;t see any difference,
+rendering is usually switched off.</p>
 <p>Source: <a href="https://www.onely.com/blog/googles-two-waves-of-indexing/" target="_blank" rel="noopener">https://www.onely.com/blog/googles-two-waves-of-indexing/</a>
 </p>
 <p><strong>TODO: Add an image</strong></p>
@@ -138,13 +138,14 @@ rendered version of the page, and visa versa. Ultimately there is a
 JavaScript content might be missed on the first &lsquo;wave&rsquo; of processing and not included in Google&rsquo;s index.
 JS can also slow search engine bots down, which on large sites can introduce crawl budget issues (evaluating websites
 can cost a large amount of money in resources).</p>
+<p><strong>TODO: Add source</strong></p>
 <h2 id="rendering">Rendering</h2>
-<p>Rendering is the process of populating templates (HTML) with data from APIs or databases. It can happen either on the sever
-or client side. It allows for rich data to be displayed in your markup from different sources. Below is a comparison
-between both server and client side rendering.</p>
+<p>Rendering is the process of populating templates (HTML) with data from APIs or databases. It can happen either on the
+server or client side. It allows for rich data to be displayed in your markup from different sources. Below is a
+comparison between both server and client side rendering.</p>
 <h3 id="client-side-rendering-csr">Client Side Rendering (CSR)</h3>
-<p>Is a dynamic rendering method. The content is rendered using JavaScript inside the browser usually via a framework such
-as React or Vue. Content is parsed dynamically and there is little HTML content being rendered on first load, as shown
+<p>CSR is a dynamic rendering method. The content is rendered using JavaScript inside the browser usually via a framework
+such as React or Vue. Content is parsed dynamically and there is little HTML content being rendered on first load, as shown
 below.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">html</span>&gt;
 	&lt;<span style="color:#f92672">body</span>&gt;
@@ -154,8 +155,8 @@ below.</p>
 	&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 &lt;/<span style="color:#f92672">html</span>&gt;
 </code></pre></div><h3 id="server-side-rendering-ssr">Server Side Rendering (SSR)</h3>
-<p>Is the traditional rendering method. When you request a page, the server does the heavy lifting and processes all the
-markup so the end user receives all of the HTML rendered. The client only has to download assets such as JS, CSS and
+<p>SSR is the traditional rendering method. When you request a page, the server does the heavy lifting and processes all the
+markup so the end user receives all the HTML rendered. The client only has to download assets such as JS, CSS and
 imagery.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">html</span>&gt;
 	&lt;<span style="color:#f92672">body</span>&gt;
@@ -169,14 +170,14 @@ imagery.</p>
 	&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 &lt;/<span style="color:#f92672">html</span>&gt;
 </code></pre></div><h3 id="takeaways">Takeaways</h3>
-<p>We know that Google limit&rsquo;s the amount of time spent on processing rendering dynamic content passed as it&rsquo;s heavy on
-resources and take&rsquo;s a lot longer to index. With that in mind, how can we expect Google to see all of our lovely, well
+<p>We know that Google limits the amount of time spent on processing rendering dynamic content passed as it&rsquo;s heavy on
+resources and takes a lot longer to index. With that in mind, how can we expect Google to see all of our lovely, well
 written content, if it has to render it? It&rsquo;s detrimental to on-page SEO.</p>
 <p>JS should be used to progressively enhance the websites you develop and add additional features and behaviour such as
 animation. <strong>It should not be used to display content that Google might find difficult to index.</strong> We want to ensure all
 the content we have written is visible on this first <code>wave</code> of indexing.</p>
 <blockquote>
-<p>With server-side rendering, whenever you want to see a new web page, you have to go out and get it, this is analogous
+<p>With server-side rendering, whenever you want to see a new web page, you have to go out and get it. This is analogous
 to you driving over to the supermarket every time you want to eat. With client-side rendering, you go to the
 supermarket once and spend 45 minutes walking around buying a bunch of food for the month. Then, whenever you want to
 eat, you just open the fridge.”</p>
@@ -194,25 +195,25 @@ CSR (client side rendering) has <a href="https://medium.com/@benjburkholder/java
 to your site.</p>
 <p>Full JavaScript websites built on libraries like React and Angular may be <a href="https://www.botify.com/blog/client-side-server-side-rendering-seo" target="_blank" rel="noopener">completely blank until they’re rendered</a>
 ,
-depending on how they’re coded (as shown above). When Googlebot sees that the DOM has changed by CSS/JS it assesses the
-page to see if any additional information has been added. If links or content are added by JS, they will be
-<strong>down-weighted</strong> in their performance nad thus have a less positive effect on rankings.</p>
-<p>For example: Links will not pass any weight at all to the page it is linking to if generated by JS, but will be
+depending on how they’re coded (as shown above). When Googlebot sees that the DOM has been changed by CSS/JS it assesses
+the page to see if any additional information has been added. If links or content are added by JS, they will be
+<strong>down-weighted</strong> in their performance and thus have a less positive effect on rankings.</p>
+<p>For example: Links will not pass any weight at all to the page they are linking to if generated by JS, but will be
 followed. Content will be considered as secondary style content if added by JS and seen as less important.</p>
 <p>Source: Samuel Banks.</p>
 <h2 id="semantics">Semantics</h2>
 <p>Using the correct semantic HTML has a huge amount of benefits, not only for SEO, including:</p>
 <ul>
-<li>Good basis for accessibility and assistive technologies.</li>
-<li>Displays to bots (crawlers) what you are trying to achieve.</li>
-<li>Makes your codebase a lot more readable to other developers.</li>
+<li>Creating a good basis for accessibility and assistive technologies.</li>
+<li>Displaying to bots (crawlers) what you are trying to achieve.</li>
+<li>Making your codebase a lot more readable to other developers.</li>
 </ul>
 <p>A simple example:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">p</span>&gt;This is an example to show you the &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;font-weight: bold;&#34;</span>&gt;importance&lt;/<span style="color:#f92672">span</span>&gt; of &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;font-style: italic&#34;</span>&gt;semantics&lt;/<span style="color:#f92672">span</span>&gt;&lt;/<span style="color:#f92672">p</span>&gt;
-</code></pre></div><p>Here are using CSS to manipulate the style of an element, instead of using the browsers pre-formatted styles as shown
+</code></pre></div><p>Here we are using CSS to manipulate the style of an element, instead of using the browsers pre-formatted styles as shown
 below.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">p</span>&gt;This is an example to show you the &lt;<span style="color:#f92672">strong</span>&gt;importance&lt;/<span style="color:#f92672">strong</span>&gt; of &lt;<span style="color:#f92672">em</span>&gt;semantics&lt;/<span style="color:#f92672">span</span>&gt;&lt;/<span style="color:#f92672">p</span>&gt;
-</code></pre></div><p>Much better, let&rsquo;s see a more detailed example:</p>
+</code></pre></div><p>Even better, let&rsquo;s see a more detailed example:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en-GB&#34;</span>&gt;
     &lt;<span style="color:#f92672">body</span>&gt;
         &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;header&#34;</span>&gt;
@@ -280,10 +281,10 @@ eyes, but for SEO too. <a href="https://developer.mozilla.org/en-US/docs/Learn/A
 to keywords inside headings than non-semantics <code>&lt;div&gt;</code>&rsquo;s etc. So it&rsquo;s <strong>extremely</strong> important to keep this in mind when
 you&rsquo;re developing your next website. Think about what the element is describing before just using another <code>&lt;div&gt;</code>.</p>
 <h2 id="linking">Linking</h2>
-<p>Internal links, boost rankings. Google follows links to discover content on websites and to rank this content in the
-SERP&rsquo;s. Here&rsquo;s a few tips on linking in your website.</p>
+<p>Internal links boost rankings. Google follows links to discover content on websites and to rank this content in the
+SERPs. Here are a few tips on linking in your website.</p>
 <ol>
-<li>Do not rely on <code>&lt;div&gt;</code> or <code>&lt;span&gt;</code> or use javascript handlers, crawlers will have problems following the link as well
+<li>Do not rely on <code>&lt;div&gt;</code> or <code>&lt;span&gt;</code> or use JavaScript handlers. Crawlers will have problems following the link as well
 as using assistive technologies.</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- Wrong --&gt;</span>
@@ -318,8 +319,8 @@ the linked page is about. Nothing wrong using long anchor text.
 </p>
 </blockquote>
 <h2 id="no-js-fallbacks">No JS fallbacks</h2>
-<p>Only use JS when you have too! Ask yourself, can this be achieved using CSS only? If the answer is yes, do it!
-I get it, JS is a lot easier to implement, and saves a lot of time, but it should be used to enhance the users journey,
+<p>Only use JS when you have to! Ask yourself, can this be achieved using CSS only? If the answer is yes, do it!
+I get it, JS is a lot easier to implement, and saves a lot of time, but it should be used to enhance the user&rsquo;s journey,
 not detract from it. Progressive enhancement should be considered at the very beginning of a site build when you&rsquo;re
 fleshing out your markup. I have seen and witnessed a tonne of developers using JavaScript at <strong>every opportunity</strong>, and
 sometimes it&rsquo;s really not necessary.</p>
@@ -333,15 +334,16 @@ can only contain <code>&lt;link&gt;</code>, <code>&lt;style&gt;</code>, and <cod
 &lt;/<span style="color:#f92672">noscript</span>&gt;
 </code></pre></div><h3 id="styling">Styling</h3>
 <p>Applying no JS styles can be a bit of pain. A neat trick is to have a <code>.scss</code> file with all of your no JS styling and
-compile it as a separate CSS file, let&rsquo;s call it <code>no-js.css</code>. In the header of you can encapsulate the CSS file in a
-<code>&lt;noscript&gt;</code> element, to only display when the client has no JS.</p>
+compile it as a separate CSS file, let&rsquo;s call it <code>no-js.css</code>. In the <code>&lt;head&gt;</code> you can encapsulate the CSS file in a
+<code>&lt;noscript&gt;</code> element to only display when the client has no JS.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">head</span>&gt;
    &lt;<span style="color:#f92672">noscript</span>&gt;
        &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/css/no-js.css&#34;</span>&gt;
    &lt;/<span style="color:#f92672">noscript</span>&gt;
 &lt;/<span style="color:#f92672">head</span>&gt;
-</code></pre></div><p>This makes things a lot simpler, we can define some CSS for our page instead of adding a <code>no-js</code> class to the body. This
-will avoid any layout shifts and styling glitches. It also helps our code bases a lot more maintainable.</p>
+</code></pre></div><p>This makes things a lot simpler, as we can define some CSS for our page instead of adding a <code>no-js</code> class to the body.
+This will avoid any layout shifts and styling glitches. It also helps our code bases become a lot more maintainable and
+easier to read.</p>
 <h3 id="checkbox-hack">Checkbox Hack</h3>
 <p>I use the checkbox hack religiously. It&rsquo;s extremely useful and helps with emulating a JS <strong>click</strong> event handler. A
 <code>&lt;input type=&quot;checkbox&quot;&gt;</code> is used in conjunction with a <code>&lt;label&gt;</code> and an element you are trying to control.</p>
@@ -363,28 +365,28 @@ that specify only when the input is checked (or when someone clicks the label).<
 clicks on a tab or header and content is expanded and becomes visible. Using the previous example, when the user clicks
 the label (our accordion header), we can expand the hidden content.</p>
 <p><strong>TODO: Insert CODEPEN</strong></p>
-<p><strong>Note:</strong> There are only certain things we can achieve using CSS, we should only be adding JS to <strong>enhance</strong> the users
+<p><strong>Note:</strong> There are only certain things we can achieve using CSS. We should only be adding JS to <strong>enhance</strong> the user&rsquo;s
 experience. This should be done at the <strong>very minimum</strong> as a no JS fallback, to help increase usability across the
 board.</p>
 <h2 id="imagery">Imagery</h2>
 <p>A lot of recommendations in Google&rsquo;s <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener">Page Speed Insights</a>
- stems from improperly sized and
-uncompressed images. It&rsquo;s important to use the embrace the tools around you as a developer to optimise imagery so the
-user still receives rich and detailed images, but is still a quick and efficient on initial page load.</p>
+ stem from improperly sized and
+uncompressed images. It&rsquo;s important to use and embrace the tools around you as a developer to optimise imagery, so the
+user still receives rich and detailed images which are still quick and efficient on initial page load.</p>
 <h3 id="lazy-loading">Lazy loading</h3>
 <p>Images should be <a href="https://www.imperva.com/learn/performance/lazy-loading/" target="_blank" rel="noopener">lazy loaded</a>
 , meaning the image
 should only be loaded once the user has scrolled to that part of the page. This ensures that assets below the fold
-are only loaded when needed, thus saving system resources and increases initial load time as the bandwidth has
-reduced.</p>
+are only loaded when needed, thus saving system resources and increasing LCP (largest contentful paint) as the bandwidth
+has reduced.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">figure</span>&gt;
 	&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lazy&#34;</span> <span style="color:#a6e22e">data-src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/cat.jpg&#34;</span> /&gt;
 &lt;/<span style="color:#f92672">figure</span>&gt;
 </code></pre></div><p>Most <a href="https://github.com/verlok/vanilla-lazyload" target="_blank" rel="noopener">lazy loading libraries</a>
  use the <code>data-src</code> attribute and when the user
-has scrolled passed a particular point on the windowsY offset, it replaces <code>data-src</code> with <code>src</code> which therefore loads
-the asset on the clients' computer.</p>
-<p>However, this is all achieved by JavaScript, how can we add a fallback for clients with no javascript?</p>
+has scrolled past a particular point on the windows Y offset, it replaces <code>data-src</code> with <code>src</code> which therefore loads
+the asset on the client&rsquo;s computer.</p>
+<p>However, if this is all achieved by JavaScript, how can we add a fallback for clients with no javascript?</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">figure</span>&gt;
 	&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lazy&#34;</span> <span style="color:#a6e22e">data-src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/cat.jpg&#34;</span> <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Cat&#34;</span> /&gt;
 	&lt;<span style="color:#f92672">noscript</span>&gt;
@@ -392,13 +394,13 @@ the asset on the clients' computer.</p>
 	&lt;/<span style="color:#f92672">noscript</span>&gt;
 &lt;/<span style="color:#f92672">figure</span>&gt;
 </code></pre></div><p>Here we are saying <strong>when JavaScript is not enabled, render this image</strong> with the <code>src</code> attribute instead of <code>data-src</code>.
-We would need to add some styling to the <code>&lt;img&gt;</code> that is lazy loaded to ensure that it isn&rsquo;t displayed on no JS clients.
-This can be as simple as adding <code>display: none</code> to all images with a class of <code>lazy</code>.</p>
+We would need to add some styling to the <code>&lt;img&gt;</code> that is lazy loaded to ensure that it isn&rsquo;t displayed on browsers with
+JS disabled. This can be as simple as adding <code>display: none</code> to all images with a class of <code>lazy</code>.</p>
 <h3 id="sizes">Sizes</h3>
 <p>You&rsquo;ve just downloaded a crystal clear image from <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a>
  for your new hero, it&rsquo;s 1920 by 1080
 pixels which is perfect for HD resolutions, but what about mobile and tablet? <strong>We don&rsquo;t need to serve a huge image to
-client&rsquo;s with smaller viewports</strong>.</p>
+clients with smaller viewports</strong>.</p>
 <p>Step in <code>&lt;picture&gt;</code> with <code>&lt;source&gt;</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">picture</span>&gt;
 	&lt;<span style="color:#f92672">source</span> <span style="color:#a6e22e">media</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;(max-width: 767px)&#34;</span> <span style="color:#a6e22e">srcset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/cat-mobile.jpg&#34;</span> /&gt;
@@ -424,22 +426,22 @@ no JS fallback.</p>
 	&lt;/<span style="color:#f92672">noscript</span>&gt;
 &lt;/<span style="color:#f92672">picture</span>&gt;
 </code></pre></div><h3 id="optimisation">Optimisation</h3>
-<p>We don&rsquo;t have to stop there, we can take advantage of the (relatively) new image format&rsquo;s
+<p>We don&rsquo;t have to stop there, we can take advantage of the (relatively) new image formats
 <a href="https://developers.google.com/speed/webp" target="_blank" rel="noopener">WebP</a>
  and <a href="https://aomedia.org/av1-features/" target="_blank" rel="noopener">AVIF</a>
-. Both of which provide a
-far more superior compression level to the original JPG and PNG codecs. AVIF has even said to
+. Both of these provide a
+far more superior compression level to the original JPG and PNG codecs. AVIF has even been said to
 <a href="https://www.coywolf.news/webmaster/avif-versus-webp-image-format/" target="_blank" rel="noopener">have an edge</a>
  on WebP with smaller files and deeper
 colours.</p>
-<p>By using the <code>&lt;picture&gt;</code> element, the browser obtains the first image that matches its abilities. Chrome for example
+<p>By using the <code>&lt;picture&gt;</code> element, the browser obtains the first image that matches its abilities. Chrome, for example,
 supports the <code>.avif</code> and <code>.webp</code> file extensions. We can tell this by using Google&rsquo;s inspector and taking a look at the
 request headers.</p>
 <pre tabindex="0"><code>accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
 </code></pre><p>Below is an example of loading AVIF and WebP images in a <code>&lt;picture&gt;</code> element. It may look drastic and long-winded, but
-it&rsquo;s key for delivering high quality, compressed images to your users. Here we are specifying AVIF and WebP lazy loaded
+it&rsquo;s key for delivering high quality compressed images to your users. Here we are specifying AVIF and WebP lazy loaded
 images for multiple screen resolutions with a no JS fallback.</p>
-<p>Instead of writing this out everytime you need an image, you can simply make a reusable ==partial== to render the
+<p>Instead of writing this out every time you need an image, you can simply make a reusable ==partial== to render the
 markup that takes in the image path, sizes and any additional attributes.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">picture</span>&gt;
 	&lt;<span style="color:#f92672">source</span> <span style="color:#a6e22e">media</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;(max-width: 767px)&#34;</span> <span style="color:#a6e22e">data-srcset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/cat-mobile.avif&#34;</span> /&gt;
@@ -467,9 +469,13 @@ markup that takes in the image path, sizes and any additional attributes.</p>
  and
 <a href="https://github.com/AOMediaCodec/libavif" target="_blank" rel="noopener">libavif</a>
  libraries on any server, and they can be configured for automatic
-conversion on an image upload for example. <a href="https://github.com/ainsleyclark/squidge" target="_blank" rel="noopener">Squidge</a>
- is a free WordPress plugin
-that offers this functionality, that&rsquo;s completely free.</p>
+conversion on an image upload.</p>
+<p><a href="https://github.com/ainsleyclark/squidge" target="_blank" rel="noopener">Squidge</a>
+ is a WordPress plugin that offers this functionality and is
+completely free. It uses the native <code>cwebp</code>, <code>avifenc</code> libraries to compress your images and comes with a really simple
+API to display images. A CLI is also bundled in, so you can regenerate our entire media library to become more SEO
+friendly. Check it out <a href="https://wordpress.org/plugins/squidge/" target="_blank" rel="noopener">here</a>
+</p>
 <p>For a more humble approach, I usually compress all images in a <code>public</code> folder when running production scripts using
 npm. Below is an example of image compressing using the <code>cwebp</code>, <code>avifenc</code>, <code>jpegoptim</code>, <code>optipng</code> and <code>svgo</code> libraries.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
@@ -530,8 +536,8 @@ echo <span style="color:#e6db74">&#39;------------------------------------------
 <span style="color:#66d9ef">fi</span>
 </code></pre></div><h2 id="wrapping-up">Wrapping up</h2>
 <p>It&rsquo;s clear that with just a little extra time and effort as a developer you can help increase the PSI and your chances
-to rank highly. A lot of responsibility falls on a developer to ensure a website is SEO friendly, and by using just
-some of the tips and tricks above can ensure you won&rsquo;t be left behind in the SERP&rsquo;s.</p>
+of ranking highly. A lot of responsibility falls on a developer to ensure a website is SEO friendly, but using just
+some of the tips and tricks above will ensure that you or your client&rsquo;s website won&rsquo;t be left behind in the SERPs.</p>
 
 			</div>
 		</div>

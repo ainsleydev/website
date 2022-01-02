@@ -4,8 +4,7 @@
   <url>
     <loc>https://ainsley.dev/</loc>
     <lastmod>2017-02-01T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0</priority>
   </url><url>
     <loc>https://ainsley.dev/posts/</loc>
     <lastmod>2017-02-01T00:00:00+00:00</lastmod>
