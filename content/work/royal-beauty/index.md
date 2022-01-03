@@ -29,21 +29,21 @@ display details about their massage and treatment services. An easy, streamlined
 touch to book massages and treatments was required.
 
 Throughout the brand exploration process, we had to make sure the website was not only easy to digest but also reflected
-the character and personality behind Katherine at Royal Beauty with emphasis on fantastic beauty treatments.
+the character behind Katherine at Royal Beauty with an emphasis on high quality beauty treatments.
 
 ## Design
 It goes without saying that having a massage is a relaxing experience, so we wanted to convey a sense of relaxation and
 tranquility in a soft UI and design. A serif font (Playfair Display) was used for the headings and titles to represent
-tradition and relaxation, whilst a sans-serif type (Open Sans) was used for the body copy to make the cards and other
-stand out UI elements easy to read. A soft colour palette consisting of blues, greens and turquoise helped to reinforce
-a relaxing design. Iconography also used the same palette which added to the tranquil nature of the site.
+relaxation, whilst a sans-serif type (Open Sans) for the body copy makes the cards and other UI elements easy to read.
+A soft colour palette consisting of blue, green and turquoise helped to reinforce the relaxing design. The same hues
+were used for iconography, which added to the tranquil nature of the site.
 
 ## Development
 A flat, static site was developed using HTML, a custom CSS framework [meshCSS](https://meshcss.com) and minimal
-JavaScript. SVG circles were used throughout the landing page which were animated in using [AOS](https://michalsnik.github.io/aos/)
-which added a depth of field to the design and kept the user interested.
-Images were compressed and lazy loaded resulting in a page speed of [96 on mobile](https://pagespeed.web.dev/report?url=https%3A%2F%2Fkatherinebodycare.co.uk%2F),
-this really helped their audience to grow as most of their organic traffic were coming from mobile devices.
+JavaScript. SVG circles were used throughout the landing page, which were animated using [AOS](https://michalsnik.github.io/aos/),
+adding a depth of field to the design and keeping the user interested. Images were compressed and lazy loaded resulting
+in a page speed of [96 on mobile](https://pagespeed.web.dev/report?url=https%3A%2F%2Fkatherinebodycare.co.uk%2F).
+This really helped grow their audience, as most of their organic traffic was coming from mobile devices.
 
 ## Results
 - TODO
@@ -51,5 +51,5 @@ this really helped their audience to grow as most of their organic traffic were 
 - TODO
 
 ## Testimonial
-Amazing web designer and developer, he made for me a tailored website within short time, great ideas, he listened to all
-my needs, very responsive and super professional, highly recommend. Thanks, Ainsley!!
+Amazing web designer and developer. He made a tailored website for me within a short time, and with great ideas. He
+listened to all my needs, was very responsive and super professional. Highly recommend. Thanks Ainsley!!
