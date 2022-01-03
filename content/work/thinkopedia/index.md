@@ -33,12 +33,20 @@ The main takeaway from the brief is that Thinkopedia wanted stand out from the c
 captivating design.
 
 ## Design
-A minimalist design was sculpted from Cody's ideas, and in interesting layout was formulated from his sketches. Whilst
+A minimalist design was sculpted from Cody's ideas, and an interesting layout was formulated from his sketches. Whilst
 the website still followed a conventional grid structure, imagery and type was slightly off center to keep the user
-captivated as they continued to read Cody's insightful blog posts.
-
+captivated as they continued to read Cody's insightful blog posts. A bold sans-serif font (Inter) was used in the
+designs to capture the users' attention on each of the pages. Some headings were rotated 90 degrees to add interest to
+the designs which later help to aid the animation process.
 
 ## Development
+Laravel was used as back-end development framework to scrape blog posts from Medium which was set up as a cron job to
+run every midnight. The content of the blog posts were stored in a MySQL database, which meant all content was server
+side rendered, enabling Googlebot to scrape the content easily.
+[Barba.js](https://barba.js.org/), was used to create fluid and smooth transitions between each page. This gave the
+website an app like quality with small but effective UI transitions and micro animations. No JavaScript fallbacks were
+added where possible to adhere to progressive enhancement.
+
 baraba, page load animations
 sleek animations
 
