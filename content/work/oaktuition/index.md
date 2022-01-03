@@ -17,6 +17,7 @@ requirements allows students to make visible progress and gain confidence.
 ### Technologies
 - WordPress
 - GSAP
+- SVG masking
 
 ## Brief
 Oak Tuition's previous website was a static build created using GoDaddy. They approached ainsley.dev to design and build
@@ -39,11 +40,12 @@ WordPress was used for the development of the site including [ACF](https://www.a
 Custom Fields) enabling Oak Tuition to freely change and edit the content of their new site. [GSAP](https://greensock.com/gsap/)
 was used to create a wide variety of animations for the homepage. Layer masks were used with the hero illustration so
 that it would appear tha the tree to grow out of the ground. A loop was then used to animate the girl swinging from the
-branch. This added a huge depth of interaction to the site, added with combination of scroll animations, it made for
+branch. This a great deal interaction to the site, added with combination of scroll animations, it made for a fun and
+friendly website. TODO Steph, does this last bit need to be changed>
 
 ## Results
 - 92% increase in traffic
-- Over 100 conversions since going live.
+- Over 200 conversions
 
 ## Testimonial
 Ainsley is fantastic. Makes the whole process of web development through his support and expertise. Highly recommend and
