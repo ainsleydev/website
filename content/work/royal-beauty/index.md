@@ -5,9 +5,9 @@ draft: false
 ---
 
 ## Client
-Katherine at Royal Beauty, specialises in a wide selection of massages helping their clients to de-stress and unwind.
-They pride themselves on a very warm and friendly ambience in which clients can relax, let go of their stress, enjoy a
-relaxing massage experience and leave with their nails looking perfect.
+Katherine at Royal Beauty specialises in a wide selection of massages and beauty treatments, helping clients to
+de-stress and unwind. They pride themselves on creating a warm and friendly atmosphere, where clients can let go of
+their stress, enjoy a relaxing massage experience and leave feeling refreshed and revitalised.
 
 ### Link
 https://katherinebodycare.co.uk
@@ -23,14 +23,13 @@ https://katherinebodycare.co.uk
 - AOS
 
 ## Brief
-Katherine didn't have an existing website, and obtained all of their traffic via [Treatwell](https://katherineroyalbeauty.mytreatwell.co.uk/).
-Due to this, they approached ainsley.dev TODO (Steph to change they approached, its repetitive.) to design and build a
-one-page website to attract more visitors to the salon and display useful information about their massage and treatment services.
+With no existing website, Katherine at Royal Beauty obtained all of their traffic via [Treatwell](https://katherineroyalbeauty.mytreatwell.co.uk/).
+Consequently, ainsley.dev was tasked to design and build a one-page website to attract more clients to the salon and
+display details about their massage and treatment services. An easy, streamlined way for potential customers to get in
+touch to book massages and treatments was required.
 
-They wanted to include an easy, streamlined way for potential customers to get in contact to book massages and
-treatments.
-
-Steph: TODO, need to expand a bit
+Throughout the brand exploration process, we had to make sure the website was not only easy to digest but also reflected
+the character and personality behind Katherine at Royal Beauty with emphasis on fantastic beauty treatments.
 
 ## Design
 It goes without saying that having a massage is a relaxing experience, so we wanted to convey a sense of relaxation and

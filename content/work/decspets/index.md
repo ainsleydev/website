@@ -58,6 +58,6 @@ images, it made for an extremely quick platform.
 ## Results
 - 60% growth in overall traffic.
 - 40 point increase in PSI.
-- X increase in organic traffic.
+- X increase in ROI.
 
 ## Testimonial
