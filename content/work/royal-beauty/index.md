@@ -14,8 +14,8 @@ https://katherinebodycare.co.uk/
 
 ### Strategy
 - Website branding
+- Landing page
 - UI/UX
-- Static site
 
 ### Technologies
 - Flat HTML, CSS & JS
@@ -39,7 +39,11 @@ stand out UI elements easy to read. A soft colour palette consisting of blues, g
 a relaxing design. Iconography also used the same palette which added to the tranquil nature of the site.
 
 ## Development
-A static site was developed using a custom CSS framework [meshCSS](https://meshcss.com) and ==
+A static site was developed using a custom CSS framework [meshCSS](https://meshcss.com). SVG circles were used
+throughout the landing page which were animated in using [AOS](https://michalsnik.github.io/aos/) which added a depth of
+field to the design and kept the user interested.
+Images were compressed and lazy loaded resulting in a page speed of [96 on mobile](https://pagespeed.web.dev/report?url=https%3A%2F%2Fkatherinebodycare.co.uk%2F),
+this really helped their audience to grow as most of their organic traffic were coming from mobile devices.
 
 ## Results
 - TODO
