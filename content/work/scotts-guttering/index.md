@@ -10,7 +10,7 @@ South East across 2 & 3 storey residential and commercial properties. They also 
 washes, and bird pest control solutions.
 
 ### Link
-https://scottsguttering.co.uk/
+https://scottsguttering.co.uk
 
 ### Strategy
 - Website branding
@@ -23,21 +23,24 @@ https://scottsguttering.co.uk/
 - AOS
 
 ## Brief
-The goals of the new website would be for all of Kent and surrounding areas to use my company for anything gutter related,
-for my company website to reinforce the fact that Scott’s Guttering is the best in the business.
-
-Clear and concise information for their services was to be shown with informa
-Fascia, soffit and conservatory washes, pictures of washes and gutter clearances.
-
-They wanted to have a constant stream of enquiries and more people to book jobs on a regular basis. This was to be
-achieved with a streamline way for potential customers to get in touch.
-
-				Maybe pictures of work being carried out by employees.
+ainsley.dev was approached to design and develop an industry-leading guttering website in the south-east of England.
+The goal of the new landing page was to increase traffic in Kent nad surrounding areas to use Scott's Guttering for their
+services. Clear and concise information was to be displayed throughout the landing page with clear call to actions and
+a streamlined UI/UX.
+Scott's Guttering wanted to bring a fresh approach to guttering services with their high quality style throughout the
+new website and attract as many potential customers as possible.
 
 ## Design
-watermarks
+A bright orange and navy blue color palette was used to capture the user's attention as soon as they landed. Reviews
+were added in the hero section to facilitate trust in their new brand. Orange and blue gradients were used to create a
+depth of field on buttons and imagery with a simple layout throughout. CTAs were designed to facilitate an
+extremely easy way for customers to get in touch with Scott at every opportunity, this was complimented by the
+iconography, shadows and cards.
+
+TODO Steph, I don't like this paragraph :( ^^^
 
 ## Development
+A static site was developed using a custom CSS framework [meshCSS](https://meshcss.com).
 micro animations, buttons and icons
 
 ## Results

@@ -10,7 +10,7 @@ They pride themselves on a very warm and friendly ambience in which clients can 
 relaxing massage experience and leave with their nails looking perfect.
 
 ### Link
-https://katherinebodycare.co.uk/
+https://katherinebodycare.co.uk
 
 ### Strategy
 - Website branding
