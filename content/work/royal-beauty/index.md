@@ -13,7 +13,7 @@ relaxing massage experience and leave with their nails looking perfect.
 https://katherinebodycare.co.uk/
 
 ### Strategy
-- Full brand
+- Website branding
 - UI/UX
 - Static site
 
@@ -22,20 +22,29 @@ https://katherinebodycare.co.uk/
 - AOS
 
 ## Brief
-Katherine at Royal Beauty, didn't have an existing website, and obtained all of their traffic via [Treatwell](https://katherineroyalbeauty.mytreatwell.co.uk/).
-They approached ainsley.dev to design and build a one-page website to attract more visitors to the salon and display
-useful information about their massage and treatment services.
+Katherine didn't have an existing website, and obtained all of their traffic via [Treatwell](https://katherineroyalbeauty.mytreatwell.co.uk/).
+Due to this, they approached ainsley.dev TODO (Steph to change they approached, its repetitive.) to design and build a
+one-page website to attract more visitors to the salon and display useful information about their massage and treatment services.
 
+They wanted to include an easy, streamlined way for potential customers to get in contact to book massages and
+treatments.
+
+Steph: TODO, need to expand a bit
 
 ## Design
 It goes without saying that having a massage is a relaxing experience, so we wanted to convey a sense of relaxation and
-tranquility in a soft UI and design.
+tranquility in a soft UI and design. A serif font (Playfair Display) was used for the headings and titles to represent
+tradition and relaxation, whilst a sans-serif type (Open Sans) was used for the body copy to make the cards and other
+stand out UI elements easy to read. A soft colour palette consisting of blues, greens and turquoise helped to reinforce
+a relaxing design. Iconography also used the same palette which added to the tranquil nature of the site.
 
 ## Development
-
+A static site was developed using a custom CSS framework [meshCSS](https://meshcss.com) and ==
 
 ## Results
-
+- TODO
+- TODO
+- TODO
 
 ## Testimonial
 Amazing web designer and developer, he made for me a tailored website within short time, great ideas, he listened to all
