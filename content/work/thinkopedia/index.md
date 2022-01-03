@@ -25,7 +25,9 @@ https://thinkopedia.ainsleyclark.xyz
 
 
 ## Results
-
+- TODO
+- TODO
+- TODO
 
 ## Testimonial
 This was my first experience creating a website, and Ainsley really helped me every step of the way. The level of detail

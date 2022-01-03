@@ -19,6 +19,7 @@ https://katherinebodycare.co.uk/
 
 ### Technologies
 - Flat HTML, CSS & JS
+- Contact form (PHP)
 - AOS
 
 ## Brief
