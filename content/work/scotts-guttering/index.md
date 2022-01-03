@@ -40,8 +40,10 @@ iconography, shadows and cards.
 TODO Steph, I don't like this paragraph :( ^^^
 
 ## Development
-A static site was developed using a custom CSS framework [meshCSS](https://meshcss.com).
-micro animations, buttons and icons
+A flat, static site was developed using HTML, a custom CSS framework [meshCSS](https://meshcss.com) and minimal
+JavaScript. Micro animations were crafted on the buttons and iconography using pure CSS making sleek transitions between
+the interface states and improving the UX of the site. A page speed of 93 on mobile and 100 on desktop was achieved by
+lazy loading, minification and image optimisation, which made for an extremely rapid landing page.
 
 ## Results
 - TODO
