@@ -25,8 +25,8 @@ https://decspets.com
 - Custom Plugins (PHP)
 
 ## Brief
-Their existing website was created using Flatsome, an off the shelf WordPress theme that was very limited in terms of
-UI & UX and lacked design language or consistent branding. The brief was to modernise the website whilst still
+Dec's Pets existing website was created using Flatsome, an off the shelf WordPress theme that was very limited in terms
+of UI & UX and lacked design language or consistent branding. The brief was to modernise the website whilst still
 maintaining a fun and family friendly design, so as to be convenient for those who wish to buy pet products with ease.
 A large number of WordPress plugins were being used on the original site, which was detrimental to PSI. A key goal was
 to consolidate these plugins to make an all-in-one solution for their marketing needs.
