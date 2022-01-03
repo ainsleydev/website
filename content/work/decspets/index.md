@@ -4,10 +4,6 @@ date: 2022-01-02T10:48:28+01:00
 draft: false
 ---
 
-**Insert Lead paragraph here.**
-
-## Intro
-
 ## Client
 Dec's Pets is an online e-commerce marketplace which started operating in 2018. They are a family run business
 specialising in pet retail, catering for all manners of pet care. They provide a large variety of services to their
@@ -15,7 +11,7 @@ main clientele, based in Ireland, but wanted to reach a wider audience.
 
 ### Strategy
 
-- Full Brand
+- Full brand
 - UI/UX
 - SEO
 
@@ -29,8 +25,8 @@ main clientele, based in Ireland, but wanted to reach a wider audience.
 Their existing website was created using Flatsome, an off the shelf WordPress theme that was very limited in terms of
 UI & UX and lacked design language or consistent branding. The brief was to modernise the website whilst still
 maintaining a fun and family friendly design, so as to be convenient for those who wish to buy pet products with ease.
-A large number of WordPress plugins were being used on the original site, which was detrimental to PSI. The main goal
-was to consolidate these plugins to make an all-in-one solution for their marketing needs.
+A large number of WordPress plugins were being used on the original site, which was detrimental to PSI. A key goal was
+to consolidate these plugins to make an all-in-one solution for their marketing needs.
 
 The existing checkout process for Dec's Pets was fairly streamline, using Stripe, PayPal and one-click checkout. Our aim
 was to ensure that this functionality was still there, but with a more stylised approach, making it easy for the
