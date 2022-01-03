@@ -9,6 +9,9 @@ Oak Tuition is a tutoring school established in 2017. Their tutors are highly qu
 in local schools. Their hands-on mixed methods tutoring, knowledge of the National Curriculum and exam board
 requirements allows students to make visible progress and gain confidence.
 
+### Link
+https://oaktuition.ainsleyclark.xyz
+
 ### Strategy
 - Full brand
 - UI/UX
@@ -38,6 +41,8 @@ appearing as if she is studying.
 ## Development
 WordPress was used for the development of the site including [ACF](https://www.advancedcustomfields.com/) (Advanced
 Custom Fields) enabling Oak Tuition to freely change and edit the content of their new site. [GSAP](https://greensock.com/gsap/)
+Plugins were kept to a bare minimum and tips were used to increase PSI and LCP (largest contentful paint).
+
 was used to create a wide variety of animations for the homepage. Layer masks were used with the hero illustration so
 that it would appear tha the tree to grow out of the ground. A loop was then used to animate the girl swinging from the
 branch. This a great deal interaction to the site, added with combination of scroll animations, it made for a fun and

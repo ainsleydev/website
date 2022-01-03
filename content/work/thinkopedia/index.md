@@ -6,6 +6,8 @@ draft: false
 
 ## Client
 
+### Link
+https://thinkopedia.ainsleyclark.xyz
 
 ### Strategy
 
