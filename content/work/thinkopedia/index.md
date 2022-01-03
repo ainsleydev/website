@@ -47,9 +47,6 @@ side rendered, enabling Googlebot to scrape the content easily.
 website an app like quality with small but effective UI transitions and micro animations. No JavaScript fallbacks were
 added where possible to adhere to progressive enhancement.
 
-baraba, page load animations
-sleek animations
-
 ## Results
 - Thousands of impressions
 - TODO
