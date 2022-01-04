@@ -32,7 +32,7 @@ Throughout the brand exploration process, we had to make sure the website was no
 the character behind Katherine at Royal Beauty with an emphasis on high quality beauty treatments.
 
 ## Design
-It goes without saying that having a massage is a relaxing experience, so we wanted to convey a sense of relaxation and
+It goes without saying that having a massage is a relaxing experience, so we wanted to convey a sense of calm and
 tranquility in a soft UI and design. A serif font (Playfair Display) was used for the headings and titles to represent
 relaxation, whilst a sans-serif type (Open Sans) for the body copy makes the cards and other UI elements easy to read.
 A soft colour palette consisting of blue, green and turquoise helped to reinforce the relaxing design. The same hues

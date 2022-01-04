@@ -23,10 +23,10 @@ https://oaktuition.ainsleyclark.xyz
 - SVG masking
 
 ## Brief
-Oak Tuition's previous website was a static build, created using GoDaddy. They approached ainsley.dev to design and build
-a website which would translate the excellent tutoring experience into a playful yet easy to navigate digital experience.
-A clean, professional look was needed to create a fresh new brand across their website and social media channels, whilst
-still conveying the lighthearted nature necessary to make it appealing for children's education.
+Oak Tuition's previous website was a static build, created using GoDaddy. They approached ainsley.dev to design and
+build a website which would translate the excellent tutoring experience into a playful yet easy to navigate digital
+experience. A clean, professional look was needed to create a fresh new brand across their website and social media
+channels, whilst still conveying the lighthearted nature necessary to make it appealing for children's education.
 
 The website needed to feature core services, an about section and a team page but fundamentally increase traffic to the
 site and entice potential clients to get in touch for their excellent tutoring and teaching services.
@@ -34,9 +34,9 @@ site and entice potential clients to get in touch for their excellent tutoring a
 ## Design
 Soft pastel colours were used throughout the site to invoke a sense of play, childhood and growth which complimented
 their core services and the brand language they were trying to achieve. A solid black colour was used to contrast these
-pastel colours, which worked well for headings, buttons, forms, and call to actions. The Oak tree logo was
-redesigned to include these pastel colours and given a light-hearted feel by incorporating an animation of a student
-sitting on a swing on one of the tree branches.
+pastel colours, which worked well for headings, buttons, forms, and call to actions. The oak tree logo was redesigned to
+include these pastel colours and given a light-hearted feel by incorporating an animation of a student sitting on a
+swing on one of the tree branches.
 
 ## Development
 WordPress was used for the development of the site including [ACF](https://www.advancedcustomfields.com/) (Advanced

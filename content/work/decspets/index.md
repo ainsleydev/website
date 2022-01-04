@@ -25,16 +25,15 @@ https://decspets.com
 - Custom Plugins (PHP)
 
 ## Brief
-Dec's Pets existing website was created using Flatsome, an off the shelf WordPress theme that was very limited in terms
-of UI & UX and lacked design language or consistent branding. The brief was to modernise the website whilst still
-maintaining a fun and family friendly design, so as to be convenient for those who wish to buy pet products with ease.
-A large number of WordPress plugins were being used on the original site, which was detrimental to PSI. A key goal was
-to consolidate these plugins to make an all-in-one solution for their marketing needs.
+ainsley.dev was tasked to modernise the website using a fun and family friendly design, and to make
+the site more user-friendly for buying products with ease. Dec's Pets existing website was created using Flatsome, an
+off the shelf WordPress theme that was very limited in terms of UI & UX and lacked design language or consistent
+branding.
 
 The existing checkout process for Dec's Pets was fairly streamline, using Stripe, PayPal and one-click checkout. Our aim
-was to ensure that this functionality was still there, but with a more stylised approach, making it easy for the
-customer to navigate. More visibility was needed for the company's brand and presence in the E-commerce market, enabling
-them to have a wider variety of customers generating a diverse market and appealing to a larger audience.
+was to ensure that this functionality was still prevalent, but with a more stylised approach. More visibility was needed
+for the company's brand and presence in the E-commerce market, enabling them to have a wider variety of customers
+generating a diverse market and driving ROI.
 
 ## Design
 A design strategy was formulated to reinforce the brand that Dec's Pets were trying to achieve. A light blue and
@@ -45,9 +44,9 @@ Pets "Paw" illustration was created as a watermark on certain pages to create a 
 
 ## Development
 Using WooCommerce with WordPress, fully custom page templates were created for the new website. Minimal front-end
-libraries were used in order to increase page load time. Back-end services were rewritten in PHP, removing the use of any
-heavy plugins such as MailChimp and Stamped.IO. Custom curl requests were used in order to interact with various APIs.
-This cut down on bloat of the website, whilst still maintaining crucial marketing functionality.
+libraries were used in order to increase page load time. Back-end services were rewritten in PHP, removing the use of
+any heavy plugins such as MailChimp and Stamped.IO. Custom curl requests were used in order to interact with various
+APIs. This cut down on bloat of the website, whilst still maintaining crucial marketing functionality.
 
 It was clear that the original site imagery was not being optimised or compressed, thus increasing LCP (largest
 contentful paint) times, and whilst many image optimisation plugins exist in the WordPress plugins library, none took
