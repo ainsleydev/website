@@ -51,8 +51,7 @@ APIs. This cut down on bloat of the website, whilst still maintaining crucial ma
 It was clear that the original site imagery was not being optimised or compressed, thus increasing LCP (largest
 contentful paint) times, and whilst many image optimisation plugins exist in the WordPress plugins library, none took
 advantage of the new image format `avif`. So a new plugin was created, [Squidge](https://wordpress.org/plugins/squidge/),
-which takes advantage of the `jpegoptim`, `optipng`, `cwebp`, and `libavif` libraries. In conjunction with lazy loading
-images, it made for an extremely quick platform.
+which used in conjunction with lazy loading images, made for an extremely quick platform.
 
 ## Results
 - 60% growth in overall traffic.
@@ -60,3 +59,7 @@ images, it made for an extremely quick platform.
 - X increase in ROI.
 
 ## Testimonial
+Ainsley is one of the most competent developers I have ever met. I have had the pleasure of working closely with him on
+the development of my new website. He has such a huge array of skills not just in web development but across business
+and eCommerce as a whole that not only did he help us create a beautiful and modern website he also helped us with ideas
+and initiatives for the future. It was a pleasure working with him.
