@@ -39,3 +39,5 @@ Thumbs.db
 *.exe
 *.war
 
+# Blobs
+.gitignore
