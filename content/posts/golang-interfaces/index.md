@@ -19,7 +19,6 @@ when used correctly and aid with unit testing your code.
 Put simply, polymorphism in programming means many types can perform the same tasks (functions).
 For example, a
 
-
 ## What's an interface?
 An interface is a collection of method signatures that any type can implement. It defines the behaviour of a particular type and if a type replicates these methods signatures, they are said to **implement**
 the interface.

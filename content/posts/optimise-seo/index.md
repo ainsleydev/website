@@ -1,34 +1,29 @@
 ---
-title: Responsibilities as a developer for optimised SEO.
-linktitle: TODO
-description: TODO
-date: 2017-02-01
-publishdate: 2017-02-01
-lastmod: 2017-02-01
-keywords: [seo,developer,performance,best-pratices]
+title: Responsibilities as a developer for optimised SEO. linktitle: TODO description: TODO date: 2017-02-01
+publishdate: 2017-02-01 lastmod: 2017-02-01 keywords: [seo,developer,performance,best-pratices]
 tags:
+
 - Development
 - Go
 - fast
-- Blogging
-draft: false
-aliases: []
+- Blogging draft: false aliases: []
+
 ---
 
 https://docs.google.com/presentation/d/1v5J1GJO6irV_4yhU9GF6r847EREBST0sLRz4nnUOsQ0/edit#slide=id.gb566807306_0_60
 
-Go to one of your websites you have developed and turn JavaScript off, does the page still function as it should?
-Is all the content rendered? Do images and layouts appear correctly on the page? If the answer is no, it may be
-time to consider refactoring your code base to allow for a more SEO friendly website. As developers, it may be
-easier to use a particular framework or library or even add functionality via JavaScript, but consider the technical
-debt before you do. Here are some tricks and tips in order to boost your page rankings from a technical viewpoint.
+Go to one of your websites you have developed and turn JavaScript off, does the page still function as it should? Is all
+the content rendered? Do images and layouts appear correctly on the page? If the answer is no, it may be time to
+consider refactoring your code base to allow for a more SEO friendly website. As developers, it may be easier to use a
+particular framework or library or even add functionality via JavaScript, but consider the technical debt before you do.
+Here are some tricks and tips in order to boost your page rankings from a technical viewpoint.
 
 ## How does Google Crawl?
 
 When Google crawls a new website, it sends a normal HTTP GET request to the site and retrieves a bare-bones version of
-the page. It then proceeds to render and load JavaScript for that page. It now has two versions, one that has been server
-side rendered and one with JavaScript enabled. It proceeds to make a comparison between these two versions and if it
-sees a difference, they will continue to keep rendering on for the long term. If they don't see any difference,
+the page. It then proceeds to render and load JavaScript for that page. It now has two versions, one that has been
+server side rendered and one with JavaScript enabled. It proceeds to make a comparison between these two versions and if
+it sees a difference, they will continue to keep rendering on for the long term. If they don't see any difference,
 rendering is usually switched off.
 
 Source: https://www.onely.com/blog/googles-two-waves-of-indexing/
@@ -36,11 +31,11 @@ Source: https://www.onely.com/blog/googles-two-waves-of-indexing/
 **TODO: Add an image**
 
 I say this loosely, as 9 times out of 10 this is the case, but sometimes they may choose to continue to index the
-rendered version of the page, and visa versa. Ultimately there is a
-[two phased approach](https://www.botify.com/blog/client-side-server-side-rendering-seo) to evaluating a web page, and
-JavaScript content might be missed on the first 'wave' of processing and not included in Google's index.
-JS can also slow search engine bots down, which on large sites can introduce crawl budget issues (evaluating websites
-can cost a large amount of money in resources).
+rendered version of the page, and visa versa. Ultimately there is
+a [two phased approach](https://www.botify.com/blog/client-side-server-side-rendering-seo) to evaluating a web page, and
+JavaScript content might be missed on the first 'wave' of processing and not included in Google's index. JS can also
+slow search engine bots down, which on large sites can introduce crawl budget issues (evaluating websites can cost a
+large amount of money in resources).
 
 **TODO: Add source**
 
@@ -53,36 +48,38 @@ comparison between both server and client side rendering.
 ### Client Side Rendering (CSR)
 
 CSR is a dynamic rendering method. The content is rendered using JavaScript inside the browser usually via a framework
-such as React or Vue. Content is parsed dynamically and there is little HTML content being rendered on first load, as shown
-below.
+such as React or Vue. Content is parsed dynamically and there is little HTML content being rendered on first load, as
+shown below.
 
 ```html
+
 <html>
-	<body>
-		<div id="app"></div>
-	</body>
-	<script src="client-side-framework.js"></script>
-	<script src="app.js"></script>
+<body>
+<div id="app"></div>
+</body>
+<script src="client-side-framework.js"></script>
+<script src="app.js"></script>
 </html>
 ```
 
 ### Server Side Rendering (SSR)
 
-SSR is the traditional rendering method. When you request a page, the server does the heavy lifting and processes all the
-markup so the end user receives all the HTML rendered. The client only has to download assets such as JS, CSS and
+SSR is the traditional rendering method. When you request a page, the server does the heavy lifting and processes all
+the markup so the end user receives all the HTML rendered. The client only has to download assets such as JS, CSS and
 imagery.
 
 ```html
+
 <html>
-	<body>
-		<article>
-			<section>
-				<h1>My title</h1>
-				<p>All my lovely content</p>
-			</section>
-		</article>
-	</body>
-	<script src="app.js"></script>
+<body>
+<article>
+	<section>
+		<h1>My title</h1>
+		<p>All my lovely content</p>
+	</section>
+</article>
+</body>
+<script src="app.js"></script>
 </html>
 ```
 
@@ -108,10 +105,12 @@ the content we have written is visible on this first `wave` of indexing.
 
 I get it, adding a JS framework to your site makes for an **extremely** easy development experience. JS frameworks have
 come a long way in the last few years and are ever so increasingly popular. But using a JS framework in conjunction with
-CSR (client side rendering) has [massive SEO implications](https://medium.com/@benjburkholder/javascript-seo-server-side-rendering-vs-client-side-rendering-bc06b8ca2383)
+CSR (client side rendering)
+has [massive SEO implications](https://medium.com/@benjburkholder/javascript-seo-server-side-rendering-vs-client-side-rendering-bc06b8ca2383)
 to your site.
 
-Full JavaScript websites built on libraries like React and Angular may be [completely blank until they’re rendered](https://www.botify.com/blog/client-side-server-side-rendering-seo),
+Full JavaScript websites built on libraries like React and Angular may
+be [completely blank until they’re rendered](https://www.botify.com/blog/client-side-server-side-rendering-seo),
 depending on how they’re coded (as shown above). When Googlebot sees that the DOM has been changed by CSS/JS it assesses
 the page to see if any additional information has been added. If links or content are added by JS, they will be
 **down-weighted** in their performance and thus have a less positive effect on rankings.
@@ -132,7 +131,8 @@ Using the correct semantic HTML has a huge amount of benefits, not only for SEO,
 A simple example:
 
 ```html
-<p>This is an example to show you the <span style="font-weight: bold;">importance</span> of <span style="font-style: italic">semantics</span></p>
+<p>This is an example to show you the <span style="font-weight: bold;">importance</span> of <span
+	style="font-style: italic">semantics</span></p>
 ```
 
 Here we are using CSS to manipulate the style of an element, instead of using the browsers pre-formatted styles as shown
@@ -145,76 +145,79 @@ below.
 Even better, let's see a more detailed example:
 
 ```html
+
 <html lang="en-GB">
-    <body>
-        <div class="header">
-            <div class="logo">
-                <img src="/logo.svg" alt="Logo">
-            </div>
-            <div class="nav">
-                <ul>
-                    <li><a href="ainsley.dev">Home</a></li>
-                    <li><a href="ainsley.dev">About</a></li>
-                    <li><a href="ainsley.dev">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="main-content">
-            <div class="aside">
-                <h2>Aside</h2>
-            </div>
-            <div class="article">
-                <div class="section">
-                    <h1>Amazing website</h1>
-                    <p>Tagline</p>
-                </div>
-            </div>
-        </div>
-        <div class="footer">
-            <p>Designed by <a href="https://ainsley.dev">Ainsley Clark</a></p>
-        </div>
-    </body>
+<body>
+<div class="header">
+	<div class="logo">
+		<img src="/logo.svg" alt="Logo">
+	</div>
+	<div class="nav">
+		<ul>
+			<li><a href="ainsley.dev">Home</a></li>
+			<li><a href="ainsley.dev">About</a></li>
+			<li><a href="ainsley.dev">Contact</a></li>
+		</ul>
+	</div>
+</div>
+<div class="main-content">
+	<div class="aside">
+		<h2>Aside</h2>
+	</div>
+	<div class="article">
+		<div class="section">
+			<h1>Amazing website</h1>
+			<p>Tagline</p>
+		</div>
+	</div>
+</div>
+<div class="footer">
+	<p>Designed by <a href="https://ainsley.dev">Ainsley Clark</a></p>
+</div>
+</body>
 </html>
 ```
 
 That isn't pretty, but it works. I think we can do a lot better:
 
 ```html
+
 <html lang="en-GB">
-    <body>
-        <header>
-            <figure class="logo">
-                <img src="/logo.svg" alt="Logo">
-            </figure>
-            <nav>
-                <ul>
-                    <li><a href="ainsley.dev">Home</a></li>
-                    <li><a href="ainsley.dev">About</a></li>
-                    <li><a href="ainsley.dev">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <aside>
-                <h2>Aside</h2>
-            </aside>
-            <article>
-                <section>
-                    <h1>Amazing website</h1>
-                    <p>Tagline</p>
-                </section>
-            </article>
-        </div>
-        <footer>
-            <p>Designed by <a href="https://ainsley.dev">Ainsley Clark</a></p>
-        </footer>
-    </body>
+<body>
+<header>
+	<figure class="logo">
+		<img src="/logo.svg" alt="Logo">
+	</figure>
+	<nav>
+		<ul>
+			<li><a href="ainsley.dev">Home</a></li>
+			<li><a href="ainsley.dev">About</a></li>
+			<li><a href="ainsley.dev">Contact</a></li>
+		</ul>
+	</nav>
+</header>
+<main>
+	<aside>
+		<h2>Aside</h2>
+	</aside>
+	<article>
+		<section>
+			<h1>Amazing website</h1>
+			<p>Tagline</p>
+		</section>
+	</article>
+	</div>
+	<footer>
+		<p>Designed by <a href="https://ainsley.dev">Ainsley Clark</a></p>
+	</footer>
+</body>
 </html>
 ```
 
-You can see how much easier that is to read. Each element describes what it's doing, which isn't just beneficial for your
-eyes, but for SEO too. [Search engines give more importance](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML)
-to keywords inside headings than non-semantics `<div>`'s etc. So it's **extremely** important to keep this in mind when
+You can see how much easier that is to read. Each element describes what it's doing, which isn't just beneficial for
+your eyes, but for SEO
+too. [Search engines give more importance](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML) to
+keywords inside headings than non-semantics `<div>`'s etc. So it's **extremely** important to keep this in mind when
 you're developing your next website. Think about what the element is describing before just using another `<div>`.
 
 ## Linking
@@ -223,7 +226,7 @@ Internal links boost rankings. Google follows links to discover content on websi
 SERPs. Here are a few tips on linking in your website.
 
 1. Do not rely on `<div>` or `<span>` or use JavaScript handlers. Crawlers will have problems following the link as well
-as using assistive technologies.
+	 as using assistive technologies.
 
 ```html
 <!-- Wrong -->
@@ -234,9 +237,10 @@ as using assistive technologies.
 ```
 
 2. Never have an empty link or anchor text. Anchor text is really helpful for rankings. Google uses anchor text in order
-to qualify the resources you create a reference to. [Broken internal links](https://www.semrush.com/blog/internal-links-guide-to-building-strategy-that-works/)
-also result in both users and crawlers being sent to 404 pages, which doesn't communicate authority and send the right
-signals to Googlebot.
+	 to qualify the resources you create a reference
+	 to. [Broken internal links](https://www.semrush.com/blog/internal-links-guide-to-building-strategy-that-works/) also
+	 result in both users and crawlers being sent to 404 pages, which doesn't communicate authority and send the right
+	 signals to Googlebot.
 
 ```html
 <!-- Wrong -->
@@ -262,37 +266,39 @@ signals to Googlebot.
 
 ## No JS fallbacks
 
-Only use JS when you have to! Ask yourself, can this be achieved using CSS only? If the answer is yes, do it!
-I get it, JS is a lot easier to implement, and saves a lot of time, but it should be used to enhance the user's journey,
-not detract from it. Progressive enhancement should be considered at the very beginning of a site build when you're
-fleshing out your markup. I have seen and witnessed a tonne of developers using JavaScript at **every opportunity**, and
+Only use JS when you have to! Ask yourself, can this be achieved using CSS only? If the answer is yes, do it! I get it,
+JS is a lot easier to implement, and saves a lot of time, but it should be used to enhance the user's journey, not
+detract from it. Progressive enhancement should be considered at the very beginning of a site build when you're fleshing
+out your markup. I have seen and witnessed a tonne of developers using JavaScript at **every opportunity**, and
 sometimes it's really not necessary.
 
 ### The power of `<noscript>`
 
 The `<noscript>` tag has magical powers, it only renders the markup inside the element when users have disabled scripts
-in their browsers. It can be used in both `<head>` and `<body>`.  When used inside `<head>`, the `<noscript>` element
-can only contain `<link>`, `<style>`, and `<meta>` elements.
+in their browsers. It can be used in both `<head>` and `<body>`. When used inside `<head>`, the `<noscript>` element can
+only contain `<link>`, `<style>`, and `<meta>` elements.
 
 A common example would be:
 
 ```html
+
 <noscript>
-    <h1>Sorry, you need to enable JavaScript to use this page.</h1>
+	<h1>Sorry, you need to enable JavaScript to use this page.</h1>
 </noscript>
 ```
 
 ### Styling
 
 Applying no JS styles can be a bit of pain. A neat trick is to have a `.scss` file with all of your no JS styling and
-compile it as a separate CSS file, let's call it `no-js.css`. In the `<head>` you can encapsulate the CSS file in a
-`<noscript>` element to only display when the client has no JS.
+compile it as a separate CSS file, let's call it `no-js.css`. In the `<head>` you can encapsulate the CSS file in
+a `<noscript>` element to only display when the client has no JS.
 
 ```html
+
 <head>
-   <noscript>
-       <link rel="stylesheet" href="/css/no-js.css">
-   </noscript>
+	<noscript>
+		<link rel="stylesheet" href="/css/no-js.css">
+	</noscript>
 </head>
 ```
 
@@ -302,8 +308,8 @@ easier to read.
 
 ### Checkbox Hack
 
-I use the checkbox hack religiously. It's extremely useful and helps with emulating a JS **click** event handler. A
-`<input type="checkbox">` is used in conjunction with a `<label>` and an element you are trying to control.
+I use the checkbox hack religiously. It's extremely useful and helps with emulating a JS **click** event handler.
+A `<input type="checkbox">` is used in conjunction with a `<label>` and an element you are trying to control.
 
 ```html
 <input type="checkbox" id="toggle">
@@ -312,17 +318,17 @@ I use the checkbox hack religiously. It's extremely useful and helps with emulat
 ```
 
 Then with CSS, you hide the checkbox entirely (using `display: none;` or `position: absolute`) and style the label to be
-a button or control for the element you are trying to manipulate. The label acts as a substitute for the input as we have
-used the `for` attribute. When someone clicks the label, it will toggle the checkbox on or off. Now we can target styles
-that specify only when the input is checked (or when someone clicks the label).
+a button or control for the element you are trying to manipulate. The label acts as a substitute for the input as we
+have used the `for` attribute. When someone clicks the label, it will toggle the checkbox on or off. Now we can target
+styles that specify only when the input is checked (or when someone clicks the label).
 
 ```css
 #toggle:checked ~ .card {
-    display: block;
+	display: block;
 }
 
 #toggle:checked ~ label {
-    background-color: red;
+	background-color: red;
 }
 ```
 
@@ -344,14 +350,14 @@ user still receives rich and detailed images which are still quick and efficient
 
 ### Lazy loading
 
-Images should be [lazy loaded](https://www.imperva.com/learn/performance/lazy-loading/), meaning the image
-should only be loaded once the user has scrolled to that part of the page. This ensures that assets below the fold
-are only loaded when needed, thus saving system resources and increasing LCP (largest contentful paint) as the bandwidth
-has reduced.
+Images should be [lazy loaded](https://www.imperva.com/learn/performance/lazy-loading/), meaning the image should only
+be loaded once the user has scrolled to that part of the page. This ensures that assets below the fold are only loaded
+when needed, thus saving system resources and increasing LCP (largest contentful paint) as the bandwidth has reduced.
 
 ```html
+
 <figure>
-	<img class="lazy" data-src="/images/cat.jpg" />
+	<img class="lazy" data-src="/images/cat.jpg"/>
 </figure>
 ```
 
@@ -362,10 +368,11 @@ the asset on the client's computer.
 However, if this is all achieved by JavaScript, how can we add a fallback for clients with no javascript?
 
 ```html
+
 <figure>
-	<img class="lazy" data-src="/images/cat.jpg" alt="Cat" />
+	<img class="lazy" data-src="/images/cat.jpg" alt="Cat"/>
 	<noscript>
-		<img src="/images/cat.jpg" alt="Cat" />
+		<img src="/images/cat.jpg" alt="Cat"/>
 	</noscript>
 </figure>
 ```
@@ -383,12 +390,14 @@ clients with smaller viewports**.
 Step in `<picture>` with `<source>`.
 
 ```html
+
 <picture>
-	<source media="(max-width: 767px)" srcset="/images/cat-mobile.jpg" />
-	<source media="(max-width: 1024px)" srcset="/images/cat-tablet.jpg" />
-	<img src="/images/cat.jpg"  alt="Cat" />
+	<source media="(max-width: 767px)" srcset="/images/cat-mobile.jpg"/>
+	<source media="(max-width: 1024px)" srcset="/images/cat-tablet.jpg"/>
+	<img src="/images/cat.jpg" alt="Cat"/>
 </picture>
 ```
+
 Here we are telling the browser:
 
 - Load `cat-mobile.jpg` if the browser is less than 767 pixels wide.
@@ -399,25 +408,26 @@ We can also combine this with lazy loading if the image is below the fold, to en
 no JS fallback.
 
 ```html
+
 <picture>
-	<source media="(max-width: 767px)" data-srcset="/images/cat-mobile.jpg" />
-	<source media="(max-width: 1024px)" data-srcset="/images/cat-tablet.jpg" />
-	<img class="lazy" data-src="/images/cat.jpg" alt="Cat" />
+	<source media="(max-width: 767px)" data-srcset="/images/cat-mobile.jpg"/>
+	<source media="(max-width: 1024px)" data-srcset="/images/cat-tablet.jpg"/>
+	<img class="lazy" data-src="/images/cat.jpg" alt="Cat"/>
 	<noscript>
-		<source media="(max-width: 767px)" srcset="/images/cat-mobile.jpg" />
-		<source media="(max-width: 1024px)" srcset="/images/cat-tablet.jpg" />
-		<img src="/images/cat.jpg" alt="Cat" />
+		<source media="(max-width: 767px)" srcset="/images/cat-mobile.jpg"/>
+		<source media="(max-width: 1024px)" srcset="/images/cat-tablet.jpg"/>
+		<img src="/images/cat.jpg" alt="Cat"/>
 	</noscript>
 </picture>
 ```
 
 ### Optimisation
 
-We don't have to stop there, we can take advantage of the (relatively) new image formats
-[WebP](https://developers.google.com/speed/webp) and [AVIF](https://aomedia.org/av1-features/). Both of these provide a
-far more superior compression level to the original JPG and PNG codecs. AVIF has even been said to
-[have an edge](https://www.coywolf.news/webmaster/avif-versus-webp-image-format/) on WebP with smaller files and deeper
-colours.
+We don't have to stop there, we can take advantage of the (relatively) new image
+formats [WebP](https://developers.google.com/speed/webp) and [AVIF](https://aomedia.org/av1-features/). Both of these
+provide a far more superior compression level to the original JPG and PNG codecs. AVIF has even been said
+to [have an edge](https://www.coywolf.news/webmaster/avif-versus-webp-image-format/) on WebP with smaller files and
+deeper colours.
 
 By using the `<picture>` element, the browser obtains the first image that matches its abilities. Chrome, for example,
 supports the `.avif` and `.webp` file extensions. We can tell this by using Google's inspector and taking a look at the
@@ -435,32 +445,33 @@ Instead of writing this out every time you need an image, you can simply make a 
 markup that takes in the image path, sizes and any additional attributes.
 
 ```html
+
 <picture>
-	<source media="(max-width: 767px)" data-srcset="/images/cat-mobile.avif" />
-	<source media="(max-width: 767px)" data-srcset="/images/cat-mobile.webp" />
-	<source media="(max-width: 767px)" data-srcset="/images/cat-mobile.jpg" />
-	<source media="(max-width: 1024px)" data-srcset="/images/cat-tablet.avif" />
-	<source media="(max-width: 1024px)" data-srcset="/images/cat-tablet.webp" />
-	<source media="(max-width: 1024px)" data-srcset="/images/cat-tablet.jpg" />
-	<img class="lazy" data-src="/images/cat.avif" alt="Cat" />
-	<img class="lazy" data-src="/images/cat.webp" alt="Cat" />
-	<img class="lazy" data-src="/images/cat.jpg" alt="Cat" />
+	<source media="(max-width: 767px)" data-srcset="/images/cat-mobile.avif"/>
+	<source media="(max-width: 767px)" data-srcset="/images/cat-mobile.webp"/>
+	<source media="(max-width: 767px)" data-srcset="/images/cat-mobile.jpg"/>
+	<source media="(max-width: 1024px)" data-srcset="/images/cat-tablet.avif"/>
+	<source media="(max-width: 1024px)" data-srcset="/images/cat-tablet.webp"/>
+	<source media="(max-width: 1024px)" data-srcset="/images/cat-tablet.jpg"/>
+	<img class="lazy" data-src="/images/cat.avif" alt="Cat"/>
+	<img class="lazy" data-src="/images/cat.webp" alt="Cat"/>
+	<img class="lazy" data-src="/images/cat.jpg" alt="Cat"/>
 	<noscript>
-		<source media="(max-width: 767px)" srcset="/images/cat-mobile.avif" />
-		<source media="(max-width: 767px)" srcset="/images/cat-mobile.webp" />
-		<source media="(max-width: 767px)" srcset="/images/cat-mobile.jpg" />
-		<source media="(max-width: 1024px)" srcset="/images/cat-tablet.avif" />
-		<source media="(max-width: 1024px)" srcset="/images/cat-tablet.webp" />
-		<source media="(max-width: 1024px)" srcset="/images/cat-tablet.jpg" />
-		<img src="/images/cat.avif" alt="Cat" />
-		<img src="/images/cat.webp" alt="Cat" />
-		<img src="/images/cat.jpg" alt="Cat" />
+		<source media="(max-width: 767px)" srcset="/images/cat-mobile.avif"/>
+		<source media="(max-width: 767px)" srcset="/images/cat-mobile.webp"/>
+		<source media="(max-width: 767px)" srcset="/images/cat-mobile.jpg"/>
+		<source media="(max-width: 1024px)" srcset="/images/cat-tablet.avif"/>
+		<source media="(max-width: 1024px)" srcset="/images/cat-tablet.webp"/>
+		<source media="(max-width: 1024px)" srcset="/images/cat-tablet.jpg"/>
+		<img src="/images/cat.avif" alt="Cat"/>
+		<img src="/images/cat.webp" alt="Cat"/>
+		<img src="/images/cat.jpg" alt="Cat"/>
 	</noscript>
 </picture>
 ```
 
-You can install the [cwebp](https://developers.google.com/speed/webp/download) and
-[libavif](https://github.com/AOMediaCodec/libavif) libraries on any server, and they can be configured for automatic
+You can install the [cwebp](https://developers.google.com/speed/webp/download)
+and [libavif](https://github.com/AOMediaCodec/libavif) libraries on any server, and they can be configured for automatic
 conversion on an image upload.
 
 [Squidge](https://github.com/ainsleyclark/squidge) is a WordPress plugin that offers this functionality and is
@@ -533,5 +544,5 @@ fi
 ## Wrapping up
 
 It's clear that with just a little extra time and effort as a developer you can help increase the PSI and your chances
-of ranking highly. A lot of responsibility falls on a developer to ensure a website is SEO friendly, but using just
-some of the tips and tricks above will ensure that you or your client's website won't be left behind in the SERPs.
+of ranking highly. A lot of responsibility falls on a developer to ensure a website is SEO friendly, but using just some
+of the tips and tricks above will ensure that you or your client's website won't be left behind in the SERPs.
