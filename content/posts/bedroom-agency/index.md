@@ -1,6 +1,12 @@
 ---
-title: From bedroom to agency: How to get your first front end development job linktitle: TODO description: TODO date:
-2017-02-01 publishdate: 2017-02-01 lastmod: 2017-02-01 keywords: [TODO]
+title: From bedroom to agency: How to get your first front end development job
+link
+title: TODO d
+escription: TODO
+date:2017-02-01
+publishdate: 2017-02-01
+lastmod: 2017-02-01
+keywords: [TODO]
 tags:
 
 - Development
