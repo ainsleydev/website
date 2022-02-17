@@ -1,8 +1,6 @@
 ---
-title: "Content Placeholder"
-  render: never
-  list: never
-  publishResources: false
+title: Clean GoLang code
+draft: true
 ---
 
 

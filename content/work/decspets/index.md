@@ -1,7 +1,12 @@
 ---
 title: "Launching Dec’s Pets into the E-Commerce market"
-date: 2022-01-02T10:48:28+01:00
+slug: decspets
 draft: false
+weight: 1
+link: https://decspets.ie
+role: Design & Development
+strategies: [Full brand, E-Commerce, SEO]
+technologies: [WordPress, WooCommerce, Custom Plugins (PHP)]
 ---
 
 ## Client

@@ -1,27 +1,15 @@
 ---
-title: "Title"
-date: 2022-01-02T10:48:28+01:00
+title:
+slug:
 draft: false
+weight: 99
+link:
+role: Design & Development
+strategies: []
+technologies: []
 ---
 
-**Insert Lead paragraph here.**
-
-## Intro
-
-
 ## Client
-
-
-### Strategy
-
-
-### Technologies
-
-
-## Brief
-
-
-## Design & Development OR Strategy?
 
 
 ## Design

@@ -1,13 +1,17 @@
 ---
-title: Responsibilities as a developer for optimised SEO. linktitle: TODO description: TODO date: 2017-02-01
-publishdate: 2017-02-01 lastmod: 2017-02-01 keywords: [seo,developer,performance,best-pratices]
+title: Responsibilities as a developer for optimised SEO.
+linktitle: TODO
+description: TODO
+date: 2017-02-01
+publishdate: 2017-02-01
+lastmod: 2017-02-01
+keywords: [seo,developer,performance,best-pratices]
 tags:
-
-- Development
-- Go
-- fast
-- Blogging draft: false aliases: []
-
+  - Development
+  - Go
+  - fast
+  - Blogging
+draft: false
 ---
 
 https://docs.google.com/presentation/d/1v5J1GJO6irV_4yhU9GF6r847EREBST0sLRz4nnUOsQ0/edit#slide=id.gb566807306_0_60
