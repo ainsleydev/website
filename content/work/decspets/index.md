@@ -14,21 +14,6 @@ Dec's Pets is an online e-commerce marketplace which started operating in 2018. 
 specialising in pet retail, catering for all manners of pet care. They provide a large variety of services to their
 main clientele, based in Ireland, but wanted to reach a wider audience.
 
-### Link
-https://decspets.com
-
-### Strategy
-
-- Full brand
-- UI/UX
-- SEO
-
-### Technologies
-
-- WordPress
-- WooCommerce
-- Custom Plugins (PHP)
-
 ## Brief
 ainsley.dev was tasked to modernise the website using a fun and family friendly design, and to make
 the site more user-friendly for buying products with ease. Dec's Pets existing website was created using Flatsome, an
