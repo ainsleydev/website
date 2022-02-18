@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="no-js">
+    <head>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ainsley.dev</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="description" content="Description of the site">
+        <link rel="canonical" href="https://ainsley.dev" />
+		
+		<base href="https://ainsley.dev">
+		<script>window.BaseURL = "https://ainsley.dev";</script>
+        
+        <meta property="og:title" content="What are GoLang interfaces?" />
+<meta property="og:description" content="https://medium.com/rungo/interfaces-in-go-ab1601159b3a https://go.dev/doc/effective_go#interfaces https://go.dev/tour/methods/10 https://go.dev/tour/methods/9 Interfaces are a tricky subject to grasp in GoLang, let&rsquo;s demystify when and how they should be used.
+Interfaces are a difficult subject to grasp in GoLang, a lot of people find understanding what an interface In Go, is, and when and how they should be used effectively. They can however, be extremely powerful when used correctly and aid with unit testing your code.
+What&rsquo;s polymorphism? Put simply, polymorphism in programming means many types can perform the same tasks (functions)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ainsley.dev/posts/golang-interfaces/" /><meta property="og:image" content="https://ainsley.dev/images/site-feature-image.jpg"/><meta property="article:section" content="posts" />
+
+<meta property="og:site_name" content="Title of the site" />
+
+
+        
+        <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://ainsley.dev/images/site-feature-image.jpg"/>
+
+<meta name="twitter:title" content="What are GoLang interfaces?"/>
+<meta name="twitter:description" content="https://medium.com/rungo/interfaces-in-go-ab1601159b3a https://go.dev/doc/effective_go#interfaces https://go.dev/tour/methods/10 https://go.dev/tour/methods/9 Interfaces are a tricky subject to grasp in GoLang, let&rsquo;s demystify when and how they should be used.
+Interfaces are a difficult subject to grasp in GoLang, a lot of people find understanding what an interface In Go, is, and when and how they should be used effectively. They can however, be extremely powerful when used correctly and aid with unit testing your code.
+What&rsquo;s polymorphism? Put simply, polymorphism in programming means many types can perform the same tasks (functions)."/>
+
+        
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-PROPERTY_ID', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+        
+        
+		<link rel="stylesheet" href="https://ainsley.dev/css/normalize.min.css">
+		<link rel="stylesheet" href="https://ainsley.dev/css/app.css">
+		
+        <link rel="preload" href="https://ainsley.dev/js/app.js" as="script">
+        
+    </head>
+	
+    <body>
+    <h1>Description of the site</h1>
+        
+<header class="header">
+    <div class="header-cont">
+        
+        <figure class="header-logo">
+            <img src="" alt="">
+        </figure>
+        
+        <input class="hamburger-checkbox" type="checkbox" id="hamburger-check" />
+        <div class="hamburger">
+            <label for="hamburger-check" class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </label>
+        </div>
+        
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#home" class="nav-link">LINK</a></li>
+                <li class="nav-item"><a href="#home" class="nav-link">LINK</a></li>
+                <li class="nav-item"><a href="#home" class="nav-link">LINK</a></li>
+                <li class="nav-item"><a href="#home" class="nav-link">LINK</a></li>
+                <li class="nav-item"><a href="#home" class="nav-link">LINK</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+        <main>
+            <div id="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-desk-4">
+				<aside>
+                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#whats-polymorphism">What&rsquo;s polymorphism?</a></li>
+    <li><a href="#whats-an-interface">What&rsquo;s an interface?</a></li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#a-hypothetical-example">A hypothetical example</a></li>
+    <li><a href="#a-real-world-example">A real world example</a></li>
+    <li><a href="#standard-library">Standard library</a></li>
+  </ul>
+</nav>
+				</aside>
+			</div>
+			<div class="col-12 col-desk-8">
+                <p><a href="https://medium.com/rungo/interfaces-in-go-ab1601159b3a" target="_blank" rel="noopener">https://medium.com/rungo/interfaces-in-go-ab1601159b3a</a>
+
+<a href="https://go.dev/doc/effective_go#interfaces" target="_blank" rel="noopener">https://go.dev/doc/effective_go#interfaces</a>
+
+<a href="https://go.dev/tour/methods/10" target="_blank" rel="noopener">https://go.dev/tour/methods/10</a>
+
+<a href="https://go.dev/tour/methods/9" target="_blank" rel="noopener">https://go.dev/tour/methods/9</a>
+</p>
+<p><strong>Interfaces are a tricky subject to grasp in GoLang, let&rsquo;s demystify when and how they should be used.</strong></p>
+<p>Interfaces are a difficult subject to grasp in GoLang, a lot of people find understanding what an interface In Go, is,
+and when and how they should be used effectively. They can however, be extremely powerful when used correctly and aid
+with unit testing your code.</p>
+<h2 id="whats-polymorphism">What&rsquo;s polymorphism?</h2>
+<p>Put simply, polymorphism in programming means many types can perform the same tasks (functions). For example, a</p>
+<h2 id="whats-an-interface">What&rsquo;s an interface?</h2>
+<p>An interface is a collection of method signatures that any type can implement. It defines the behaviour of a particular
+type and if a type replicates these methods signatures, they are said to <strong>implement</strong>
+the interface.</p>
+<p>An interface is only there to describe the behaviour of the type. The method signatures should provide the <strong>method
+name</strong>, <strong>input arguments</strong> and <strong>return types</strong>. A type (struct, string, or any other type) needs to provide the same
+method declaration in order to implement the interface.</p>
+<p><strong>TODO</strong> Implicitly Implemented</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Stringer</span> <span style="color:#66d9ef">interface</span> {
+
+}
+
+</code></pre></div><ul>
+<li>Something about implements keyword (Go is doing it&rsquo;s magic thing)</li>
+<li></li>
+</ul>
+<h2 id="overview">Overview</h2>
+<h2 id="a-hypothetical-example">A hypothetical example</h2>
+<h2 id="a-real-world-example">A real world example</h2>
+<h2 id="standard-library">Standard library</h2>
+<ul>
+<li>
+<p>Stringer</p>
+</li>
+<li>
+<p>io.Reader</p>
+</li>
+<li>
+<p>Wood</p>
+</li>
+<li>
+<p>Egg</p>
+</li>
+<li>
+<p>Cake</p>
+</li>
+<li>
+<p>Brewer is an Interface</p>
+</li>
+<li>
+<p>A brewer can be a cup of tea, cup of coffee, cu</p>
+</li>
+</ul>
+
+			</div>
+		</div>
+	</div>
+
+            </div>
+        </main>
+        
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2></h2>
+            </div>
+        </div>
+    </div>
+</footer>
+
+        <script src="https://ainsley.dev/js/app.js"></script>
+        
+        <script> </script>
+    </body>
+</html>

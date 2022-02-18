@@ -7,22 +7,27 @@
   var __hasOwnProp = Object.prototype.hasOwnProperty;
   var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
   var __esm = (fn, res) => function __init() {
-    return fn && (res = (0, fn[Object.keys(fn)[0]])(fn = 0)), res;
+    return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
   };
   var __commonJS = (cb, mod) => function __require() {
-    return mod || (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+    return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   };
-  var __reExport = (target, module, desc) => {
+  var __reExport = (target, module, copyDefault, desc) => {
     if (module && typeof module === "object" || typeof module === "function") {
       for (let key of __getOwnPropNames(module))
-        if (!__hasOwnProp.call(target, key) && key !== "default")
+        if (!__hasOwnProp.call(target, key) && (copyDefault || key !== "default"))
           __defProp(target, key, { get: () => module[key], enumerable: !(desc = __getOwnPropDesc(module, key)) || desc.enumerable });
     }
     return target;
   };
-  var __toModule = (module) => {
-    return __reExport(__markAsModule(__defProp(module != null ? __create(__getProtoOf(module)) : {}, "default", module && module.__esModule && "default" in module ? { get: () => module.default, enumerable: true } : { value: module, enumerable: true })), module);
+  var __toESM = (module, isNodeMode) => {
+    return __reExport(__markAsModule(__defProp(module != null ? __create(__getProtoOf(module)) : {}, "default", !isNodeMode && module && module.__esModule ? { get: () => module.default, enumerable: true } : { value: module, enumerable: true })), module);
   };
+  var __toCommonJS = /* @__PURE__ */ ((cache) => {
+    return (module, temp) => {
+      return cache && cache.get(module) || (temp = __reExport(__markAsModule({}), module, 1), cache && cache.set(module, temp), temp);
+    };
+  })(typeof WeakMap !== "undefined" ? /* @__PURE__ */ new WeakMap() : 0);
 
   // node_modules/vanilla-lazyload/dist/lazyload.min.js
   var require_lazyload_min = __commonJS({
@@ -516,9 +521,8 @@
     }
   });
 
-  // ns-hugo:/Users/ainsley/Desktop/ainsley.dev/themes/ainsley.dev/assets/js/scripts/polyfills.js
+  // ns-hugo:/Users/ainsley/Desktop/Web/websites/ainsley.dev/themes/ainsley.dev/assets/js/scripts/polyfills.js
   var polyfills_exports = {};
-  __markAsModule(polyfills_exports);
   function isInternetExplorer() {
     let ua = window.navigator.userAgent;
     let msie = ua.indexOf("MSIE ");
@@ -526,8 +530,8 @@
   }
   var smoothscroll;
   var init_polyfills = __esm({
-    "ns-hugo:/Users/ainsley/Desktop/ainsley.dev/themes/ainsley.dev/assets/js/scripts/polyfills.js"() {
-      smoothscroll = __toModule(require_smoothscroll());
+    "ns-hugo:/Users/ainsley/Desktop/Web/websites/ainsley.dev/themes/ainsley.dev/assets/js/scripts/polyfills.js"() {
+      smoothscroll = __toESM(require_smoothscroll());
       smoothscroll.polyfill();
       if (isInternetExplorer()) {
         html.classList.add("ie");
@@ -559,7 +563,7 @@
   });
 
   // <stdin>
-  var import_vanilla_lazyload = __toModule(require_lazyload_min());
+  var import_vanilla_lazyload = __toESM(require_lazyload_min());
   init_polyfills();
   var html2 = document.querySelector("html");
   var header = document.querySelector(".header");

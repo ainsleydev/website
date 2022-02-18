@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "app.css",
-	"sourceRoot": "/Users/ainsley/Desktop/ainsley.dev",
+	"sourceRoot": "/Users/ainsley/Desktop/Web/websites/ainsley.dev",
 	"sources": [
 		"themes/ainsley.dev/assets/scss/app.scss",
 		"themes/ainsley.dev/assets/scss/abstracts/_mixins.scss",

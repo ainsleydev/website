@@ -2,9 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ainsley.dev/work/decspets/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://ainsley.dev/</loc>
-    <lastmod>2017-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2022-01-02T10:48:28+01:00</lastmod>
     <priority>0</priority>
+  </url><url>
+    <loc>https://ainsley.dev/work/royal-beauty/</loc>
+    <lastmod>2022-01-02T10:48:28+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ainsley.dev/work/scotts-guttering/</loc>
+    <lastmod>2022-01-02T10:48:28+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ainsley.dev/work/oaktuition/</loc>
+    <lastmod>2022-01-02T10:48:28+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ainsley.dev/work/thinkopedia/</loc>
+    <lastmod>2022-01-02T10:48:28+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ainsley.dev/work/</loc>
+    <lastmod>2022-01-02T10:48:28+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://ainsley.dev/posts/</loc>
     <lastmod>2017-02-01T00:00:00+00:00</lastmod>
@@ -13,6 +42,14 @@
   </url><url>
     <loc>https://ainsley.dev/posts/optimise-seo/</loc>
     <lastmod>2017-02-01T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ainsley.dev/posts/bedroom-agency/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ainsley.dev/posts/golang-interfaces/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
