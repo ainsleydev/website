@@ -36,5 +36,16 @@ else
     esac
 fi
 
+# Install avifenc
+if hash optipng 2>/dev/null; then
+	echo "optipng Library installed, skipping."
+else
+	case "$OSTYPE" in
+      darwin*)  brew install optipng ;;
+      linux*)   sudo apt-get install -y optipng ;;
+      *)  echo "optipng not supported on $OSTYPE, skipping" ;;
+    esac
+fi
+
 # Done
 echo "Finished setting up system dependencies."

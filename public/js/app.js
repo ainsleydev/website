@@ -56,48 +56,48 @@
             (e2 = document.createEvent("CustomEvent")).initCustomEvent(i2, false, false, { instance: o2 });
           }
           window.dispatchEvent(e2);
-        }, l = "src", s = "srcset", f = "sizes", d = "poster", _ = "llOriginalAttrs", g = "loading", v = "loaded", b = "applied", p = "error", h = "native", m = "data-", E = "ll-status", I = function(n2, t2) {
-          return n2.getAttribute(m + t2);
-        }, y = function(n2) {
-          return I(n2, E);
-        }, A = function(n2, t2) {
+        }, l = "src", s = "srcset", f = "sizes", d = "poster", _ = "llOriginalAttrs", g = "data", v = "loading", b = "loaded", p = "applied", h = "error", m = "native", E = "data-", I = "ll-status", y = function(n2, t2) {
+          return n2.getAttribute(E + t2);
+        }, A = function(n2) {
+          return y(n2, I);
+        }, k = function(n2, t2) {
           return function(n3, t3, e2) {
             var i2 = "data-ll-status";
             e2 !== null ? n3.setAttribute(i2, e2) : n3.removeAttribute(i2);
           }(n2, 0, t2);
-        }, k = function(n2) {
-          return A(n2, null);
         }, L = function(n2) {
-          return y(n2) === null;
+          return k(n2, null);
         }, w = function(n2) {
-          return y(n2) === h;
-        }, x = [g, v, b, p], O = function(n2, t2, e2, i2) {
+          return A(n2) === null;
+        }, O = function(n2) {
+          return A(n2) === m;
+        }, x = [v, b, p, h], C = function(n2, t2, e2, i2) {
           n2 && (i2 === void 0 ? e2 === void 0 ? n2(t2) : n2(t2, e2) : n2(t2, e2, i2));
         }, N = function(n2, t2) {
           o ? n2.classList.add(t2) : n2.className += (n2.className ? " " : "") + t2;
-        }, C = function(n2, t2) {
+        }, M = function(n2, t2) {
           o ? n2.classList.remove(t2) : n2.className = n2.className.replace(new RegExp("(^|\\s+)" + t2 + "(\\s+|$)"), " ").replace(/^\s+/, "").replace(/\s+$/, "");
-        }, M = function(n2) {
+        }, z = function(n2) {
           return n2.llTempImage;
-        }, z = function(n2, t2) {
+        }, T = function(n2, t2) {
           if (t2) {
             var e2 = t2._observer;
             e2 && e2.unobserve(n2);
           }
         }, R = function(n2, t2) {
           n2 && (n2.loadingCount += t2);
-        }, T = function(n2, t2) {
+        }, G = function(n2, t2) {
           n2 && (n2.toLoadCount = t2);
-        }, G = function(n2) {
+        }, D = function(n2) {
           for (var t2, e2 = [], i2 = 0; t2 = n2.children[i2]; i2 += 1)
             t2.tagName === "SOURCE" && e2.push(t2);
           return e2;
-        }, D = function(n2, t2) {
-          var e2 = n2.parentNode;
-          e2 && e2.tagName === "PICTURE" && G(e2).forEach(t2);
         }, V = function(n2, t2) {
-          G(n2).forEach(t2);
-        }, F = [l], j = [l, d], P = [l, s, f], S = function(n2) {
+          var e2 = n2.parentNode;
+          e2 && e2.tagName === "PICTURE" && D(e2).forEach(t2);
+        }, F = function(n2, t2) {
+          D(n2).forEach(t2);
+        }, j = [l], B = [l, d], J = [l, s, f], P = [g], S = function(n2) {
           return !!n2[_];
         }, U = function(n2) {
           return n2[_];
@@ -119,104 +119,108 @@
               }(n2, t3, e2[t3]);
             });
           }
-        }, B = function(n2, t2, e2) {
-          N(n2, t2.class_loading), A(n2, g), e2 && (R(e2, 1), O(t2.callback_loading, n2, e2));
-        }, J = function(n2, t2, e2) {
+        }, K = function(n2, t2, e2) {
+          N(n2, t2.class_loading), k(n2, v), e2 && (R(e2, 1), C(t2.callback_loading, n2, e2));
+        }, Q = function(n2, t2, e2) {
           e2 && n2.setAttribute(t2, e2);
-        }, K = function(n2, t2) {
-          J(n2, f, I(n2, t2.data_sizes)), J(n2, s, I(n2, t2.data_srcset)), J(n2, l, I(n2, t2.data_src));
-        }, Q = { IMG: function(n2, t2) {
-          D(n2, function(n3) {
-            q(n3, P), K(n3, t2);
-          }), q(n2, P), K(n2, t2);
-        }, IFRAME: function(n2, t2) {
-          q(n2, F), J(n2, l, I(n2, t2.data_src));
-        }, VIDEO: function(n2, t2) {
+        }, W = function(n2, t2) {
+          Q(n2, f, y(n2, t2.data_sizes)), Q(n2, s, y(n2, t2.data_srcset)), Q(n2, l, y(n2, t2.data_src));
+        }, X = { IMG: function(n2, t2) {
           V(n2, function(n3) {
-            q(n3, F), J(n3, l, I(n3, t2.data_src));
-          }), q(n2, j), J(n2, d, I(n2, t2.data_poster)), J(n2, l, I(n2, t2.data_src)), n2.load();
-        } }, W = ["IMG", "IFRAME", "VIDEO"], X = function(n2, t2) {
+            q(n3, J), W(n3, t2);
+          }), q(n2, J), W(n2, t2);
+        }, IFRAME: function(n2, t2) {
+          q(n2, j), Q(n2, l, y(n2, t2.data_src));
+        }, VIDEO: function(n2, t2) {
+          F(n2, function(n3) {
+            q(n3, j), Q(n3, l, y(n3, t2.data_src));
+          }), q(n2, B), Q(n2, d, y(n2, t2.data_poster)), Q(n2, l, y(n2, t2.data_src)), n2.load();
+        }, OBJECT: function(n2, t2) {
+          q(n2, P), Q(n2, g, y(n2, t2.data_src));
+        } }, Y = ["IMG", "IFRAME", "VIDEO", "OBJECT"], Z = function(n2, t2) {
           !t2 || function(n3) {
             return n3.loadingCount > 0;
           }(t2) || function(n3) {
             return n3.toLoadCount > 0;
-          }(t2) || O(n2.callback_finish, t2);
-        }, Y = function(n2, t2, e2) {
+          }(t2) || C(n2.callback_finish, t2);
+        }, nn = function(n2, t2, e2) {
           n2.addEventListener(t2, e2), n2.llEvLisnrs[t2] = e2;
-        }, Z = function(n2, t2, e2) {
+        }, tn = function(n2, t2, e2) {
           n2.removeEventListener(t2, e2);
-        }, nn = function(n2) {
+        }, en = function(n2) {
           return !!n2.llEvLisnrs;
-        }, tn = function(n2) {
-          if (nn(n2)) {
+        }, on = function(n2) {
+          if (en(n2)) {
             var t2 = n2.llEvLisnrs;
             for (var e2 in t2) {
               var i2 = t2[e2];
-              Z(n2, e2, i2);
+              tn(n2, e2, i2);
             }
             delete n2.llEvLisnrs;
           }
-        }, en = function(n2, t2, e2) {
+        }, an = function(n2, t2, e2) {
           !function(n3) {
             delete n3.llTempImage;
           }(n2), R(e2, -1), function(n3) {
             n3 && (n3.toLoadCount -= 1);
-          }(e2), C(n2, t2.class_loading), t2.unobserve_completed && z(n2, e2);
-        }, on = function(n2, t2, e2) {
-          var i2 = M(n2) || n2;
-          nn(i2) || function(n3, t3, e3) {
-            nn(n3) || (n3.llEvLisnrs = {});
+          }(e2), M(n2, t2.class_loading), t2.unobserve_completed && T(n2, e2);
+        }, rn = function(n2, t2, e2) {
+          var i2 = z(n2) || n2;
+          en(i2) || function(n3, t3, e3) {
+            en(n3) || (n3.llEvLisnrs = {});
             var i3 = n3.tagName === "VIDEO" ? "loadeddata" : "load";
-            Y(n3, i3, t3), Y(n3, "error", e3);
+            nn(n3, i3, t3), nn(n3, "error", e3);
           }(i2, function(o2) {
             !function(n3, t3, e3, i3) {
-              var o3 = w(t3);
-              en(t3, e3, i3), N(t3, e3.class_loaded), A(t3, v), O(e3.callback_loaded, t3, i3), o3 || X(e3, i3);
-            }(0, n2, t2, e2), tn(i2);
+              var o3 = O(t3);
+              an(t3, e3, i3), N(t3, e3.class_loaded), k(t3, b), C(e3.callback_loaded, t3, i3), o3 || Z(e3, i3);
+            }(0, n2, t2, e2), on(i2);
           }, function(o2) {
             !function(n3, t3, e3, i3) {
-              var o3 = w(t3);
-              en(t3, e3, i3), N(t3, e3.class_error), A(t3, p), O(e3.callback_error, t3, i3), o3 || X(e3, i3);
-            }(0, n2, t2, e2), tn(i2);
+              var o3 = O(t3);
+              an(t3, e3, i3), N(t3, e3.class_error), k(t3, h), C(e3.callback_error, t3, i3), o3 || Z(e3, i3);
+            }(0, n2, t2, e2), on(i2);
           });
-        }, an = function(n2, t2, e2) {
+        }, cn = function(n2, t2, e2) {
           !function(n3) {
             n3.llTempImage = document.createElement("IMG");
-          }(n2), on(n2, t2, e2), function(n3) {
+          }(n2), rn(n2, t2, e2), function(n3) {
             S(n3) || (n3[_] = { backgroundImage: n3.style.backgroundImage });
           }(n2), function(n3, t3, e3) {
-            var i2 = I(n3, t3.data_bg), o2 = I(n3, t3.data_bg_hidpi), r2 = a && o2 ? o2 : i2;
-            r2 && (n3.style.backgroundImage = 'url("'.concat(r2, '")'), M(n3).setAttribute(l, r2), B(n3, t3, e3));
+            var i2 = y(n3, t3.data_bg), o2 = y(n3, t3.data_bg_hidpi), r2 = a && o2 ? o2 : i2;
+            r2 && (n3.style.backgroundImage = 'url("'.concat(r2, '")'), z(n3).setAttribute(l, r2), K(n3, t3, e3));
           }(n2, t2, e2), function(n3, t3, e3) {
-            var i2 = I(n3, t3.data_bg_multi), o2 = I(n3, t3.data_bg_multi_hidpi), r2 = a && o2 ? o2 : i2;
+            var i2 = y(n3, t3.data_bg_multi), o2 = y(n3, t3.data_bg_multi_hidpi), r2 = a && o2 ? o2 : i2;
             r2 && (n3.style.backgroundImage = r2, function(n4, t4, e4) {
-              N(n4, t4.class_applied), A(n4, b), e4 && (t4.unobserve_completed && z(n4, t4), O(t4.callback_applied, n4, e4));
+              N(n4, t4.class_applied), k(n4, p), e4 && (t4.unobserve_completed && T(n4, t4), C(t4.callback_applied, n4, e4));
             }(n3, t3, e3));
           }(n2, t2, e2);
-        }, rn = function(n2, t2, e2) {
+        }, un = function(n2, t2, e2) {
           !function(n3) {
-            return W.indexOf(n3.tagName) > -1;
-          }(n2) ? an(n2, t2, e2) : function(n3, t3, e3) {
-            on(n3, t3, e3), function(n4, t4, e4) {
-              var i2 = Q[n4.tagName];
-              i2 && (i2(n4, t4), B(n4, t4, e4));
+            return Y.indexOf(n3.tagName) > -1;
+          }(n2) ? cn(n2, t2, e2) : function(n3, t3, e3) {
+            rn(n3, t3, e3), function(n4, t4, e4) {
+              var i2 = X[n4.tagName];
+              i2 && (i2(n4, t4), K(n4, t4, e4));
             }(n3, t3, e3);
           }(n2, t2, e2);
-        }, cn = function(n2) {
+        }, ln = function(n2) {
           n2.removeAttribute(l), n2.removeAttribute(s), n2.removeAttribute(f);
-        }, un = function(n2) {
-          D(n2, function(n3) {
-            H(n3, P);
-          }), H(n2, P);
-        }, ln = { IMG: un, IFRAME: function(n2) {
-          H(n2, F);
-        }, VIDEO: function(n2) {
+        }, sn = function(n2) {
           V(n2, function(n3) {
-            H(n3, F);
-          }), H(n2, j), n2.load();
-        } }, sn = function(n2, t2) {
+            H(n3, J);
+          }), H(n2, J);
+        }, fn = { IMG: sn, IFRAME: function(n2) {
+          H(n2, j);
+        }, VIDEO: function(n2) {
+          F(n2, function(n3) {
+            H(n3, j);
+          }), H(n2, B), n2.load();
+        }, OBJECT: function(n2) {
+          H(n2, P);
+        } }, dn = function(n2, t2) {
           (function(n3) {
-            var t3 = ln[n3.tagName];
+            var t3 = fn[n3.tagName];
             t3 ? t3(n3) : function(n4) {
               if (S(n4)) {
                 var t4 = U(n4);
@@ -224,50 +228,50 @@
               }
             }(n3);
           })(n2), function(n3, t3) {
-            L(n3) || w(n3) || (C(n3, t3.class_entered), C(n3, t3.class_exited), C(n3, t3.class_applied), C(n3, t3.class_loading), C(n3, t3.class_loaded), C(n3, t3.class_error));
-          }(n2, t2), k(n2), $(n2);
-        }, fn = ["IMG", "IFRAME", "VIDEO"], dn = function(n2) {
+            w(n3) || O(n3) || (M(n3, t3.class_entered), M(n3, t3.class_exited), M(n3, t3.class_applied), M(n3, t3.class_loading), M(n3, t3.class_loaded), M(n3, t3.class_error));
+          }(n2, t2), L(n2), $(n2);
+        }, _n = ["IMG", "IFRAME", "VIDEO"], gn = function(n2) {
           return n2.use_native && "loading" in HTMLImageElement.prototype;
-        }, _n = function(n2, t2, e2) {
+        }, vn = function(n2, t2, e2) {
           n2.forEach(function(n3) {
             return function(n4) {
               return n4.isIntersecting || n4.intersectionRatio > 0;
             }(n3) ? function(n4, t3, e3, i2) {
               var o2 = function(n5) {
-                return x.indexOf(y(n5)) >= 0;
+                return x.indexOf(A(n5)) >= 0;
               }(n4);
-              A(n4, "entered"), N(n4, e3.class_entered), C(n4, e3.class_exited), function(n5, t4, e4) {
-                t4.unobserve_entered && z(n5, e4);
-              }(n4, e3, i2), O(e3.callback_enter, n4, t3, i2), o2 || rn(n4, e3, i2);
+              k(n4, "entered"), N(n4, e3.class_entered), M(n4, e3.class_exited), function(n5, t4, e4) {
+                t4.unobserve_entered && T(n5, e4);
+              }(n4, e3, i2), C(e3.callback_enter, n4, t3, i2), o2 || un(n4, e3, i2);
             }(n3.target, n3, t2, e2) : function(n4, t3, e3, i2) {
-              L(n4) || (N(n4, e3.class_exited), function(n5, t4, e4, i3) {
+              w(n4) || (N(n4, e3.class_exited), function(n5, t4, e4, i3) {
                 e4.cancel_on_exit && function(n6) {
-                  return y(n6) === g;
-                }(n5) && n5.tagName === "IMG" && (tn(n5), function(n6) {
-                  D(n6, function(n7) {
-                    cn(n7);
-                  }), cn(n6);
-                }(n5), un(n5), C(n5, e4.class_loading), R(i3, -1), k(n5), O(e4.callback_cancel, n5, t4, i3));
-              }(n4, t3, e3, i2), O(e3.callback_exit, n4, t3, i2));
+                  return A(n6) === v;
+                }(n5) && n5.tagName === "IMG" && (on(n5), function(n6) {
+                  V(n6, function(n7) {
+                    ln(n7);
+                  }), ln(n6);
+                }(n5), sn(n5), M(n5, e4.class_loading), R(i3, -1), L(n5), C(e4.callback_cancel, n5, t4, i3));
+              }(n4, t3, e3, i2), C(e3.callback_exit, n4, t3, i2));
             }(n3.target, n3, t2, e2);
           });
-        }, gn = function(n2) {
-          return Array.prototype.slice.call(n2);
-        }, vn = function(n2) {
-          return n2.container.querySelectorAll(n2.elements_selector);
         }, bn = function(n2) {
+          return Array.prototype.slice.call(n2);
+        }, pn = function(n2) {
+          return n2.container.querySelectorAll(n2.elements_selector);
+        }, hn = function(n2) {
           return function(n3) {
-            return y(n3) === p;
+            return A(n3) === h;
           }(n2);
-        }, pn = function(n2, t2) {
+        }, mn = function(n2, t2) {
           return function(n3) {
-            return gn(n3).filter(L);
-          }(n2 || vn(t2));
-        }, hn = function(n2, e2) {
+            return bn(n3).filter(w);
+          }(n2 || pn(t2));
+        }, En = function(n2, e2) {
           var o2 = c(n2);
           this._settings = o2, this.loadingCount = 0, function(n3, t2) {
-            i && !dn(n3) && (t2._observer = new IntersectionObserver(function(e3) {
-              _n(e3, n3, t2);
+            i && !gn(n3) && (t2._observer = new IntersectionObserver(function(e3) {
+              vn(e3, n3, t2);
             }, function(n4) {
               return { root: n4.container === document ? null : n4.container, rootMargin: n4.thresholds || n4.threshold + "px" };
             }(n3)));
@@ -275,24 +279,24 @@
             t && window.addEventListener("online", function() {
               !function(n4, t2) {
                 var e4;
-                (e4 = vn(n4), gn(e4).filter(bn)).forEach(function(t3) {
-                  C(t3, n4.class_error), k(t3);
+                (e4 = pn(n4), bn(e4).filter(hn)).forEach(function(t3) {
+                  M(t3, n4.class_error), L(t3);
                 }), t2.update();
               }(n3, e3);
             });
           }(o2, this), this.update(e2);
         };
-        return hn.prototype = { update: function(n2) {
-          var t2, o2, a2 = this._settings, r2 = pn(n2, a2);
-          T(this, r2.length), !e && i ? dn(a2) ? function(n3, t3, e2) {
+        return En.prototype = { update: function(n2) {
+          var t2, o2, a2 = this._settings, r2 = mn(n2, a2);
+          G(this, r2.length), !e && i ? gn(a2) ? function(n3, t3, e2) {
             n3.forEach(function(n4) {
-              fn.indexOf(n4.tagName) !== -1 && function(n5, t4, e3) {
-                n5.setAttribute("loading", "lazy"), on(n5, t4, e3), function(n6, t5) {
-                  var e4 = Q[n6.tagName];
+              _n.indexOf(n4.tagName) !== -1 && function(n5, t4, e3) {
+                n5.setAttribute("loading", "lazy"), rn(n5, t4, e3), function(n6, t5) {
+                  var e4 = X[n6.tagName];
                   e4 && e4(n6, t5);
-                }(n5, t4), A(n5, h);
+                }(n5, t4), k(n5, m);
               }(n4, t3, e2);
-            }), T(e2, 0);
+            }), G(e2, 0);
           }(r2, a2, this) : (o2 = r2, function(n3) {
             n3.disconnect();
           }(t2 = this._observer), function(n3, t3) {
@@ -301,24 +305,24 @@
             });
           }(t2, o2)) : this.loadAll(r2);
         }, destroy: function() {
-          this._observer && this._observer.disconnect(), vn(this._settings).forEach(function(n2) {
+          this._observer && this._observer.disconnect(), pn(this._settings).forEach(function(n2) {
             $(n2);
           }), delete this._observer, delete this._settings, delete this.loadingCount, delete this.toLoadCount;
         }, loadAll: function(n2) {
           var t2 = this, e2 = this._settings;
-          pn(n2, e2).forEach(function(n3) {
-            z(n3, t2), rn(n3, e2, t2);
+          mn(n2, e2).forEach(function(n3) {
+            T(n3, t2), un(n3, e2, t2);
           });
         }, restoreAll: function() {
           var n2 = this._settings;
-          vn(n2).forEach(function(t2) {
-            sn(t2, n2);
+          pn(n2).forEach(function(t2) {
+            dn(t2, n2);
           });
-        } }, hn.load = function(n2, t2) {
+        } }, En.load = function(n2, t2) {
           var e2 = c(t2);
-          rn(n2, e2);
-        }, hn.resetStatus = function(n2) {
-          k(n2);
+          un(n2, e2);
+        }, En.resetStatus = function(n2) {
+          L(n2);
         }, t && function(n2, t2) {
           if (t2)
             if (t2.length)
@@ -326,7 +330,7 @@
                 u(n2, e2);
             else
               u(n2, t2);
-        }(hn, window.lazyLoadOptions), hn;
+        }(En, window.lazyLoadOptions), En;
       });
     }
   });

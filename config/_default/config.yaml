@@ -1,6 +1,7 @@
 languageCode: "en-gb"
 title: "ainsley.dev"
 theme: "ainsley.dev"
+enableRobotsTXT: true
 params:
   title: Title of the site
   description: Description of the site
