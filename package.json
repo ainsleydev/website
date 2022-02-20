@@ -7,9 +7,9 @@
 		"setup": "sudo chmod -R 777 ./bin && ./bin/setup-deps.sh && ./bin/setup.sh",
 		"setup:deps": "sudo chmod -R 777 ./bin && ./bin/setup-deps.sh",
 		"serve": "hugo server",
-		"build": "npm run hugo:clean && hugo --theme=reddico --environment development",
-		"build:staging": "npm run hugo:clean && hugo --theme=reddico --environment staging --config config-staging.yml --minify && npm run image",
-		"build:production": "npm run hugo:clean && hugo --theme=reddico --environment production --config config-production.yml --minify && npm run image",
+		"build": "npm run hugo:clean && hugo --theme=ainsley.dev --environment development",
+		"build:staging": "npm run hugo:clean && hugo --theme=ainsley.dev --environment staging --config config-staging.yml --minify && npm run image",
+		"build:production": "npm run hugo:clean && hugo --theme=ainsley.dev --environment production --config config-production.yml --minify && npm run image",
 		"build:prod": "npm run build:production",
 		"hugo:clean": "rm -rf public",
 		"image": "sudo chmod -R 777 ./bin && ./bin/image-optim.sh",
@@ -25,9 +25,7 @@
 		"vanilla-lazyload": "^17.4.0"
 	},
 	"devDependencies": {
-		"eslint": "^7.32.0",
-		"hugo-bin-extended": "^0.88.1",
-		"prettier": "^2.4.1",
-		"sass-lint": "^1.13.1"
+		"eslint": "^8.9.0",
+		"hugo-bin-extended": "^0.88.1"
 	}
 }
