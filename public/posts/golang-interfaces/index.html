@@ -12,8 +12,6 @@
 
 
 
-
-
 <html class="no-js">
     <head>
         
@@ -23,24 +21,23 @@
         <title>ainsley.dev</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <meta name="description" content="Description of the site">
-        <link rel="canonical" href="https://ainsley.dev" />
+        <link rel="canonical" href="" />
 		
-		<base href="https://ainsley.dev">
-		<script>window.BaseURL = "https://ainsley.dev";</script>
+		<base href="">
+		<script>window.BaseURL = "";</script>
         
         <meta property="og:title" content="What are GoLang interfaces?" />
 <meta property="og:description" content="https://medium.com/rungo/interfaces-in-go-ab1601159b3a https://go.dev/doc/effective_go#interfaces https://go.dev/tour/methods/10 https://go.dev/tour/methods/9 Interfaces are a tricky subject to grasp in GoLang, let&rsquo;s demystify when and how they should be used.
 Interfaces are a difficult subject to grasp in GoLang, a lot of people find understanding what an interface In Go, is, and when and how they should be used effectively. They can however, be extremely powerful when used correctly and aid with unit testing your code.
 What&rsquo;s polymorphism? Put simply, polymorphism in programming means many types can perform the same tasks (functions)." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ainsley.dev/posts/golang-interfaces/" /><meta property="og:image" content="https://ainsley.dev/images/site-feature-image.jpg"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="/posts/golang-interfaces/" /><meta property="og:image" content="images/site-feature-image.jpg"/><meta property="article:section" content="posts" />
 
 <meta property="og:site_name" content="Title of the site" />
 
-
         
         <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://ainsley.dev/images/site-feature-image.jpg"/>
+<meta name="twitter:image" content="images/site-feature-image.jpg"/>
 
 <meta name="twitter:title" content="What are GoLang interfaces?"/>
 <meta name="twitter:description" content="https://medium.com/rungo/interfaces-in-go-ab1601159b3a https://go.dev/doc/effective_go#interfaces https://go.dev/tour/methods/10 https://go.dev/tour/methods/9 Interfaces are a tricky subject to grasp in GoLang, let&rsquo;s demystify when and how they should be used.
@@ -49,23 +46,11 @@ What&rsquo;s polymorphism? Put simply, polymorphism in programming means many ty
 
         
         
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-PROPERTY_ID', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
         
-        
-		<link rel="stylesheet" href="https://ainsley.dev/css/normalize.min.css">
-		<link rel="stylesheet" href="https://ainsley.dev/css/app.css">
+		<link rel="stylesheet" href="/css/normalize.min.css">
+		<link rel="stylesheet" href="/css/app.css">
 		
-        <link rel="preload" href="https://ainsley.dev/js/app.js" as="script">
+        <link rel="preload" href="/js/app.js" as="script">
         
     </head>
 	
@@ -139,11 +124,10 @@ the interface.</p>
 name</strong>, <strong>input arguments</strong> and <strong>return types</strong>. A type (struct, string, or any other type) needs to provide the same
 method declaration in order to implement the interface.</p>
 <p><strong>TODO</strong> Implicitly Implemented</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Stringer</span> <span style="color:#66d9ef">interface</span> {
-
-}
-
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Stringer</span> <span style="color:#66d9ef">interface</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
 <li>Something about implements keyword (Go is doing it&rsquo;s magic thing)</li>
 <li></li>
 </ul>
@@ -192,7 +176,7 @@ method declaration in order to implement the interface.</p>
     </div>
 </footer>
 
-        <script src="https://ainsley.dev/js/app.js"></script>
+        <script src="/js/app.js"></script>
         
         <script> </script>
     </body>
