@@ -45,6 +45,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>/brand/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>/brand/fonts/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>/posts/bedroom-agency/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

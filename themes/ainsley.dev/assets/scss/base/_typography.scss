@@ -23,7 +23,7 @@ body {
 	}
 
 	@include media-hd {
-		font-size: 102.5;
+		font-size: 102.5%;
 	}
 }
 
@@ -35,29 +35,54 @@ h5,
 h6,
 p {
 	margin: 0;
+	color: $white;
 }
 
 // Headings
 // =========================================================================
 
-//@include fluid-type(320px, 1408px, 34px, 98px);
+h1,
+h2,
+h3,
+h4,
+h5 {
+	letter-spacing: -0.6px;
+	line-height: 1.2;
+}
+
+
 
 h1 {
+	@include fluid-type(320px, 1408px, 34px, 68px);
+	margin-bottom: 1.2rem;
 }
 
 h2 {
+	@include fluid-type(320px, 1408px, 30px, 50px);
+	margin-bottom: 1.1rem;
 }
 
 h3 {
+	@include fluid-type(320px, 1408px, 26px, 37px);
+	margin-bottom: 1rem;
 }
 
 h4 {
+	@include fluid-type(320px, 1408px, 22px, 29px);
+	margin-bottom: 0.9rem;
 }
 
 h5 {
+	@include fluid-type(320px, 1408px, 19px, 21.5px);
+	margin-bottom: 0.8rem;
 }
 
 h6 {
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 500;
+	line-height: 1;
 }
 
 // Paragraph
@@ -66,20 +91,33 @@ h6 {
 p {
 	color: $copy;
 	margin-bottom: 1rem;
+
+	.lead {
+		font-size: 19px;
+	}
 }
 
 // Links
 // =========================================================================
 
 a {
-	color: $primary;
-	text-decoration: none;
+	color: $white;
+	font-weight: bold;
+	text-decoration: underline;
+	transition: color 160ms ease;
 
 	@include on-event {
 		color: $primary;
-		text-decoration: underline;
 	}
 }
+
+// Small
+// =========================================================================
+
+small {
+	font-size: 12px;
+}
+
 
 // Text Containers
 // =========================================================================

@@ -19,17 +19,19 @@ $grid-breakpoint-hd: 1408;
 // Fonts
 // ==========================================================================
 
-$font: "CHANGE FONT FAMILY";
+$font: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-serif: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+$font-code: "JetBrains Mono" ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 $font-path: "/fonts/";
 
 // Color
 // ==========================================================================
 
-$white: #fff;
-$black: #000;
-$primary: #ff2451;
-$secondary: #ff2451;
-$copy: #000000;
+$white: #FFF;
+$black: #0A0A0A;
+$primary: #FF5043;
+$secondary: #70CBCE;
+$copy: $black;
 
 // Color palette
 $palette: (
@@ -50,10 +52,10 @@ $color-attr: (
 // =========================================================================
 
 $section-padding: (
-	mob: 40px,
-	tab: 70px,
-	desk: 100px,
-	hd: 120px
+	mob: 80px,
+	tab: 120px,
+	desk: 160px,
+	hd: 200px
 );
 $section-padding-divider: 3;
 

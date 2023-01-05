@@ -21,6 +21,7 @@
 		"lint:js": "npx eslint -c ./config/.eslintrc **/*.js"
 	},
 	"dependencies": {
+		"normalize.css": "^8.0.1",
 		"smoothscroll-polyfill": "^0.4.4",
 		"vanilla-lazyload": "^17.8.3"
 	},

@@ -14,6 +14,16 @@ body {
 	margin: 0;
 }
 
+body {
+	background-color: $black;
+
+	.light {
+		background-color: $white;
+
+		// TODO: Classes
+	}
+}
+
 section {
 	position: relative;
 }
@@ -22,14 +32,6 @@ section {
 *::before,
 *::after {
 	box-sizing: inherit;
-}
-
-.trans {
-	transition: all 0.4s;
-
-	&.slow {
-		transition: all 3s;
-	}
 }
 
 // Resets

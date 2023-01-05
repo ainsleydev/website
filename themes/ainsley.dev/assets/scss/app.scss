@@ -26,6 +26,7 @@ $publicPath: '{{ .Site.BaseURL }}';
 /* ====================
     Vendor
     ==================== */
+@import "~normalize.css/normalize.css";
 @import "vendor/mesh/src/mesh";
 
 /* ====================
