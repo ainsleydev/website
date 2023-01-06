@@ -49,10 +49,10 @@ ul {
 // =========================================================================
 
 ::selection {
-	background: color("primary"); /* WebKit/Blink Browsers */
+	background: $white; /* WebKit/Blink Browsers */
 	color: #000; //!SET
 }
 ::-moz-selection {
-	background: color("primary"); /* Gecko Browsers */ // sass-lint:disable-line no-vendor-prefixes
+	background: $white; /* Gecko Browsers */ // sass-lint:disable-line no-vendor-prefixes
 	color: #000; //!SET
 }

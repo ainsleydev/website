@@ -16,6 +16,13 @@
 /*  ====================
     Abstracts
     ==================== */
+:root {
+  --white: #FFF;
+  --black: #0A0A0A;
+  --orange: #FF5043;
+  --blue: #70CBCE;
+  --copy: #0A0A0A; }
+
 /* ====================
     Vendor
     ==================== */
@@ -2474,16 +2481,16 @@ ul {
 .bg-black {
   background-color: #0A0A0A !important; }
 
-.c-primary {
+.c-orange {
   color: #FF5043 !important; }
 
-.bg-primary {
+.bg-orange {
   background-color: #FF5043 !important; }
 
-.c-secondary {
+.c-blue {
   color: #70CBCE !important; }
 
-.bg-secondary {
+.bg-blue {
   background-color: #70CBCE !important; }
 
 .c-copy {
@@ -2522,12 +2529,12 @@ ul {
   list-style-type: none; }
 
 ::selection {
-  background: #FF5043;
+  background: #FFF;
   /* WebKit/Blink Browsers */
   color: #000; }
 
 ::-moz-selection {
-  background: #FF5043;
+  background: #FFF;
   /* Gecko Browsers */
   color: #000; }
 
@@ -2665,7 +2672,7 @@ a {
   text-decoration: underline;
   transition: color 160ms ease; }
   a:hover, a:active, a:focus {
-    color: #FF5043; }
+    color: #ff2451; }
 
 small {
   font-size: 12px; }
@@ -2685,11 +2692,15 @@ small {
 /* ====================
     Components
     ==================== */
+.arrow {
+  position: relative;
+  transform: rotate(var(--arrow-rotation)); }
+
 .btn {
   position: relative;
   display: inline-flex;
   justify-content: center;
-  background-color: #FF5043;
+  background-color: #ff2451;
   padding: 14px 26px;
   cursor: pointer;
   outline: none;
@@ -2805,14 +2816,12 @@ small {
     Layout
     ==================== */
 .header {
-  display: none !important;
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
-  height: 72px;
+  height: 80px;
   width: 100vw;
   padding: 0 15px;
-  background-color: #FF5043;
   z-index: 99999;
   transition: background-color 300ms ease;
   will-change: background-color; }
@@ -2822,23 +2831,20 @@ small {
     justify-content: space-between;
     height: 100%; }
   .header-logo {
-    z-index: 999999; }
+    z-index: 999999;
+    width: 115px; }
+    .header-logo svg {
+      width: 100%; }
+      .header-logo svg path {
+        transition: fill 160ms ease; }
+    .header-logo:hover svg path {
+      fill: #ff2451; }
   .header-scrolled {
-    background-color: #FF5043;
+    background-color: #ff2451;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.23); }
-  @media (min-width: 768px) {
-    .header {
-      padding: 0; }
-      .header-cont {
-        width: 100%;
-        max-width: 768px;
-        margin: 0 auto; } }
   @media (min-width: 1024px) {
-    .header-cont {
-      max-width: 1024px; } }
-  @media (min-width: 1408px) {
-    .header-cont {
-      max-width: 1408px; } }
+    .header {
+      padding: 0 30px; } }
 .nav {
   position: absolute;
   display: flex;
@@ -2849,7 +2855,7 @@ small {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #FF5043;
+  background-color: #FFF;
   padding: 0 15px; }
   .nav-link {
     color: #0A0A0A; }
@@ -2862,11 +2868,6 @@ small {
         opacity: 1;
         visibility: visible;
         transition: opacity 700ms, visibility 700ms step-start; } }
-  @media (min-width: 768px) {
-    .nav-list {
-      width: 100%;
-      max-width: 768px;
-      margin: 0 auto; } }
   @media (min-width: 1024px) {
     .nav {
       position: relative;

@@ -6,15 +6,12 @@
 .header {
 	$self: &;
 
-	display: none !important;
-
-	position: fixed;
+	position: relative;
 	top: 0;
 	left: 0;
-	height: $header-height;
+	height: 80px;
 	width: 100vw;
 	padding: 0 15px;
-	background-color: $header-bg-color;
 	z-index: 99999;
 	transition: background-color 300ms ease;
 	will-change: background-color;
@@ -34,13 +31,26 @@
 
 	&-logo {
 		z-index: 999999;
+		width: 115px;
+
+		svg {
+			width: 100%;
+
+			path {
+				transition: fill 160ms ease;
+			}
+		}
+
+		&:hover svg path {
+			fill: $secondary;
+		}
 	}
 
 	// Scrolled
 	// ==========================================================================
 
 	&-scrolled {
-		background-color: $header-scrolled-bg-color;
+		background-color: $primary;
 		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.23);
 	}
 
@@ -56,37 +66,16 @@
 	// Tablet
 	// =========================================================================
 
-	@include media-tab {
-		padding: 0;
-
-		&-cont {
-			@if $header-container-width {
-				width: 100%;
-				max-width: $grid-breakpoint-tab * 1px;
-				margin: 0 auto;
-			}
-		}
-	}
 
 	// Desktop
 	// =========================================================================
 
 	@include media-desk {
-		&-cont {
-			@if $header-container-width {
-				max-width: $grid-breakpoint-desk * 1px;
-			}
-		}
+		padding: 0 30px;
 	}
 
 	// HD
 	// =========================================================================
 
-	@include media-hd {
-		&-cont {
-			@if $header-container-width {
-				max-width: $grid-breakpoint-hd * 1px;
-			}
-		}
-	}
+
 }

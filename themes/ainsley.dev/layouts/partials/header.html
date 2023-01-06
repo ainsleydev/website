@@ -1,14 +1,26 @@
 <!-- =====================
     Header
     ===================== -->
-<header class="header">
+{{ $colour := "black" }}
+{{ if eq .Params.page_colour "white"}}
+	<h1>Hey</h1>
+	{{ $colour = .Params.page_colour }}
+{{ end }}
+<header class="header header-colour-{{ $colour }}">
     <div class="header-cont">
         <!-- Logo -->
-        <figure class="header-logo">
-            <img src="" alt="">
-        </figure>
+		<a href="/" class="header-logo">
+			{{ if eq $colour "white"}}
+                {{- partial "images/logo.html" "black" -}}
+			{{ else }}
+                {{- partial "images/logo.html" "white" -}}
+            {{ end }}
+		</a>
         <!-- Hamburger -->
         <input class="hamburger-checkbox" type="checkbox" id="hamburger-check" />
+		<div class="nav-arrow">
+            {{- partial "images/arrow.html" (dict "rotation" 45 "colour" "white") -}}
+		</div>
         <div class="hamburger">
             <label for="hamburger-check" class="hamburger-box">
                 <span class="hamburger-inner"></span>

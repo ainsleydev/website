@@ -39,6 +39,7 @@ $publicPath: '{{ .Site.BaseURL }}';
 /* ====================
     Components
     ==================== */
+@import "components/arrow";
 @import "components/button";
 @import "components/card";
 @import "components/list";

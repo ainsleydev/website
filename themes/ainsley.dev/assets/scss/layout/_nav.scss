@@ -46,15 +46,15 @@
 	// Tablet
 	// =========================================================================
 
-	@if $header-container-width {
-		@include media-tab {
-			&-list {
-				width: 100%;
-				max-width: $grid-breakpoint-tab * 1px;
-				margin: 0 auto;
-			}
-		}
-	}
+	//@if $header-container-width {
+	//	@include media-tab {
+	//		&-list {
+	//			width: 100%;
+	//			max-width: $grid-breakpoint-tab * 1px;
+	//			margin: 0 auto;
+	//		}
+	//	}
+	//}
 
 	// Desktop
 	// =========================================================================

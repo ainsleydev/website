@@ -29,16 +29,24 @@ $font-path: "/fonts/";
 
 $white: #FFF;
 $black: #0A0A0A;
-$primary: #FF5043;
-$secondary: #70CBCE;
+$orange: #FF5043;
+$blue: #70CBCE;
 $copy: $black;
+
+:root {
+	--white: #{$white};
+	--black: #{$black};
+	--orange: #{$orange};
+	--blue: #{$blue};
+	--copy: #{$copy};
+}
 
 // Color palette
 $palette: (
 	white: $white,
 	black: $black,
-	primary: $primary,
-	secondary: $secondary,
+	orange: $orange,
+	blue: $blue,
 	copy: $copy
 );
 
@@ -59,18 +67,10 @@ $section-padding: (
 );
 $section-padding-divider: 3;
 
-// Header
-// =========================================================================
-
-$header-height: 72px;
-$header-container-width: true;
-$header-bg-color: $primary;
-$header-scrolled-bg-color: $primary;
-
 // Nav
 // =========================================================================
 
-$nav-mob-bg-color: $primary;
+$nav-mob-bg-color: $white;
 $nav-mob-item-color: $black;
 $nav-desk-item-color: $black;
 $nav-transition-time: 700ms;
