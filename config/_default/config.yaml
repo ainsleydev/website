@@ -3,13 +3,20 @@ title: "ainsley.dev"
 theme: "ainsley.dev"
 enableRobotsTXT: true
 params:
-  title: Title of the site
-  description: Description of the site
-  images:
-    - images/site-feature-image.jpg
+    title: Title of the site
+    description: Description of the site
+    images:
+        - images/site-feature-image.jpg
+    social:
+        github: "https://github.com/ainsleyclark"
+        linkedin: "https://www.linkedin.com/in/ainsleyclark/"
+        twitter: "https://twitter.com/ainsleydev/"
+        facebook: "https://www.facebook.com/ainsley.devltd/"
+        instagram: "https://www.instagram.com/ainsley.devltd/"
+        dribbble: "https://dribbble.com/ainsleyclark/"
 googleAnalytics: UA-PROPERTY_ID
-disableKinds: ["taxonomy", "taxonomyTerm"]
-ignoreErrors: ["error-disable-taxonomy"]
+disableKinds: [ "taxonomy", "taxonomyTerm" ]
+ignoreErrors: [ "error-disable-taxonomy" ]
 sitemap:
     changefreq: monthly
     filename: sitemap.xml
@@ -21,5 +28,5 @@ markup:
         startLevel: 2
 module:
     mounts:
-        - source: "./themes/reddico/node_modules/vanilla-lazyload/dist/lazyload.js"
-          target: "assets/js/lazyload.js"
+        -   source: "./themes/reddico/node_modules/vanilla-lazyload/dist/lazyload.js"
+            target: "assets/js/lazyload.js"

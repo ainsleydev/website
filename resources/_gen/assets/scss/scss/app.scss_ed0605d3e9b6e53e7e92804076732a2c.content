@@ -202,6 +202,7 @@ p {
     font-size: 19px; }
 
 a {
+  font-size: 1rem;
   color: var(--colour-foreground);
   font-weight: bold;
   text-decoration: underline;
@@ -1388,12 +1389,14 @@ small {
     width: 100%;
     height: 100%; }
     .nav-main .nav-list {
-      margin-bottom: 2rem; }
+      margin-bottom: 2.4rem; }
       .nav-main .nav-list .nav-item:last-child * {
         margin-bottom: 0; }
   .nav-sub {
     background-color: #FFF;
     padding: 50px 15px; }
+  .nav-contact-section {
+    margin-bottom: 1.6em; }
   .nav-list {
     margin-bottom: 1rem; }
     .nav-list-white .nav-link * {
@@ -1437,7 +1440,12 @@ small {
     .nav {
       flex-direction: row; }
       .nav-sub {
-        height: 100%; } }
+        height: 100%; }
+      .nav-contact {
+        display: flex;
+        flex-direction: row; }
+        .nav-contact-section:first-child {
+          margin-right: 2rem; } }
 .section-padding {
   padding: 80px 0; }
 

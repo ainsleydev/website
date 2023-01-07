@@ -27,9 +27,11 @@
 			<div class="nav-contact">
 				<div class="nav-contact-section">
 					<h6>Email us</h6>
+					<a href="mailto:hello@ainsley.dev">hello@ainsley.dev</a>
 				</div>
 				<div class="nav-contact-section">
 					<h6>Connect with us</h6>
+					{{ partial "components/social.html" (dict "global" . "colour" "var(--colour-white)") }}
 				</div>
 			</div><!-- /Contact -->
 		</div><!-- /Wrapper -->

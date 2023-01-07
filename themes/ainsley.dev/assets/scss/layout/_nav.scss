@@ -39,7 +39,7 @@
 		height: 100%;
 
 		#{$self}-list {
-			margin-bottom: 2rem;
+			margin-bottom: 2.4rem;
 
 			#{$self}-item:last-child * {
 				margin-bottom: 0;
@@ -53,6 +53,16 @@
 	&-sub {
 		background-color: $white;
 		padding: 50px $gap-width;
+	}
+
+	// Contact
+	// =========================================================================
+
+	&-contact {
+
+		&-section {
+			margin-bottom: 1.6em;
+		}
 	}
 
 	// List
@@ -142,6 +152,15 @@
 
 		&-sub {
 			height: 100%;
+		}
+
+		&-contact {
+			display: flex;
+			flex-direction: row;
+
+			&-section:first-child {
+				margin-right: 2rem;
+			}
 		}
 	}
 }
