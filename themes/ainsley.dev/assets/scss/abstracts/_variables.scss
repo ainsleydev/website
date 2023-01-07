@@ -7,14 +7,23 @@
 // ==========================================================================
 
 // Columns
-$grid-columns: 12;
-$gap-width: 15px;
+$grid-columns: 12 !default;
+$gap-width: 15px !default;
 
 // Breakpoints
-$grid-breakpoint-mob: 568;
-$grid-breakpoint-tab: 768;
-$grid-breakpoint-desk: 1024;
-$grid-breakpoint-hd: 1408;
+$grid-breakpoint-mob: 568 !default;
+$grid-breakpoint-tab: 768 !default;
+$grid-breakpoint-desk: 1024 !default;
+$grid-breakpoint-hd: 1408 !default;
+
+// Properties for grid
+$grid-properties: (
+	"": 0,
+	"-mob": $grid-breakpoint-mob,
+	"-tab": $grid-breakpoint-tab,
+	"-desk": $grid-breakpoint-desk,
+	"-hd": $grid-breakpoint-hd
+) !default;
 
 // Fonts
 // ==========================================================================
@@ -23,6 +32,11 @@ $font: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Robot
 $font-serif: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
 $font-code: "JetBrains Mono" ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 $font-path: "/fonts/";
+
+// Display
+// ==========================================================================
+
+$display-properties: (none, inline, inline-block, block, flex, inline-flex, table, table-row, table-cell) !default;
 
 // Color
 // ==========================================================================
@@ -34,11 +48,13 @@ $blue: #70CBCE;
 $copy: $black;
 
 :root {
-	--white: #{$white};
-	--black: #{$black};
-	--orange: #{$orange};
-	--blue: #{$blue};
-	--copy: #{$copy};
+	--colour-background: #{$black};
+	--colour-foreground: #{$white};
+	--colour-white: #{$white};
+	--colour-black: #{$black};
+	--colour-orange: #{$orange};
+	--colour-blue: #{$blue};
+	--colour-copy: #{$copy};
 }
 
 // Color palette
@@ -74,16 +90,6 @@ $nav-mob-bg-color: $white;
 $nav-mob-item-color: $black;
 $nav-desk-item-color: $black;
 $nav-transition-time: 700ms;
-
-// Hamburger
-// =========================================================================
-
-$hamburger-width: 26px;
-$hamburger-height: 2.4px;
-$hamburger-margin: 7px;
-$hamburger-border-radius: 4px;
-$hamburger-color: $black;
-$hamburger-active-color: $white;
 
 // Text
 // ==========================================================================

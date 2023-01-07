@@ -49,7 +49,11 @@
 	<!-- =====================
 		Body
 		===================== -->
-    <body>
+    {{ $colour := "black" }}
+    {{ if eq .Params.page_colour "white"}}
+        {{ $colour = .Params.page_colour }}
+    {{ end }}
+    <body class="theme-{{ $colour }}">
         <!-- Header -->
         {{- partial "header.html" . -}}
         <!-- Main Content -->

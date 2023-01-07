@@ -1,5 +1,8 @@
 <!-- =====================
     Arrow
+    	partial "images/arrow.html" (dict "rotation" 45 "colour" "white")
+    	- rotation: The degree of rotation of the arrow
+    	- colour: The colour of the arrow, defaults to foreground.
     ===================== -->
 <figure class="arrow
 	{{ with .colour -}} arrow-colour-{{ . }} {{- end }}"
@@ -7,7 +10,7 @@
 	<svg xmlns="http://www.w3.org/2000/svg" width="64.271" height="64.271" viewBox="0 0 64.271 64.271">
 		<path d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z"
 			  transform="translate(-3.516 34.27) rotate(-45)"
-			  fill="{{ if eq .colour "black" -}} var(--black) {{- else -}} var(--white) {{- end }}"/>
+			  fill="{{ with .colour  -}} {{ . }} {{- else -}} var(--colour-foreground) {{- end }}"/>
 	</svg>
 </figure>
 

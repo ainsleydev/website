@@ -1,0 +1,13 @@
+// _functions.scss
+// Helper functions for the site.
+// ==========================================================================
+
+// Return Color from Palette
+// ==========================================================================
+
+/// @author Ainsley Clark
+/// @param {String} $key
+/// @return {Colour} - Variable
+@function colour($color-name) {
+	@return var(--colour-#{$color-name});
+}

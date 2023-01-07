@@ -8,11 +8,7 @@
 
 html,
 body {
-	color: $copy-text;
-	font-family: $font;
 	font-size: 90%;
-	font-kerning: normal;
-	font-variant-ligatures: common-ligatures;
 
 	@include media-tab {
 		font-size: 95%;
@@ -35,7 +31,7 @@ h5,
 h6,
 p {
 	margin: 0;
-	color: $white;
+	color: colour(foreground);
 }
 
 // Headings
@@ -107,7 +103,7 @@ a {
 	transition: color 160ms ease;
 
 	@include on-event {
-		color: $primary;
+		color: colour(orange);
 	}
 }
 

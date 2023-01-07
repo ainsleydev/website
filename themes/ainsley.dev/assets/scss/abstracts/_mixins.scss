@@ -6,6 +6,59 @@
 // sass-lint:disable no-duplicate-properties
 // sass-lint:disable no-vendor-prefixes
 
+// Breakpoint Mixins
+// ==========================================================================
+
+// Up
+@mixin media-mob {
+	@media (min-width: $grid-breakpoint-mob * 1px) {
+		@content;
+	}
+}
+
+@mixin media-tab {
+	@media (min-width: $grid-breakpoint-tab * 1px) {
+		@content;
+	}
+}
+
+@mixin media-desk {
+	@media (min-width: $grid-breakpoint-desk * 1px) {
+		@content;
+	}
+}
+
+@mixin media-hd {
+	@media (min-width: $grid-breakpoint-hd * 1px) {
+		@content;
+	}
+}
+
+// Down
+@mixin media-mob-down {
+	@media (max-width: $grid-breakpoint-mob * 1px) {
+		@content;
+	}
+}
+
+@mixin media-tab-down {
+	@media (max-width: $grid-breakpoint-tab * 1px) {
+		@content;
+	}
+}
+
+@mixin media-desk-down {
+	@media (max-width: $grid-breakpoint-desk * 1px) {
+		@content;
+	}
+}
+
+@mixin media-hd-down {
+	@media (max-width: $grid-breakpoint-hd * 1px) {
+		@content;
+	}
+}
+
 // Pixel to REM Converter
 // ==========================================================================
 
@@ -40,44 +93,6 @@
 		}
 	}
 }
-
-// Background Opacity
-// ==========================================================================
-
-/// @author Ainsley Clark
-/// @param {Color} $color - Hex code for opacity
-/// @param {Opacity} $opacity [0.3] - Opaque amount
-@mixin background-opacity($color, $opacity: 0.3) {
-	background: $color; /* The Fallback */
-	background: rgba($color, $opacity);
-}
-
-// Background Gradient
-// ==========================================================================
-
-/// @author Ainsley Clark
-/// @param {String} $start-color - Color to Start
-/// @param {String} $start-color - Color to End
-/// @param {String} $oreintation - 'vertical' or 'horizontal' (up or down)
-@mixin background-gradient($start-color, $end-color, $orientation) {
-	background: $start-color;
-
-	@if $orientation == "vertical" {
-		background: -webkit-linear-gradient(top, $start-color, $end-color);
-		background: linear-gradient(to bottom, $start-color, $end-color);
-	} @else if $orientation == "horizontal" {
-		background: -webkit-linear-gradient(left, $start-color, $end-color);
-		background: linear-gradient(to right, $start-color, $end-color);
-	} @else {
-		background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
-		background: radial-gradient(ellipse at center, $start-color, $end-color);
-	}
-}
-//Usage:
-//$start-color, $end-color, $orientation - vertical/horizontal/radial
-//  .foo {
-//     @include background-gradient(red, black, 'vertical');
-//   }
 
 // Fluid Type
 // ==========================================================================
@@ -133,22 +148,6 @@
 	}
 }
 
-// Firefox
-@mixin firefox {
-	@-moz-document url-prefix() {
-		@content;
-	}
-}
-
-//! UNTESTED
-
-// Firefox
-@mixin firefox {
-	@-moz-document url-prefix() {
-		@content;
-	}
-}
-
 // Chrome
 @mixin firefox {
 	@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
@@ -161,6 +160,53 @@
 	@media not all and (min-resolution: 0.001dpcm) {
 		@supports (-webkit-appearance: none) {
 			@content;
+		}
+	}
+}
+
+// Create Media Query
+// ==========================================================================
+
+/// @author Ainsley Clark
+/// @param {Number} $breakpoint - Initial breakpoint
+@mixin create-mediaquery($breakpoint) {
+	@if ($breakpoint == 0) {
+		@content;
+	} @else {
+		@media (min-width: $breakpoint * 1px) {
+			@content;
+		}
+	}
+}
+
+// Create Column Classes
+// ==========================================================================
+
+/// @author Ainsley Clark
+/// @param {String} $modifier - Class
+/// @param {Number} $grid-cols - Amount of columns
+/// @param {Number} $breakpoint - Media breakpoint
+@mixin create-col-classes($modifier, $grid-cols, $breakpoint) {
+	@include create-mediaquery($breakpoint) {
+		//Columns
+		.col#{$modifier}-auto {
+			flex: 0 0 auto;
+			width: auto;
+			max-width: 100%;
+		}
+		@for $i from 1 through $grid-columns {
+			.col#{$modifier}-#{$i} {
+				width: (100 / ($grid-columns / $i)) * 1%;
+			}
+		}
+		//Offsets
+		.offset#{$modifier}-0 {
+			margin-left: 0;
+		}
+		@for $i from 1 through $grid-columns {
+			.offset#{$modifier}-#{$i} {
+				margin-left: (100 / ($grid-columns / $i)) * 1%;
+			}
 		}
 	}
 }

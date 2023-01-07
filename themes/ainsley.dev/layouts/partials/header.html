@@ -3,18 +3,13 @@
     ===================== -->
 {{ $colour := "black" }}
 {{ if eq .Params.page_colour "white"}}
-	<h1>Hey</h1>
 	{{ $colour = .Params.page_colour }}
 {{ end }}
 <header class="header header-colour-{{ $colour }}">
     <div class="header-cont">
         <!-- Logo -->
 		<a href="/" class="header-logo">
-			{{ if eq $colour "white"}}
-                {{- partial "images/logo.html" "black" -}}
-			{{ else }}
-                {{- partial "images/logo.html" "white" -}}
-            {{ end }}
+            {{- partial "images/logo.html" -}}
 		</a>
         <!-- Hamburger -->
         <input class="hamburger-checkbox" type="checkbox" id="hamburger-check" />
