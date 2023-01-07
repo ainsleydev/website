@@ -1,36 +1,20 @@
 <!-- =====================
     Header
     ===================== -->
-{{ $colour := "black" }}
-{{ if eq .Params.page_colour "white"}}
-	{{ $colour = .Params.page_colour }}
-{{ end }}
-<header class="header header-colour-{{ $colour }}">
-    <div class="header-cont">
-        <!-- Logo -->
-		<a href="/" class="header-logo">
-            {{- partial "images/logo.html" -}}
-		</a>
-        <!-- Hamburger -->
-        <input class="hamburger-checkbox" type="checkbox" id="hamburger-check" />
-		<div class="nav-arrow">
+<header class="header header-colour-{{ .colour }}">
+	<!-- Logo -->
+	<a href="/" class="header-logo">
+        {{- partial "images/logo.html" -}}
+	</a>
+	<!-- Hamburger -->
+	<input class="nav-checkbox" type="checkbox" id="nav-check" checked />
+	<!-- Button -->
+	<label class="nav-btn" for="nav-check">
+		<h6 class="nav-btn-text">Menu</h6>
+		<figure class="nav-btn-arrow">
             {{- partial "images/arrow.html" (dict "rotation" 45 "colour" "white") -}}
-		</div>
-        <div class="hamburger">
-            <label for="hamburger-check" class="hamburger-box">
-                <span class="hamburger-inner"></span>
-            </label>
-        </div>
-        <!-- Navigation -->
-        <nav class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#home" class="nav-link">LINK</a></li>
-                <li class="nav-item"><a href="#home" class="nav-link">LINK</a></li>
-                <li class="nav-item"><a href="#home" class="nav-link">LINK</a></li>
-                <li class="nav-item"><a href="#home" class="nav-link">LINK</a></li>
-                <li class="nav-item"><a href="#home" class="nav-link">LINK</a></li>
-            </ul>
-        </nav>
-    </div>
+		</figure>
+	</label>
+	<!-- Navigation -->
+    {{- partial "nav.html" -}}
 </header>

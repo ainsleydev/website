@@ -212,28 +212,21 @@ a {
 small {
   font-size: 12px; }
 
-.body.theme-white ::selection {
-  background: #FFF;
-  /* WebKit/Blink Browsers */
-  color: #0A0A0A; }
-
 ::selection {
   background: #FFF;
-  /* WebKit/Blink Browsers */
   color: #0A0A0A; }
-  ::selection .theme-white {
-    background: #FFF;
-    /* WebKit/Blink Browsers */
-    color: #0A0A0A; }
 
 ::-moz-selection {
   background: #FFF;
-  /* WebKit/Blink Browsers */
   color: #0A0A0A; }
-  ::-moz-selection .theme-white {
-    background: #FFF;
-    /* WebKit/Blink Browsers */
-    color: #0A0A0A; }
+
+.theme-white ::selection {
+  background: #0A0A0A;
+  color: #FFF; }
+
+.theme-white ::-moz-selection {
+  background: #0A0A0A;
+  color: #FFF; }
 
 .text-cont {
   margin-bottom: 1.4rem; }
@@ -1344,25 +1337,24 @@ small {
     Layout
     ==================== */
 .header {
-  position: relative;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   top: 0;
   left: 0;
   height: 80px;
   width: 100vw;
-  padding: 0 15px;
-  z-index: 99999;
-  transition: background-color 300ms ease;
-  will-change: background-color; }
-  .header-cont {
+  padding: 0 20px;
+  z-index: 99999; }
+  .header-logo {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    height: 100%; }
-  .header-logo {
     z-index: 999999;
     width: 115px; }
     .header-logo svg {
-      width: 100%; }
+      width: 100%;
+      height: 100%; }
       .header-logo svg path {
         transition: fill 160ms ease; }
     .header-logo:hover svg path {
@@ -1370,48 +1362,82 @@ small {
   .header-scrolled {
     background-color: orange;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.23); }
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     .header {
       padding: 0 30px; } }
 .nav {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: space-between;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #FFF;
-  padding: 0 15px; }
+  background-color: #0A0A0A;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 700ms, visibility 700ms step-end; }
+  .nav-main, .nav-sub {
+    padding: 0 20px; }
+  .nav-main {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%; }
+    .nav-main .nav-list {
+      margin-bottom: 2rem; }
+      .nav-main .nav-list .nav-item:last-child * {
+        margin-bottom: 0; }
+  .nav-sub {
+    background-color: #FFF;
+    padding: 50px 15px; }
+  .nav-list {
+    margin-bottom: 1rem; }
+    .nav-list-white .nav-link * {
+      color: #0A0A0A; }
+    .nav-list-horizontal {
+      display: flex;
+      align-items: center; }
+      .nav-list-horizontal .nav-link {
+        margin-bottom: 0; }
+        .nav-list-horizontal .nav-link * {
+          margin-right: 10px;
+          margin-bottom: 0; }
   .nav-link {
-    color: #0A0A0A; }
-  @media (max-width: 1024px) {
-    .nav {
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 700ms, visibility 700ms step-end; }
-      .nav-active {
-        opacity: 1;
-        visibility: visible;
-        transition: opacity 700ms, visibility 700ms step-start; } }
+    text-decoration: none; }
+  .nav-btn {
+    display: flex;
+    align-items: flex-end;
+    cursor: pointer;
+    z-index: 10; }
+    .nav-btn-text {
+      color: var(--colour-white);
+      margin-right: 6px;
+      font-size: 13px; }
+    .nav-btn-arrow {
+      display: flex;
+      width: 18px;
+      height: 18px; }
+      .nav-btn-arrow svg {
+        width: 100%;
+        height: 100%; }
+  .nav-checkbox {
+    position: absolute;
+    display: none;
+    top: -9999999px;
+    left: -9999999px; }
+  .nav-checkbox:checked ~ .nav, .nav-active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 700ms, visibility 700ms step-start; }
   @media (min-width: 1024px) {
     .nav {
-      position: relative;
-      flex-direction: column;
-      justify-content: flex-start;
-      width: auto;
-      height: auto;
-      padding: 0;
-      background-color: transparent; }
-      .nav-list {
-        display: flex;
-        align-items: center; }
-      .nav-item {
-        margin-left: 16px; }
-      .nav-link {
-        color: #0A0A0A; } }
+      flex-direction: row; }
+      .nav-sub {
+        height: 100%; } }
 .section-padding {
   padding: 80px 0; }
 

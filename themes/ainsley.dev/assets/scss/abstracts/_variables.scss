@@ -48,6 +48,7 @@ $blue: #70CBCE;
 $copy: $black;
 
 :root {
+	// Colour
 	--colour-background: #{$black};
 	--colour-foreground: #{$white};
 	--colour-black: #{$black};
@@ -55,6 +56,9 @@ $copy: $black;
 	--colour-orange: #{$orange};
 	--colour-blue: #{$blue};
 	--colour-copy: #{$copy};
+	// Type
+	//--text-h6-spacing:
+	// Links
 	--link-hover-colour: #{$blue};
 }
 
@@ -84,13 +88,20 @@ $section-padding: (
 );
 $section-padding-divider: 3;
 
+// Header
+// =========================================================================
+
+$header-height: 80px;
+$header-padding-mob-x: 20px;
+$header-padding-x: 30px;
+$header-logo-size: 115px;
+
 // Nav
 // =========================================================================
 
 $nav-mob-bg-color: $white;
-$nav-mob-item-color: $black;
-$nav-desk-item-color: $black;
 $nav-transition-time: 700ms;
+$nav-arrow-size: 18px;
 
 // Text
 // ==========================================================================

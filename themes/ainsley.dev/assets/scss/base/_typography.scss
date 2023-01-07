@@ -117,31 +117,27 @@ small {
 // Selection Color
 // =========================================================================
 
-@mixin selection {
-	background: $white; /* WebKit/Blink Browsers */
-	color: $black;
-
-	.theme-white {
-		background: $white; /* WebKit/Blink Browsers */
-		color: $black;
-	}
-}
-
-.body.theme-white {
-	::selection {
-		background: $white; /* WebKit/Blink Browsers */
-		color: $black;
-	}
-}
-
 ::selection {
-	@include selection;
+	background: $white;
+	color: $black;
 }
 
 ::-moz-selection {
-	@include selection;
+	background: $white;
+	color: $black;
 }
 
+.theme-white {
+	::selection {
+		background: $black;
+		color: $white;
+	}
+
+	::-moz-selection {
+		background: $black;
+		color: $white;
+	}
+}
 
 // Text Containers
 // =========================================================================

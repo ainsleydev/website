@@ -55,7 +55,7 @@
     {{ end }}
     <body class="theme-{{ $colour }}">
         <!-- Header -->
-        {{- partial "header.html" . -}}
+        {{- partial "header.html" (dict "colour" $colour) -}}
         <!-- Main Content -->
         <main>
             <div id="content">
