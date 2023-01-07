@@ -56,7 +56,7 @@ $publicPath: '{{ .Site.BaseURL }}';
 @import "components/button";
 @import "components/card";
 @import "components/list";
-//@import "components/hamburger";
+@import "components/social";
 
 /* ====================
     Layout

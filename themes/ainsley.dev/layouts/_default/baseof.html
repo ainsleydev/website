@@ -10,7 +10,7 @@
 {{ end }}
 {{ $style := resources.Get "scss/app.scss" | resources.ExecuteAsTemplate "css/app.css" . | toCSS $cssOpts  }}
 <!-- JS -->
-{{ $jsPath := "js/app.js" }}
+{{ $jsPath := "js/app.ts" }}
 {{ $jsOpts := (dict "targetPath" $jsPath "minify" false) }}
 {{ if ne hugo.Environment "development" -}}
     {{ $jsOpts := (dict "targetPath" $jsPath "minify" true) }}

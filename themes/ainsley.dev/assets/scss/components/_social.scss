@@ -4,13 +4,25 @@
 // -----------------------------------------------------------------------------
 
 .social {
-
+	position: relative;
+	display: flex;
+	align-items: center;
 
 	// Tablet
 	// =========================================================================
 
 	&-link {
+		display: flex;
 		text-decoration: none;
+		margin-right: 1rem;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		svg {
+			height: 25px;
+		}
 	}
 
 	// Tablet
@@ -23,5 +35,18 @@
 	// =========================================================================
 
 	@include media-desk {
+
+		&-link {
+			margin-right: 1.2rem;
+
+			svg path {
+				transition: fill 160ms ease;
+				will-change: fill;
+			}
+
+			&:hover svg path {
+				fill: var(--link-hover-colour);
+			}
+		}
 	}
 }

@@ -12,7 +12,9 @@
  */
 
 //Local
-require('./scripts/polyfills');
+//require('./scripts/polyfills');
+
+// https://stackoverflow.com/questions/60323550/compile-typescript-with-hugo-pipes
 
 //Vendor
 import LazyLoad from 'vanilla-lazyload';
@@ -47,27 +49,27 @@ let lazyLoadInstance = new LazyLoad({
  * Targets all links with # anchor & adds smooth scrolling
  *
  */
-let headerOffset = header.offsetHeight;
-
-window.addEventListener('resize', function(){
-	headerOffset = header.offsetHeight;
-});
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-	anchor.addEventListener('click', function (e) {
-		e.preventDefault();
-
-		let offset = headerOffset,
-			section = document.querySelector(anchor.getAttribute('href')),
-			elementPosition = section.offsetTop,
-			offsetPosition = elementPosition - offset;
-
-		window.scrollTo({
-			top: offsetPosition,
-			behavior: 'smooth'
-		});
-	});
-});
+// let headerOffset = header.offsetHeight;
+//
+// window.addEventListener('resize', function(){
+// 	headerOffset = header.offsetHeight;
+// });
+//
+// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+// 	anchor.addEventListener('click', function (e) {
+// 		e.preventDefault();
+//
+// 		let offset = headerOffset,
+// 			section = document.querySelector(anchor.getAttribute('href')),
+// 			elementPosition = section.offsetTop,
+// 			offsetPosition = elementPosition - offset;
+//
+// 		window.scrollTo({
+// 			top: offsetPosition,
+// 			behavior: 'smooth'
+// 		});
+// 	});
+// });
 
 /*
  * Scroll
