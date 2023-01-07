@@ -97,13 +97,13 @@ p {
 // =========================================================================
 
 a {
-	color: $white;
+	color: colour(foreground);
 	font-weight: bold;
 	text-decoration: underline;
 	transition: color 160ms ease;
 
-	@include on-event {
-		color: colour(orange);
+	&:hover {
+		color: var(--link-hover-colour);
 	}
 }
 
@@ -112,6 +112,34 @@ a {
 
 small {
 	font-size: 12px;
+}
+
+// Selection Color
+// =========================================================================
+
+@mixin selection {
+	background: $white; /* WebKit/Blink Browsers */
+	color: $black;
+
+	.theme-white {
+		background: $white; /* WebKit/Blink Browsers */
+		color: $black;
+	}
+}
+
+.body.theme-white {
+	::selection {
+		background: $white; /* WebKit/Blink Browsers */
+		color: $black;
+	}
+}
+
+::selection {
+	@include selection;
+}
+
+::-moz-selection {
+	@include selection;
 }
 
 

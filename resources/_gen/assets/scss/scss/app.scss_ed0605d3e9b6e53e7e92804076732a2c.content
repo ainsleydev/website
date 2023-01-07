@@ -19,11 +19,12 @@
 :root {
   --colour-background: #0A0A0A;
   --colour-foreground: #FFF;
-  --colour-white: #FFF;
   --colour-black: #0A0A0A;
+  --colour-white: #FFF;
   --colour-orange: #FF5043;
   --colour-blue: #70CBCE;
-  --colour-copy: #0A0A0A; }
+  --colour-copy: #0A0A0A;
+  --link-hover-colour: #70CBCE; }
 
 /* ====================
     Vendor
@@ -75,16 +76,6 @@ ul {
   margin: 0;
   padding: 0;
   list-style-type: none; }
-
-::selection {
-  background: var(--colour-background);
-  /* WebKit/Blink Browsers */
-  color: var(--colour-background); }
-
-::-moz-selection {
-  background: var(--colour-background);
-  /* Gecko Browsers */
-  color: var(--colour-background); }
 
 @font-face {
   font-family: 'Plus Jakarta Sans';
@@ -211,15 +202,38 @@ p {
     font-size: 19px; }
 
 a {
-  color: #FFF;
+  color: var(--colour-foreground);
   font-weight: bold;
   text-decoration: underline;
   transition: color 160ms ease; }
-  a:hover, a:active, a:focus {
-    color: var(--colour-orange); }
+  a:hover {
+    color: var(--link-hover-colour); }
 
 small {
   font-size: 12px; }
+
+.body.theme-white ::selection {
+  background: #FFF;
+  /* WebKit/Blink Browsers */
+  color: #0A0A0A; }
+
+::selection {
+  background: #FFF;
+  /* WebKit/Blink Browsers */
+  color: #0A0A0A; }
+  ::selection .theme-white {
+    background: #FFF;
+    /* WebKit/Blink Browsers */
+    color: #0A0A0A; }
+
+::-moz-selection {
+  background: #FFF;
+  /* WebKit/Blink Browsers */
+  color: #0A0A0A; }
+  ::-moz-selection .theme-white {
+    background: #FFF;
+    /* WebKit/Blink Browsers */
+    color: #0A0A0A; }
 
 .text-cont {
   margin-bottom: 1.4rem; }

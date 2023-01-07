@@ -50,11 +50,12 @@ $copy: $black;
 :root {
 	--colour-background: #{$black};
 	--colour-foreground: #{$white};
-	--colour-white: #{$white};
 	--colour-black: #{$black};
+	--colour-white: #{$white};
 	--colour-orange: #{$orange};
 	--colour-blue: #{$blue};
 	--colour-copy: #{$copy};
+	--link-hover-colour: #{$blue};
 }
 
 // Color palette
