@@ -129,8 +129,10 @@ a {
 // =========================================================================
 
 small {
-	font-size: 0.8rem;
-	line-height: 1;
+	display: inline-block;
+	color: colour(copy-dark);
+	font-size: 12px;
+	line-height: 1.8;
 }
 
 // Selection Color

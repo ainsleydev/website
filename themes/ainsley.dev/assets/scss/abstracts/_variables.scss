@@ -100,16 +100,14 @@ $section-padding-divider: 3;
 // =========================================================================
 
 $header-height: 80px;
-$header-padding-mob-x: 20px;
-$header-padding-x: 30px;
+$header-padding-x: $container-padding-x;
 $header-logo-size: 115px;
 
 // Nav
 // =========================================================================
 
-$nav-mob-bg-color: $white;
-$nav-transition-time: 700ms;
 $nav-arrow-size: 18px;
+$nav-padding-desktop: 4rem 6rem;
 
 // Text
 // ==========================================================================

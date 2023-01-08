@@ -14,7 +14,7 @@
 	left: 0;
 	height: $header-height;
 	width: 100vw;
-	padding: 0 $header-padding-mob-x;
+	padding: 0 $header-padding-x;
 	z-index: 99999;
 
 	// Logo
@@ -46,21 +46,5 @@
 	&-scrolled {
 		background-color: (orange);
 		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.23);
-	}
-
-	// Mobile Active
-	// ==========================================================================
-
-	&-active {
-		#{$self}-logo {
-			//! TODO: Change colour logo?
-		}
-	}
-
-	// Tablet
-	// =========================================================================
-
-	@include media-tab {
-		padding: 0 $header-padding-x;
 	}
 }

@@ -27,7 +27,8 @@
 	&-sub {
 		position: relative;
 		width: 100%;
-		//padding: 0 $header-padding-mob-x;
+		padding-left: $container-padding-x;
+		padding-right: $container-padding-x;
 	}
 
 	// Main
@@ -35,7 +36,9 @@
 
 	&-main {
 		display: flex;
-		align-items: center;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
 		flex-grow: 2;
 		z-index: 10;
 		margin-top: $header-height / 2;
@@ -58,8 +61,12 @@
 	// =========================================================================
 
 	&-sub {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		padding-top: 30px;
+		padding-bottom: 30px;
 		background-color: $white;
-		padding: 40px $gap-width;
 		z-index: 1;
 
 		#{$self}-list {
@@ -132,7 +139,14 @@
 	// =========================================================================
 
 	&-link {
+		position: relative;
+		display: inline-block;
 		text-decoration: none;
+
+		&-text {
+			position: relative;
+			display: inline-block;
+		}
 	}
 
 	// Button
@@ -191,10 +205,6 @@
 		&-main #{$self}-link-text {
 			font-size: 30px;
 		}
-
-		&-sub {
-			//padding: 26px $gap-width;
-		}
 	}
 
 	// Tablet
@@ -202,22 +212,97 @@
 
 	@include media-tab {
 
+		// Main
+		// =========================================================================
+
+		&-main {
+			flex-direction: column;
+			justify-content: space-between;
+			padding-top: 4rem;
+			padding-bottom: 4rem;
+
+			&:before {
+				content: "";
+			}
+		}
+
+		// Sub
+		// =========================================================================
+
+		&-sub {
+			justify-content: center;
+			min-height: 200px;
+		}
 	}
 
 	// Desktop
 	// =========================================================================
 
-	@include media-desk {
+	@include media-desk-large {
 		flex-direction: row;
+		justify-content: space-between;
+
+		// Main & Sub Props
+		// =========================================================================
+
+		&-main,
+		&-sub {
+			padding: $nav-padding-desktop;
+		}
+
+		// Contact
+		// =========================================================================
+
+		&-contact-section {
+			margin-bottom: 0;
+		}
 
 		// Main
 		// =========================================================================
 
 		&-main {
+			height: 100%;
 			width: 60%;
+			margin-top: 0;
+
+			#{$self}-list {
+				margin-bottom: 0;
+			}
 
 			// Hover & Arrow
-			#{$self}-link {}
+			#{$self}-link {
+				$arrow-transition: 250ms ease-in-out;
+
+				&-text {
+					transition: transform $arrow-transition;
+					will-change: transform;
+				}
+
+				// Arrow
+				&:after {
+					content: url('#{$publicPath}/images/icons/nav-arrow.svg');
+					position: absolute;
+					top: 50%;
+					left: 0;
+					transform: translate(-100%, -50%);
+					opacity: 0;
+					transition: transform $arrow-transition, opacity $arrow-transition;
+					will-change: transform, opacity;
+				}
+
+				&:hover {
+
+					#{$self}-link-text {
+						transform: translateX(100px);
+					}
+
+					// Arrow
+					&:after {
+						opacity: 1;
+						transform: translate(0, -50%);
+					}
+				}
+			}
 		}
 
 		// Sub
@@ -226,10 +311,23 @@
 		&-sub {
 			height: 100%;
 			width: 40%;
+			justify-content: flex-end;
 
 			#{$self}-list {
+				margin-bottom: 4rem;
 				flex-direction: column;
 				align-items: flex-start;
+			}
+
+			#{$self}-item {
+
+				&:not(:last-child) {
+					margin-bottom: 0.4rem;
+				}
+			}
+
+			#{$self}-link-text:after {
+				display: none !important; // Override nth-child
 			}
 		}
 
@@ -237,7 +335,7 @@
 		// =========================================================================
 
 		&-images {
-			display: block;
+			//display: block;
 		}
 
 		// Contact
