@@ -3,35 +3,36 @@
     ===================== -->
 <nav class="nav" aria-label="Main Navigation">
 	<!-- Main (Top/Left) -->
-	<div class="nav-main nav-main-active">
+	<div class="nav-main nav-main-active container">
 		<div class="nav-main-wrapper">
 			<!-- List -->
             {{ with .Site.Menus.nav_main -}}
 				<ul class="nav-list">
                     {{ range . -}}
 						<li class="nav-item">
-							<a href="{{ .URL }}" class="nav-link" data-image="nav-picture-{{ .Identifier }}">
-								<h2 class="heading-1">{{ .Name }}</h2>
+							<a href="{{ .URL }}" class="nav-link" data-nav-image="#nav-picture-{{ .Identifier }}"
+							   aria-label="Navigate to the {{ .Name }} page">
+								<h2 class="nav-link-text heading-1">{{ .Name }}</h2>
 							</a>
 						</li>
                     {{- end }}
 				</ul><!-- /List -->
             {{- else -}}
-                {{ errorf "No nav_main defined in menus.yaml" }}
+                {{ errorf "No nav_main defined in menu.yaml" }}
             {{- end }}
 			<!-- Contact -->
 			<div class="nav-contact">
 				<!-- Email -->
                 {{ with .Params.contact.email -}}
 					<div class="nav-contact-section">
-						<h6>Email us</h6>
-						<a href="mailto:{{ . }}">{{ . }}</a>
+						<span class="heading-6">Email us</span>
+						<a href="mailto:{{ . }}" aria-label="Email ainsley.dev">{{ . }}</a>
 					</div>
                 {{- end }}
 				<!-- Social -->
                 {{ if .Params.social -}}
 					<div class="nav-contact-section">
-						<h6>Connect with us</h6>
+						<span class="heading-6">Connect with us</span>
                         {{ partial "components/social.html" (dict "global" . "colour" "var(--colour-white)") }}
 					</div>
                 {{- end }}
@@ -39,24 +40,24 @@
 		</div><!-- /Wrapper -->
 	</div><!-- /Main -->
 	<!-- Nav Sub (Bottom/Right) -->
-	<div class="nav-sub">
+	<div class="nav-sub container">
 		<!-- List -->
         {{ with .Site.Menus.nav_sub -}}
 			<ul class="nav-list nav-list-white">
                 {{ range . -}}
 					<li class="nav-item">
-						<a href="{{ .URL }}" class="nav-link">
-							<h5>{{ .Name }}</h5>
+						<a href="{{ .URL }}" class="nav-link" aria-label="Navigate to the {{ .Name }} page">
+							<h5 class="nav-link-text">{{ .Name }}</h5>
 						</a>
 					</li>
                 {{- end }}
 			</ul><!-- /List -->
         {{- else -}}
-            {{ errorf "No nav_sub defined in menus.yaml" }}
+            {{ errorf "No nav_sub defined in menu.yaml" }}
         {{- end }}
 		<!-- Privacy -->
         {{ with .Site.Copyright -}}
-			<small>{{ .}}</small>
+			<small class="nav-sub-copyright">{{ .}}</small>
         {{- end }}
 		<!-- Image Hover -->
         {{ with .Site.Menus.nav_main -}}

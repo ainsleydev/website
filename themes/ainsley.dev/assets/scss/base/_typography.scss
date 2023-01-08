@@ -10,6 +10,10 @@ html,
 body {
 	font-size: 90%;
 
+	@include media-small-phones {
+		font-size: 85%;
+	}
+
 	@include media-tab {
 		font-size: 95%;
 	}
@@ -38,59 +42,71 @@ p {
 // =========================================================================
 
 h1,
+.heading-1,
 h2,
+.heading-2,
 h3,
+.heading-3,
 h4,
+.heading-4,
 h5 {
+	color: colour(foreground);
+	display: block;
 	letter-spacing: -0.6px;
 	line-height: 1.2;
 }
 
-
-
-h1 {
+h1,
+.heading-1 {
 	@include fluid-type(320px, 1408px, 34px, 68px);
 	margin-bottom: 1.2rem;
 }
 
-h2 {
+h2,
+.heading-2 {
 	@include fluid-type(320px, 1408px, 30px, 50px);
 	margin-bottom: 1.1rem;
 }
 
-h3 {
+h3,
+.heading-3 {
 	@include fluid-type(320px, 1408px, 26px, 37px);
 	margin-bottom: 1rem;
 }
 
-h4 {
+h4,
+.heading-4 {
 	@include fluid-type(320px, 1408px, 22px, 29px);
 	margin-bottom: 0.9rem;
 }
 
-h5 {
+h5,
+.heading-5 {
 	@include fluid-type(320px, 1408px, 19px, 21.5px);
 	margin-bottom: 0.8rem;
 }
 
-h6 {
-	font-size: 14px;
+h6,
+.heading-6 {
+	display: block;
+	color: colour(copy-dark);
+	font-size: 0.9rem;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	font-weight: 500;
 	line-height: 1;
-	margin-bottom: 1rem;
+	margin-bottom: 0.8rem;
 }
 
 // Paragraph
 // =========================================================================
 
 p {
-	color: $copy;
+	color: colour(copy-dark);
 	margin-bottom: 1rem;
 
 	.lead {
-		font-size: 19px;
+		@include px-to-rem(19);
 	}
 }
 
@@ -113,7 +129,7 @@ a {
 // =========================================================================
 
 small {
-	font-size: 12px;
+	font-size: 0.8rem;
 	line-height: 1;
 }
 

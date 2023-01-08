@@ -1,9 +1,11 @@
+@charset "UTF-8";
 /**
  * app.scss
- * Imports all files from abstracts, base, components, layout, pages & vendor
+ * Imports all files from abstracts, base, components, layout, pages & vendor.
+ *
  * @author Ainsley Clark
- * @author URL:   https://www.ainsleyclark.com
- * @author email: info@ainsleyclark.com
+ * @author URL:   https://ainsley.dev
+ * @author Email: hello@ainsley.dev
  */
 /*  ====================
     Globals
@@ -24,6 +26,8 @@
   --colour-orange: #FF5043;
   --colour-blue: #70CBCE;
   --colour-copy: #0A0A0A;
+  --colour-copy-dark: #9A9A9A;
+  --colour-copy-light: #595959;
   --link-hover-colour: #70CBCE; }
 
 /* ====================
@@ -114,6 +118,10 @@ ul {
 html,
 body {
   font-size: 90%; }
+  @media (max-width: 376px) {
+    html,
+    body {
+      font-size: 85%; } }
   @media (min-width: 768px) {
     html,
     body {
@@ -137,76 +145,106 @@ p {
   color: var(--colour-foreground); }
 
 h1,
+.heading-1,
 h2,
+.heading-2,
 h3,
+.heading-3,
 h4,
+.heading-4,
 h5 {
+  color: var(--colour-foreground);
+  display: block;
   letter-spacing: -0.6px;
   line-height: 1.2; }
 
-h1 {
+h1,
+.heading-1 {
   margin-bottom: 1.2rem; }
-  h1 {
+  h1,
+  .heading-1 {
     font-size: 34px; }
     @media screen and (min-width: 320px) {
-      h1 {
+      h1,
+      .heading-1 {
         font-size: calc(34px + 34 * ((100vw - 320px) / 1088)); } }
     @media screen and (min-width: 1408px) {
-      h1 {
+      h1,
+      .heading-1 {
         font-size: 68px; } }
-h2 {
+h2,
+.heading-2 {
   margin-bottom: 1.1rem; }
-  h2 {
+  h2,
+  .heading-2 {
     font-size: 30px; }
     @media screen and (min-width: 320px) {
-      h2 {
+      h2,
+      .heading-2 {
         font-size: calc(30px + 20 * ((100vw - 320px) / 1088)); } }
     @media screen and (min-width: 1408px) {
-      h2 {
+      h2,
+      .heading-2 {
         font-size: 50px; } }
-h3 {
+h3,
+.heading-3 {
   margin-bottom: 1rem; }
-  h3 {
+  h3,
+  .heading-3 {
     font-size: 26px; }
     @media screen and (min-width: 320px) {
-      h3 {
+      h3,
+      .heading-3 {
         font-size: calc(26px + 11 * ((100vw - 320px) / 1088)); } }
     @media screen and (min-width: 1408px) {
-      h3 {
+      h3,
+      .heading-3 {
         font-size: 37px; } }
-h4 {
+h4,
+.heading-4 {
   margin-bottom: 0.9rem; }
-  h4 {
+  h4,
+  .heading-4 {
     font-size: 22px; }
     @media screen and (min-width: 320px) {
-      h4 {
+      h4,
+      .heading-4 {
         font-size: calc(22px + 7 * ((100vw - 320px) / 1088)); } }
     @media screen and (min-width: 1408px) {
-      h4 {
+      h4,
+      .heading-4 {
         font-size: 29px; } }
-h5 {
+h5,
+.heading-5 {
   margin-bottom: 0.8rem; }
-  h5 {
+  h5,
+  .heading-5 {
     font-size: 19px; }
     @media screen and (min-width: 320px) {
-      h5 {
+      h5,
+      .heading-5 {
         font-size: calc(19px + 2.5 * ((100vw - 320px) / 1088)); } }
     @media screen and (min-width: 1408px) {
-      h5 {
+      h5,
+      .heading-5 {
         font-size: 21.5px; } }
-h6 {
-  font-size: 14px;
+h6,
+.heading-6 {
+  display: block;
+  color: var(--colour-copy-dark);
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 500;
   line-height: 1;
-  margin-bottom: 1rem; }
+  margin-bottom: 0.8rem; }
 
 p {
-  color: #0A0A0A;
+  color: var(--colour-copy-dark);
   margin-bottom: 1rem; }
   p .lead {
-    font-size: 19px; }
+    font-size: 19px;
+    font-size: 19/å 16rem; }
 
 a {
   font-size: 1rem;
@@ -218,7 +256,7 @@ a {
     color: var(--link-hover-colour); }
 
 small {
-  font-size: 12px;
+  font-size: 0.8rem;
   line-height: 1; }
 
 ::selection {
@@ -263,22 +301,6 @@ small {
   @media (min-width: 1500px) {
     .container {
       padding: 0; } }
-@media (min-width: 568px) {
-  .container {
-    max-width: 518px; } }
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 718px; } }
-
-@media (min-width: 1024px) {
-  .container {
-    max-width: 974px; } }
-
-@media (min-width: 1600px) {
-  .container {
-    max-width: 1550px; } }
-
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -1346,19 +1368,20 @@ small {
   .social-link {
     display: flex;
     text-decoration: none;
-    margin-right: 1rem; }
+    margin-right: 1.6rem; }
     .social-link:last-child {
       margin-right: 0; }
     .social-link svg {
       height: 25px; }
+  @media (max-width: 376px) {
+    .social-link svg {
+      height: 20px; } }
   @media (min-width: 1024px) {
-    .social-link {
-      margin-right: 1.2rem; }
-      .social-link svg path {
-        transition: fill 160ms ease;
-        will-change: fill; }
-      .social-link:hover svg path {
-        fill: var(--link-hover-colour); } }
+    .social-link svg path {
+      transition: fill 160ms ease;
+      will-change: fill; }
+    .social-link:hover svg path {
+      fill: var(--link-hover-colour); } }
 /* ====================
     Layout
     ==================== */
@@ -1407,8 +1430,7 @@ small {
   transition: opacity 700ms, visibility 700ms step-end; }
   .nav-main, .nav-sub {
     position: relative;
-    width: 100%;
-    padding: 0 20px; }
+    width: 100%; }
   .nav-main {
     display: flex;
     align-items: center;
@@ -1429,11 +1451,15 @@ small {
     .nav-sub .nav-list {
       display: flex;
       align-items: center; }
-      .nav-sub .nav-list .nav-link {
-        margin-bottom: 0; }
-        .nav-sub .nav-list .nav-link * {
-          margin-right: 10px;
-          margin-bottom: 0; }
+    .nav-sub .nav-item:not(:last-child) .nav-link-text:after {
+      content: "|";
+      display: inline-block;
+      color: var(--colour-black);
+      margin: 0 8px; }
+    .nav-sub .nav-link-text {
+      margin-bottom: 0; }
+    .nav-sub-copyright {
+      color: var(--colour-copy-light); }
   .nav-contact-section {
     margin-bottom: 1.6em; }
   .nav-images {
@@ -1483,6 +1509,9 @@ small {
     opacity: 1;
     visibility: visible;
     transition: opacity 700ms, visibility 700ms step-start; }
+  @media (max-width: 376px) {
+    .nav-main .nav-link-text {
+      font-size: 30px; } }
   @media (min-width: 1024px) {
     .nav {
       flex-direction: row; }

@@ -27,7 +27,7 @@
 	&-sub {
 		position: relative;
 		width: 100%;
-		padding: 0 $header-padding-mob-x;
+		//padding: 0 $header-padding-mob-x;
 	}
 
 	// Main
@@ -65,15 +65,21 @@
 		#{$self}-list {
 			display: flex;
 			align-items: center;
+		}
 
-			#{$self}-link {
-				margin-bottom: 0;
+		#{$self}-item:not(:last-child) #{$self}-link-text:after {
+			content: "|";
+			display: inline-block;
+			color: colour(black);
+			margin: 0 8px;
+		}
 
-				* {
-					margin-right: 10px;
-					margin-bottom: 0;
-				}
-			}
+		#{$self}-link-text {
+			margin-bottom: 0;
+		}
+
+		&-copyright {
+			color: colour(copy-light);
 		}
 	}
 
@@ -175,6 +181,20 @@
 		opacity: 1;
 		visibility: visible;
 		transition: opacity 700ms, visibility 700ms step-start;
+	}
+
+	// Small Phones
+	// =========================================================================
+
+	@include media-small-phones  {
+
+		&-main #{$self}-link-text {
+			font-size: 30px;
+		}
+
+		&-sub {
+			//padding: 26px $gap-width;
+		}
 	}
 
 	// Tablet

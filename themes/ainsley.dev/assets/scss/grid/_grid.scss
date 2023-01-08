@@ -17,17 +17,6 @@
 	}
 }
 
-// Creates the breakpoints for containers
-@each $modifier, $breakpoint in $grid-properties {
-	@include create-mediaquery($breakpoint) {
-		@if ($breakpoint != 0) {
-			.container {
-				max-width: $breakpoint * 1px - 50px;
-			}
-		}
-	}
-}
-
 .row {
 	display: flex;
 	flex-wrap: wrap;

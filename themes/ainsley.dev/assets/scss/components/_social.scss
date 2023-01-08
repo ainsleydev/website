@@ -14,7 +14,7 @@
 	&-link {
 		display: flex;
 		text-decoration: none;
-		margin-right: 1rem;
+		margin-right: 1.6rem;
 
 		&:last-child {
 			margin-right: 0;
@@ -22,6 +22,17 @@
 
 		svg {
 			height: 25px;
+		}
+	}
+
+	// Small Phones
+	// =========================================================================
+
+	@include media-small-phones {
+
+		&-link svg {
+			height: 20px;
+
 		}
 	}
 
@@ -37,7 +48,6 @@
 	@include media-desk {
 
 		&-link {
-			margin-right: 1.2rem;
 
 			svg path {
 				transition: fill 160ms ease;

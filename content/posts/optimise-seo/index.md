@@ -62,7 +62,7 @@ shown below.
 <div id="app"></div>
 </body>
 <script src="client-side-framework.js"></script>
-<script src="app.js"></script>
+<script src="app.ts"></script>
 </html>
 ```
 
@@ -83,7 +83,7 @@ imagery.
 	</section>
 </article>
 </body>
-<script src="app.js"></script>
+<script src="app.ts"></script>
 </html>
 ```
 

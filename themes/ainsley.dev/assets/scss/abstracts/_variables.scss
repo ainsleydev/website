@@ -51,6 +51,8 @@ $black: #0A0A0A;
 $orange: #FF5043;
 $blue: #70CBCE;
 $copy: $black;
+$copy-dark-bg: #9A9A9A; // Fossil
+$copy-light-bg: #595959; // Iron
 
 :root {
 	// Colour
@@ -61,8 +63,9 @@ $copy: $black;
 	--colour-orange: #{$orange};
 	--colour-blue: #{$blue};
 	--colour-copy: #{$copy};
+	--colour-copy-dark: #{$copy-dark-bg};
+	--colour-copy-light: #{$copy-light-bg};
 	// Type
-	//--text-h6-spacing:
 	// Links
 	--link-hover-colour: #{$blue};
 }

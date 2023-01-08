@@ -11,21 +11,21 @@
 			{{ if .hideTablet -}}
 				<!-- 1px Dot -->
 				<source media="(max-width:1024px)" sizes="1px"
-						srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+						srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
 			{{- else -}}
                 {{ $mobile := $resource.Resize "767x" }}
                 {{ $tablet := $resource.Resize "1024x" }}
 				<!-- Mobile -->
-				<source media="(max-width: 767px)" {{ if .lazy }} class="lazy lazy-hide" data-{{ end }}srcset="{{ $mobile.Permalink }}"/>
+				<source media="(max-width: 767px)" {{ if .lazy }} class="lazy lazy-hide" data-{{ end }}srcset="{{ $mobile.Permalink }}" />
 				<!-- Tablet -->
-				<source media="(max-width: 1024px)" {{ if .lazy }} class="lazy lazy-hide" data-{{ end }}srcset="{{ $tablet.Permalink }}"/>
+				<source media="(max-width: 1024px)" {{ if .lazy }} class="lazy lazy-hide" data-{{ end }}srcset="{{ $tablet.Permalink }}" />
 			{{- end }}
 			<!-- Original -->
-			<img {{ if .lazy }} class="lazy lazy-hide" data-{{ end }}src="{{ $resource.Permalink }}" alt="{{ with .alt -}} {{ . }} {{- end }}"/>
+			<img {{ if .lazy }} class="lazy lazy-hide" data-{{ end }}src="{{ $resource.Permalink }}" alt="{{ with .alt -}} {{ . }} {{- end }}" />
 			<!-- NoScript -->
 			{{ if .lazy -}}
 				<noscript>
-					<img src="{{ $resource.Permalink }}" alt="{{ with .alt -}} {{ . }} {{- end }}"/>
+					<img src="{{ $resource.Permalink }}" alt="{{ with .alt -}} {{ . }} {{- end }}" />
 				</noscript>
 			{{- end }}
 		</picture>
