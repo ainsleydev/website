@@ -1,0 +1,16 @@
+title: Title of the site
+description: Description of the site
+images:
+    - images/site-feature-image.jpg
+contact:
+    email: "hello@ainsley.dev"
+    phone:
+        link: +447940846335
+        pretty: +44 79308 46335
+social:
+    github: "https://github.com/ainsleyclark"
+    linkedin: "https://www.linkedin.com/in/ainsleyclark/"
+    twitter: "https://twitter.com/ainsleydev/"
+    facebook: "https://www.facebook.com/ainsley.devltd/"
+    instagram: "https://www.instagram.com/ainsley.devltd/"
+    dribbble: "https://dribbble.com/ainsleyclark/"

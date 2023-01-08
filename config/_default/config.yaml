@@ -1,32 +1,40 @@
 languageCode: "en-gb"
 title: "ainsley.dev"
 theme: "ainsley.dev"
-enableRobotsTXT: true
-params:
-    title: Title of the site
-    description: Description of the site
-    images:
-        - images/site-feature-image.jpg
-    social:
-        github: "https://github.com/ainsleyclark"
-        linkedin: "https://www.linkedin.com/in/ainsleyclark/"
-        twitter: "https://twitter.com/ainsleydev/"
-        facebook: "https://www.facebook.com/ainsley.devltd/"
-        instagram: "https://www.instagram.com/ainsley.devltd/"
-        dribbble: "https://dribbble.com/ainsleyclark/"
-googleAnalytics: UA-PROPERTY_ID
+build:
+    writeStats: true
 disableKinds: [ "taxonomy", "taxonomyTerm" ]
 ignoreErrors: [ "error-disable-taxonomy" ]
-sitemap:
-    changefreq: monthly
-    filename: sitemap.xml
-    priority: 0.5
-markup:
-    tableOfContents:
-        endLevel: 2
-        ordered: false
-        startLevel: 2
+copyright: "ainsley.dev LTD is a registered company in England and Wales. Company Number 12478393. ©2022 ainsley.dev LTD. All rights reserved."
+enableEmoji: true
+enableInlineShortcodes: true
+enableRobotsTXT: true
+googleAnalytics: UA-PROPERTY_ID
+imaging:
+    hint: photo
+    quality: 75
+    resampleFilter: Lanczos
 module:
     mounts:
         -   source: "./themes/reddico/node_modules/vanilla-lazyload/dist/lazyload.js"
             target: "assets/js/lazyload.js"
+markup:
+    defaultMarkdownHandler: goldmark
+    goldmark:
+        extensions:
+            definitionList: true
+            footnote: true
+            linkify: true
+            linkifyProtocol: https
+            strikethrough: true
+            table: true
+            taskList: true
+            typographer: true
+    tableOfContents:
+        endLevel: 2
+        ordered: false
+        startLevel: 2
+sitemap:
+    changefreq: monthly
+    filename: sitemap.xml
+    priority: 0.5

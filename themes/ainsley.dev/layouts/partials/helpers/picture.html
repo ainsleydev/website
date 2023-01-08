@@ -8,19 +8,30 @@
 		<!-- Variables -->
 		{{ $mobile := $resource.Resize "767x" }}
 		{{ $tablet := $resource.Resize "1024x" }}
-		<picture {{ with .class }}class="{{ . }}"{{ end }}>
-			<!-- Mobile -->
-			<source media="(max-width: 767px)" {{ if .lazy }} class="lazy lazy-hide" data-{{ end }}srcset="{{ $mobile.Permalink }}">
-			<!-- Tablet -->
-			<source media="(max-width: 1024px)" {{ if .lazy }} class="lazy lazy-hide" data-{{ end }}srcset="{{ $tablet.Permalink }}">
+		<picture {{ with .class -}} class="{{ . }}" {{- end }} {{ with .id -}} id="{{ . }}" {{- end }}>
+			<!-- TODO: Hide mobile? -->
+			{{ if .hideTablet -}}
+				<!-- 1px Dot -->
+				<source media="(max-width:1024px)" sizes="1px"
+						srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+			{{- else -}}
+				<!-- Mobile -->
+				<source media="(max-width: 767px)" {{ if .lazy }} class="lazy lazy-hide" data-{{ end }}srcset="{{ $mobile.Permalink }}"/>
+				<!-- Tablet -->
+				<source media="(max-width: 1024px)" {{ if .lazy }} class="lazy lazy-hide" data-{{ end }}srcset="{{ $tablet.Permalink }}"/>
+			{{- end }}
 			<!-- Original -->
-			<img {{ if .lazy }} class="lazy lazy-hide" data-{{ end }}src="{{ $resource.Permalink }}" alt="{{ with .alt }}{{ . }}{{ end }}">
+			<img {{ if .lazy }} class="lazy lazy-hide" data-{{ end }}src="{{ $resource.Permalink }}" alt="{{ with .alt -}} {{ . }} {{- end }}"/>
 			<!-- NoScript -->
-			{{ if .lazy }}
-			<noscript>
-				<img src="{{ $resource.Permalink }}" alt="{{ with .alt }}{{ . }}{{ end }}">
-			</noscript>
-			{{ end }}
+			{{ if .lazy -}}
+				<noscript>
+					<img src="{{ $resource.Permalink }}" alt="{{ with .alt -}} {{ . }} {{- end }}"/>
+				</noscript>
+			{{- end }}
 		</picture>
+    {{- else -}}
+        {{ errorf "Image not found with url: %s" .url }}
 	{{- end }}
+{{- else -}}
+	{{ warnf "No image url attached to picture element" }}
 {{ end -}}

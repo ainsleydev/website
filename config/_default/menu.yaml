@@ -1,0 +1,54 @@
+nav_main:
+    -   identifier: about
+        name: Who we are
+        url: /who-we-are/
+        weight: 10
+        params:
+            image:
+                url: /images/nav/about.jpg
+                alt: ainsley.dev Office Desk
+    -   identifier: services
+        name: Services
+        url: /services/
+        weight: 20
+        params:
+            image:
+                url: /images/nav/services.jpg
+                alt: Signpost with Logo
+    -   identifier: portfolio
+        name: Portfolio
+        url: /portfolio/
+        weight: 30
+        params:
+            image:
+                url: /images/nav/portfolio.jpg
+                alt: Portfolio Image
+    -   identifier: insights
+        name: Insights
+        url: /insights/
+        weight: 40
+        params:
+            image:
+                url: /images/nav/insights.jpg
+                alt: ainsley.dev Office Keyboard
+    -   identifier: contact
+        name: Say hello
+        url: /contact/
+        weight: 50
+        params:
+            image:
+                url: /images/nav/contact.jpg
+                alt: ainsley.dev Office Desk
+nav_sub:
+    -   identifier: brand
+        name: Brand
+        url: /brand/
+        weight: 10
+    -   identifier: questionnaire
+        name: Questionnaire
+        url: /questionnaire/
+        weight: 20
+    -   identifier: feedback
+        name: Feedback
+        url: /feedback/
+        weight: 30

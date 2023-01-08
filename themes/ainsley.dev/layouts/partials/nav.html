@@ -1,107 +1,76 @@
 <!-- =====================
     Navigation
     ===================== -->
-<nav class="nav">
+<nav class="nav" aria-label="Main Navigation">
 	<!-- Main (Top/Left) -->
 	<div class="nav-main nav-main-active">
 		<div class="nav-main-wrapper">
 			<!-- List -->
-			<ul class="nav-list">
-				<!-- Who We Are -->
-				<li class="nav-item">
-					<a href="/who-we-are/" class="nav-link" data-image="nav-picture-about">
-						<h2 class="heading-1">Who we are</h2>
-					</a>
-				</li>
-				<!-- Services -->
-				<li class="nav-item">
-					<a href="/services/" class="nav-link" data-image="nav-picture-services">
-						<h2 class="heading-1">Services</h2>
-					</a>
-				</li>
-				<!-- Portfolio -->
-				<li class="nav-item">
-					<a href="/portfolio/" class="nav-link" data-image="nav-picture-portfolio">
-						<h2 class="heading-1">Portfolio</h2>
-					</a>
-				</li>
-				<!-- Insights -->
-				<li class="nav-item">
-					<a href="/insights/" class="nav-link" data-image="nav-picture-insights">
-						<h2 class="heading-1">Insights</h2>
-					</a>
-				</li>
-				<!-- Contact -->
-				<li class="nav-item">
-					<a href="/contact/" class="nav-link" data-image="nav-picture-contact">
-						<h2 class="heading-1">Say hello</h2></a>
-				</li>
-			</ul><!-- /List -->
+            {{ with .Site.Menus.nav_main -}}
+				<ul class="nav-list">
+                    {{ range . -}}
+						<li class="nav-item">
+							<a href="{{ .URL }}" class="nav-link" data-image="nav-picture-{{ .Identifier }}">
+								<h2 class="heading-1">{{ .Name }}</h2>
+							</a>
+						</li>
+                    {{- end }}
+				</ul><!-- /List -->
+            {{- else -}}
+                {{ errorf "No nav_main defined in menus.yaml" }}
+            {{- end }}
 			<!-- Contact -->
 			<div class="nav-contact">
-				<div class="nav-contact-section">
-					<h6>Email us</h6>
-					<a href="mailto:hello@ainsley.dev">hello@ainsley.dev</a>
-				</div>
-				<div class="nav-contact-section">
-					<h6>Connect with us</h6>
-                    {{ partial "components/social.html" (dict "global" . "colour" "var(--colour-white)") }}
-				</div>
+				<!-- Email -->
+                {{ with .Params.contact.email -}}
+					<div class="nav-contact-section">
+						<h6>Email us</h6>
+						<a href="mailto:{{ . }}">{{ . }}</a>
+					</div>
+                {{- end }}
+				<!-- Social -->
+                {{ if .Params.social -}}
+					<div class="nav-contact-section">
+						<h6>Connect with us</h6>
+                        {{ partial "components/social.html" (dict "global" . "colour" "var(--colour-white)") }}
+					</div>
+                {{- end }}
 			</div><!-- /Contact -->
 		</div><!-- /Wrapper -->
 	</div><!-- /Main -->
 	<!-- Nav Sub (Bottom/Right) -->
 	<div class="nav-sub">
 		<!-- List -->
-		<ul class="nav-list nav-list-white">
-			<li class="nav-item">
-				<a href="/brand/" class="nav-link"><h5>Brand</h5></a>
-			</li>
-			<li class="nav-item">
-				<a href="/forms/questionnaire/" class="nav-link"><h5>Questionnaire</h5></a>
-			</li>
-			<li class="nav-item">
-				<a href="/forms/feedback/" class="nav-link"><h5>Feedback</h5></a>
-			</li>
-		</ul><!-- /List -->
+        {{ with .Site.Menus.nav_sub -}}
+			<ul class="nav-list nav-list-white">
+                {{ range . -}}
+					<li class="nav-item">
+						<a href="{{ .URL }}" class="nav-link">
+							<h5>{{ .Name }}</h5>
+						</a>
+					</li>
+                {{- end }}
+			</ul><!-- /List -->
+        {{- else -}}
+            {{ errorf "No nav_sub defined in menus.yaml" }}
+        {{- end }}
 		<!-- Privacy -->
-		<small>ainsley.dev LTD is a registered company in England and Wales. Company Number 12478393. ©2022
-			ainsley.dev LTD. All rights reserved.</small>
-		<!-- Image Hover
-		 TODO: Replace with picture component (in partials/helper/image.
-		 TODO: Change the location of the nav imagery to be inside the assets folder.
-		 -->
-		<div class="nav-images">
-			<!-- Who We Are -->
-			<picture class="nav-images-item" id="nav-picture-about">
-				<source media=”(max-width:767px)” sizes="1px"
-						srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
-				<img src="/images/nav/about.jpg" alt="ainsley.dev Office Desk"/>
-			</picture>
-			<!-- Services -->
-			<picture class="nav-images-item" id="nav-picture-services">
-				<source media=”(max-width:767px)” sizes="1px"
-						srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
-				<img src="/images/nav/services.jpg" alt="Signpost with Logo"/>
-			</picture>
-			<!-- Portfolio -->
-			<picture class="nav-images-item" id="nav-picture-portfolio">
-				<source media=”(max-width:767px)” sizes="1px"
-						srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
-				<img src="/images/nav/portfolio.jpg" alt="Portfolio Image"/>
-			</picture>
-			<!-- Insights -->
-			<picture class="nav-images-item" id="nav-picture-insights">
-				<source media=”(max-width:767px)” sizes="1px"
-						srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
-				<img src="/images/nav/insights.jpg" alt="ainsley.dev Office Keyboard"/>
-			</picture>
-			<!-- Contact -->
-			<picture class="nav-images-item" id="nav-picture-contact">
-				<source media=”(max-width:767px)” sizes="1px"
-						srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
-				<img src="/images/nav/insights.jpg" alt="ainsley.dev Office Desk"/>
-			</picture>
-		</div><!-- /Image Hover -->
+        {{ with .Site.Copyright -}}
+			<small>{{ .}}</small>
+        {{- end }}
+		<!-- Image Hover -->
+        {{ with .Site.Menus.nav_main -}}
+			<div class="nav-images">
+				<!-- Who We Are -->
+                {{ range . -}}
+                    {{- $name := .Name -}}
+                    {{ if .Params.image -}}
+                        {{ partial "helpers/picture.html" (dict "url" .Params.image.url "alt" .Params.image.alt "class" "nav-images-item" "id" (printf "nav-image-%s" .Identifier) "hideTablet" true) }}
+                    {{- else -}}
+                        {{ errorf "No image attached to menu item: %s" .Name }}
+                    {{- end }}
+                {{- end }}
+			</div><!-- /Image Hover -->
+        {{- end }}
 	</div><!-- /Sub -->
 </nav>
