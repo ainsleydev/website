@@ -1,25 +1,23 @@
-//_grid.scss
-//
-//Main grid system, containers, rows & columns.
-// ==========================================================================
+// -----------------------------------------------------------------------------
+// _grid.scss
+// Main grid system, containers, rows & columns.
+// -----------------------------------------------------------------------------
 
 .container {
+	position: relative;
+	display: block;
 	width: 100%;
-	padding-right: $gap-width;
-	padding-left: $gap-width;
 	margin-right: auto;
 	margin-left: auto;
+	max-width: $container-max-width;
+	padding: 0 $container-padding-x;
+
+	@media (min-width: $container-max-width + 50) {
+		padding: 0;
+	}
 }
 
-.container-fullwidth {
-	width: 100%;
-	padding-left: $gap-width;
-	padding-right: $gap-width;
-	margin-right: auto;
-	margin-left: auto;
-}
-
-//Creates the breakpoints for containers
+// Creates the breakpoints for containers
 @each $modifier, $breakpoint in $grid-properties {
 	@include create-mediaquery($breakpoint) {
 		@if ($breakpoint != 0) {
@@ -48,7 +46,7 @@
 	padding-left: 0;
 }
 
-//Common Column Properties
+// Common Column Properties
 %column-props {
 	position: relative;
 	width: 100%;

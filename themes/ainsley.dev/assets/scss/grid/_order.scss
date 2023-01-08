@@ -1,7 +1,7 @@
-//_order.scss
-//
-//Adds order classes to each breakpoint (push & pull).
-// ==========================================================================
+// -----------------------------------------------------------------------------
+// _order.scss
+// Adds order classes to each breakpoint (push & pull).
+// -----------------------------------------------------------------------------
 
 @each $modifier, $breakpoint in $grid-properties {
 	@include create-mediaquery($breakpoint) {

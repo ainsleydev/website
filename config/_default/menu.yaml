@@ -52,3 +52,36 @@ nav_sub:
         name: Feedback
         url: /feedback/
         weight: 30
+footer:
+    -   identifier: about
+        name: Who we are
+        url: /who-we-are/
+        weight: 10
+    -   identifier: services
+        name: Services
+        url: /services/
+        weight: 20
+    -   identifier: portfolio
+        name: Portfolio
+        url: /portfolio/
+        weight: 30
+    -   identifier: insights
+        name: Insights
+        url: /insights/
+        weight: 40
+    -   identifier: contact
+        name: Say hello
+        url: /contact/
+        weight: 50
+    -   identifier: brand
+        name: Brand
+        url: /brand/
+        weight: 60
+    -   identifier: questionnaire
+        name: Questionnaire
+        url: /questionnaire/
+        weight: 70
+    -   identifier: feedback
+        name: Feedback
+        url: /feedback/
+        weight: 80

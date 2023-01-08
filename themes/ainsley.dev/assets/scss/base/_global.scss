@@ -41,10 +41,6 @@ body {
 	}
 }
 
-section {
-	position: relative;
-}
-
 *,
 *::before,
 *::after {
@@ -62,4 +58,25 @@ ul {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
+}
+
+// No JS
+// =========================================================================
+
+.no-js {
+
+	.js-hide {
+		display: none !important;
+	}
+
+	.lazy {
+		display: none !important;
+	}
+}
+
+// Mods
+// =========================================================================
+
+.js-hide {
+	display: none !important;
 }

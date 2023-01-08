@@ -27,7 +27,6 @@
 	&-sub {
 		position: relative;
 		width: 100%;
-		height: 100%;
 		padding: 0 $header-padding-mob-x;
 	}
 
@@ -37,7 +36,9 @@
 	&-main {
 		display: flex;
 		align-items: center;
+		flex-grow: 2;
 		z-index: 10;
+		margin-top: $header-height / 2;
 		box-shadow: 10px 0 16px 0 rgba($black, 0.15);
 
 		&-hover {
@@ -58,7 +59,7 @@
 
 	&-sub {
 		background-color: $white;
-		padding: 50px $gap-width;
+		padding: 40px $gap-width;
 		z-index: 1;
 
 		#{$self}-list {
@@ -174,6 +175,13 @@
 		opacity: 1;
 		visibility: visible;
 		transition: opacity 700ms, visibility 700ms step-start;
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-tab {
+
 	}
 
 	// Desktop

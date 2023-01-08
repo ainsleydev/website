@@ -7,16 +7,17 @@
 // ==========================================================================
 
 // Columns
-$grid-columns: 12 !default;
-$gap-width: 15px !default;
+$grid-columns: 12;
+$gap-width: 15px;
 
 // Breakpoints
-$grid-breakpoint-mob: 568 !default;
-$grid-breakpoint-tab: 768 !default;
-$grid-breakpoint-desk: 1024 !default;
-$grid-breakpoint-hd: 1408 !default;
+$grid-breakpoint-mob: 568;
+$grid-breakpoint-tab: 768;
+$grid-breakpoint-desk: 1024;
+$grid-breakpoint-desk-large: 1408;
+$grid-breakpoint-hd: 1600;
 
-// Properties for grid
+// Properties for rid
 $grid-properties: (
 	"": 0,
 	"-mob": $grid-breakpoint-mob,
@@ -24,6 +25,10 @@ $grid-properties: (
 	"-desk": $grid-breakpoint-desk,
 	"-hd": $grid-breakpoint-hd
 ) !default;
+
+// Container
+$container-max-width: 1450px;
+$container-padding-x: 5vw;
 
 // Fonts
 // ==========================================================================

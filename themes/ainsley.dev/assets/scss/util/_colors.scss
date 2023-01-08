@@ -1,7 +1,7 @@
-//_colors.scss
-//
-// Add colors via color variables, darken & lighen.
-// ==========================================================================
+// -----------------------------------------------------------------------------
+// _colours.scss
+// Add colours via colour variables, darken & lighten.
+// -----------------------------------------------------------------------------
 
 @each $color-name, $hex in $palette {
 	@each $attr-name, $attr in $color-attr {

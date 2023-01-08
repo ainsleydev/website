@@ -1,7 +1,7 @@
-//_flex.scss
-//
-//Responsive flex utility classes for each breakpoint.
-// ==========================================================================
+// -----------------------------------------------------------------------------
+// _flex.scss
+// Responsive flex utility classes for each breakpoint.
+// -----------------------------------------------------------------------------
 
 @each $modifier, $breakpoint in $grid-properties {
 	@include create-mediaquery($breakpoint) {
