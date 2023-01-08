@@ -6,8 +6,6 @@
 	{{- $resource := resources.Get .url -}}
 	{{ if $resource -}}
 		<!-- Variables -->
-		{{ $mobile := $resource.Resize "767x" }}
-		{{ $tablet := $resource.Resize "1024x" }}
 		<picture {{ with .class -}} class="{{ . }}" {{- end }} {{ with .id -}} id="{{ . }}" {{- end }}>
 			<!-- TODO: Hide mobile? -->
 			{{ if .hideTablet -}}
@@ -15,6 +13,8 @@
 				<source media="(max-width:1024px)" sizes="1px"
 						srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
 			{{- else -}}
+                {{ $mobile := $resource.Resize "767x" }}
+                {{ $tablet := $resource.Resize "1024x" }}
 				<!-- Mobile -->
 				<source media="(max-width: 767px)" {{ if .lazy }} class="lazy lazy-hide" data-{{ end }}srcset="{{ $mobile.Permalink }}"/>
 				<!-- Tablet -->
