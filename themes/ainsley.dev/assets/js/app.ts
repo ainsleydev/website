@@ -6,17 +6,8 @@
  * @author Email: info@ainsleyclark.com
  */
 
-/**
- * Require * Import
- *
- */
-
-//Local
-//require('./scripts/polyfills');
-
-// https://stackoverflow.com/questions/60323550/compile-typescript-with-hugo-pipes
-
-//Vendor
+import scripts from "./scripts/polyfills";
+import {} from "./components/nav";
 import LazyLoad from 'vanilla-lazyload';
 
 

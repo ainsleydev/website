@@ -1,0 +1,29 @@
+<!-- =====================
+    Picture
+    TODO: Vars & Usage.
+    ===================== -->
+<!-- Picture -->
+{{ if .url }}
+    {{- $resource := resources.Get .url -}}
+    {{ if $resource -}}
+		<!-- Variables -->
+		<picture {{ with .class -}} class="{{ . }}" {{- end }} {{ with .id -}} id="{{ . }}" {{- end }}>
+			<!-- Mobile -->
+            {{ partial "partials/media/helpers/source.html" (dict "show" .mobile "resource" $resource "size" 767 "lazy" .lazy) }}
+			<!-- Tablet -->
+            {{ partial "partials/media/helpers/source.html" (dict "show" .tablet "resource" $resource "size" 1024 "lazy" .lazy) }}
+			<!-- Original -->
+            {{ partial "partials/media/helpers/img.html" (dict "resource" $resource "lazy" .lazy) }}
+			<!-- NoScript -->
+            {{ if .lazy -}}
+				<noscript>
+					<img src="{{ $resource.RelPermalink }}" alt="{{ with .alt -}} {{ . }} {{- end }}"/>
+				</noscript>
+            {{- end }}
+		</picture>
+    {{- else -}}
+        {{ errorf "Image not found with url: %s" .url }}
+    {{- end }}
+{{- else -}}
+    {{ warnf "No image url attached to picture element" }}
+{{ end -}}

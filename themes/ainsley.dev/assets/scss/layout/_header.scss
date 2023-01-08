@@ -14,7 +14,7 @@
 	left: 0;
 	height: $header-height;
 	width: 100vw;
-	padding: 0 $header-padding-x;
+	padding: 0 $header-padding-x-mob;
 	z-index: 99999;
 
 	// Logo
@@ -46,5 +46,12 @@
 	&-scrolled {
 		background-color: (orange);
 		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.23);
+	}
+
+	// Desktop
+	// ==========================================================================
+
+	@include media-desk {
+		padding: 0 $header-padding-x-desk;
 	}
 }

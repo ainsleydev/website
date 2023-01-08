@@ -1,0 +1,26 @@
+{{ define "main" }}
+	<!-- =====================
+		Brand Archive
+			Page Template for /brand
+		===================== -->
+	<section class="hero">
+		<!-- Background -->
+		{{ partial "media/picture.html" (dict "mobile" true "url" "images/nav/about.jpg") }}
+		<!-- Content -->
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<!-- Heading -->
+					<div class="text-cont text-cont-large">
+						<h1>ainsley.dev <span class="type-serif">brand <br/>guidelines*</span></h1>
+					</div>
+					<!-- Button -->
+					{{ partial "components/button.html" (dict "text" "Download" "link" "files.zip" "arrow" true "colour" "white" "attr" "download") }}
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- =====================
+		List
+		===================== -->
+{{ end }}

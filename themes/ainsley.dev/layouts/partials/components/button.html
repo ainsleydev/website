@@ -1,7 +1,18 @@
 <!-- =====================
     Button
-    	partial "components/button.html" (dict "rotation" 45 "colour" "white")
-    	- text: The text to appear within side the button.
-    	- colour: The colour of the button, defaults to foreground.
+    	partial "components/button.html" (dict "text" "Download" "link" "files.zip" "arrow" true "colour" "white" "attr" "download")
+    	- text: 		The text to appear within side the button.
+    	- colour: 		The colour of the button, defaults to foreground.
+    	- link: 		If the button should be an <a> tag.
+    	- arrow: 		If an arrow should appear with the button.
+    	- attributes: 	Any additional classnames or attributes to appear.
     ===================== -->
-<button class="btn"></button>
+{{ if .link -}}
+	<a href="{{ .link }}" class="btn btn-colour-{{ with .colour -}} {{ . }} {{- end }}" {{ .attr }}>
+        {{ with .text -}} {{ . }} {{- end }}
+	</a>
+{{- else -}}
+	<button class="btn btn-colour-{{ with .colour -}} {{ . }} {{- end }}" {{ .attr }}>
+        {{ with .text -}} {{ . }} {{- end }}
+	</button>
+{{- end }}

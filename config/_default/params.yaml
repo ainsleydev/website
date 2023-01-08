@@ -15,3 +15,10 @@ social:
     facebook: "https://www.facebook.com/ainsley.devltd/"
     instagram: "https://www.instagram.com/ainsley.devltd/"
     dribbble: "https://dribbble.com/ainsleyclark/"
+css:
+    container:
+        mob: 568
+        tab: 768
+        desk: 1024
+        desk-large: 1408
+        hd: 1600

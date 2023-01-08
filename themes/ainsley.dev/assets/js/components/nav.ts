@@ -25,11 +25,13 @@ class Navigation {
 	 */
 	constructor() {
 		this.checkbox = <HTMLFormElement>document.querySelector(".nav .nav-checkbox")
+		this.pictureHover();
 	}
 
 	/**
 	 * Nav Click
 	 * Removes classes once a link is clicked.
+	 *
 	 * @private
 	 */
 	private navClick(): void {
@@ -44,21 +46,41 @@ class Navigation {
 	}
 
 	/**
+	 * Picture Hover
+	 * Adds the active class to the navigation
+	 * pictures when the user hovers over them.
 	 *
 	 * @private
 	 */
 	private pictureHover(): void {
 		const links = Elements.Nav.querySelectorAll("[data-nav-image]");
 		links.forEach(link => {
-			link.addEventListener("click", () => {
-				const image = link.getAttribute("data-nav-image");
-				if (!image) {
-					Log.warn("No data-nav-image attribute found for link: " + link)
-				}
 
+			// Mouse over handler.
+			link.addEventListener("mouseover", () => {
+				const selector = link.getAttribute("data-nav-image");
+				if (!selector) {
+					Log.warn("Nav - No data-nav-image attribute found for link: " + link);
+					return;
+				}
+				const image = document.querySelector(selector.toString());
+				if (!image) {
+					Log.warn("Nav - No image found with the attribute: " + selector.toString());
+					return;
+				}
+				image.classList.add("nav-images-item-active");
+			});
+
+			// Mouse out handler.
+			link.addEventListener("mouseout", () => {
+				document.querySelectorAll(".nav-images-item-active").forEach(image => {
+					image.classList.remove("nav-images-item-active");
+				});
 			});
 		});
 	}
 }
 
-export const Nav = new Navigation();
+const Nav = new Navigation();
+
+export default Nav;

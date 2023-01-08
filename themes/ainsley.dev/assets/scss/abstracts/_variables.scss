@@ -100,7 +100,8 @@ $section-padding-divider: 3;
 // =========================================================================
 
 $header-height: 80px;
-$header-padding-x: $container-padding-x;
+$header-padding-x-mob: $container-padding-x;
+$header-padding-x-desk: 30px;
 $header-logo-size: 115px;
 
 // Nav
@@ -115,3 +116,9 @@ $nav-padding-desktop: 4rem 6rem;
 $text-cont-margin-mob: 1rem;
 $text-cont-margin-tab: 1.2rem;
 $text-cont-margin: 1.4rem;
+
+// Button
+// ==========================================================================
+
+$button-padding: 1rem 2.8rem;
+$button-hover-colour: $orange;
