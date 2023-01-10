@@ -44,21 +44,28 @@
                     {{ $noExtension := strings.TrimSuffix (path.Ext $resource.RelPermalink) $resource.RelPermalink }}
 					<!-- AVIF -->
 					<img {{ if .lazy }} class="lazy lazy-hide"
-										data-{{ end }}src="{{ $noExtension }}.avif"
-										alt="{{ with .alt -}} {{ . }} {{- end }}" type="image/avif"/>
+						data-{{ end }}src="{{ $noExtension }}.avif"
+						alt="{{ with .alt -}} {{ . }} {{- end }}"
+						type="image/avif"
+						width="{{ $resource.Width}}" height="{{ $resource.Height }}"/>
 					<!-- WebP -->
 					<img {{ if .lazy }} class="lazy lazy-hide"
-										data-{{ end }}src="{{ $noExtension }}.webp"
-										alt="{{ with .alt -}} {{ . }} {{- end }}" type="image/webp"/>
+						data-{{ end }}src="{{ $noExtension }}.webp"
+						alt="{{ with .alt -}} {{ . }} {{- end }}"
+						type="image/webp"
+						width="{{ $resource.Width}}" height="{{ $resource.Height }}"/>
                 {{- end }}
 				<!-- Original - Image -->
 				<img {{ if .lazy }} class="lazy lazy-hide"
-									data-{{ end }}src="{{ $resource.RelPermalink }}"
-									alt="{{ with .alt -}} {{ . }} {{- end }}"/>
+					data-{{ end }}src="{{ $resource.RelPermalink }}"
+					alt="{{ with .alt -}} {{ . }} {{- end }}"
+					width="{{ $resource.Width}}" height="{{ $resource.Height }}"
+				/>
 				<!-- NoScript -->
                 {{ if .lazy -}}
 					<noscript>
-						<img src="{{ $resource.RelPermalink }}" alt="{{ with .alt -}} {{ . }} {{- end }}"/>
+						<img src="{{ $resource.RelPermalink }}" alt="{{ with .alt -}} {{ . }} {{- end }}"
+							 width="{{ $resource.Width}}" height="{{ $resource.Height }}"/>
 					</noscript>
                 {{- end }}
 			</picture>

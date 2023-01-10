@@ -12,7 +12,7 @@
     {{ if $resource -}}
 		<img class="{{ if .lazy }} lazy lazy-hide {{ end }} {{ with .class -}} {{ . }} {{- end }}"
              {{ if .lazy }}data-{{ end }}src="{{ $resource.Permalink }}" alt="{{ with .alt -}} {{ . }} {{- end }}"
-                {{ with .id -}} id="{{ . }}" {{- end }}/>
+			 width="{{ $resource.Width}}" height="{{ $resource.Height }}" {{ with .id -}} id="{{ . }}" {{- end }}/>
         {{ if .lazy }}
 			<noscript>
 				<img class="{{ with .class -}} {{ . }} {{- end }}" src="{{ $resource.Permalink }}"

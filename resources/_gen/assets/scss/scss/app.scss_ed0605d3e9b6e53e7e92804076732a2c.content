@@ -1645,7 +1645,7 @@ small {
           transition: transform 250ms ease-in-out;
           will-change: transform; }
         .nav-main .nav-link:after {
-          content: url("/images/icons/nav-arrow.svg");
+          content: url("//localhost:1313//images/icons/nav-arrow.svg");
           position: absolute;
           top: 50%;
           left: 0;
