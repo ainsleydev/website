@@ -3,60 +3,66 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/work/decspets/</loc>
+    <lastmod>2022-02-17T18:47:30+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>/</loc>
-    <lastmod>2022-01-02T10:48:28+01:00</lastmod>
+    <lastmod>2023-01-08T15:23:37+00:00</lastmod>
     <priority>0</priority>
   </url><url>
     <loc>/work/royal-beauty/</loc>
-    <lastmod>2022-01-02T10:48:28+01:00</lastmod>
+    <lastmod>2022-01-04T15:15:54+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>/work/scotts-guttering/</loc>
-    <lastmod>2022-01-02T10:48:28+01:00</lastmod>
+    <lastmod>2022-01-04T15:15:54+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>/work/oaktuition/</loc>
-    <lastmod>2022-01-02T10:48:28+01:00</lastmod>
+    <lastmod>2022-01-04T15:15:54+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>/work/thinkopedia/</loc>
-    <lastmod>2022-01-02T10:48:28+01:00</lastmod>
+    <lastmod>2022-01-04T15:15:54+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>/work/</loc>
-    <lastmod>2022-01-02T10:48:28+01:00</lastmod>
+    <lastmod>2022-02-17T18:47:30+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>/posts/</loc>
-    <lastmod>2017-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2023-01-08T15:23:37+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>/posts/optimise-seo/</loc>
-    <lastmod>2017-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2023-01-08T15:23:37+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>/brand/fonts/</loc>
+    <lastmod>2023-01-04T20:09:13+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>/brand/</loc>
-    <priority>0</priority>
-  </url><url>
-    <loc>/brand/fonts/</loc>
+    <lastmod>2023-01-07T17:23:56+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>/posts/bedroom-agency/</loc>
+    <lastmod>2022-02-17T18:29:34+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>/posts/golang-interfaces/</loc>
+    <lastmod>2022-02-17T18:29:34+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

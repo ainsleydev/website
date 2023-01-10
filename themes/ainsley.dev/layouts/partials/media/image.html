@@ -1,16 +1,25 @@
 <!-- =====================
     Image
-    TODO: Vars & Usage.
+		partial "media/image.html" ("url" "/images/hello.jpg" "lazy" true "class" "class-name" "id" "id-name")
+		- global:			The global context, this has to be parsed or an error will be thrown.
+		- url:				The relative URL of the resource/image, this has to be parsed or an error will be thrown.
+		- lazy:				If the image should be lazy loaded, defaults to false.
+		- id:				An ID to attach to the <picture> element.
+		- class:			Any class names to be appended to the <picture> element.
     ===================== -->
 {{ if .url }}
-	{{- $resource := resources.Get .url -}}
-	{{ if $resource -}}
-		<!-- Variables -->
-		<img class="{{ if .lazy }} lazy lazy-hide {{ end }} {{ with .class }}{{ . }}{{ end }}" {{ if .lazy }}data-{{ end }}src="{{ $resource.Permalink }}" alt="{{ with .alt }}{{ . }}{{ end }}">
-		{{ if .lazy }}
-		<noscript>
-			<img class="{{ with .class }}{{ . }}{{ end }}" src="{{ $resource.Permalink }}" alt="{{ with .alt }}{{ . }}{{ end }}">
-		</noscript>
-		{{ end }}
-	{{- end }}
-{{ end -}}
+    {{- $resource := resources.Get .url -}}
+    {{ if $resource -}}
+		<img class="{{ if .lazy }} lazy lazy-hide {{ end }} {{ with .class -}} {{ . }} {{- end }}"
+             {{ if .lazy }}data-{{ end }}src="{{ $resource.Permalink }}" alt="{{ with .alt -}} {{ . }} {{- end }}"
+                {{ with .id -}} id="{{ . }}" {{- end }}/>
+        {{ if .lazy }}
+			<noscript>
+				<img class="{{ with .class -}} {{ . }} {{- end }}" src="{{ $resource.Permalink }}"
+					 alt="{{ with .alt -}} {{ . }} {{- end }}">
+			</noscript>
+        {{ end }}
+    {{- end }}
+{{- else -}}
+    {{ errorf "No image url attached to picture element" }}
+{{- end }}

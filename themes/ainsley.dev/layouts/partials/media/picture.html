@@ -1,29 +1,73 @@
 <!-- =====================
     Picture
-    TODO: Vars & Usage.
+		partial "media/picture.html" (dict "global" . "url" "/images/hello.jpg" "lazy" true "mobile" false "class" "class-name" "id" "id-name")
+		- global:			The global context, this has to be parsed or an error will be thrown.
+		- url:				The relative URL of the resource/image, this has to be parsed or an error will be thrown.
+		- lazy:				If the image should be lazy loaded, defaults to false.
+		- [css-key] bool:	Hide a particular viewport by outputting a 1px dot. See .Params for the css keys.
+		- id:				An ID to attach to the <picture> element.
+		- class:			Any class names to be appended to the <picture> element.
     ===================== -->
-<!-- Picture -->
-{{ if .url }}
-    {{- $resource := resources.Get .url -}}
-    {{ if $resource -}}
-		<!-- Variables -->
-		<picture {{ with .class -}} class="{{ . }}" {{- end }} {{ with .id -}} id="{{ . }}" {{- end }}>
-			<!-- Mobile -->
-            {{ partial "partials/media/helpers/source.html" (dict "show" .mobile "resource" $resource "size" 767 "lazy" .lazy) }}
-			<!-- Tablet -->
-            {{ partial "partials/media/helpers/source.html" (dict "show" .tablet "resource" $resource "size" 1024 "lazy" .lazy) }}
-			<!-- Original -->
-            {{ partial "partials/media/helpers/img.html" (dict "resource" $resource "lazy" .lazy) }}
-			<!-- NoScript -->
-            {{ if .lazy -}}
-				<noscript>
-					<img src="{{ $resource.RelPermalink }}" alt="{{ with .alt -}} {{ . }} {{- end }}"/>
-				</noscript>
-            {{- end }}
-		</picture>
+{{ $showAvifWebp := ne hugo.Environment "development" -}}
+{{ if isset $ "global" -}}
+    {{ if .url }}
+        {{- $resource := resources.Get .url -}}
+        {{ if $resource -}}
+			<picture {{ with .class -}} class="{{ . }}" {{- end }} {{ with .id -}} id="{{ . }}" {{- end }}>
+				<!-- Container Sizes -->
+                {{ range $key, $size := .global.Site.Params.css.container -}}
+                    {{ if gt $resource.Width $size -}}
+                        {{- $image := $resource.Resize (printf "%dx" $size) -}}
+                        {{ $show := true }}
+                        {{ if and (eq (isset $ $key) true) (eq (index $ $key) false) -}}
+							<!-- 1px Dot -->
+							<source media="(max-width:{{ $size }}px)" sizes="1px"
+									srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+                        {{- else -}}
+                            {{ if $showAvifWebp -}}
+                                {{- $noExtension := strings.TrimSuffix (path.Ext $image.RelPermalink) $image.RelPermalink -}}
+								<!-- AVIF -->
+								<source media="(max-width: {{ $size }}px)" {{ if $.lazy }} class="lazy lazy-hide"
+										data-{{ end }}srcset="{{ $noExtension }}.avif" type="image/avif"/>
+								<!-- WebP -->
+								<source media="(max-width: {{ $size }}px)" {{ if $.lazy }} class="lazy lazy-hide"
+										data-{{ end }}srcset="{{ $noExtension }}.webp" type="image/webp"/>
+                            {{- end }}
+							<!-- Original -->
+							<source media="(max-width: {{ $size }}px)" {{ if $.lazy }} class="lazy lazy-hide"
+									data-{{ end }}srcset="{{ $image.RelPermalink }}"/>
+                        {{- end }}
+                    {{- end }}
+                {{- end }}
+				<!-- Original - AVIF/WebP -->
+                {{ if $showAvifWebp -}}
+                    {{ $noExtension := strings.TrimSuffix (path.Ext $resource.RelPermalink) $resource.RelPermalink }}
+					<!-- AVIF -->
+					<img {{ if .lazy }} class="lazy lazy-hide"
+										data-{{ end }}src="{{ $noExtension }}.avif"
+										alt="{{ with .alt -}} {{ . }} {{- end }}" type="image/avif"/>
+					<!-- WebP -->
+					<img {{ if .lazy }} class="lazy lazy-hide"
+										data-{{ end }}src="{{ $noExtension }}.webp"
+										alt="{{ with .alt -}} {{ . }} {{- end }}" type="image/webp"/>
+                {{- end }}
+				<!-- Original - Image -->
+				<img {{ if .lazy }} class="lazy lazy-hide"
+									data-{{ end }}src="{{ $resource.RelPermalink }}"
+									alt="{{ with .alt -}} {{ . }} {{- end }}"/>
+				<!-- NoScript -->
+                {{ if .lazy -}}
+					<noscript>
+						<img src="{{ $resource.RelPermalink }}" alt="{{ with .alt -}} {{ . }} {{- end }}"/>
+					</noscript>
+                {{- end }}
+			</picture>
+        {{- else -}}
+            {{ errorf "Image not found with url: %s" .url }}
+        {{- end }}
     {{- else -}}
-        {{ errorf "Image not found with url: %s" .url }}
+        {{ errorf "No image url attached to picture element" }}
     {{- end }}
 {{- else -}}
-    {{ warnf "No image url attached to picture element" }}
-{{ end -}}
+    {{ errorf "'global' variable should be passed to the <picture> partial" }}
+{{- end }}
