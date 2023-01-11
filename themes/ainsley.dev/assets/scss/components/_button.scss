@@ -9,27 +9,160 @@
 	position: relative;
 	display: inline-flex;
 	justify-content: center;
+	align-items: center;
 	height: auto;
 	padding: $button-padding;
 	background-color: colour(foreground);
 	color: colour(background);
-	font-size: 1rem;
-	font-weight: bold;
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
 	outline: none;
 	user-select: none;
-	line-height: 1;
 	text-decoration: none;
-	transition: color 200ms ease;
+	transition: color $button-transition-time ease;
 	will-change: color;
+
+	// Text
+	// =========================================================================
+
+	span {
+		font-size: 1rem;
+		font-weight: bold;
+		line-height: 1;
+	}
 
 	// Hover
 	// =========================================================================
 
 	&:hover {
-		color: $button-hover-colour;
+		color: inherit;
+	}
+
+	// Colours
+	// =========================================================================
+
+	&-colour {
+
+		&-white {
+			background-color: $white;
+			color: $black;
+
+			&:hover {
+				color: $black;
+			}
+
+			&:active {
+				background-color: $black;
+				color: $white;
+
+				&:before,
+				&:after {
+					filter: invert(100%);
+				}
+			}
+		}
+
+		&-black {
+			background-color: $black;
+			color: $white;
+
+			&:hover {
+				color: $white;
+			}
+
+			&:active {
+				background-color: $black;
+				color: $white;
+
+				&:before,
+				&:after {
+					filter: invert(100%);
+				}
+			}
+		}
+	}
+
+	// Arrow
+	// =========================================================================
+
+	&-arrow {
+
+		span {
+			transition: transform $button-transition-time ease;
+			will-change: transform;
+		}
+
+		&#{$self}-colour-black {
+
+			&:before,
+			&:after {
+				background: url('#{$publicPath}/images/icons/button-arrow-white.svg') no-repeat;
+			}
+		}
+
+		&#{$self}-colour-white {
+
+			&:before,
+			&:after {
+				background: url('#{$publicPath}/images/icons/button-arrow-black.svg') no-repeat;
+			}
+		}
+
+		&:before,
+		&:after {
+			content: "";
+			display: inline-block;
+			width: $button-arrow-size;
+			height: $button-arrow-size;
+			min-width: $button-arrow-size;
+			min-height: $button-arrow-size;
+			background-size: 100% !important;
+			transition: all $button-transition-time ease;
+			//transform-origin: 50% 50%;
+		}
+
+		&:before {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			opacity: 0;
+			transform: translate(-50%, -50%);
+		}
+
+		&:after {
+			position: relative;
+			margin-left: 10px;
+		}
+
+		&:hover {
+
+			span {
+				transform: translateX(30px);
+				color: inherit;
+			}
+
+			&:before {
+				opacity: 1;
+				transform: translate(30px, -50%);
+			}
+
+			&:after {
+				opacity: 0;
+			}
+		}
+	}
+
+	// Clicked
+	// =========================================================================
+
+	&-clicked {
+		//background-color: $black !important;
+		//color: $white !important;
+
+		&:before {
+			transform: rotate(10deg) !important;
+		}
 	}
 
 	// Loading
@@ -57,6 +190,7 @@
 			left: 50%;
 			margin-left: -9px;
 			margin-top: -9px;
+			background: $white;
 		}
 
 		@keyframes spinner {

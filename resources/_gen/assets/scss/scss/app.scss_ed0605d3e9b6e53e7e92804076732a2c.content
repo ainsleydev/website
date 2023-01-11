@@ -1374,23 +1374,80 @@ small {
   position: relative;
   display: inline-flex;
   justify-content: center;
+  align-items: center;
   height: auto;
-  padding: 1rem 2.8rem;
+  padding: 1rem 2.2rem;
   background-color: var(--colour-foreground);
   color: var(--colour-background);
-  font-size: 1rem;
-  font-weight: bold;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   outline: none;
   user-select: none;
-  line-height: 1;
   text-decoration: none;
   transition: color 200ms ease;
   will-change: color; }
+  .btn span {
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1; }
   .btn:hover {
-    color: #FF5043; }
+    color: inherit; }
+  .btn-colour-white {
+    background-color: #FFF;
+    color: #0A0A0A; }
+    .btn-colour-white:hover {
+      color: #0A0A0A; }
+    .btn-colour-white:active {
+      background-color: #0A0A0A;
+      color: #FFF; }
+      .btn-colour-white:active:before, .btn-colour-white:active:after {
+        filter: invert(100%); }
+  .btn-colour-black {
+    background-color: #0A0A0A;
+    color: #FFF; }
+    .btn-colour-black:hover {
+      color: #FFF; }
+    .btn-colour-black:active {
+      background-color: #0A0A0A;
+      color: #FFF; }
+      .btn-colour-black:active:before, .btn-colour-black:active:after {
+        filter: invert(100%); }
+  .btn-arrow span {
+    transition: transform 200ms ease;
+    will-change: transform; }
+  .btn-arrow.btn-colour-black:before, .btn-arrow.btn-colour-black:after {
+    background: url("http://localhost:1313//images/icons/button-arrow-white.svg") no-repeat; }
+  .btn-arrow.btn-colour-white:before, .btn-arrow.btn-colour-white:after {
+    background: url("http://localhost:1313//images/icons/button-arrow-black.svg") no-repeat; }
+  .btn-arrow:before, .btn-arrow:after {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    background-size: 100% !important;
+    transition: all 200ms ease; }
+  .btn-arrow:before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    opacity: 0;
+    transform: translate(-50%, -50%); }
+  .btn-arrow:after {
+    position: relative;
+    margin-left: 10px; }
+  .btn-arrow:hover span {
+    transform: translateX(30px);
+    color: inherit; }
+  .btn-arrow:hover:before {
+    opacity: 1;
+    transform: translate(30px, -50%); }
+  .btn-arrow:hover:after {
+    opacity: 0; }
+  .btn-clicked:before {
+    transform: rotate(10deg) !important; }
   .btn-loading {
     transition: none;
     pointer-events: none;
@@ -1411,7 +1468,8 @@ small {
       top: 50%;
       left: 50%;
       margin-left: -9px;
-      margin-top: -9px; }
+      margin-top: -9px;
+      background: #FFF; }
 
 @keyframes spinner {
   0% {
