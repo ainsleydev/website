@@ -9,16 +9,22 @@
     ===================== -->
 {{ if .url }}
     {{- $resource := resources.Get .url -}}
+    {{ if eq $resource nil -}}
+        {{- $resource = .global.Resources.Get .url -}}
+    {{- end -}}
     {{ if $resource -}}
 		<img class="{{ if .lazy }} lazy lazy-hide {{ end }} {{ with .class -}} {{ . }} {{- end }}"
              {{ if .lazy }}data-{{ end }}src="{{ $resource.Permalink }}" alt="{{ with .alt -}} {{ . }} {{- end }}"
-			 width="{{ $resource.Width}}" height="{{ $resource.Height }}" {{ with .id -}} id="{{ . }}" {{- end }}/>
+			 id="{{ with .id -}}  {{ . }}  {{- end }}"
+			 width="{{ $resource.Width}}" height="{{ $resource.Height }}"/>
         {{ if .lazy }}
 			<noscript>
 				<img class="{{ with .class -}} {{ . }} {{- end }}" src="{{ $resource.Permalink }}"
 					 alt="{{ with .alt -}} {{ . }} {{- end }}">
 			</noscript>
-        {{ end }}
+        {{ else }}
+            {{ warnf "Image not found with url: %s" .url }}
+        {{- end -}}
     {{- end }}
 {{- else -}}
     {{ errorf "No image url attached to picture element" }}

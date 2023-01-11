@@ -65,6 +65,9 @@ body {
     --colour-background: $white;
     --colour-foreground: $black; }
 
+#content {
+  min-height: 100%; }
+
 *,
 *::before,
 *::after {
@@ -1418,6 +1421,18 @@ small {
     .btn-loading:hover {
       box-shadow: none; }
 
+.gradient {
+  position: relative; }
+  .gradient:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 30%;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0) 0%, #0a0a0a 100%);
+    z-index: 10; }
+
 .social {
   position: relative;
   display: flex;
@@ -1500,6 +1515,27 @@ small {
   @media (min-width: 1024px) {
     .header {
       padding: 0 30px; } }
+.hero {
+  position: relative; }
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; }
+    .hero-background img,
+    .hero-background source {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
+  .hero-full-height {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh; }
+
 .nav {
   position: fixed;
   display: flex;
@@ -1645,7 +1681,7 @@ small {
           transition: transform 250ms ease-in-out;
           will-change: transform; }
         .nav-main .nav-link:after {
-          content: url("//localhost:1313//images/icons/nav-arrow.svg");
+          content: url("http://localhost:1313//images/icons/nav-arrow.svg");
           position: absolute;
           top: 50%;
           left: 0;

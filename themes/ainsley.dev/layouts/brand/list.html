@@ -3,9 +3,13 @@
 		Brand Archive
 			Page Template for /brand
 		===================== -->
-	<section class="hero">
+	<section class="hero hero-full-height">
 		<!-- Background -->
-		{{ partial "media/picture.html" (dict "global" . "url" "images/nav/about.jpg") }}
+        {{ if .Resources.Get "hero.jpg" -}}
+			<picture class="hero-background gradient">
+                {{ partial "media/picture.html" (dict "global" $ "url" "hero.jpg" "class" "hero-background gradient") }}
+			</picture>
+        {{- end }}
 		<!-- Content -->
 		<div class="container">
 			<div class="row">
@@ -15,7 +19,7 @@
 						<h1>ainsley.dev <span class="type-serif">brand <br/>guidelines*</span></h1>
 					</div>
 					<!-- Button -->
-					{{ partial "components/button.html" (dict "text" "Download" "link" "files.zip" "arrow" true "colour" "white" "attr" "download") }}
+                    {{ partial "components/button.html" (dict "text" "Download Pack" "link" "files.zip" "arrow" true "colour" "white" "attr" "download") }}
 				</div>
 			</div>
 		</div>
@@ -23,4 +27,26 @@
 	<!-- =====================
 		List
 		===================== -->
+    {{ with .Pages -}}
+		<section class="section-padding">
+			<div class="container">
+				<div class="row">
+                    {{ range . -}}
+						<div class="col-12">
+							<!-- Card -->
+							<a href="{{ .RelPermalink }}" class="card card-horizontal"
+							   aria-label="Navigate to the {{ .Title }} brand page">
+								<!-- Featured Image -->
+								<figure class="card-image">
+									{{ partial "media/image.html" (dict "url" "d")}}
+								</figure>
+								<!-- Title -->
+								<h3>{{ .Title }}</h3>
+							</a>
+						</div><!-- /Col -->
+                    {{- end }}
+				</div><!-- /Row -->
+			</div><!-- /Container -->
+		</section>
+    {{- end }}
 {{ end }}

@@ -66,7 +66,9 @@
                 {{ range . -}}
                     {{- $name := .Name -}}
                     {{ if .Params.image -}}
-                        {{ partial "media/picture.html" (dict "global" $ "url" .Params.image.url "alt" .Params.image.alt "class" "nav-images-item" "id" (printf "nav-picture-%s" .Identifier) "mob" false "tab" false) }}
+						<picture class="nav-images-item" id="{{ (printf "nav-picture-%s" .Identifier) }}">
+                            {{ partial "media/picture.html" (dict "global" $ "url" .Params.image.url "alt" .Params.image.alt "mob" false "tab" false) }}
+						</picture>
                     {{- else -}}
                         {{ errorf "No image attached to menu item: %s" .Name }}
                     {{- end }}
