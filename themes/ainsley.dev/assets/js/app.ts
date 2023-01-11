@@ -37,6 +37,18 @@ let lazyLoadInstance = new LazyLoad({
 	// ... more custom settings?
 });
 
+
+const buttons = document.querySelectorAll(".btn");
+buttons.forEach(btn => {
+	btn.addEventListener("click", e => {
+		e.preventDefault();
+		btn.classList.add("btn-clicked");
+		setTimeout(() => {
+			btn.classList.remove("btn-clicked");
+		}, 1000)
+	})
+});
+
 /*
  * Scroll To Anchor
  * Targets all links with # anchor & adds smooth scrolling
