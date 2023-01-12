@@ -1372,9 +1372,6 @@ small {
 
 .btn {
   position: relative;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
   height: auto;
   padding: 1rem 2.2rem;
   background-color: var(--colour-foreground);
@@ -1385,9 +1382,15 @@ small {
   outline: none;
   user-select: none;
   text-decoration: none;
-  transition: color 200ms ease;
-  will-change: color; }
-  .btn span {
+  transition: transform .1s linear, color .1s linear, background .15s linear;
+  will-change: transform, color, background; }
+  .btn-wrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; }
+  .btn-text {
+    display: inline-block;
     font-size: 1rem;
     font-weight: bold;
     line-height: 1; }
@@ -1413,6 +1416,11 @@ small {
       color: #FFF; }
       .btn-colour-black:active:before, .btn-colour-black:active:after {
         filter: invert(100%); }
+  .btn-arrow svg {
+    width: 20px;
+    height: 20px; }
+  .btn-arrow .btn-text {
+    margin-right: 10px; }
   .btn-arrow span {
     transition: transform 200ms ease;
     will-change: transform; }
@@ -1420,17 +1428,6 @@ small {
     background: url("http://localhost:1313//images/icons/button-arrow-white.svg") no-repeat; }
   .btn-arrow.btn-colour-white:before, .btn-arrow.btn-colour-white:after {
     background: url("http://localhost:1313//images/icons/button-arrow-black.svg") no-repeat; }
-  .btn-arrow:before, .btn-arrow:after {
-    content: "";
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
-    min-height: 20px;
-    background-size: 100% !important;
-    transition: all 200ms ease;
-    transform-style: preserve-3d;
-    transform-origin: 50% 50%; }
   .btn-arrow:before {
     position: absolute;
     top: 50%;
@@ -1440,14 +1437,6 @@ small {
   .btn-arrow:after {
     position: relative;
     margin-left: 10px; }
-  .btn-arrow:hover span {
-    transform: translateX(30px);
-    color: inherit; }
-  .btn-arrow:hover:before {
-    opacity: 1;
-    transform: translate(30px, -50%); }
-  .btn-arrow:hover:after {
-    opacity: 0; }
   .btn-clicked {
     background-color: #0A0A0A !important;
     color: #FFF !important; }
@@ -1485,6 +1474,19 @@ small {
     transform: rotate(360deg); } }
     .btn-loading:hover {
       box-shadow: none; }
+
+.cursor {
+  --cursor: #C3C8DE;
+  position: fixed;
+  top: -50px;
+  z-index: 99;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: none;
+  border: solid 1px #FFF;
+  pointer-events: none;
+  transition: transform 300ms ease, background 300ms ease, border-color 300ms ease; }
 
 .gradient {
   position: relative; }

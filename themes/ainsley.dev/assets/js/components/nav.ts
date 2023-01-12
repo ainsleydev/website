@@ -82,5 +82,4 @@ class Navigation {
 }
 
 const Nav = new Navigation();
-
 export default Nav;

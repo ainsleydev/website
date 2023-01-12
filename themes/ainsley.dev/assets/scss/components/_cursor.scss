@@ -1,0 +1,31 @@
+// -----------------------------------------------------------------------------
+// _cursor.scss
+// This file contains all styles related to the cursor component.
+// -----------------------------------------------------------------------------
+
+.cursor {
+	--cursor: #C3C8DE;
+	position: fixed;
+	top: -50px;
+	z-index: 99;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: none;
+	border: solid 1px $white;
+	pointer-events: none;
+	transition: transform 300ms ease, background 300ms ease, border-color 300ms ease;
+
+
+	// Tablet
+	// =========================================================================
+
+	@include media-tab {
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-desk {
+	}
+}

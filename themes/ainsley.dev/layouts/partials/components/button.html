@@ -12,17 +12,36 @@
 			btn-colour-{{ with .colour -}} {{ . }} {{- end }}
 	   		{{ if .arrow -}} btn-arrow {{- end}}"
             {{ .attr  | safeHTMLAttr }}>
-        <span>
-			{{ with .text -}} {{ . }} {{- end }}
-		</span>
+		<!-- Text -->
+        {{ with .text -}}
+			<span class="btn-text">
+		 		{{ . }}
+			</span>
+        {{- end }}
+		<!-- Arrow -->
+        {{ if .arrow }}
+			<div class="btn-arrow-el">
+                {{ partial "" }}
+			</div>
+        {{- end }}
 	</a>
 {{- else -}}
 	<button class="btn
 			btn-colour-{{ with .colour -}} {{ . }} {{- end }}
 	   		{{ if .arrow -}} btn-arrow {{- end}}"
             {{ .attr | safeHTMLAttr }}>
-        <span>
-			{{ with .text -}} {{ . }} {{- end }}
-		</span>
+		<!-- Wrapper -->
+		<div class="btn-wrapper">
+			<!-- Text -->
+            {{ with .text -}}
+				<span class="btn-text">
+		 			{{ . }}
+				</span>
+            {{- end }}
+			<!-- Arrow -->
+            {{ if .arrow }}
+                {{ partial "images/arrow.html" (dict "colour" "var(--colour-black)" "rotation" "90" "stroke" 3) }}
+            {{- end }}
+		</div><!-- /Wrapper -->
 	</button>
 {{- end }}

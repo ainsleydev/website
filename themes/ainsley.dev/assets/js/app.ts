@@ -8,6 +8,7 @@
 
 import scripts from "./scripts/polyfills";
 import {} from "./components/nav";
+import {} from "./components/button";
 import LazyLoad from 'vanilla-lazyload';
 
 
@@ -38,16 +39,14 @@ let lazyLoadInstance = new LazyLoad({
 });
 
 
-const buttons = document.querySelectorAll(".btn");
-buttons.forEach(btn => {
-	btn.addEventListener("click", e => {
-		e.preventDefault();
-		btn.classList.add("btn-clicked");
-		setTimeout(() => {
-			btn.classList.remove("btn-clicked");
-		}, 1000)
-	})
-});
+const cursor = document.querySelector(".cursor") as HTMLDivElement;
+if (cursor) {
+	document.addEventListener('mousemove', function(e) {
+		cursor.style.left = (e.pageX - 25) + 'px';
+		cursor.style.top = (e.pageY - 25) + 'px';
+	});
+}
+
 
 /*
  * Scroll To Anchor

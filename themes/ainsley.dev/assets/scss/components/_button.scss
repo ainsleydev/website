@@ -1,15 +1,13 @@
 // -----------------------------------------------------------------------------
 // _button.scss
 // This file contains all styles related to the button component.
+// Ref: https://codepen.io/milanraring/pen/gOwGpdm
 // -----------------------------------------------------------------------------
 
 .btn {
 	$self: &;
 
 	position: relative;
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
 	height: auto;
 	padding: $button-padding;
 	background-color: colour(foreground);
@@ -20,13 +18,24 @@
 	outline: none;
 	user-select: none;
 	text-decoration: none;
-	transition: color $button-transition-time ease;
-	will-change: color;
+	transition: transform .1s linear, color .1s linear, background .15s linear;
+	will-change: transform, color, background;
+
+	// Wrapper
+	// =========================================================================
+
+	&-wrapper {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		height: auto;
+	}
 
 	// Text
 	// =========================================================================
 
-	span {
+	&-text {
+		display: inline-block;
 		font-size: 1rem;
 		font-weight: bold;
 		line-height: 1;
@@ -83,10 +92,33 @@
 		}
 	}
 
+
+	//[cursor="link"] {
+	//	&:hover {
+	//		~ .cursor {
+	//			mix-blend-mode: difference;
+	//			transform: scale(1.5);
+	//			cursor: none;
+	//			background: #fff;
+	//			border-color: #fff;
+	//		}
+	//	}
+	//}
+
+
 	// Arrow
 	// =========================================================================
 
 	&-arrow {
+
+		svg {
+			width: $button-arrow-size;
+			height: $button-arrow-size;
+		}
+
+		#{$self}-text {
+			margin-right: 10px;
+		}
 
 		span {
 			transition: transform $button-transition-time ease;
@@ -109,19 +141,19 @@
 			}
 		}
 
-		&:before,
-		&:after {
-			content: "";
-			display: inline-block;
-			width: $button-arrow-size;
-			height: $button-arrow-size;
-			min-width: $button-arrow-size;
-			min-height: $button-arrow-size;
-			background-size: 100% !important;
-			transition: all $button-transition-time ease;
-			transform-style: preserve-3d;
-			transform-origin: 50% 50%;
-		}
+		//&:before,
+		//&:after {
+		//	content: "";
+		//	display: inline-block;
+		//	width: $button-arrow-size;
+		//	height: $button-arrow-size;
+		//	min-width: $button-arrow-size;
+		//	min-height: $button-arrow-size;
+		//	background-size: 100% !important;
+		//	transition: all $button-transition-time ease;
+		//	transform-style: preserve-3d;
+		//	transform-origin: 50% 50%;
+		//}
 
 		&:before {
 			position: absolute;
@@ -138,19 +170,19 @@
 
 		&:hover {
 
-			span {
-				transform: translateX(30px);
-				color: inherit;
-			}
+			//span {
+			//	transform: translateX(30px);
+			//	color: inherit;
+			//}
 
-			&:before {
-				opacity: 1;
-				transform: translate(30px, -50%);
-			}
-
-			&:after {
-				opacity: 0;
-			}
+			//&:before {
+			//	opacity: 1;
+			//	transform: translate(30px, -50%);
+			//}
+			//
+			//&:after {
+			//	opacity: 0;
+			//}
 		}
 	}
 
