@@ -4,17 +4,18 @@
     	- rotation:	The degree of rotation of the arrow
     	- colour: 	The colour of the arrow, defaults to foreground.
     	- stroke: 	The amount of border width to apply to the button.
+    	- class: 	Any CSS classes to add to the arrow.
     ===================== -->
 <figure class="arrow
-	{{ with .colour -}} arrow-colour-{{ . }} {{- end }}"
+	{{ with .colour -}} arrow-colour-{{ . }} {{- end }}
+		{{ with .class -}} {{ . }} {{- end }}"
         {{ with .rotation -}} style='--arrow-rotation: {{ . }}deg;' {{- end }}>
 	<svg xmlns="http://www.w3.org/2000/svg" width="64.271" height="64.271" viewBox="0 0 64.271 64.271">
 		<path d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z"
 			  transform="translate(-3.516 34.27) rotate(-45)"
 			  fill="{{ with .colour  -}} {{ . }} {{- else -}} var(--colour-foreground) {{- end }}"
 			  stroke-width="{{ with .stroke -}} {{ . }} {{- end}}"
-			  stroke="{{ with .colour  -}} {{ . }} {{- else -}} var(--colour-foreground) {{- end }}"
-		/>
+			  stroke="{{ with .colour  -}} {{ . }} {{- else -}} var(--colour-foreground) {{- end }}"/>
 	</svg>
 </figure>
 

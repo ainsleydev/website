@@ -1382,9 +1382,10 @@ small {
   outline: none;
   user-select: none;
   text-decoration: none;
-  transition: transform .1s linear, color .1s linear, background .15s linear;
+  transition: transform 100ms linear, color 100ms linear, background 100ms linear;
   will-change: transform, color, background; }
   .btn-wrapper {
+    position: relative;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -1399,60 +1400,71 @@ small {
   .btn-colour-white {
     background-color: #FFF;
     color: #0A0A0A; }
+    .btn-colour-white svg path {
+      stroke: #0A0A0A;
+      fill: #0A0A0A; }
     .btn-colour-white:hover {
       color: #0A0A0A; }
     .btn-colour-white:active {
       background-color: #0A0A0A;
       color: #FFF; }
-      .btn-colour-white:active:before, .btn-colour-white:active:after {
-        filter: invert(100%); }
+      .btn-colour-white:active svg path {
+        stroke: #FFF;
+        fill: #FFF; }
   .btn-colour-black {
     background-color: #0A0A0A;
     color: #FFF; }
+    .btn-colour-black svg path {
+      stroke: #FFF;
+      fill: #FFF; }
     .btn-colour-black:hover {
       color: #FFF; }
     .btn-colour-black:active {
-      background-color: #0A0A0A;
-      color: #FFF; }
-      .btn-colour-black:active:before, .btn-colour-black:active:after {
-        filter: invert(100%); }
-  .btn-arrow svg {
-    width: 20px;
-    height: 20px; }
+      background-color: #FFF;
+      color: #0A0A0A; }
+      .btn-colour-black:active svg path {
+        stroke: #0A0A0A;
+        fill: #0A0A0A; }
+  .btn-arrow-image {
+    transform-style: preserve-3d;
+    transform-origin: 50% 50%; }
+    .btn-arrow-image svg {
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      min-height: 20px; }
+  .btn-arrow-image,
   .btn-arrow .btn-text {
-    margin-right: 10px; }
-  .btn-arrow span {
     transition: transform 200ms ease;
     will-change: transform; }
-  .btn-arrow.btn-colour-black:before, .btn-arrow.btn-colour-black:after {
-    background: url("http://localhost:1313//images/icons/button-arrow-white.svg") no-repeat; }
-  .btn-arrow.btn-colour-white:before, .btn-arrow.btn-colour-white:after {
-    background: url("http://localhost:1313//images/icons/button-arrow-black.svg") no-repeat; }
-  .btn-arrow:before {
+  .btn-arrow-left {
     position: absolute;
     top: 50%;
     left: 0;
     opacity: 0;
-    transform: translate(-50%, -50%); }
-  .btn-arrow:after {
+    transform: translate(calc(-50% - 30px), -50%) rotate(90deg); }
+  .btn-arrow-right {
     position: relative;
     margin-left: 10px; }
-  .btn-clicked {
-    background-color: #0A0A0A !important;
-    color: #FFF !important; }
-    .btn-clicked:before {
-      transform: rotate(90deg) translate(-50%, -50%) !important; }
-    .btn-clicked:before, .btn-clicked:after {
-      filter: invert(100%); }
+  .btn-arrow:hover .btn-text {
+    transform: translateX(30px);
+    color: inherit; }
+  .btn-arrow:hover .btn-arrow-right {
+    opacity: 0; }
+  .btn-arrow:hover .btn-arrow-left {
+    opacity: 1;
+    transform: translate(0, -50%) rotate(90deg); }
   .btn-loading {
     transition: none;
     pointer-events: none;
     color: transparent !important; }
+    .btn-loading * {
+      opacity: 0; }
     .btn-loading:after {
       content: "";
       width: 18px;
       height: 18px;
-      border: 2px solid rgba(0, 0, 0, 0.5);
+      border: 2px solid #0A0A0A;
       border-right-color: transparent !important;
       border-radius: 50%;
       display: inline-block;
@@ -1476,17 +1488,24 @@ small {
       box-shadow: none; }
 
 .cursor {
-  --cursor: #C3C8DE;
   position: fixed;
-  top: -50px;
-  z-index: 99;
-  width: 40px;
-  height: 40px;
+  z-index: 9999999;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: none;
-  border: solid 1px #FFF;
   pointer-events: none;
-  transition: transform 300ms ease, background 300ms ease, border-color 300ms ease; }
+  transform: translate(-50%, -50%);
+  transition: transform 300ms ease, background 300ms ease, border-color 300ms ease;
+  border: 1px solid #FFF; }
+  .cursor-invert {
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%) scale(1.5);
+    cursor: none; }
+    .cursor-invert-black {
+      background: #FFF; }
+    .cursor-invert-white {
+      background: #FFF; }
 
 .gradient {
   position: relative; }

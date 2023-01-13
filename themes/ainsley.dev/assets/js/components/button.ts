@@ -8,6 +8,7 @@
 
 
 import {Log} from "../util/log";
+import {Cursor, CursorClasses} from "./cursor";
 
 /**
  *
@@ -15,7 +16,7 @@ import {Log} from "../util/log";
 class Button {
 
 	/**
-	 *
+	 * The DOM selector for the button.
 	 *
 	 * @private
 	 */
@@ -47,6 +48,8 @@ class Button {
 	}
 
 	/**
+	 * Attaches the mouse move event which transforms and skews
+	 * the button and adds the cursor styles.
 	 *
 	 * @param btn
 	 * @param text
@@ -54,6 +57,8 @@ class Button {
 	 */
 	private mouseMove(btn: HTMLButtonElement, text: HTMLDivElement): void {
 		btn.addEventListener("mousemove", e => {
+			Cursor.addClass(CursorClasses.Invert, CursorClasses.InvertBlack);
+
 			const pos = btn.getBoundingClientRect();
 			const mx = e.clientX - pos.left - pos.width/2;
 			const my = e.clientY - pos.top - pos.height/2;
@@ -65,6 +70,7 @@ class Button {
 	}
 
 	/**
+	 * Removes the mouse move event and clears selectors.
 	 *
 	 * @param btn
 	 * @param text
@@ -72,12 +78,13 @@ class Button {
 	 */
 	private mouseOut(btn: HTMLButtonElement, text: HTMLDivElement): void {
 		btn.addEventListener("mouseleave", e => {
-			btn.style.transform = 'translate3d(0, 0px, 0)';
+			Cursor.removeClass(CursorClasses.Invert, CursorClasses.InvertBlack);
+
+			btn.style.transform = 'translate3d(0, 0, 0)';
 			btn.style.transform += 'rotate3d(0, 0, 0, 0deg)';
 			text.style.transform = 'translate3d(0, 0, 0)';
 		});
 	}
-
 }
 
 export default new Button();

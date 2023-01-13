@@ -40,7 +40,8 @@
             {{- end }}
 			<!-- Arrow -->
             {{ if .arrow }}
-                {{ partial "images/arrow.html" (dict "colour" "var(--colour-black)" "rotation" "90" "stroke" 3) }}
+                {{ partial "images/arrow.html" (dict "colour" "var(--colour-black)" "rotation" "90" "stroke" 3 "class" "btn-arrow-image btn-arrow-left") }}
+                {{ partial "images/arrow.html" (dict "colour" "var(--colour-black)" "rotation" "90" "stroke" 3 "class" "btn-arrow-image btn-arrow-right") }}
             {{- end }}
 		</div><!-- /Wrapper -->
 	</button>

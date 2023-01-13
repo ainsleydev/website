@@ -18,13 +18,14 @@
 	outline: none;
 	user-select: none;
 	text-decoration: none;
-	transition: transform .1s linear, color .1s linear, background .15s linear;
+	transition: transform 100ms linear, color 100ms linear, background 100ms linear;
 	will-change: transform, color, background;
 
 	// Wrapper
 	// =========================================================================
 
 	&-wrapper {
+		position: relative;
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
@@ -57,6 +58,11 @@
 			background-color: $white;
 			color: $black;
 
+			svg path {
+				stroke: $black;
+				fill: $black;
+			}
+
 			&:hover {
 				color: $black;
 			}
@@ -65,9 +71,9 @@
 				background-color: $black;
 				color: $white;
 
-				&:before,
-				&:after {
-					filter: invert(100%);
+				svg path {
+					stroke: $white;
+					fill: $white;
 				}
 			}
 		}
@@ -76,133 +82,98 @@
 			background-color: $black;
 			color: $white;
 
+			svg path {
+				stroke: $white;
+				fill: $white;
+			}
+
 			&:hover {
 				color: $white;
 			}
 
 			&:active {
-				background-color: $black;
-				color: $white;
+				background-color: $white;
+				color: $black;
 
-				&:before,
-				&:after {
-					filter: invert(100%);
+				svg path {
+					stroke: $black;
+					fill: $black;
 				}
 			}
 		}
 	}
-
-
-	//[cursor="link"] {
-	//	&:hover {
-	//		~ .cursor {
-	//			mix-blend-mode: difference;
-	//			transform: scale(1.5);
-	//			cursor: none;
-	//			background: #fff;
-	//			border-color: #fff;
-	//		}
-	//	}
-	//}
-
 
 	// Arrow
 	// =========================================================================
 
 	&-arrow {
 
-		svg {
-			width: $button-arrow-size;
-			height: $button-arrow-size;
+		&-image {
+			transform-style: preserve-3d;
+			transform-origin: 50% 50%;
+
+			svg {
+				width: $button-arrow-size;
+				height: $button-arrow-size;
+				min-width: $button-arrow-size;
+				min-height: $button-arrow-size;
+			}
 		}
 
+		&-image,
 		#{$self}-text {
-			margin-right: 10px;
-		}
-
-		span {
 			transition: transform $button-transition-time ease;
 			will-change: transform;
 		}
 
-		&#{$self}-colour-black {
-
-			&:before,
-			&:after {
-				background: url('#{$publicPath}/images/icons/button-arrow-white.svg') no-repeat;
-			}
-		}
-
-		&#{$self}-colour-white {
-
-			&:before,
-			&:after {
-				background: url('#{$publicPath}/images/icons/button-arrow-black.svg') no-repeat;
-			}
-		}
-
-		//&:before,
-		//&:after {
-		//	content: "";
-		//	display: inline-block;
-		//	width: $button-arrow-size;
-		//	height: $button-arrow-size;
-		//	min-width: $button-arrow-size;
-		//	min-height: $button-arrow-size;
-		//	background-size: 100% !important;
-		//	transition: all $button-transition-time ease;
-		//	transform-style: preserve-3d;
-		//	transform-origin: 50% 50%;
-		//}
-
-		&:before {
+		&-left {
 			position: absolute;
 			top: 50%;
 			left: 0;
 			opacity: 0;
-			transform: translate(-50%, -50%);
+			transform: translate(calc(-50% - 30px), -50%) rotate(90deg);
 		}
 
-		&:after {
+		&-right {
 			position: relative;
 			margin-left: 10px;
 		}
 
 		&:hover {
 
-			//span {
-			//	transform: translateX(30px);
-			//	color: inherit;
-			//}
+			#{$self}-text {
+				transform: translateX(30px);
+				color: inherit;
+			}
 
-			//&:before {
-			//	opacity: 1;
-			//	transform: translate(30px, -50%);
-			//}
-			//
-			//&:after {
-			//	opacity: 0;
-			//}
+			#{$self}-arrow-right {
+				opacity: 0;
+			}
+
+			#{$self}-arrow-left {
+				opacity: 1;
+				transform: translate(0, -50%) rotate(90deg);
+			}
 		}
 	}
 
 	// Clicked
 	// =========================================================================
-
-	&-clicked {
-		// TODO: Sync with colours
-		background-color: $black !important;
-		color: $white !important;
-
-		&:before {
-			transform: rotate(90deg) translate(-50%, -50%) !important;
-		}
-
-		&:before,
-		&:after {
-			filter: invert(100%);
-		}
-	}
+	//
+	//&-clicked {
+	//	// TODO: Sync with colours
+	//	background-color: $black !important;
+	//	color: $white !important;
+	//
+	//	&:before {
+	//		transform: rotate(90deg) translate(-50%, -50%) !important;
+	//	}
+	//
+	//	&:before,
+	//	&:after {
+	//		filter: invert(100%);
+	//	}
+	//}
 
 	// Loading
 	// =========================================================================
@@ -212,11 +183,15 @@
 		pointer-events: none;
 		color: transparent !important;
 
+		* {
+			opacity: 0;
+		}
+
 		&:after {
 			content: "";
 			width: 18px;
 			height: 18px;
-			border: 2px solid rgba(0, 0, 0, 0.5);
+			border: 2px solid $black;
 			border-right-color: transparent !important;
 			border-radius: 50%;
 			display: inline-block;
