@@ -52,7 +52,7 @@ h4,
 h5 {
 	display: block;
 	color: colour(foreground);
-	letter-spacing: -0.6px;
+	letter-spacing: -1px;
 	line-height: 1.2;
 }
 
@@ -182,11 +182,46 @@ small {
 	}
 }
 
+// Text Container Margin
+// ==========================================================================
+
+@mixin text-cont {
+	margin-bottom: $text-cont-margin-mob;
+
+	@include media-tab {
+		margin-bottom: $text-cont-margin-tab;
+	}
+
+	@include media-desk {
+		margin-bottom: $text-cont-margin-desk;
+	}
+
+	@include media-hd {
+		margin-bottom: $text-cont-margin-hd;
+	}
+}
+
+@mixin text-cont-large {
+	margin-bottom: $text-cont-margin-mob + $text-cont-large-diff;
+
+	@include media-tab {
+		margin-bottom: $text-cont-margin-tab + $text-cont-large-diff;
+	}
+
+	@include media-desk {
+		margin-bottom: $text-cont-margin-desk + $text-cont-large-diff;
+	}
+
+	@include media-hd {
+		margin-bottom: $text-cont-margin-hd + $text-cont-large-diff;
+	}
+}
+
 // Text Containers
 // =========================================================================
 
 .text-cont {
-	margin-bottom: $text-cont-margin;
+	@include text-cont;
 
 	p:last-of-type {
 		margin-bottom: 0;
@@ -196,11 +231,31 @@ small {
 		margin-bottom: 0 !important;
 	}
 
-	@include media-tab {
-		margin-bottom: $text-cont-margin-tab;
-	}
+	&-large {
+		margin-bottom: $text-cont-margin-mob + $text-cont-large-diff;
 
-	@include media-desk {
-		margin-bottom: $text-cont-margin;
+		@include media-tab {
+			margin-bottom: $text-cont-margin-tab + $text-cont-large-diff;
+		}
+
+		@include media-desk {
+			margin-bottom: $text-cont-margin-desk + $text-cont-large-diff;
+		}
+
+		@include media-hd {
+			margin-bottom: $text-cont-margin-hd + $text-cont-large-diff;
+		}
+
+		&-desk {
+			@include text-cont;
+
+			@include media-desk {
+				margin-bottom: $text-cont-margin-desk + $text-cont-large-diff;
+			}
+
+			@include media-hd {
+				margin-bottom: $text-cont-margin-hd + $text-cont-large-diff;
+			}
+		}
 	}
 }

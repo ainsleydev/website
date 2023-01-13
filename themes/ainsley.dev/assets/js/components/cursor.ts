@@ -16,7 +16,6 @@ export enum CursorClasses {
 	Invert = "cursor-invert",
 	InvertBlack = "cursor-invert-black",
 	InvertWhite = "cursor-invert-white",
-
 }
 
 /**
@@ -84,12 +83,6 @@ export class Cursor {
 		this.el.classList.remove("cursor-active");
 		selectors.forEach(sel => this.el.classList.remove(sel));
 	}
-
-	// public static skew(el: HTMLElement, selector: CursorClasses): void {
-	// 	btn.addEventListener("mousemove", e => {
-	//
-	// 	});
-	// }
 }
 
 Cursor.initialize();

@@ -14,32 +14,40 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<!-- Heading -->
-					<div class="text-cont text-cont-large">
-						<h1>ainsley.dev <span class="type-serif">brand <br/>guidelines*</span></h1>
+					<!-- Text -->
+					<div class="hero-text hero-text-large-margin">
+						<!-- Heading -->
+						<div class="text-cont text-cont-large">
+							<h1>ainsley.dev <span class="type-serif">brand <br/>guidelines*</span></h1>
+						</div>
+						<!-- Button -->
+                        {{ partial "components/button.html" (dict "text" "Download Pack" "button" "files.zip" "arrow" true "colour" "white" "attr" "") }}
 					</div>
-					<!-- Button -->
-                    {{ partial "components/button.html" (dict "text" "Download Pack" "button" "files.zip" "arrow" true "colour" "white" "attr" "") }}
-				</div>
-			</div>
-		</div>
+					<!-- Arrow -->
+					{{ partial "images/arrow.html" (dict "colour" "white" "rotation" "135" "class" "hero-arrow") }}
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
 	</section>
 	<!-- =====================
 		List
 		===================== -->
-    {{ with .Pages -}}
+    {{ if .Pages -}}
 		<section class="section-padding">
 			<div class="container">
 				<div class="row">
-                    {{ range . -}}
+                    {{ range .Pages -}}
 						<div class="col-12">
 							<!-- Card -->
 							<a href="{{ .RelPermalink }}" class="card card-horizontal"
 							   aria-label="Navigate to the {{ .Title }} brand page">
 								<!-- Featured Image -->
-								<figure class="card-image">
-									{{ partial "media/image.html" (dict "url" "d")}}
-								</figure>
+                                {{ $featured := $.Resources.Get "logo.svg" }}
+                                {{ with $featured -}}
+									<figure class="card-image">
+										<img src="{{ $featured.RelPermalink }}" alt="{{ .Title }}">
+									</figure>
+                                {{- end }}
 								<!-- Title -->
 								<h3>{{ .Title }}</h3>
 							</a>

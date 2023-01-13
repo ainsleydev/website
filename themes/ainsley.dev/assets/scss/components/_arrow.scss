@@ -4,19 +4,13 @@
 // -----------------------------------------------------------------------------
 
 .arrow {
+	$self: &;
 
 	position: relative;
+	display: inline-block;
+	width: auto;
+	height: auto;
+	transform-origin: center;
 	transform: rotate(var(--arrow-rotation));
-
-	// Tablet
-	// =========================================================================
-
-	@include media-tab {
-	}
-
-	// Desktop
-	// =========================================================================
-
-	@include media-desk {
-	}
+	margin: 0;
 }
