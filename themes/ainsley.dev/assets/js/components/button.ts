@@ -43,8 +43,28 @@ class Button {
 				Log.warn("No button wrapper element found for: " + btn.innerHTML);
 				return;
 			}
+			this.attachActive(btn);
 			this.mouseMove(btn, wrapper);
 			this.mouseOut(btn, wrapper);
+		});
+	}
+
+	/**
+	 * TODO
+	 *
+	 * @param btn
+	 * @private
+	 */
+	private attachActive(btn: HTMLElement): void {
+		btn.addEventListener("click", e => {
+			e.preventDefault();
+			btn.classList.add("btn-active");
+			setTimeout(() => {
+				btn.classList.remove("btn-active");
+			}, 200);
+			if (btn.hasAttribute("href")) {
+				window.location.href = btn.getAttribute('href') ?? '';
+			}
 		});
 	}
 

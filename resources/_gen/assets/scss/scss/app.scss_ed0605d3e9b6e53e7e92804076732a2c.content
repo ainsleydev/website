@@ -1409,7 +1409,7 @@ small {
 .btn {
   position: relative;
   height: auto;
-  padding: 1rem 2.2rem;
+  padding: 1rem 1.9rem;
   background-color: var(--colour-foreground);
   color: var(--colour-background);
   border: none;
@@ -1441,10 +1441,10 @@ small {
       fill: #0A0A0A; }
     .btn-colour-white:hover {
       color: #0A0A0A; }
-    .btn-colour-white:active {
+    .btn-colour-white:active, .btn-colour-white.btn-active {
       background-color: #0A0A0A;
       color: #FFF; }
-      .btn-colour-white:active svg path {
+      .btn-colour-white:active svg path, .btn-colour-white.btn-active svg path {
         stroke: #FFF;
         fill: #FFF; }
   .btn-colour-black {
@@ -1455,20 +1455,19 @@ small {
       fill: #FFF; }
     .btn-colour-black:hover {
       color: #FFF; }
-    .btn-colour-black:active {
+    .btn-colour-black:active, .btn-colour-black.btn-active {
       background-color: #FFF;
       color: #0A0A0A; }
-      .btn-colour-black:active svg path {
+      .btn-colour-black:active svg path, .btn-colour-black.btn-active svg path {
         stroke: #0A0A0A;
         fill: #0A0A0A; }
   .btn-arrow-image {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
     transform-style: preserve-3d;
     transform-origin: 50% 50%; }
-    .btn-arrow-image svg {
-      width: 20px;
-      height: 20px;
-      min-width: 20px;
-      min-height: 20px; }
   .btn-arrow-image,
   .btn-arrow .btn-text {
     transition: transform 200ms ease;
@@ -1662,10 +1661,10 @@ small {
     min-height: 100vh; }
   .hero-text {
     margin-bottom: 20vh; }
-  .hero-arrow {
-    width: 50px; }
-    .hero-arrow svg {
-      width: 100%; }
+  .hero-arrow svg path {
+    stroke: rgba(255, 255, 255, 0.5);
+    stroke-width: 1;
+    fill: none; }
 
 .nav {
   position: fixed;

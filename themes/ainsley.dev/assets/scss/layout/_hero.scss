@@ -49,10 +49,11 @@
 	// =========================================================================
 
 	&-arrow {
-		width: 50px;
 
-		svg {
-			width: 100%;
+		svg path {
+			stroke: rgba($white, 0.5);
+			stroke-width: 1;
+			fill: none;
 		}
 	}
 

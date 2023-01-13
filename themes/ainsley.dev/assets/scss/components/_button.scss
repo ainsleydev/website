@@ -67,7 +67,8 @@
 				color: $black;
 			}
 
-			&:active {
+			&:active,
+			&#{$self}-active {
 				background-color: $black;
 				color: $white;
 
@@ -91,7 +92,8 @@
 				color: $white;
 			}
 
-			&:active {
+			&:active,
+			&#{$self}-active {
 				background-color: $white;
 				color: $black;
 
@@ -109,15 +111,12 @@
 	&-arrow {
 
 		&-image {
+			width: $button-arrow-size;
+			height: $button-arrow-size;
+			min-width: $button-arrow-size;
+			min-height: $button-arrow-size;
 			transform-style: preserve-3d;
 			transform-origin: 50% 50%;
-
-			svg {
-				width: $button-arrow-size;
-				height: $button-arrow-size;
-				min-width: $button-arrow-size;
-				min-height: $button-arrow-size;
-			}
 		}
 
 		&-image,
@@ -156,24 +155,6 @@
 			}
 		}
 	}
-
-	// Clicked
-	// =========================================================================
-	//
-	//&-clicked {
-	//	// TODO: Sync with colours
-	//	background-color: $black !important;
-	//	color: $white !important;
-	//
-	//	&:before {
-	//		transform: rotate(90deg) translate(-50%, -50%) !important;
-	//	}
-	//
-	//	&:before,
-	//	&:after {
-	//		filter: invert(100%);
-	//	}
-	//}
 
 	// Loading
 	// =========================================================================

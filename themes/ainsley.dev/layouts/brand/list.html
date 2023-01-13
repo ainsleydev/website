@@ -24,7 +24,10 @@
                         {{ partial "components/button.html" (dict "text" "Download Pack" "button" "files.zip" "arrow" true "colour" "white" "attr" "") }}
 					</div>
 					<!-- Arrow -->
-					{{ partial "images/arrow.html" (dict "colour" "white" "rotation" "135" "class" "hero-arrow") }}
+					<figure class="hero-arrow">
+                        {{ partial "images/arrow.html" (dict "colour" "white" "rotation" "135") }}
+					</figure>
+
 				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
