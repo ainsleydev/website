@@ -11,7 +11,8 @@ import {Log} from "../util/log";
 import {Cursor, CursorClasses} from "./cursor";
 
 /**
- *
+ * Button is responsible for adding micro interactions
+ * to clickable elements.
  */
 class Button {
 
