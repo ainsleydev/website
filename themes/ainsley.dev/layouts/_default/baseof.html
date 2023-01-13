@@ -9,6 +9,13 @@
     {{ $cssOpts := (dict "targetPath" $cssPath "enableSourceMap" false "outputStyle" "compressed") }}
 {{ end }}
 {{ $style := resources.Get "scss/app.scss" | resources.ExecuteAsTemplate "css/app.css" . | toCSS $cssOpts  }}
+<!-- No CSS -->
+{{ $noJSCssPath := "css/no-js.css" }}
+{{ $noJScssOpts := (dict "targetPath" $noJSCssPath "enableSourceMap" true ) }}
+{{ if ne hugo.Environment "development" -}}
+    {{ $noJSCssPath := (dict "targetPath" $noJSCssPath "enableSourceMap" false "outputStyle" "compressed") }}
+{{ end }}
+{{ $styleNoJS := resources.Get "scss/no-js.scss" | resources.ExecuteAsTemplate "css/no-js.css" . | toCSS $noJScssOpts  }}
 <!-- JS -->
 {{ $jsPath := "js/app.ts" }}
 {{ $jsOpts := (dict "targetPath" $jsPath "minify" false) }}
@@ -42,6 +49,10 @@
         {{ end }}
         <!-- CSS -->
 		<link rel="stylesheet" href="{{ $style.Permalink }}">
+		<!-- No JS -->
+		<noscript>
+			<link rel="stylesheet" href="{{ $styleNoJS.Permalink }}">
+		</noscript>
 		<!-- Preload JS -->
         <link rel="preload" href="{{ $js.Permalink }}" as="script">
         <!-- Favicon -->

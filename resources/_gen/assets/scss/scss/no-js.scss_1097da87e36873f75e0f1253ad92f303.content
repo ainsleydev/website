@@ -1,0 +1,27 @@
+/**
+ * no-js.scss
+ * All no-js CSS stored here.
+ *
+ * @author Ainsley Clark
+ * @author URL:   https://ainsley.dev
+ * @author Email: hello@ainsley.dev
+ */
+/*  ====================
+    Imports
+    ==================== */
+:root {
+  --colour-background: #0A0A0A;
+  --colour-foreground: #FFF;
+  --colour-black: #0A0A0A;
+  --colour-white: #FFF;
+  --colour-orange: #FF5043;
+  --colour-blue: #70CBCE;
+  --colour-copy: #0A0A0A;
+  --colour-copy-dark: #9A9A9A;
+  --colour-copy-light: #595959;
+  --link-hover-colour: #70CBCE; }
+
+.cursor {
+  display: none; }
+
+/*# sourceMappingURL=app.css.map */

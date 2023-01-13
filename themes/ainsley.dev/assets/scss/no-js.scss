@@ -1,9 +1,10 @@
 /**
  * no-js.scss
  * All no-js CSS stored here.
+ *
  * @author Ainsley Clark
- * @author URL:   https://www.ainsleyclark.com
- * @author email: info@ainsleyclark.com
+ * @author URL:   https://ainsley.dev
+ * @author Email: hello@ainsley.dev
  */
 
 /*  ====================
@@ -16,4 +17,6 @@
 // Cursor
 // =========================================================================
 
-disp
+.cursor {
+	display: none;
+}
