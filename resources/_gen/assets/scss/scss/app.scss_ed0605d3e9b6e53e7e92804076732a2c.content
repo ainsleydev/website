@@ -297,6 +297,12 @@ small {
 .type-code {
   font-family: "JetBrains Mono" ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace; }
 
+.type-uppercase {
+  text-transform: uppercase; }
+
+.type-lowercase {
+  text-transform: lowercase; }
+
 ::selection {
   background: #FFF;
   color: #0A0A0A; }
@@ -1594,6 +1600,25 @@ small {
 /* ====================
     Layout
     ==================== */
+.aside {
+  position: relative;
+  display: block;
+  margin: 0; }
+  .aside-link {
+    display: block;
+    text-decoration: none;
+    padding: 1.2rem 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1); }
+    .aside-link:first-child {
+      padding-top: 0; }
+    .aside-link:last-child {
+      margin-bottom: 0; }
+    .aside-link-text {
+      text-decoration: none;
+      margin: 0; }
+  .aside-active {
+    color: var(--link-hover-colour); }
+
 .footer {
   position: relative;
   display: block;
@@ -1786,10 +1811,12 @@ small {
     min-height: 100vh; }
   .hero-text {
     margin-bottom: 20vh; }
-  .hero-arrow svg path {
-    stroke: rgba(255, 255, 255, 0.5);
-    stroke-width: 1;
-    fill: none; }
+  .hero-arrow {
+    position: relative;
+    display: inline-block;
+    transition: all 100ms;
+    transform-style: preserve-3d;
+    transform-origin: 50% 50%; }
 
 .nav {
   position: fixed;

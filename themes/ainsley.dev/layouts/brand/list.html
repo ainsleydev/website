@@ -44,7 +44,7 @@
 							<a href="{{ .RelPermalink }}" class="card card-horizontal"
 							   aria-label="Navigate to the {{ .Title }} brand page">
 								<!-- Featured Image -->
-                                {{ $featured := $.Resources.Get "logo.svg" }}
+                                {{ $featured := .Resources.GetMatch "featured.svg" }}
                                 {{ with $featured -}}
 									<figure class="card-image text-wrapper-large">
 										<img src="{{ $featured.RelPermalink }}" alt="{{ .Title }}">

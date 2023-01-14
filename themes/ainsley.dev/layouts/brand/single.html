@@ -1,3 +1,61 @@
 {{ define "main" }}
-	<h1>Single Brand</h1>
+	<!-- =====================
+		Brand Single
+			Page Template for /brand/single
+		===================== -->
+	<section class="hero hero-half-height">
+		<!-- Background -->
+        {{ .Resources.Get "hero-single.jpg" }}
+        {{ if .Resources.Get "hero-single.jpg" -}}
+			<picture class="hero-background gradient">
+                {{ partial "media/picture.html" (dict "global" $ "url" "hero.jpg" "class" "hero-background gradient") }}
+			</picture>
+        {{- end }}
+		<!-- Content -->
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<!-- Text -->
+					<div class="hero-text hero-text-large-margin">
+						<!-- Heading -->
+						<div class="text-wrapper-large">
+							<h1>
+								Brand guidelines <br/>
+								<span class="type-serif type-lowercase">{{ .Title }}*</span>
+							</h1>
+						</div>
+						<!-- Button -->
+                        {{ partial "components/button.html" (dict "text" "Download Pack" "button" "files.zip" "arrow" true "colour" "white" "attr" "") }}
+					</div>
+					<!-- Arrow -->
+					<a href="{{ .Page.Permalink }}#content" class="hero-arrow">
+                        {{ partial "images/arrow.html" (dict "colour" "white" "rotation" "135") }}
+					</a>
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+	<!-- =====================
+		Content
+		===================== -->
+	<section class="section section-padding section-padding-top" id="content">
+		<div class="container">
+			<div class="row">
+				<!-- Sidebar -->
+				<div class="col-12 col-desk-3">
+					<aside class="aside aside-brand">
+                        {{ range (where .Site.RegularPages "Type" "brand") }}
+							<a href="{{ .RelPermalink }}" class="aside-link">
+								<h5 class="aside-link-text {{ if eq $.Page.RelPermalink .RelPermalink -}} aside-active {{- end }}">{{ .Title }}</h5>
+							</a>
+                        {{- end }}
+					</aside>
+				</div><!-- /Col -->
+				<!-- Content -->
+				<div class="col-12 col-desk-8 offset-desk-1">
+                    {{ .Content }}
+				</div>
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
 {{ end }}

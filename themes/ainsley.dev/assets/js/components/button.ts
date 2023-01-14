@@ -98,7 +98,7 @@ class Button {
 	 * @private
 	 */
 	private mouseOut(btn: HTMLButtonElement, text: HTMLDivElement): void {
-		btn.addEventListener("mouseleave", e => {
+		btn.addEventListener("mouseleave", () => {
 			Cursor.removeClass(CursorClasses.Invert, CursorClasses.InvertBlack);
 
 			btn.style.transform = 'translate3d(0, 0, 0)';

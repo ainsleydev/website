@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="570.001" height="382.034" viewBox="0 0 570.001 382.034">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.954" y1="0.14" x2="0.398" y2="0.601" gradientUnits="objectBoundingBox">
+      <stop offset="0"/>
+      <stop offset="0.09" stop-opacity="0.91"/>
+      <stop offset="1" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g id="Card" transform="translate(-731 -2999.5)">
+    <path id="Intersection_1" data-name="Intersection 1" d="M54.315,261.808,0,230.037Zm-21,0L0,242.321Zm-21,0L0,254.6Zm418.957-.61L326.943,200.172Zm-21,0L305.943,200.172Zm-21,0L284.943,200.172Zm-21,0L263.943,200.172Zm-21,0L242.943,200.172Zm-21,0L221.943,200.172Zm-21,0L200.943,200.172Zm-21,0L179.943,200.172Zm-21,0L158.944,200.172Zm-21,0L137.944,200.172Zm-21,0L116.943,200.172Zm-21,0L95.944,200.172Zm-21,0L74.944,200.172Zm-21,0L0,168.618Zm-21,0L0,180.9Zm-21,0L0,193.185Zm-21,0L0,205.469Zm-21,0L0,217.753Zm273.672-61.026,96.949,56.71Zm21,0,75.95,44.427Zm15.533-3.2,60.417,35.341Zm0-12.284,60.417,35.341Zm0-12.284,60.417,35.341Zm0-12.283,60.417,35.341ZM0,156.334l60.418,35.341Zm384.475-8.5,60.417,35.341ZM0,144.05l60.418,35.341Zm384.475-8.5L444.893,170.9ZM0,131.766l60.418,35.341Zm384.475-8.5,60.417,35.341ZM0,119.482l60.418,35.341Zm384.475-8.5,60.417,35.341ZM0,107.2,60.418,142.54Zm384.475-8.5,60.417,35.341ZM0,94.915l60.418,35.341Zm384.475-8.5,60.417,35.341ZM0,82.631l60.418,35.341Zm384.475-8.5,60.417,35.341ZM0,70.347l60.418,35.341Zm384.475-8.5,60.417,35.341ZM0,58.063,60.418,93.4ZM299.737,0,444.893,84.908ZM0,45.779,60.418,81.121ZM320.738,0,444.893,72.624ZM0,33.5,60.418,68.837ZM383.068,61.028,278.737,0Zm-21,0L257.738,0Zm-21,0L236.737,0Zm-21,0L215.738,0Zm-21,0L194.738,0Zm-21,0L173.737,0Zm-21,0L152.738,0Zm-21,0L131.738,0Zm-21,0L110.737,0Zm-21,0L89.738,0Zm-21,0L68.738,0Zm-21,0L47.737,0Zm-21,0L26.738,0Zm-21,0L5.738,0Zm-21,0L0,8.928Zm-21,0L0,21.211ZM341.737,0,444.893,60.341Zm21,0,82.155,48.057Zm21,0,61.155,35.772Zm21,0,40.155,23.488Zm21,0,19.156,11.205Z" transform="translate(792.332 3060.528)" fill="none" stroke="#292929" stroke-width="1"/>
+    <g id="Group_1332" data-name="Group 1332" transform="translate(731 2999.5)">
+      <path id="Path_3910" data-name="Path 3910" d="M0,.61,567.559,0" transform="translate(2.441 121.751)" fill="none" stroke="#838383" stroke-width="1"/>
+      <line id="Line_63" data-name="Line 63" y2="382.034" transform="translate(61.333)" fill="none" stroke="#838383" stroke-width="1"/>
+      <line id="Line_64" data-name="Line 64" x2="567.559" transform="translate(0.305 61.028)" fill="none" stroke="#838383" stroke-width="1"/>
+      <line id="Line_65" data-name="Line 65" x2="567.559" transform="translate(0.305 322.227)" fill="none" stroke="#838383" stroke-width="1"/>
+      <line id="Line_47" data-name="Line 47" y2="381" transform="translate(121 0.5)" fill="none" stroke="#838383" stroke-width="1"/>
+      <line id="Line_48" data-name="Line 48" y2="381" transform="translate(446 0.5)" fill="none" stroke="#838383" stroke-width="1"/>
+      <line id="Line_66" data-name="Line 66" y2="381.424" transform="translate(506.226 0.61)" fill="none" stroke="#838383" stroke-width="1"/>
+      <line id="Line_60" data-name="Line 60" x2="567.559" transform="translate(0 191.627)" fill="none" stroke="#838383" stroke-width="1"/>
+      <path id="Path_3911" data-name="Path 3911" d="M0-2,567.559-.779" transform="translate(2.441 262.284)" fill="none" stroke="#838383" stroke-width="1"/>
+    </g>
+    <g id="Logo" transform="translate(932.393 3121.861)">
+      <g id="ORANGE_STROKE" transform="translate(0 0)">
+        <g id="Group_1" data-name="Group 1">
+          <path id="Path_1" data-name="Path 1" d="M95.874,4H66.883L4.8,142.252H37.408Z" transform="translate(-4.8 -4)" fill="#ff5043"/>
+          <path id="Path_2" data-name="Path 2" d="M95.874,4H66.883L4.8,142.252H37.408Z" transform="translate(-4.8 -4)" opacity="0.57" fill="url(#linear-gradient)"/>
+        </g>
+      </g>
+      <g id="BLUESTROKE" transform="translate(62.083)">
+        <path id="Path_3" data-name="Path 3" d="M543.8,4h28.991l62.083,138.252H602.266Z" transform="translate(-543.8 -4)" fill="#70cbce"/>
+      </g>
+    </g>
+    <text id="Y" transform="translate(818.744 3030.842)" fill="#fff" font-size="19" font-family="TimesNewRomanPS-ItalicMT, Times New Roman" font-style="italic" letter-spacing="-0.02em"><tspan x="0" y="0">y</tspan></text>
+    <text id="X" transform="translate(755.496 3358.561)" fill="#fff" font-size="19" font-family="TimesNewRomanPS-ItalicMT, Times New Roman" font-style="italic" letter-spacing="-0.02em"><tspan x="0" y="0">x</tspan></text>
+  </g>
+</svg>

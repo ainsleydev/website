@@ -141,7 +141,7 @@ small {
 	line-height: 1.5;
 }
 
-// Fons
+// Fonts
 // =========================================================================
 
 .type {
@@ -156,6 +156,17 @@ small {
 	&-code {
 		font-family: $font-code;
 	}
+}
+
+// Mods
+// =========================================================================
+
+.type-uppercase {
+	text-transform: uppercase;
+}
+
+.type-lowercase {
+	text-transform: lowercase;
 }
 
 // Selection Color

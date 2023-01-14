@@ -65,6 +65,7 @@ $publicPath: '{{ .Site.BaseURL }}';
 /* ====================
     Layout
     ==================== */
+@import "layout/aside";
 @import "layout/footer";
 @import "layout/form";
 @import "layout/header";

@@ -49,12 +49,11 @@
 	// =========================================================================
 
 	&-arrow {
-
-		svg path {
-			stroke: rgba($white, 0.5);
-			stroke-width: 1;
-			fill: none;
-		}
+		position: relative;
+		display: inline-block;
+		transition: all 100ms;
+		transform-style: preserve-3d;
+		transform-origin: 50% 50%;
 	}
 
 	// Tablet

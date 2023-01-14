@@ -1,0 +1,42 @@
+// -----------------------------------------------------------------------------
+// _aside.scss
+// This file contains all styles related to the sidebars of the site.
+// -----------------------------------------------------------------------------
+
+.aside {
+	$self: &;
+
+	position: relative;
+	display: block;
+	margin: 0;
+
+	// Link
+	// ==========================================================================
+
+	&-link {
+		display: block;
+		text-decoration: none;
+		padding: 1.2rem 0;
+		border-bottom: 2px solid rgba($white, 0.10);
+
+		&:first-child {
+			padding-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&-text {
+			text-decoration: none;
+			margin: 0;
+		}
+	}
+
+	// Active
+	// ==========================================================================
+
+	&-active {
+		color: var(--link-hover-colour);
+	}
+}

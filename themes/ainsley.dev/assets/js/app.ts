@@ -10,6 +10,7 @@ import scripts from "./scripts/polyfills";
 import {} from "./components/nav";
 import {} from "./components/button";
 import LazyLoad from 'vanilla-lazyload';
+import {Cursor, CursorClasses} from "./components/cursor";
 
 /**
  * Variables
@@ -62,3 +63,27 @@ let lazyLoadInstance = new LazyLoad({
 // 		});
 // 	});
 // });
+
+
+const arrow = document.querySelector(".hero-arrow") as HTMLElement;
+if (arrow) {
+	arrow.addEventListener("mousemove", e => {
+		Cursor.addClass(CursorClasses.Invert, CursorClasses.InvertBlack);
+
+		const pos = arrow.getBoundingClientRect();
+		const mx = e.clientX - pos.left - pos.width/2;
+		const my = e.clientY - pos.top - pos.height/2;
+		console.log('translate('+ mx * 0.15 +'px, '+ my * 0.3 +'px)');
+
+		arrow.style.transform = 'translate('+ mx * 0.15 +'px, '+ my * 0.3 +'px)';
+		arrow.style.transform += 'rotate3d('+ mx * -0.1 +', '+ my * -0.3 +', 0, 12deg)';
+	});
+	arrow.addEventListener("mouseleave", e => {
+		Cursor.removeClass(CursorClasses.Invert, CursorClasses.InvertBlack);
+
+		arrow.style.transform = 'translate3d(0, 0, 0)';
+		arrow.style.transform += 'rotate3d(0, 0, 0, 0deg)';
+	});
+}
+
+
