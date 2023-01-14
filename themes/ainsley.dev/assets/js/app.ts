@@ -11,7 +11,6 @@ import {} from "./components/nav";
 import {} from "./components/button";
 import LazyLoad from 'vanilla-lazyload';
 
-
 /**
  * Variables
  *
@@ -20,7 +19,6 @@ const html = document.querySelector('html'),
 	header = document.querySelector('.header'),
 	nav = document.querySelector('.nav'),
 	hamburger = document.querySelector('.hamburger');
-
 
 /*
  * Remove No JS Body Class
@@ -37,8 +35,6 @@ let lazyLoadInstance = new LazyLoad({
 	elements_selector: '.lazy'
 	// ... more custom settings?
 });
-
-
 
 /*
  * Scroll To Anchor
@@ -66,20 +62,3 @@ let lazyLoadInstance = new LazyLoad({
 // 		});
 // 	});
 // });
-
-/*
- * Scroll
- * Adds header & nav classes after a certain scroll amount determined by scrollPos.
- *
- */
-// const scrollPos = 100;
-// window.addEventListener('scroll', function() {
-// 	if (window.pageYOffset > scrollPos) {
-// 		header.classList.add('header-scrolled');
-// 		nav.classList.add('nav-scrolled');
-// 	} else {
-// 		header.classList.remove('header-scrolled');
-// 		nav.classList.remove('nav-scrolled');
-// 	}
-// });
-

@@ -24,14 +24,13 @@
                         {{ partial "components/button.html" (dict "text" "Download Pack" "button" "files.zip" "arrow" true "colour" "white" "attr" "") }}
 					</div>
 					<!-- Arrow -->
-					<a href="#pages" class="hero-arrow">
+					<a href="{{ .Page.Permalink }}#pages" class="hero-arrow">
                         {{ partial "images/arrow.html" (dict "colour" "white" "rotation" "135") }}
 					</a>
 				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
 	</section>
-		<div id="pages"></div>
 	<!-- =====================
 		List
 		===================== -->
