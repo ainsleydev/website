@@ -69,14 +69,15 @@
         {{- partial "header.html" (dict "global" .Site "colour" $colour) -}}
 		<!-- Cursor -->
 		<div class="cursor"></div>
-        <!-- Main Content -->
-        <main>
-            <div id="content">
+		<!-- Wrapper -->
+		<div class="content-wrapper">
+			<!-- Main Content -->
+			<main>
                 {{- block "main" . }}{{- end }}
-            </div>
-        </main>
-        <!-- Footer -->
-        {{- partial "footer.html" . -}}
+			</main>
+			<!-- Footer -->
+            {{- partial "footer.html" . -}}
+		</div>
         <!-- Javascript -->
         <script src="{{ $js.RelPermalink }}"></script>
         <!-- Google Transition Fix -->

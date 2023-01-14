@@ -24,19 +24,19 @@
                         {{ partial "components/button.html" (dict "text" "Download Pack" "button" "files.zip" "arrow" true "colour" "white" "attr" "") }}
 					</div>
 					<!-- Arrow -->
-					<figure class="hero-arrow">
+					<a href="#pages" class="hero-arrow">
                         {{ partial "images/arrow.html" (dict "colour" "white" "rotation" "135") }}
-					</figure>
-
+					</a>
 				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
 	</section>
+		<div id="pages"></div>
 	<!-- =====================
 		List
 		===================== -->
     {{ if .Pages -}}
-		<section class="section-padding">
+		<section class="section-padding" id="pages">
 			<div class="container">
 				<div class="row">
                     {{ range .Pages -}}
