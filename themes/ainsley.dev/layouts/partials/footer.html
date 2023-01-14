@@ -12,10 +12,10 @@
 			<div class="col-12 col-desk-6 footer-main-col">
 				<!-- Heading -->
 				<h3 class="footer-heading">
-					Digital <span class="type-serif">craftsmanship*</span> sculpting
-					<br class="d-none d-tab-inline"/>
-					 you as an
-					industry <u>leader</u>.
+					Digital craftmanship sculpting
+					<br class="d-none d-mob-inline"/>
+					you as an
+					<br class="d-mob-none"/>industry <u>leader</u>.
 				</h3><!-- /Heading -->
 				<!-- Contact -->
 				<div class="footer-contact">
@@ -23,7 +23,7 @@
                     {{ with .Site.Params.contact.email -}}
 						<div class="footer-contact-email text-wrapper-large">
 							<h6>Email us</h6>
-							<a href="mailto:{{ . }}" aria-label="Email ainsley.dev">
+							<a href="mailto:{{ . | safeHTMLAttr }}" aria-label="Email ainsley.dev">
 								<span class="heading-5">{{ . }}</span>
 							</a>
 						</div>
@@ -39,7 +39,7 @@
 			</div><!-- /Col -->
 			<div class="col-12 col-desk-6 footer-main-col">
 				<!-- Logo -->
-				<figure class="footer-logo text-wrapper-small">
+				<figure class="footer-logo">
                     {{- partial "images/logo.html" -}}
 				</figure>
 				<!-- Navigation -->
@@ -84,7 +84,8 @@
 					<small class="footer-sub-text">
 						ainsley.dev is a registered company in England and Wales. Company
 						Number {{ with .Site.Params.company.number -}} 14550437 {{- end}}. ©{{ now.Year }}
-						ainsley.dev LTD. All rights reserved. <br class="d-none d-desk-large-inline"/>The ainsley.dev logo are
+						ainsley.dev LTD. All rights reserved. <br class="d-none d-desk-large-inline"/>The ainsley.dev
+						logo are
 						registered trademarks of
 						ainsley.dev LTD.
 					</small>

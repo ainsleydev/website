@@ -1644,9 +1644,10 @@ small {
     bottom: 0;
     right: 15px; }
   .footer-logo {
+    display: none;
     width: 30%;
-    max-width: 200px;
-    display: none; }
+    max-width: 160px;
+    margin-bottom: 1rem; }
     .footer-logo img {
       width: 100%; }
   .footer-heading {
