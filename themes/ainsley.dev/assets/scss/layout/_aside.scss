@@ -32,6 +32,7 @@
 
 		&:last-child {
 			margin-bottom: 0;
+			border-bottom: 0;
 		}
 	}
 
@@ -42,6 +43,7 @@
 		text-decoration: none;
 		margin: 0;
 		color: $black;
+		font-size: 1.1rem;
 	}
 
 	// Active
@@ -55,9 +57,10 @@
 	// ==========================================================================
 
 	@include media-desk {
-		position: relative;
+		position: sticky;
 		width: auto;
 		height: auto;
+		top: 100px;
 		padding: 0;
 		transform: none;
 		background-color: transparent;

@@ -56,8 +56,8 @@
 			will-change: fill;
 		}
 
-
 		&-link {
+			margin-right: 2rem;
 
 			&:hover #{$self}-icon path {
 				fill: var(--link-hover-colour);

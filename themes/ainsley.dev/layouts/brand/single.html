@@ -23,8 +23,15 @@
 								<span class="type-serif type-lowercase">{{ .Title }}*</span>
 							</h1>
 						</div>
-						<!-- Button -->
-                        {{ partial "components/button.html" (dict "text" "Download Pack" "button" "files.zip" "arrow" true "colour" "white" "attr" "") }}
+						<!-- File -->
+                        {{ with .Params.download -}}
+                            {{ $file := $.Resources.GetMatch .path }}
+                            {{ if $file -}}
+                                {{ partial "components/button.html" (dict "text" .text "link" ($.Resources.GetMatch .path).RelPermalink "arrow" true "colour" "white" "attr" (printf "download=%s" .name)) }}
+                            {{- else -}}
+                                {{ errorf "File not found with path: %s" .path }}}
+                            {{- end }}
+                        {{- end }}
 					</div>
 					<!-- Arrow -->
 					<a href="{{ .Page.Permalink }}#content" class="hero-arrow">
@@ -42,13 +49,13 @@
 			<div class="row">
 				<!-- Sidebar -->
 				<div class="col-12 col-desk-3">
-{{/*					<aside class="aside aside-brand">*/}}
-{{/*                        {{ range (where .Site.RegularPages "Type" "brand") }}*/}}
-{{/*							<a href="{{ .RelPermalink }}" class="aside-link">*/}}
-{{/*								<h5 class="aside-text {{ if eq $.Page.RelPermalink .RelPermalink -}} aside-active {{- end }}">{{ .Title }}</h5>*/}}
-{{/*							</a>*/}}
-{{/*                        {{- end }}*/}}
-{{/*					</aside>*/}}
+					<aside class="aside aside-brand">
+                        {{ range (where .Site.RegularPages "Type" "brand") }}
+							<a href="{{ .RelPermalink }}" class="aside-link">
+								<h5 class="aside-text {{ if eq $.Page.RelPermalink .RelPermalink -}} aside-active {{- end }}">{{ .Title }}</h5>
+							</a>
+                        {{- end }}
+					</aside>
 				</div><!-- /Col -->
 				<!-- Content -->
 				<div class="col-12 col-desk-8 offset-desk-1">

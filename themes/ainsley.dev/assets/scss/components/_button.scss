@@ -8,6 +8,7 @@
 	$self: &;
 
 	position: relative;
+	display: inline-block;
 	height: auto;
 	padding: $button-padding;
 	background-color: colour(foreground);

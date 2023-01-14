@@ -297,7 +297,8 @@ small {
   letter-spacing: -1.4px; }
 
 .type-code {
-  font-family: "JetBrains Mono" ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace; }
+  font-family: "JetBrains Mono", Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  font-weight: normal; }
 
 .type-uppercase {
   text-transform: uppercase; }
@@ -1423,6 +1424,7 @@ small {
 
 .btn {
   position: relative;
+  display: inline-block;
   height: auto;
   padding: 1rem 1.9rem;
   background-color: var(--colour-foreground);
@@ -1625,8 +1627,10 @@ small {
     .social-icon path {
       transition: fill 160ms ease;
       will-change: fill; }
-    .social-link:hover .social-icon path {
-      fill: var(--link-hover-colour); } }
+    .social-link {
+      margin-right: 2rem; }
+      .social-link:hover .social-icon path {
+        fill: var(--link-hover-colour); } }
 .tag {
   position: relative; }
 
@@ -1652,18 +1656,21 @@ small {
     .aside-link:first-child {
       padding-top: 0; }
     .aside-link:last-child {
-      margin-bottom: 0; }
+      margin-bottom: 0;
+      border-bottom: 0; }
   .aside-text {
     text-decoration: none;
     margin: 0;
-    color: #0A0A0A; }
+    color: #0A0A0A;
+    font-size: 1.1rem; }
   .aside-active {
     color: var(--link-hover-colour); }
   @media (min-width: 1024px) {
     .aside {
-      position: relative;
+      position: sticky;
       width: auto;
       height: auto;
+      top: 100px;
       padding: 0;
       transform: none;
       background-color: transparent; }
