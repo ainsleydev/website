@@ -97,11 +97,15 @@ $nav-padding-desktop: 4rem 6rem;
 // Text
 // ==========================================================================
 
-$text-wrapper-margin-mob: 1.2rem;
-$text-wrapper-margin-tab: 1.4rem;
-$text-wrapper-margin-desk: 1.6rem;
-$text-wrapper-margin-desk-large: 1.8rem;
-$text-wrapper-margin-hd: 2rem;
+$text-margin-properties: (
+	"": 1.2rem,
+	"-mob": 1.2rem,
+	"-tab": 1.4rem,
+	"-desk": 1.6rem,
+	"-desk-large": 1.8rem,
+	"-hd": 2rem,
+);
+
 $text-wrapper-small-diff: 0.5rem;
 $text-wrapper-large-diff: 1rem;
 
@@ -127,11 +131,11 @@ $button-arrow-size: 20px;
 	--colour-copy-dark: #{$copy-dark-bg};
 	--colour-copy-light: #{$copy-light-bg};
 	// Type
-	--text-margin-mob: #{$text-wrapper-margin-mob};
-	--text-margin-tab: #{$text-wrapper-margin-tab};
-	--text-margin-desk: #{$text-wrapper-margin-desk};
-	--text-margin-desk-large: #{$text-wrapper-margin-desk-large};
-	--text-margin-hd: #{$text-wrapper-margin-hd};
+	--text-margin-mob: #{map-get($text-margin-properties, "-mob")};
+	--text-margin-tab: #{map-get($text-margin-properties, "-mob")};
+	--text-margin-desk: #{map-get($text-margin-properties, "-mob")};
+	--text-margin-desk-large: #{map-get($text-margin-properties, "-mob")};
+	--text-margin-hd: #{map-get($text-margin-properties, "-mob")};
 	--text-margin-small-diff: #{$text-wrapper-small-diff};
 	--text-margin-large-diff: #{$text-wrapper-large-diff};
 	// Links

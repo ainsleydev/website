@@ -95,7 +95,7 @@ h6,
 .heading-6 {
 	display: block;
 	color: colour(copy-dark);
-	font-size: 0.9rem;
+	font-size: 0.84rem;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	font-weight: 500;
@@ -136,8 +136,8 @@ a {
 small {
 	display: inline-block;
 	color: colour(copy-dark);
-	font-size: 12px;
-	line-height: 1.8;
+	font-size: 0.85rem;
+	line-height: 1.5;
 }
 
 // Fons
@@ -197,17 +197,17 @@ small {
 	@each $modifier, $breakpoint in $grid-properties {
 		@include create-mediaquery($breakpoint) {
 			@if ($breakpoint == 0) {
-				margin-bottom: $text-wrapper-margin-mob;
+				margin-bottom: #{map-get($text-margin-properties, "-mob")}
 			} @else {
-				margin-bottom: var(--text-margin#{$modifier});
+				margin-bottom: map-get($text-margin-properties, $modifier)
 			}
 
 			&-small {
-				margin-bottom: calc(var(--text-margin#{$modifier}) - #{$text-wrapper-small-diff});
+				margin-bottom: map-get($text-margin-properties, $modifier) + $text-wrapper-small-diff;
 			}
 
 			&-large {
-				margin-bottom: calc(var(--text-margin#{$modifier}) + #{$text-wrapper-large-diff});
+				margin-bottom: map-get($text-margin-properties, $modifier) + $text-wrapper-large-diff;
 			}
 		}
 	}

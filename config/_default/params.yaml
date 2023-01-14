@@ -1,7 +1,10 @@
-title: Title of the site
+title: ainsley.dev
 description: Description of the site
 images:
     - images/site-feature-image.jpg
+company:
+    name: ainsley.dev LTD
+    number: 14550437
 contact:
     email: "hello@ainsley.dev"
     address: "ainsley.dev, 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ"

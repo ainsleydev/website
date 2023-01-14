@@ -97,11 +97,24 @@
 	}
 }
 
+// Mods
+@mixin media-landscape {
+	@media screen and (orientation:landscape) and (min-width: $grid-breakpoint-mob * 1px) {
+		@content;
+	}
+}
+
+@mixin media-portrait {
+	@media screen and (orientation:portrait) and (max-width: $grid-breakpoint-tab * 1px) {
+		@content;
+	}
+}
+
 // Small Phones
 // ==========================================================================
 
 @mixin media-small-phones {
-	@media (max-width: 376px) {
+	@media (max-width: 350px) {
 		@content
 	}
 }
