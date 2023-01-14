@@ -1407,6 +1407,9 @@ small {
 /* ====================
     Components
     ==================== */
+.accordion {
+  position: relative; }
+
 .arrow {
   position: relative;
   display: inline-block;
@@ -1576,6 +1579,9 @@ small {
     background: linear-gradient(180deg, rgba(10, 10, 10, 0) 0%, #0a0a0a 100%);
     z-index: 10; }
 
+.quote {
+  position: relative; }
+
 .social {
   position: relative;
   display: flex;
@@ -1597,6 +1603,9 @@ small {
       will-change: fill; }
     .social-link:hover .social-icon path {
       fill: var(--link-hover-colour); } }
+.tag {
+  position: relative; }
+
 /* ====================
     Layout
     ==================== */

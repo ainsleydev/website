@@ -54,13 +54,16 @@ $publicPath: '{{ .Site.BaseURL }}';
 /* ====================
     Components
     ==================== */
+@import "components/accordion";
 @import "components/arrow";
 @import "components/button";
 @import "components/card";
 @import "components/cursor";
 @import "components/gradient";
 @import "components/list";
+@import "components/quote";
 @import "components/social";
+@import "components/tag";
 
 /* ====================
     Layout
