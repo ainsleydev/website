@@ -22,7 +22,7 @@
 		<!-- Contact -->
 		<div class="nav-contact">
 			<!-- Email -->
-			{{ with .Params.contact.email -}}
+			{{ with .Site.Params.contact.email -}}
 				<div class="nav-contact-section">
 					<span class="heading-6">Email us</span>
 					<a href="mailto:{{ . }}" aria-label="Email ainsley.dev">
@@ -31,10 +31,10 @@
 				</div>
 			{{- end }}
 			<!-- Social -->
-			{{ if .Params.social -}}
+			{{ with .Site.Params.social -}}
 				<div class="nav-contact-section">
 					<span class="heading-6">Connect with us</span>
-					{{ partial "components/social.html" (dict "global" . "colour" "var(--colour-white)") }}
+					{{ partial "components/social.html" (dict "links" . "colour" "var(--colour-white)") }}
 				</div>
 			{{- end }}
 		</div><!-- /Contact -->

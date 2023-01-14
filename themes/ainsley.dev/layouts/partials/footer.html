@@ -1,12 +1,68 @@
 <!-- =====================
     Footer
     ===================== -->
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2></h2>
-            </div><!-- /Col -->
-        </div><!-- /Row -->
-    </div><!-- /Container -->
+<footer class="footer section-padding">
+	<!-- Main -->
+	<div class="footer-main">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-desk-4">
+					<h3>Digital <span class="type-serif">craftsmanship*</span> sculpturing you as an industry <u>leader</u>.</h3>
+					<!-- Contact -->
+					<div class="footer-change">
+						<!-- Email -->
+                        {{ with .Site.Params.contact.email -}}
+							<div>
+								<h6>Email us</h6>
+								<a href="mailto:{{ . }}" aria-label="Email ainsley.dev">
+									<span class="heading-5">{{ . }}</span>
+								</a>
+							</div>
+
+                        {{- end }}
+						<!-- Social -->
+                        {{ with .Site.Params.social -}}
+							<nav>
+								<h6>Connect with us</h6>
+                                {{ partial "components/social.html" (dict "links" . "colour" "var(--colour-white)") }}
+							</nav>
+                        {{- end }}
+					</div>
+				</div><!-- /Col -->
+				<div class="col-12 col-desk-6">
+
+					<!-- Logo -->
+					<figure class="footer-logo text-wrapper-small">
+                        {{- partial "images/logo.html" -}}
+					</figure>
+
+					<!-- Navigation -->
+                    {{ with .Site.Menus.footer -}}
+						<nav class="footer-nav">
+							<ul class="footer-nav-list">
+                                {{ range . -}}
+									<li class="footer-nav-item">
+										<a href="{{ .URL }}" class="nav-link" aria-label="Navigate to the {{ .Name }} page">
+											<span class="nav-link-text heading-5 hover-line hover-line-black">{{ .Name }}</span>
+										</a>
+									</li>
+                                {{- end }}
+							</ul><!-- /List -->
+						</nav><!-- /Navigation -->
+                    {{- else -}}
+                        {{ errorf "No footer defined in menu.yaml" }}
+                    {{- end }}
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</div><!-- /Main -->
+	<!-- Sub -->
+	<div class="footer-sub">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-desk-4">
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</div><!-- /Sub -->
 </footer>

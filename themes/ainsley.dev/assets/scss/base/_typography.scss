@@ -182,47 +182,10 @@ small {
 	}
 }
 
-// Text Container Margin
-// ==========================================================================
-
-@mixin text-cont {
-	margin-bottom: $text-cont-margin-mob;
-
-	@include media-tab {
-		margin-bottom: $text-cont-margin-tab;
-	}
-
-	@include media-desk {
-		margin-bottom: $text-cont-margin-desk;
-	}
-
-	@include media-hd {
-		margin-bottom: $text-cont-margin-hd;
-	}
-}
-
-@mixin text-cont-large {
-	margin-bottom: $text-cont-margin-mob + $text-cont-large-diff;
-
-	@include media-tab {
-		margin-bottom: $text-cont-margin-tab + $text-cont-large-diff;
-	}
-
-	@include media-desk {
-		margin-bottom: $text-cont-margin-desk + $text-cont-large-diff;
-	}
-
-	@include media-hd {
-		margin-bottom: $text-cont-margin-hd + $text-cont-large-diff;
-	}
-}
-
 // Text Containers
 // =========================================================================
 
-.text-cont {
-	@include text-cont;
-
+.text-wrapper {
 	p:last-of-type {
 		margin-bottom: 0;
 	}
@@ -231,30 +194,20 @@ small {
 		margin-bottom: 0 !important;
 	}
 
-	&-large {
-		margin-bottom: $text-cont-margin-mob + $text-cont-large-diff;
-
-		@include media-tab {
-			margin-bottom: $text-cont-margin-tab + $text-cont-large-diff;
-		}
-
-		@include media-desk {
-			margin-bottom: $text-cont-margin-desk + $text-cont-large-diff;
-		}
-
-		@include media-hd {
-			margin-bottom: $text-cont-margin-hd + $text-cont-large-diff;
-		}
-
-		&-desk {
-			@include text-cont;
-
-			@include media-desk {
-				margin-bottom: $text-cont-margin-desk + $text-cont-large-diff;
+	@each $modifier, $breakpoint in $grid-properties {
+		@include create-mediaquery($breakpoint) {
+			@if ($breakpoint == 0) {
+				margin-bottom: $text-wrapper-margin-mob;
+			} @else {
+				margin-bottom: var(--text-margin#{$modifier});
 			}
 
-			@include media-hd {
-				margin-bottom: $text-cont-margin-hd + $text-cont-large-diff;
+			&-small {
+				margin-bottom: calc(var(--text-margin#{$modifier}) - #{$text-wrapper-small-diff});
+			}
+
+			&-large {
+				margin-bottom: calc(var(--text-margin#{$modifier}) + #{$text-wrapper-large-diff});
 			}
 		}
 	}

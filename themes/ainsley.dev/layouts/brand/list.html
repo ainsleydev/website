@@ -17,7 +17,7 @@
 					<!-- Text -->
 					<div class="hero-text hero-text-large-margin">
 						<!-- Heading -->
-						<div class="text-cont text-cont-large">
+						<div class="text-wrapper-large">
 							<h1>ainsley.dev <span class="type-serif">brand <br/>guidelines*</span></h1>
 						</div>
 						<!-- Button -->
@@ -40,19 +40,21 @@
 			<div class="container">
 				<div class="row">
                     {{ range .Pages -}}
-						<div class="col-12">
+						<div class="col-10 col-desk-5">
 							<!-- Card -->
 							<a href="{{ .RelPermalink }}" class="card card-horizontal"
 							   aria-label="Navigate to the {{ .Title }} brand page">
 								<!-- Featured Image -->
                                 {{ $featured := $.Resources.Get "logo.svg" }}
                                 {{ with $featured -}}
-									<figure class="card-image">
+									<figure class="card-image text-wrapper-large">
 										<img src="{{ $featured.RelPermalink }}" alt="{{ .Title }}">
 									</figure>
                                 {{- end }}
-								<!-- Title -->
-								<h3>{{ .Title }}</h3>
+								<!-- Text -->
+								<div class="card-text">
+									<h3>{{ .Title }}</h3>
+								</div>
 							</a>
 						</div><!-- /Col -->
                     {{- end }}

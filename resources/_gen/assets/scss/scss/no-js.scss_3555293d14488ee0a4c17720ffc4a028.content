@@ -19,6 +19,13 @@
   --colour-copy: #0A0A0A;
   --colour-copy-dark: #9A9A9A;
   --colour-copy-light: #595959;
+  --text-margin-mob: 1.2rem;
+  --text-margin-tab: 1.4rem;
+  --text-margin-desk: 1.6rem;
+  --text-margin-desk-large: 1.8rem;
+  --text-margin-hd: 2rem;
+  --text-margin-small-diff: 0.5rem;
+  --text-margin-large-diff: 1rem;
   --link-hover-colour: #70CBCE; }
 
 .cursor {

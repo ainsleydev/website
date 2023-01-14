@@ -53,6 +53,10 @@ nav_sub:
         url: /feedback/
         weight: 30
 footer:
+    -   identifier: home
+        name: Home
+        url: /
+        weight: 10
     -   identifier: about
         name: Who we are
         url: /who-we-are/

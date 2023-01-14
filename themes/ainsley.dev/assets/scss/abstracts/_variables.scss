@@ -17,14 +17,14 @@ $grid-breakpoint-desk: 1024;
 $grid-breakpoint-desk-large: 1408;
 $grid-breakpoint-hd: 1600;
 
-// Properties for rid
+// Properties for grid
 $grid-properties: (
 	"": 0,
 	"-mob": $grid-breakpoint-mob,
 	"-tab": $grid-breakpoint-tab,
 	"-desk": $grid-breakpoint-desk,
 	"-hd": $grid-breakpoint-hd
-) !default;
+);
 
 // Container
 $container-max-width: 1450px;
@@ -53,22 +53,6 @@ $blue: #70CBCE;
 $copy: $black;
 $copy-dark-bg: #9A9A9A; // Fossil
 $copy-light-bg: #595959; // Iron
-
-:root {
-	// Colour
-	--colour-background: #{$black};
-	--colour-foreground: #{$white};
-	--colour-black: #{$black};
-	--colour-white: #{$white};
-	--colour-orange: #{$orange};
-	--colour-blue: #{$blue};
-	--colour-copy: #{$copy};
-	--colour-copy-dark: #{$copy-dark-bg};
-	--colour-copy-light: #{$copy-light-bg};
-	// Type
-	// Links
-	--link-hover-colour: #{$blue};
-}
 
 // Color palette
 $palette: (
@@ -113,13 +97,13 @@ $nav-padding-desktop: 4rem 6rem;
 // Text
 // ==========================================================================
 
-$text-cont-margin-mob: 1.2rem;
-$text-cont-margin-tab: 1.4rem;
-$text-cont-margin-desk: 1.6rem;
-$text-cont-margin-desk-large: 1.8rem;
-$text-cont-margin-hd: 2rem;
-$text-cont-small-diff: 0.5rem;
-$text-cont-large-diff: 1.4rem;
+$text-wrapper-margin-mob: 1.2rem;
+$text-wrapper-margin-tab: 1.4rem;
+$text-wrapper-margin-desk: 1.6rem;
+$text-wrapper-margin-desk-large: 1.8rem;
+$text-wrapper-margin-hd: 2rem;
+$text-wrapper-small-diff: 0.5rem;
+$text-wrapper-large-diff: 1rem;
 
 // Button
 // ==========================================================================
@@ -127,3 +111,29 @@ $text-cont-large-diff: 1.4rem;
 $button-padding: 1rem 1.9rem;
 $button-transition-time: 200ms;
 $button-arrow-size: 20px;
+
+// Root
+// ==========================================================================
+
+:root {
+	// Colour
+	--colour-background: #{$black};
+	--colour-foreground: #{$white};
+	--colour-black: #{$black};
+	--colour-white: #{$white};
+	--colour-orange: #{$orange};
+	--colour-blue: #{$blue};
+	--colour-copy: #{$copy};
+	--colour-copy-dark: #{$copy-dark-bg};
+	--colour-copy-light: #{$copy-light-bg};
+	// Type
+	--text-margin-mob: #{$text-wrapper-margin-mob};
+	--text-margin-tab: #{$text-wrapper-margin-tab};
+	--text-margin-desk: #{$text-wrapper-margin-desk};
+	--text-margin-desk-large: #{$text-wrapper-margin-desk-large};
+	--text-margin-hd: #{$text-wrapper-margin-hd};
+	--text-margin-small-diff: #{$text-wrapper-small-diff};
+	--text-margin-large-diff: #{$text-wrapper-large-diff};
+	// Links
+	--link-hover-colour: #{$blue};
+}

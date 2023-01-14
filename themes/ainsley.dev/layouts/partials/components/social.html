@@ -1,11 +1,12 @@
 <!-- =====================
     Social
     	partial "components/social.html" (colour "white")
+    	- links:	The map of social links defined in params.
     	- colour:	The colour of the social handles, defaults to foreground.
     ===================== -->
 <figure class="social">
 	<!-- GitHub -->
-    {{ with .global.Params.social.github -}}
+    {{ with .links.github -}}
 		<a href="{{ . }}" class="social-link" target="blank" aria-label="Go to ainsley.dev's GitHub profile">
 			<svg class="social-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.458"
 				 height="23.854" viewBox="0 0 24.458 23.854">
@@ -25,7 +26,7 @@
 		</a>
     {{ end -}}
 	<!-- LinkedIn -->
-    {{ with .global.Params.social.linkedin -}}
+    {{ with .links.linkedin -}}
 		<a href="{{ . }}" class="social-link" target="blank" aria-label="Go to ainsley.dev's LinkedIn profile">
 			<svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="22.592" height="22.558" viewBox="0 0 22.592 22.558">
 				<path
@@ -42,7 +43,7 @@
 		</a>
     {{ end -}}
 	<!-- Twitter -->
-    {{ with .global.Params.social.twitter -}}
+    {{ with .links.twitter -}}
 		<a href="{{ . }}" class="social-link" target="blank" aria-label="Go to ainsley.dev's Twitter profile">
 			<svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="26.715" height="21.714" viewBox="0 0 26.715 21.714">
 				<path
@@ -53,7 +54,7 @@
 		</a>
     {{ end -}}
 	<!-- Facebook -->
-    {{ with .global.Params.social.facebook -}}
+    {{ with .links.facebook -}}
 		<a href="{{ . }}" class="social-link" target="blank" aria-label="Go to ainsley.dev's Facebook profile">
 			<svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="12.306" height="22.989" viewBox="0 0 12.306 22.989">
 				<path
@@ -64,7 +65,7 @@
 		</a>
     {{ end -}}
 	<!-- Instagram -->
-    {{ with .global.Params.social.instagram -}}
+    {{ with .links.instagram -}}
 		<a href="{{ . }}" class="social-link" target="blank" aria-label="Go to ainsley.dev's Instagram profile">
 			<svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="25.71" height="25.71" viewBox="0 0 25.71 25.71">
 				<path
@@ -78,7 +79,7 @@
 		</a>
     {{ end -}}
 	<!-- Dribbble -->
-    {{ with .global.Params.social.dribbble -}}
+    {{ with .links.dribbble -}}
 		<a href="{{ . }}" class="social-link" target="blank" aria-label="Go to ainsley.dev's Dribbble profile">
 			<svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="25.329" height="25.329" viewBox="0 0 25.329 25.329">
 				<path
