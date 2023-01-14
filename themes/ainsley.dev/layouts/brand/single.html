@@ -46,7 +46,7 @@
 					<aside class="aside aside-brand">
                         {{ range (where .Site.RegularPages "Type" "brand") }}
 							<a href="{{ .RelPermalink }}" class="aside-link">
-								<h5 class="aside-link-text {{ if eq $.Page.RelPermalink .RelPermalink -}} aside-active {{- end }}">{{ .Title }}</h5>
+								<h5 class="aside-text {{ if eq $.Page.RelPermalink .RelPermalink -}} aside-active {{- end }}">{{ .Title }}</h5>
 							</a>
                         {{- end }}
 					</aside>

@@ -1601,24 +1601,43 @@ small {
     Layout
     ==================== */
 .aside {
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 60vw;
+  background-color: #FFF;
   display: block;
-  margin: 0; }
+  margin: 0;
+  padding: 2rem;
+  z-index: 99; }
   .aside-link {
     display: block;
     text-decoration: none;
-    padding: 1.2rem 0;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1); }
+    padding: 1rem 0;
+    border-bottom: 2px solid rgba(10, 10, 10, 0.1); }
     .aside-link:first-child {
       padding-top: 0; }
     .aside-link:last-child {
       margin-bottom: 0; }
-    .aside-link-text {
-      text-decoration: none;
-      margin: 0; }
+  .aside-text {
+    text-decoration: none;
+    margin: 0;
+    color: #0A0A0A; }
   .aside-active {
     color: var(--link-hover-colour); }
-
+  @media (min-width: 1024px) {
+    .aside {
+      position: relative;
+      width: auto;
+      height: auto;
+      padding: 0;
+      transform: none;
+      background-color: transparent; }
+      .aside-link {
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1); }
+      .aside-text {
+        color: #FFF; } }
 .footer {
   position: relative;
   display: block;

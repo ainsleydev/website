@@ -6,9 +6,16 @@
 .aside {
 	$self: &;
 
-	position: relative;
+	position: fixed;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 60vw;
+	background-color: $white;
 	display: block;
 	margin: 0;
+	padding: 2rem;
+	z-index: 99;
 
 	// Link
 	// ==========================================================================
@@ -16,8 +23,8 @@
 	&-link {
 		display: block;
 		text-decoration: none;
-		padding: 1.2rem 0;
-		border-bottom: 2px solid rgba($white, 0.10);
+		padding: 1rem 0;
+		border-bottom: 2px solid rgba($black, 0.10);
 
 		&:first-child {
 			padding-top: 0;
@@ -26,11 +33,15 @@
 		&:last-child {
 			margin-bottom: 0;
 		}
+	}
 
-		&-text {
-			text-decoration: none;
-			margin: 0;
-		}
+	// Text
+	// ==========================================================================
+
+	&-text {
+		text-decoration: none;
+		margin: 0;
+		color: $black;
 	}
 
 	// Active
@@ -38,5 +49,25 @@
 
 	&-active {
 		color: var(--link-hover-colour);
+	}
+
+	// Desktop
+	// ==========================================================================
+
+	@include media-desk {
+		position: relative;
+		width: auto;
+		height: auto;
+		padding: 0;
+		transform: none;
+		background-color: transparent;
+
+		&-link {
+			border-bottom: 2px solid rgba($white, 0.10);
+		}
+
+		&-text {
+			color: $white;
+		}
 	}
 }
