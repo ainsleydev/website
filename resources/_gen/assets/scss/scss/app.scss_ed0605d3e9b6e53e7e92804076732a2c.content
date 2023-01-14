@@ -179,22 +179,22 @@ h1,
   line-height: 0.9; }
   h1,
   .heading-1 {
-    font-size: 34px; }
+    font-size: 38px; }
     @media screen and (min-width: 320px) {
       h1,
       .heading-1 {
-        font-size: calc(34px + 34 * ((100vw - 320px) / 1088)); } }
+        font-size: calc(38px + 30 * ((100vw - 320px) / 1088)); } }
     @media screen and (min-width: 1408px) {
       h1,
       .heading-1 {
         font-size: 68px; } }
   h1 .type-serif,
   .heading-1 .type-serif {
-    font-size: 44px; }
+    font-size: 48px; }
     @media screen and (min-width: 320px) {
       h1 .type-serif,
       .heading-1 .type-serif {
-        font-size: calc(44px + 36 * ((100vw - 320px) / 1088)); } }
+        font-size: calc(48px + 32 * ((100vw - 320px) / 1088)); } }
     @media screen and (min-width: 1408px) {
       h1 .type-serif,
       .heading-1 .type-serif {
@@ -268,7 +268,9 @@ h6,
 
 p {
   color: var(--colour-copy-dark);
-  margin-bottom: 1rem; }
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  line-height: 1.8; }
   p .lead {
     font-size: 19px;
     font-size: 19/å 16rem; }
@@ -1574,10 +1576,32 @@ small {
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 30%;
+    height: 0;
     width: 100%;
     background: linear-gradient(180deg, rgba(10, 10, 10, 0) 0%, #0a0a0a 100%);
     z-index: 10; }
+  .gradient-height-0:after {
+    height: 0%; }
+  .gradient-height-10:after {
+    height: 10%; }
+  .gradient-height-20:after {
+    height: 20%; }
+  .gradient-height-30:after {
+    height: 30%; }
+  .gradient-height-40:after {
+    height: 40%; }
+  .gradient-height-50:after {
+    height: 50%; }
+  .gradient-height-60:after {
+    height: 60%; }
+  .gradient-height-70:after {
+    height: 70%; }
+  .gradient-height-80:after {
+    height: 80%; }
+  .gradient-height-90:after {
+    height: 90%; }
+  .gradient-height-100:after {
+    height: 100%; }
 
 .quote {
   position: relative; }
@@ -1730,7 +1754,7 @@ small {
         grid-auto-flow: column; } }
   @media (min-width: 1024px) {
     .footer-main {
-      padding-top: 100px;
+      padding-top: 160px;
       padding-bottom: 100px; }
       .footer-main-col {
         display: flex;
@@ -1750,6 +1774,12 @@ small {
       margin: 0; }
     .footer-logo {
       display: block; } }
+  @media (min-width: 1408px) {
+    .footer-main {
+      padding-top: 160px; } }
+  @media (min-width: 1600px) {
+    .footer-main {
+      padding-top: 200px; } }
   @media (min-width: 1024px) and (max-width: 1300px) {
     .footer-heading {
       margin-bottom: 3rem; }
@@ -1798,6 +1828,7 @@ small {
   height: 80px;
   width: 100vw;
   padding: 0 5vw;
+  backdrop-filter: blur(1px);
   z-index: 99999; }
   .header-logo {
     display: flex;
@@ -1811,12 +1842,18 @@ small {
         transition: fill 160ms ease; }
     .header-logo:hover svg path {
       fill: var(--colour-orange); }
+  .header-colour-black {
+    background-color: rgba(10, 10, 10, 0.6); }
+  .header-colour-white {
+    background-color: rgba(255, 255, 255, 0.6); }
   .header-scrolled {
     background-color: orange;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.23); }
   @media (min-width: 1024px) {
     .header {
-      padding: 0 30px; } }
+      padding: 0 30px;
+      background-color: transparent;
+      backdrop-filter: none; } }
 .hero {
   position: relative; }
   .hero-background {
@@ -1831,21 +1868,32 @@ small {
       width: 100%;
       height: 100%;
       object-fit: cover; }
-  .hero-full-height {
+  .hero-full-height, .hero-half-height {
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 100%; }
+  .hero-full-height {
     height: 100%;
     min-height: 100vh; }
+  .hero-half-height {
+    padding-top: 80px;
+    height: 70vh;
+    min-height: 500px; }
   .hero-text {
-    margin-bottom: 20vh; }
+    margin-bottom: 8vh; }
+    .hero-text-large {
+      margin-bottom: 20vh; }
   .hero-arrow {
     position: relative;
     display: inline-block;
-    transition: all 100ms;
-    transform-style: preserve-3d;
-    transform-origin: 50% 50%; }
-
+    width: clamp(30px, 12.5%, 70px); }
+    .hero-arrow svg {
+      width: 100%; }
+  @media (min-width: 1024px) {
+    .hero-arrow {
+      transition: all 100ms;
+      transform-style: preserve-3d;
+      transform-origin: 50% 50%; } }
 .nav {
   position: fixed;
   display: flex;

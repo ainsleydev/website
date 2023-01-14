@@ -5,6 +5,7 @@
 		- url:				The relative URL of the resource/image, this has to be parsed or an error will be thrown.
 		- lazy:				If the image should be lazy loaded, defaults to false.
 		- [css-key] bool:	Hide a particular viewport by outputting a 1px dot. See .Params for the css keys.
+		https://bitbanged.com/posts/using-responsive-images-effortlessly-with-hugo/
     ===================== -->
 {{ $showAvifWebp := ne hugo.Environment "development" -}}
 {{ if isset $ "global" -}}

@@ -59,12 +59,12 @@ h5 {
 
 h1,
 .heading-1 {
-	@include fluid-type(320px, 1408px, 34px, 68px);
+	@include fluid-type(320px, 1408px, 38px, 68px);
 	margin-bottom: 1.2rem;
 	line-height: 0.9;
 
 	.type-serif {
-		@include fluid-type(320px, 1408px, 44px, 80px);
+		@include fluid-type(320px, 1408px, 48px, 80px);
 	}
 }
 
@@ -109,7 +109,9 @@ h6,
 
 p {
 	color: colour(copy-dark);
+	font-size: 1.1rem;
 	margin-bottom: 1rem;
+	line-height: 1.8;
 
 	.lead {
 		@include px-to-rem(19);

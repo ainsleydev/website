@@ -76,6 +76,7 @@ $section-padding: (
 	mob: 80px,
 	tab: 120px,
 	desk: 160px,
+	desk-large: 160px,
 	hd: 200px
 );
 $section-padding-divider: 3;
@@ -87,6 +88,7 @@ $header-height: 80px;
 $header-padding-x-mob: $container-padding-x;
 $header-padding-x-desk: 30px;
 $header-logo-size: 115px;
+$header-background-opacity: 0.6;
 
 // Nav
 // =========================================================================

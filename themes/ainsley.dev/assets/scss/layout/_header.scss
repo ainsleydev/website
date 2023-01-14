@@ -15,6 +15,7 @@
 	height: $header-height;
 	width: 100vw;
 	padding: 0 $header-padding-x-mob;
+	backdrop-filter: blur(1px);
 	z-index: 99999;
 
 	// Logo
@@ -40,6 +41,20 @@
 		}
 	}
 
+	// Colours
+	// ==========================================================================
+
+	&-colour {
+
+		&-black {
+			background-color: rgba($black, $header-background-opacity);
+		}
+
+		&-white {
+			background-color: rgba($white, $header-background-opacity);
+		}
+	}
+
 	// Scrolled
 	// ==========================================================================
 
@@ -53,5 +68,7 @@
 
 	@include media-desk {
 		padding: 0 $header-padding-x-desk;
+		background-color: transparent;
+		backdrop-filter: none;
 	}
 }

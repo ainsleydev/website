@@ -180,7 +180,7 @@
 	@include media-desk {
 
 		&-main {
-			padding-top: 100px;
+			padding-top: map-get($section-padding, desk);
 			padding-bottom: 100px;
 
 			&-col {
@@ -215,6 +215,26 @@
 
 		&-logo {
 			display: block;
+		}
+	}
+
+	// Desktop - Large
+	// =========================================================================
+
+	@include media-desk-large {
+
+		&-main {
+			padding-top: map-get($section-padding, desk-large);
+		}
+	}
+
+	// HD
+	// =========================================================================
+
+	@include media-hd {
+
+		&-main {
+			padding-top: map-get($section-padding, hd);
 		}
 	}
 

@@ -6,8 +6,8 @@
 	<section class="hero hero-full-height">
 		<!-- Background -->
         {{ if .Resources.Get "hero.jpg" -}}
-			<picture class="hero-background gradient">
-                {{ partial "media/picture.html" (dict "global" $ "url" "hero.jpg" "class" "hero-background gradient") }}
+			<picture class="hero-background gradient gradient-height-30">
+                {{ partial "media/picture.html" (dict "global" $ "url" "hero.jpg") }}
 			</picture>
         {{- end }}
 		<!-- Content -->
@@ -15,7 +15,7 @@
 			<div class="row">
 				<div class="col-12">
 					<!-- Text -->
-					<div class="hero-text hero-text-large-margin">
+					<div class="hero-text-large">
 						<!-- Heading -->
 						<div class="text-wrapper-large">
 							<h1>ainsley.dev <span class="type-serif">brand <br/>guidelines*</span></h1>
@@ -31,15 +31,13 @@
 			</div><!-- /Row -->
 		</div><!-- /Container -->
 	</section>
-
-		<div class="tag">Hey</div>
 	<!-- =====================
 		List
 		===================== -->
     {{ if .Pages -}}
 		<section class="section-padding" id="pages">
 			<div class="container">
-				<div class="row">
+				<div class="row justify-content-desk-between">
                     {{ range .Pages -}}
 						<div class="col-10 col-desk-5">
 							<!-- Card -->

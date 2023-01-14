@@ -5,10 +5,9 @@
 		===================== -->
 	<section class="hero hero-half-height">
 		<!-- Background -->
-        {{ .Resources.Get "hero-single.jpg" }}
-        {{ if .Resources.Get "hero-single.jpg" -}}
-			<picture class="hero-background gradient">
-                {{ partial "media/picture.html" (dict "global" $ "url" "hero.jpg" "class" "hero-background gradient") }}
+        {{ with .Parent.Resources.Get "hero-single.jpg" -}}
+			<picture class="hero-background gradient gradient-height-100">
+				<img src="{{ .RelPermalink }}" alt="">
 			</picture>
         {{- end }}
 		<!-- Content -->
@@ -16,7 +15,7 @@
 			<div class="row">
 				<div class="col-12">
 					<!-- Text -->
-					<div class="hero-text hero-text-large-margin">
+					<div class="hero-text">
 						<!-- Heading -->
 						<div class="text-wrapper-large">
 							<h1>
@@ -43,13 +42,13 @@
 			<div class="row">
 				<!-- Sidebar -->
 				<div class="col-12 col-desk-3">
-					<aside class="aside aside-brand">
-                        {{ range (where .Site.RegularPages "Type" "brand") }}
-							<a href="{{ .RelPermalink }}" class="aside-link">
-								<h5 class="aside-text {{ if eq $.Page.RelPermalink .RelPermalink -}} aside-active {{- end }}">{{ .Title }}</h5>
-							</a>
-                        {{- end }}
-					</aside>
+{{/*					<aside class="aside aside-brand">*/}}
+{{/*                        {{ range (where .Site.RegularPages "Type" "brand") }}*/}}
+{{/*							<a href="{{ .RelPermalink }}" class="aside-link">*/}}
+{{/*								<h5 class="aside-text {{ if eq $.Page.RelPermalink .RelPermalink -}} aside-active {{- end }}">{{ .Title }}</h5>*/}}
+{{/*							</a>*/}}
+{{/*                        {{- end }}*/}}
+{{/*					</aside>*/}}
 				</div><!-- /Col -->
 				<!-- Content -->
 				<div class="col-12 col-desk-8 offset-desk-1">

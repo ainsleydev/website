@@ -27,22 +27,42 @@
 		}
 	}
 
+	// Props
+	// =========================================================================
+
+	&-full-height,
+	&-half-height {
+		display: flex;
+		align-items: center;
+		width: 100%;
+	}
+
 	// Full Height
 	// =========================================================================
 
 	&-full-height {
-		display: flex;
-		align-items: center;
-		width: 100%;
 		height: 100%;
 		min-height: 100vh;
+	}
+
+	// Half Height
+	// =========================================================================
+
+	&-half-height {
+		padding-top: $header-height;
+		height: 70vh;
+		min-height: 500px;
 	}
 
 	// Text
 	// =========================================================================
 
 	&-text {
-		margin-bottom: 20vh;
+		margin-bottom: 8vh;
+
+		&-large {
+			margin-bottom: 20vh;
+		}
 	}
 
 	// Arrow
@@ -51,9 +71,11 @@
 	&-arrow {
 		position: relative;
 		display: inline-block;
-		transition: all 100ms;
-		transform-style: preserve-3d;
-		transform-origin: 50% 50%;
+		width: clamp(30px, 12.5%,  70px);
+
+		svg {
+			width: 100%;
+		}
 	}
 
 	// Tablet
@@ -66,5 +88,11 @@
 	// =========================================================================
 
 	@include media-desk {
+
+		&-arrow {
+			transition: all 100ms;
+			transform-style: preserve-3d;
+			transform-origin: 50% 50%;
+		}
 	}
 }
