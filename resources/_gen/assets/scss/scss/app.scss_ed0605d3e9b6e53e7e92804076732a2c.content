@@ -1595,33 +1595,41 @@ small {
 .footer {
   position: relative;
   display: block;
-  overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.05); }
+  overflow: hidden; }
   .footer-main {
+    position: relative;
     padding-top: 5rem;
     padding-bottom: 3rem; }
+    .footer-main-nav-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: none;
+      grid-row-gap: 0.8rem;
+      align-items: flex-end; }
+    .footer-main-nav-link {
+      text-decoration: none; }
   .footer-sub {
     position: relative; }
     .footer-sub-wrapper {
       display: flex;
       flex-direction: column;
       flex-wrap: nowrap;
-      border-top: 1px solid #FFF;
+      border-top: 2px solid rgba(255, 255, 255, 0.15);
       padding-top: 1.4rem;
       padding-bottom: 1.4rem; }
-    .footer-sub-menu {
+    .footer-sub-nav {
       margin-bottom: 0.8rem; }
-      .footer-sub-menu-list {
+      .footer-sub-nav-list {
         display: flex;
         flex-direction: row; }
-      .footer-sub-menu-item {
+      .footer-sub-nav-item {
         margin-right: 6px; }
-      .footer-sub-menu-item:last-child .footer-sub-menu-link:after {
+      .footer-sub-nav-item:last-child .footer-sub-nav-link:after {
         display: none; }
-      .footer-sub-menu-link {
+      .footer-sub-nav-link {
         text-decoration: none;
         white-space: nowrap; }
-        .footer-sub-menu-link:after {
+        .footer-sub-nav-link:after {
           content: "|";
           color: #FFF;
           margin: 0 6px; }
@@ -1630,22 +1638,23 @@ small {
     flex-direction: column;
     align-items: flex-start;
     margin: 3rem 0; }
+  .footer-symbol {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    right: 15px; }
   .footer-logo {
     width: 30%;
     max-width: 200px;
     display: none; }
     .footer-logo img {
       width: 100%; }
-  .footer-nav-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: none; }
-  .footer-nav-item:last-child *, .footer-nav-item:nth-last-child(2) * {
+  .footer-heading {
     margin-bottom: 0; }
   @media (max-width: 350px) {
-    .footer-sub-menu-list {
+    .footer-sub-nav-list {
       flex-direction: column; }
-    .footer-sub-menu-link:after {
+    .footer-sub-nav-link:after {
       display: none; } }
   @media (min-width: 568px) {
     .footer-contact {
@@ -1655,26 +1664,45 @@ small {
         margin-bottom: 0;
         margin-right: 3rem; } }
   @media (min-width: 768px) {
-    .footer-nav-list {
-      display: grid;
-      grid-template-rows: repeat(3, 1fr);
-      grid-template-columns: none;
-      grid-auto-flow: column; }
-    .footer-nav-item:last-child *, .footer-nav-item:nth-last-child(2) *, .footer-nav-item:nth-last-child(3) * {
-      margin-bottom: 0; } }
+    .footer-main {
+      padding-top: 5rem;
+      padding-bottom: 5rem; }
+      .footer-main-nav-list {
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: none;
+        grid-auto-flow: column; } }
   @media (min-width: 1024px) {
+    .footer-main {
+      padding-top: 100px;
+      padding-bottom: 100px; }
+      .footer-main-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; }
     .footer-sub-wrapper {
       flex-direction: row;
       align-items: center;
-      justify-content: space-between; }
-    .footer-sub-menu {
+      justify-content: space-between;
+      padding: 1.6rem 0; }
+    .footer-sub-nav {
       margin-left: 4rem;
-      margin-bottom: 0; } }
-  @media (min-width: 1024px) {
+      margin-bottom: 0; }
+    .footer-heading {
+      margin-bottom: 5rem; }
     .footer-contact {
       margin: 0; }
     .footer-logo {
       display: block; } }
+  @media (min-width: 1024px) and (max-width: 1300px) {
+    .footer-heading {
+      margin-bottom: 3rem; }
+    .footer-contact {
+      flex-direction: column;
+      align-items: flex-start; }
+      .footer-contact-email {
+        margin-right: 0;
+        margin-bottom: 1.6rem; } }
 .form-input {
   position: relative;
   width: 100%;
