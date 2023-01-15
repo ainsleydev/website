@@ -1,0 +1,915 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="544" height="350" viewBox="0 0 544 350">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="BG" width="544" height="350" fill="#0f0f0f" style="mix-blend-mode: luminosity;isolation: isolate"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_2224" data-name="Rectangle 2224" width="244.173" height="324.11" transform="translate(0 0)" fill="#fff"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <rect width="1360.582" height="1059.719" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-4">
+      <rect id="Rectangle_2224-2" data-name="Rectangle 2224" width="244.173" height="322.657" transform="translate(0 0)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Card" transform="translate(-1091 -3160)">
+    <rect id="BG-2" data-name="BG" width="544" height="350" transform="translate(1091 3160)" fill="#0f0f0f" style="mix-blend-mode: luminosity;isolation: isolate"/>
+    <g id="Mask_Group_26" data-name="Mask Group 26" transform="translate(1091 3160)" clip-path="url(#clip-path)">
+      <g id="Group_1415" data-name="Group 1415" transform="translate(54.752 -115.783)">
+        <g id="Card-2" data-name="Card" transform="translate(0 0)">
+          <g id="Background" transform="translate(0 0)">
+            <g id="BG-3" data-name="BG" fill="#171717">
+              <path d="M 245.5373382568359 324.9771728515625 L 1.000002503395081 324.9771728515625 L 1.000002503395081 1.000003099441528 L 245.5373382568359 1.000003099441528 L 245.5373382568359 324.9771728515625 Z" stroke="none"/>
+              <path d="M 2 2 L 2 323.9771728515625 L 244.5373382568359 323.9771728515625 L 244.5373382568359 2 L 2 2 M 0 0 L 246.5373382568359 0 L 246.5373382568359 325.9771728515625 L 0 325.9771728515625 L 0 0 Z" stroke="none" fill="#fff"/>
+            </g>
+            <g id="Mask_Group_19" data-name="Mask Group 19" transform="translate(1.453 1.453)" clip-path="url(#clip-path-2)">
+              <g id="Repeat_Grid_10" data-name="Repeat Grid 10" transform="translate(-794.453 -162.167)" clip-path="url(#clip-path-3)">
+                <g transform="translate(-731.235 -2607.076)" opacity="0.416">
+                  <line id="Line_69" data-name="Line 69" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-712.235 -2607.076)" opacity="0.416">
+                  <line id="Line_70" data-name="Line 70" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-693.235 -2607.076)" opacity="0.416">
+                  <line id="Line_71" data-name="Line 71" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-674.235 -2607.076)" opacity="0.416">
+                  <line id="Line_72" data-name="Line 72" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-655.235 -2607.076)" opacity="0.416">
+                  <line id="Line_73" data-name="Line 73" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-636.235 -2607.076)" opacity="0.416">
+                  <line id="Line_74" data-name="Line 74" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-617.235 -2607.076)" opacity="0.416">
+                  <line id="Line_75" data-name="Line 75" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-598.235 -2607.076)" opacity="0.416">
+                  <line id="Line_76" data-name="Line 76" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-579.235 -2607.076)" opacity="0.416">
+                  <line id="Line_77" data-name="Line 77" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-560.235 -2607.076)" opacity="0.416">
+                  <line id="Line_78" data-name="Line 78" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-541.235 -2607.076)" opacity="0.416">
+                  <line id="Line_79" data-name="Line 79" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-522.235 -2607.076)" opacity="0.416">
+                  <line id="Line_80" data-name="Line 80" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-503.235 -2607.076)" opacity="0.416">
+                  <line id="Line_81" data-name="Line 81" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-484.235 -2607.076)" opacity="0.416">
+                  <line id="Line_82" data-name="Line 82" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-465.235 -2607.076)" opacity="0.416">
+                  <line id="Line_83" data-name="Line 83" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-446.235 -2607.076)" opacity="0.416">
+                  <line id="Line_84" data-name="Line 84" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-427.235 -2607.076)" opacity="0.416">
+                  <line id="Line_85" data-name="Line 85" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-408.235 -2607.076)" opacity="0.416">
+                  <line id="Line_86" data-name="Line 86" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-389.235 -2607.076)" opacity="0.416">
+                  <line id="Line_87" data-name="Line 87" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-370.235 -2607.076)" opacity="0.416">
+                  <line id="Line_88" data-name="Line 88" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-351.235 -2607.076)" opacity="0.416">
+                  <line id="Line_89" data-name="Line 89" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-332.235 -2607.076)" opacity="0.416">
+                  <line id="Line_90" data-name="Line 90" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-313.235 -2607.076)" opacity="0.416">
+                  <line id="Line_91" data-name="Line 91" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-294.235 -2607.076)" opacity="0.416">
+                  <line id="Line_92" data-name="Line 92" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-275.235 -2607.076)" opacity="0.416">
+                  <line id="Line_93" data-name="Line 93" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-256.235 -2607.076)" opacity="0.416">
+                  <line id="Line_94" data-name="Line 94" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-237.235 -2607.076)" opacity="0.416">
+                  <line id="Line_95" data-name="Line 95" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-218.235 -2607.076)" opacity="0.416">
+                  <line id="Line_96" data-name="Line 96" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-199.235 -2607.076)" opacity="0.416">
+                  <line id="Line_97" data-name="Line 97" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-180.235 -2607.076)" opacity="0.416">
+                  <line id="Line_98" data-name="Line 98" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-161.235 -2607.076)" opacity="0.416">
+                  <line id="Line_99" data-name="Line 99" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-142.235 -2607.076)" opacity="0.416">
+                  <line id="Line_100" data-name="Line 100" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-123.235 -2607.076)" opacity="0.416">
+                  <line id="Line_101" data-name="Line 101" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-104.235 -2607.076)" opacity="0.416">
+                  <line id="Line_102" data-name="Line 102" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-85.235 -2607.076)" opacity="0.416">
+                  <line id="Line_103" data-name="Line 103" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-66.235 -2607.076)" opacity="0.416">
+                  <line id="Line_104" data-name="Line 104" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-47.235 -2607.076)" opacity="0.416">
+                  <line id="Line_105" data-name="Line 105" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-28.235 -2607.076)" opacity="0.416">
+                  <line id="Line_106" data-name="Line 106" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-9.235 -2607.076)" opacity="0.416">
+                  <line id="Line_107" data-name="Line 107" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(9.765 -2607.076)" opacity="0.416">
+                  <line id="Line_108" data-name="Line 108" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(28.765 -2607.076)" opacity="0.416">
+                  <line id="Line_109" data-name="Line 109" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(47.765 -2607.076)" opacity="0.416">
+                  <line id="Line_110" data-name="Line 110" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(66.765 -2607.076)" opacity="0.416">
+                  <line id="Line_111" data-name="Line 111" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(85.765 -2607.076)" opacity="0.416">
+                  <line id="Line_112" data-name="Line 112" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(104.765 -2607.076)" opacity="0.416">
+                  <line id="Line_113" data-name="Line 113" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(123.765 -2607.076)" opacity="0.416">
+                  <line id="Line_114" data-name="Line 114" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(142.765 -2607.076)" opacity="0.416">
+                  <line id="Line_115" data-name="Line 115" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(161.765 -2607.076)" opacity="0.416">
+                  <line id="Line_116" data-name="Line 116" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(180.765 -2607.076)" opacity="0.416">
+                  <line id="Line_117" data-name="Line 117" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(199.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(218.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-2" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(237.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-3" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(256.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-4" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(275.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-5" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(294.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-6" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(313.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-7" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(332.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-8" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(351.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-9" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(370.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-10" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(389.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-11" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(408.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-12" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(427.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-13" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(446.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-14" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(465.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-15" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(484.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-16" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(503.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-17" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(522.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-18" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(541.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-19" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(560.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-20" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(579.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-21" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(598.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-22" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(617.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-23" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-731.235 -2006.076)" opacity="0.416">
+                  <line id="Line_69-2" data-name="Line 69" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-712.235 -2006.076)" opacity="0.416">
+                  <line id="Line_70-2" data-name="Line 70" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-693.235 -2006.076)" opacity="0.416">
+                  <line id="Line_71-2" data-name="Line 71" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-674.235 -2006.076)" opacity="0.416">
+                  <line id="Line_72-2" data-name="Line 72" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-655.235 -2006.076)" opacity="0.416">
+                  <line id="Line_73-2" data-name="Line 73" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-636.235 -2006.076)" opacity="0.416">
+                  <line id="Line_74-2" data-name="Line 74" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-617.235 -2006.076)" opacity="0.416">
+                  <line id="Line_75-2" data-name="Line 75" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-598.235 -2006.076)" opacity="0.416">
+                  <line id="Line_76-2" data-name="Line 76" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-579.235 -2006.076)" opacity="0.416">
+                  <line id="Line_77-2" data-name="Line 77" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-560.235 -2006.076)" opacity="0.416">
+                  <line id="Line_78-2" data-name="Line 78" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-541.235 -2006.076)" opacity="0.416">
+                  <line id="Line_79-2" data-name="Line 79" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-522.235 -2006.076)" opacity="0.416">
+                  <line id="Line_80-2" data-name="Line 80" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-503.235 -2006.076)" opacity="0.416">
+                  <line id="Line_81-2" data-name="Line 81" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-484.235 -2006.076)" opacity="0.416">
+                  <line id="Line_82-2" data-name="Line 82" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-465.235 -2006.076)" opacity="0.416">
+                  <line id="Line_83-2" data-name="Line 83" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-446.235 -2006.076)" opacity="0.416">
+                  <line id="Line_84-2" data-name="Line 84" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-427.235 -2006.076)" opacity="0.416">
+                  <line id="Line_85-2" data-name="Line 85" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-408.235 -2006.076)" opacity="0.416">
+                  <line id="Line_86-2" data-name="Line 86" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-389.235 -2006.076)" opacity="0.416">
+                  <line id="Line_87-2" data-name="Line 87" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-370.235 -2006.076)" opacity="0.416">
+                  <line id="Line_88-2" data-name="Line 88" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-351.235 -2006.076)" opacity="0.416">
+                  <line id="Line_89-2" data-name="Line 89" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-332.235 -2006.076)" opacity="0.416">
+                  <line id="Line_90-2" data-name="Line 90" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-313.235 -2006.076)" opacity="0.416">
+                  <line id="Line_91-2" data-name="Line 91" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-294.235 -2006.076)" opacity="0.416">
+                  <line id="Line_92-2" data-name="Line 92" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-275.235 -2006.076)" opacity="0.416">
+                  <line id="Line_93-2" data-name="Line 93" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-256.235 -2006.076)" opacity="0.416">
+                  <line id="Line_94-2" data-name="Line 94" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-237.235 -2006.076)" opacity="0.416">
+                  <line id="Line_95-2" data-name="Line 95" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-218.235 -2006.076)" opacity="0.416">
+                  <line id="Line_96-2" data-name="Line 96" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-199.235 -2006.076)" opacity="0.416">
+                  <line id="Line_97-2" data-name="Line 97" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-180.235 -2006.076)" opacity="0.416">
+                  <line id="Line_98-2" data-name="Line 98" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-161.235 -2006.076)" opacity="0.416">
+                  <line id="Line_99-2" data-name="Line 99" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-142.235 -2006.076)" opacity="0.416">
+                  <line id="Line_100-2" data-name="Line 100" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-123.235 -2006.076)" opacity="0.416">
+                  <line id="Line_101-2" data-name="Line 101" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-104.235 -2006.076)" opacity="0.416">
+                  <line id="Line_102-2" data-name="Line 102" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-85.235 -2006.076)" opacity="0.416">
+                  <line id="Line_103-2" data-name="Line 103" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-66.235 -2006.076)" opacity="0.416">
+                  <line id="Line_104-2" data-name="Line 104" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-47.235 -2006.076)" opacity="0.416">
+                  <line id="Line_105-2" data-name="Line 105" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-28.235 -2006.076)" opacity="0.416">
+                  <line id="Line_106-2" data-name="Line 106" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-9.235 -2006.076)" opacity="0.416">
+                  <line id="Line_107-2" data-name="Line 107" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(9.765 -2006.076)" opacity="0.416">
+                  <line id="Line_108-2" data-name="Line 108" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(28.765 -2006.076)" opacity="0.416">
+                  <line id="Line_109-2" data-name="Line 109" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(47.765 -2006.076)" opacity="0.416">
+                  <line id="Line_110-2" data-name="Line 110" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(66.765 -2006.076)" opacity="0.416">
+                  <line id="Line_111-2" data-name="Line 111" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(85.765 -2006.076)" opacity="0.416">
+                  <line id="Line_112-2" data-name="Line 112" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(104.765 -2006.076)" opacity="0.416">
+                  <line id="Line_113-2" data-name="Line 113" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(123.765 -2006.076)" opacity="0.416">
+                  <line id="Line_114-2" data-name="Line 114" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(142.765 -2006.076)" opacity="0.416">
+                  <line id="Line_115-2" data-name="Line 115" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(161.765 -2006.076)" opacity="0.416">
+                  <line id="Line_116-2" data-name="Line 116" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(180.765 -2006.076)" opacity="0.416">
+                  <line id="Line_117-2" data-name="Line 117" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(199.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-24" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(218.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-25" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(237.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-26" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(256.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-27" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(275.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-28" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(294.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-29" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(313.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-30" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(332.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-31" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(351.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-32" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(370.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-33" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(389.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-34" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(408.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-35" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(427.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-36" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(446.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-37" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(465.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-38" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(484.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-39" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(503.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-40" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(522.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-41" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(541.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-42" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(560.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-43" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(579.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-44" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(598.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-45" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(617.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-46" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+              </g>
+            </g>
+          </g>
+          <path id="Path_3913" data-name="Path 3913" d="M2.48,25.336v-15.1H5.237v15.1Zm5.879-9.3V14.714a2.161,2.161,0,0,0,1.084-.6,1.94,1.94,0,0,0,.517-1.044h-1.2V10.234H11.44v1.743a4.367,4.367,0,0,1-.78,2.686A3.711,3.711,0,0,1,8.359,16.032Zm5.98,9.3V14.309h2.493v2.554l-.284-.426a2.86,2.86,0,0,1,1.216-1.784,3.879,3.879,0,0,1,2.149-.588,4.124,4.124,0,0,1,2.392.709,3.194,3.194,0,0,1,1.338,1.865l-.75.061a3.963,3.963,0,0,1,1.52-1.976,4.447,4.447,0,0,1,4.429-.132,3.788,3.788,0,0,1,1.449,1.47,4.39,4.39,0,0,1,.527,2.179v7.095H28.163V18.87a2.782,2.782,0,0,0-.264-1.257,2.007,2.007,0,0,0-.73-.821,2.087,2.087,0,0,0-1.135-.294,2.113,2.113,0,0,0-1.115.294,1.961,1.961,0,0,0-.75.821,2.782,2.782,0,0,0-.264,1.257v6.466H21.251V18.87a2.782,2.782,0,0,0-.264-1.257,1.983,1.983,0,0,0-.74-.821,2.281,2.281,0,0,0-2.24,0,1.961,1.961,0,0,0-.75.821,2.782,2.782,0,0,0-.264,1.257v6.466Zm27.548.243a5.062,5.062,0,0,1-2.2-.476A3.831,3.831,0,0,1,38.1,23.735l.264-.527v2.128H35.866V9.991h2.655V16.5l-.405-.547a3.877,3.877,0,0,1,1.541-1.389,4.883,4.883,0,0,1,2.25-.5,5.284,5.284,0,0,1,2.818.77,5.69,5.69,0,0,1,2,2.068,5.787,5.787,0,0,1,.74,2.919,5.923,5.923,0,0,1-.73,2.919,5.488,5.488,0,0,1-1.987,2.078A5.413,5.413,0,0,1,41.887,25.579Zm-.3-2.432a3.09,3.09,0,0,0,1.622-.426,2.941,2.941,0,0,0,1.1-1.176,3.641,3.641,0,0,0,.4-1.723,3.58,3.58,0,0,0-.4-1.713A3.01,3.01,0,0,0,41.582,16.5a2.928,2.928,0,0,0-2.666,1.612,3.931,3.931,0,0,0,0,3.436,2.944,2.944,0,0,0,2.666,1.6Zm10.845,2.432a4.834,4.834,0,0,1-2.007-.385,2.918,2.918,0,0,1-1.784-2.777A3.084,3.084,0,0,1,50.3,19.579a6.28,6.28,0,0,1,2.149-.689l3.608-.588v2.027l-3.1.527a2.263,2.263,0,0,0-1.176.507,1.252,1.252,0,0,0-.385.953,1.078,1.078,0,0,0,.436.9,1.729,1.729,0,0,0,1.084.334,2.976,2.976,0,0,0,1.47-.355,2.527,2.527,0,0,0,.993-.983,2.756,2.756,0,0,0,.355-1.378V18a1.5,1.5,0,0,0-.557-1.186,2.184,2.184,0,0,0-1.47-.476,2.589,2.589,0,0,0-1.51.456A2.643,2.643,0,0,0,51.231,18l-2.169-1.054a3.827,3.827,0,0,1,1.024-1.51,5.156,5.156,0,0,1,1.652-1,5.733,5.733,0,0,1,2.068-.365,5.463,5.463,0,0,1,2.392.5,3.888,3.888,0,0,1,1.612,1.378A3.669,3.669,0,0,1,58.387,18v7.338H55.873V23.451l.568-.041A4.461,4.461,0,0,1,55.427,24.6a4.281,4.281,0,0,1-1.338.73A5.169,5.169,0,0,1,52.427,25.579Zm14.027,0a5.062,5.062,0,0,1-2.2-.476,3.831,3.831,0,0,1-1.591-1.368l.264-.527v2.128H60.434V9.991H63.09V16.5l-.405-.547a3.877,3.877,0,0,1,1.541-1.389,4.883,4.883,0,0,1,2.25-.5,5.284,5.284,0,0,1,2.818.77,5.69,5.69,0,0,1,2,2.068,5.786,5.786,0,0,1,.74,2.919,5.923,5.923,0,0,1-.73,2.919,5.488,5.488,0,0,1-1.987,2.078A5.413,5.413,0,0,1,66.455,25.579Zm-.3-2.432a3.09,3.09,0,0,0,1.622-.426,2.941,2.941,0,0,0,1.1-1.176,3.641,3.641,0,0,0,.4-1.723,3.58,3.58,0,0,0-.4-1.713A3.01,3.01,0,0,0,66.151,16.5a2.928,2.928,0,0,0-2.666,1.612,3.931,3.931,0,0,0,0,3.436,2.944,2.944,0,0,0,2.666,1.6Zm8.635,6.669a5.293,5.293,0,0,1-.872-.071,2.934,2.934,0,0,1-.77-.233v-2.23q.264.061.639.122a4.385,4.385,0,0,0,.7.061,1.791,1.791,0,0,0,1.328-.426,4.05,4.05,0,0,0,.74-1.115l.73-1.7-.041,2.23-4.8-12.142h2.858l3.365,8.96H77.644l3.345-8.96h2.878l-4.8,12.142a6.925,6.925,0,0,1-1.034,1.824,4.2,4.2,0,0,1-1.409,1.145A4.092,4.092,0,0,1,74.786,29.816Zm17.271-4.237a4.221,4.221,0,0,1-2.22-.568A3.707,3.707,0,0,1,88.4,23.431a5.331,5.331,0,0,1-.5-2.372v-6.75h2.655v6.527a2.541,2.541,0,0,0,.274,1.206,1.985,1.985,0,0,0,.791.811,2.316,2.316,0,0,0,1.166.294,2.26,2.26,0,0,0,1.155-.294,2.055,2.055,0,0,0,.791-.821,2.615,2.615,0,0,0,.284-1.257V14.309h2.655V25.336H95.158V23.167l.223.385a2.861,2.861,0,0,1-1.267,1.52A4.057,4.057,0,0,1,92.057,25.579Zm7.683-.243V14.309h2.493v2.554l-.284-.426a2.86,2.86,0,0,1,1.216-1.784,3.879,3.879,0,0,1,2.149-.588,4.124,4.124,0,0,1,2.392.709,3.194,3.194,0,0,1,1.338,1.865l-.75.061a3.963,3.963,0,0,1,1.52-1.976,4.447,4.447,0,0,1,4.429-.132,3.788,3.788,0,0,1,1.449,1.47,4.39,4.39,0,0,1,.527,2.179v7.095h-2.655V18.87a2.782,2.782,0,0,0-.264-1.257,2.007,2.007,0,0,0-.73-.821,2.087,2.087,0,0,0-1.135-.294,2.113,2.113,0,0,0-1.115.294,1.961,1.961,0,0,0-.75.821,2.782,2.782,0,0,0-.264,1.257v6.466h-2.655V18.87a2.782,2.782,0,0,0-.264-1.257,1.983,1.983,0,0,0-.74-.821,2.281,2.281,0,0,0-2.24,0,1.961,1.961,0,0,0-.75.821,2.782,2.782,0,0,0-.264,1.257v6.466Zm21.67.243a4.834,4.834,0,0,1-2.007-.385,2.918,2.918,0,0,1-1.784-2.777,3.084,3.084,0,0,1,1.662-2.838,6.281,6.281,0,0,1,2.149-.689l3.608-.588v2.027l-3.1.527a2.263,2.263,0,0,0-1.176.507,1.252,1.252,0,0,0-.385.953,1.078,1.078,0,0,0,.436.9,1.729,1.729,0,0,0,1.084.334,2.976,2.976,0,0,0,1.47-.355,2.527,2.527,0,0,0,.993-.983,2.756,2.756,0,0,0,.355-1.378V18a1.5,1.5,0,0,0-.557-1.186,2.184,2.184,0,0,0-1.47-.476,2.588,2.588,0,0,0-1.51.456A2.643,2.643,0,0,0,120.213,18l-2.169-1.054a3.827,3.827,0,0,1,1.024-1.51,5.156,5.156,0,0,1,1.652-1,5.733,5.733,0,0,1,2.068-.365,5.463,5.463,0,0,1,2.392.5,3.888,3.888,0,0,1,1.612,1.378A3.669,3.669,0,0,1,127.369,18v7.338h-2.514V23.451l.568-.041a4.461,4.461,0,0,1-1.014,1.186,4.281,4.281,0,0,1-1.338.73A5.169,5.169,0,0,1,121.409,25.579Zm8.007-.243V14.309h2.493v2.554l-.284-.426a2.86,2.86,0,0,1,1.216-1.784,3.879,3.879,0,0,1,2.149-.588,4.124,4.124,0,0,1,2.392.709,3.194,3.194,0,0,1,1.338,1.865l-.75.061a3.964,3.964,0,0,1,1.52-1.976,4.447,4.447,0,0,1,4.429-.132,3.788,3.788,0,0,1,1.449,1.47,4.39,4.39,0,0,1,.527,2.179v7.095h-2.655V18.87a2.782,2.782,0,0,0-.264-1.257,2.006,2.006,0,0,0-.73-.821,2.087,2.087,0,0,0-1.135-.294,2.113,2.113,0,0,0-1.115.294,1.961,1.961,0,0,0-.75.821,2.782,2.782,0,0,0-.264,1.257v6.466h-2.655V18.87a2.782,2.782,0,0,0-.264-1.257,1.983,1.983,0,0,0-.74-.821,2.281,2.281,0,0,0-2.24,0,1.961,1.961,0,0,0-.75.821,2.782,2.782,0,0,0-.264,1.257v6.466Zm18.325,0V14.309H150.4V25.336Zm0-12.264V10.234H150.4v2.838Zm7.906,16.318V14.309h2.493V16.5l-.243-.547a3.877,3.877,0,0,1,1.541-1.389,4.883,4.883,0,0,1,2.25-.5,5.284,5.284,0,0,1,2.818.77,5.69,5.69,0,0,1,2,2.068,5.787,5.787,0,0,1,.74,2.919,5.923,5.923,0,0,1-.73,2.919,5.488,5.488,0,0,1-1.987,2.078,5.413,5.413,0,0,1-2.858.76,5.062,5.062,0,0,1-2.2-.476,3.831,3.831,0,0,1-1.591-1.368l.426-.527V29.39Zm5.716-6.243a3.09,3.09,0,0,0,1.622-.426,2.941,2.941,0,0,0,1.1-1.176,3.641,3.641,0,0,0,.4-1.723,3.581,3.581,0,0,0-.4-1.713,3.01,3.01,0,0,0-2.726-1.612,2.928,2.928,0,0,0-2.666,1.612,3.931,3.931,0,0,0,0,3.436,2.944,2.944,0,0,0,2.666,1.6Zm7.5,2.189V14.309h2.656V25.336Zm0-12.264V10.234h2.656v2.838Zm10.014,12.507a5.759,5.759,0,0,1-2.949-.76,5.543,5.543,0,0,1-2.057-2.068,6.154,6.154,0,0,1,0-5.889,5.49,5.49,0,0,1,2.057-2.047,5.82,5.82,0,0,1,2.949-.75,5.715,5.715,0,0,1,2.189.416,5.45,5.45,0,0,1,1.753,1.135,4.15,4.15,0,0,1,1.064,1.713l-2.331,1.014A2.758,2.758,0,0,0,180.529,17a2.8,2.8,0,0,0-1.652-.507,2.858,2.858,0,0,0-1.551.426,2.941,2.941,0,0,0-1.064,1.176,4.047,4.047,0,0,0,0,3.446,2.941,2.941,0,0,0,1.064,1.176,2.858,2.858,0,0,0,1.551.426,2.754,2.754,0,0,0,2.676-1.865l2.331,1.054a4.44,4.44,0,0,1-1.054,1.672,5.173,5.173,0,0,1-1.743,1.155A5.769,5.769,0,0,1,178.877,25.579Zm6.608-.243V9.991h2.655V20.045l-1.014-.3,5.189-5.433h3.3l-4.074,4.439,4.156,6.588h-3.041l-3.608-5.716,1.581-.324-3.324,3.568.831-1.622v4.095Zm11.291,0V9.991h2.655V25.336Zm9.933.243a5.657,5.657,0,0,1-2.98-.77,5.366,5.366,0,0,1-1.987-2.088,6.057,6.057,0,0,1-.709-2.919,5.941,5.941,0,0,1,.72-2.949,5.422,5.422,0,0,1,1.966-2.037,5.3,5.3,0,0,1,2.787-.75,5.7,5.7,0,0,1,2.28.426,4.864,4.864,0,0,1,1.672,1.176,5.265,5.265,0,0,1,1.054,1.713,5.816,5.816,0,0,1,.365,2.078q0,.284-.03.588a2.185,2.185,0,0,1-.111.527h-8.514V18.545h7.014l-1.257.953a3.02,3.02,0,0,0-.091-1.662A2.38,2.38,0,0,0,208,16.68a2.563,2.563,0,0,0-1.49-.426,2.683,2.683,0,0,0-1.48.416,2.572,2.572,0,0,0-.983,1.216,4.221,4.221,0,0,0-.253,1.936,3.585,3.585,0,0,0,.274,1.794,2.664,2.664,0,0,0,1.054,1.206,3.037,3.037,0,0,0,1.612.426,2.95,2.95,0,0,0,1.551-.385,2.779,2.779,0,0,0,1-1.034l2.149,1.054a3.756,3.756,0,0,1-1.014,1.4,5.066,5.066,0,0,1-1.632.953A6.011,6.011,0,0,1,206.709,25.579Zm11.9,0a5.413,5.413,0,0,1-2.858-.76,5.488,5.488,0,0,1-1.987-2.078,5.923,5.923,0,0,1-.73-2.919,5.85,5.85,0,0,1,.73-2.919,5.583,5.583,0,0,1,2-2.068,5.336,5.336,0,0,1,2.828-.77,4.9,4.9,0,0,1,2.24.5,3.861,3.861,0,0,1,1.551,1.389l-.405.547V9.991h2.655V25.336h-2.514V23.208l.284.527a3.682,3.682,0,0,1-1.581,1.368A5.129,5.129,0,0,1,218.608,25.579Zm.284-2.432a2.916,2.916,0,0,0,2.686-1.6,3.931,3.931,0,0,0,0-3.436,3.08,3.08,0,0,0-4.287-1.176,3.031,3.031,0,0,0-1.1,1.176,3.58,3.58,0,0,0-.4,1.713,3.641,3.641,0,0,0,.4,1.723,2.941,2.941,0,0,0,1.1,1.176A3.052,3.052,0,0,0,218.892,23.147ZM2.257,48.894V37.867H4.75v2.169l-.2-.385a2.915,2.915,0,0,1,1.267-1.51,3.994,3.994,0,0,1,2.057-.517,4.348,4.348,0,0,1,2.159.527,3.749,3.749,0,0,1,1.47,1.47,4.39,4.39,0,0,1,.527,2.179v7.095H9.372V42.428a2.615,2.615,0,0,0-.284-1.257,2.077,2.077,0,0,0-.78-.821,2.246,2.246,0,0,0-1.166-.294,2.261,2.261,0,0,0-1.155.294,2.055,2.055,0,0,0-.791.821,2.615,2.615,0,0,0-.284,1.257v6.466Zm14.96.243a4.834,4.834,0,0,1-2.007-.385,2.918,2.918,0,0,1-1.784-2.777,3.084,3.084,0,0,1,1.662-2.838,6.28,6.28,0,0,1,2.149-.689l3.608-.588v2.027l-3.1.527a2.263,2.263,0,0,0-1.176.507,1.252,1.252,0,0,0-.385.953,1.078,1.078,0,0,0,.436.9,1.729,1.729,0,0,0,1.084.334,2.976,2.976,0,0,0,1.47-.355,2.527,2.527,0,0,0,.993-.983,2.756,2.756,0,0,0,.355-1.378V41.556a1.5,1.5,0,0,0-.557-1.186,2.184,2.184,0,0,0-1.47-.476,2.589,2.589,0,0,0-1.51.456,2.643,2.643,0,0,0-.963,1.206L13.852,40.5a3.827,3.827,0,0,1,1.024-1.51,5.156,5.156,0,0,1,1.652-1,5.733,5.733,0,0,1,2.068-.365,5.463,5.463,0,0,1,2.392.5A3.888,3.888,0,0,1,22.6,39.5a3.669,3.669,0,0,1,.578,2.057v7.338H20.663V47.009l.568-.041a4.461,4.461,0,0,1-1.014,1.186,4.281,4.281,0,0,1-1.338.73A5.169,5.169,0,0,1,17.217,49.137Zm8.007-.243V37.867h2.493v2.453l-.2-.365a2.889,2.889,0,0,1,1.206-1.723,3.81,3.81,0,0,1,1.976-.486h.649V40.1h-.953a2.446,2.446,0,0,0-1.824.7,2.667,2.667,0,0,0-.689,1.956v6.142Zm9.953,0L31.386,37.867h2.8l2.777,8.372-.973-.02,2.96-8.352H41.3l2.939,8.352-.973.02,2.777-8.372h2.8L45.049,48.894H42.677l-3-8.737h.892l-3.041,8.737Zm14.717,0V33.549h2.655v6.487l-.365-.385a2.915,2.915,0,0,1,1.267-1.51,3.994,3.994,0,0,1,2.057-.517,4.348,4.348,0,0,1,2.159.527,3.749,3.749,0,0,1,1.47,1.47,4.39,4.39,0,0,1,.527,2.179v7.095H57.009V42.428a2.615,2.615,0,0,0-.284-1.257,2.077,2.077,0,0,0-.78-.821,2.438,2.438,0,0,0-2.321,0,2.055,2.055,0,0,0-.791.821,2.615,2.615,0,0,0-.284,1.257v6.466Zm14.96.243a4.834,4.834,0,0,1-2.007-.385,2.918,2.918,0,0,1-1.784-2.777,3.084,3.084,0,0,1,1.662-2.838,6.28,6.28,0,0,1,2.149-.689l3.608-.588v2.027l-3.1.527a2.263,2.263,0,0,0-1.176.507,1.252,1.252,0,0,0-.385.953,1.078,1.078,0,0,0,.436.9,1.729,1.729,0,0,0,1.084.334,2.976,2.976,0,0,0,1.47-.355,2.527,2.527,0,0,0,.993-.983,2.756,2.756,0,0,0,.355-1.378V41.556A1.5,1.5,0,0,0,67.6,40.37a2.184,2.184,0,0,0-1.47-.476,2.589,2.589,0,0,0-1.51.456,2.643,2.643,0,0,0-.963,1.206L61.488,40.5a3.827,3.827,0,0,1,1.024-1.51,5.156,5.156,0,0,1,1.652-1,5.733,5.733,0,0,1,2.068-.365,5.463,5.463,0,0,1,2.392.5A3.888,3.888,0,0,1,70.235,39.5a3.669,3.669,0,0,1,.578,2.057v7.338H68.3V47.009l.568-.041a4.461,4.461,0,0,1-1.014,1.186,4.281,4.281,0,0,1-1.338.73A5.169,5.169,0,0,1,64.853,49.137Zm8.007-.243V33.549h2.655V48.894Zm10.683,0L79.752,37.867h2.8l2.777,8.372-.973-.02,2.96-8.352h2.351L92.6,46.218l-.973.02,2.777-8.372h2.8L93.415,48.894H91.043l-3-8.737h.892l-3.041,8.737Zm19.906.243a5.892,5.892,0,0,1-2.949-.75,5.751,5.751,0,0,1-.01-10.014,6.174,6.174,0,0,1,5.9,0,5.724,5.724,0,0,1,2.1,2.037,5.987,5.987,0,0,1-.01,5.929,5.8,5.8,0,0,1-5.027,2.8Zm0-2.432a2.9,2.9,0,0,0,1.571-.426,3,3,0,0,0,1.074-1.186,3.657,3.657,0,0,0,.4-1.713,3.581,3.581,0,0,0-.4-1.713,3.111,3.111,0,0,0-1.074-1.176,2.845,2.845,0,0,0-1.571-.436,2.932,2.932,0,0,0-1.6.436,3.082,3.082,0,0,0-1.084,1.176,3.58,3.58,0,0,0-.4,1.713,3.657,3.657,0,0,0,.4,1.713,2.9,2.9,0,0,0,2.686,1.612Zm7.419,2.189V33.549h2.655V43.6l-1.014-.3,5.189-5.433H121l-4.074,4.439,4.156,6.588h-3.041l-3.608-5.716,1.581-.324-3.324,3.568.831-1.622v4.095Zm16.318.243a5.657,5.657,0,0,1-2.98-.77,5.365,5.365,0,0,1-1.987-2.088,6.057,6.057,0,0,1-.709-2.919,5.941,5.941,0,0,1,.72-2.949,5.422,5.422,0,0,1,1.966-2.037,5.3,5.3,0,0,1,2.787-.75,5.7,5.7,0,0,1,2.28.426,4.864,4.864,0,0,1,1.672,1.176,5.264,5.264,0,0,1,1.054,1.713,5.815,5.815,0,0,1,.365,2.078q0,.284-.03.588a2.185,2.185,0,0,1-.111.527H123.7V42.1h7.014l-1.257.953a3.02,3.02,0,0,0-.091-1.662,2.38,2.38,0,0,0-.892-1.155,2.563,2.563,0,0,0-1.49-.426,2.684,2.684,0,0,0-1.48.416,2.572,2.572,0,0,0-.983,1.216,4.221,4.221,0,0,0-.253,1.936,3.585,3.585,0,0,0,.274,1.794,2.664,2.664,0,0,0,1.054,1.206,3.037,3.037,0,0,0,1.612.426,2.95,2.95,0,0,0,1.551-.385,2.779,2.779,0,0,0,1-1.034l2.149,1.054a3.755,3.755,0,0,1-1.014,1.4,5.066,5.066,0,0,1-1.632.953A6.012,6.012,0,0,1,127.186,49.137Z" transform="translate(-1.02 365.289)" fill="#fff"/>
+          <path id="Path_3914" data-name="Path 3914" d="M1.232,10.208V4.494h.614V7.064H4.914V4.494h.614v5.714H4.914V7.639H1.846v2.569Zm6.949,0V4.494h.614v5.714Zm3.267,0V4.494h1.964a2.1,2.1,0,0,1,.982.219,1.6,1.6,0,0,1,.656.614,1.765,1.765,0,0,1,.234.917,1.744,1.744,0,0,1-.234.913,1.614,1.614,0,0,1-.652.61,2.1,2.1,0,0,1-.986.219h-1.35v2.224Zm.614-2.8h1.381a1.391,1.391,0,0,0,.644-.142,1.03,1.03,0,0,0,.43-.407,1.225,1.225,0,0,0,.153-.625,1.2,1.2,0,0,0-.153-.621,1.037,1.037,0,0,0-.43-.4,1.391,1.391,0,0,0-.644-.142H12.062ZM19.609,10.3a2.316,2.316,0,0,1-.989-.207,2.252,2.252,0,0,1-.752-.556,2.1,2.1,0,0,1-.437-.771l.552-.207a1.747,1.747,0,0,0,.621.886,1.677,1.677,0,0,0,1,.3,1.647,1.647,0,0,0,.648-.119.994.994,0,0,0,.433-.334.836.836,0,0,0,.153-.5.882.882,0,0,0-.23-.652,1.5,1.5,0,0,0-.66-.353l-1.028-.307a1.775,1.775,0,0,1-.932-.591,1.484,1.484,0,0,1-.326-.943,1.459,1.459,0,0,1,.222-.8A1.546,1.546,0,0,1,18.5,4.6a1.891,1.891,0,0,1,.878-.2,2.2,2.2,0,0,1,.924.188A2.154,2.154,0,0,1,21,5.085a1.838,1.838,0,0,1,.407.683l-.537.215a1.514,1.514,0,0,0-.571-.767,1.589,1.589,0,0,0-.909-.261,1.369,1.369,0,0,0-.579.115.892.892,0,0,0-.387.33.916.916,0,0,0-.138.506.991.991,0,0,0,.222.633,1.329,1.329,0,0,0,.683.418l.905.268a2.2,2.2,0,0,1,1.02.575,1.341,1.341,0,0,1,.345.943,1.419,1.419,0,0,1-.234.809,1.586,1.586,0,0,1-.652.548A2.211,2.211,0,0,1,19.609,10.3Zm5.323-.092V5.069h-1.58V4.494h3.758v.575H25.546v5.139Zm4.242,0V4.494h3.682v.575H29.788V7.056H32.7v.575H29.788v2h3.068v.575Zm6,0V4.494h1.964a2.1,2.1,0,0,1,.982.219,1.6,1.6,0,0,1,.656.614,1.765,1.765,0,0,1,.234.917,1.648,1.648,0,0,1-1.181,1.641l1.335,2.324h-.721l-1.4-2.462.414.238H35.786v2.224Zm.614-2.8h1.381a1.391,1.391,0,0,0,.644-.142,1.03,1.03,0,0,0,.43-.407,1.225,1.225,0,0,0,.153-.625,1.2,1.2,0,0,0-.153-.621,1.037,1.037,0,0,0-.43-.4,1.391,1.391,0,0,0-.644-.142H35.786ZM44,10.208V4.494h.614v5.714Zm3.267,0V4.494h1.964a2.1,2.1,0,0,1,.982.219,1.6,1.6,0,0,1,.656.614,1.765,1.765,0,0,1,.234.917,1.744,1.744,0,0,1-.234.913,1.614,1.614,0,0,1-.652.61,2.1,2.1,0,0,1-.986.219h-1.35v2.224Zm.614-2.8h1.381a1.391,1.391,0,0,0,.644-.142,1.03,1.03,0,0,0,.43-.407,1.225,1.225,0,0,0,.153-.625,1.2,1.2,0,0,0-.153-.621,1.037,1.037,0,0,0-.43-.4,1.391,1.391,0,0,0-.644-.142H47.881ZM55.429,10.3a2.316,2.316,0,0,1-.989-.207,2.252,2.252,0,0,1-.752-.556,2.1,2.1,0,0,1-.437-.771l.552-.207a1.747,1.747,0,0,0,.621.886,1.677,1.677,0,0,0,1,.3,1.647,1.647,0,0,0,.648-.119A.994.994,0,0,0,56.51,9.3a.836.836,0,0,0,.153-.5.882.882,0,0,0-.23-.652,1.5,1.5,0,0,0-.66-.353l-1.028-.307a1.775,1.775,0,0,1-.932-.591,1.484,1.484,0,0,1-.326-.943,1.459,1.459,0,0,1,.222-.8,1.546,1.546,0,0,1,.61-.548,1.891,1.891,0,0,1,.878-.2,2.2,2.2,0,0,1,.924.188,2.154,2.154,0,0,1,.694.495,1.838,1.838,0,0,1,.407.683l-.537.215a1.514,1.514,0,0,0-.571-.767,1.589,1.589,0,0,0-.909-.261,1.369,1.369,0,0,0-.579.115.892.892,0,0,0-.387.33.916.916,0,0,0-.138.506.991.991,0,0,0,.222.633,1.329,1.329,0,0,0,.683.418l.905.268a2.2,2.2,0,0,1,1.02.575,1.341,1.341,0,0,1,.345.943,1.419,1.419,0,0,1-.234.809,1.586,1.586,0,0,1-.652.548A2.211,2.211,0,0,1,55.429,10.3Zm6.343,0a2.177,2.177,0,0,1-1.066-.253,1.809,1.809,0,0,1-.713-.694,1.99,1.99,0,0,1-.253-1.009V4.494h.614v3.85a1.418,1.418,0,0,0,.18.725,1.259,1.259,0,0,0,.5.483,1.673,1.673,0,0,0,1.48,0,1.259,1.259,0,0,0,.5-.483,1.418,1.418,0,0,0,.18-.725V4.494H63.8v3.85a1.99,1.99,0,0,1-.253,1.009,1.816,1.816,0,0,1-.709.694A2.171,2.171,0,0,1,61.772,10.3Zm4.663-.092V4.494h.537L69.12,7.608h-.3l2.14-3.114H71.5v5.714h-.614V5.322l.2.077-2.1,3.045h-.031L66.857,5.4l.192-.077v4.886Z" transform="translate(-0.557 348.641)" fill="#9a9a9a"/>
+        </g>
+        <g id="Card-3" data-name="Card" transform="translate(281.119 177.914)">
+          <g id="Background-2" data-name="Background" transform="translate(0 0)">
+            <g id="BG-4" data-name="BG" transform="translate(0)" fill="#171717">
+              <path d="M 245.5373382568359 324.9771728515625 L 1.000002503395081 324.9771728515625 L 1.000002503395081 1.000003099441528 L 245.5373382568359 1.000003099441528 L 245.5373382568359 324.9771728515625 Z" stroke="none"/>
+              <path d="M 2 2 L 2 323.9771728515625 L 244.5373382568359 323.9771728515625 L 244.5373382568359 2 L 2 2 M 0 0 L 246.5373382568359 0 L 246.5373382568359 325.9771728515625 L 0 325.9771728515625 L 0 0 Z" stroke="none" fill="#fff"/>
+            </g>
+            <g id="Mask_Group_19-2" data-name="Mask Group 19" transform="translate(1.547 1.81)" clip-path="url(#clip-path-4)">
+              <g id="Repeat_Grid_10-2" data-name="Repeat Grid 10" transform="translate(-794.547 -162.524)" clip-path="url(#clip-path-3)">
+                <g transform="translate(-731.235 -2607.076)" opacity="0.416">
+                  <line id="Line_69-3" data-name="Line 69" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-712.235 -2607.076)" opacity="0.416">
+                  <line id="Line_70-3" data-name="Line 70" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-693.235 -2607.076)" opacity="0.416">
+                  <line id="Line_71-3" data-name="Line 71" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-674.235 -2607.076)" opacity="0.416">
+                  <line id="Line_72-3" data-name="Line 72" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-655.235 -2607.076)" opacity="0.416">
+                  <line id="Line_73-3" data-name="Line 73" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-636.235 -2607.076)" opacity="0.416">
+                  <line id="Line_74-3" data-name="Line 74" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-617.235 -2607.076)" opacity="0.416">
+                  <line id="Line_75-3" data-name="Line 75" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-598.235 -2607.076)" opacity="0.416">
+                  <line id="Line_76-3" data-name="Line 76" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-579.235 -2607.076)" opacity="0.416">
+                  <line id="Line_77-3" data-name="Line 77" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-560.235 -2607.076)" opacity="0.416">
+                  <line id="Line_78-3" data-name="Line 78" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-541.235 -2607.076)" opacity="0.416">
+                  <line id="Line_79-3" data-name="Line 79" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-522.235 -2607.076)" opacity="0.416">
+                  <line id="Line_80-3" data-name="Line 80" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-503.235 -2607.076)" opacity="0.416">
+                  <line id="Line_81-3" data-name="Line 81" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-484.235 -2607.076)" opacity="0.416">
+                  <line id="Line_82-3" data-name="Line 82" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-465.235 -2607.076)" opacity="0.416">
+                  <line id="Line_83-3" data-name="Line 83" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-446.235 -2607.076)" opacity="0.416">
+                  <line id="Line_84-3" data-name="Line 84" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-427.235 -2607.076)" opacity="0.416">
+                  <line id="Line_85-3" data-name="Line 85" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-408.235 -2607.076)" opacity="0.416">
+                  <line id="Line_86-3" data-name="Line 86" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-389.235 -2607.076)" opacity="0.416">
+                  <line id="Line_87-3" data-name="Line 87" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-370.235 -2607.076)" opacity="0.416">
+                  <line id="Line_88-3" data-name="Line 88" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-351.235 -2607.076)" opacity="0.416">
+                  <line id="Line_89-3" data-name="Line 89" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-332.235 -2607.076)" opacity="0.416">
+                  <line id="Line_90-3" data-name="Line 90" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-313.235 -2607.076)" opacity="0.416">
+                  <line id="Line_91-3" data-name="Line 91" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-294.235 -2607.076)" opacity="0.416">
+                  <line id="Line_92-3" data-name="Line 92" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-275.235 -2607.076)" opacity="0.416">
+                  <line id="Line_93-3" data-name="Line 93" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-256.235 -2607.076)" opacity="0.416">
+                  <line id="Line_94-3" data-name="Line 94" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-237.235 -2607.076)" opacity="0.416">
+                  <line id="Line_95-3" data-name="Line 95" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-218.235 -2607.076)" opacity="0.416">
+                  <line id="Line_96-3" data-name="Line 96" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-199.235 -2607.076)" opacity="0.416">
+                  <line id="Line_97-3" data-name="Line 97" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-180.235 -2607.076)" opacity="0.416">
+                  <line id="Line_98-3" data-name="Line 98" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-161.235 -2607.076)" opacity="0.416">
+                  <line id="Line_99-3" data-name="Line 99" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-142.235 -2607.076)" opacity="0.416">
+                  <line id="Line_100-3" data-name="Line 100" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-123.235 -2607.076)" opacity="0.416">
+                  <line id="Line_101-3" data-name="Line 101" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-104.235 -2607.076)" opacity="0.416">
+                  <line id="Line_102-3" data-name="Line 102" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-85.235 -2607.076)" opacity="0.416">
+                  <line id="Line_103-3" data-name="Line 103" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-66.235 -2607.076)" opacity="0.416">
+                  <line id="Line_104-3" data-name="Line 104" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-47.235 -2607.076)" opacity="0.416">
+                  <line id="Line_105-3" data-name="Line 105" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-28.235 -2607.076)" opacity="0.416">
+                  <line id="Line_106-3" data-name="Line 106" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-9.235 -2607.076)" opacity="0.416">
+                  <line id="Line_107-3" data-name="Line 107" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(9.765 -2607.076)" opacity="0.416">
+                  <line id="Line_108-3" data-name="Line 108" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(28.765 -2607.076)" opacity="0.416">
+                  <line id="Line_109-3" data-name="Line 109" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(47.765 -2607.076)" opacity="0.416">
+                  <line id="Line_110-3" data-name="Line 110" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(66.765 -2607.076)" opacity="0.416">
+                  <line id="Line_111-3" data-name="Line 111" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(85.765 -2607.076)" opacity="0.416">
+                  <line id="Line_112-3" data-name="Line 112" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(104.765 -2607.076)" opacity="0.416">
+                  <line id="Line_113-3" data-name="Line 113" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(123.765 -2607.076)" opacity="0.416">
+                  <line id="Line_114-3" data-name="Line 114" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(142.765 -2607.076)" opacity="0.416">
+                  <line id="Line_115-3" data-name="Line 115" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(161.765 -2607.076)" opacity="0.416">
+                  <line id="Line_116-3" data-name="Line 116" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(180.765 -2607.076)" opacity="0.416">
+                  <line id="Line_117-3" data-name="Line 117" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(199.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-47" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(218.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-48" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(237.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-49" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(256.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-50" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(275.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-51" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(294.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-52" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(313.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-53" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(332.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-54" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(351.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-55" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(370.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-56" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(389.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-57" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(408.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-58" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(427.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-59" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(446.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-60" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(465.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-61" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(484.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-62" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(503.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-63" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(522.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-64" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(541.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-65" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(560.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-66" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(579.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-67" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(598.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-68" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(617.765 -2607.076)" opacity="0.416">
+                  <line id="Line_118-69" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-731.235 -2006.076)" opacity="0.416">
+                  <line id="Line_69-4" data-name="Line 69" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-712.235 -2006.076)" opacity="0.416">
+                  <line id="Line_70-4" data-name="Line 70" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-693.235 -2006.076)" opacity="0.416">
+                  <line id="Line_71-4" data-name="Line 71" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-674.235 -2006.076)" opacity="0.416">
+                  <line id="Line_72-4" data-name="Line 72" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-655.235 -2006.076)" opacity="0.416">
+                  <line id="Line_73-4" data-name="Line 73" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-636.235 -2006.076)" opacity="0.416">
+                  <line id="Line_74-4" data-name="Line 74" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-617.235 -2006.076)" opacity="0.416">
+                  <line id="Line_75-4" data-name="Line 75" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-598.235 -2006.076)" opacity="0.416">
+                  <line id="Line_76-4" data-name="Line 76" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-579.235 -2006.076)" opacity="0.416">
+                  <line id="Line_77-4" data-name="Line 77" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-560.235 -2006.076)" opacity="0.416">
+                  <line id="Line_78-4" data-name="Line 78" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-541.235 -2006.076)" opacity="0.416">
+                  <line id="Line_79-4" data-name="Line 79" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-522.235 -2006.076)" opacity="0.416">
+                  <line id="Line_80-4" data-name="Line 80" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-503.235 -2006.076)" opacity="0.416">
+                  <line id="Line_81-4" data-name="Line 81" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-484.235 -2006.076)" opacity="0.416">
+                  <line id="Line_82-4" data-name="Line 82" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-465.235 -2006.076)" opacity="0.416">
+                  <line id="Line_83-4" data-name="Line 83" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-446.235 -2006.076)" opacity="0.416">
+                  <line id="Line_84-4" data-name="Line 84" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-427.235 -2006.076)" opacity="0.416">
+                  <line id="Line_85-4" data-name="Line 85" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-408.235 -2006.076)" opacity="0.416">
+                  <line id="Line_86-4" data-name="Line 86" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-389.235 -2006.076)" opacity="0.416">
+                  <line id="Line_87-4" data-name="Line 87" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-370.235 -2006.076)" opacity="0.416">
+                  <line id="Line_88-4" data-name="Line 88" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-351.235 -2006.076)" opacity="0.416">
+                  <line id="Line_89-4" data-name="Line 89" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-332.235 -2006.076)" opacity="0.416">
+                  <line id="Line_90-4" data-name="Line 90" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-313.235 -2006.076)" opacity="0.416">
+                  <line id="Line_91-4" data-name="Line 91" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-294.235 -2006.076)" opacity="0.416">
+                  <line id="Line_92-4" data-name="Line 92" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-275.235 -2006.076)" opacity="0.416">
+                  <line id="Line_93-4" data-name="Line 93" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-256.235 -2006.076)" opacity="0.416">
+                  <line id="Line_94-4" data-name="Line 94" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-237.235 -2006.076)" opacity="0.416">
+                  <line id="Line_95-4" data-name="Line 95" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-218.235 -2006.076)" opacity="0.416">
+                  <line id="Line_96-4" data-name="Line 96" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-199.235 -2006.076)" opacity="0.416">
+                  <line id="Line_97-4" data-name="Line 97" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-180.235 -2006.076)" opacity="0.416">
+                  <line id="Line_98-4" data-name="Line 98" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-161.235 -2006.076)" opacity="0.416">
+                  <line id="Line_99-4" data-name="Line 99" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-142.235 -2006.076)" opacity="0.416">
+                  <line id="Line_100-4" data-name="Line 100" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-123.235 -2006.076)" opacity="0.416">
+                  <line id="Line_101-4" data-name="Line 101" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-104.235 -2006.076)" opacity="0.416">
+                  <line id="Line_102-4" data-name="Line 102" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-85.235 -2006.076)" opacity="0.416">
+                  <line id="Line_103-4" data-name="Line 103" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-66.235 -2006.076)" opacity="0.416">
+                  <line id="Line_104-4" data-name="Line 104" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-47.235 -2006.076)" opacity="0.416">
+                  <line id="Line_105-4" data-name="Line 105" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-28.235 -2006.076)" opacity="0.416">
+                  <line id="Line_106-4" data-name="Line 106" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(-9.235 -2006.076)" opacity="0.416">
+                  <line id="Line_107-4" data-name="Line 107" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(9.765 -2006.076)" opacity="0.416">
+                  <line id="Line_108-4" data-name="Line 108" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(28.765 -2006.076)" opacity="0.416">
+                  <line id="Line_109-4" data-name="Line 109" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(47.765 -2006.076)" opacity="0.416">
+                  <line id="Line_110-4" data-name="Line 110" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(66.765 -2006.076)" opacity="0.416">
+                  <line id="Line_111-4" data-name="Line 111" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(85.765 -2006.076)" opacity="0.416">
+                  <line id="Line_112-4" data-name="Line 112" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(104.765 -2006.076)" opacity="0.416">
+                  <line id="Line_113-4" data-name="Line 113" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(123.765 -2006.076)" opacity="0.416">
+                  <line id="Line_114-4" data-name="Line 114" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(142.765 -2006.076)" opacity="0.416">
+                  <line id="Line_115-4" data-name="Line 115" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(161.765 -2006.076)" opacity="0.416">
+                  <line id="Line_116-4" data-name="Line 116" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(180.765 -2006.076)" opacity="0.416">
+                  <line id="Line_117-4" data-name="Line 117" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(199.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-70" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(218.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-71" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(237.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-72" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(256.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-73" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(275.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-74" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(294.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-75" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(313.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-76" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(332.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-77" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(351.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-78" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(370.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-79" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(389.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-80" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(408.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-81" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(427.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-82" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(446.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-83" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(465.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-84" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(484.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-85" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(503.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-86" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(522.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-87" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(541.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-88" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(560.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-89" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(579.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-90" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(598.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-91" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+                <g transform="translate(617.765 -2006.076)" opacity="0.416">
+                  <line id="Line_118-92" data-name="Line 118" x2="969.375" y2="601.171" transform="translate(692.125 2586.329)" fill="none" stroke="#292929" stroke-width="1"/>
+                </g>
+              </g>
+            </g>
+          </g>
+          <path id="Path_3916" data-name="Path 3916" d="M2.48,25.336v-15.1H5.237v15.1Zm5.879-9.3V14.714a2.161,2.161,0,0,0,1.084-.6,1.94,1.94,0,0,0,.517-1.044h-1.2V10.234H11.44v1.743a4.367,4.367,0,0,1-.78,2.686A3.711,3.711,0,0,1,8.359,16.032Zm5.98,9.3V14.309h2.493v2.554l-.284-.426a2.86,2.86,0,0,1,1.216-1.784,3.879,3.879,0,0,1,2.149-.588,4.124,4.124,0,0,1,2.392.709,3.194,3.194,0,0,1,1.338,1.865l-.75.061a3.963,3.963,0,0,1,1.52-1.976,4.447,4.447,0,0,1,4.429-.132,3.788,3.788,0,0,1,1.449,1.47,4.39,4.39,0,0,1,.527,2.179v7.095H28.163V18.87a2.782,2.782,0,0,0-.264-1.257,2.007,2.007,0,0,0-.73-.821,2.087,2.087,0,0,0-1.135-.294,2.113,2.113,0,0,0-1.115.294,1.961,1.961,0,0,0-.75.821,2.782,2.782,0,0,0-.264,1.257v6.466H21.251V18.87a2.782,2.782,0,0,0-.264-1.257,1.983,1.983,0,0,0-.74-.821,2.281,2.281,0,0,0-2.24,0,1.961,1.961,0,0,0-.75.821,2.782,2.782,0,0,0-.264,1.257v6.466Zm27.548.243a5.062,5.062,0,0,1-2.2-.476A3.831,3.831,0,0,1,38.1,23.735l.264-.527v2.128H35.866V9.991h2.655V16.5l-.405-.547a3.877,3.877,0,0,1,1.541-1.389,4.883,4.883,0,0,1,2.25-.5,5.284,5.284,0,0,1,2.818.77,5.69,5.69,0,0,1,2,2.068,5.787,5.787,0,0,1,.74,2.919,5.923,5.923,0,0,1-.73,2.919,5.488,5.488,0,0,1-1.987,2.078A5.413,5.413,0,0,1,41.887,25.579Zm-.3-2.432a3.09,3.09,0,0,0,1.622-.426,2.941,2.941,0,0,0,1.1-1.176,3.641,3.641,0,0,0,.4-1.723,3.58,3.58,0,0,0-.4-1.713A3.01,3.01,0,0,0,41.582,16.5a2.928,2.928,0,0,0-2.666,1.612,3.931,3.931,0,0,0,0,3.436,2.944,2.944,0,0,0,2.666,1.6Zm10.845,2.432a4.834,4.834,0,0,1-2.007-.385,2.918,2.918,0,0,1-1.784-2.777A3.084,3.084,0,0,1,50.3,19.579a6.28,6.28,0,0,1,2.149-.689l3.608-.588v2.027l-3.1.527a2.263,2.263,0,0,0-1.176.507,1.252,1.252,0,0,0-.385.953,1.078,1.078,0,0,0,.436.9,1.729,1.729,0,0,0,1.084.334,2.976,2.976,0,0,0,1.47-.355,2.527,2.527,0,0,0,.993-.983,2.756,2.756,0,0,0,.355-1.378V18a1.5,1.5,0,0,0-.557-1.186,2.184,2.184,0,0,0-1.47-.476,2.589,2.589,0,0,0-1.51.456A2.643,2.643,0,0,0,51.231,18l-2.169-1.054a3.827,3.827,0,0,1,1.024-1.51,5.156,5.156,0,0,1,1.652-1,5.733,5.733,0,0,1,2.068-.365,5.463,5.463,0,0,1,2.392.5,3.888,3.888,0,0,1,1.612,1.378A3.669,3.669,0,0,1,58.387,18v7.338H55.873V23.451l.568-.041A4.461,4.461,0,0,1,55.427,24.6a4.281,4.281,0,0,1-1.338.73A5.169,5.169,0,0,1,52.427,25.579Zm14.027,0a5.062,5.062,0,0,1-2.2-.476,3.831,3.831,0,0,1-1.591-1.368l.264-.527v2.128H60.434V9.991H63.09V16.5l-.405-.547a3.877,3.877,0,0,1,1.541-1.389,4.883,4.883,0,0,1,2.25-.5,5.284,5.284,0,0,1,2.818.77,5.69,5.69,0,0,1,2,2.068,5.786,5.786,0,0,1,.74,2.919,5.923,5.923,0,0,1-.73,2.919,5.488,5.488,0,0,1-1.987,2.078A5.413,5.413,0,0,1,66.455,25.579Zm-.3-2.432a3.09,3.09,0,0,0,1.622-.426,2.941,2.941,0,0,0,1.1-1.176,3.641,3.641,0,0,0,.4-1.723,3.58,3.58,0,0,0-.4-1.713A3.01,3.01,0,0,0,66.151,16.5a2.928,2.928,0,0,0-2.666,1.612,3.931,3.931,0,0,0,0,3.436,2.944,2.944,0,0,0,2.666,1.6Zm8.635,6.669a5.293,5.293,0,0,1-.872-.071,2.934,2.934,0,0,1-.77-.233v-2.23q.264.061.639.122a4.385,4.385,0,0,0,.7.061,1.791,1.791,0,0,0,1.328-.426,4.05,4.05,0,0,0,.74-1.115l.73-1.7-.041,2.23-4.8-12.142h2.858l3.365,8.96H77.644l3.345-8.96h2.878l-4.8,12.142a6.925,6.925,0,0,1-1.034,1.824,4.2,4.2,0,0,1-1.409,1.145A4.092,4.092,0,0,1,74.786,29.816Zm17.271-4.237a4.221,4.221,0,0,1-2.22-.568A3.707,3.707,0,0,1,88.4,23.431a5.331,5.331,0,0,1-.5-2.372v-6.75h2.655v6.527a2.541,2.541,0,0,0,.274,1.206,1.985,1.985,0,0,0,.791.811,2.316,2.316,0,0,0,1.166.294,2.26,2.26,0,0,0,1.155-.294,2.055,2.055,0,0,0,.791-.821,2.615,2.615,0,0,0,.284-1.257V14.309h2.655V25.336H95.158V23.167l.223.385a2.861,2.861,0,0,1-1.267,1.52A4.057,4.057,0,0,1,92.057,25.579Zm7.683-.243V14.309h2.493v2.554l-.284-.426a2.86,2.86,0,0,1,1.216-1.784,3.879,3.879,0,0,1,2.149-.588,4.124,4.124,0,0,1,2.392.709,3.194,3.194,0,0,1,1.338,1.865l-.75.061a3.963,3.963,0,0,1,1.52-1.976,4.447,4.447,0,0,1,4.429-.132,3.788,3.788,0,0,1,1.449,1.47,4.39,4.39,0,0,1,.527,2.179v7.095h-2.655V18.87a2.782,2.782,0,0,0-.264-1.257,2.007,2.007,0,0,0-.73-.821,2.087,2.087,0,0,0-1.135-.294,2.113,2.113,0,0,0-1.115.294,1.961,1.961,0,0,0-.75.821,2.782,2.782,0,0,0-.264,1.257v6.466h-2.655V18.87a2.782,2.782,0,0,0-.264-1.257,1.983,1.983,0,0,0-.74-.821,2.281,2.281,0,0,0-2.24,0,1.961,1.961,0,0,0-.75.821,2.782,2.782,0,0,0-.264,1.257v6.466Zm21.67.243a4.834,4.834,0,0,1-2.007-.385,2.918,2.918,0,0,1-1.784-2.777,3.084,3.084,0,0,1,1.662-2.838,6.281,6.281,0,0,1,2.149-.689l3.608-.588v2.027l-3.1.527a2.263,2.263,0,0,0-1.176.507,1.252,1.252,0,0,0-.385.953,1.078,1.078,0,0,0,.436.9,1.729,1.729,0,0,0,1.084.334,2.976,2.976,0,0,0,1.47-.355,2.527,2.527,0,0,0,.993-.983,2.756,2.756,0,0,0,.355-1.378V18a1.5,1.5,0,0,0-.557-1.186,2.184,2.184,0,0,0-1.47-.476,2.588,2.588,0,0,0-1.51.456A2.643,2.643,0,0,0,120.213,18l-2.169-1.054a3.827,3.827,0,0,1,1.024-1.51,5.156,5.156,0,0,1,1.652-1,5.733,5.733,0,0,1,2.068-.365,5.463,5.463,0,0,1,2.392.5,3.888,3.888,0,0,1,1.612,1.378A3.669,3.669,0,0,1,127.369,18v7.338h-2.514V23.451l.568-.041a4.461,4.461,0,0,1-1.014,1.186,4.281,4.281,0,0,1-1.338.73A5.169,5.169,0,0,1,121.409,25.579Zm8.007-.243V14.309h2.493v2.554l-.284-.426a2.86,2.86,0,0,1,1.216-1.784,3.879,3.879,0,0,1,2.149-.588,4.124,4.124,0,0,1,2.392.709,3.194,3.194,0,0,1,1.338,1.865l-.75.061a3.964,3.964,0,0,1,1.52-1.976,4.447,4.447,0,0,1,4.429-.132,3.788,3.788,0,0,1,1.449,1.47,4.39,4.39,0,0,1,.527,2.179v7.095h-2.655V18.87a2.782,2.782,0,0,0-.264-1.257,2.006,2.006,0,0,0-.73-.821,2.087,2.087,0,0,0-1.135-.294,2.113,2.113,0,0,0-1.115.294,1.961,1.961,0,0,0-.75.821,2.782,2.782,0,0,0-.264,1.257v6.466h-2.655V18.87a2.782,2.782,0,0,0-.264-1.257,1.983,1.983,0,0,0-.74-.821,2.281,2.281,0,0,0-2.24,0,1.961,1.961,0,0,0-.75.821,2.782,2.782,0,0,0-.264,1.257v6.466Zm18.325,0V14.309H150.4V25.336Zm0-12.264V10.234H150.4v2.838Zm7.906,16.318V14.309h2.493V16.5l-.243-.547a3.877,3.877,0,0,1,1.541-1.389,4.883,4.883,0,0,1,2.25-.5,5.284,5.284,0,0,1,2.818.77,5.69,5.69,0,0,1,2,2.068,5.787,5.787,0,0,1,.74,2.919,5.923,5.923,0,0,1-.73,2.919,5.488,5.488,0,0,1-1.987,2.078,5.413,5.413,0,0,1-2.858.76,5.062,5.062,0,0,1-2.2-.476,3.831,3.831,0,0,1-1.591-1.368l.426-.527V29.39Zm5.716-6.243a3.09,3.09,0,0,0,1.622-.426,2.941,2.941,0,0,0,1.1-1.176,3.641,3.641,0,0,0,.4-1.723,3.581,3.581,0,0,0-.4-1.713,3.01,3.01,0,0,0-2.726-1.612,2.928,2.928,0,0,0-2.666,1.612,3.931,3.931,0,0,0,0,3.436,2.944,2.944,0,0,0,2.666,1.6Zm7.5,2.189V14.309h2.656V25.336Zm0-12.264V10.234h2.656v2.838Zm10.014,12.507a5.759,5.759,0,0,1-2.949-.76,5.543,5.543,0,0,1-2.057-2.068,6.154,6.154,0,0,1,0-5.889,5.49,5.49,0,0,1,2.057-2.047,5.82,5.82,0,0,1,2.949-.75,5.715,5.715,0,0,1,2.189.416,5.45,5.45,0,0,1,1.753,1.135,4.15,4.15,0,0,1,1.064,1.713l-2.331,1.014A2.758,2.758,0,0,0,180.529,17a2.8,2.8,0,0,0-1.652-.507,2.858,2.858,0,0,0-1.551.426,2.941,2.941,0,0,0-1.064,1.176,4.047,4.047,0,0,0,0,3.446,2.941,2.941,0,0,0,1.064,1.176,2.858,2.858,0,0,0,1.551.426,2.754,2.754,0,0,0,2.676-1.865l2.331,1.054a4.44,4.44,0,0,1-1.054,1.672,5.173,5.173,0,0,1-1.743,1.155A5.769,5.769,0,0,1,178.877,25.579Zm6.608-.243V9.991h2.655V20.045l-1.014-.3,5.189-5.433h3.3l-4.074,4.439,4.156,6.588h-3.041l-3.608-5.716,1.581-.324-3.324,3.568.831-1.622v4.095Zm11.291,0V9.991h2.655V25.336Zm9.933.243a5.657,5.657,0,0,1-2.98-.77,5.366,5.366,0,0,1-1.987-2.088,6.057,6.057,0,0,1-.709-2.919,5.941,5.941,0,0,1,.72-2.949,5.422,5.422,0,0,1,1.966-2.037,5.3,5.3,0,0,1,2.787-.75,5.7,5.7,0,0,1,2.28.426,4.864,4.864,0,0,1,1.672,1.176,5.265,5.265,0,0,1,1.054,1.713,5.816,5.816,0,0,1,.365,2.078q0,.284-.03.588a2.185,2.185,0,0,1-.111.527h-8.514V18.545h7.014l-1.257.953a3.02,3.02,0,0,0-.091-1.662A2.38,2.38,0,0,0,208,16.68a2.563,2.563,0,0,0-1.49-.426,2.683,2.683,0,0,0-1.48.416,2.572,2.572,0,0,0-.983,1.216,4.221,4.221,0,0,0-.253,1.936,3.585,3.585,0,0,0,.274,1.794,2.664,2.664,0,0,0,1.054,1.206,3.037,3.037,0,0,0,1.612.426,2.95,2.95,0,0,0,1.551-.385,2.779,2.779,0,0,0,1-1.034l2.149,1.054a3.756,3.756,0,0,1-1.014,1.4,5.066,5.066,0,0,1-1.632.953A6.011,6.011,0,0,1,206.709,25.579Zm11.9,0a5.413,5.413,0,0,1-2.858-.76,5.488,5.488,0,0,1-1.987-2.078,5.923,5.923,0,0,1-.73-2.919,5.85,5.85,0,0,1,.73-2.919,5.583,5.583,0,0,1,2-2.068,5.336,5.336,0,0,1,2.828-.77,4.9,4.9,0,0,1,2.24.5,3.861,3.861,0,0,1,1.551,1.389l-.405.547V9.991h2.655V25.336h-2.514V23.208l.284.527a3.682,3.682,0,0,1-1.581,1.368A5.129,5.129,0,0,1,218.608,25.579Zm.284-2.432a2.916,2.916,0,0,0,2.686-1.6,3.931,3.931,0,0,0,0-3.436,3.08,3.08,0,0,0-4.287-1.176,3.031,3.031,0,0,0-1.1,1.176,3.58,3.58,0,0,0-.4,1.713,3.641,3.641,0,0,0,.4,1.723,2.941,2.941,0,0,0,1.1,1.176A3.052,3.052,0,0,0,218.892,23.147ZM2.257,48.894V37.867H4.75v2.169l-.2-.385a2.915,2.915,0,0,1,1.267-1.51,3.994,3.994,0,0,1,2.057-.517,4.348,4.348,0,0,1,2.159.527,3.749,3.749,0,0,1,1.47,1.47,4.39,4.39,0,0,1,.527,2.179v7.095H9.372V42.428a2.615,2.615,0,0,0-.284-1.257,2.077,2.077,0,0,0-.78-.821,2.246,2.246,0,0,0-1.166-.294,2.261,2.261,0,0,0-1.155.294,2.055,2.055,0,0,0-.791.821,2.615,2.615,0,0,0-.284,1.257v6.466Zm14.96.243a4.834,4.834,0,0,1-2.007-.385,2.918,2.918,0,0,1-1.784-2.777,3.084,3.084,0,0,1,1.662-2.838,6.28,6.28,0,0,1,2.149-.689l3.608-.588v2.027l-3.1.527a2.263,2.263,0,0,0-1.176.507,1.252,1.252,0,0,0-.385.953,1.078,1.078,0,0,0,.436.9,1.729,1.729,0,0,0,1.084.334,2.976,2.976,0,0,0,1.47-.355,2.527,2.527,0,0,0,.993-.983,2.756,2.756,0,0,0,.355-1.378V41.556a1.5,1.5,0,0,0-.557-1.186,2.184,2.184,0,0,0-1.47-.476,2.589,2.589,0,0,0-1.51.456,2.643,2.643,0,0,0-.963,1.206L13.852,40.5a3.827,3.827,0,0,1,1.024-1.51,5.156,5.156,0,0,1,1.652-1,5.733,5.733,0,0,1,2.068-.365,5.463,5.463,0,0,1,2.392.5A3.888,3.888,0,0,1,22.6,39.5a3.669,3.669,0,0,1,.578,2.057v7.338H20.663V47.009l.568-.041a4.461,4.461,0,0,1-1.014,1.186,4.281,4.281,0,0,1-1.338.73A5.169,5.169,0,0,1,17.217,49.137Zm8.007-.243V37.867h2.493v2.453l-.2-.365a2.889,2.889,0,0,1,1.206-1.723,3.81,3.81,0,0,1,1.976-.486h.649V40.1h-.953a2.446,2.446,0,0,0-1.824.7,2.667,2.667,0,0,0-.689,1.956v6.142Zm9.953,0L31.386,37.867h2.8l2.777,8.372-.973-.02,2.96-8.352H41.3l2.939,8.352-.973.02,2.777-8.372h2.8L45.049,48.894H42.677l-3-8.737h.892l-3.041,8.737Zm14.717,0V33.549h2.655v6.487l-.365-.385a2.915,2.915,0,0,1,1.267-1.51,3.994,3.994,0,0,1,2.057-.517,4.348,4.348,0,0,1,2.159.527,3.749,3.749,0,0,1,1.47,1.47,4.39,4.39,0,0,1,.527,2.179v7.095H57.009V42.428a2.615,2.615,0,0,0-.284-1.257,2.077,2.077,0,0,0-.78-.821,2.438,2.438,0,0,0-2.321,0,2.055,2.055,0,0,0-.791.821,2.615,2.615,0,0,0-.284,1.257v6.466Zm14.96.243a4.834,4.834,0,0,1-2.007-.385,2.918,2.918,0,0,1-1.784-2.777,3.084,3.084,0,0,1,1.662-2.838,6.28,6.28,0,0,1,2.149-.689l3.608-.588v2.027l-3.1.527a2.263,2.263,0,0,0-1.176.507,1.252,1.252,0,0,0-.385.953,1.078,1.078,0,0,0,.436.9,1.729,1.729,0,0,0,1.084.334,2.976,2.976,0,0,0,1.47-.355,2.527,2.527,0,0,0,.993-.983,2.756,2.756,0,0,0,.355-1.378V41.556A1.5,1.5,0,0,0,67.6,40.37a2.184,2.184,0,0,0-1.47-.476,2.589,2.589,0,0,0-1.51.456,2.643,2.643,0,0,0-.963,1.206L61.488,40.5a3.827,3.827,0,0,1,1.024-1.51,5.156,5.156,0,0,1,1.652-1,5.733,5.733,0,0,1,2.068-.365,5.463,5.463,0,0,1,2.392.5A3.888,3.888,0,0,1,70.235,39.5a3.669,3.669,0,0,1,.578,2.057v7.338H68.3V47.009l.568-.041a4.461,4.461,0,0,1-1.014,1.186,4.281,4.281,0,0,1-1.338.73A5.169,5.169,0,0,1,64.853,49.137Zm8.007-.243V33.549h2.655V48.894Zm10.683,0L79.752,37.867h2.8l2.777,8.372-.973-.02,2.96-8.352h2.351L92.6,46.218l-.973.02,2.777-8.372h2.8L93.415,48.894H91.043l-3-8.737h.892l-3.041,8.737Zm19.906.243a5.892,5.892,0,0,1-2.949-.75,5.751,5.751,0,0,1-.01-10.014,6.174,6.174,0,0,1,5.9,0,5.724,5.724,0,0,1,2.1,2.037,5.987,5.987,0,0,1-.01,5.929,5.8,5.8,0,0,1-5.027,2.8Zm0-2.432a2.9,2.9,0,0,0,1.571-.426,3,3,0,0,0,1.074-1.186,3.657,3.657,0,0,0,.4-1.713,3.581,3.581,0,0,0-.4-1.713,3.111,3.111,0,0,0-1.074-1.176,2.845,2.845,0,0,0-1.571-.436,2.932,2.932,0,0,0-1.6.436,3.082,3.082,0,0,0-1.084,1.176,3.58,3.58,0,0,0-.4,1.713,3.657,3.657,0,0,0,.4,1.713,2.9,2.9,0,0,0,2.686,1.612Zm7.419,2.189V33.549h2.655V43.6l-1.014-.3,5.189-5.433H121l-4.074,4.439,4.156,6.588h-3.041l-3.608-5.716,1.581-.324-3.324,3.568.831-1.622v4.095Zm16.318.243a5.657,5.657,0,0,1-2.98-.77,5.365,5.365,0,0,1-1.987-2.088,6.057,6.057,0,0,1-.709-2.919,5.941,5.941,0,0,1,.72-2.949,5.422,5.422,0,0,1,1.966-2.037,5.3,5.3,0,0,1,2.787-.75,5.7,5.7,0,0,1,2.28.426,4.864,4.864,0,0,1,1.672,1.176,5.264,5.264,0,0,1,1.054,1.713,5.815,5.815,0,0,1,.365,2.078q0,.284-.03.588a2.185,2.185,0,0,1-.111.527H123.7V42.1h7.014l-1.257.953a3.02,3.02,0,0,0-.091-1.662,2.38,2.38,0,0,0-.892-1.155,2.563,2.563,0,0,0-1.49-.426,2.684,2.684,0,0,0-1.48.416,2.572,2.572,0,0,0-.983,1.216,4.221,4.221,0,0,0-.253,1.936,3.585,3.585,0,0,0,.274,1.794,2.664,2.664,0,0,0,1.054,1.206,3.037,3.037,0,0,0,1.612.426,2.95,2.95,0,0,0,1.551-.385,2.779,2.779,0,0,0,1-1.034l2.149,1.054a3.755,3.755,0,0,1-1.014,1.4,5.066,5.066,0,0,1-1.632.953A6.012,6.012,0,0,1,127.186,49.137Z" transform="translate(-1.02 365.289)" fill="#fff"/>
+          <path id="Path_3915" data-name="Path 3915" d="M1.232,10.208V4.494h.614V7.064H4.914V4.494h.614v5.714H4.914V7.639H1.846v2.569Zm6.949,0V4.494h.614v5.714Zm3.267,0V4.494h1.964a2.1,2.1,0,0,1,.982.219,1.6,1.6,0,0,1,.656.614,1.765,1.765,0,0,1,.234.917,1.744,1.744,0,0,1-.234.913,1.614,1.614,0,0,1-.652.61,2.1,2.1,0,0,1-.986.219h-1.35v2.224Zm.614-2.8h1.381a1.391,1.391,0,0,0,.644-.142,1.03,1.03,0,0,0,.43-.407,1.225,1.225,0,0,0,.153-.625,1.2,1.2,0,0,0-.153-.621,1.037,1.037,0,0,0-.43-.4,1.391,1.391,0,0,0-.644-.142H12.062ZM19.609,10.3a2.316,2.316,0,0,1-.989-.207,2.252,2.252,0,0,1-.752-.556,2.1,2.1,0,0,1-.437-.771l.552-.207a1.747,1.747,0,0,0,.621.886,1.677,1.677,0,0,0,1,.3,1.647,1.647,0,0,0,.648-.119.994.994,0,0,0,.433-.334.836.836,0,0,0,.153-.5.882.882,0,0,0-.23-.652,1.5,1.5,0,0,0-.66-.353l-1.028-.307a1.775,1.775,0,0,1-.932-.591,1.484,1.484,0,0,1-.326-.943,1.459,1.459,0,0,1,.222-.8A1.546,1.546,0,0,1,18.5,4.6a1.891,1.891,0,0,1,.878-.2,2.2,2.2,0,0,1,.924.188A2.154,2.154,0,0,1,21,5.085a1.838,1.838,0,0,1,.407.683l-.537.215a1.514,1.514,0,0,0-.571-.767,1.589,1.589,0,0,0-.909-.261,1.369,1.369,0,0,0-.579.115.892.892,0,0,0-.387.33.916.916,0,0,0-.138.506.991.991,0,0,0,.222.633,1.329,1.329,0,0,0,.683.418l.905.268a2.2,2.2,0,0,1,1.02.575,1.341,1.341,0,0,1,.345.943,1.419,1.419,0,0,1-.234.809,1.586,1.586,0,0,1-.652.548A2.211,2.211,0,0,1,19.609,10.3Zm5.323-.092V5.069h-1.58V4.494h3.758v.575H25.546v5.139Zm4.242,0V4.494h3.682v.575H29.788V7.056H32.7v.575H29.788v2h3.068v.575Zm6,0V4.494h1.964a2.1,2.1,0,0,1,.982.219,1.6,1.6,0,0,1,.656.614,1.765,1.765,0,0,1,.234.917,1.648,1.648,0,0,1-1.181,1.641l1.335,2.324h-.721l-1.4-2.462.414.238H35.786v2.224Zm.614-2.8h1.381a1.391,1.391,0,0,0,.644-.142,1.03,1.03,0,0,0,.43-.407,1.225,1.225,0,0,0,.153-.625,1.2,1.2,0,0,0-.153-.621,1.037,1.037,0,0,0-.43-.4,1.391,1.391,0,0,0-.644-.142H35.786ZM44,10.208V4.494h.614v5.714Zm3.267,0V4.494h1.964a2.1,2.1,0,0,1,.982.219,1.6,1.6,0,0,1,.656.614,1.765,1.765,0,0,1,.234.917,1.744,1.744,0,0,1-.234.913,1.614,1.614,0,0,1-.652.61,2.1,2.1,0,0,1-.986.219h-1.35v2.224Zm.614-2.8h1.381a1.391,1.391,0,0,0,.644-.142,1.03,1.03,0,0,0,.43-.407,1.225,1.225,0,0,0,.153-.625,1.2,1.2,0,0,0-.153-.621,1.037,1.037,0,0,0-.43-.4,1.391,1.391,0,0,0-.644-.142H47.881ZM55.429,10.3a2.316,2.316,0,0,1-.989-.207,2.252,2.252,0,0,1-.752-.556,2.1,2.1,0,0,1-.437-.771l.552-.207a1.747,1.747,0,0,0,.621.886,1.677,1.677,0,0,0,1,.3,1.647,1.647,0,0,0,.648-.119A.994.994,0,0,0,56.51,9.3a.836.836,0,0,0,.153-.5.882.882,0,0,0-.23-.652,1.5,1.5,0,0,0-.66-.353l-1.028-.307a1.775,1.775,0,0,1-.932-.591,1.484,1.484,0,0,1-.326-.943,1.459,1.459,0,0,1,.222-.8,1.546,1.546,0,0,1,.61-.548,1.891,1.891,0,0,1,.878-.2,2.2,2.2,0,0,1,.924.188,2.154,2.154,0,0,1,.694.495,1.838,1.838,0,0,1,.407.683l-.537.215a1.514,1.514,0,0,0-.571-.767,1.589,1.589,0,0,0-.909-.261,1.369,1.369,0,0,0-.579.115.892.892,0,0,0-.387.33.916.916,0,0,0-.138.506.991.991,0,0,0,.222.633,1.329,1.329,0,0,0,.683.418l.905.268a2.2,2.2,0,0,1,1.02.575,1.341,1.341,0,0,1,.345.943,1.419,1.419,0,0,1-.234.809,1.586,1.586,0,0,1-.652.548A2.211,2.211,0,0,1,55.429,10.3Zm6.343,0a2.177,2.177,0,0,1-1.066-.253,1.809,1.809,0,0,1-.713-.694,1.99,1.99,0,0,1-.253-1.009V4.494h.614v3.85a1.418,1.418,0,0,0,.18.725,1.259,1.259,0,0,0,.5.483,1.673,1.673,0,0,0,1.48,0,1.259,1.259,0,0,0,.5-.483,1.418,1.418,0,0,0,.18-.725V4.494H63.8v3.85a1.99,1.99,0,0,1-.253,1.009,1.816,1.816,0,0,1-.709.694A2.171,2.171,0,0,1,61.772,10.3Zm4.663-.092V4.494h.537L69.12,7.608h-.3l2.14-3.114H71.5v5.714h-.614V5.322l.2.077-2.1,3.045h-.031L66.857,5.4l.192-.077v4.886Z" transform="translate(-0.557 348.641)" fill="#9a9a9a"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

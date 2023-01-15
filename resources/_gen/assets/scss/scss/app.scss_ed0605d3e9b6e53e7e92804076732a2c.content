@@ -218,11 +218,11 @@ h3,
   margin-bottom: 1rem; }
   h3,
   .heading-3 {
-    font-size: 26px; }
+    font-size: 24px; }
     @media screen and (min-width: 320px) {
       h3,
       .heading-3 {
-        font-size: calc(26px + 11 * ((100vw - 320px) / 1088)); } }
+        font-size: calc(24px + 13 * ((100vw - 320px) / 1088)); } }
     @media screen and (min-width: 1408px) {
       h3,
       .heading-3 {
@@ -1541,13 +1541,21 @@ small {
 
 .card {
   position: relative;
-  text-decoration: none; }
+  display: block;
+  text-decoration: none;
+  margin-bottom: 3.75rem;
+  user-select: none; }
   .card-image img {
-    width: 100%; }
+    width: 100%;
+    height: 100%; }
   .card-text * {
     margin-bottom: 0;
     text-decoration: none; }
-
+  @media (min-width: 768px) {
+    .card-col:nth-child(even) .card {
+      margin-bottom: 0; }
+      .card-col:nth-child(even) .card-half-margin {
+        margin-top: 50%; } }
 .cursor {
   position: fixed;
   display: none;
@@ -1752,7 +1760,7 @@ small {
         margin-right: 3rem; } }
   @media (min-width: 768px) {
     .footer-main {
-      padding-top: 5rem;
+      padding-top: 120px;
       padding-bottom: 5rem; }
       .footer-main-nav-list {
         display: grid;

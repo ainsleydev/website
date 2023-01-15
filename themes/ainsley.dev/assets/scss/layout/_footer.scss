@@ -159,7 +159,7 @@
 	@include media-tab {
 
 		&-main {
-			padding-top: 5rem;
+			padding-top: map-get($section-padding, tab);
 			padding-bottom: 5rem;
 
 			&-nav {

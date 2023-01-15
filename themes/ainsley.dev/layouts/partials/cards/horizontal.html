@@ -1,0 +1,23 @@
+<!-- =====================
+    Card - Horizontal
+    	partial "cards/horizontal.html" (dict "text" "Download" "link" "files.zip" "arrow" true "colour" "white" "attr" "download")
+    	- title:		The title of the card.
+    	- permalink:	The relative permalink that the card will link to.
+    	- image:		The featured image as a resource.
+    ===================== -->
+<div class="col-12 col-tab-5 card-col">
+	<!-- Card -->
+	<a href="{{ .permalink }}" class="card card-horizontal card-half-margin"
+	   aria-label="Navigate to the {{ .title }} page">
+		<!-- Featured Image -->
+        {{ with .image -}}
+			<figure class="card-image text-wrapper">
+				<img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+			</figure>
+        {{- end }}
+		<!-- Text -->
+		<div class="card-text">
+			<h3>{{ .title }}</h3>
+		</div>
+	</a><!-- /Card -->
+</div><!-- /Col -->
