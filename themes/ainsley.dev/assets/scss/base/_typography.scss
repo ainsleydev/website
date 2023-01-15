@@ -59,36 +59,36 @@ h5 {
 
 h1,
 .heading-1 {
-	@include fluid-type(320px, 1408px, 38px, 68px);
+	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 38px, 68px);
 	margin-bottom: 1.2rem;
 	line-height: 0.9;
 
 	.type-serif {
-		@include fluid-type(320px, 1408px, 48px, 80px);
+		@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 48px, 80px);
 	}
 }
 
 h2,
 .heading-2 {
-	@include fluid-type(320px, 1408px, 30px, 50px);
+	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 28px, 50px);
 	margin-bottom: 1.1rem;
 }
 
 h3,
 .heading-3 {
-	@include fluid-type(320px, 1408px, 24px, 37px);
+	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 23px, 37px);
 	margin-bottom: 1rem;
 }
 
 h4,
 .heading-4 {
-	@include fluid-type(320px, 1408px, 22px, 29px);
+	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 21px, 29px);
 	margin-bottom: 0.9rem;
 }
 
 h5,
 .heading-5 {
-	@include fluid-type(320px, 1408px, 19px, 21.5px);
+	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 19px, 21.5px);
 	margin-bottom: 0.8rem;
 }
 

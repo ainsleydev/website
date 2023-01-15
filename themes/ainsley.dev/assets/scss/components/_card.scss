@@ -44,15 +44,14 @@
 	// Tablet
 	// =========================================================================
 
-	@include media-tab {
+	@include media-mob {
 
+		&-col:nth-child(even) #{$self}-half-margin {
+			margin-top: 30%;
+		}
 
-		&-col:nth-child(even) #{$self} {
+		&-half-margin {
 			margin-bottom: 0;
-
-			&-half-margin {
-				margin-top: 50%;
-			}
 		}
 	}
 

@@ -6,7 +6,6 @@
  * @author Email: hello@ainsley.dev
  */
 
-
 import {Log} from "../util/log";
 import {Cursor, CursorClasses} from "./cursor";
 

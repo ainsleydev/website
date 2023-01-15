@@ -36,7 +36,7 @@
     {{ if .Pages -}}
 		<section class="section" id="pages">
 			<div class="container">
-				<div class="row justify-content-tab-between">
+				<div class="row justify-content-between">
                     {{ range .Pages -}}
 						{{ partial "cards/horizontal.html" (dict "title" .Title "permalink" .RelPermalink "image" (.Resources.GetMatch .Params.featuredImage)) }}
                     {{- end }}

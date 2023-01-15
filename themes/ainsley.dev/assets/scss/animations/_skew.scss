@@ -1,0 +1,11 @@
+// -----------------------------------------------------------------------------
+// _skew.scss
+// This file contains all styles related to the skew animation.
+// -----------------------------------------------------------------------------
+
+.skew {
+	$self: &;
+
+	transition: transform 100ms linear;
+	will-change: transform;
+}

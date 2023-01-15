@@ -99,6 +99,10 @@ $nav-padding-desktop: 4rem 6rem;
 // Text
 // ==========================================================================
 
+$text-fluid-start-size: 300px;
+$text-fluid-end-size: 1408px;
+$text-wrapper-small-diff: 0.5rem;
+$text-wrapper-large-diff: 1rem;
 $text-margin-properties: (
 	"": 1.2rem,
 	"-mob": 1.2rem,
@@ -107,9 +111,6 @@ $text-margin-properties: (
 	"-desk-large": 1.8rem,
 	"-hd": 2rem,
 );
-
-$text-wrapper-small-diff: 0.5rem;
-$text-wrapper-large-diff: 1rem;
 
 // Button
 // ==========================================================================

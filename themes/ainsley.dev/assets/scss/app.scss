@@ -58,7 +58,6 @@ $publicPath: '{{ .Site.BaseURL }}';
 @import "components/arrow";
 @import "components/button";
 @import "components/card";
-@import "components/cursor";
 @import "components/gradient";
 @import "components/list";
 @import "components/quote";
@@ -75,6 +74,12 @@ $publicPath: '{{ .Site.BaseURL }}';
 @import "layout/hero";
 @import "layout/nav";
 @import "layout/section";
+
+/* ====================
+    Animations
+    ==================== */
+@import "animations/cursor";
+@import "animations/skew";
 
 /* ====================
     Pages

@@ -9,6 +9,7 @@
 import scripts from "./scripts/polyfills";
 import {} from "./components/nav";
 import {} from "./components/button";
+import {} from "./animations/skew";
 import LazyLoad from 'vanilla-lazyload';
 import {Cursor, CursorClasses} from "./components/cursor";
 

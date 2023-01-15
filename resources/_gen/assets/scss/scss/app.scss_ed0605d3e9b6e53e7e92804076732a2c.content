@@ -180,10 +180,10 @@ h1,
   h1,
   .heading-1 {
     font-size: 38px; }
-    @media screen and (min-width: 320px) {
+    @media screen and (min-width: 300px) {
       h1,
       .heading-1 {
-        font-size: calc(38px + 30 * ((100vw - 320px) / 1088)); } }
+        font-size: calc(38px + 30 * ((100vw - 300px) / 1108)); } }
     @media screen and (min-width: 1408px) {
       h1,
       .heading-1 {
@@ -191,10 +191,10 @@ h1,
   h1 .type-serif,
   .heading-1 .type-serif {
     font-size: 48px; }
-    @media screen and (min-width: 320px) {
+    @media screen and (min-width: 300px) {
       h1 .type-serif,
       .heading-1 .type-serif {
-        font-size: calc(48px + 32 * ((100vw - 320px) / 1088)); } }
+        font-size: calc(48px + 32 * ((100vw - 300px) / 1108)); } }
     @media screen and (min-width: 1408px) {
       h1 .type-serif,
       .heading-1 .type-serif {
@@ -204,11 +204,11 @@ h2,
   margin-bottom: 1.1rem; }
   h2,
   .heading-2 {
-    font-size: 30px; }
-    @media screen and (min-width: 320px) {
+    font-size: 28px; }
+    @media screen and (min-width: 300px) {
       h2,
       .heading-2 {
-        font-size: calc(30px + 20 * ((100vw - 320px) / 1088)); } }
+        font-size: calc(28px + 22 * ((100vw - 300px) / 1108)); } }
     @media screen and (min-width: 1408px) {
       h2,
       .heading-2 {
@@ -218,11 +218,11 @@ h3,
   margin-bottom: 1rem; }
   h3,
   .heading-3 {
-    font-size: 24px; }
-    @media screen and (min-width: 320px) {
+    font-size: 23px; }
+    @media screen and (min-width: 300px) {
       h3,
       .heading-3 {
-        font-size: calc(24px + 13 * ((100vw - 320px) / 1088)); } }
+        font-size: calc(23px + 14 * ((100vw - 300px) / 1108)); } }
     @media screen and (min-width: 1408px) {
       h3,
       .heading-3 {
@@ -232,11 +232,11 @@ h4,
   margin-bottom: 0.9rem; }
   h4,
   .heading-4 {
-    font-size: 22px; }
-    @media screen and (min-width: 320px) {
+    font-size: 21px; }
+    @media screen and (min-width: 300px) {
       h4,
       .heading-4 {
-        font-size: calc(22px + 7 * ((100vw - 320px) / 1088)); } }
+        font-size: calc(21px + 8 * ((100vw - 300px) / 1108)); } }
     @media screen and (min-width: 1408px) {
       h4,
       .heading-4 {
@@ -247,10 +247,10 @@ h5,
   h5,
   .heading-5 {
     font-size: 19px; }
-    @media screen and (min-width: 320px) {
+    @media screen and (min-width: 300px) {
       h5,
       .heading-5 {
-        font-size: calc(19px + 2.5 * ((100vw - 320px) / 1088)); } }
+        font-size: calc(19px + 2.5 * ((100vw - 300px) / 1108)); } }
     @media screen and (min-width: 1408px) {
       h5,
       .heading-5 {
@@ -1551,34 +1551,11 @@ small {
   .card-text * {
     margin-bottom: 0;
     text-decoration: none; }
-  @media (min-width: 768px) {
-    .card-col:nth-child(even) .card {
-      margin-bottom: 0; }
-      .card-col:nth-child(even) .card-half-margin {
-        margin-top: 50%; } }
-.cursor {
-  position: fixed;
-  display: none;
-  z-index: 9999999;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: none;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: transform 300ms ease, background 300ms ease, border-color 300ms ease;
-  border: 1px solid #FFF; }
-  .cursor-invert {
-    mix-blend-mode: difference;
-    transform: translate(-50%, -50%) scale(1.5);
-    cursor: none; }
-    .cursor-invert-black {
-      background: #FFF; }
-    .cursor-invert-white {
-      background: #FFF; }
-  @media (hover: hover) {
-    .cursor {
-      display: block; } }
+  @media (min-width: 568px) {
+    .card-col:nth-child(even) .card-half-margin {
+      margin-top: 30%; }
+    .card-half-margin {
+      margin-bottom: 0; } }
 .gradient {
   position: relative; }
   .gradient:after {
@@ -2119,6 +2096,36 @@ small {
     padding-top: 0 !important; }
   .section-padding-top {
     padding-bottom: 0 !important; }
+
+/* ====================
+    Animations
+    ==================== */
+.cursor {
+  position: fixed;
+  display: none;
+  z-index: 9999999;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: none;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 300ms ease, background 300ms ease, border-color 300ms ease;
+  border: 1px solid #FFF; }
+  .cursor-invert {
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%) scale(1.5);
+    cursor: none; }
+    .cursor-invert-black {
+      background: #FFF; }
+    .cursor-invert-white {
+      background: #FFF; }
+  @media (hover: hover) {
+    .cursor {
+      display: block; } }
+.skew {
+  transition: transform 100ms linear;
+  will-change: transform; }
 
 /* ====================
     Pages
