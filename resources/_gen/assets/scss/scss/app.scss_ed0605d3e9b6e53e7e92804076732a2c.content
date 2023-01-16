@@ -2114,7 +2114,6 @@ small {
   border: 1px solid #FFF; }
   .cursor-invert {
     mix-blend-mode: difference;
-    transform: translate(-50%, -50%) scale(1.5);
     cursor: none; }
     .cursor-invert-black {
       background: #FFF; }

@@ -74,7 +74,6 @@ class Skew {
 	private attachHandlers() {
 		document.querySelectorAll<HTMLButtonElement>(this.selector).forEach(el => {
 			const cfg = this.getConfig(el);
-			console.log(cfg);
 			this.mouseMove(el, cfg);
 			this.mouseOut(el);
 		});
@@ -136,7 +135,7 @@ class Skew {
 	 */
 	private getConfig(el: HTMLElement): SkewConfig {
 		return {
-			shouldRotate: el.getAttribute("data-skew-rotate") === "",
+			shouldRotate: el.hasAttribute("data-skew-rotate"),
 			transform: {
 				x: this.getAttribute(el, "data-skew-transform-x") ?? this.defaultConfig.transform.x,
 				y: this.getAttribute(el, "data-skew-transform-y") ?? this.defaultConfig.transform.y,

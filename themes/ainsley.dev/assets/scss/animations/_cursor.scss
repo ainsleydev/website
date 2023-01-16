@@ -20,6 +20,7 @@
 	// =========================================================================
 
 	&-active {
+		//background-color: red !important;
 	}
 
 	// Active
@@ -27,7 +28,6 @@
 
 	&-invert {
 		mix-blend-mode: difference;
-		transform: translate(-50%, -50%) scale(1.5);
 		cursor: none;
 
 		&-black {

@@ -8,12 +8,19 @@
     	- attributes: 	Any additional classnames or attributes to appear.
     ===================== -->
 {{ if .link -}}
-	<a href="{{ .link }}" class="btn
-			btn-colour-{{ with .colour -}} {{ . }} {{- end }}
-	   		{{ if .arrow -}} btn-arrow {{- end}}"
-            {{ .attr  | safeHTMLAttr }}>
+	<a href="{{ .link }}"
+{{- else -}}
+	<button
+{{- end }}
+	   		class="btn btn-colour-{{ with .colour -}} {{ . }} {{- end }}
+	   		{{ if .arrow -}} btn-arrow {{- end}} skew cursor-element"
+            {{ .attr  | safeHTMLAttr }}
+			data-cursor-invert data-cursor-invert-black
+			data-skew-transform-x="0.15" data-skew-transform-y="0.3"
+			data-skew-rotate-x="-0.1" data-skew-rotate-y="-0.3"
+			data-skew-rotate>
 		<!-- Wrapper -->
-		<div class="btn-wrapper">
+		<div class="btn-wrapper ske" data-skew-transform-x="0.025" data-skew-transform-y="0.075">
 			<!-- Text -->
             {{ with .text -}}
 				<span class="btn-text">
@@ -26,25 +33,8 @@
                 {{ partial "images/arrow.html" (dict "colour" "var(--colour-black)" "rotation" "90" "stroke" 3 "class" "btn-arrow-image btn-arrow-right") }}
             {{- end }}
 		</div><!-- /Wrapper -->
+{{ if .link -}}
 	</a>
 {{- else -}}
-	<button class="btn
-			btn-colour-{{ with .colour -}} {{ . }} {{- end }}
-	   		{{ if .arrow -}} btn-arrow {{- end}}"
-            {{ .attr | safeHTMLAttr }}>
-		<!-- Wrapper -->
-		<div class="btn-wrapper">
-			<!-- Text -->
-            {{ with .text -}}
-				<span class="btn-text">
-		 			{{ . }}
-				</span>
-            {{- end }}
-			<!-- Arrow -->
-            {{ if .arrow }}
-                {{ partial "images/arrow.html" (dict "colour" "var(--colour-black)" "rotation" "90" "stroke" 3 "class" "btn-arrow-image btn-arrow-left") }}
-                {{ partial "images/arrow.html" (dict "colour" "var(--colour-black)" "rotation" "90" "stroke" 3 "class" "btn-arrow-image btn-arrow-right") }}
-            {{- end }}
-		</div><!-- /Wrapper -->
 	</button>
 {{- end }}
