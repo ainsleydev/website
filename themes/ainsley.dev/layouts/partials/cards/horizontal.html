@@ -6,25 +6,29 @@
     	- image:		The featured image as a resource.
     	- animate:		If the skew and cursor animations should run.
     ===================== -->
-<div class="col-12 col-mob-6 col-tab-5 card-col">
-	<!-- Card -->
-	<a href="{{ .permalink }}" class="card card-horizontal card-half-margin"
-	   aria-label="Navigate to the {{ .title }} page">
-		<!-- Featured Image -->
-        {{ with .image -}}
-			<figure class="card-image text-wrapper skew {{ if $.animate }} cursor-element {{- end }}"
-				{{ if $.animate }}
-					data-cursor-invert data-cursor-invert-black data-cursor-scale="4"
-					data-skew-transform-x="0.1" data-skew-transform-y="0.1"
-					data-skew-rotate-x="0.1" data-skew-rotate-y="-0.1"
-					data-skew-rotate
-				{{- end }}>
-				<img src="{{ .RelPermalink }}" alt="{{ .Title }}">
-			</figure>
-        {{- end }}
-		<!-- Text -->
-		<div class="card-text">
-			<h3>{{ .title }}</h3>
-		</div>
-	</a><!-- /Card -->
+<div class="col-12 col-mob-6 col-tab-6 col-desk-5 card-col">
+	<div class="row">
+		<div class="col-12 col-tab-11 col-desk-12">
+			<!-- Card -->
+			<a href="{{ .permalink }}" class="card card-horizontal card-half-margin"
+			   aria-label="Navigate to the {{ .title }} page">
+				<!-- Featured Image -->
+                {{ with .image -}}
+					<figure class="card-image text-wrapper skew {{ if $.animate }} cursor-element {{- end }}"
+                            {{ if $.animate }}
+						data-cursor-invert data-cursor-invert-black data-cursor-scale="4"
+						data-skew-transform-x="0.1" data-skew-transform-y="0.1"
+						data-skew-rotate-x="-0.1" data-skew-rotate-y="-0.3"
+						data-skew-rotate
+                            {{- end }}>
+						<img loading="lazy" src="{{ .RelPermalink }}" alt="{{ .Title }}">
+					</figure>
+                {{- end }}
+				<!-- Text -->
+				<div class="card-text">
+					<h3>{{ .title }}</h3>
+				</div>
+			</a><!-- /Card -->
+		</div><!-- /Col -->
+	</div><!-- /Row -->
 </div><!-- /Col -->

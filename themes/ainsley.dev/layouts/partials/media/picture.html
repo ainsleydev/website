@@ -8,73 +8,68 @@
 		https://bitbanged.com/posts/using-responsive-images-effortlessly-with-hugo/
     ===================== -->
 {{ $showAvifWebp := ne hugo.Environment "development" -}}
-{{ if isset $ "global" -}}
-    {{ if .url }}
-        {{- $resource := resources.Get .url -}}
-		{{ if eq $resource nil -}}
-			{{- $resource = .global.Resources.Get .url -}}
-		{{- end -}}
-        {{ if $resource -}}
-			<!-- Container Sizes -->
-			{{ range $key, $size := .global.Site.Params.css.container -}}
-				{{ if gt $resource.Width $size -}}
-					{{- $image := $resource.Resize (printf "%dx" $size) -}}
-					{{ $show := true }}
-					{{ if and (eq (isset $ $key) true) (eq (index $ $key) false) -}}
-						<!-- 1px Dot -->
-						<source media="(max-width:{{ $size }}px)" sizes="1px"
-								srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
-					{{- else -}}
-						{{ if $showAvifWebp -}}
-							{{- $noExtension := strings.TrimSuffix (path.Ext $image.RelPermalink) $image.RelPermalink -}}
-							<!-- AVIF -->
-							<source media="(max-width: {{ $size }}px)" {{ if $.lazy }} class="lazy lazy-hide"
-									data-{{ end }}srcset="{{ $noExtension }}.avif" type="image/avif"/>
-							<!-- WebP -->
-							<source media="(max-width: {{ $size }}px)" {{ if $.lazy }} class="lazy lazy-hide"
-									data-{{ end }}srcset="{{ $noExtension }}.webp" type="image/webp"/>
-						{{- end }}
-						<!-- Original -->
-						<source media="(max-width: {{ $size }}px)" {{ if $.lazy }} class="lazy lazy-hide"
-								data-{{ end }}srcset="{{ $image.RelPermalink }}"/>
-					{{- end }}
+{{ if .image }}
+	<!-- Container Sizes -->
+	{{ range $size := sort site.Params.css.container -}}
+        {{ $item := index $ $size.name }}
+		<!-- Show a 1px Dot if the current key is set to "hide" -->
+        {{ if and (eq (isset $ $size.name) true) (eq (index $item) "hide") }}
+			<source media="(max-width:{{ $size.size }}px)" sizes="1px"
+					srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+		{{ else }}
+			{{ $src := "" }}
+			<!-- Display Image, type is resource -->
+			{{ if and (eq (isset $ $size.name) true) (in (printf "%T" $item) "resource") }}
+				{{ $src = $item }}
+			<!-- Resize if the image is greater than the image and the item is not set -->
+			{{- else if (gt $.image.Width $size) }}
+				{{- $src = $.image.Resize (printf "%dx" $size.size) -}}
+			{{- end }}
+			{{ if $src }}
+				{{ if $showAvifWebp -}}
+					{{- $noExtension := strings.TrimSuffix (path.Ext $src.RelPermalink) $src.RelPermalink -}}
+					<!-- AVIF -->
+					<source media="(max-width: {{ $size.size }}px)" {{ if $.lazy }} class="lazy lazy-hide"
+							data-{{ end }}srcset="{{ $noExtension }}.avif" type="image/avif"/>
+					<!-- WebP -->
+					<source media="(max-width: {{ $size.size }}px)" {{ if $.lazy }} class="lazy lazy-hide"
+							data-{{ end }}srcset="{{ $noExtension }}.webp" type="image/webp"/>
 				{{- end }}
+				<!-- Original -->
+				<source media="(max-width: {{ $size.size }}px)" {{ if $.lazy }} loading="lazy" {{- end }}
+						width="{{ $src.Width }}" height="{{ $src.Height }}"
+						srcset="{{ $src.RelPermalink }}"/>
 			{{- end }}
-			<!-- Original - AVIF/WebP -->
-			{{ if $showAvifWebp -}}
-				{{ $noExtension := strings.TrimSuffix (path.Ext $resource.RelPermalink) $resource.RelPermalink }}
-				<!-- AVIF -->
-				<img {{ if .lazy }} class="lazy lazy-hide"
-					data-{{ end }}src="{{ $noExtension }}.avif"
-					alt="{{ with .alt -}} {{ . }} {{- end }}"
-					type="image/avif"
-					width="{{ $resource.Width}}" height="{{ $resource.Height }}"/>
-				<!-- WebP -->
-				<img {{ if .lazy }} class="lazy lazy-hide"
-					data-{{ end }}src="{{ $noExtension }}.webp"
-					alt="{{ with .alt -}} {{ . }} {{- end }}"
-					type="image/webp"
-					width="{{ $resource.Width}}" height="{{ $resource.Height }}"/>
-			{{- end }}
-			<!-- Original - Image -->
-			<img {{ if .lazy }} class="lazy lazy-hide"
-				data-{{ end }}src="{{ $resource.RelPermalink }}"
-				alt="{{ with .alt -}} {{ . }} {{- end }}"
-				width="{{ $resource.Width}}" height="{{ $resource.Height }}"
-			/>
-			<!-- NoScript -->
-			{{ if .lazy -}}
-				<noscript>
-					<img src="{{ $resource.RelPermalink }}" alt="{{ with .alt -}} {{ . }} {{- end }}"
-						 width="{{ $resource.Width}}" height="{{ $resource.Height }}"/>
-				</noscript>
-			{{- end }}
-        {{- else -}}
-            {{ warnf "Image not found with url: %s" .url }}
-        {{- end }}
-    {{- else -}}
-        {{ errorf "No image url attached to picture element" }}
-    {{- end }}
+		 {{ end }}
+	{{- end }}
+	<!-- Original - AVIF/WebP -->
+	{{ if $showAvifWebp -}}
+		{{ $noExtension := strings.TrimSuffix (path.Ext .image.RelPermalink) .image.RelPermalink }}
+		<!-- AVIF -->
+		<img {{ if .lazy }} loading="lazy" {{- end }}
+			src="{{ $noExtension }}.avif"
+			alt="{{ with .alt -}} {{ . }} {{- end }}"
+			type="image/avif"
+			width="{{ .image.Width }}" height="{{ .image.Height }}"/>
+		<!-- WebP -->
+		<img {{ if .lazy }} loading="lazy" {{- end }}
+			src="{{ $noExtension }}.webp"
+			alt="{{ with .alt -}} {{ . }} {{- end }}"
+			type="image/webp"
+			width="{{ .image.Width }}" height="{{ .image.Height }}"/>
+	{{- end }}
+	<!-- Original - Image -->
+	<img {{ if .lazy }} loading="lazy" {{- end }}
+		src="{{ .image.RelPermalink }}"
+		alt="{{ with .alt -}} {{ . }} {{- end }}"
+		width="{{ .image.Width}}" height="{{ .image.Height }}"/>
+	<!-- NoScript -->
+	{{ if .lazy -}}
+		<noscript>
+			<img src="{{ .image.RelPermalink }}" alt="{{ with .alt -}} {{ . }} {{- end }}"
+				 width="{{ .image.Width}}" height="{{ .image.Height }}"/>
+		</noscript>
+	{{- end }}
 {{- else -}}
-    {{ errorf "'global' variable should be passed to the <picture> partial" }}
+	{{ warnf "Image not found with url: %s" .url }}
 {{- end }}

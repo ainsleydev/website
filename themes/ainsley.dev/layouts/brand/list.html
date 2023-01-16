@@ -6,7 +6,11 @@
 		<!-- Background -->
         {{ if .Resources.Get "hero.jpg" -}}
 			<picture class="hero-background gradient gradient-height-30">
-                {{ partial "media/picture.html" (dict "global" $ "url" "hero.jpg") }}
+                {{ partial "media/picture.html" (dict
+					"image" (.Resources.Get "hero.jpg")
+					"mob" (.Resources.Get "hero-mob.jpg")
+					"tab" "hide")
+				}}
 			</picture>
         {{- end }}
 		<!-- Content -->

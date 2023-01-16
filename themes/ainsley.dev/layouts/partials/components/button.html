@@ -12,13 +12,13 @@
 {{- else -}}
 	<button
 {{- end }}
-	   		class="btn btn-colour-{{ with .colour -}} {{ . }} {{- end }}
-	   		{{ if .arrow -}} btn-arrow {{- end}} skew cursor-element"
-            {{ .attr  | safeHTMLAttr }}
-			data-cursor-invert data-cursor-invert-black
-			data-skew-transform-x="0.15" data-skew-transform-y="0.3"
-			data-skew-rotate-x="-0.1" data-skew-rotate-y="-0.3"
-			data-skew-rotate>
+		class="btn btn-colour-{{ with .colour -}} {{ . }} {{- end }}
+		{{ if .arrow -}} btn-arrow {{- end}} skew cursor-element"
+		{{ .attr  | safeHTMLAttr }}
+		data-cursor-invert data-cursor-invert-black
+		data-skew-transform-x="0.15" data-skew-transform-y="0.3"
+		data-skew-rotate-x="-0.1" data-skew-rotate-y="-0.3"
+		data-skew-rotate>
 		<!-- Wrapper -->
 		<div class="btn-wrapper ske" data-skew-transform-x="0.025" data-skew-transform-y="0.075">
 			<!-- Text -->
