@@ -18,7 +18,8 @@ social:
     facebook: "https://www.facebook.com/ainsley.devltd/"
     instagram: "https://www.instagram.com/ainsley.devltd/"
     dribbble: "https://dribbble.com/ainsleyclark/"
-css:
+imagery:
+    webpAvif: false
     container:
         -   name: mob
             size: 568
@@ -26,5 +27,3 @@ css:
             size: 768
         -   name: desk
             size: 1024
-        -   name: desk-large
-            size: 1408

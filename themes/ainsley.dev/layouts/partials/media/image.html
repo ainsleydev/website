@@ -1,31 +1,35 @@
 <!-- =====================
     Image
-		partial "media/image.html" ("url" "/images/hello.jpg" "lazy" true "class" "class-name" "id" "id-name")
-		- global:			The global context, this has to be parsed or an error will be thrown.
-		- url:				The relative URL of the resource/image, this has to be parsed or an error will be thrown.
-		- lazy:				If the image should be lazy loaded, defaults to false.
-		- id:				An ID to attach to the <picture> element.
-		- class:			Any class names to be appended to the <picture> element.
+		partial "media/image.html" ("image" (resources.Get "hello.jpg") "lazy" true "class" "class-name")
+		- image:	The image resource, this has to be parsed or an error will be thrown.
+		- lazy:		If the image should be lazy loaded, defaults to false.
+		- class:	Any class names to be appended to the <picture> element.
     ===================== -->
-{{ if .url }}
-    {{- $resource := resources.Get .url -}}
-    {{ if eq $resource nil -}}
-        {{- $resource = .global.Resources.Get .url -}}
-    {{- end -}}
-    {{ if $resource -}}
-		<img class="{{ if .lazy }} lazy lazy-hide {{ end }} {{ with .class -}} {{ . }} {{- end }}"
-             {{ if .lazy }}data-{{ end }}src="{{ $resource.Permalink }}" alt="{{ with .alt -}} {{ . }} {{- end }}"
-			 id="{{ with .id -}}  {{ . }}  {{- end }}"
-			 width="{{ $resource.Width}}" height="{{ $resource.Height }}"/>
-        {{ if .lazy }}
-			<noscript>
-				<img class="{{ with .class -}} {{ . }} {{- end }}" src="{{ $resource.Permalink }}"
-					 alt="{{ with .alt -}} {{ . }} {{- end }}">
-			</noscript>
-        {{ else }}
-            {{ warnf "Image not found with url: %s" .url }}
-        {{- end -}}
+{{ if .image }}
+    <!-- Original - AVIF/WebP -->
+    {{ if site.Params.config.webpAvif -}}
+        {{ $noExtension := strings.TrimSuffix (path.Ext .image.RelPermalink) .image.RelPermalink }}
+		<!-- AVIF -->
+		<img {{ if .lazy }} loading="lazy" {{- end }}
+			src="{{ $noExtension }}.avif"
+			class="{{ with .class -}} {{ . }} {{- end }}"
+			alt="{{ with .alt -}} {{ . }} {{- end }}"
+			type="image/avif"
+			width="{{ .image.Width }}" height="{{ .image.Height }}"/>
+		<!-- WebP -->
+		<img {{ if .lazy }} loading="lazy" {{- end }}
+			src="{{ $noExtension }}.webp"
+            {{ with .class -}} class="{{ . }}" {{- end }}
+			alt="{{ with .alt -}} {{ . }} {{- end }}"
+			type="image/webp"
+			width="{{ .image.Width }}" height="{{ .image.Height }}"/>
     {{- end }}
+	<!-- Original - Image -->
+	<img {{ if .lazy }} loading="lazy" {{- end }}
+		src="{{ .image.RelPermalink }}"
+		class="{{ with .class -}} {{ . }} {{- end }}"
+		alt="{{ with .alt -}} {{ . }} {{- end }}"
+		width="{{ .image.Width}}" height="{{ .image.Height }}"/>
 {{- else -}}
-    {{ errorf "No image url attached to picture element" }}
+    {{ warnf "Image not found with url: %v" .image }}
 {{- end }}
