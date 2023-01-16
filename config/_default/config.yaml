@@ -39,7 +39,7 @@ markup:
                 title: true
             autoHeadingID: true
             autoHeadingIDType: github
-            wrapStandAloneImageWithinParagraph: false
+            wrapStandAloneImageWithinParagraph: true
         renderer:
             hardWraps: false
             unsafe: true

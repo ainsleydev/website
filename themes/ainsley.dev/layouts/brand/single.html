@@ -60,7 +60,8 @@
 				<!-- Content -->
 				<div class="col-12 col-desk-8 offset-desk-1">
                     <div class="richtext">
-                        {{ .Content | replaceRE `<p>\s*</p>` "" | safeHTML }}
+                        {{ .Content | replaceRE `~<p>\s*<\/p>~i` "" | safeHTML }}
+						<pre>{{ printf "%s" .Content }}</pre>
 					</div>
 				</div>
 			</div><!-- /Row -->
