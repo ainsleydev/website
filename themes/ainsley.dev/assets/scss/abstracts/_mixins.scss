@@ -119,6 +119,33 @@
 	}
 }
 
+// Text Wrapper
+// =========================================================================
+
+@mixin text-wrapper($diff: 0) {
+	@each $modifier, $breakpoint in $grid-properties {
+		@include create-mediaquery($breakpoint) {
+			@if ($breakpoint == 0) {
+				margin-top: map-get($text-margin-properties, "-mob") + $diff;
+			} @else {
+				margin-top: map-get($text-margin-properties, $modifier) + $diff;
+			}
+		}
+	}
+}
+
+@mixin text-wrapper-top($diff: 0) {
+	@each $modifier, $breakpoint in $grid-properties {
+		@include create-mediaquery($breakpoint) {
+			@if ($breakpoint == 0) {
+				margin-top: map-get($text-margin-properties, "-mob") + $diff;
+			} @else {
+				margin-top: map-get($text-margin-properties, $modifier) + $diff;
+			}
+		}
+	}
+}
+
 // Pixel to REM Converter
 // ==========================================================================
 

@@ -1,0 +1,11 @@
+<!-- =====================
+    Image
+		TODO
+		- src:
+		- alt:
+		- margin:
+    ===================== -->
+<figure class="image {{ if .Get "margin" -}} text-wrapper-large {{- end }}">
+    {{ partial "media/image.html" (dict "image" (.Page.Resources.Get (.Get "src")) "alt" (.Get "alt")) }}
+</figure>
+

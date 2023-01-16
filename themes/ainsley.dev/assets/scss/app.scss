@@ -59,6 +59,7 @@ $publicPath: '{{ .Site.BaseURL }}';
 @import "components/button";
 @import "components/card";
 @import "components/gradient";
+@import "components/image";
 @import "components/list";
 @import "components/quote";
 @import "components/social";
@@ -73,6 +74,7 @@ $publicPath: '{{ .Site.BaseURL }}';
 @import "layout/header";
 @import "layout/hero";
 @import "layout/nav";
+@import "layout/richtext";
 @import "layout/section";
 
 /* ====================

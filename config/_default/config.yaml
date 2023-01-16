@@ -33,6 +33,17 @@ markup:
             table: true
             taskList: true
             typographer: true
+        parser:
+            attribute:
+                block: true
+                title: true
+            autoHeadingID: true
+            autoHeadingIDType: github
+            wrapStandAloneImageWithinParagraph: false
+        renderer:
+            hardWraps: false
+            unsafe: true
+            xhtml: false
     tableOfContents:
         endLevel: 2
         ordered: false

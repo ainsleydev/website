@@ -1,3 +1,9 @@
-<figure>
-	<img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title }} title="{{ . }}"{{ end }} />
-</figure>
+<!-- =====================
+    Image
+    ===================== -->
+<div class="image-wrapper">
+	<picture class="image">
+        {{ partial "media/picture.html" (dict "image" (.Page.Resources.Get (.Destination | safeURL)) "alt" .Text) }}
+	</picture>
+</div>
+

@@ -201,6 +201,8 @@ small {
 // =========================================================================
 
 .text-wrapper {
+	@include text-wrapper;
+
 	p:last-of-type {
 		margin-bottom: 0;
 	}
@@ -209,21 +211,22 @@ small {
 		margin-bottom: 0 !important;
 	}
 
+	&-small {
+		@include text-wrapper(-$text-wrapper-small-diff);
+	}
+
+	&-large {
+		@include text-wrapper($text-wrapper-large-diff);
+	}
+
 	@each $modifier, $breakpoint in $grid-properties {
 		@include create-mediaquery($breakpoint) {
-			@if ($breakpoint == 0) {
-				margin-bottom: #{map-get($text-margin-properties, "-mob")}
-			} @else {
-				margin-bottom: map-get($text-margin-properties, $modifier)
-			}
 
 			&-small {
 				margin-bottom: map-get($text-margin-properties, $modifier) + $text-wrapper-small-diff;
 			}
 
-			&-large {
-				margin-bottom: map-get($text-margin-properties, $modifier) + $text-wrapper-large-diff;
-			}
+
 		}
 	}
 }

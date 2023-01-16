@@ -323,43 +323,65 @@ small {
   color: #FFF; }
 
 .text-wrapper {
-  margin-bottom: 1.2rem; }
+  margin-top: 1.2rem; }
+  @media (min-width: 568px) {
+    .text-wrapper {
+      margin-top: 1.2rem; } }
+  @media (min-width: 768px) {
+    .text-wrapper {
+      margin-top: 1.4rem; } }
+  @media (min-width: 1024px) {
+    .text-wrapper {
+      margin-top: 1.6rem; } }
+  @media (min-width: 1600px) {
+    .text-wrapper {
+      margin-top: 2rem; } }
   .text-wrapper p:last-of-type {
     margin-bottom: 0; }
   .text-wrapper-no-margin {
     margin-bottom: 0 !important; }
   .text-wrapper-small {
-    margin-bottom: 1.7rem; }
+    margin-top: 0.7rem; }
+    @media (min-width: 568px) {
+      .text-wrapper-small {
+        margin-top: 0.7rem; } }
+    @media (min-width: 768px) {
+      .text-wrapper-small {
+        margin-top: 0.9rem; } }
+    @media (min-width: 1024px) {
+      .text-wrapper-small {
+        margin-top: 1.1rem; } }
+    @media (min-width: 1600px) {
+      .text-wrapper-small {
+        margin-top: 1.5rem; } }
   .text-wrapper-large {
-    margin-bottom: 2.2rem; }
+    margin-top: 2.2rem; }
+    @media (min-width: 568px) {
+      .text-wrapper-large {
+        margin-top: 2.2rem; } }
+    @media (min-width: 768px) {
+      .text-wrapper-large {
+        margin-top: 2.4rem; } }
+    @media (min-width: 1024px) {
+      .text-wrapper-large {
+        margin-top: 2.6rem; } }
+    @media (min-width: 1600px) {
+      .text-wrapper-large {
+        margin-top: 3rem; } }
+  .text-wrapper-small {
+    margin-bottom: 1.7rem; }
   @media (min-width: 568px) {
-    .text-wrapper {
-      margin-bottom: 1.2rem; }
-      .text-wrapper-small {
-        margin-bottom: 1.7rem; }
-      .text-wrapper-large {
-        margin-bottom: 2.2rem; } }
+    .text-wrapper-small {
+      margin-bottom: 1.7rem; } }
   @media (min-width: 768px) {
-    .text-wrapper {
-      margin-bottom: 1.4rem; }
-      .text-wrapper-small {
-        margin-bottom: 1.9rem; }
-      .text-wrapper-large {
-        margin-bottom: 2.4rem; } }
+    .text-wrapper-small {
+      margin-bottom: 1.9rem; } }
   @media (min-width: 1024px) {
-    .text-wrapper {
-      margin-bottom: 1.6rem; }
-      .text-wrapper-small {
-        margin-bottom: 2.1rem; }
-      .text-wrapper-large {
-        margin-bottom: 2.6rem; } }
+    .text-wrapper-small {
+      margin-bottom: 2.1rem; } }
   @media (min-width: 1600px) {
-    .text-wrapper {
-      margin-bottom: 2rem; }
-      .text-wrapper-small {
-        margin-bottom: 2.5rem; }
-      .text-wrapper-large {
-        margin-bottom: 3rem; } }
+    .text-wrapper-small {
+      margin-bottom: 2.5rem; } }
 /* ====================
     Grid
     ==================== */
@@ -1590,6 +1612,15 @@ small {
   .gradient-height-100:after {
     height: 100%; }
 
+.image {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: auto; }
+  .image img,
+  .image source {
+    width: 100%; }
+
 .quote {
   position: relative; }
 
@@ -2063,6 +2094,59 @@ small {
         flex-direction: row; }
         .nav-contact-section:first-child {
           margin-right: 3rem; } }
+.richtext p + .image-wrapper {
+  margin-top: 1.2rem; }
+  @media (min-width: 568px) {
+    .richtext p + .image-wrapper {
+      margin-top: 1.2rem; } }
+  @media (min-width: 768px) {
+    .richtext p + .image-wrapper {
+      margin-top: 1.4rem; } }
+  @media (min-width: 1024px) {
+    .richtext p + .image-wrapper {
+      margin-top: 1.6rem; } }
+  @media (min-width: 1600px) {
+    .richtext p + .image-wrapper {
+      margin-top: 2rem; } }
+.richtext .image-wrapper + h1,
+.richtext .image-wrapper + h2,
+.richtext .image-wrapper + h3,
+.richtext .image-wrapper + h4,
+.richtext .image-wrapper + h5,
+.richtext .image-wrapper + p {
+  margin-top: 2.2rem; }
+  @media (min-width: 568px) {
+    .richtext .image-wrapper + h1,
+    .richtext .image-wrapper + h2,
+    .richtext .image-wrapper + h3,
+    .richtext .image-wrapper + h4,
+    .richtext .image-wrapper + h5,
+    .richtext .image-wrapper + p {
+      margin-top: 2.2rem; } }
+  @media (min-width: 768px) {
+    .richtext .image-wrapper + h1,
+    .richtext .image-wrapper + h2,
+    .richtext .image-wrapper + h3,
+    .richtext .image-wrapper + h4,
+    .richtext .image-wrapper + h5,
+    .richtext .image-wrapper + p {
+      margin-top: 2.4rem; } }
+  @media (min-width: 1024px) {
+    .richtext .image-wrapper + h1,
+    .richtext .image-wrapper + h2,
+    .richtext .image-wrapper + h3,
+    .richtext .image-wrapper + h4,
+    .richtext .image-wrapper + h5,
+    .richtext .image-wrapper + p {
+      margin-top: 2.6rem; } }
+  @media (min-width: 1600px) {
+    .richtext .image-wrapper + h1,
+    .richtext .image-wrapper + h2,
+    .richtext .image-wrapper + h3,
+    .richtext .image-wrapper + h4,
+    .richtext .image-wrapper + h5,
+    .richtext .image-wrapper + p {
+      margin-top: 3rem; } }
 .section {
   position: relative; }
   .section-padding {

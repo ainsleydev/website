@@ -59,7 +59,9 @@
 				</div><!-- /Col -->
 				<!-- Content -->
 				<div class="col-12 col-desk-8 offset-desk-1">
-                    {{ .Content }}
+                    <div class="richtext">
+                        {{ .Content | replaceRE `<p>\s*</p>` "" | safeHTML }}
+					</div>
 				</div>
 			</div><!-- /Row -->
 		</div><!-- /Container -->
