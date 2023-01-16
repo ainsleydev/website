@@ -9,7 +9,9 @@
                 {{ partial "media/picture.html" (dict
 					"image" (.Resources.Get "hero.jpg")
 					"mob" (.Resources.Get "hero-mob.jpg")
-					"tab" "hide")
+					"tab" (.Resources.Get "hero-tab.jpg")
+					"lazy" false
+                	"alt" "ainsley.dev Desk & Keyboard")
 				}}
 			</picture>
         {{- end }}
