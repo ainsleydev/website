@@ -1612,6 +1612,13 @@ small {
   .gradient-height-100:after {
     height: 100%; }
 
+.highlight {
+  border-radius: 4px;
+  overflow: hidden; }
+  .highlight code {
+    font-family: "JetBrains Mono", Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+    font-size: 1rem; }
+
 .image {
   position: relative;
   display: flex;
@@ -1631,6 +1638,21 @@ small {
   .image img,
   .image source {
     width: 100%; }
+
+ul li,
+ol li {
+  margin-bottom: 10px;
+  padding-left: 10px;
+  color: var(--colour-copy-dark); }
+  ul li ul,
+  ol li ul {
+    margin-top: 10px;
+    margin-left: 1rem; }
+
+ul {
+  margin-left: 14px; }
+  ul li {
+    list-style-image: url("/images/icons/list-arrow.svg"); }
 
 .quote {
   position: relative; }

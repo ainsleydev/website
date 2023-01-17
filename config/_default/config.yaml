@@ -43,6 +43,20 @@ markup:
             hardWraps: false
             unsafe: true
             xhtml: false
+    highlight:
+        anchorLineNos: false
+        codeFences: true
+        guessSyntax: false
+        hl_Lines: ""
+        hl_inline: false
+        lineAnchors: ""
+        lineNoStart: 1
+        lineNos: true
+        lineNumbersInTable: true
+        noClasses: true
+        noHl: false
+        style: algol_nu
+        tabWidth: 4
     tableOfContents:
         endLevel: 2
         ordered: false
@@ -54,3 +68,5 @@ sitemap:
     changefreq: monthly
     filename: sitemap.xml
     priority: 0.5
+
+
