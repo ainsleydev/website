@@ -1,0 +1,40 @@
+// -----------------------------------------------------------------------------
+// _richtext.scss
+// This file contains all styles related to any richtext sections of the site.
+// -----------------------------------------------------------------------------
+
+.richtext {
+	$self: &;
+
+	// Paragraph
+	// Paragraph
+	// ==========================================================================
+
+	p:empty {
+		display: none;
+		margin: 0;
+	}
+
+	// Images
+	// ==========================================================================
+
+	p + .image {
+		@include text-wrapper-top;
+	}
+
+	.image {
+
+		+ h1,
+		+ h2,
+		+ h3,
+		+ h4,
+		+ h5,
+		+ p {
+			@include text-wrapper-top($text-wrapper-large-diff);
+		}
+
+		+ .image {
+			margin-bottom: 1.6rem;
+		}
+	}
+}

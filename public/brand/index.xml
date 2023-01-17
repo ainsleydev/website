@@ -2,18 +2,88 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Brand guidelines on ainsley.dev</title>
-    <link>/brand/</link>
+    <link>https://ainsley.dev/brand/</link>
     <description>Recent content in Brand guidelines on ainsley.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <copyright>ainsley.dev LTD is a registered company in England and Wales. Company Number 12478393. ©2022 ainsley.dev LTD. All rights reserved.</copyright><atom:link href="/brand/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>ainsley.dev LTD is a registered company in England and Wales. Company Number 12478393. ©2022 ainsley.dev LTD. All rights reserved.</copyright><atom:link href="https://ainsley.dev/brand/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Brand - Fonts</title>
-      <link>/brand/fonts/</link>
+      <title>Logo</title>
+      <link>https://ainsley.dev/brand/logo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/brand/fonts/</guid>
-      <description> jklfdtjdkl </description>
+      <guid>https://ainsley.dev/brand/logo/</guid>
+      <description>Logo This is the ainsley.dev logo. It is our primary graphic device and should be the first choice when choosing a graphic element to represent the ainsley.dev brand. Please do not edit, change, distort, recolour or reconfigure the logo. Colours Our logo should always be all black, all white, or white symbol with black word mark and vice versa. It never takes on any additional colours, and cannot be placed on top of any colour within the ainsley.</description>
+    </item>
+    
+    <item>
+      <title>The Ʌ symbol</title>
+      <link>https://ainsley.dev/brand/a-symbol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ainsley.dev/brand/a-symbol/</guid>
+      <description>The Ʌ symbol The Ʌ symbol can be used in a variety of ways to add movements and dynamism to a static presentation or document. Colours The symbol should either be in full colour (tangelo &amp;amp; topaz) or should be an opaque black and white version as shown below. The grey version can be used at 30% opacity or 100%. Orientation The symbol can be placed directly in line with the background, as shown above, or be used off-centre with the tail of the symbol being placed at the cut-off point.</description>
+    </item>
+    
+    <item>
+      <title>Colour</title>
+      <link>https://ainsley.dev/brand/colour/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ainsley.dev/brand/colour/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Fonts</title>
+      <link>https://ainsley.dev/brand/fonts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ainsley.dev/brand/fonts/</guid>
+      <description> Fonts The ainsley.dev brand has three typefaces. The primary serif font is Plus Jakarta Sans; wherever this is unavailable, the operating system font stack should be used. Plus Jakarta Sans
+ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 1234567890(,.;:?!$&amp;*) Times New Roman
+ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 1234567890(,.;:?!$&amp;*) Jetbrains Mono
+ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 1234567890(,.;:?!$&amp;*) </description>
+    </item>
+    
+    <item>
+      <title>Typography</title>
+      <link>https://ainsley.dev/brand/typography/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ainsley.dev/brand/typography/</guid>
+      <description>Typography The ainsley.dev brand has a rich library of typography, headings and captions to choose from that add dynamism and a rich feel.
+Headings Heading 1 Heading 2 Heading 3 Heading 4 Heading 5 Heading 6 I’m baby umami pickled narwhal woke food truck tilde gastropub polaroid forage. Chicharrones kickstarter hell of, narwhal craft beer XOXO literally gluten-free. ruffaut hella live-edge squid, ramps pickled dreamcatcher.
+Bold Italic Strike
+foo bar func main() { fmt.</description>
+    </item>
+    
+    <item>
+      <title>Iconography</title>
+      <link>https://ainsley.dev/brand/iconography/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ainsley.dev/brand/iconography/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Components</title>
+      <link>https://ainsley.dev/brand/components/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ainsley.dev/brand/components/</guid>
+      <description> Components This selection of components makes up the ainsley.dev brand and are the building blocks of any material or site asset.
+{{ .File }}hhh </description>
+    </item>
+    
+    <item>
+      <title>Media</title>
+      <link>https://ainsley.dev/brand/media/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ainsley.dev/brand/media/</guid>
+      <description> </description>
     </item>
     
   </channel>

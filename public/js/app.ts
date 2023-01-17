@@ -116,6 +116,90 @@
     }
   });
 
+  // ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/themes/ainsley.dev/assets/js/animations/skew.ts
+  var skew_exports = {};
+  __export(skew_exports, {
+    default: () => skew_default
+  });
+  var Skew, skew_default;
+  var init_skew = __esm({
+    "ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/themes/ainsley.dev/assets/js/animations/skew.ts"() {
+      init_log();
+      Skew = class {
+        selector = ".skew";
+        defaultConfig = {
+          transform: {
+            x: 0.1,
+            y: 0.1
+          },
+          rotate: {
+            x: 0.1,
+            y: -0.1
+          },
+          shouldRotate: true
+        };
+        constructor() {
+          this.attachHandlers();
+        }
+        attachHandlers() {
+          document.querySelectorAll(this.selector).forEach((el) => {
+            const cfg = this.getConfig(el);
+            this.mouseMove(el, cfg);
+            this.mouseOut(el);
+          });
+        }
+        mouseMove(el, config) {
+          el.addEventListener("mousemove", (e) => {
+            const pos = this.getPos(el, e);
+            el.style.transform = "translate(" + pos.x * config.transform.x + "px, " + pos.y * 0.3 + "px)";
+            if (config.shouldRotate && config.rotate) {
+              el.style.transform += "rotate3d(" + pos.x * config.rotate.x + ", " + pos.y * config.rotate.y + ", 0, 12deg)";
+            }
+          });
+        }
+        mouseOut(el) {
+          el.addEventListener("mouseleave", () => {
+            el.style.transform = "translate3d(0, 0, 0)";
+            el.style.transform += "rotate3d(0, 0, 0, 0deg)";
+          });
+        }
+        getPos(el, event) {
+          const pos = el.getBoundingClientRect();
+          return {
+            x: event.clientX - pos.left - pos.width / 2,
+            y: event.clientY - pos.top - pos.height / 2
+          };
+        }
+        getConfig(el) {
+          return {
+            shouldRotate: el.hasAttribute("data-skew-rotate"),
+            transform: {
+              x: this.getAttribute(el, "data-skew-transform-x") ?? this.defaultConfig.transform.x,
+              y: this.getAttribute(el, "data-skew-transform-y") ?? this.defaultConfig.transform.y
+            },
+            rotate: {
+              x: this.getAttribute(el, "data-skew-rotate-x") ?? this.defaultConfig.transform.x,
+              y: this.getAttribute(el, "data-skew-rotate-y") ?? this.defaultConfig.transform.y
+            }
+          };
+        }
+        getAttribute(el, attr) {
+          const contents = el.getAttribute(attr);
+          if (!contents) {
+            return null;
+          }
+          const num = Number(contents);
+          if (isNaN(num)) {
+            Log.error("Attribute is NaN: " + attr);
+            return null;
+          }
+          return num;
+        }
+      };
+      skew_default = new Skew();
+    }
+  });
+
   // node_modules/vanilla-lazyload/dist/lazyload.min.js
   var require_lazyload_min = __commonJS({
     "node_modules/vanilla-lazyload/dist/lazyload.min.js"(exports, module) {
@@ -432,9 +516,81 @@
     }
   });
 
+  // ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/themes/ainsley.dev/assets/js/animations/cursor.ts
+  var cursor_exports = {};
+  __export(cursor_exports, {
+    Cursor: () => Cursor,
+    CursorClasses: () => CursorClasses,
+    default: () => cursor_default
+  });
+  var CursorClasses, Cursor, cursor_default;
+  var init_cursor = __esm({
+    "ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/themes/ainsley.dev/assets/js/animations/cursor.ts"() {
+      init_log();
+      CursorClasses = /* @__PURE__ */ ((CursorClasses2) => {
+        CursorClasses2["Invert"] = "cursor-invert";
+        CursorClasses2["InvertBlack"] = "cursor-invert-black";
+        CursorClasses2["InvertWhite"] = "cursor-invert-white";
+        return CursorClasses2;
+      })(CursorClasses || {});
+      Cursor = class {
+        selector = ".cursor";
+        elementSelector = ".cursor-element";
+        el;
+        constructor() {
+          const el = document.querySelector(this.selector);
+          if (!el) {
+            Log.error(`No ${this.selector} element found in the DOM`);
+            return;
+          }
+          this.el = el;
+          this.attachMouseMove();
+          document.querySelectorAll(this.elementSelector).forEach((el2) => this.attachElementHandlers(el2));
+        }
+        attachMouseMove() {
+          document.addEventListener("mousemove", (e) => {
+            this.el.style.left = e.clientX + "px";
+            this.el.style.top = e.clientY + "px";
+          });
+        }
+        attachElementHandlers(el) {
+          const classes = el.getAttributeNames().filter((a) => a.startsWith("data-cursor"));
+          el.addEventListener("mousemove", () => classes.forEach((c) => {
+            this.addScale(el);
+            this.el.classList.add("cursor-active");
+            this.el.classList.add(c.replace("data-", ""));
+          }));
+          el.addEventListener("mouseleave", () => classes.forEach((c) => {
+            this.removeScale(el);
+            this.el.classList.remove("cursor-active");
+            this.el.classList.remove(c.replace("data-", ""));
+          }));
+        }
+        addClass(...selectors) {
+          this.el.classList.add("cursor-active");
+          selectors.forEach((sel) => this.el.classList.add(sel));
+        }
+        removeClass(...selectors) {
+          this.el.classList.remove("cursor-active");
+          selectors.forEach((sel) => this.el.classList.remove(sel));
+        }
+        addScale(el) {
+          let scale = el.getAttribute("data-cursor-scale") ?? "1.5";
+          this.el.style.transform = `translate(-50%, -50%) scale(${scale})`;
+        }
+        removeScale(el) {
+          this.el.style.transform = `translate(-50%, -50%)`;
+        }
+      };
+      cursor_default = new Cursor();
+    }
+  });
+
   // <stdin>
   init_nav();
+  init_skew();
   var _vanillaLazyload = _interopRequireDefault(require_lazyload_min());
+  init_cursor();
   function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { "default": obj };
   }

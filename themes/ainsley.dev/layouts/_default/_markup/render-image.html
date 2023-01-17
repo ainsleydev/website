@@ -1,9 +1,0 @@
-<!-- =====================
-    Image
-    ===================== -->
-<div class="image-wrapper">
-	<picture class="image">
-        {{ partial "media/picture.html" (dict "image" (.Page.Resources.Get (.Destination | safeURL)) "alt" .Text) }}
-	</picture>
-</div>
-

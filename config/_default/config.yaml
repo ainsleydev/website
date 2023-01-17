@@ -1,6 +1,5 @@
 languageCode: "en-gb"
 title: "ainsley.dev"
-theme: "ainsley.dev"
 baseUrl: "http://localhost:1313"
 build:
     writeStats: true
@@ -39,7 +38,7 @@ markup:
                 title: true
             autoHeadingID: true
             autoHeadingIDType: github
-            wrapStandAloneImageWithinParagraph: true
+            wrapStandAloneImageWithinParagraph: false
         renderer:
             hardWraps: false
             unsafe: true

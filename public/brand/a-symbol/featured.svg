@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="522.206" height="350" viewBox="0 0 522.206 350">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.954" y1="0.14" x2="0.398" y2="0.601" gradientUnits="objectBoundingBox">
+      <stop offset="0"/>
+      <stop offset="0.09" stop-opacity="0.91"/>
+      <stop offset="1" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g id="Card" transform="translate(-731 -2999.5)">
+    <path id="Intersection_1" data-name="Intersection 1" d="M45.006,240.021,0,213.695Zm-21,0L0,225.979Zm-21,0L0,238.263Zm398.044-.56L305.4,183.513Zm-21,0L284.4,183.513Zm-21,0L263.4,183.513Zm-21,0L242.4,183.513Zm-21,0L221.4,183.513Zm-21,0L200.4,183.513Zm-21,0L179.4,183.513Zm-21,0L158.4,183.513Zm-21,0L137.4,183.513Zm-21,0L116.4,183.513Zm-21,0L95.4,183.513Zm-21,0L74.4,183.513Zm-21,0L0,152.275Zm-21,0L0,164.559Zm-21,0L0,176.844Zm-21,0L0,189.128Zm-21,0L0,201.411ZM326.4,183.513l81.108,47.444Zm21,0,60.108,35.16Zm4.767-9.5,55.341,32.371Zm0-12.283,55.341,32.372Zm0-12.284,55.341,32.372ZM0,139.992l55.341,32.371Zm352.168-2.826,55.341,32.372ZM0,127.708l55.341,32.371Zm352.168-2.826,55.341,32.371ZM0,115.424,55.341,147.8ZM352.168,112.6l55.341,32.372ZM0,103.141l55.341,32.371Zm352.168-2.826,55.341,32.372ZM0,90.857l55.341,32.371ZM352.168,88.03,407.509,120.4ZM0,78.573l55.341,32.371Zm352.168-2.826,55.341,32.371ZM0,66.288,55.341,98.66Zm352.168-2.826,55.341,32.371ZM0,54.005,55.341,86.377ZM264.675,0,407.509,83.55ZM0,41.721,55.341,74.093ZM285.675,0,407.509,71.266ZM0,29.437,55.341,61.809ZM306.676,0,407.509,58.982Zm32.648,55.949L243.676,0Zm-21,0L222.675,0Zm-21,0L201.675,0Zm-21,0L180.675,0Zm-21,0L159.675,0Zm-21,0L138.675,0Zm-21,0L117.675,0Zm-21,0L96.675,0Zm-21,0L75.675,0Zm-21,0L54.676,0Zm-21,0L33.675,0Zm-21,0L12.675,0Zm-21,0L0,4.87Zm-21,0L0,17.154ZM327.675,0l79.834,46.7Zm21,0,58.834,34.415Zm21,0,37.834,22.131Zm21,0,16.834,9.847Z" transform="translate(787.228 3055.327)" fill="none" stroke="#292929" stroke-width="1"/>
+    <g id="Group_1332" data-name="Group 1332" transform="translate(731 2999.5)">
+      <path id="Path_3910" data-name="Path 3910" d="M0,.559,519.966,0" transform="translate(2.238 111.541)" fill="none" stroke="#838383" stroke-width="1"/>
+      <line id="Line_63" data-name="Line 63" y2="350" transform="translate(56.229)" fill="none" stroke="#838383" stroke-width="1"/>
+      <line id="Line_64" data-name="Line 64" x2="519.966" transform="translate(0.28 55.949)" fill="none" stroke="#838383" stroke-width="1"/>
+      <line id="Line_65" data-name="Line 65" x2="519.966" transform="translate(0.28 295.17)" fill="none" stroke="#838383" stroke-width="1"/>
+      <line id="Line_47" data-name="Line 47" y2="348.76" transform="translate(110.924 0.5)" fill="none" stroke="#838383" stroke-width="1"/>
+      <line id="Line_48" data-name="Line 48" y2="348.76" transform="translate(408.72 0.5)" fill="none" stroke="#838383" stroke-width="1"/>
+      <line id="Line_66" data-name="Line 66" y2="349.44" transform="translate(463.738 0.559)" fill="none" stroke="#838383" stroke-width="1"/>
+      <line id="Line_60" data-name="Line 60" x2="519.966" transform="translate(0 175.559)" fill="none" stroke="#838383" stroke-width="1"/>
+      <path id="Path_3911" data-name="Path 3911" d="M0-2,519.966-.881" transform="translate(2.238 240.458)" fill="none" stroke="#838383" stroke-width="1"/>
+    </g>
+    <g id="Logo" transform="translate(915.632 3111.677)">
+      <g id="ORANGE_STROKE" transform="translate(0 0)">
+        <g id="Group_1" data-name="Group 1">
+          <path id="Path_1" data-name="Path 1" d="M88.295,4H61.716L4.8,130.507H34.694Z" transform="translate(-4.8 -4)" fill="#ff5043"/>
+          <path id="Path_2" data-name="Path 2" d="M88.295,4H61.716L4.8,130.507H34.694Z" transform="translate(-4.8 -4)" opacity="0.57" fill="url(#linear-gradient)"/>
+        </g>
+      </g>
+      <g id="BLUESTROKE" transform="translate(56.916)">
+        <path id="Path_3" data-name="Path 3" d="M543.8,4h26.578l56.916,126.507H597.4Z" transform="translate(-543.8 -4)" fill="#70cbce"/>
+      </g>
+    </g>
+    <text id="Y" transform="translate(810.608 3027.648)" fill="#fff" font-size="17" font-family="TimesNewRomanPS-ItalicMT, Times New Roman" font-style="italic" letter-spacing="-0.02em"><tspan x="0" y="0">y</tspan></text>
+    <text id="X" transform="translate(753.54 3326.854)" fill="#fff" font-size="16" font-family="TimesNewRomanPS-ItalicMT, Times New Roman" font-style="italic" letter-spacing="-0.02em"><tspan x="0" y="0">x</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="545" height="350" viewBox="0 0 545 350">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_2231" data-name="Rectangle 2231" width="544" height="350" fill="#fff"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect width="476.751" height="322.728" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Card" transform="translate(-371 -2250)">
+    <rect id="BG" width="545" height="350" transform="translate(371 2250)" fill="#0f0f0f" style="mix-blend-mode: luminosity;isolation: isolate"/>
+    <g id="Mask_Group_25" data-name="Mask Group 25" transform="translate(371 2250)" clip-path="url(#clip-path)">
+      <g id="Repeat_Grid_12" data-name="Repeat Grid 12" transform="translate(140.078 60.283)" clip-path="url(#clip-path-2)">
+        <g id="Group_1248" data-name="Group 1248" transform="translate(-890.39 -3936.175)">
+          <path id="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(886.874 3970.446) rotate(-45)" fill="#fff"/>
+          <path id="Arrow-2" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(976.416 3944.178)" fill="#fff"/>
+          <path id="Arrow-3" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(1087.609 3932.659) rotate(45)" fill="#fff"/>
+          <path id="Arrow-4" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(1202.908 3942.44) rotate(91)" fill="#fff"/>
+          <path id="Arrow-5" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(1300.359 3966.176) rotate(135)" fill="#fff"/>
+          <path id="Arrow-6" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(1371.427 3991.579) rotate(-180)" fill="#fff"/>
+          <path id="Arrow-7" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="matrix(0, -1, 1, 0, 1396.223, 3994.637)" fill="#fff"/>
+        </g>
+        <g id="Group_1248-2" data-name="Group 1248" transform="translate(-890.39 -3851.175)">
+          <path id="Arrow-8" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(886.874 3970.446) rotate(-45)" fill="#fff"/>
+          <path id="Arrow-9" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(976.416 3944.178)" fill="#fff"/>
+          <path id="Arrow-10" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(1087.609 3932.659) rotate(45)" fill="#fff"/>
+          <path id="Arrow-11" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(1202.908 3942.44) rotate(91)" fill="#fff"/>
+          <path id="Arrow-12" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(1300.359 3966.176) rotate(135)" fill="#fff"/>
+          <path id="Arrow-13" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(1371.427 3991.579) rotate(-180)" fill="#fff"/>
+          <path id="Arrow-14" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="matrix(0, -1, 1, 0, 1396.223, 3994.637)" fill="#fff"/>
+        </g>
+        <g id="Group_1248-3" data-name="Group 1248" transform="translate(-890.39 -3766.175)">
+          <path id="Arrow-15" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(886.874 3970.446) rotate(-45)" fill="#fff"/>
+          <path id="Arrow-16" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(976.416 3944.178)" fill="#fff"/>
+          <path id="Arrow-17" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(1087.609 3932.659) rotate(45)" fill="#fff"/>
+          <path id="Arrow-18" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(1202.908 3942.44) rotate(91)" fill="#fff"/>
+          <path id="Arrow-19" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(1300.359 3966.176) rotate(135)" fill="#fff"/>
+          <path id="Arrow-20" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(1371.427 3991.579) rotate(-180)" fill="#fff"/>
+          <path id="Arrow-21" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="matrix(0, -1, 1, 0, 1396.223, 3994.637)" fill="#fff"/>
+        </g>
+        <g id="Group_1248-4" data-name="Group 1248" transform="translate(-890.39 -3681.175)">
+          <path id="Arrow-22" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(886.874 3970.446) rotate(-45)" fill="#fff"/>
+          <path id="Arrow-23" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(976.416 3944.178)" fill="#fff"/>
+          <path id="Arrow-24" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(1087.609 3932.659) rotate(45)" fill="#fff"/>
+          <path id="Arrow-25" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(1202.908 3942.44) rotate(91)" fill="#fff"/>
+          <path id="Arrow-26" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(1300.359 3966.176) rotate(135)" fill="#fff"/>
+          <path id="Arrow-27" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="translate(1371.427 3991.579) rotate(-180)" fill="#fff"/>
+          <path id="Arrow-28" data-name="Arrow" d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z" transform="matrix(0, -1, 1, 0, 1396.223, 3994.637)" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+    <g id="Group_1409" data-name="Group 1409" transform="translate(410.232 2289.783)" opacity="0.999">
+      <g id="Group_1407" data-name="Group 1407" transform="translate(14.376 13.843)">
+        <line id="Line_265" data-name="Line 265" x2="14.962" transform="translate(0 0.312)" fill="none" stroke="#fff" stroke-width="3"/>
+        <line id="Line_266" data-name="Line 266" y2="14.338" transform="translate(0.312)" fill="none" stroke="#fff" stroke-width="3"/>
+      </g>
+      <g id="Group_1408" data-name="Group 1408" transform="translate(14.962 14.338) rotate(180)">
+        <line id="Line_265-2" data-name="Line 265" x2="14.962" transform="translate(0 0.312)" fill="none" stroke="#fff" stroke-width="3"/>
+        <line id="Line_266-2" data-name="Line 266" y2="14.338" transform="translate(0.312)" fill="none" stroke="#fff" stroke-width="3"/>
+      </g>
+    </g>
+  </g>
+</svg>
