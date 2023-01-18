@@ -44,18 +44,11 @@ markup:
             unsafe: true
             xhtml: false
     highlight:
-        anchorLineNos: false
         codeFences: true
-        guessSyntax: false
-        hl_Lines: ""
-        hl_inline: false
-        lineAnchors: ""
-        lineNoStart: 1
         lineNos: true
-        lineNumbersInTable: true
-        noClasses: true
+        lineNumbersInTable: false
+        noClasses: false
         noHl: false
-        style: algol_nu
         tabWidth: 4
     tableOfContents:
         endLevel: 2

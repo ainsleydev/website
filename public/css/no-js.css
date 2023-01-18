@@ -19,6 +19,7 @@
   --colour-copy: #0A0A0A;
   --colour-copy-dark: #9A9A9A;
   --colour-copy-light: #595959;
+  --colour-mark: rgba(#0A0A0A, 0.15);
   --text-margin-mob: 1.2rem;
   --text-margin-tab: 1.2rem;
   --text-margin-desk: 1.2rem;

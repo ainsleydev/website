@@ -26,6 +26,7 @@
 				grid-template-rows: none;
 				grid-row-gap: 0.8rem;
 				align-items: flex-end;
+				margin-bottom: 0;
 			}
 
 			&-link {
@@ -50,12 +51,17 @@
 			padding-bottom: 1.4rem;
 		}
 
+		&-text {
+			color: $copy-dark-bg;
+		}
+
 		&-nav {
 			margin-bottom: 0.8rem;
 
 			&-list {
 				display: flex;
 				flex-direction: row;
+				margin-bottom: 0;
 			}
 
 			&-item {

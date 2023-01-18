@@ -1,38 +1,38 @@
 // -----------------------------------------------------------------------------
-// _highlight.scss
-// This file contains all styles related to the highlight (code) component.
+// _brand.scss
+// This file contains all styles related to the brand pages.
 // -----------------------------------------------------------------------------
 
-.highlight {
-	$self: &;
+.brand {
 
-	border-radius: 4px;
-	overflow: hidden;
-
-	// Props
+	// List (Split Section)
 	// =========================================================================
 
-	* {
-		color: $black;
+	&-list {
+		color: colour("foreground");
+
+		&-description {
+
+			&:last-child {
+				background-color: red !important;
+			}
+
+			* {
+				color: colour("copy-dark");
+			}
+		}
 	}
 
-	&:last-of-type {
-		margin-bottom: 0;
-	}
 
-	// Pre
+	// Tablet
 	// =========================================================================
 
-	pre {
-		padding: 10px;
-		margin: 0;
+	@include media-tab {
 	}
 
-	// Code
+	// Desktop
 	// =========================================================================
 
-	code {
-		font-family: $font-code;
-		font-size: 1rem;
+	@include media-desk {
 	}
 }

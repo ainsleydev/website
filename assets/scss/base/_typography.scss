@@ -61,7 +61,7 @@ h5 {
 h1,
 .heading-1 {
 	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 38px, 68px);
-	margin-bottom: 1.2rem;
+	margin-bottom: 1.4rem;
 	line-height: 0.9;
 
 	.type-serif {
@@ -72,25 +72,25 @@ h1,
 h2,
 .heading-2 {
 	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 28px, 50px);
-	margin-bottom: 1.1rem;
+	margin-bottom: 1.3rem;
 }
 
 h3,
 .heading-3 {
 	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 23px, 37px);
-	margin-bottom: 1rem;
+	margin-bottom: 1.2rem;
 }
 
 h4,
 .heading-4 {
 	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 21px, 29px);
-	margin-bottom: 0.9rem;
+	margin-bottom: 1rem;
 }
 
 h5,
 .heading-5 {
 	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 19px, 21.5px);
-	margin-bottom: 0.8rem;
+	margin-bottom: 0.9rem;
 }
 
 h6,
@@ -153,9 +153,8 @@ a {
 
 small {
 	display: inline-block;
-	color: colour(copy-dark);
 	font-size: 0.85rem;
-	line-height: 1.5;
+	line-height: 1.6;
 }
 
 // Fonts
@@ -181,6 +180,17 @@ small {
 
 strong {
 	font-weight: bold;
+}
+
+// Number
+// =========================================================================
+
+.number {
+	display: block;
+	font-family: 'Times New Roman';
+	font-size: 7.5rem;
+	font-style: italic;
+	line-height: 1;
 }
 
 // Mods
@@ -226,6 +236,7 @@ strong {
 ul,
 ol,
 blockquote,
+.highlight,
 table {
 	@include text-wrapper;
 

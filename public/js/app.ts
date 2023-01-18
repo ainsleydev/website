@@ -29,10 +29,10 @@
     return value;
   };
 
-  // ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/themes/ainsley.dev/assets/js/util/els.ts
+  // ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/assets/js/util/els.ts
   var Elements;
   var init_els = __esm({
-    "ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/themes/ainsley.dev/assets/js/util/els.ts"() {
+    "ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/assets/js/util/els.ts"() {
       Elements = class {
         static _initialize() {
           this.Header = document.querySelector(".header");
@@ -45,10 +45,10 @@
     }
   });
 
-  // ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/themes/ainsley.dev/assets/js/util/log.ts
+  // ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/assets/js/util/log.ts
   var Log;
   var init_log = __esm({
-    "ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/themes/ainsley.dev/assets/js/util/log.ts"() {
+    "ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/assets/js/util/log.ts"() {
       Log = class {
         static error(message) {
           console.error(`${this.prefix} Error: ${message}`);
@@ -64,14 +64,14 @@
     }
   });
 
-  // ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/themes/ainsley.dev/assets/js/components/nav.ts
+  // ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/assets/js/components/nav.ts
   var nav_exports = {};
   __export(nav_exports, {
     default: () => nav_default
   });
   var Navigation, Nav, nav_default;
   var init_nav = __esm({
-    "ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/themes/ainsley.dev/assets/js/components/nav.ts"() {
+    "ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/assets/js/components/nav.ts"() {
       init_els();
       init_log();
       Navigation = class {
@@ -116,14 +116,14 @@
     }
   });
 
-  // ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/themes/ainsley.dev/assets/js/animations/skew.ts
+  // ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/assets/js/animations/skew.ts
   var skew_exports = {};
   __export(skew_exports, {
     default: () => skew_default
   });
   var Skew, skew_default;
   var init_skew = __esm({
-    "ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/themes/ainsley.dev/assets/js/animations/skew.ts"() {
+    "ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/assets/js/animations/skew.ts"() {
       init_log();
       Skew = class {
         selector = ".skew";
@@ -516,7 +516,7 @@
     }
   });
 
-  // ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/themes/ainsley.dev/assets/js/animations/cursor.ts
+  // ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/assets/js/animations/cursor.ts
   var cursor_exports = {};
   __export(cursor_exports, {
     Cursor: () => Cursor,
@@ -525,7 +525,7 @@
   });
   var CursorClasses, Cursor, cursor_default;
   var init_cursor = __esm({
-    "ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/themes/ainsley.dev/assets/js/animations/cursor.ts"() {
+    "ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/assets/js/animations/cursor.ts"() {
       init_log();
       CursorClasses = /* @__PURE__ */ ((CursorClasses2) => {
         CursorClasses2["Invert"] = "cursor-invert";

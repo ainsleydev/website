@@ -29,6 +29,7 @@ $publicPath: '{{ .Site.BaseURL }}';
     Vendor
     ==================== */
 @import "~normalize.css/normalize.css";
+@import "./vendor/highlight";
 
 /* ====================
     Base
@@ -89,8 +90,10 @@ $publicPath: '{{ .Site.BaseURL }}';
 /* ====================
     Pages
     ==================== */
+@import "pages/brand";
+@import "pages/home";
 
 /* ====================
     Sections
     ==================== */
-@import "sections/home";
+

@@ -2,101 +2,101 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ainsley.dev/work/decspets/</loc>
+    <loc>http://localhost:1313/work/decspets/</loc>
     <lastmod>2022-02-17T18:47:30+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://ainsley.dev/brand/logo/</loc>
-    <lastmod>2023-01-16T20:14:03+00:00</lastmod>
+    <loc>http://localhost:1313/brand/logo/</loc>
+    <lastmod>2023-01-17T08:35:55+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://ainsley.dev/brand/a-symbol/</loc>
-    <lastmod>2023-01-16T20:14:03+00:00</lastmod>
+    <loc>http://localhost:1313/brand/a-symbol/</loc>
+    <lastmod>2023-01-17T08:08:26+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://ainsley.dev/brand/colour/</loc>
+    <loc>http://localhost:1313/brand/colour/</loc>
+    <lastmod>2023-01-17T08:08:26+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/brand/fonts/</loc>
+    <lastmod>2023-01-17T08:08:26+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/brand/typography/</loc>
+    <lastmod>2023-01-18T18:35:19+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/brand/iconography/</loc>
     <lastmod>2023-01-15T14:02:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://ainsley.dev/brand/fonts/</loc>
+    <loc>http://localhost:1313/brand/components/</loc>
     <lastmod>2023-01-15T14:02:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://ainsley.dev/brand/typography/</loc>
-    <lastmod>2023-01-16T20:14:03+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://ainsley.dev/brand/iconography/</loc>
+    <loc>http://localhost:1313/brand/media/</loc>
     <lastmod>2023-01-15T14:02:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://ainsley.dev/brand/components/</loc>
-    <lastmod>2023-01-15T14:02:15+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://ainsley.dev/brand/media/</loc>
-    <lastmod>2023-01-15T14:02:15+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://ainsley.dev/</loc>
-    <lastmod>2023-01-16T20:14:03+00:00</lastmod>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2023-01-18T18:35:19+00:00</lastmod>
     <priority>0</priority>
   </url><url>
-    <loc>https://ainsley.dev/work/royal-beauty/</loc>
+    <loc>http://localhost:1313/work/royal-beauty/</loc>
     <lastmod>2022-01-04T15:15:54+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://ainsley.dev/work/scotts-guttering/</loc>
+    <loc>http://localhost:1313/work/scotts-guttering/</loc>
     <lastmod>2022-01-04T15:15:54+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://ainsley.dev/work/oaktuition/</loc>
+    <loc>http://localhost:1313/work/oaktuition/</loc>
     <lastmod>2022-01-04T15:15:54+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://ainsley.dev/work/thinkopedia/</loc>
+    <loc>http://localhost:1313/work/thinkopedia/</loc>
     <lastmod>2022-01-04T15:15:54+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://ainsley.dev/work/</loc>
+    <loc>http://localhost:1313/work/</loc>
     <lastmod>2022-02-17T18:47:30+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://ainsley.dev/posts/</loc>
+    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2023-01-08T15:23:37+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://ainsley.dev/posts/optimise-seo/</loc>
+    <loc>http://localhost:1313/posts/optimise-seo/</loc>
     <lastmod>2023-01-08T15:23:37+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://ainsley.dev/brand/</loc>
+    <loc>http://localhost:1313/brand/</loc>
     <lastmod>2023-01-07T17:23:56+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://ainsley.dev/posts/bedroom-agency/</loc>
+    <loc>http://localhost:1313/posts/bedroom-agency/</loc>
     <lastmod>2022-02-17T18:29:34+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://ainsley.dev/posts/golang-interfaces/</loc>
+    <loc>http://localhost:1313/posts/golang-interfaces/</loc>
     <lastmod>2022-02-17T18:29:34+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
