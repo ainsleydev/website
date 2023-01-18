@@ -2147,6 +2147,35 @@ blockquote {
 .tag {
   position: relative; }
 
+.vertical {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 999; }
+  .vertical * {
+    display: block;
+    line-height: 1; }
+  .vertical-line {
+    position: relative;
+    display: block;
+    height: 3px;
+    width: 100px;
+    margin-right: 10px;
+    background-color: #FFF; }
+  @media (min-width: 1024px) {
+    .vertical {
+      position: relative;
+      writing-mode: vertical-rl;
+      transform: scale(-1);
+      margin-top: 1rem; }
+      .vertical-line {
+        height: 200px;
+        width: 5px;
+        min-width: 5px;
+        margin-top: 0;
+        margin-bottom: 2rem; } }
 /* ====================
     Layout
     ==================== */
@@ -2563,7 +2592,7 @@ blockquote {
           transition: transform 250ms ease-in-out;
           will-change: transform; }
         .nav-main .nav-link:after {
-          content: url("http://localhost:1313/images/icons/nav-arrow.svg");
+          content: url("http://localhost:1313//images/icons/nav-arrow.svg");
           position: absolute;
           top: 50%;
           left: 0;

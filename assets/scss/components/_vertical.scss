@@ -1,0 +1,53 @@
+// -----------------------------------------------------------------------------
+// _vertical.scss
+// This file contains all styles related to the vertical heading component.
+// -----------------------------------------------------------------------------
+
+.vertical {
+	$self: &;
+
+	position: relative;
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	justify-content: flex-start;
+	z-index: 999;
+
+	// Props
+	// =========================================================================
+
+	* {
+		display: block;
+		line-height: 1;
+	}
+
+	// Line
+	// =========================================================================
+
+	&-line {
+		position: relative;
+		display: block;
+		height: 3px;
+		width: 100px;
+		margin-right: 10px;
+		background-color: $white;
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-desk {
+		position: relative;
+		writing-mode: vertical-rl;
+		transform: scale(-1);
+		margin-top: 1rem;
+
+		&-line {
+			height: 200px;
+			width: 5px;
+			min-width: 5px;
+			margin-top: 0;
+			margin-bottom: 2rem;
+		}
+	}
+}

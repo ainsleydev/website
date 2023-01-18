@@ -199,13 +199,15 @@
       "type-code",
       "type-lowercase",
       "type-serif",
-      "vertical"
+      "vertica-line",
+      "vertical",
+      "vertical-line",
+      "vertical-text"
     ],
     "ids": [
       "TableOfContents",
       "a-symbol-linear-gradient",
       "content",
-      "fn:1",
       "github-clip-path",
       "home",
       "nav-check",
