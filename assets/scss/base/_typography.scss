@@ -53,6 +53,7 @@ h4,
 h5 {
 	display: block;
 	color: colour(foreground);
+	font-weight: bold;
 	letter-spacing: -1px;
 	line-height: 1.2;
 }
@@ -130,6 +131,20 @@ a {
 
 	&:hover {
 		color: var(--link-hover-colour);
+	}
+}
+
+// Colour
+// =========================================================================
+
+.colour {
+
+	&-foreground {
+		color: colour("foreground");
+
+		* {
+			color: colour("foreground")
+		}
 	}
 }
 

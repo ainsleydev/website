@@ -172,6 +172,7 @@ h4,
 h5 {
   display: block;
   color: var(--colour-foreground);
+  font-weight: bold;
   letter-spacing: -1px;
   line-height: 1.2; }
 
@@ -284,6 +285,11 @@ a {
   transition: color 160ms ease; }
   a:hover {
     color: var(--link-hover-colour); }
+
+.colour-foreground {
+  color: var(--colour-foreground); }
+  .colour-foreground * {
+    color: var(--colour-foreground); }
 
 small {
   display: inline-block;
