@@ -101,6 +101,7 @@ $nav-padding-desktop: 4rem 6rem;
 
 $text-fluid-start-size: 300px;
 $text-fluid-end-size: 1408px;
+$text-lead-size: 1.2rem;
 $text-wrapper-small-diff: 0.5rem;
 $text-wrapper-large-diff: 1rem;
 $text-margin-properties: (
@@ -133,6 +134,7 @@ $button-arrow-size: 20px;
 	--colour-copy: #{$copy};
 	--colour-copy-dark: #{$copy-dark-bg};
 	--colour-copy-light: #{$copy-light-bg};
+	--colour-mark: rgba(#{$black}, 0.15);
 	// Type
 	--text-margin-mob: #{map-get($text-margin-properties, "-mob")};
 	--text-margin-tab: #{map-get($text-margin-properties, "-mob")};

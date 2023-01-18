@@ -3,23 +3,42 @@
 // This file contains all styles related to the list component.
 // -----------------------------------------------------------------------------
 
-ul,
-ol {
+// Common
+// =========================================================================
+
+.richtext ul,
+.richtext ol,
+.list {
+	padding: 0;
+	list-style-position: outside;
+
+	// Item
+	// =========================================================================
 
 	li {
+		color: var(--colour-copy-dark);
 		margin-bottom: 10px;
 		padding-left: 10px;
-		color: var(--colour-copy-dark);
+		font-size: 1rem;
+	}
 
-		ul {
-			margin-top: 10px;
-			margin-left: 1rem;
-		}
+	// Sub
+	// =========================================================================
+
+	ul,
+	ol {
+		margin-top: 14px;
+		margin-left: 1rem;
 	}
 }
 
-ul {
-	margin-left: 14px;
+// Unordered
+// =========================================================================
+
+.richtext ul,
+ul.list {
+	margin-left: 16px;
+
 
 	// Item
 	// =========================================================================
@@ -27,18 +46,13 @@ ul {
 	li {
 		list-style-image: url("/images/icons/list-arrow.svg");
 	}
-
-	// Tablet
-	// =========================================================================
-
-	@include media-tab {
-	}
-
-	// Desktop
-	// =========================================================================
-
-	@include media-desk {
-	}
 }
 
+// Ordered
+// =========================================================================
+
+.richtext ol,
+ol.list {
+	margin-left: 18px;
+}
 

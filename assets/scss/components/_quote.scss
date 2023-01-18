@@ -3,6 +3,43 @@
 // This file contains all styles related to the quote component.
 // -----------------------------------------------------------------------------
 
+
+// Standard Blockquote
+// =========================================================================
+
+blockquote {
+	position: relative;
+	display: flex;
+	align-items: stretch;
+	width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0;
+	font-size: $text-lead-size;
+	font-style: italic;
+
+	// Props
+	// =========================================================================
+
+	p:last-of-type {
+		margin: 0;
+	}
+
+	// Line
+	// =========================================================================
+
+	&:before {
+		content: "";
+		position: relative;
+		display: block;
+		//height: 100%;
+		//min-height: 100px;
+		width: 4px;
+		margin-right: 2rem;
+		background-color: colour("blue");
+	}
+}
+
 .quote {
 	$self: &;
 

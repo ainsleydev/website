@@ -1,0 +1,13 @@
+// -----------------------------------------------------------------------------
+// _rule.scss
+// This file contains all styles related to lines and horizontal rules.
+// -----------------------------------------------------------------------------
+
+hr {
+	$self: &;
+
+	display: block;
+	border: 1px solid colour("foreground");
+	padding: 0;
+	margin: 2rem 0;
+}

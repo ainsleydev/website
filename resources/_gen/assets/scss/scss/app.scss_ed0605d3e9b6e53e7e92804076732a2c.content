@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /**
  * app.scss
  * Imports all files from abstracts, base, components, layout, pages & vendor.
@@ -28,6 +27,7 @@
   --colour-copy: #0A0A0A;
   --colour-copy-dark: #9A9A9A;
   --colour-copy-light: #595959;
+  --colour-mark: rgba(#0A0A0A, 0.15);
   --text-margin-mob: 1.2rem;
   --text-margin-tab: 1.2rem;
   --text-margin-desk: 1.2rem;
@@ -71,7 +71,9 @@ body {
   body.theme-white {
     background-color: #FFF;
     --colour-background: $white;
-    --colour-foreground: $black; }
+    --colour-foreground: $black;
+    --color-mark: rgba(#FFF, 0.15)
+	; }
 
 .content-wrapper {
   display: flex;
@@ -271,9 +273,8 @@ p {
   font-size: 1.1rem;
   margin-bottom: 1rem;
   line-height: 1.8; }
-  p .lead {
-    font-size: 19px;
-    font-size: 19/å 16rem; }
+  p.lead {
+    font-size: 1.2rem; }
 
 a {
   font-size: 1rem;
@@ -300,6 +301,9 @@ small {
   font-family: "JetBrains Mono", Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
   font-weight: normal; }
 
+strong {
+  font-weight: bold; }
+
 .type-uppercase {
   text-transform: uppercase; }
 
@@ -322,65 +326,153 @@ small {
   background: #0A0A0A;
   color: #FFF; }
 
-.text-wrapper {
+.text-wrapper,
+ul,
+ol,
+blockquote,
+table {
   margin-bottom: 1.2rem; }
   @media (min-width: 568px) {
-    .text-wrapper {
+    .text-wrapper,
+    ul,
+    ol,
+    blockquote,
+    table {
       margin-bottom: 1.2rem; } }
   @media (min-width: 768px) {
-    .text-wrapper {
+    .text-wrapper,
+    ul,
+    ol,
+    blockquote,
+    table {
       margin-bottom: 1.4rem; } }
   @media (min-width: 1024px) {
-    .text-wrapper {
+    .text-wrapper,
+    ul,
+    ol,
+    blockquote,
+    table {
       margin-bottom: 1.6rem; } }
   @media (min-width: 1600px) {
-    .text-wrapper {
+    .text-wrapper,
+    ul,
+    ol,
+    blockquote,
+    table {
       margin-bottom: 2rem; } }
-  .text-wrapper p:last-of-type {
+  .text-wrapper p:last-of-type,
+  ul p:last-of-type,
+  ol p:last-of-type,
+  blockquote p:last-of-type,
+  table p:last-of-type {
     margin-bottom: 0; }
-  .text-wrapper-no-margin {
+  .text-wrapper-no-margin,
+  ul-no-margin,
+  ol-no-margin,
+  blockquote-no-margin,
+  table-no-margin {
     margin-bottom: 0 !important; }
-  .text-wrapper-small {
+  .text-wrapper-small,
+  ul-small,
+  ol-small,
+  blockquote-small,
+  table-small {
     margin-bottom: 0.7rem; }
     @media (min-width: 568px) {
-      .text-wrapper-small {
+      .text-wrapper-small,
+      ul-small,
+      ol-small,
+      blockquote-small,
+      table-small {
         margin-bottom: 0.7rem; } }
     @media (min-width: 768px) {
-      .text-wrapper-small {
+      .text-wrapper-small,
+      ul-small,
+      ol-small,
+      blockquote-small,
+      table-small {
         margin-bottom: 0.9rem; } }
     @media (min-width: 1024px) {
-      .text-wrapper-small {
+      .text-wrapper-small,
+      ul-small,
+      ol-small,
+      blockquote-small,
+      table-small {
         margin-bottom: 1.1rem; } }
     @media (min-width: 1600px) {
-      .text-wrapper-small {
+      .text-wrapper-small,
+      ul-small,
+      ol-small,
+      blockquote-small,
+      table-small {
         margin-bottom: 1.5rem; } }
-  .text-wrapper-large {
+  .text-wrapper-large,
+  ul-large,
+  ol-large,
+  blockquote-large,
+  table-large {
     margin-bottom: 2.2rem; }
     @media (min-width: 568px) {
-      .text-wrapper-large {
+      .text-wrapper-large,
+      ul-large,
+      ol-large,
+      blockquote-large,
+      table-large {
         margin-bottom: 2.2rem; } }
     @media (min-width: 768px) {
-      .text-wrapper-large {
+      .text-wrapper-large,
+      ul-large,
+      ol-large,
+      blockquote-large,
+      table-large {
         margin-bottom: 2.4rem; } }
     @media (min-width: 1024px) {
-      .text-wrapper-large {
+      .text-wrapper-large,
+      ul-large,
+      ol-large,
+      blockquote-large,
+      table-large {
         margin-bottom: 2.6rem; } }
     @media (min-width: 1600px) {
-      .text-wrapper-large {
+      .text-wrapper-large,
+      ul-large,
+      ol-large,
+      blockquote-large,
+      table-large {
         margin-bottom: 3rem; } }
-  .text-wrapper-small {
+  .text-wrapper-small,
+  ul-small,
+  ol-small,
+  blockquote-small,
+  table-small {
     margin-bottom: 1.7rem; }
   @media (min-width: 568px) {
-    .text-wrapper-small {
+    .text-wrapper-small,
+    ul-small,
+    ol-small,
+    blockquote-small,
+    table-small {
       margin-bottom: 1.7rem; } }
   @media (min-width: 768px) {
-    .text-wrapper-small {
+    .text-wrapper-small,
+    ul-small,
+    ol-small,
+    blockquote-small,
+    table-small {
       margin-bottom: 1.9rem; } }
   @media (min-width: 1024px) {
-    .text-wrapper-small {
+    .text-wrapper-small,
+    ul-small,
+    ol-small,
+    blockquote-small,
+    table-small {
       margin-bottom: 2.1rem; } }
   @media (min-width: 1600px) {
-    .text-wrapper-small {
+    .text-wrapper-small,
+    ul-small,
+    ol-small,
+    blockquote-small,
+    table-small {
       margin-bottom: 2.5rem; } }
 /* ====================
     Grid
@@ -1639,20 +1731,80 @@ small {
   .image source {
     width: 100%; }
 
-ul li,
-ol li {
-  margin-bottom: 10px;
-  padding-left: 10px;
-  color: var(--colour-copy-dark); }
-  ul li ul,
-  ol li ul {
-    margin-top: 10px;
+.richtext ul,
+.richtext ol,
+.list {
+  padding: 0;
+  list-style-position: outside; }
+  .richtext ul li,
+  .richtext ol li,
+  .list li {
+    color: var(--colour-copy-dark);
+    margin-bottom: 10px;
+    padding-left: 10px;
+    font-size: 1rem; }
+  .richtext ul ul,
+  .richtext ul ol,
+  .richtext ol ul,
+  .richtext ol ol,
+  .list ul,
+  .list ol {
+    margin-top: 14px;
     margin-left: 1rem; }
 
-ul {
-  margin-left: 14px; }
-  ul li {
+.richtext ul,
+ul.list {
+  margin-left: 16px; }
+  .richtext ul li,
+  ul.list li {
     list-style-image: url("/images/icons/list-arrow.svg"); }
+
+.richtext ol,
+ol.list {
+  margin-left: 18px; }
+
+.social {
+  position: relative;
+  display: flex;
+  align-items: center; }
+  .social-link {
+    display: flex;
+    text-decoration: none;
+    margin-right: 1.6rem; }
+    .social-link:last-child {
+      margin-right: 0; }
+  .social-icon {
+    height: 25px; }
+  @media (max-width: 350px) {
+    .social-icon {
+      height: 20px; } }
+  @media (min-width: 1024px) {
+    .social-icon path {
+      transition: fill 160ms ease;
+      will-change: fill; }
+    .social-link {
+      margin-right: 2rem; }
+      .social-link:hover .social-icon path {
+        fill: var(--link-hover-colour); } }
+blockquote {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  font-size: 1.2rem;
+  font-style: italic; }
+  blockquote p:last-of-type {
+    margin: 0; }
+  blockquote:before {
+    content: "";
+    position: relative;
+    display: block;
+    width: 4px;
+    margin-right: 2rem;
+    background-color: var(--colour-blue); }
 
 .quote {
   position: relative; }
@@ -1680,6 +1832,25 @@ ul {
       margin-right: 2rem; }
       .social-link:hover .social-icon path {
         fill: var(--link-hover-colour); } }
+table {
+  position: relative;
+  margin-bottom: 1.2rem; }
+  @media (min-width: 568px) {
+    table {
+      margin-bottom: 1.2rem; } }
+  @media (min-width: 768px) {
+    table {
+      margin-bottom: 1.4rem; } }
+  @media (min-width: 1024px) {
+    table {
+      margin-bottom: 1.6rem; } }
+  @media (min-width: 1600px) {
+    table {
+      margin-bottom: 2rem; } }
+  table th,
+  table td {
+    color: var(--colour-foreground); }
+
 .tag {
   position: relative; }
 

@@ -62,8 +62,10 @@ $publicPath: '{{ .Site.BaseURL }}';
 @import "components/highlight";
 @import "components/image";
 @import "components/list";
+@import "components/social";
 @import "components/quote";
 @import "components/social";
+@import "components/table";
 @import "components/tag";
 
 /* ====================

@@ -1,0 +1,19 @@
+// -----------------------------------------------------------------------------
+// _table.scss
+// This file contains all styles related to the table component.
+// -----------------------------------------------------------------------------
+
+table {
+	$self: &;
+
+	position: relative;
+	@include text-wrapper;
+
+	// Props
+	// =========================================================================
+
+	th,
+	td {
+		color: colour("foreground");
+	}
+}

@@ -113,8 +113,8 @@ p {
 	margin-bottom: 1rem;
 	line-height: 1.8;
 
-	.lead {
-		@include px-to-rem(19);
+	&.lead {
+		font-size: $text-lead-size;
 	}
 }
 
@@ -161,6 +161,13 @@ small {
 	}
 }
 
+// Properties
+// =========================================================================
+
+strong {
+	font-weight: bold;
+}
+
 // Mods
 // =========================================================================
 
@@ -197,10 +204,14 @@ small {
 	}
 }
 
-// Text Containers
+// Text Wrappers
 // =========================================================================
 
-.text-wrapper {
+.text-wrapper,
+ul,
+ol,
+blockquote,
+table {
 	@include text-wrapper;
 
 	p:last-of-type {
@@ -225,8 +236,6 @@ small {
 			&-small {
 				margin-bottom: map-get($text-margin-properties, $modifier) + $text-wrapper-small-diff;
 			}
-
-
 		}
 	}
 }
