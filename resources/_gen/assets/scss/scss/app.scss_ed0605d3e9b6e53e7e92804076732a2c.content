@@ -546,7 +546,7 @@ p {
   margin-bottom: 1rem;
   line-height: 1.8; }
   p.lead {
-    font-size: 1.3rem; }
+    font-size: 1.2rem; }
 
 a {
   font-size: 1rem;
@@ -556,11 +556,6 @@ a {
   transition: color 160ms ease; }
   a:hover {
     color: var(--link-hover-colour); }
-
-.colour-foreground {
-  color: var(--colour-foreground); }
-  .colour-foreground * {
-    color: var(--colour-foreground); }
 
 small {
   display: inline-block;
@@ -1802,6 +1797,11 @@ table {
 .bg-copy {
   background-color: #0A0A0A !important; }
 
+.colour-foreground {
+  color: var(--colour-foreground); }
+  .colour-foreground * {
+    color: var(--colour-foreground); }
+
 .hover-line {
   display: inline-block; }
   .hover-line:before {
@@ -2010,6 +2010,9 @@ table {
     height: 100%; }
 
 .highlight {
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #FFF;
   border-radius: 4px;
   overflow: hidden; }
   .highlight * {
@@ -2017,8 +2020,10 @@ table {
   .highlight:last-of-type {
     margin-bottom: 0; }
   .highlight pre {
-    padding: 10px;
-    margin: 0; }
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    overflow-x: scroll; }
   .highlight code {
     font-family: "JetBrains Mono", Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
     font-size: 1rem; }
@@ -2051,7 +2056,7 @@ table {
   .richtext ul li,
   .richtext ol li,
   .list li {
-    color: var(--colour-copy-dark);
+    color: var(--colour-foreground);
     margin-bottom: 10px;
     padding-left: 10px;
     font-size: 1rem; }
@@ -2106,7 +2111,7 @@ blockquote {
   margin-left: 0;
   margin-right: 0;
   padding: 0;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-style: italic; }
   blockquote p:last-of-type {
     margin: 0; }
@@ -2150,7 +2155,7 @@ blockquote {
 .vertical {
   position: relative;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   z-index: 999; }
@@ -2164,12 +2169,13 @@ blockquote {
     width: 100px;
     margin-right: 10px;
     background-color: #FFF; }
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     .vertical {
       position: relative;
+      flex-direction: row-reverse;
+      margin-top: 1rem;
       writing-mode: vertical-rl;
-      transform: scale(-1);
-      margin-top: 1rem; }
+      transform: scale(-1); }
       .vertical-line {
         height: 200px;
         width: 5px;
@@ -2189,7 +2195,8 @@ blockquote {
   display: block;
   margin: 0;
   padding: 2rem;
-  z-index: 99; }
+  z-index: 99;
+  display: none !important; }
   .aside-link {
     display: block;
     text-decoration: none;
@@ -2756,6 +2763,10 @@ blockquote {
     background-color: red !important; }
   .brand-list-description * {
     color: var(--colour-copy-dark); }
+
+@media (max-width: 767px) {
+  .brand-list-description p {
+    margin-bottom: 8px; } }
 
 /* ====================
     Sections

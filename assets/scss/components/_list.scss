@@ -16,7 +16,7 @@
 	// =========================================================================
 
 	li {
-		color: var(--colour-copy-dark);
+		color: colour("foreground");
 		margin-bottom: 10px;
 		padding-left: 10px;
 		font-size: 1rem;
@@ -44,6 +44,7 @@ ul.list {
 	// =========================================================================
 
 	li {
+		// TODO: This will need to be a different image for theme-white.
 		list-style-image: url("/images/icons/list-arrow.svg");
 	}
 }

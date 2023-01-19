@@ -8,7 +8,7 @@
 
 	position: relative;
 	display: flex;
-	flex-direction: row-reverse;
+	flex-direction: row;
 	align-items: center;
 	justify-content: flex-start;
 	z-index: 999;
@@ -33,14 +33,15 @@
 		background-color: $white;
 	}
 
-	// Desktop
+	// Tablet
 	// =========================================================================
 
-	@include media-desk {
+	@include media-tab {
 		position: relative;
+		flex-direction: row-reverse;
+		margin-top: 1rem;
 		writing-mode: vertical-rl;
 		transform: scale(-1);
-		margin-top: 1rem;
 
 		&-line {
 			height: 200px;

@@ -1,12 +1,23 @@
 ---
 title: Colour
 weight: 3
-featuredImage: featured.svg
+featuredImage: images/featured.svg
 ---
 
+<!-- =====================
+	Colour
+	===================== -->
+<div class="text-wrapper-large">
+	<h3>Colour</h3>
+	<p>
+Whilst the brand doesn’t feature many colours the combinations below are sure to create striking and minimal combinations.
+	</p>
+</div><!-- Colour -->
+[index.md](..%2Flogo%2Findex.md)
 ### Colour
 
-Whilst the brand doesn’t feature many colours the combinations below are sure to create striking and minimal combinations.
+
+
 { .text-wrapper }
 
 #### Primary

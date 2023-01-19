@@ -1,0 +1,23 @@
+<!-- =====================
+    Vertical
+		partial "type/vertical.html" (dict "text" "Vertical <br/>heading" "number" 1 "line" true)
+		- text:		The content of the quote.
+		- number:	A optional number associated with the text.
+		- line:
+    ===================== -->
+<div class="vertical">
+	<!-- Text -->
+	<h2 class="vertical-text">
+		<!-- TODO: Need to make the number 50 pixels in font size and add mods for with number and without number -->
+		{{ with .number }}
+			<span class="type-serif">{{ . }}*</span>
+		{{- end }}
+		{{ with .text -}}
+			{{ . | safeHTML }}
+		{{- end }}
+	</h2>
+	<!-- Line -->
+	{{ if .line -}}
+		<span class="vertical-line"></span>
+	{{- end }}
+</div>
