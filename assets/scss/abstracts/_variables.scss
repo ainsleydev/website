@@ -23,6 +23,7 @@ $grid-properties: (
 	"-mob": $grid-breakpoint-mob,
 	"-tab": $grid-breakpoint-tab,
 	"-desk": $grid-breakpoint-desk,
+	"-desk-large": $grid-breakpoint-desk-large,
 	"-hd": $grid-breakpoint-hd
 );
 
@@ -80,6 +81,13 @@ $section-padding: (
 	hd: 200px
 );
 $section-padding-divider: 3;
+
+// Spacing
+// ==========================================================================
+
+$spacing-properties: (
+	0: 0,
+);
 
 // Header
 // =========================================================================

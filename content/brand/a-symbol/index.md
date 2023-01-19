@@ -1,7 +1,7 @@
 ---
 title: The Ʌ symbol
 weight: 2
-featuredImage: featured.svg
+featuredImage: images/featured.svg
 download:
 path: files/symbol-pack.zip
 name: ainsleydev-Fonts.zip

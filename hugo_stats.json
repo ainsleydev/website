@@ -44,7 +44,6 @@
       "noscript",
       "ol",
       "p",
-      "pa",
       "path",
       "picture",
       "pre",
@@ -94,9 +93,7 @@
       "card-image",
       "card-text",
       "chroma",
-      "col-10",
       "col-12",
-      "col-2",
       "col-8",
       "col-desk-10",
       "col-desk-12",
@@ -106,6 +103,13 @@
       "col-desk-5",
       "col-desk-6",
       "col-desk-8",
+      "col-desk-9",
+      "col-desk-large-10",
+      "col-desk-large-2",
+      "col-desk-large-3",
+      "col-desk-large-9",
+      "col-hd-10",
+      "col-hd-2",
       "col-mob-6",
       "col-tab-11",
       "col-tab-3",
@@ -119,9 +123,9 @@
       "d-desk-large-inline",
       "d-mob-inline",
       "d-mob-none",
-      "d-mone",
       "d-none",
       "d-tab-block",
+      "fit-text",
       "footer",
       "footer-contact",
       "footer-contact-email",
@@ -169,6 +173,8 @@
       "justify-content-between",
       "lead",
       "list",
+      "mb-0",
+      "mv-0",
       "nav",
       "nav-btn",
       "nav-btn-arrow",
@@ -206,10 +212,7 @@
       "theme-black",
       "type-code",
       "type-lowercase",
-      "type-serif",
-      "vertical",
-      "vertical-line",
-      "vertical-text"
+      "type-serif"
     ],
     "ids": [
       "TableOfContents",
@@ -218,7 +221,8 @@
       "github-clip-path",
       "home",
       "nav-check",
-      "pages"
+      "pages",
+      "responsive_headline"
     ]
   }
 }

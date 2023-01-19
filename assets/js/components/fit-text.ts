@@ -28,13 +28,32 @@ interface FitTextOptions {
 export class FitText {
 
 	/**
+	 * The DOM selector for the elements.
+	 *
+	 * @readonly
+	 */
+	public readonly selector = ".fit-text"
+
+	/**
+	 * The default configuration for fitting elements,
+	 * when properties are not defined.
+	 *
+	 * @readonly
+	 */
+	public readonly defaultOptions: FitTextOptions = {
+		compressor: 1,
+		minFontSize: -1/0,
+		maxFontSize: 1/0,
+	}
+
+	/**
 	 * Initialises the elements marked as FitText.
 	 *
 	 * @constructor
 	 */
-	public load() {
-		document.querySelectorAll(".fit-text").forEach(el => {
-
+	constructor() {
+		document.querySelectorAll<HTMLElement>(".fit-text").forEach(el => {
+			this.change(el, this.getOptions(el));
 		});
 	}
 
@@ -47,15 +66,10 @@ export class FitText {
 	 * @private
 	 */
 	private change(el: HTMLElement, options: FitTextOptions) {
-		const settings = this.extend({
-			'minFontSize' : -1/0,
-			'maxFontSize' : 1/0
-		}, options);
-
-		let comp = options.compressor || 1;
-
 		const resizer = () => {
-			el.style.fontSize = Math.max(Math.min(el.clientWidth / (comp*10), options.maxFontSize), options.minFontSize).toString() + 'px';
+			const fontSize = Math.max(Math.min(el.clientWidth / (options.compressor*10), options.maxFontSize), options.minFontSize) + 'px';;
+			el.style.fontSize = fontSize;
+			console.log(options);
 		};
 
 		// Call once to set.
@@ -67,18 +81,38 @@ export class FitText {
 	}
 
 	/**
-	 * Extends the default settings.
+	 * Obtains the fit text options by merging data
+	 * attributes with the default config.
 	 *
-	 * @param obj
-	 * @param ext
+	 * @private
+	 * @param el
+	 */
+	private getOptions(el: HTMLElement): FitTextOptions {
+		return {
+			compressor: this.getAttribute(el,"data-fit-text-compressor") ?? this.defaultOptions.compressor,
+			minFontSize: this.getAttribute(el, "data-fit-text-min-font-size") ?? this.defaultOptions.minFontSize,
+			maxFontSize: this.getAttribute(el,"data-fit-text-max-font-size") ?? this.defaultOptions.maxFontSize,
+		} as FitTextOptions;
+	}
+
+	/**
+	 * Obtains an HTML attribute as a number, or null if it's
+	 * not defined.
+	 *
+	 * @param el
+	 * @param attr
 	 * @private
 	 */
-	private extend(obj: any, ext: any): any {
-		for(const key in ext) {
-			if (ext.hasOwnProperty(key)) {
-				obj[key] = ext[key];
-			}
+	private getAttribute(el: HTMLElement, attr: string): number | null {
+		const contents = el.getAttribute(attr);
+		if (!contents) {
+			return null
 		}
-		return obj;
+		const num = Number(contents);
+		if (isNaN(num)) {
+			Log.error("Attribute is NaN: " + attr);
+			return null;
+		}
+		return num;
 	}
 }

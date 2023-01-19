@@ -9,34 +9,24 @@
 import {Log} from "../util/log";
 
 /**
- * Cursor classes is the type that contains CSS
- * classes to add and remove from the cursor.
- */
-export enum CursorClasses {
-	Invert = "cursor-invert",
-	InvertBlack = "cursor-invert-black",
-	InvertWhite = "cursor-invert-white",
-}
-
-/**
  * Cursor is responsible for adding and removing
  * classes when an event has been triggered.
  */
 export class Cursor {
 
 	/**
-	 * The DOM selector for the cursor.
+	 * The DOM selector for the element.
 	 *
 	 * @public
 	 */
-	public selector = ".cursor"
+	public readonly selector = ".cursor"
 
 	/**
 	 * The DOM selector for the cursor.
 	 *
 	 * @public
 	 */
-	public elementSelector = ".cursor-element"
+	public readonly elementSelector = ".cursor-element"
 
 	/**
 	 * The cursor HTML element.
@@ -46,7 +36,9 @@ export class Cursor {
 	private el: HTMLDivElement
 
 	/**
-	 * Instantiates a new cursor type.
+	 * Initialises the cursor element.
+	 *
+	 * @constructor
 	 */
 	constructor() {
 		const el = document.querySelector(this.selector);
@@ -80,6 +72,7 @@ export class Cursor {
 	 * @private
 	 */
 	private attachElementHandlers(el: HTMLElement): void {
+		// @ts-ignore
 		const classes = el.getAttributeNames().filter(a => a.startsWith("data-cursor"));
 
 		el.addEventListener("mousemove", () => classes.forEach(c => {
@@ -137,5 +130,3 @@ export class Cursor {
 		this.el.style.transform = `translate(-50%, -50%)`;
 	}
 }
-
-export default new Cursor();

@@ -9,10 +9,10 @@
 import {Log} from "../util/log";
 
 /**
- * SkewConfig is the configuration of a Skewed singular
+ * SkewOptions is the configuration of a Skewed singular
  * skewed element.
  */
-interface SkewConfig {
+interface SkewOptions {
 	transform: CoordinatesConfig
 	rotate?: CoordinatesConfig
 	shouldRotate: boolean
@@ -31,22 +31,22 @@ interface CoordinatesConfig {
  * Button is responsible for adding micro interactions
  * to clickable elements.
  */
-class Skew {
+export class Skew {
 
 	/**
 	 * The DOM selector for the elements to skew.
 	 *
-	 * @private
+	 * @readonly
 	 */
-	public selector = ".skew"
+	public readonly selector = ".skew"
 
 	/**
-	 * The default configuration for skewing elements,
+	 * The default options for skewing elements,
 	 * when properties are not defined.
 	 *
-	 * @private
+	 * @readonly
 	 */
-	private defaultConfig: SkewConfig = {
+	public readonly defaultOptions: SkewOptions = {
 		transform: {
 			x: 0.1,
 			y: 0.1,
@@ -59,7 +59,9 @@ class Skew {
 	}
 
 	/**
-	 * Instantiates a new Skew type.
+	 * Initialises the elements marked as Skewed.
+	 *
+	 * @constructor
 	 */
 	constructor() {
 		this.attachHandlers();
@@ -73,7 +75,7 @@ class Skew {
 	 */
 	private attachHandlers() {
 		document.querySelectorAll<HTMLButtonElement>(this.selector).forEach(el => {
-			const cfg = this.getConfig(el);
+			const cfg = this.getOptions(el);
 			this.mouseMove(el, cfg);
 			this.mouseOut(el);
 		});
@@ -87,7 +89,7 @@ class Skew {
 	 * @param config
 	 * @private
 	 */
-	private mouseMove(el: HTMLElement, config: SkewConfig): void {
+	private mouseMove(el: HTMLElement, config: SkewOptions): void {
 		el.addEventListener("mousemove", e => {
 			const pos = this.getPos(el, e);
 			el.style.transform = 'translate(' + pos.x * config.transform.x + 'px, ' + pos.y * 0.3 + 'px)';
@@ -103,7 +105,7 @@ class Skew {
 	 * @param el
 	 * @private
 	 */
-	mouseOut(el: HTMLElement): void {
+	private mouseOut(el: HTMLElement): void {
 		el.addEventListener("mouseleave", () => {
 			el.style.transform = 'translate3d(0, 0, 0)';
 			el.style.transform += 'rotate3d(0, 0, 0, 0deg)';
@@ -127,22 +129,22 @@ class Skew {
 	}
 
 	/**
-	 * Obtains the skew configuration by merging data attributes
-	 * with the default config.
+	 * Obtains the skew options by merging data
+	 * attributes with the default config.
 	 *
 	 * @param el
 	 * @private
 	 */
-	private getConfig(el: HTMLElement): SkewConfig {
+	private getOptions(el: HTMLElement): SkewOptions {
 		return {
 			shouldRotate: el.hasAttribute("data-skew-rotate"),
 			transform: {
-				x: this.getAttribute(el, "data-skew-transform-x") ?? this.defaultConfig.transform.x,
-				y: this.getAttribute(el, "data-skew-transform-y") ?? this.defaultConfig.transform.y,
+				x: this.getAttribute(el, "data-skew-transform-x") ?? this.defaultOptions.transform.x,
+				y: this.getAttribute(el, "data-skew-transform-y") ?? this.defaultOptions.transform.y,
 			},
 			rotate: {
-				x: this.getAttribute(el, "data-skew-rotate-x") ?? this.defaultConfig.transform.x,
-				y: this.getAttribute(el, "data-skew-rotate-y") ?? this.defaultConfig.transform.y,
+				x: this.getAttribute(el, "data-skew-rotate-x") ?? this.defaultOptions.transform.x,
+				y: this.getAttribute(el, "data-skew-rotate-y") ?? this.defaultOptions.transform.y,
 			}
 		}
 	}
@@ -168,5 +170,3 @@ class Skew {
 		return num;
 	}
 }
-
-export default new Skew();

@@ -7,26 +7,32 @@
  */
 
 import scripts from "./scripts/polyfills";
-import {} from "./components/nav";
-import {} from "./animations/skew";
 import LazyLoad from 'vanilla-lazyload';
-import {} from "./animations/cursor";
+import { Cursor } from "./animations/cursor";
+import { Skew } from "./animations/skew";
+import { FitText } from "./components/fit-text";
 
 /**
  * Variables
  *
  */
-const html = document.querySelector('html'),
-	header = document.querySelector('.header'),
-	nav = document.querySelector('.nav'),
-	hamburger = document.querySelector('.hamburger');
+const html = document.querySelector('html');
 
 /*
  * Remove No JS Body Class
  *
  */
-// html.classList.remove('no-js');
-// html.classList.add('js');
+html.classList.remove('no-js');
+html.classList.add('js');
+
+/**
+ * Initialise components & types.
+ */
+document.addEventListener("DOMContentLoaded", () => {
+	new Cursor();
+	new Skew();
+	new FitText();
+});
 
 /**
  * Vanilla Lazyload
@@ -36,33 +42,3 @@ let lazyLoadInstance = new LazyLoad({
 	elements_selector: '.lazy'
 	// ... more custom settings?
 });
-
-/*
- * Scroll To Anchor
- * Targets all links with # anchor & adds smooth scrolling
- *
- */
-// let headerOffset = header.offsetHeight;
-//
-// window.addEventListener('resize', function(){
-// 	headerOffset = header.offsetHeight;
-// });
-//
-// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-// 	anchor.addEventListener('click', function (e) {
-// 		e.preventDefault();
-//
-// 		let offset = headerOffset,
-// 			section = document.querySelector(anchor.getAttribute('href')),
-// 			elementPosition = section.offsetTop,
-// 			offsetPosition = elementPosition - offset;
-//
-// 		window.scrollTo({
-// 			top: offsetPosition,
-// 			behavior: 'smooth'
-// 		});
-// 	});
-// });
-
-
-
