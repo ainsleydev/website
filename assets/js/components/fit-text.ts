@@ -69,7 +69,6 @@ export class FitText {
 		const resizer = () => {
 			const fontSize = Math.max(Math.min(el.clientWidth / (options.compressor*10), options.maxFontSize), options.minFontSize) + 'px';;
 			el.style.fontSize = fontSize;
-			console.log(options);
 		};
 
 		// Call once to set.
