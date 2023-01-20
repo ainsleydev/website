@@ -4,15 +4,15 @@
 		===================== -->
 	<section class="hero hero-full-height">
 		<!-- Background -->
-        {{ if .Resources.Get "hero.jpg" -}}
+        {{ with .Params.listhero -}}
 			<picture class="hero-background gradient gradient-height-30">
                 {{ partial "media/picture.html" (dict
-					"image" (.Resources.Get "hero.jpg")
-					"mob" (.Resources.Get "hero-mob.jpg")
-					"tab" (.Resources.Get "hero-tab.jpg")
+					"image" ($.Resources.Get .default)
+					"mob" ($.Resources.Get .mobile)
+					"tab" ($.Resources.Get .tablet)
 					"lazy" false
-                	"alt" "ainsley.dev Desk & Keyboard")
-				}}
+					"alt" "ainsley.dev Desk & Keyboard")
+                }}
 			</picture>
         {{- end }}
 		<!-- Content -->

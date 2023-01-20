@@ -51,6 +51,7 @@
       "script",
       "section",
       "small",
+      "source",
       "span",
       "stop",
       "strong",
@@ -94,7 +95,6 @@
       "card-text",
       "chroma",
       "col-12",
-      "col-8",
       "col-desk-10",
       "col-desk-12",
       "col-desk-2",
@@ -103,13 +103,8 @@
       "col-desk-5",
       "col-desk-6",
       "col-desk-8",
-      "col-desk-9",
-      "col-desk-large-10",
-      "col-desk-large-2",
       "col-desk-large-3",
       "col-desk-large-9",
-      "col-hd-10",
-      "col-hd-2",
       "col-mob-6",
       "col-tab-11",
       "col-tab-3",
@@ -151,6 +146,7 @@
       "footnotes",
       "gradient",
       "gradient-height-100",
+      "gradient-height-30",
       "header",
       "header-colour-black",
       "header-logo",
@@ -174,7 +170,6 @@
       "lead",
       "list",
       "mb-0",
-      "mv-0",
       "nav",
       "nav-btn",
       "nav-btn-arrow",
@@ -221,8 +216,7 @@
       "github-clip-path",
       "home",
       "nav-check",
-      "pages",
-      "responsive_headline"
+      "pages"
     ]
   }
 }
