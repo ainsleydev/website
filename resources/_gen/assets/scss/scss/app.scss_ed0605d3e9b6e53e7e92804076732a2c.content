@@ -2777,7 +2777,9 @@ blockquote {
         width: 5px;
         min-width: 5px;
         margin-top: 0;
-        margin-bottom: 2rem; } }
+        margin-bottom: 2rem; }
+      .vertical-text {
+        margin-bottom: 0; } }
 /* ====================
     Layout
     ==================== */
@@ -2792,7 +2794,7 @@ blockquote {
   margin: 0;
   padding: 2rem;
   z-index: 99;
-  display: none !important; }
+  display: none; }
   .aside-link {
     display: block;
     text-decoration: none;
@@ -2809,10 +2811,11 @@ blockquote {
     color: #0A0A0A;
     font-size: 1.1rem; }
   .aside-active {
-    color: var(--link-hover-colour); }
+    color: var(--link-hover-colour) !important; }
   @media (min-width: 1024px) {
     .aside {
       position: sticky;
+      display: block;
       width: auto;
       height: auto;
       top: 100px;
@@ -2821,6 +2824,8 @@ blockquote {
       background-color: transparent; }
       .aside-link {
         border-bottom: 2px solid rgba(255, 255, 255, 0.1); }
+        .aside-link:hover * {
+          color: var(--link-hover-colour); }
       .aside-text {
         color: #FFF; } }
 .footer {

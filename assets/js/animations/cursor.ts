@@ -89,26 +89,6 @@ export class Cursor {
 	}
 
 	/**
-	 * Adds a class(es) to the cursor.
-	 *
-	 * @param selectors
-	 */
-	public addClass(...selectors: CursorClasses[]): void {
-		this.el.classList.add("cursor-active");
-		selectors.forEach(sel => this.el.classList.add(sel));
-	}
-
-	/**
-	 * Removes a class(es) to the cursor.
-	 *
-	 * @param selectors
-	 */
-	public removeClass(...selectors: CursorClasses[]): void {
-		this.el.classList.remove("cursor-active");
-		selectors.forEach(sel => this.el.classList.remove(sel));
-	}
-
-	/**
 	 * Transforms the cursor to be bigger when the element
 	 * is hovered according to the data attribute set.
 	 *

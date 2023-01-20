@@ -64,7 +64,7 @@ featuredImage: images/featured.svg
 			<p>H6</p>
 		</div><!--/Col -->
 		<div class="col-12 col-tab-9 col-desk-10">
-			<h6>Heading 6</h6>
+			<h6 class="mb-0">Heading 6</h6>
 		</div><!--/Col -->
 	</div><!--/Row -->
 </div><!-- /Headings -->
@@ -191,14 +191,13 @@ featuredImage: images/featured.svg
 		<div class="col-12 col-tab-9 col-desk-10">
 			<span class="heading-1">Who we are*</span>
 		</div><!--/Col -->
-		</div><!--/Col -->
 		<!-- Vertical -->
 		<div class="col-12 col-tab-3 col-desk-2 brand-list-description">
 			<p>Vertical</p>
 		</div><!--/Col -->
 		<div class="col-12 col-tab-9 col-desk-10">
 			<div class="text-wrapper">
-				{{ partial "type/vertical.html" (dict "text" "Vertical <br/>heading" "number" 1 "line" true) }}
+				{{< partial template="type/vertical.html" text="Vertical <br/>heading" number=1 line=true >}}
 			</div>
 		</div><!--/Col -->
 		<!-- Number -->

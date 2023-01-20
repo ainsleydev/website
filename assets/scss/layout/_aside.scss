@@ -18,7 +18,7 @@
 	z-index: 99;
 
 	// Temp
-	display: none !important;
+	display: none;
 
 	// Link
 	// ==========================================================================
@@ -53,7 +53,7 @@
 	// ==========================================================================
 
 	&-active {
-		color: var(--link-hover-colour);
+		color: var(--link-hover-colour) !important;
 	}
 
 	// Desktop
@@ -61,6 +61,7 @@
 
 	@include media-desk {
 		position: sticky;
+		display: block; // TODO: Remove
 		width: auto;
 		height: auto;
 		top: 100px;
@@ -70,6 +71,10 @@
 
 		&-link {
 			border-bottom: 2px solid rgba($white, 0.10);
+
+			&:hover * {
+				color: var(--link-hover-colour);
+			}
 		}
 
 		&-text {
