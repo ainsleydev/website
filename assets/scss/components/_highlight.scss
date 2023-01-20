@@ -8,9 +8,10 @@
 
 	padding-left: $highlight-padding;
 	padding-right: $highlight-padding;
-	background-color: $white;
+	background-color: $highlight-bg-colour;
 	border-radius: 4px;
 	overflow: hidden;
+	border: 1px solid rgba($black, 0.10);
 
 	// Props
 	// =========================================================================
@@ -30,6 +31,7 @@
 		margin: 0;
 		padding-top: $highlight-padding;
 		padding-bottom: $highlight-padding;
+		background-color: $highlight-bg-colour;
 		overflow-x: scroll;
 	}
 

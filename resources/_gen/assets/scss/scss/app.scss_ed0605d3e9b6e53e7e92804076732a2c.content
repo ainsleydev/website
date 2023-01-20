@@ -341,8 +341,8 @@ body {
   background-color: #0A0A0A; }
   body.theme-white {
     background-color: #FFF;
-    --colour-background: $white;
-    --colour-foreground: $black;
+    --colour-background: #FFF;
+    --colour-foreground: #0A0A0A;
     --color-mark: rgba(#FFF, 0.15)
 	; }
 
@@ -2005,6 +2005,18 @@ table {
 .bg-copy {
   background-color: #0A0A0A !important; }
 
+.c-grey-dark {
+  color: #0F0F0F !important; }
+
+.bg-grey-dark {
+  background-color: #0F0F0F !important; }
+
+.c-grey-light {
+  color: #171717 !important; }
+
+.bg-grey-light {
+  background-color: #171717 !important; }
+
 .colour-foreground {
   color: var(--colour-foreground); }
   .colour-foreground * {
@@ -2596,9 +2608,10 @@ table {
 .highlight {
   padding-left: 10px;
   padding-right: 10px;
-  background-color: #FFF;
+  background-color: white;
   border-radius: 4px;
-  overflow: hidden; }
+  overflow: hidden;
+  border: 1px solid rgba(10, 10, 10, 0.1); }
   .highlight * {
     color: #0A0A0A; }
   .highlight:last-of-type {
@@ -2607,6 +2620,7 @@ table {
     margin: 0;
     padding-top: 10px;
     padding-bottom: 10px;
+    background-color: white;
     overflow-x: scroll; }
   .highlight code {
     font-family: "JetBrains Mono", Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
@@ -2630,8 +2644,12 @@ table {
   .list li {
     color: var(--colour-foreground);
     margin-bottom: 10px;
-    padding-left: 10px;
+    padding: 0 0 0 12px;
     font-size: 1rem; }
+    .richtext ul li:last-child,
+    .richtext ol li:last-child,
+    .list li:last-child {
+      margin-bottom: 0; }
   .richtext ul ul,
   .richtext ul ol,
   .richtext ol ul,
@@ -2639,7 +2657,13 @@ table {
   .list ul,
   .list ol {
     margin-top: 14px;
-    margin-left: 1rem; }
+    margin-left: 1rem;
+    padding: 0; }
+  .richtext ul ::marker,
+  .richtext ol ::marker,
+  .list ::marker {
+    margin: 0;
+    padding: 0; }
 
 .richtext ul,
 ul.list {
@@ -3349,7 +3373,7 @@ blockquote {
 
 @media (max-width: 767px) {
   .brand-list-description p {
-    margin-bottom: 8px; } }
+    margin-bottom: 10px; } }
 
 /* ====================
     Sections

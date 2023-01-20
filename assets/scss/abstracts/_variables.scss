@@ -54,6 +54,9 @@ $blue: #70CBCE;
 $copy: $black;
 $copy-dark-bg: #9A9A9A; // Fossil
 $copy-light-bg: #595959; // Iron
+$grey-dark: #0F0F0F; // Onyx
+$grey-light: #171717;
+$off-white: #F2F2F2; // White smoke
 
 // Color palette
 $palette: (
@@ -61,7 +64,9 @@ $palette: (
 	black: $black,
 	orange: $orange,
 	blue: $blue,
-	copy: $copy
+	copy: $copy,
+	grey-dark: $grey-dark,
+	grey-light: $grey-light,
 );
 
 // Color attributes
@@ -131,6 +136,7 @@ $button-arrow-size: 20px;
 // Highlight
 // ==========================================================================
 
+$highlight-bg-colour: lighten($white, 0.1);
 $highlight-padding: 10px;
 
 // Root

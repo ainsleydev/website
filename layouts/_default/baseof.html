@@ -61,8 +61,8 @@
 		Body
 		===================== -->
     {{ $colour := "black" }}
-    {{ if eq .Params.page_colour "white"}}
-        {{ $colour = .Params.page_colour }}
+    {{ if eq .Params.pagecolour "white"}}
+        {{ $colour = .Params.pagecolour }}
     {{ end }}
     <body class="theme-{{ $colour }}">
         <!-- Header -->
