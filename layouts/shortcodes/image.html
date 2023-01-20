@@ -5,7 +5,10 @@
 		- alt:
 		- margin:
     ===================== -->
-<figure class="image {{ if .Get "margin" -}} text-wrapper-large {{- end }}">
+<figure class="image
+	{{ if .Get "margin" -}} text-wrapper {{- end }}
+	{{ if .Get "margin-large" -}} text-wrapper-large {{- end }}
+	{{ with .Get "class" -}} {{ . }} {{- end }}">
     {{ partial "media/image.html" (dict "image" (.Page.Resources.Get (.Get "src")) "alt" (.Get "alt")) }}
 </figure>
 

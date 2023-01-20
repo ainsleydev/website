@@ -10,30 +10,6 @@
 	display: flex;
 	height: auto;
 
-	// Props
-	// =========================================================================
-
-	&:not([class*="col-"]) {
-		width: 100%;
-	}
-
-
-	&[class*="col-"] {
-		display: inline-block;
-
-		&:nth-child(even) {
-			margin-left: -15px;
-			margin-right: 13px;
-			padding-right: 0;
-		}
-
-		&:nth-child(odd) {
-			margin-right: -15px;
-			margin-left: 13px;
-			padding-left: 0;
-		}
-	}
-
 	// Image
 	// =========================================================================
 
