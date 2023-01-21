@@ -18,6 +18,16 @@
 
 @font-face {
 	font-family: 'Plus Jakarta Sans';
+	src: local('Plus Jakarta Sans Medium'), local('PlusJakartaSans-Medium'),
+	url('#{$font-path}PlusJakartaSans-Medium.woff2') format('woff2'),
+	url('#{$font-path}PlusJakartaSans-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Plus Jakarta Sans';
 	src: local('Plus Jakarta Sans Bold'), local('PlusJakartaSans-Bold'),
 	url('#{$font-path}PlusJakartaSans-Bold.woff2') format('woff2'),
 	url('#{$font-path}PlusJakartaSans-Bold.woff') format('woff');

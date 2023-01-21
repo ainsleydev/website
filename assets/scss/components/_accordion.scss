@@ -7,7 +7,62 @@
 	$self: &;
 
 	position: relative;
+	display: flex;
+	flex-direction: column;
 
-	// Temp
+	// Item
 	// =========================================================================
+
+	&-item {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		cursor: pointer;
+		position: relative;
+		border-bottom: 1px solid $mark;
+		outline: none;
+
+		::marker {
+			content: "";
+			display: none;
+		}
+
+		&:after {
+			content: "";
+		}
+	}
+
+	// Title
+	// =========================================================================
+
+	&-title {
+		user-select: none;
+		padding: 1.2rem 0;
+
+		* {
+			margin-bottom: 0;
+		}
+	}
+
+	// Content
+	// =========================================================================
+
+	&-content {
+		display: block;
+		max-height: 0;
+		transition: 0.5s;
+		will-change: max-height;
+		overflow: hidden;
+
+		* {
+			font-size: 1rem;
+		}
+
+		p:last-child {
+			margin-bottom: 0;
+			padding-bottom: 1.2rem;
+		}
+	}
 }

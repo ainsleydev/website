@@ -4,4 +4,6 @@
     	- text: 	The text to appear within side the button.
     	- colour: 	The colour of the button, defaults to foreground.
     ===================== -->
-<span class="tag"></span>
+{{ with .text }}
+	<span class="tag {{ with $.colour }} {{ . }} {{- end }}">{{ . }}</span>
+{{- end }}

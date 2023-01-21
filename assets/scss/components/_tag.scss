@@ -7,7 +7,21 @@
 	$self: &;
 
 	position: relative;
+	display: inline-flex;
+	margin: 0 4px;
+	padding: 2px 10px;
+	background-color: $off-white;
+	color: $grey-light;
+	font-size: 0.9rem;
+	border-radius: 4px;
+	user-select: none;
+	font-weight: 500;
 
-	// Temp
+	// Colours
 	// =========================================================================
+
+	&-black {
+		background-color: $grey-dark;
+		color: $white;
+	}
 }

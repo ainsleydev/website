@@ -11,6 +11,7 @@ import LazyLoad from 'vanilla-lazyload';
 import { Cursor } from "./animations/cursor";
 import { Skew } from "./animations/skew";
 import { FitText } from "./components/fit-text";
+import {}  from "./components/accordion";
 
 /**
  * Variables
