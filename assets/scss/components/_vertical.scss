@@ -33,11 +33,19 @@
 		background-color: $white;
 	}
 
+	// Number
+	// =========================================================================
+
+	&-number {
+		display: block;
+	}
+
 	// Tablet
 	// =========================================================================
 
 	@include media-tab {
 		position: relative;
+		align-items: flex-start;
 		flex-direction: row-reverse;
 		margin-top: 1rem;
 		writing-mode: vertical-rl;
@@ -49,6 +57,19 @@
 			min-width: 5px;
 			margin-top: 0;
 			margin-bottom: 2rem;
+			margin-right: 2rem;
+		}
+
+		&-number {
+			margin-left: 1.6rem;
+		}
+
+		&-with-number {
+			align-items: center;
+
+			#{$self}-line {
+				margin-right: 0;
+			}
 		}
 
 		&-text {

@@ -69,7 +69,6 @@
     "classes": [
       "a-symbol-left",
       "a-symbol-right",
-      "align-items-center",
       "arrow",
       "aside",
       "aside-active",
@@ -118,9 +117,7 @@
       "content-wrapper",
       "cursor",
       "cursor-element",
-      "cursor-invert-black",
       "d-desk-large-inline",
-      "d-flex",
       "d-mob-inline",
       "d-mob-none",
       "d-none",
@@ -156,6 +153,7 @@
       "header-colour-black",
       "header-logo",
       "heading-1",
+      "heading-2",
       "heading-5",
       "heading-6",
       "hero",
@@ -176,7 +174,6 @@
       "list",
       "mb-0",
       "mb-tab-0",
-      "mn-0",
       "nav",
       "nav-btn",
       "nav-btn-arrow",
@@ -216,7 +213,10 @@
       "type-serif",
       "vertical",
       "vertical-line",
-      "vertical-text"
+      "vertical-number",
+      "vertical-text",
+      "vertical-with-number",
+      "vertical-wrapper"
     ],
     "ids": [
       "TableOfContents",

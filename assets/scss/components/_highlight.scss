@@ -24,6 +24,10 @@
 		margin-bottom: 0;
 	}
 
+	::-webkit-scrollbar {
+		display: none;
+	}
+
 	// Pre
 	// =========================================================================
 
@@ -40,6 +44,9 @@
 
 	code {
 		font-family: $font-code;
-		font-size: 1rem;
+		font-size: 0.95rem;
+		padding: 0;
+		border-radius: 0;
+		white-space: break-spaces;
 	}
 }

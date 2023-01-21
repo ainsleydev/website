@@ -5,17 +5,22 @@
 		- number:	A optional number associated with the text.
 		- line:
     ===================== -->
-<div class="vertical">
-	<!-- Text -->
-	<h2 class="vertical-text">
-		<!-- TODO: Need to make the number 50 pixels in font size and add mods for with number and without number -->
+<div class="vertical {{ with .number }} vertical-with-number {{- end }}">
+	<!-- Wrapper -->
+	<span class="vertical-wrapper">
+		<!-- Number -->
 		{{ with .number }}
-			<span class="type-serif">{{ . }}*</span>
+			<span class="vertical-number heading-2 type-serif">
+				{{ . | safeHTML }}*
+			</span>
 		{{- end }}
-		{{ with .text -}}
-			{{ . | safeHTML }}
-		{{- end }}
-	</h2>
+		<!-- Text -->
+        {{ with .text -}}
+			<span class="vertical-text heading-1">
+				{{ . | safeHTML }}
+			</span>
+        {{- end }}
+	</span><!-- /Wrapper -->
 	<!-- Line -->
 	{{ if .line -}}
 		<span class="vertical-line"></span>

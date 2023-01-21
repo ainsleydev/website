@@ -1,0 +1,17 @@
+// -----------------------------------------------------------------------------
+// _code.scss
+// This file contains all styles related to the code component.
+// -----------------------------------------------------------------------------
+
+code {
+	$self: &;
+
+	padding: 0.2em 0.4em;
+	font-family: $font-code;
+	color: colour("background");
+	margin: 0;
+	font-size: 0.8rem;
+	white-space: nowrap;
+	background-color: colour("foreground");
+	border-radius: 4px;
+}

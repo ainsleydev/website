@@ -19,9 +19,9 @@
     ==================== */
 :root {
   --colour-background: #0A0A0A;
-  --colour-foreground: #FFF;
+  --colour-foreground: #ffffff;
   --colour-black: #0A0A0A;
-  --colour-white: #FFF;
+  --colour-white: #ffffff;
   --colour-orange: #FF5043;
   --colour-blue: #70CBCE;
   --colour-copy: #0A0A0A;
@@ -340,10 +340,10 @@ body {
 body {
   background-color: #0A0A0A; }
   body.theme-white {
-    background-color: #FFF;
-    --colour-background: #FFF;
+    background-color: #ffffff;
+    --colour-background: #ffffff;
     --colour-foreground: #0A0A0A;
-    --color-mark: rgba(#FFF, 0.15)
+    --color-mark: rgba(#ffffff, 0.15)
 	; }
 
 .content-wrapper {
@@ -589,20 +589,20 @@ strong {
   text-transform: lowercase; }
 
 ::selection {
-  background: #FFF;
+  background: #ffffff;
   color: #0A0A0A; }
 
 ::-moz-selection {
-  background: #FFF;
+  background: #ffffff;
   color: #0A0A0A; }
 
 .theme-white ::selection {
   background: #0A0A0A;
-  color: #FFF; }
+  color: #ffffff; }
 
 .theme-white ::-moz-selection {
   background: #0A0A0A;
-  color: #FFF; }
+  color: #ffffff; }
 
 .text-wrapper,
 ul,
@@ -1976,10 +1976,10 @@ table {
     Util
     ==================== */
 .c-white {
-  color: #FFF !important; }
+  color: #ffffff !important; }
 
 .bg-white {
-  background-color: #FFF !important; }
+  background-color: #ffffff !important; }
 
 .c-black {
   color: #0A0A0A !important; }
@@ -2032,13 +2032,13 @@ table {
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: #FFF;
+    background-color: #ffffff;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 300ms ease-in-out;
     will-change: transform; }
   .hover-line-white:before {
-    background-color: #FFF; }
+    background-color: #ffffff; }
   .hover-line-black:before {
     background-color: #0A0A0A; }
   .hover-line:hover:before {
@@ -2466,7 +2466,7 @@ table {
   .btn:hover {
     color: inherit; }
   .btn-colour-white {
-    background-color: #FFF;
+    background-color: #ffffff;
     color: #0A0A0A; }
     .btn-colour-white svg path {
       stroke: #0A0A0A;
@@ -2475,20 +2475,20 @@ table {
       color: #0A0A0A; }
     .btn-colour-white:active, .btn-colour-white.btn-active {
       background-color: #0A0A0A;
-      color: #FFF; }
+      color: #ffffff; }
       .btn-colour-white:active svg path, .btn-colour-white.btn-active svg path {
-        stroke: #FFF;
-        fill: #FFF; }
+        stroke: #ffffff;
+        fill: #ffffff; }
   .btn-colour-black {
     background-color: #0A0A0A;
-    color: #FFF; }
+    color: #ffffff; }
     .btn-colour-black svg path {
-      stroke: #FFF;
-      fill: #FFF; }
+      stroke: #ffffff;
+      fill: #ffffff; }
     .btn-colour-black:hover {
-      color: #FFF; }
+      color: #ffffff; }
     .btn-colour-black:active, .btn-colour-black.btn-active {
-      background-color: #FFF;
+      background-color: #ffffff;
       color: #0A0A0A; }
       .btn-colour-black:active svg path, .btn-colour-black.btn-active svg path {
         stroke: #0A0A0A;
@@ -2544,7 +2544,7 @@ table {
       left: 50%;
       margin-left: -9px;
       margin-top: -9px;
-      background: #FFF; }
+      background: #ffffff; }
 
 @keyframes spinner {
   0% {
@@ -2571,6 +2571,16 @@ table {
       margin-top: 30%; }
     .card-half-margin {
       margin-bottom: 0; } }
+code {
+  padding: 0.2em 0.4em;
+  font-family: "JetBrains Mono", Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  color: var(--colour-background);
+  margin: 0;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  background-color: var(--colour-foreground);
+  border-radius: 4px; }
+
 .gradient {
   position: relative; }
   .gradient:after {
@@ -2616,6 +2626,8 @@ table {
     color: #0A0A0A; }
   .highlight:last-of-type {
     margin-bottom: 0; }
+  .highlight ::-webkit-scrollbar {
+    display: none; }
   .highlight pre {
     margin: 0;
     padding-top: 10px;
@@ -2624,7 +2636,10 @@ table {
     overflow-x: scroll; }
   .highlight code {
     font-family: "JetBrains Mono", Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-    font-size: 1rem; }
+    font-size: 0.95rem;
+    padding: 0;
+    border-radius: 0;
+    white-space: break-spaces; }
 
 .image {
   position: relative;
@@ -2745,6 +2760,43 @@ blockquote {
       margin-right: 2rem; }
       .social-link:hover .social-icon path {
         fill: var(--link-hover-colour); } }
+table {
+  position: relative;
+  display: block;
+  max-width: fit-content;
+  overflow-x: auto;
+  white-space: nowrap;
+  border-spacing: 0;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  margin-bottom: 1.2rem; }
+  @media (min-width: 568px) {
+    table {
+      margin-bottom: 1.2rem; } }
+  @media (min-width: 768px) {
+    table {
+      margin-bottom: 1.4rem; } }
+  @media (min-width: 1024px) {
+    table {
+      margin-bottom: 1.6rem; } }
+  @media (min-width: 1408px) {
+    table {
+      margin-bottom: 1.8rem; } }
+  @media (min-width: 1600px) {
+    table {
+      margin-bottom: 2rem; } }
+  table th,
+  table td {
+    padding: 0.6rem 0.9rem;
+    color: var(--colour-foreground);
+    border: 1.6px solid #2b2b2b; }
+  table thead {
+    font-weight: bold; }
+  table tbody {
+    font-size: 1rem; }
+    table tbody tr:nth-child(2n) {
+      background-color: #171717; }
+
 .tag {
   position: relative; }
 
@@ -2764,10 +2816,13 @@ blockquote {
     height: 3px;
     width: 100px;
     margin-right: 10px;
-    background-color: #FFF; }
+    background-color: #ffffff; }
+  .vertical-number {
+    display: block; }
   @media (min-width: 768px) {
     .vertical {
       position: relative;
+      align-items: flex-start;
       flex-direction: row-reverse;
       margin-top: 1rem;
       writing-mode: vertical-rl;
@@ -2777,7 +2832,14 @@ blockquote {
         width: 5px;
         min-width: 5px;
         margin-top: 0;
-        margin-bottom: 2rem; }
+        margin-bottom: 2rem;
+        margin-right: 2rem; }
+      .vertical-number {
+        margin-left: 1.6rem; }
+      .vertical-with-number {
+        align-items: center; }
+        .vertical-with-number .vertical-line {
+          margin-right: 0; }
       .vertical-text {
         margin-bottom: 0; } }
 /* ====================
@@ -2789,7 +2851,7 @@ blockquote {
   right: 0;
   height: 100%;
   width: 60vw;
-  background-color: #FFF;
+  background-color: #ffffff;
   display: block;
   margin: 0;
   padding: 2rem;
@@ -2827,7 +2889,7 @@ blockquote {
         .aside-link:hover * {
           color: var(--link-hover-colour); }
       .aside-text {
-        color: #FFF; } }
+        color: #ffffff; } }
 .footer {
   position: relative;
   display: block;
@@ -2871,7 +2933,7 @@ blockquote {
         white-space: nowrap; }
         .footer-sub-nav-link:after {
           content: "|";
-          color: #FFF;
+          color: #ffffff;
           margin: 0 6px; }
   .footer-contact {
     display: flex;
@@ -3093,7 +3155,7 @@ blockquote {
     justify-content: flex-end;
     padding-top: 30px;
     padding-bottom: 30px;
-    background-color: #FFF;
+    background-color: #ffffff;
     z-index: 1; }
     .nav-sub .nav-list {
       display: flex;
@@ -3351,14 +3413,14 @@ blockquote {
   pointer-events: none;
   transform: translate(-50%, -50%);
   transition: transform 300ms ease, background 300ms ease, border-color 300ms ease;
-  border: 1px solid #FFF; }
+  border: 1px solid #ffffff; }
   .cursor-invert {
     mix-blend-mode: difference;
     cursor: none; }
     .cursor-invert-black {
-      background: #FFF; }
+      background: #ffffff; }
     .cursor-invert-white {
-      background: #FFF; }
+      background: #ffffff; }
   @media (hover: hover) {
     .cursor {
       display: block; } }
