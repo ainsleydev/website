@@ -6,7 +6,7 @@
  * @author Email: info@ainsleyclark.com
  */
 
-import scripts from "./scripts/polyfills";
+// import scripts from "./scripts/polyfills";
 import LazyLoad from 'vanilla-lazyload';
 import { Cursor } from "./animations/cursor";
 import { Skew } from "./animations/skew";
