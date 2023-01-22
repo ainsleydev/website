@@ -350,35 +350,16 @@
   var init_log = __esm({
     "ns-hugo:/Users/ainsley.clark/Desktop/ainsley.dev/assets/js/util/log.ts"() {
       Log = class {
-        /**
-         * Log a console error with a prefix.
-         *
-         * @param message
-         */
         static error(message) {
           console.error(`${this.prefix} Error: ${message}`);
         }
-        /**
-         * Log a console warning with a prefix.
-         *
-         * @param message
-         */
         static warn(message) {
           console.error(`${this.prefix} Warning: ${message}`);
         }
-        /**
-         * Log a console info message with a prefix.
-         *
-         * @param message
-         */
         static info(message) {
           console.error(`${this.prefix} Info: ${message}`);
         }
       };
-      /**
-       * Prefix is teh string prefixed before the
-       * Log message.
-       */
       __publicField(Log, "prefix", "ainsley.dev");
     }
   });
@@ -393,29 +374,9 @@
     "ns-hugo:/Users/ainsley.clark/Desktop/ainsley.dev/assets/js/animations/cursor.ts"() {
       init_log();
       Cursor = class {
-        /**
-         * The DOM selector for the element.
-         *
-         * @public
-         */
         selector = ".cursor";
-        /**
-         * The DOM selector for the cursor.
-         *
-         * @public
-         */
         elementSelector = ".cursor-element";
-        /**
-         * The cursor HTML element.
-         *
-         * @private
-         */
         el;
-        /**
-         * Initialises the cursor element.
-         *
-         * @constructor
-         */
         constructor() {
           const el = document.querySelector(this.selector);
           if (!el) {
@@ -426,24 +387,12 @@
           this.attachMouseMove();
           document.querySelectorAll(this.elementSelector).forEach((el2) => this.attachElementHandlers(el2));
         }
-        /**
-         * Attaches the mouse move to the cursor so the
-         * element is moved alongside the mouse.
-         *
-         * @private
-         */
         attachMouseMove() {
           document.addEventListener("mousemove", (e) => {
             this.el.style.left = e.clientX + "px";
             this.el.style.top = e.clientY + "px";
           });
         }
-        /**
-         * Attaches the elements to be animated.
-         *
-         * @param el
-         * @private
-         */
         attachElementHandlers(el) {
           const classes = el.getAttributeNames().filter((a) => a.startsWith("data-cursor"));
           el.addEventListener("mousemove", () => classes.forEach((c) => {
@@ -457,23 +406,10 @@
             this.el.classList.remove(c.replace("data-", ""));
           }));
         }
-        /**
-         * Transforms the cursor to be bigger when the element
-         * is hovered according to the data attribute set.
-         *
-         * @param el
-         * @private
-         */
         addScale(el) {
           let scale = el.getAttribute("data-cursor-scale") ?? "1.5";
           this.el.style.transform = `translate(-50%, -50%) scale(${scale})`;
         }
-        /**
-         * Removes the scale when the mouse is out.
-         *
-         * @param el
-         * @private
-         */
         removeScale(el) {
           this.el.style.transform = `translate(-50%, -50%)`;
         }
@@ -491,18 +427,7 @@
     "ns-hugo:/Users/ainsley.clark/Desktop/ainsley.dev/assets/js/animations/skew.ts"() {
       init_log();
       Skew = class {
-        /**
-         * The DOM selector for the elements to skew.
-         *
-         * @readonly
-         */
         selector = ".skew";
-        /**
-         * The default options for skewing elements,
-         * when properties are not defined.
-         *
-         * @readonly
-         */
         defaultOptions = {
           transform: {
             x: 0.1,
@@ -514,20 +439,9 @@
           },
           shouldRotate: true
         };
-        /**
-         * Initialises the elements marked as Skewed.
-         *
-         * @constructor
-         */
         constructor() {
           this.attachHandlers();
         }
-        /**
-         * Attaches the event handlers for all button elements
-         * on the DOM.
-         *
-         * @private
-         */
         attachHandlers() {
           document.querySelectorAll(this.selector).forEach((el) => {
             const cfg = this.getOptions(el);
@@ -535,14 +449,6 @@
             this.mouseOut(el);
           });
         }
-        /**
-         * Attaches the mouse move event which transforms and skews
-         * the element based of the configuration.
-         *
-         * @param el
-         * @param config
-         * @private
-         */
         mouseMove(el, config) {
           el.addEventListener("mousemove", (e) => {
             const pos = this.getPos(el, e);
@@ -552,26 +458,12 @@
             }
           });
         }
-        /**
-         * Removes the mouse move event and clears selectors.
-         *
-         * @param el
-         * @private
-         */
         mouseOut(el) {
           el.addEventListener("mouseleave", () => {
             el.style.transform = "translate3d(0, 0, 0)";
             el.style.transform += "rotate3d(0, 0, 0, 0deg)";
           });
         }
-        /**
-         * Obtains the position of the cursor in relation to
-         * the element.
-         *
-         * @param el
-         * @param event
-         * @private
-         */
         getPos(el, event) {
           const pos = el.getBoundingClientRect();
           return {
@@ -579,13 +471,6 @@
             y: event.clientY - pos.top - pos.height / 2
           };
         }
-        /**
-         * Obtains the skew options by merging data
-         * attributes with the default config.
-         *
-         * @param el
-         * @private
-         */
         getOptions(el) {
           return {
             shouldRotate: el.hasAttribute("data-skew-rotate"),
@@ -599,14 +484,6 @@
             }
           };
         }
-        /**
-         * Obtains an HTML attribute as a number, or null if it's
-         * not defined.
-         *
-         * @param el
-         * @param attr
-         * @private
-         */
         getAttribute(el, attr) {
           const contents = el.getAttribute(attr);
           if (!contents) {
@@ -633,41 +510,17 @@
     "ns-hugo:/Users/ainsley.clark/Desktop/ainsley.dev/assets/js/components/fit-text.ts"() {
       init_log();
       FitText = class {
-        /**
-         * The DOM selector for the elements.
-         *
-         * @readonly
-         */
         selector = ".fit-text";
-        /**
-         * The default configuration for fitting elements,
-         * when properties are not defined.
-         *
-         * @readonly
-         */
         defaultOptions = {
           compressor: 1,
           minFontSize: -1 / 0,
           maxFontSize: 1 / 0
         };
-        /**
-         * Initialises the elements marked as FitText.
-         *
-         * @constructor
-         */
         constructor() {
           document.querySelectorAll(".fit-text").forEach((el) => {
             this.change(el, this.getOptions(el));
           });
         }
-        /**
-         * Change resizes the HTMLElement to be 100% of the
-         * parent container.
-         *
-         * @param el
-         * @param options
-         * @private
-         */
         change(el, options) {
           const resizer = () => {
             const fontSize = Math.max(Math.min(el.clientWidth / (options.compressor * 10), options.maxFontSize), options.minFontSize) + "px";
@@ -678,13 +531,6 @@
           window.addEventListener("resize", resizer, false);
           window.addEventListener("orientationchange", resizer, false);
         }
-        /**
-         * Obtains the fit text options by merging data
-         * attributes with the default config.
-         *
-         * @private
-         * @param el
-         */
         getOptions(el) {
           return {
             compressor: this.getAttribute(el, "data-fit-text-compressor") ?? this.defaultOptions.compressor,
@@ -692,14 +538,6 @@
             maxFontSize: this.getAttribute(el, "data-fit-text-max-font-size") ?? this.defaultOptions.maxFontSize
           };
         }
-        /**
-         * Obtains an HTML attribute as a number, or null if it's
-         * not defined.
-         *
-         * @param el
-         * @param attr
-         * @private
-         */
         getAttribute(el, attr) {
           const contents = el.getAttribute(attr);
           if (!contents) {
@@ -808,6 +646,5 @@
   });
   var lazyLoadInstance = new _vanillaLazyload["default"]({
     elements_selector: ".lazy"
-    // ... more custom settings?
   });
 })();

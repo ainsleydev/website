@@ -1,62 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Works on ainsley.dev</title>
-    <link>http://localhost:1313/work/</link>
-    <description>Recent content in Works on ainsley.dev</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-gb</language>
-    <copyright>ainsley.dev LTD is a registered company in England and Wales. Company Number 12478393. ©2022 ainsley.dev LTD. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 02 Jan 2022 10:48:28 +0100</lastBuildDate><atom:link href="http://localhost:1313/work/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Launching Dec’s Pets into the E-Commerce market</title>
-      <link>http://localhost:1313/work/decspets/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/work/decspets/</guid>
-      <description>Client Dec&amp;rsquo;s Pets is an online e-commerce marketplace which started operating in 2018. They are a family run business specialising in pet retail, catering for all manners of pet care. They provide a large variety of services to their main clientele, based in Ireland, but wanted to reach a wider audience.
-Brief ainsley.dev was tasked to modernise the website using a fun and family friendly design, and to make the site more user-friendly for buying products with ease.</description>
-    </item>
-    
-    <item>
-      <title>Doing something blah blah</title>
-      <link>http://localhost:1313/work/royal-beauty/</link>
-      <pubDate>Sun, 02 Jan 2022 10:48:28 +0100</pubDate>
-      
-      <guid>http://localhost:1313/work/royal-beauty/</guid>
-      <description>Client Katherine at Royal Beauty specialises in a wide selection of massages and beauty treatments, helping clients to de-stress and unwind. They pride themselves on creating a warm and friendly atmosphere, where clients can let go of their stress, enjoy a relaxing massage experience and leave feeling refreshed and revitalised.
-Link https://katherinebodycare.co.uk Strategy Website branding Landing page UI/UX Technologies Flat HTML, CSS &amp;amp; JS Contact form (PHP) AOS Brief With no existing website, Katherine at Royal Beauty obtained all of their traffic via Treatwell .</description>
-    </item>
-    
-    <item>
-      <title>Doing something blah blah</title>
-      <link>http://localhost:1313/work/scotts-guttering/</link>
-      <pubDate>Sun, 02 Jan 2022 10:48:28 +0100</pubDate>
-      
-      <guid>http://localhost:1313/work/scotts-guttering/</guid>
-      <description>Client Established in 2019, Scott&amp;rsquo;s Guttering specialises in gutter clearance and repairing leaking or broken gutters in the South East, across 2 &amp;amp; 3 storey residential and commercial properties. They also provide fascia, sofitt and conservatory washes, and bird pest control solutions.
-Link https://scottsguttering.co.uk Strategy Website branding Landing page UI/UX Technologies Flat HTML, CSS &amp;amp; JS Contact form (PHP) AOS Brief Scott&amp;rsquo;s Guttering wanted to bring a fresh, high-quality approach to the new website and attract as many potential customers as possible.</description>
-    </item>
-    
-    <item>
-      <title>Driving more than 92% traffic to Oak Tuition</title>
-      <link>http://localhost:1313/work/oaktuition/</link>
-      <pubDate>Sun, 02 Jan 2022 10:48:28 +0100</pubDate>
-      
-      <guid>http://localhost:1313/work/oaktuition/</guid>
-      <description>Client Oak Tuition is a tutoring school established in 2017. Their tutors are highly qualified and have experience teaching in local schools. Their hands-on mixed method tutoring and knowledge of the National Curriculum and exam board requirements enable students to make visible progress and gain confidence.
-Link https://oaktuition.ainsleyclark.xyz Strategy Full brand UI/UX Multi page site Technologies WordPress GSAP SVG masking Brief Oak Tuition&amp;rsquo;s previous website was a static build, created using GoDaddy.</description>
-    </item>
-    
-    <item>
-      <title>Making Thinkopedia stand out from the crowd</title>
-      <link>http://localhost:1313/work/thinkopedia/</link>
-      <pubDate>Sun, 02 Jan 2022 10:48:28 +0100</pubDate>
-      
-      <guid>http://localhost:1313/work/thinkopedia/</guid>
-      <description>Client Cody Dumbarton is a psychology graduate specialising in helping others enjoy their right to a healthy mind. Thinkopedia was created in 2019 as a non-profit organisation providing action-orientated guidance for those struggling with their mental health and to empower people as they begin to re-write their story.
-Link https://thinkopedia.ainsleyclark.xyz Strategy Full brand UI/UX Multi page site Technologies Laravel barba.js Locomotive Scroll Custom Medium client Brief Thinkopedia wanted a minimalist, easy to use and interactive blogging platform.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Works on ainsley.dev</title><link>https://staging.ainsley.dev/work/</link><description>Recent content in Works on ainsley.dev</description><generator>Hugo -- gohugo.io</generator><language>en-gb</language><copyright>ainsley.dev LTD is a registered company in England and Wales. Company Number 12478393. ©2022 ainsley.dev LTD. All rights reserved.</copyright><lastBuildDate>Sun, 02 Jan 2022 10:48:28 +0100</lastBuildDate><atom:link href="https://staging.ainsley.dev/work/index.xml" rel="self" type="application/rss+xml"/><item><title>Launching Dec’s Pets into the E-Commerce market</title><link>https://staging.ainsley.dev/work/decspets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://staging.ainsley.dev/work/decspets/</guid><description>Client Dec&amp;rsquo;s Pets is an online e-commerce marketplace which started operating in 2018. They are a family run business specialising in pet retail, catering for all manners of pet care. They provide a large variety of services to their main clientele, based in Ireland, but wanted to reach a wider audience.
+Brief ainsley.dev was tasked to modernise the website using a fun and family friendly design, and to make the site more user-friendly for buying products with ease.</description></item><item><title>Doing something blah blah</title><link>https://staging.ainsley.dev/work/royal-beauty/</link><pubDate>Sun, 02 Jan 2022 10:48:28 +0100</pubDate><guid>https://staging.ainsley.dev/work/royal-beauty/</guid><description>Client Katherine at Royal Beauty specialises in a wide selection of massages and beauty treatments, helping clients to de-stress and unwind. They pride themselves on creating a warm and friendly atmosphere, where clients can let go of their stress, enjoy a relaxing massage experience and leave feeling refreshed and revitalised.
+Link https://katherinebodycare.co.uk Strategy Website branding Landing page UI/UX Technologies Flat HTML, CSS &amp;amp; JS Contact form (PHP) AOS Brief With no existing website, Katherine at Royal Beauty obtained all of their traffic via Treatwell .</description></item><item><title>Doing something blah blah</title><link>https://staging.ainsley.dev/work/scotts-guttering/</link><pubDate>Sun, 02 Jan 2022 10:48:28 +0100</pubDate><guid>https://staging.ainsley.dev/work/scotts-guttering/</guid><description>Client Established in 2019, Scott&amp;rsquo;s Guttering specialises in gutter clearance and repairing leaking or broken gutters in the South East, across 2 &amp;amp; 3 storey residential and commercial properties. They also provide fascia, sofitt and conservatory washes, and bird pest control solutions.
+Link https://scottsguttering.co.uk Strategy Website branding Landing page UI/UX Technologies Flat HTML, CSS &amp;amp; JS Contact form (PHP) AOS Brief Scott&amp;rsquo;s Guttering wanted to bring a fresh, high-quality approach to the new website and attract as many potential customers as possible.</description></item><item><title>Driving more than 92% traffic to Oak Tuition</title><link>https://staging.ainsley.dev/work/oaktuition/</link><pubDate>Sun, 02 Jan 2022 10:48:28 +0100</pubDate><guid>https://staging.ainsley.dev/work/oaktuition/</guid><description>Client Oak Tuition is a tutoring school established in 2017. Their tutors are highly qualified and have experience teaching in local schools. Their hands-on mixed method tutoring and knowledge of the National Curriculum and exam board requirements enable students to make visible progress and gain confidence.
+Link https://oaktuition.ainsleyclark.xyz Strategy Full brand UI/UX Multi page site Technologies WordPress GSAP SVG masking Brief Oak Tuition&amp;rsquo;s previous website was a static build, created using GoDaddy.</description></item><item><title>Making Thinkopedia stand out from the crowd</title><link>https://staging.ainsley.dev/work/thinkopedia/</link><pubDate>Sun, 02 Jan 2022 10:48:28 +0100</pubDate><guid>https://staging.ainsley.dev/work/thinkopedia/</guid><description>Client Cody Dumbarton is a psychology graduate specialising in helping others enjoy their right to a healthy mind. Thinkopedia was created in 2019 as a non-profit organisation providing action-orientated guidance for those struggling with their mental health and to empower people as they begin to re-write their story.
+Link https://thinkopedia.ainsleyclark.xyz Strategy Full brand UI/UX Multi page site Technologies Laravel barba.js Locomotive Scroll Custom Medium client Brief Thinkopedia wanted a minimalist, easy to use and interactive blogging platform.</description></item></channel></rss>
