@@ -1,8 +1,9 @@
 #!/bin/bash
-
+#
 # Shell script to convert images in the public folder
 # to WebP and optimise JPG's and PNG's.
-# Ainsley Clark, Reddico - 16/09/2021
+#
+# ainsley.dev - 16/09/2021
 
 # Set Variables
 PUBLIC_PATH="./public"
