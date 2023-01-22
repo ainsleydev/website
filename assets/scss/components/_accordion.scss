@@ -68,7 +68,7 @@
 	&-content {
 		display: block;
 		max-height: 0;
-		transition: 0.5s;
+		transition: $accordion-height-transition;
 		will-change: max-height;
 		overflow: hidden;
 

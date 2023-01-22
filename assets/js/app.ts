@@ -11,7 +11,7 @@ import LazyLoad from 'vanilla-lazyload';
 import { Cursor } from "./animations/cursor";
 import { Skew } from "./animations/skew";
 import { FitText } from "./components/fit-text";
-import {}  from "./components/accordion";
+import { Collapse }  from "./components/accordion";
 
 /**
  * Variables
@@ -43,3 +43,5 @@ let lazyLoadInstance = new LazyLoad({
 	elements_selector: '.lazy'
 	// ... more custom settings?
 });
+
+new Collapse();
