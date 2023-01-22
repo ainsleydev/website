@@ -12,7 +12,7 @@
 {{- else -}}
 	<button
 {{- end }}
-		class="btn btn-colour-{{ with .colour -}} {{ . }} {{- end }}
+		class="btn {{ with .colour -}} btn-colour-{{ . }} {{- end }}
 		{{ if .arrow -}} btn-arrow {{- end}} skew cursor-element"
 		{{ .attr  | safeHTMLAttr }}
 		data-cursor-invert data-cursor-invert-black

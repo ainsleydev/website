@@ -2125,6 +2125,14 @@ strong {
   text-decoration: none;
   transition: transform 100ms linear, color 100ms linear, background 100ms linear;
   will-change: transform, color, background; }
+  .btn:active {
+    background-color: #0A0A0A;
+    color: #ffffff; }
+    .btn:active-text {
+      color: #ffffff; }
+    .btn:active svg path {
+      stroke: #ffffff;
+      fill: #ffffff; }
   .btn-wrapper {
     position: relative;
     display: inline-flex;
@@ -2136,8 +2144,6 @@ strong {
     font-size: 1rem;
     font-weight: bold;
     line-height: 1; }
-  .btn:hover {
-    color: inherit; }
   .btn-colour-white {
     background-color: #ffffff;
     color: #0A0A0A; }
