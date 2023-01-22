@@ -29,177 +29,6 @@
     return value;
   };
 
-  // ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/assets/js/util/els.ts
-  var Elements;
-  var init_els = __esm({
-    "ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/assets/js/util/els.ts"() {
-      Elements = class {
-        static _initialize() {
-          this.Header = document.querySelector(".header");
-          this.Nav = document.querySelector(".nav");
-        }
-      };
-      __publicField(Elements, "Header");
-      __publicField(Elements, "Nav");
-      Elements._initialize();
-    }
-  });
-
-  // ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/assets/js/util/log.ts
-  var Log;
-  var init_log = __esm({
-    "ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/assets/js/util/log.ts"() {
-      Log = class {
-        static error(message) {
-          console.error(`${this.prefix} Error: ${message}`);
-        }
-        static warn(message) {
-          console.error(`${this.prefix} Warning: ${message}`);
-        }
-        static info(message) {
-          console.error(`${this.prefix} Info: ${message}`);
-        }
-      };
-      __publicField(Log, "prefix", "ainsley.dev");
-    }
-  });
-
-  // ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/assets/js/components/nav.ts
-  var nav_exports = {};
-  __export(nav_exports, {
-    default: () => nav_default
-  });
-  var Navigation, Nav, nav_default;
-  var init_nav = __esm({
-    "ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/assets/js/components/nav.ts"() {
-      init_els();
-      init_log();
-      Navigation = class {
-        checkbox;
-        constructor() {
-          this.checkbox = document.querySelector(".nav .nav-checkbox");
-          this.pictureHover();
-        }
-        navClick() {
-          const links = Elements.Nav.querySelectorAll(".nav-list a");
-          links.forEach((link) => {
-            link.addEventListener("click", () => {
-            });
-          });
-        }
-        pictureHover() {
-          const links = Elements.Nav.querySelectorAll("[data-nav-image]");
-          links.forEach((link) => {
-            link.addEventListener("mouseover", () => {
-              const selector = link.getAttribute("data-nav-image");
-              if (!selector) {
-                Log.warn("Nav - No data-nav-image attribute found for link: " + link);
-                return;
-              }
-              const image = document.querySelector(selector.toString());
-              if (!image) {
-                Log.warn("Nav - No image found with the attribute: " + selector.toString());
-                return;
-              }
-              image.classList.add("nav-images-item-active");
-            });
-            link.addEventListener("mouseout", () => {
-              document.querySelectorAll(".nav-images-item-active").forEach((image) => {
-                image.classList.remove("nav-images-item-active");
-              });
-            });
-          });
-        }
-      };
-      Nav = new Navigation();
-      nav_default = Nav;
-    }
-  });
-
-  // ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/assets/js/animations/skew.ts
-  var skew_exports = {};
-  __export(skew_exports, {
-    default: () => skew_default
-  });
-  var Skew, skew_default;
-  var init_skew = __esm({
-    "ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/assets/js/animations/skew.ts"() {
-      init_log();
-      Skew = class {
-        selector = ".skew";
-        defaultConfig = {
-          transform: {
-            x: 0.1,
-            y: 0.1
-          },
-          rotate: {
-            x: 0.1,
-            y: -0.1
-          },
-          shouldRotate: true
-        };
-        constructor() {
-          this.attachHandlers();
-        }
-        attachHandlers() {
-          document.querySelectorAll(this.selector).forEach((el) => {
-            const cfg = this.getConfig(el);
-            this.mouseMove(el, cfg);
-            this.mouseOut(el);
-          });
-        }
-        mouseMove(el, config) {
-          el.addEventListener("mousemove", (e) => {
-            const pos = this.getPos(el, e);
-            el.style.transform = "translate(" + pos.x * config.transform.x + "px, " + pos.y * 0.3 + "px)";
-            if (config.shouldRotate && config.rotate) {
-              el.style.transform += "rotate3d(" + pos.x * config.rotate.x + ", " + pos.y * config.rotate.y + ", 0, 12deg)";
-            }
-          });
-        }
-        mouseOut(el) {
-          el.addEventListener("mouseleave", () => {
-            el.style.transform = "translate3d(0, 0, 0)";
-            el.style.transform += "rotate3d(0, 0, 0, 0deg)";
-          });
-        }
-        getPos(el, event) {
-          const pos = el.getBoundingClientRect();
-          return {
-            x: event.clientX - pos.left - pos.width / 2,
-            y: event.clientY - pos.top - pos.height / 2
-          };
-        }
-        getConfig(el) {
-          return {
-            shouldRotate: el.hasAttribute("data-skew-rotate"),
-            transform: {
-              x: this.getAttribute(el, "data-skew-transform-x") ?? this.defaultConfig.transform.x,
-              y: this.getAttribute(el, "data-skew-transform-y") ?? this.defaultConfig.transform.y
-            },
-            rotate: {
-              x: this.getAttribute(el, "data-skew-rotate-x") ?? this.defaultConfig.transform.x,
-              y: this.getAttribute(el, "data-skew-rotate-y") ?? this.defaultConfig.transform.y
-            }
-          };
-        }
-        getAttribute(el, attr) {
-          const contents = el.getAttribute(attr);
-          if (!contents) {
-            return null;
-          }
-          const num = Number(contents);
-          if (isNaN(num)) {
-            Log.error("Attribute is NaN: " + attr);
-            return null;
-          }
-          return num;
-        }
-      };
-      skew_default = new Skew();
-    }
-  });
-
   // node_modules/vanilla-lazyload/dist/lazyload.min.js
   var require_lazyload_min = __commonJS({
     "node_modules/vanilla-lazyload/dist/lazyload.min.js"(exports, module) {
@@ -516,27 +345,77 @@
     }
   });
 
-  // ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/assets/js/animations/cursor.ts
+  // ns-hugo:/Users/ainsley.clark/Desktop/ainsley.dev/assets/js/util/log.ts
+  var Log;
+  var init_log = __esm({
+    "ns-hugo:/Users/ainsley.clark/Desktop/ainsley.dev/assets/js/util/log.ts"() {
+      Log = class {
+        /**
+         * Log a console error with a prefix.
+         *
+         * @param message
+         */
+        static error(message) {
+          console.error(`${this.prefix} Error: ${message}`);
+        }
+        /**
+         * Log a console warning with a prefix.
+         *
+         * @param message
+         */
+        static warn(message) {
+          console.error(`${this.prefix} Warning: ${message}`);
+        }
+        /**
+         * Log a console info message with a prefix.
+         *
+         * @param message
+         */
+        static info(message) {
+          console.error(`${this.prefix} Info: ${message}`);
+        }
+      };
+      /**
+       * Prefix is teh string prefixed before the
+       * Log message.
+       */
+      __publicField(Log, "prefix", "ainsley.dev");
+    }
+  });
+
+  // ns-hugo:/Users/ainsley.clark/Desktop/ainsley.dev/assets/js/animations/cursor.ts
   var cursor_exports = {};
   __export(cursor_exports, {
-    Cursor: () => Cursor,
-    CursorClasses: () => CursorClasses,
-    default: () => cursor_default
+    Cursor: () => Cursor
   });
-  var CursorClasses, Cursor, cursor_default;
+  var Cursor;
   var init_cursor = __esm({
-    "ns-hugo:/Users/ainsley/Desktop/ainsley.dev/website/assets/js/animations/cursor.ts"() {
+    "ns-hugo:/Users/ainsley.clark/Desktop/ainsley.dev/assets/js/animations/cursor.ts"() {
       init_log();
-      CursorClasses = /* @__PURE__ */ ((CursorClasses2) => {
-        CursorClasses2["Invert"] = "cursor-invert";
-        CursorClasses2["InvertBlack"] = "cursor-invert-black";
-        CursorClasses2["InvertWhite"] = "cursor-invert-white";
-        return CursorClasses2;
-      })(CursorClasses || {});
       Cursor = class {
+        /**
+         * The DOM selector for the element.
+         *
+         * @public
+         */
         selector = ".cursor";
+        /**
+         * The DOM selector for the cursor.
+         *
+         * @public
+         */
         elementSelector = ".cursor-element";
+        /**
+         * The cursor HTML element.
+         *
+         * @private
+         */
         el;
+        /**
+         * Initialises the cursor element.
+         *
+         * @constructor
+         */
         constructor() {
           const el = document.querySelector(this.selector);
           if (!el) {
@@ -547,12 +426,24 @@
           this.attachMouseMove();
           document.querySelectorAll(this.elementSelector).forEach((el2) => this.attachElementHandlers(el2));
         }
+        /**
+         * Attaches the mouse move to the cursor so the
+         * element is moved alongside the mouse.
+         *
+         * @private
+         */
         attachMouseMove() {
           document.addEventListener("mousemove", (e) => {
             this.el.style.left = e.clientX + "px";
             this.el.style.top = e.clientY + "px";
           });
         }
+        /**
+         * Attaches the elements to be animated.
+         *
+         * @param el
+         * @private
+         */
         attachElementHandlers(el) {
           const classes = el.getAttributeNames().filter((a) => a.startsWith("data-cursor"));
           el.addEventListener("mousemove", () => classes.forEach((c) => {
@@ -566,39 +457,357 @@
             this.el.classList.remove(c.replace("data-", ""));
           }));
         }
-        addClass(...selectors) {
-          this.el.classList.add("cursor-active");
-          selectors.forEach((sel) => this.el.classList.add(sel));
-        }
-        removeClass(...selectors) {
-          this.el.classList.remove("cursor-active");
-          selectors.forEach((sel) => this.el.classList.remove(sel));
-        }
+        /**
+         * Transforms the cursor to be bigger when the element
+         * is hovered according to the data attribute set.
+         *
+         * @param el
+         * @private
+         */
         addScale(el) {
           let scale = el.getAttribute("data-cursor-scale") ?? "1.5";
           this.el.style.transform = `translate(-50%, -50%) scale(${scale})`;
         }
+        /**
+         * Removes the scale when the mouse is out.
+         *
+         * @param el
+         * @private
+         */
         removeScale(el) {
           this.el.style.transform = `translate(-50%, -50%)`;
         }
       };
-      cursor_default = new Cursor();
+    }
+  });
+
+  // ns-hugo:/Users/ainsley.clark/Desktop/ainsley.dev/assets/js/animations/skew.ts
+  var skew_exports = {};
+  __export(skew_exports, {
+    Skew: () => Skew
+  });
+  var Skew;
+  var init_skew = __esm({
+    "ns-hugo:/Users/ainsley.clark/Desktop/ainsley.dev/assets/js/animations/skew.ts"() {
+      init_log();
+      Skew = class {
+        /**
+         * The DOM selector for the elements to skew.
+         *
+         * @readonly
+         */
+        selector = ".skew";
+        /**
+         * The default options for skewing elements,
+         * when properties are not defined.
+         *
+         * @readonly
+         */
+        defaultOptions = {
+          transform: {
+            x: 0.1,
+            y: 0.1
+          },
+          rotate: {
+            x: 0.1,
+            y: -0.1
+          },
+          shouldRotate: true
+        };
+        /**
+         * Initialises the elements marked as Skewed.
+         *
+         * @constructor
+         */
+        constructor() {
+          this.attachHandlers();
+        }
+        /**
+         * Attaches the event handlers for all button elements
+         * on the DOM.
+         *
+         * @private
+         */
+        attachHandlers() {
+          document.querySelectorAll(this.selector).forEach((el) => {
+            const cfg = this.getOptions(el);
+            this.mouseMove(el, cfg);
+            this.mouseOut(el);
+          });
+        }
+        /**
+         * Attaches the mouse move event which transforms and skews
+         * the element based of the configuration.
+         *
+         * @param el
+         * @param config
+         * @private
+         */
+        mouseMove(el, config) {
+          el.addEventListener("mousemove", (e) => {
+            const pos = this.getPos(el, e);
+            el.style.transform = "translate(" + pos.x * config.transform.x + "px, " + pos.y * 0.3 + "px)";
+            if (config.shouldRotate && config.rotate) {
+              el.style.transform += "rotate3d(" + pos.x * config.rotate.x + ", " + pos.y * config.rotate.y + ", 0, 12deg)";
+            }
+          });
+        }
+        /**
+         * Removes the mouse move event and clears selectors.
+         *
+         * @param el
+         * @private
+         */
+        mouseOut(el) {
+          el.addEventListener("mouseleave", () => {
+            el.style.transform = "translate3d(0, 0, 0)";
+            el.style.transform += "rotate3d(0, 0, 0, 0deg)";
+          });
+        }
+        /**
+         * Obtains the position of the cursor in relation to
+         * the element.
+         *
+         * @param el
+         * @param event
+         * @private
+         */
+        getPos(el, event) {
+          const pos = el.getBoundingClientRect();
+          return {
+            x: event.clientX - pos.left - pos.width / 2,
+            y: event.clientY - pos.top - pos.height / 2
+          };
+        }
+        /**
+         * Obtains the skew options by merging data
+         * attributes with the default config.
+         *
+         * @param el
+         * @private
+         */
+        getOptions(el) {
+          return {
+            shouldRotate: el.hasAttribute("data-skew-rotate"),
+            transform: {
+              x: this.getAttribute(el, "data-skew-transform-x") ?? this.defaultOptions.transform.x,
+              y: this.getAttribute(el, "data-skew-transform-y") ?? this.defaultOptions.transform.y
+            },
+            rotate: {
+              x: this.getAttribute(el, "data-skew-rotate-x") ?? this.defaultOptions.transform.x,
+              y: this.getAttribute(el, "data-skew-rotate-y") ?? this.defaultOptions.transform.y
+            }
+          };
+        }
+        /**
+         * Obtains an HTML attribute as a number, or null if it's
+         * not defined.
+         *
+         * @param el
+         * @param attr
+         * @private
+         */
+        getAttribute(el, attr) {
+          const contents = el.getAttribute(attr);
+          if (!contents) {
+            return null;
+          }
+          const num = Number(contents);
+          if (isNaN(num)) {
+            Log.error("Attribute is NaN: " + attr);
+            return null;
+          }
+          return num;
+        }
+      };
+    }
+  });
+
+  // ns-hugo:/Users/ainsley.clark/Desktop/ainsley.dev/assets/js/components/fit-text.ts
+  var fit_text_exports = {};
+  __export(fit_text_exports, {
+    FitText: () => FitText
+  });
+  var FitText;
+  var init_fit_text = __esm({
+    "ns-hugo:/Users/ainsley.clark/Desktop/ainsley.dev/assets/js/components/fit-text.ts"() {
+      init_log();
+      FitText = class {
+        /**
+         * The DOM selector for the elements.
+         *
+         * @readonly
+         */
+        selector = ".fit-text";
+        /**
+         * The default configuration for fitting elements,
+         * when properties are not defined.
+         *
+         * @readonly
+         */
+        defaultOptions = {
+          compressor: 1,
+          minFontSize: -1 / 0,
+          maxFontSize: 1 / 0
+        };
+        /**
+         * Initialises the elements marked as FitText.
+         *
+         * @constructor
+         */
+        constructor() {
+          document.querySelectorAll(".fit-text").forEach((el) => {
+            this.change(el, this.getOptions(el));
+          });
+        }
+        /**
+         * Change resizes the HTMLElement to be 100% of the
+         * parent container.
+         *
+         * @param el
+         * @param options
+         * @private
+         */
+        change(el, options) {
+          const resizer = () => {
+            const fontSize = Math.max(Math.min(el.clientWidth / (options.compressor * 10), options.maxFontSize), options.minFontSize) + "px";
+            ;
+            el.style.fontSize = fontSize;
+          };
+          resizer();
+          window.addEventListener("resize", resizer, false);
+          window.addEventListener("orientationchange", resizer, false);
+        }
+        /**
+         * Obtains the fit text options by merging data
+         * attributes with the default config.
+         *
+         * @private
+         * @param el
+         */
+        getOptions(el) {
+          return {
+            compressor: this.getAttribute(el, "data-fit-text-compressor") ?? this.defaultOptions.compressor,
+            minFontSize: this.getAttribute(el, "data-fit-text-min-font-size") ?? this.defaultOptions.minFontSize,
+            maxFontSize: this.getAttribute(el, "data-fit-text-max-font-size") ?? this.defaultOptions.maxFontSize
+          };
+        }
+        /**
+         * Obtains an HTML attribute as a number, or null if it's
+         * not defined.
+         *
+         * @param el
+         * @param attr
+         * @private
+         */
+        getAttribute(el, attr) {
+          const contents = el.getAttribute(attr);
+          if (!contents) {
+            return null;
+          }
+          const num = Number(contents);
+          if (isNaN(num)) {
+            Log.error("Attribute is NaN: " + attr);
+            return null;
+          }
+          return num;
+        }
+      };
+    }
+  });
+
+  // ns-hugo:/Users/ainsley.clark/Desktop/ainsley.dev/assets/js/components/accordion.js
+  var accordion_exports = {};
+  __export(accordion_exports, {
+    Accordion: () => Accordion
+  });
+  function Accordion(options) {
+    let defaultOpt = {
+      parent: document.body,
+      accordion: false,
+      outer: ".accordion-item",
+      header: ".accordion-title",
+      inner: ".accordion-content"
+    };
+    this.options = Object.assign(defaultOpt, options);
+    this.elements = {};
+    this.options.parent._collapse = this;
+    this.init();
+  }
+  var init_accordion = __esm({
+    "ns-hugo:/Users/ainsley.clark/Desktop/ainsley.dev/assets/js/components/accordion.js"() {
+      Accordion.prototype.init = function() {
+        let opt = this.options, ele = this.elements, self2 = this;
+        let collapses = ele.collapses = opt.parent.querySelectorAll(opt.outer);
+        collapses.forEach(function(collapse) {
+          let headers = collapse.querySelectorAll(opt.header);
+          headers.forEach(function(header) {
+            header.addEventListener("click", (e) => {
+              e.preventDefault();
+              console.log("heyr");
+              if (opt.accordion) {
+                self2.accordion(headers, header);
+              } else {
+                self2.toggle(header.parentNode, false);
+              }
+            });
+          });
+        });
+      };
+      Accordion.prototype.accordion = function(header, current) {
+        let s = this;
+        header.forEach(function(el) {
+          s.toggle(el.parentNode, el !== current);
+        });
+      };
+      Accordion.prototype.toggle = function(item, closeForce) {
+        let height = 0;
+        let inner = item.querySelector(this.options.inner);
+        if (!item.classList.contains("active") && !closeForce) {
+          height = this.calcHeight(inner);
+          item.classList.add("active");
+        } else {
+          item.classList.remove("active");
+        }
+        console.log(height);
+        inner.style.maxHeight = height + "px";
+      };
+      Accordion.prototype.calcHeight = function(inner) {
+        let children = inner.children;
+        let height = 0;
+        for (let i = 0; i < children.length; i++) {
+          height += children[i].clientHeight;
+        }
+        return height;
+      };
+      for (const el of document.querySelectorAll(".accordion")) {
+        let accordion = new Accordion({
+          accordion: true,
+          parent: document.body.querySelector(".accordion")
+        });
+      }
     }
   });
 
   // <stdin>
-  init_nav();
-  init_skew();
   var _vanillaLazyload = _interopRequireDefault(require_lazyload_min());
-  init_cursor();
+  var _cursor = (init_cursor(), __toCommonJS(cursor_exports));
+  var _skew = (init_skew(), __toCommonJS(skew_exports));
+  var _fitText = (init_fit_text(), __toCommonJS(fit_text_exports));
+  init_accordion();
   function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { "default": obj };
   }
   var html = document.querySelector("html");
-  var header = document.querySelector(".header");
-  var nav = document.querySelector(".nav");
-  var hamburger = document.querySelector(".hamburger");
+  html.classList.remove("no-js");
+  html.classList.add("js");
+  document.addEventListener("DOMContentLoaded", function() {
+    new _cursor.Cursor();
+    new _skew.Skew();
+    new _fitText.FitText();
+  });
   var lazyLoadInstance = new _vanillaLazyload["default"]({
     elements_selector: ".lazy"
+    // ... more custom settings?
   });
 })();

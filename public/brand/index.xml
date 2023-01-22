@@ -13,8 +13,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/brand/logo/</guid>
-      <description>Logo This is the ainsley.dev logo. It is our primary graphic device and should be the first choice when choosing a graphic element to represent the ainsley.dev brand. Please do not edit, change, distort, recolour or reconfigure the logo.
-Colours Our logo should always be all black, all white, or white symbol with black word mark and vice versa. It never takes on any additional colours, and cannot be placed on top of any colour within the ainsley.</description>
+      <description>Logo This is the ainsley.dev logo. It is our primary graphic device and should be the first choice when choosing a graphic element to represent the ainsley.dev brand. Please do not edit, change, distort, recolour or reconfigure the logo. Colours Our logo should always be all black, all white, or white symbol with black word mark and vice versa. It never takes on any additional colours, and cannot be placed on top of any colour within the ainsley.</description>
     </item>
     
     <item>
@@ -23,9 +22,7 @@ Colours Our logo should always be all black, all white, or white symbol with bla
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/brand/a-symbol/</guid>
-      <description>The Ʌ symbol The Ʌ symbol can be used in a variety of ways to add movements and dynamism to a static presentation or document.
-Colours The symbol should either be in full colour (tangelo &amp;amp; topaz) or should be an opaque black and white version as shown below. The grey version can be used at 30% opacity or 100%.
-Orientation The symbol can be placed directly in line with the background, as shown above, or be used off-centre with the tail of the symbol being placed at the cut-off point.</description>
+      <description> The Ʌ symbol The Ʌ symbol can be used in a variety of ways to add movements and dynamism to a static presentation or document. Colours The symbol should either be in full colour (tangelo &amp; topaz) or should be an opaque black and white version as shown below. The grey version can be used at 30% opacity or 100%. Clearspace Appropriate spacing should be placed around the symbol. </description>
     </item>
     
     <item>
@@ -34,8 +31,7 @@ Orientation The symbol can be placed directly in line with the background, as sh
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/brand/colour/</guid>
-      <description> Colour Whilst the brand doesn’t feature many colours the combinations below are sure to create striking and minimal combinations.
-Primary Secondary &amp;amp; Text </description>
+      <description> Colour Whilst the brand doesn’t feature many colours the combinations below are sure to create striking and minimal combinations. Primary Secondary &amp; Text </description>
     </item>
     
     <item>
@@ -44,7 +40,7 @@ Primary Secondary &amp;amp; Text </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/brand/fonts/</guid>
-      <description> First Term : ![ainsley.dev Logo](logo-black.svg) Second Term : This is one definition of the second term. : This is another definition of the second term. Fonts The ainsley.dev brand has three typefaces. The primary serif font is Plus Jakarta Sans; wherever this is unavailable, the operating system font stack should be used. Plus Jakarta Sans
+      <description> Fonts The ainsley.dev brand has three typefaces. The primary serif font is Plus Jakarta Sans; wherever this is unavailable, the operating system font stack should be used. Plus Jakarta Sans
 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 1234567890(,.;:?!$&amp;*) Times New Roman
 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 1234567890(,.;:?!$&amp;*) Jetbrains Mono
 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 1234567890(,.;:?!$&amp;*) </description>
@@ -66,7 +62,9 @@ Heading 6 Modifications Link
 Link Italic
 I’m baby umami pickled narwhal
 Strikethrough
-I’m baby umami pickled narwhal Small I’m baby umami pickled narwhal Body Lead
+I’m baby umami pickled narwhal Small
+Small Code
+git status Body Lead
 I’m baby umami pickled narwhal woke food truck tilde gastropub polaroid forage.</description>
     </item>
     
@@ -76,7 +74,8 @@ I’m baby umami pickled narwhal woke food truck tilde gastropub polaroid forage
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/brand/iconography/</guid>
-      <description> </description>
+      <description>Iconography The icons used for the ainsley.dev brand are shown below. They include one arrow that can be used at different angles and social share handles. Arrow
+Social</description>
     </item>
     
     <item>
@@ -85,8 +84,7 @@ I’m baby umami pickled narwhal woke food truck tilde gastropub polaroid forage
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/brand/components/</guid>
-      <description> Components This selection of components makes up the ainsley.dev brand and are the building blocks of any material or site asset.
-{{ .File }}hhh </description>
+      <description>Components This selection of components makes up the ainsley.dev brand and are the building blocks of any material or site asset. Buttons Buttons should appear with an arrow next to them. If placed on a dark background, a white button should be used and visa versa. A button A button Tags Small tags are used for categorising content for blog posts and articles. As with buttons, they should be placed with the background colour in mind.</description>
     </item>
     
     <item>
@@ -95,7 +93,7 @@ I’m baby umami pickled narwhal woke food truck tilde gastropub polaroid forage
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/brand/media/</guid>
-      <description> </description>
+      <description> Media Images and videos should be simple with no box shadow, no border radius and be kept to the original aspect ratio where possible. Imagery Video </description>
     </item>
     
   </channel>
