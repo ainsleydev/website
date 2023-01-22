@@ -36,7 +36,7 @@ $container-padding-x: 5vw;
 
 $font: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $font-serif: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
-$font-code: "JetBrains Mono", Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+$font-code: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
 $font-path: "/fonts/";
 
 // Display
@@ -57,7 +57,9 @@ $copy-light-bg: #595959; // Iron
 $grey-dark: #0F0F0F; // Onyx
 $grey-light: #171717;
 $off-white: #F2F2F2; // White smoke
-$mark: rgba($white, 0.15);
+$alpha-standard: 0.15;
+$alpha-light: 0.10;
+$mark: rgba($white, $alpha-standard);
 
 // Color palette
 $palette: (
@@ -79,6 +81,7 @@ $color-attr: (
 // Sections
 // =========================================================================
 
+$section-padding-divider: 3;
 $section-padding: (
 	mob: 80px,
 	tab: 120px,
@@ -86,11 +89,13 @@ $section-padding: (
 	desk-large: 160px,
 	hd: 200px
 );
-$section-padding-divider: 3;
 
 // Spacing
 // ==========================================================================
 
+$margin: 1.8rem;
+$margin-small: 1rem;
+$margin-large: 3rem;
 $spacing-properties: (
 	0: 0,
 );
@@ -115,17 +120,8 @@ $nav-padding-desktop: 4rem 6rem;
 
 $text-fluid-start-size: 300px;
 $text-fluid-end-size: 1408px;
+$text-paragraph-size: 1.1rem;
 $text-lead-size: 1.2rem;
-$text-wrapper-small-diff: 0.5rem;
-$text-wrapper-large-diff: 1rem;
-$text-margin-properties: (
-	"": 1.2rem,
-	"-mob": 1.2rem,
-	"-tab": 1.4rem,
-	"-desk": 1.6rem,
-	"-desk-large": 1.8rem,
-	"-hd": 2rem,
-);
 
 // Button
 // ==========================================================================
@@ -139,6 +135,14 @@ $button-arrow-size: 20px;
 
 $highlight-bg-colour: lighten($white, 0.1);
 $highlight-padding: 10px;
+
+// Table
+// ==========================================================================
+
+$table-border-width: 1.6px;
+$table-border-colour: #2b2b2b;
+$table-padding: 0.6rem 0.9rem;
+
 
 // Root
 // ==========================================================================
@@ -154,15 +158,13 @@ $highlight-padding: 10px;
 	--colour-copy: #{$copy};
 	--colour-copy-dark: #{$copy-dark-bg};
 	--colour-copy-light: #{$copy-light-bg};
-	--colour-mark: rgba(#{$black}, 0.15);
-	// Type
-	--text-margin-mob: #{map-get($text-margin-properties, "-mob")};
-	--text-margin-tab: #{map-get($text-margin-properties, "-mob")};
-	--text-margin-desk: #{map-get($text-margin-properties, "-mob")};
-	--text-margin-desk-large: #{map-get($text-margin-properties, "-mob")};
-	--text-margin-hd: #{map-get($text-margin-properties, "-mob")};
-	--text-margin-small-diff: #{$text-wrapper-small-diff};
-	--text-margin-large-diff: #{$text-wrapper-large-diff};
+	// Opacity
+	--alpha-standard: #{$alpha-standard};
+	--alpha-light: #{$alpha-light};
+	// Spacing
+	--margin: #{$margin};
+	--margin-small: #{$margin-small};
+	--margin-large: #{$margin-large};
 	// Links
 	--link-hover-colour: #{$blue};
 }

@@ -3,6 +3,6 @@
 		< margin > / < margin large >
 		- large: Determines if large margin should be used.
     ===================== -->
-<div class="text-wrapper {{ if eq (.Get 0) "large" -}} text-wrapper-large {{- end }}">
+<div class="margin {{ if eq (.Get 0) "large" -}} margin-large {{- end }}">
     {{ .Inner | .Page.RenderString }}
 </div>

@@ -27,6 +27,10 @@ body {
 	}
 }
 
+main {
+	font-size: $text-paragraph-size;
+}
+
 h1,
 h2,
 h3,
@@ -58,8 +62,8 @@ h5 {
 	line-height: 1.2;
 }
 
-h1,
-.heading-1 {
+
+@mixin h1 {
 	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 38px, 68px);
 	margin-bottom: 1.4rem;
 	line-height: 0.9;
@@ -69,32 +73,52 @@ h1,
 	}
 }
 
-h2,
-.heading-2 {
+h1,
+.heading-1 {
+	@include h1;
+}
+
+@mixin h2 {
 	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 28px, 50px);
 	margin-bottom: 1.3rem;
 }
 
-h3,
-.heading-3 {
+h2,
+.heading-2 {
+	@include h2;
+}
+
+@mixin h3 {
 	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 23px, 37px);
 	margin-bottom: 1.2rem;
 }
 
-h4,
-.heading-4 {
+h3,
+.heading-3 {
+	@include h3;
+}
+
+@mixin h4 {
 	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 21px, 29px);
 	margin-bottom: 1rem;
 }
 
-h5,
-.heading-5 {
+h4,
+.heading-4 {
+	@include h4;
+}
+
+@mixin h5 {
 	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 19px, 21.5px);
 	margin-bottom: 0.9rem;
 }
 
-h6,
-.heading-6 {
+h5,
+.heading-5 {
+	@include h5;
+}
+
+@mixin h6 {
 	display: block;
 	color: colour(copy-dark);
 	font-size: 0.84rem;
@@ -105,17 +129,23 @@ h6,
 	margin-bottom: 0.8rem;
 }
 
+h6,
+.heading-6 {
+	@include h6;
+}
+
 // Paragraph
 // =========================================================================
 
 p {
 	color: colour(copy-dark);
-	font-size: 1.1rem;
+	font-size: $text-paragraph-size;
 	margin-bottom: 1rem;
 	line-height: 1.8;
 
 	&.lead {
 		font-size: $text-lead-size;
+		line-height: 1.6;
 	}
 }
 
@@ -123,7 +153,7 @@ p {
 // =========================================================================
 
 a {
-	font-size: 1rem;
+	font-size: $text-paragraph-size;
 	color: colour(foreground);
 	font-weight: bold;
 	text-decoration: underline;
@@ -175,6 +205,7 @@ strong {
 	display: block;
 	font-family: 'Times New Roman';
 	font-size: 7.5rem;
+	letter-spacing: -4px;
 	font-style: italic;
 	line-height: 1;
 }
@@ -212,42 +243,5 @@ strong {
 	::-moz-selection {
 		background: $black;
 		color: $white;
-	}
-}
-
-// Text Wrappers
-// =========================================================================
-
-.text-wrapper,
-ul,
-ol,
-blockquote,
-.highlight,
-table {
-	@include text-wrapper;
-
-	p:last-of-type {
-		margin-bottom: 0;
-	}
-
-	&-no-margin {
-		margin-bottom: 0 !important;
-	}
-
-	&-small {
-		@include text-wrapper(-$text-wrapper-small-diff);
-	}
-
-	&-large {
-		@include text-wrapper($text-wrapper-large-diff);
-	}
-
-	@each $modifier, $breakpoint in $grid-properties {
-		@include create-mediaquery($breakpoint) {
-
-			&-small {
-				margin-bottom: map-get($text-margin-properties, $modifier) + $text-wrapper-small-diff;
-			}
-		}
 	}
 }

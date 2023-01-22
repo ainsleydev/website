@@ -69,7 +69,9 @@ $publicPath: '{{ .Site.BaseURL }}';
 @import "components/quote";
 @import "components/social";
 @import "components/table";
+@import "components/rule";
 @import "components/tag";
+@import "components/todo";
 @import "components/vertical";
 
 /* ====================

@@ -14,7 +14,7 @@
 			   aria-label="Navigate to the {{ .title }} page">
 				<!-- Featured Image -->
                 {{ with .image -}}
-					<figure class="card-image text-wrapper skew {{ if $.animate }} cursor-element {{- end }}"
+					<figure class="card-image margin skew {{ if $.animate }} cursor-element {{- end }}"
                             {{ if $.animate }}
 						data-cursor-invert data-cursor-invert-black data-cursor-scale="4"
 						data-skew-transform-x="0.1" data-skew-transform-y="0.1"

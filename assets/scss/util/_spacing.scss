@@ -3,6 +3,31 @@
 // Adds margin & padding modifiers to each mediaquery & breakpoint.
 // -----------------------------------------------------------------------------
 
+// Util Class
+// ==========================================================================
+
+.margin {
+	margin-bottom: $margin;
+
+	p:last-of-type {
+		margin-bottom: 0;
+	}
+
+	&-none {
+		margin-bottom: 0 !important;
+	}
+
+	&-small {
+		margin-bottom: $margin-small;
+	}
+
+	&-large {
+		margin-bottom: $margin-large;
+	}
+}
+
+// Properties
+// ==========================================================================
 
 @each $modifier, $breakpoint in $grid-properties {
 	@each $prop, $abbrev in (margin: m, padding: p) {
@@ -27,26 +52,6 @@
 				.#{$abbrev}x#{$modifier}-#{$size} {
 					#{$prop}-left: $length !important;
 				}
-			}
-			//Auto Margins
-			.m#{$modifier}-auto {
-				margin: auto !important;
-			}
-			.mt#{$modifier}-auto,
-			.my#{$modifier}-auto {
-				margin-top: auto !important;
-			}
-			.mr#{$modifier}-auto,
-			.mx#{$modifier}-auto {
-				margin-right: auto !important;
-			}
-			.mb#{$modifier}-auto,
-			.my#{$modifier}-auto {
-				margin-bottom: auto !important;
-			}
-			.ml#{$modifier}-auto,
-			.mx#{$modifier}-auto {
-				margin-left: auto !important;
 			}
 		}
 	}

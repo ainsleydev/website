@@ -143,7 +143,7 @@
 		}
 	}
 
-	// Landscape
+	// Mobile
 	// =========================================================================
 
 	@include media-mob {
@@ -212,6 +212,7 @@
 		}
 
 		&-heading {
+			@include h3;
 			margin-bottom: 5rem;
 		}
 

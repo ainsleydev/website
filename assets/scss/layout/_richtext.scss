@@ -19,7 +19,7 @@
 	// ==========================================================================
 
 	p + .image {
-		@include text-wrapper-top;
+		margin-top: $margin;
 	}
 
 	.image {
@@ -30,7 +30,7 @@
 		+ h4,
 		+ h5,
 		+ p {
-			@include text-wrapper-top($text-wrapper-large-diff);
+			margin-top: $margin-large;
 		}
 
 		+ .image {

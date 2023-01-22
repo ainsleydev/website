@@ -10,8 +10,10 @@ code {
 	font-family: $font-code;
 	color: colour("background");
 	margin: 0;
-	font-size: 0.8rem;
+	font-size: 13px;
+	//font-weight: 600;
 	white-space: nowrap;
 	background-color: colour("foreground");
 	border-radius: 4px;
+	line-height: 1.5;
 }

@@ -611,7 +611,7 @@ strong {
   background: #0A0A0A;
   color: #ffffff; }
 
-.text-wrapper,
+.margin,
 ul,
 ol,
 blockquote,
@@ -619,7 +619,7 @@ blockquote,
 table {
   margin-bottom: 1.2rem; }
   @media (min-width: 568px) {
-    .text-wrapper,
+    .margin,
     ul,
     ol,
     blockquote,
@@ -627,7 +627,7 @@ table {
     table {
       margin-bottom: 1.2rem; } }
   @media (min-width: 768px) {
-    .text-wrapper,
+    .margin,
     ul,
     ol,
     blockquote,
@@ -635,7 +635,7 @@ table {
     table {
       margin-bottom: 1.4rem; } }
   @media (min-width: 1024px) {
-    .text-wrapper,
+    .margin,
     ul,
     ol,
     blockquote,
@@ -643,7 +643,7 @@ table {
     table {
       margin-bottom: 1.6rem; } }
   @media (min-width: 1408px) {
-    .text-wrapper,
+    .margin,
     ul,
     ol,
     blockquote,
@@ -651,28 +651,28 @@ table {
     table {
       margin-bottom: 1.8rem; } }
   @media (min-width: 1600px) {
-    .text-wrapper,
+    .margin,
     ul,
     ol,
     blockquote,
     .highlight,
     table {
       margin-bottom: 2rem; } }
-  .text-wrapper p:last-of-type,
+  .margin p:last-of-type,
   ul p:last-of-type,
   ol p:last-of-type,
   blockquote p:last-of-type,
   .highlight p:last-of-type,
   table p:last-of-type {
     margin-bottom: 0; }
-  .text-wrapper-no-margin,
+  .margin-none,
   ul-no-margin,
   ol-no-margin,
   blockquote-no-margin,
   .highlight-no-margin,
   table-no-margin {
     margin-bottom: 0 !important; }
-  .text-wrapper-small,
+  .margin-small,
   ul-small,
   ol-small,
   blockquote-small,
@@ -680,7 +680,7 @@ table {
   table-small {
     margin-bottom: 0.7rem; }
     @media (min-width: 568px) {
-      .text-wrapper-small,
+      .margin-small,
       ul-small,
       ol-small,
       blockquote-small,
@@ -688,7 +688,7 @@ table {
       table-small {
         margin-bottom: 0.7rem; } }
     @media (min-width: 768px) {
-      .text-wrapper-small,
+      .margin-small,
       ul-small,
       ol-small,
       blockquote-small,
@@ -696,7 +696,7 @@ table {
       table-small {
         margin-bottom: 0.9rem; } }
     @media (min-width: 1024px) {
-      .text-wrapper-small,
+      .margin-small,
       ul-small,
       ol-small,
       blockquote-small,
@@ -704,7 +704,7 @@ table {
       table-small {
         margin-bottom: 1.1rem; } }
     @media (min-width: 1408px) {
-      .text-wrapper-small,
+      .margin-small,
       ul-small,
       ol-small,
       blockquote-small,
@@ -712,14 +712,14 @@ table {
       table-small {
         margin-bottom: 1.3rem; } }
     @media (min-width: 1600px) {
-      .text-wrapper-small,
+      .margin-small,
       ul-small,
       ol-small,
       blockquote-small,
       .highlight-small,
       table-small {
         margin-bottom: 1.5rem; } }
-  .text-wrapper-large,
+  .margin-large,
   ul-large,
   ol-large,
   blockquote-large,
@@ -727,7 +727,7 @@ table {
   table-large {
     margin-bottom: 2.2rem; }
     @media (min-width: 568px) {
-      .text-wrapper-large,
+      .margin-large,
       ul-large,
       ol-large,
       blockquote-large,
@@ -735,7 +735,7 @@ table {
       table-large {
         margin-bottom: 2.2rem; } }
     @media (min-width: 768px) {
-      .text-wrapper-large,
+      .margin-large,
       ul-large,
       ol-large,
       blockquote-large,
@@ -743,7 +743,7 @@ table {
       table-large {
         margin-bottom: 2.4rem; } }
     @media (min-width: 1024px) {
-      .text-wrapper-large,
+      .margin-large,
       ul-large,
       ol-large,
       blockquote-large,
@@ -751,7 +751,7 @@ table {
       table-large {
         margin-bottom: 2.6rem; } }
     @media (min-width: 1408px) {
-      .text-wrapper-large,
+      .margin-large,
       ul-large,
       ol-large,
       blockquote-large,
@@ -759,14 +759,14 @@ table {
       table-large {
         margin-bottom: 2.8rem; } }
     @media (min-width: 1600px) {
-      .text-wrapper-large,
+      .margin-large,
       ul-large,
       ol-large,
       blockquote-large,
       .highlight-large,
       table-large {
         margin-bottom: 3rem; } }
-  .text-wrapper-small,
+  .margin-small,
   ul-small,
   ol-small,
   blockquote-small,
@@ -774,7 +774,7 @@ table {
   table-small {
     margin-bottom: 1.7rem; }
   @media (min-width: 568px) {
-    .text-wrapper-small,
+    .margin-small,
     ul-small,
     ol-small,
     blockquote-small,
@@ -782,7 +782,7 @@ table {
     table-small {
       margin-bottom: 1.7rem; } }
   @media (min-width: 768px) {
-    .text-wrapper-small,
+    .margin-small,
     ul-small,
     ol-small,
     blockquote-small,
@@ -790,7 +790,7 @@ table {
     table-small {
       margin-bottom: 1.9rem; } }
   @media (min-width: 1024px) {
-    .text-wrapper-small,
+    .margin-small,
     ul-small,
     ol-small,
     blockquote-small,
@@ -798,7 +798,7 @@ table {
     table-small {
       margin-bottom: 2.1rem; } }
   @media (min-width: 1408px) {
-    .text-wrapper-small,
+    .margin-small,
     ul-small,
     ol-small,
     blockquote-small,
@@ -806,7 +806,7 @@ table {
     table-small {
       margin-bottom: 2.3rem; } }
   @media (min-width: 1600px) {
-    .text-wrapper-small,
+    .margin-small,
     ul-small,
     ol-small,
     blockquote-small,

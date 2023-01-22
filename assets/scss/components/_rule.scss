@@ -3,11 +3,35 @@
 // This file contains all styles related to lines and horizontal rules.
 // -----------------------------------------------------------------------------
 
-hr {
+hr,
+.line {
 	$self: &;
 
 	display: block;
-	border: 1px solid colour("foreground");
+	border-width: 2px;
+	border-color: colour("foreground");
+	border-style: solid;
 	padding: 0;
 	margin: 2rem 0;
+	opacity: $alpha-standard;
+
+	// Colours
+	// =========================================================================
+
+	&-foreground {
+		border-color: colour("foregrund");
+	}
+
+	// Sizes
+	// =========================================================================
+
+	&-medium {
+		border-width: 3px;
+		opacity: 1;
+	}
+
+	&-thick {
+		border-width: 4px;
+		opacity: 1;
+	}
 }

@@ -7,7 +7,7 @@ featuredImage: images/featured.svg
 <!-- =====================
 	Typography
 	===================== -->
-<div class="text-wrapper-large">
+<div class="margin-large">
 	<h3>Typography</h3>
 	<p>
 		The ainsley.dev brand has a rich library of typography, headings and captions to choose from that add dynamism
@@ -17,9 +17,9 @@ featuredImage: images/featured.svg
 <!-- =====================
 	Headings
 	===================== -->
-<div class="brand-list text-wrapper-large">
+<div class="brand-list margin-large">
 	<!-- Heading -->
-	<div class="text-wrapper">
+	<div class="margin">
 		<h3 class="mb-0">Headings</h3>
 	</div>
 	<!-- Content -->
@@ -71,9 +71,9 @@ featuredImage: images/featured.svg
 <!-- =====================
 	Modifications
 	===================== -->
-<div class="brand-list text-wrapper-large">
+<div class="brand-list margin-large">
 	<!-- Heading -->
-	<div class="text-wrapper">
+	<div class="margin">
 		<h3 class="mb-0">Modifications</h3>
 	</div>
 	<!-- Content -->
@@ -124,9 +124,9 @@ featuredImage: images/featured.svg
 <!-- =====================
 	Body
 	===================== -->
-<div class="brand-list colour-foreground text-wrapper-large">
+<div class="brand-list colour-foreground margin-large">
 	<!-- Heading -->
-	<div class="text-wrapper">
+	<div class="margin">
 		<h3 class="mb-0">Body</h3>
 	</div>
 	<!-- Content -->
@@ -136,59 +136,69 @@ featuredImage: images/featured.svg
 			<p>Lead</p>
 		</div><!--/Col -->
 		<div class="col-12 col-tab-9 col-desk-10">
-			<p class="lead">
-				I’m baby umami pickled narwhal woke food truck tilde gastropub polaroid forage. Chicharrones kickstarter
-				hell of, narwhal craft beer XOXO literally gluten-free. ruffaut hella live-edge squid, ramps pickled
-				dreamcatcher.
-			</p>
+			<div class="margin">
+				<p class="lead">
+					I’m baby umami pickled narwhal woke food truck tilde gastropub polaroid forage. Chicharrones kickstarter
+					hell of, narwhal craft beer XOXO literally gluten-free. ruffaut hella live-edge squid, ramps pickled
+					dreamcatcher.
+				</p>
+			</div>
 		</div><!--/Col -->
 		<!-- Body -->
 		<div class="col-12 col-tab-3 col-desk-2 brand-list-description">
 			<p>Body</p>
 		</div><!--/Col -->
 		<div class="col-12 col-tab-9 col-desk-10">
-			<p class="c-foreground">
-				I’m baby umami pickled narwhal woke food truck tilde gastropub polaroid forage. Chicharrones kickstarter
-				hell of, narwhal craft beer XOXO literally gluten-free. ruffaut hella live-edge squid, ramps pickled
-				dreamcatcher.
-			</p>
+			<div class="margin">
+				<p class="c-foreground">
+					I’m baby umami pickled narwhal woke food truck tilde gastropub polaroid forage. Chicharrones kickstarter
+					hell of, narwhal craft beer XOXO literally gluten-free. ruffaut hella live-edge squid, ramps pickled
+					dreamcatcher.
+				</p>
+			</div>
 		</div><!--/Col -->
 		<!-- Blockquote -->
 		<div class="col-12 col-tab-3 col-desk-2 brand-list-description">
 			<p>Blockquote</p>
 		</div><!--/Col -->
 		<div class="col-12 col-tab-9 col-desk-10">
-			<blockquote>
-				<p>
-					I’m baby umami pickled narwhal woke food truck tilde gastropub polaroid forage. Chicharrones
-					kickstarter hell of, narwhal craft beer XOXO literally gluten-free. ruffaut hella live-edge squid,
-					ramps pickled dreamcatcher 8-bit.
-				</p>
-			</blockquote>
+			<div class="margin">
+				<blockquote>
+					<p>
+						I’m baby umami pickled narwhal woke food truck tilde gastropub polaroid forage. Chicharrones
+						kickstarter hell of, narwhal craft beer XOXO literally gluten-free. ruffaut hella live-edge squid,
+						ramps pickled dreamcatcher 8-bit.
+					</p>
+				</blockquote>
+			</div>
 		</div><!--/Col -->
 		<!-- Code -->
 		<div class="col-12 col-tab-3 col-desk-2 brand-list-description">
 			<p>Code</p>
 		</div><!--/Col -->
 		<div class="col-12 col-tab-9 col-desk-10">
-			{{< highlight go >}}
-			type Shape interface {
-			  Area() float64
-			  Perimeter() float64
-			}
-			{{< / highlight >}}
-			{{< highlight go >}}
-			func Println(a …interface{}) (n int, err error)
-			{{< / highlight >}}
+			<div class="margin">
+				{{< highlight go >}}
+				type Shape interface {
+				  Area() float64
+				  Perimeter() float64
+				}
+				{{< / highlight >}}
+			</div>
+			<div>
+				{{< highlight go >}}
+				func Println(a …interface{}) (n int, err error)
+				{{< / highlight >}}
+			</div>
 		</div><!--/Col -->
 	</div><!--/Row -->
 </div><!-- /Body -->
 <!-- =====================
 	Captions
 	===================== -->
-<div class="brand-list text-wrapper-large">
+<div class="brand-list margin-large">
 	<!-- Heading -->
-	<div class="text-wrapper">
+	<div class="margin">
 		<h3 class="mb-0">Captions</h3>
 	</div>
 	<!-- Content -->
@@ -198,14 +208,14 @@ featuredImage: images/featured.svg
 			<p>Hero</p>
 		</div><!--/Col -->
 		<div class="col-12 col-tab-9 col-desk-10">
-			<span class="heading-1">Who we are*</span>
+			<span class="heading-1">Who we <span class="type-serif">are*</span></span>
 		</div><!--/Col -->
 		<!-- Vertical -->
 		<div class="col-12 col-tab-3 col-desk-2 brand-list-description">
 			<p>Vertical</p>
 		</div><!--/Col -->
 		<div class="col-12 col-tab-9 col-desk-10">
-			<div class="text-wrapper">
+			<div class="margin">
 				{{< partial template="type/vertical.html" text="Vertical <br/>heading" number=1 line=true >}}
 			</div>
 		</div><!--/Col -->
@@ -216,13 +226,14 @@ featuredImage: images/featured.svg
 		<div class="col-12 col-tab-9 col-desk-10">
 			<span class="number">+92%</span>
 		</div><!--/Col -->
-	</div><!--/Captions -->
+	</div><!--/Row -->
+</div><!--/Captions -->
 <!-- =====================
 	Lists
 	===================== -->
-<div class="brand-list text-wrapper-large">
+<div class="brand-list margin-large">
 	<!-- Heading -->
-	<div class="text-wrapper">
+	<div class="margin">
 		<h3 class="mb-0">Lists</h3>
 	</div>
 	<!-- Content -->
@@ -232,28 +243,30 @@ featuredImage: images/featured.svg
 			<p>Unordered</p>
 		</div><!--/Col -->
 		<div class="col-12 col-tab-9 col-desk-10">
-			<ul class="list">
-				<li>Af umami knausgaard bushwick succulents, tilde thundercats affogato lyft gluten.</li>
-				<li>Af umami knausgaard bushwick succulents, tilde thundercats affogato lyft gluten.</li>
-				<li>Af umami knausgaard bushwick succulents, tilde thundercats affogato lyft gluten.
-					<ul>
-						<li>Af umami knausgaard bushwick succulents, tilde thundercats affogato lyft gluten.</li>
-						<li>Af umami knausgaard bushwick succulents, tilde thundercats affogato lyft gluten.</li>
-						<li>Af umami knausgaard bushwick succulents, tilde thundercats affogato lyft gluten.</li>
-					</ul>
-				</li>
-			</ul>
+			<div class="margin">
+				<ul class="list">
+					<li>Af umami knausgaard bushwick succulents, tilde thundercats affogato lyft gluten.</li>
+					<li>Af umami knausgaard bushwick succulents, tilde thundercats affogato lyft gluten.</li>
+					<li>Af umami knausgaard bushwick succulents, tilde thundercats affogato lyft gluten.
+						<ul>
+							<li>Af umami knausgaard bushwick succulents, tilde thundercats affogato lyft gluten.</li>
+							<li>Af umami knausgaard bushwick succulents, tilde thundercats affogato lyft gluten.</li>
+							<li>Af umami knausgaard bushwick succulents, tilde thundercats affogato lyft gluten.</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
 		</div><!--/Col -->
 		<!-- Ordered -->
 		<div class="col-12 col-tab-3 col-desk-2 brand-list-description">
 			<p>Ordered</p>
 		</div><!--/Col -->
 		<div class="col-12 col-tab-9 col-desk-10">
-			<ol class="list">
+			<ol class="list mb-0">
 				<li>Af umami knausgaard bushwick succulents, tilde thundercats affogato lyft gluten.</li>
 				<li>Af umami knausgaard bushwick succulents, tilde thundercats affogato lyft gluten.</li>
 				<li>Af umami knausgaard bushwick succulents, tilde thundercats affogato lyft gluten.
-					<ol>
+					<ol class="mb-0">
 						<li>Af umami knausgaard bushwick succulents, tilde thundercats affogato lyft gluten.</li>
 						<li>Af umami knausgaard bushwick succulents, tilde thundercats affogato lyft gluten.</li>
 						<li>Af umami knausgaard bushwick succulents, tilde thundercats affogato lyft gluten.</li>
@@ -261,26 +274,14 @@ featuredImage: images/featured.svg
 				</li>
 			</ol>
 		</div><!--/Col -->
-		<!-- Definition -->
-		<div class="col-12 col-tab-3 col-desk-2 brand-list-description">
-			<p>Definition</p>
-		</div><!--/Col -->
-		<div class="col-12 col-tab-9 col-desk-10">
-			<dl>
-				<dt>Apple</dt>
-				<dd>Pomaceous fruit of plants of the genus Malus in the family Rosaceae.</dd>
-				<dt>Orange</dt>
-				<dd>The fruit of an evergreen tree of the genus Citrus.</dd>
-			</dl>
-		</div><!--/Col -->
 	</div><!--/Row -->
 </div><!-- /Lists -->
 <!-- =====================
 	Tables
 	===================== -->
-<div class="brand-list text-wrapper-large">
+<div class="brand-list margin-large">
 	<!-- Heading -->
-	<div class="text-wrapper">
+	<div class="margin">
 		<h3 class="mb-0">Tables</h3>
 	</div>
 	<!-- Content -->
@@ -322,9 +323,9 @@ featuredImage: images/featured.svg
 <!-- =====================
 	Miscellaneous
 	===================== -->
-<div class="brand-list text-wrapper-large text-wrapper-no-margin">
+<div class="brand-list margin-large margin-none">
 	<!-- Heading -->
-	<div class="text-wrapper">
+	<div class="margin">
 		<h3 class="mb-0">Miscellaneous</h3>
 	</div>
 	<!-- Content -->
@@ -333,28 +334,36 @@ featuredImage: images/featured.svg
 		<div class="col-12 col-tab-3 col-desk-2 brand-list-description">
 			<p>Rules</p>
 		</div><!--/Col -->
-		<div class="col-12 col-tab-9 col-desk-10">
-			<hr>
-			<hr>
-			<hr>
+		<div class="col-12 col-tab-9 col-desk-10 margin">
+			<hr class="line line-thick mt-0">
+			<hr class="line line-medium">
+			<hr class="line mb-0">
 		</div><!--/Col -->
 		<!-- Task List -->
 		<div class="col-12 col-tab-3 col-desk-2 brand-list-description">
-			<p>Task List</p>
+			<p>Tasks</p>
 		</div><!--/Col -->
-		<div class="col-12 col-tab-9 col-desk-10">
-			<input disabled="" type="checkbox">
-			<input checked="" disabled="" type="checkbox">
+		<div class="col-12 col-tab-9 col-desk-10 margin">
+			<input disabled type="checkbox">
+			<input disabled checked type="checkbox">
 		</div><!--/Col -->
 		<!-- Footnote -->
 		<div class="col-12 col-tab-3 col-desk-2 brand-list-description">
-			<p>Task List</p>
+			<p>Footnote</p>
 		</div><!--/Col -->
 		<div class="col-12 col-tab-9 col-desk-10">
 			<div class="footnotes" role="doc-endnotes">
-				<ol>
+				<ol class="mb">
 					<li>
-						<p>And that&rsquo;s the footnote.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>
+						<p>
+							And that&rsquo;s the footnote.&#160;<a href="#fnref:1" class="footnote-backref"
+																   role="doc-backlink">Visit link&#x21a9;&#xfe0e;</a>
+						</p>
+					</li>
+					<li>
+						<p>
+							And that&rsquo;s the footnote.&#160;<a href="#fnref:1" class="footnote-backref"
+																   role="doc-backlink">Visit link&#x21a9;&#xfe0e;</a>
 						</p>
 					</li>
 				</ol>
