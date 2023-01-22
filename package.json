@@ -11,7 +11,7 @@
 		"serve": "hugo server",
 		"serve-no-reload": "hugo server --disableLiveReload",
 		"build": "npm run hugo:clean && hugo --environment development --config params.yaml",
-		"build:staging": "npm run hugo:clean && hugo --environment staging --config params.yaml,config-staging.yaml --minify && npm run image",
+		"build:staging": "npm run hugo:clean && hugo --environment staging --config params.yaml,config-staging.yaml --minify",
 		"build:production": "npm run hugo:clean && hugo --environment production --config params.yaml,config-production.yaml --minify && npm run image",
 		"build:prod": "npm run build:production",
 		"hugo:clean": "rm -rf public",

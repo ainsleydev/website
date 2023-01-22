@@ -1,5 +1,5 @@
 {
-	"buildCommand": "sh vercel.sh",
+	"buildCommand": "bash vercel.sh",
 	"cleanUrls": true,
 	"installCommand": "npm install",
 	"outputDirectory": "public",
