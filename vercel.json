@@ -5,5 +5,10 @@
 	"outputDirectory": "public",
 	"public": false,
 	"regions": ["lhr1"],
-	"trailingSlash": true
+	"trailingSlash": true,
+	"git": {
+		"deploymentEnabled": {
+			"dev": false
+		}
+	}
 }
