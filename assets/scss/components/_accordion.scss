@@ -32,17 +32,33 @@
 		&:after {
 			content: "";
 		}
+
+		&-active #{$self}-title:after {
+			transform: rotate(45deg);
+		}
 	}
 
 	// Title
 	// =========================================================================
 
 	&-title {
+		display: flex;
+		justify-content: space-between;
+		align-content: center;
 		user-select: none;
 		padding: 1.2rem 0;
 
 		* {
 			margin-bottom: 0;
+		}
+
+		&:after {
+			content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3e%3cpath d='M17.941%2c0V13.433H16.449V2.546L1.055%2c17.91%2c0%2c16.853%2c15.391%2c1.492H4.475V0Z' transform='translate(17.91) rotate(90)' fill='%239a9a9a'/%3e%3c/svg%3e");
+			display: block;
+			width: 18px;
+			height: 18px;
+			transition: transform 200ms ease;
+			will-change: transform;
 		}
 	}
 
@@ -64,5 +80,12 @@
 			margin-bottom: 0;
 			padding-bottom: 1.2rem;
 		}
+	}
+
+	// Hover
+	// =========================================================================
+
+	&:hover {
+		//background-color: pink;
 	}
 }

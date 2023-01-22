@@ -32,9 +32,6 @@ Accordion.prototype.init = function () {
 		headers.forEach(function (header) {
 			header.addEventListener('click', e => {
 				e.preventDefault();
-
-				console.log("heyr");
-
 				if (opt.accordion) {
 					self.accordion(headers, header);
 				} else {
@@ -53,15 +50,15 @@ Accordion.prototype.accordion = function(header, current) {
 };
 
 Accordion.prototype.toggle = function(item, closeForce) {
+	const activeClass = this.options.outer.replace(".", "") + '-active';
 	let height = 0;
 	let inner = item.querySelector(this.options.inner);
-	if (!item.classList.contains('active') && !closeForce) {
+	if (!item.classList.contains(activeClass) && !closeForce) {
 		height = this.calcHeight(inner);
-		item.classList.add('active');
+		item.classList.add(activeClass);
 	} else {
-		item.classList.remove('active');
+		item.classList.remove(activeClass);
 	}
-	console.log(height);
 	inner.style.maxHeight = height + 'px';
 };
 
@@ -76,7 +73,7 @@ Accordion.prototype.calcHeight = function(inner) {
 
 for(const el of document.querySelectorAll(".accordion")) {
 	let accordion = new Accordion({
-		accordion: true,
+		accordion: false,
 		parent: document.body.querySelector('.accordion')
 	});
 }
