@@ -3314,7 +3314,7 @@ table {
           transition: transform 250ms ease-in-out;
           will-change: transform; }
         .nav-main .nav-link:after {
-          content: url("http://localhost:1313//images/icons/nav-arrow.svg");
+          content: url("http://localhost:58917//images/icons/nav-arrow.svg");
           position: absolute;
           top: 50%;
           left: 0;

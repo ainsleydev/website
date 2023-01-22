@@ -1,0 +1,9 @@
+{
+	"buildCommand": "npm run build",
+	"cleanUrls": true,
+	"installCommand": "npm install",
+	"outputDirectory": "public",
+	"public": false,
+	"regions": ["lhr1"],
+	"trailingSlash": true
+}
