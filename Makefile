@@ -3,12 +3,12 @@
 # Check
 
 
-post: # Create as new work post.
+post: # Creates a new work post.
 	@[ "${name}" ] || ( echo ">> name is not set"; exit 1 )
 	hugo new --kind post-bundle posts/$(name)
 .PHONY: post
 
-work: # Create as new work post.
+work: # Creates a new work post.
 	@[ "${name}" ] || ( echo ">> name is not set"; exit 1 )
 	hugo new --kind work-bundle work/$(name)
 .PHONY: wprl
