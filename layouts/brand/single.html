@@ -54,13 +54,25 @@
 			<div class="row">
 				<!-- Sidebar -->
 				<div class="col-12 col-desk-3">
+					<input class="aside-checkbox" type="checkbox" id="brand-aside-check" />
 					<aside class="aside aside-brand">
+						<!-- Links -->
                         {{ range (where .Site.RegularPages "Type" "brand") }}
 							<a href="{{ .RelPermalink }}" class="aside-link">
 								<h5 class="aside-text {{ if eq $.Page.RelPermalink .RelPermalink -}} aside-active {{- end }}">{{ .Title }}</h5>
 							</a>
                         {{- end }}
+						<!-- Button -->
+						<label class="aside-btn" for="brand-aside-check">
+							<span class="aside-btn-text heading-6">Menu</span>
+						</label>
+						<!-- Close -->
+						<label class="aside-close" for="brand-aside-check">
+							Close
+						</label>
 					</aside>
+					<!-- Overlay -->
+					<label class="aside-overlay" for="brand-aside-check"></label>
 				</div><!-- /Col -->
 				<!-- Content -->
 				<div class="col-12 col-desk-8 offset-desk-1">

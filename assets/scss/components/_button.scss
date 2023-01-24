@@ -4,6 +4,21 @@
 // Ref: https://codepen.io/milanraring/pen/gOwGpdm
 // -----------------------------------------------------------------------------
 
+// Resets & Props
+// =========================================================================
+
+button {
+	border-radius: 4px;
+	cursor: pointer;
+	outline: none;
+	user-select: none;
+	text-decoration: none;
+	border: none;
+}
+
+// Element
+// =========================================================================
+
 .btn {
 	$self: &;
 
@@ -14,11 +29,6 @@
 	background-color: colour(foreground);
 	color: colour(background);
 	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-	outline: none;
-	user-select: none;
-	text-decoration: none;
 	transition: transform 100ms linear, color 100ms linear, background 100ms linear;
 	will-change: transform, color, background;
 
