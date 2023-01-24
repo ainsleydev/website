@@ -3185,9 +3185,11 @@ input[type=checkbox]:disabled {
   border-radius: 50%;
   background: none;
   pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: transform 300ms ease, background 300ms ease, border-color 300ms ease;
-  border: 1px solid #ffffff; }
+  transform: translate(-50%, -50%) scale(0);
+  border: 1px solid transparent;
+  transition: transform 300ms ease, background 300ms ease, border-color 300ms ease; }
+  .cursor-active {
+    cursor: none; }
   .cursor-invert {
     mix-blend-mode: difference;
     cursor: none; }
@@ -3195,6 +3197,8 @@ input[type=checkbox]:disabled {
       background: #ffffff; }
     .cursor-invert-white {
       background: #ffffff; }
+  .cursor-border {
+    border-color: #ffffff; }
   @media (hover: hover) {
     .cursor {
       display: block; } }

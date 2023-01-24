@@ -107,6 +107,6 @@ export class Cursor {
 	 * @private
 	 */
 	private removeScale(el: HTMLElement): void {
-		this.el.style.transform = `translate(-50%, -50%)`;
+		this.el.style.transform = `translate(-50%, -50%) scale(0)`;
 	}
 }

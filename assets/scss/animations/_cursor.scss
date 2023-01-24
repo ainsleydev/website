@@ -12,18 +12,18 @@
 	border-radius: 50%;
 	background: none;
 	pointer-events: none;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%) scale(0);
+	border: 1px solid transparent;
 	transition: transform 300ms ease, background 300ms ease, border-color 300ms ease;
-	border: 1px solid $white;
 
 	// Active
 	// =========================================================================
 
 	&-active {
-		//background-color: red !important;
+		cursor: none;
 	}
 
-	// Active
+	// Invert
 	// =========================================================================
 
 	&-invert {
@@ -37,6 +37,13 @@
 		&-white {
 			background: $white;
 		}
+	}
+
+	// Border
+	// =========================================================================
+
+	&-border {
+		border-color: $white;
 	}
 
 	// Tablet
