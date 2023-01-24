@@ -16,7 +16,7 @@
 	width: 100vw;
 	padding: 0 $header-padding-x-mob;
 	backdrop-filter: blur(1px);
-	z-index: 99999;
+	z-index: $header-z-index;
 
 	// Logo
 	// ==========================================================================

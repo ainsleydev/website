@@ -2132,8 +2132,25 @@ strong {
   transform-origin: center;
   transform: rotate(var(--arrow-rotation));
   margin: 0; }
+  .arrow-link {
+    display: flex;
+    align-items: center; }
+    .arrow-link-text {
+      display: inline-block;
+      margin-bottom: 0;
+      margin-right: 1rem;
+      user-select: none; }
+    .arrow-link-image {
+      width: 6vw;
+      min-width: 25px;
+      max-width: 40px;
+      transform: translateY(-14%); }
+      .arrow-link-image svg {
+        width: 100%;
+        height: 100%; }
 
-button {
+button,
+a.btn {
   border-radius: 4px;
   cursor: pointer;
   outline: none;
@@ -2612,7 +2629,7 @@ input[type=checkbox]:disabled {
   display: block;
   margin: 0;
   padding: 76px 20px 0;
-  z-index: 100000;
+  z-index: 100009;
   transform: translateX(-100%);
   transition: transform 400ms cubic-bezier(0.1, 0.7, 0.1, 1);
   will-change: transform; }
@@ -2638,6 +2655,9 @@ input[type=checkbox]:disabled {
     display: none; }
     .aside-checkbox:checked + .aside {
       transform: translateX(0); }
+    .aside-checkbox:checked ~ .aside-overlay {
+      z-index: 100000;
+      opacity: 1; }
   .aside-btn {
     position: absolute;
     bottom: 0;
@@ -2661,7 +2681,11 @@ input[type=checkbox]:disabled {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: red; }
+    background-color: rgba(10, 10, 10, 0.6);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 200ms ease;
+    will-change: opacity; }
   .aside-active {
     color: var(--link-hover-colour) !important; }
   @media (min-width: 1024px) {
@@ -3199,6 +3223,14 @@ input[type=checkbox]:disabled {
   border: 2px solid #171717; }
   .brand-box-white {
     background: #ffffff repeating-linear-gradient(45deg, transparent, transparent 18px, rgba(10, 10, 10, 0.1) 20px); }
+  .brand-box-auto-height {
+    height: auto;
+    min-height: 0;
+    max-height: none; }
+  .brand-box-margin-large {
+    height: 3rem; }
+  .brand-box-margin-regular {
+    height: 1.8rem; }
 
 @media (max-width: 767px) {
   .brand-list-description p {

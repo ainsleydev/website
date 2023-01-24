@@ -1,0 +1,18 @@
+<!-- =====================
+    Arrow Link
+    	partial "type/arrow-link.html" (dict "rotation" 45 "colour" "var(--colour-white)" "stroke" 2)
+    	- rotation:	The degree of rotation of the arrow
+
+    ===================== -->
+<div class="arrow-link">
+	<!-- Text -->
+	{{ with .text -}}
+		<h3 class="arrow-link-text">{{ . }}</h3>
+	{{- else -}}
+		{{- warnf "No text provided to arrow link" -}}
+	{{- end }}
+	<!-- Arrow -->
+	<figure class="arrow-link-image">
+        {{ partial "images/arrow.html" (dict "rotation" 45 "colour" "var(--colour-white)" "stroke" 2) }}
+	</figure>
+</div>

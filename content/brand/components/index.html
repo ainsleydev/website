@@ -86,16 +86,13 @@ featuredImage: images/featured.svg
 	<div class="row">
 		<div class="col-12 col-tab-6 margin mb-tab-0">
 			<div class="brand-box">
-				<h3 class="arrow-text">
-					Full Article
-				</h3>
+				{{< partial template="type/arrow-link.html" text="Full article" >}}
 			</div>
 		</div><!-- /Col -->
 	</div><!-- /Row -->
 </div><!-- /Arrow -->
 <!-- =====================
 	FAQs
-	TODO: This will be a partial
 	===================== -->
 <div class="margin-large">
 	<!-- Content -->
@@ -134,5 +131,24 @@ featuredImage: images/featured.svg
 		<p>
 			Defines the amount of space between sections, components and text on the y axis.
 		</p>
+	</div><!-- /Row -->
+	<!-- Arrow -->
+	<div class="row">
+		<div class="col-12 margin">
+			<!-- Section -->
+			<div class="brand-box brand-box-auto-height margin">
+				<div class="section-padding">
+					<p class="c-white">Section padding</p>
+				</div>
+			</div>
+			<!-- Large -->
+			<div class="brand-box brand-box-auto-height brand-box-margin-large margin">
+				<p class="c-white">Margin large</p>
+			</div>
+			<!-- Regular -->
+			<div class="brand-box brand-box-auto-height brand-box-margin-regular margin">
+				<p class="c-white">Margin regular</p>
+			</div>
+		</div><!-- /Col -->
 	</div><!-- /Row -->
 </div><!-- /Margin -->

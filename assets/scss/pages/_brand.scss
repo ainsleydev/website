@@ -37,6 +37,23 @@
 		&-white {
 			background: $white repeating-linear-gradient(45deg, transparent, transparent 18px, rgba($black, 0.1) 20px);
 		}
+
+		&-auto-height {
+			height: auto;
+			min-height: 0;
+			max-height: none;
+		}
+
+		&-margin {
+
+			&-large {
+				height: $margin-large;
+			}
+
+			&-regular {
+				height: $margin;
+			}
+		}
 	}
 
 	// Mobile Down
@@ -50,17 +67,5 @@
 				margin-bottom: 10px;
 			}
 		}
-	}
-
-	// Tablet
-	// =========================================================================
-
-	@include media-tab {
-	}
-
-	// Desktop
-	// =========================================================================
-
-	@include media-desk {
 	}
 }
