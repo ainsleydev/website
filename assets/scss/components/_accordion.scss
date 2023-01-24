@@ -33,20 +33,21 @@
 			content: "";
 		}
 
-		&-active #{$self}-title:after {
-			transform: rotate(45deg);
+		&-active #{$self}-header:after {
+			transform: rotate(-135deg);
 		}
 	}
 
-	// Title
+	// Header
 	// =========================================================================
 
-	&-title {
+	&-header {
 		display: flex;
 		justify-content: space-between;
 		align-content: center;
-		user-select: none;
 		padding: 1.2rem 0;
+		user-select: none;
+		outline: none;
 
 		* {
 			margin-bottom: 0;
@@ -57,6 +58,7 @@
 			display: block;
 			width: 18px;
 			height: 18px;
+			margin-left: 1.6rem;
 			transition: transform 200ms ease;
 			will-change: transform;
 		}
@@ -82,10 +84,21 @@
 		}
 	}
 
+	// Title
+	// =========================================================================
+
+	&-title {
+		transition: color 200ms ease;
+		will-change: color;
+	}
+
 	// Hover
 	// =========================================================================
 
-	&:hover {
-		//background-color: pink;
+	&-header:hover {
+
+		#{$self}-title {
+			color: colour("orange");
+		}
 	}
 }

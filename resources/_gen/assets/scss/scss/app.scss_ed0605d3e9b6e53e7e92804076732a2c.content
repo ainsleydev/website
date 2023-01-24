@@ -2084,21 +2084,23 @@ strong {
       display: none; }
     .accordion-item:after {
       content: ""; }
-    .accordion-item-active .accordion-title:after {
-      transform: rotate(45deg); }
-  .accordion-title {
+    .accordion-item-active .accordion-header:after {
+      transform: rotate(-135deg); }
+  .accordion-header {
     display: flex;
     justify-content: space-between;
     align-content: center;
+    padding: 1.2rem 0;
     user-select: none;
-    padding: 1.2rem 0; }
-    .accordion-title * {
+    outline: none; }
+    .accordion-header * {
       margin-bottom: 0; }
-    .accordion-title:after {
+    .accordion-header:after {
       content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3e%3cpath d='M17.941%2c0V13.433H16.449V2.546L1.055%2c17.91%2c0%2c16.853%2c15.391%2c1.492H4.475V0Z' transform='translate(17.91) rotate(90)' fill='%239a9a9a'/%3e%3c/svg%3e");
       display: block;
       width: 18px;
       height: 18px;
+      margin-left: 1.6rem;
       transition: transform 200ms ease;
       will-change: transform; }
   .accordion-content {
@@ -2112,6 +2114,11 @@ strong {
     .accordion-content p:last-child {
       margin-bottom: 0;
       padding-bottom: 1.2rem; }
+  .accordion-title {
+    transition: color 200ms ease;
+    will-change: color; }
+  .accordion-header:hover .accordion-title {
+    color: var(--colour-orange); }
 
 .arrow {
   position: relative;

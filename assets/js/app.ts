@@ -1,6 +1,7 @@
 /**
  * app.js
- * All custom JS for theme stored here.
+ * All custom JS for application stored here.
+ *
  * @author Ainsley Clark
  * @author URL:   https://www.ainsleyclark.com
  * @author Email: info@ainsleyclark.com
@@ -8,10 +9,10 @@
 
 // import scripts from "./scripts/polyfills";
 import LazyLoad from 'vanilla-lazyload';
-import { Cursor } from "./animations/cursor";
-import { Skew } from "./animations/skew";
-import { FitText } from "./components/fit-text";
-import { Collapse }  from "./components/accordion";
+import {Cursor} from "./animations/cursor";
+import {Skew} from "./animations/skew";
+import {FitText} from "./components/fit-text";
+import {Collapse, CollapseOptions} from "./components/accordion";
 
 /**
  * Variables
@@ -33,6 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
 	new Cursor();
 	new Skew();
 	new FitText();
+	new Collapse({
+		accordion: true,
+		container: '.accordion',
+		item: '.accordion-item',
+		inner: '.accordion-content',
+		activeClass: 'accordion-item-active',
+	} as CollapseOptions);
 });
 
 /**
@@ -44,4 +52,4 @@ let lazyLoadInstance = new LazyLoad({
 	// ... more custom settings?
 });
 
-new Collapse();
+

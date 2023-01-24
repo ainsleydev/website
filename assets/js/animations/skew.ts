@@ -28,8 +28,8 @@ interface CoordinatesConfig {
 }
 
 /**
- * Button is responsible for adding micro interactions
- * to clickable elements.
+ * Skew is responsible for adding skew animations
+ * to given elements.
  */
 export class Skew {
 

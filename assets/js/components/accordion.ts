@@ -6,15 +6,24 @@
  * @author Email: hello@ainsley.dev
  */
 
+import {Log} from "../util/log";
 
-interface CollapseOptions {
+/**
+ * CollapseOptions is the global configuration of
+ * collapsible elements.
+ */
+export interface CollapseOptions {
 	accordion?: boolean
 	container?: string
-	header?: string
+	item?: string
 	inner?: string
 	activeClass?: string,
 }
 
+/**
+ * Collapse is responsible for creating collapsible
+ * animations from multiple containers.
+ */
 export class Collapse {
 
 	/**
@@ -24,36 +33,29 @@ export class Collapse {
 	 * @readonly
 	 */
 	public readonly defaultOptions: CollapseOptions = {
-		accordion: true,
-		container: '.accordion',
-		header: '.accordion-item',
-		inner: '.accordion-content',
-		activeClass: 'accordion-item-active',
+		accordion: false,
+		container: '.collapse',
+		item: '.collapse-item',
+		inner: '.collapse-content',
+		activeClass: 'collapse-item-active',
 	}
 
 	/**
-	 *
+	 * Options define the collapsible options.
 	 */
-	public options: CollapseOptions
+	private options: CollapseOptions
 
 	/**
-	 *
-	 * @private
-	 */
-	private container: HTMLElement
-
-	/**
-	 *
+	 * Creates a new collapsible type ranging over
+	 * all the containers within the DOM.
 	 */
 	constructor(options?: CollapseOptions) {
 		this.options = this.defaultOptions;
 		this.options = {...this.defaultOptions, ...options};
 		const containers = document.querySelectorAll(".accordion");
-		containers.forEach(contasiner => {
-
-		})
-		this.container =
-		this.attachClickHandler();
+		containers.forEach(container => {
+			this.attachClickHandler(<HTMLElement>container);
+		});
 	}
 
 	/**
@@ -63,7 +65,7 @@ export class Collapse {
 	 * @private
 	 */
 	private attachClickHandler(container: HTMLElement): void {
-		let headers =c ontainer.querySelectorAll<HTMLElement>(this.options.header);
+		let headers = container.querySelectorAll<HTMLElement>(this.options.item);
 		headers.forEach(header => {
 			header.addEventListener('click', e => {
 				e.preventDefault();
@@ -95,6 +97,10 @@ export class Collapse {
 	private toggle(item: HTMLElement, force: boolean): void {
 		const active = this.options.activeClass;
 		const inner = item.querySelector(this.options.inner) as HTMLElement;
+		if (!inner) {
+			Log.error("No inner item found for accordion item: " + item);
+			return;
+		}
 
 		let height = 0;
 		if (!item.classList.contains(active) && !force) {
