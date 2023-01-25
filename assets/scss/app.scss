@@ -73,6 +73,7 @@ $publicPath: '{{ .Site.BaseURL }}';
 @import "components/tag";
 @import "components/todo";
 @import "components/vertical";
+@import "components/video";
 
 /* ====================
     Layout
@@ -93,12 +94,13 @@ $publicPath: '{{ .Site.BaseURL }}';
 @import "animations/skew";
 
 /* ====================
+    Sections
+    ==================== */
+@import "sections/banner";
+@import "sections/map";
+
+/* ====================
     Pages
     ==================== */
 @import "pages/brand";
 @import "pages/home";
-
-/* ====================
-    Sections
-    ==================== */
-

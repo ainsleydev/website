@@ -4,15 +4,20 @@
     	- rotation:	The degree of rotation of the arrow
 
     ===================== -->
-<div class="arrow-link cursor-element" data-cursor-border>
+<a href="#home" class="arrow-link arrow-hover cursor-element" data-cursor-border>
 	<!-- Text -->
-	{{ with .text -}}
+    {{ with .text -}}
 		<h3 class="arrow-link-text">{{ . }}</h3>
-	{{- else -}}
-		{{- warnf "No text provided to arrow link" -}}
-	{{- end }}
+    {{- else -}}
+        {{- warnf "No text provided to arrow link" -}}
+    {{- end }}
 	<!-- Arrow -->
 	<figure class="arrow-link-image">
-        {{ partial "images/arrow.html" (dict "rotation" 45 "colour" "var(--colour-white)" "stroke" 2) }}
+		<div class="arrow-hover-visible">
+            {{ partial "images/arrow.html" (dict "rotation" 45 "colour" "var(--colour-white)" "stroke" 2) }}
+		</div>
+		<div class="arrow-hover-hidden">
+            {{ partial "images/arrow.html" (dict "rotation" 45 "colour" "var(--colour-white)" "stroke" 2) }}
+		</div>
 	</figure>
-</div>
+</a>

@@ -7,11 +7,11 @@
         {{ with .Parent.Params.singlehero -}}
 			<picture class="hero-background gradient gradient-height-100">
                 {{ partial "media/picture.html" (dict
-                "image" ($.Parent.Resources.Get .default)
-                "mob" ($.Parent.Resources.Get .mobile)
-                "tab" ($.Parent.Resources.Get .tablet)
-                "lazy" false
-                "alt" "ainsley.dev Desk & Keyboard")
+					"image" ($.Parent.Resources.Get .default)
+					"mob" ($.Parent.Resources.Get .mobile)
+					"tab" ($.Parent.Resources.Get .tablet)
+					"lazy" false
+					"alt" "ainsley.dev Desk & Keyboard")
                 }}
 			</picture>
         {{- end }}

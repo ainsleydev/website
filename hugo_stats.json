@@ -44,6 +44,7 @@
       "p",
       "path",
       "picture",
+      "pos",
       "pre",
       "rect",
       "script",
@@ -63,7 +64,8 @@
       "title",
       "tr",
       "u",
-      "ul"
+      "ul",
+      "video"
     ],
     "classes": [
       "a-symbol-left",
@@ -74,6 +76,9 @@
       "accordion-item",
       "accordion-title",
       "arrow",
+      "arrow-hover",
+      "arrow-hover-hidden",
+      "arrow-hover-visible",
       "arrow-link",
       "arrow-link-image",
       "arrow-link-text",
@@ -240,7 +245,10 @@
       "vertical-number",
       "vertical-text",
       "vertical-with-number",
-      "vertical-wrapper"
+      "vertical-wrapper",
+      "video",
+      "video-container",
+      "video-play"
     ],
     "ids": [
       "TableOfContents",
