@@ -2133,16 +2133,19 @@ strong {
   transform: rotate(var(--arrow-rotation));
   margin: 0; }
   .arrow-link {
+    position: relative;
     display: flex;
-    align-items: center;
-    background-color: pink; }
+    align-items: center; }
     .arrow-link-text {
       display: inline-block;
       margin-bottom: 0;
       margin-right: 1rem;
-      user-select: none; }
+      user-select: none;
+      padding-right: 30px; }
     .arrow-link-image {
-      position: relative;
+      position: absolute;
+      right: 0;
+      bottom: 0;
       width: 6vw;
       min-width: 25px;
       max-width: 40px;
@@ -2151,8 +2154,10 @@ strong {
         width: 100%;
         height: 100%; }
   .arrow-hover {
+    text-decoration: none;
     transition: all 200ms; }
     .arrow-hover-hidden, .arrow-hover-visible {
+      pointer-events: none;
       transition: all 200ms; }
     .arrow-hover-hidden {
       position: absolute;
@@ -2383,7 +2388,8 @@ code {
     white-space: break-spaces; }
   .highlight .line {
     opacity: 1;
-    margin: 0; }
+    margin: 0;
+    border: none; }
 
 .image {
   position: relative;
@@ -2594,9 +2600,9 @@ input[type=checkbox]:disabled {
 .vertical {
   position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: flex-start;
   z-index: 999; }
   .vertical * {
     display: block;
@@ -2605,28 +2611,34 @@ input[type=checkbox]:disabled {
     position: relative;
     display: block;
     height: 3px;
-    width: 100px;
-    margin-right: 10px;
-    background-color: #ffffff; }
+    width: 40%;
+    margin-right: 1rem;
+    background-color: var(--colour-foreground); }
   .vertical-number {
-    display: block; }
+    display: block;
+    margin-bottom: 6px; }
+  @media (max-width: 567px) {
+    .vertical-text {
+      margin-bottom: 0; } }
   @media (min-width: 768px) {
     .vertical {
       position: relative;
+      flex-direction: row;
       align-items: flex-start;
-      flex-direction: row-reverse;
       margin-top: 1rem;
       writing-mode: vertical-rl;
       transform: scale(-1); }
       .vertical-line {
-        height: 200px;
+        height: 30vh;
+        min-height: 130px;
+        max-height: 220px;
         width: 5px;
         min-width: 5px;
         margin-top: 0;
         margin-bottom: 2rem;
         margin-right: 2rem; }
       .vertical-number {
-        margin-left: 1.6rem; }
+        margin-left: 1.2rem; }
       .vertical-with-number {
         align-items: center; }
         .vertical-with-number .vertical-line {
@@ -2755,7 +2767,10 @@ input[type=checkbox]:disabled {
 .footer {
   position: relative;
   display: block;
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: #0A0A0A; }
+  .footer * {
+    color: #ffffff; }
   .footer-main {
     position: relative;
     padding-top: 5rem;

@@ -38,10 +38,10 @@
                             {{- end }}
                         {{- end }}
 					</div>
-					<!-- Arrow -->
-					<a href="{{ .Page.Permalink }}#content" class="hero-arrow">
-                        {{ partial "images/arrow.html" (dict "colour" "white" "rotation" "135") }}
-					</a>
+					<!-- Arrow TODO Should be: {{ .Page.Permalink }} use concat -->
+					<div class="hero-arrow">
+                        {{ partial "type/arrow-link.html" (dict "link" "#content" "rotation" 135) }}
+					</div>
 				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->

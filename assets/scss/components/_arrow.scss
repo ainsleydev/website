@@ -18,19 +18,22 @@
 	// =========================================================================
 
 	&-link {
+		position: relative;
 		display: flex;
 		align-items: center;
-		background-color: pink;
 
 		&-text {
 			display: inline-block;
 			margin-bottom: 0;
 			margin-right: 1rem;
 			user-select: none;
+			padding-right: 30px;
 		}
 
 		&-image {
-			position: relative;
+			position: absolute;
+			right: 0;
+			bottom: 0;
 			width: 6vw;
 			min-width: 25px;
 			max-width: 40px;
@@ -47,12 +50,13 @@
 	// =========================================================================
 
 	&-hover {
+		text-decoration: none;
 		transition: all 200ms;
 
 		&-hidden,
 		&-visible {
+			pointer-events: none;
 			transition: all 200ms;
-			//pointer-events: none;
 		}
 
 		&-hidden {

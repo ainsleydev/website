@@ -41,7 +41,7 @@
 			<div class="col-12 col-desk-6 footer-main-col">
 				<!-- Logo -->
 				<figure class="footer-logo">
-                    {{- partial "images/logo.html" -}}
+                    {{- partial "images/logo.html" (dict "colour" "var(--colour-white") -}}
 				</figure>
 				<!-- Navigation -->
                 {{ with .Site.Menus.footer -}}

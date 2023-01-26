@@ -6,6 +6,10 @@
 		- line:
     ===================== -->
 <div class="vertical {{ with .number }} vertical-with-number {{- end }}">
+	<!-- Line -->
+    {{ if .line -}}
+		<span class="vertical-line"></span>
+    {{- end }}
 	<!-- Wrapper -->
 	<span class="vertical-wrapper">
 		<!-- Number -->
@@ -21,8 +25,4 @@
 			</span>
         {{- end }}
 	</span><!-- /Wrapper -->
-	<!-- Line -->
-	{{ if .line -}}
-		<span class="vertical-line"></span>
-	{{- end }}
 </div>

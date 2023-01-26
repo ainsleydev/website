@@ -2,22 +2,26 @@
     Arrow Link
     	partial "type/arrow-link.html" (dict "rotation" 45 "colour" "var(--colour-white)" "stroke" 2)
     	- rotation:	The degree of rotation of the arrow
-
+		- class:	Any class names to be appended to the arrow element.
     ===================== -->
-<a href="#home" class="arrow-link arrow-hover cursor-element" data-cursor-border>
-	<!-- Text -->
-    {{ with .text -}}
-		<h3 class="arrow-link-text">{{ . }}</h3>
-    {{- else -}}
-        {{- warnf "No text provided to arrow link" -}}
-    {{- end }}
-	<!-- Arrow -->
-	<figure class="arrow-link-image">
-		<div class="arrow-hover-visible">
-            {{ partial "images/arrow.html" (dict "rotation" 45 "colour" "var(--colour-white)" "stroke" 2) }}
-		</div>
-		<div class="arrow-hover-hidden">
-            {{ partial "images/arrow.html" (dict "rotation" 45 "colour" "var(--colour-white)" "stroke" 2) }}
-		</div>
-	</figure>
-</a>
+{{ if .link }}
+	<a href="{{ .link }}"
+	   class="arrow-link arrow-hover cursor-element {{ with .class -}} {{ . }} {{- end }}"
+	   data-cursor-border>
+		<!-- Text -->
+		{{ with .text -}}
+			<h3 class="arrow-link-text">{{ . }}</h3>
+		{{- end }}
+		<!-- Arrow -->
+		<figure class="arrow-link-image">
+			<div class="arrow-hover-visible">
+				{{ partial "images/arrow.html" (dict "rotation" .rotation "colour" "var(--colour-white)" "stroke" 2) }}
+			</div>
+			<div class="arrow-hover-hidden">
+				{{ partial "images/arrow.html" (dict "rotation" .rotation "colour" "var(--colour-white)" "stroke" 2) }}
+			</div>
+		</figure>
+	</a>
+{{- else -}}
+    {{- warnf "No text  provided to arrow link" -}}
+{{- end }}
