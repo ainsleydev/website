@@ -31,6 +31,7 @@
 		"normalize.css": "^8.0.1",
 		"sharp": "^0.31.3",
 		"smoothscroll-polyfill": "^0.4.4",
+		"svgo": "^3.0.2",
 		"vanilla-lazyload": "^17.8.3"
 	},
 	"devDependencies": {

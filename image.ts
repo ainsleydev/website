@@ -1,69 +1,252 @@
-import {OutputInfo} from "sharp";
+/**
+ * image.ts
+ *
+ * @author Ainsley Clark
+ * @author URL:   https://ainsley.dev
+ * @author Email: hello@ainsley.dev
+ */
 
-const sharp = require('sharp'),
+const glob = require('glob'),
+	fs = require("fs"),
 	path = require('path'),
-	fs = require('fs'),
-	glob = require('glob');
+	sharp = require('sharp'),
+	svgo = require('svgo');
 
+import {AvifOptions, OutputInfo, WebpOptions} from "sharp";
+import {Config} from "svgo";
 
-const avifOptions = {
-	quality: 80,
-	lossless: false,
-	speed: 8, // default is 5
-	chromaSubsampling: '4:2:0',
+/**
+ * CollapseOptions is the global configuration of
+ * collapsible elements.
+ */
+export interface Options {
+	// The filepath to traverse.
+	filepath: string
+	// The quality of the images to be compressed.
+	quality?: number
+	// Enables WebP conversion
+	enableWebP?: boolean
+	// Enables AVIF conversion
+	enableAvif?: boolean
+	// Enables SVG optimisation.
+	enableSVG?: boolean
 }
 
 /**
- * The pattern of files to match.
+ * Image optimisation is a helper for optimisation and conversion of
+ * JPG, PNG & SVG images using sharp and SVG.
  */
-const globPattern = 'png|jpg|jpeg';
+export class Imagery {
 
-/**
- * Strips the file from a filepath.
- * Given: /file/my-image.jpg
- * Returns: /file
- *
- * @param file
- */
-const filePath = (file: string): string => {
-	return file.replace(/\.[^/.]+$/, "")
-};
+	/**
+	 * The default options for the collapsable content,
+	 * when properties are not defined.
+	 *
+	 * @readonly
+	 */
+	public readonly defaultOptions: Options = {
+		filepath: "",
+		quality: 80,
+		enableWebP: true,
+		enableAvif: true,
+		enableSVG: true,
+	}
 
-/**
- *
- * @param output
- * @param file
- */
-const handleFile = (output: Promise<OutputInfo>, file: string) => {
-	output
-		.then(() => console.log("✅ Image converted successfully: " + file))
-		.catch(err => console.log("⚠️ Error processing file: " + file + err))
-};
+	/**
+	 * Options define the collapsible options.
+	 */
+	private readonly options: Options
 
-/**
- *
- *
- * @param file
- */
-const convert = (file: string): void => {
-	const newFile = filePath(file) + ".avif",
-		to = sharp(file)
-			.toFormat('avif')
-			.avif(avifOptions)
+	/**
+	 * The pattern of files to match.
+	 */
+	public globPattern = 'png|jpg|jpeg|svg';
+
+	/**
+	 * Creates a new image optimisation type with image
+	 * options.
+	 */
+	constructor(options: Options) {
+		this.options = this.defaultOptions;
+		this.options = {...this.defaultOptions, ...options};
+	}
+
+	/**
+	 * Runs the conversion & optimisation.
+	 *
+	 * @returns void
+	 *
+	 */
+	public run(): void {
+		console.log("Running, options are: " + JSON.stringify(this.options, null, 4));
+		this.traverse();
+	}
+
+	/**
+	 * Traverses the directory tree looking for
+	 * the given file extensions and coverts
+	 * the images.
+	 *
+	 * @returns void
+	 */
+	private traverse(): void {
+		glob(__dirname + `/public/**/*.@(${this.globPattern})`, {}, (err, files) => {
+			files.forEach(file => this.convertOptimise(file));
+		});
+	}
+
+	/**
+	 * Converts and optimises the images found
+	 * in the glob pattern.
+	 *
+	 * @param file
+	 * @async
+	 */
+	private convertOptimise = async (file: string) => {
+		const ext = this.extension(file);
+		if (ext === ".jpg" || ext === ".jpeg" || ext === ".png") {
+			if (this.options.enableWebP) await this.webp(file);
+			if (this.options.enableAvif) await this.avif(file);
+		} else if (ext === ".svg") {
+			if (this.options.enableSVG) await this.svg(file);
+		}
+	};
+
+	/**
+	 * Converts the file to an WebP format.
+	 *
+	 * @param file
+	 * @async
+	 * @private
+	 */
+	private async webp(file: string) {
+		const newFile = this.getConvertedFile(file, 'avif');
+		sharp(file)
+			.toFormat('webp')
+			.avif({
+				quality: this.options.quality,
+				lossless: false,
+				chromaSubsampling: '4:2:0',
+			} as WebpOptions)
 			.toFile(newFile)
-	handleFile(to, newFile)
-};
+			.then(() => this.printSuccess(file))
+			.catch(err => this.printError(file, err))
+	}
 
+	/**
+	 * Converts the file to an AVIF format.
+	 *
+	 * @param file
+	 * @async
+	 * @private
+	 */
+	private async avif(file: string) {
+		const newFile = this.getConvertedFile(file, 'avif');
+		sharp(file)
+			.toFormat('avif')
+			.avif({
+				quality: this.options.quality,
+				lossless: false,
+				chromaSubsampling: '4:2:0',
+			} as AvifOptions)
+			.toFile(newFile)
+			.then(() => this.printSuccess(file))
+			.catch(err => this.printError(file, err))
+	}
+
+	/**
+	 * Optimises an SVG image using SVGO.
+	 *
+	 * @param file
+	 * @returns void
+	 * @private
+	 */
+	private async svg(file: string) {
+		const content = fs.readFileSync(file),
+			res = content.replace(/^\uFEFF/gm, "").replace(/^\u00BB\u00BF/gm,"");
+
+
+		try {
+			svgo.optimize(file, {
+				path: file,
+				multipass: true,
+			} as Config);
+			this.printSuccess(file);
+		} catch (err) {
+			this.printError(file, err);
+		}
+	}
+
+	/**
+	 * Strips the file from a filepath.
+	 * Given: /file/my-image.jpg
+	 * Returns: /file
+	 *
+	 * @param file
+	 * @returns string
+	 * @private
+	 */
+	private filePath(file: string): string {
+		return file.replace(/\.[^/.]+$/, "")
+	}
+
+	/**
+	 * Obtains the extension of a file.
+	 *
+	 * @param file
+	 * @returns string
+	 * @private
+	 */
+	private extension(file: string): string {
+		return path.extname(file)
+	}
+
+
+	/**
+	 * Obtains the file new file that is converted.
+	 *
+	 * @param file
+	 * @param extension
+	 * @returns string
+	 * @private
+	 */
+	private getConvertedFile(file: string, extension: string): string {
+		return this.filePath(file) + "." + extension;
+	}
+
+	/**
+	 * Prints an error in the case the image could not
+	 * be converted or optimised.
+	 *
+	 * @param file
+	 * @returns void
+	 * @private
+	 */
+	private printSuccess(file: string): void {
+		console.log(`✅ Image converted successfully: ${file}`);
+	}
+
+	/**
+	 * Prints an error in the case the image could not
+	 * be converted or optimised.
+	 *
+	 * @param file
+	 * @param error
+	 * @returns void
+	 * @private
+	 */
+	private printError(file: string, error: any): void {
+		console.log(`⚠️ Error processing File: ${file} - Error: ${error}`);
+	}
+}
 
 /**
- * Traverses the directory tree looking for
- * the given file extensions and coverts
- * the images.
+ * Instantiate and Run
  */
-const traverse = (): void => {
-	glob(__dirname + `/public/**/*.@(${globPattern})`, {}, (err, files) => {
-		files.forEach(file => convert(file));
-	});
-};
-
-traverse();
+new Imagery({
+	filepath: "./public",
+	quality: 90,
+	enableAvif: false,
+	enableWebP: false,
+	enableSVG: true,
+} as Options).run()
