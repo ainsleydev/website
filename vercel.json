@@ -1,10 +1,13 @@
 {
 	"buildCommand": "./vercel.sh",
 	"cleanUrls": true,
+	"devCommand": "hugo server -D -w -p $PORT",
 	"installCommand": "npm install",
 	"outputDirectory": "public",
 	"public": false,
-	"regions": ["lhr1"],
+	"regions": [
+		"lhr1"
+	],
 	"trailingSlash": true,
 	"git": {
 		"deploymentEnabled": {

@@ -4,7 +4,6 @@
 	"author": "Ainsley Clark",
 	"description": "Website code for ainsley.dev",
 	"license": "BSD-3",
-	"main": "index.js",
 	"scripts": {
 		"setup": "sudo chmod -R 777 ./bin && ./bin/setup-deps.sh && ./bin/setup.sh",
 		"setup:deps": "sudo chmod -R 777 ./bin && ./bin/setup-deps.sh",
@@ -21,7 +20,6 @@
 		"lint": "npm run lint:scss && npm run lint:js",
 		"lint:scss": "sass-lint --config ./config/.sass-lint.yml '**/*.scss' --verbose --no-exit",
 		"lint:js": "npx eslint -c ./config/.eslintrc **/*.js"
-
 	},
 	"dependencies": {
 		"@babel/cli": "^7.20.7",
