@@ -78,7 +78,7 @@ export class Imagery {
 	 *
 	 */
 	public run(): void {
-		console.log("Running, options are: " + JSON.stringify(this.options, null, 4));
+		console.log("ℹ️ Running, options are: " + JSON.stringify(this.options, null, 4) + "\n");
 		this.traverse();
 	}
 
@@ -90,7 +90,7 @@ export class Imagery {
 	 * @returns void
 	 */
 	private traverse(): void {
-		glob(__dirname + `/public/**/*.@(${this.globPattern})`, {}, (err, files) => {
+		glob(__dirname + `${this.options.filepath}**/*.@(${this.globPattern})`, {}, (err, files) => {
 			files.forEach(file => this.convertOptimise(file));
 		});
 	}
@@ -120,17 +120,17 @@ export class Imagery {
 	 * @private
 	 */
 	private async webp(file: string) {
-		const newFile = this.getConvertedFile(file, 'avif');
+		const newFile = this.getConvertedFile(file, 'webp');
 		sharp(file)
 			.toFormat('webp')
-			.avif({
+			.webp({
 				quality: this.options.quality,
 				lossless: false,
 				chromaSubsampling: '4:2:0',
 			} as WebpOptions)
 			.toFile(newFile)
-			.then(() => this.printSuccess(file))
-			.catch(err => this.printError(file, err))
+			.then(() => this.printSuccess(newFile))
+			.catch(err => this.printError(newFile, err))
 	}
 
 	/**
@@ -150,8 +150,8 @@ export class Imagery {
 				chromaSubsampling: '4:2:0',
 			} as AvifOptions)
 			.toFile(newFile)
-			.then(() => this.printSuccess(file))
-			.catch(err => this.printError(file, err))
+			.then(() => this.printSuccess(newFile))
+			.catch(err => this.printError(newFile, err))
 	}
 
 	/**
@@ -162,10 +162,6 @@ export class Imagery {
 	 * @private
 	 */
 	private async svg(file: string) {
-		const content = fs.readFileSync(file),
-			res = content.replace(/^\uFEFF/gm, "").replace(/^\u00BB\u00BF/gm,"");
-
-
 		try {
 			svgo.optimize(file, {
 				path: file,
@@ -173,6 +169,7 @@ export class Imagery {
 			} as Config);
 			this.printSuccess(file);
 		} catch (err) {
+			console.log(err);
 			this.printError(file, err);
 		}
 	}
@@ -223,6 +220,7 @@ export class Imagery {
 	 * @private
 	 */
 	private printSuccess(file: string): void {
+
 		console.log(`✅ Image converted successfully: ${file}`);
 	}
 
@@ -244,9 +242,9 @@ export class Imagery {
  * Instantiate and Run
  */
 new Imagery({
-	filepath: "./public",
+	filepath: "/public/",
 	quality: 90,
-	enableAvif: false,
-	enableWebP: false,
-	enableSVG: true,
+	enableAvif: true,
+	enableWebP: true,
+	enableSVG: false,
 } as Options).run()

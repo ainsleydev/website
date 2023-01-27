@@ -15,11 +15,13 @@
 		"build:production": "npm run hugo:clean && hugo --environment production --config params.yaml,config-production.yaml --minify && npm run image",
 		"build:prod": "npm run build:production",
 		"hugo:clean": "rm -rf public",
-		"image": "sudo chmod -R 777 ./bin && ./bin/image-optim.sh",
+		"image": "npx ts-node image.ts",
+		"image:shell": "sudo chmod -R 777 ./bin && ./bin/image-optim.sh",
 		"clean": "prettier --config ./config/.prettierrc --write ./**/*.{css,scss,json,js} --ignore-path ./config/.prettierignore && npx eslint -c ./config/.eslintrc assets/js/app.js --fix",
 		"lint": "npm run lint:scss && npm run lint:js",
 		"lint:scss": "sass-lint --config ./config/.sass-lint.yml '**/*.scss' --verbose --no-exit",
 		"lint:js": "npx eslint -c ./config/.eslintrc **/*.js"
+
 	},
 	"dependencies": {
 		"@babel/cli": "^7.20.7",
