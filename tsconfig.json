@@ -11,6 +11,8 @@
 		"strictPropertyInitialization": false,
 		"lib": ["es2016"],
 	},
+	"types": [ "node" ],
+	"typeRoots": [ "./node_modules/@types" ],
 	"$schema": "https://json.schemastore.org/tsconfig",
 	"display": "Recommended"
 }
