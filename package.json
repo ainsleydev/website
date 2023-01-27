@@ -28,6 +28,7 @@
 		"@babel/preset-typescript": "^7.18.6",
 		"@barba/core": "^2.9.7",
 		"@types/sharp": "^0.31.1",
+		"@vercel/edge": "^0.2.7",
 		"normalize.css": "^8.0.1",
 		"sharp": "^0.31.3",
 		"smoothscroll-polyfill": "^0.4.4",
