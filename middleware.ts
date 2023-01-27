@@ -1,8 +1,7 @@
-// config with custom matcher
-export const config = {
-	matcher: '/brand',
-};
+// export const config = {
+// 	matcher: '/',
+// };
 
 export default function middleware(request: Request) {
-
+	console.log(request.url)
 }
