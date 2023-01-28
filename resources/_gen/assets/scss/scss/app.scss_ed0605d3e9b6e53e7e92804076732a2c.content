@@ -3134,7 +3134,7 @@ input[type=checkbox]:disabled {
           transition: transform 250ms ease-in-out;
           will-change: transform; }
         .nav-main .nav-link:after {
-          content: url("http://localhost:57487//images/icons/nav-arrow.svg");
+          content: url("http://localhost:51115//images/icons/nav-arrow.svg");
           position: absolute;
           top: 50%;
           left: 0;
@@ -3264,25 +3264,27 @@ input[type=checkbox]:disabled {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  z-index: 1; }
   .map-wrapper {
     position: relative;
     display: flex;
     align-items: center;
     width: 100vw;
-    height: 40vh;
-    pointer-events: all; }
+    height: 40vh; }
     .map-wrapper .row {
+      width: auto;
       background-color: pink; }
   .map-info {
+    position: relative;
     background-color: #0A0A0A;
     padding: 3rem 2rem;
     border-radius: 8px;
-    pointer-events: none; }
+    width: 340px;
+    user-select: none;
+    z-index: 2; }
     .map-info address {
       font-style: normal; }
-      .map-info address * {
-        margin-bottom: 0; }
 
 .quote {
   display: block;

@@ -195,9 +195,7 @@
       "line-thick",
       "list",
       "map",
-      "map-card",
       "map-info",
-      "map-temp",
       "map-wrapper",
       "margin",
       "margin-large",
@@ -238,7 +236,6 @@
       "social-link",
       "tag",
       "tag-black",
-      "temp",
       "theme-black",
       "type-code",
       "type-lowercase",
@@ -259,7 +256,6 @@
       "brand-aside-check",
       "content",
       "github-clip-path",
-      "map",
       "nav-check",
       "pages"
     ]
