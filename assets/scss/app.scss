@@ -50,7 +50,6 @@ $publicPath: '{{ .Site.BaseURL }}';
     Util
     ==================== */
 @import "util/colors";
-@import "util/events";
 @import "util/spacing";
 
 /* ====================
@@ -98,6 +97,7 @@ $publicPath: '{{ .Site.BaseURL }}';
     ==================== */
 @import "sections/banner";
 @import "sections/map";
+@import "sections/quote";
 
 /* ====================
     Pages

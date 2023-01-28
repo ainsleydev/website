@@ -34,13 +34,6 @@ body {
 
 body {
 	background-color: $black;
-
-	&.theme-white {
-		background-color: #{$white};
-		--colour-background: #{$white};
-		--colour-foreground: #{$black};
-		--color-mark: rgba(#{$white}, 0.15)
-	}
 }
 
 .content-wrapper {

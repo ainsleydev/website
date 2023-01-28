@@ -4,11 +4,36 @@
 		- text:		The content of the quote.
 		- cite:		The author of the quote.
     ===================== -->
-<section class="section quote">
+<section class="section section-padding quote-section">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<h2>TODO</h2>
+				<!-- Mark -->
+				<figure class="quote-mark">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 237.495 230.943">
+						<g>
+							<path d="M9.6,265.1V180.759q0-58.238,25.6-96.394t74.805-50.2V69.3Q79.887,77.336,66.834,98.924T51.772,154.652H89.928V265.1Z" transform="translate(-9.6 -34.16)" fill="#fff"/>
+							<path d="M9.6,265.1V180.759q0-58.238,25.6-96.394t74.805-50.2V69.3Q79.887,77.336,66.834,98.924T51.772,154.652H89.928V265.1Z" transform="translate(127.485 -34.16)" fill="#fff"/>
+						</g>
+					</svg>
+				</figure>
+				<!-- Content -->
+				<blockquote class="quote">
+					<h2>
+						<!-- Title -->
+						{{ with .title -}}
+							<span class="quote-title">
+								“{{ . }}”
+							</span>
+						{{- else -}}
+                            {{- warnf "No title provided to quote" -}}
+						{{- end }}
+						<!-- Cite -->
+						{{ with .cite -}}
+							<cite class="quote-cite">{{ . }}</cite>
+                        {{- end }}
+					</h2>
+				</blockquote>
 			</div><!--/Col -->
 		</div><!--/Row -->
 	</div><!--/Container -->

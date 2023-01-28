@@ -1,0 +1,76 @@
+// -----------------------------------------------------------------------------
+// _quote.scss
+// This file contains all styles related to large quotes of the site.
+// -----------------------------------------------------------------------------
+
+.quote {
+	$self: &;
+
+	display: block;
+	position: relative;
+	margin: 0;
+	font-size: inherit;
+	font-style: normal;
+
+	// Props
+	// =========================================================================
+
+	&:before {
+		display: none;
+	}
+
+	// Section
+	// =========================================================================
+
+	&-section {
+		position: relative;
+	}
+
+	// Title
+	// =========================================================================
+
+	&-title {
+		margin: 0;
+	}
+
+	// Cite
+	// =========================================================================
+
+	&-cite {
+		display: block;
+		color: $copy-dark-bg;
+		font-style: normal;
+		font-weight: 300;
+		margin-top: $margin;
+		margin-bottom: 0;
+		line-height: 1.2;
+	}
+
+	// Mark
+	// =========================================================================
+
+	&-mark {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 44vw;
+		min-width: 150px;
+		max-width: 220px;
+		opacity: $alpha-light;
+		transform: translateY(-70%);
+
+		svg {
+			width: 100%;
+		}
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-desk {
+
+		&-mark {
+			transform: translate(-30%, -70%);
+		}
+	}
+}

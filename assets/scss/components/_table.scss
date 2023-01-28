@@ -21,8 +21,8 @@ table {
 	th,
 	td {
 		padding: $table-padding;
-		color: colour("foreground");
-		border: $table-border-width solid $table-border-colour;
+		color: var(--table-cell-colour);
+		border: $table-border-width solid var(--table-border-colour);
 	}
 
 	// Head
@@ -32,6 +32,7 @@ table {
 		font-weight: bold;
 
 		tr th {
+			color: colour("foreground");
 			font-size:  18px;
 		}
 	}
@@ -45,7 +46,7 @@ table {
 		tr {
 
 			&:nth-child(2n) {
-				background-color: $grey-light;
+				background-color: var(--table-stripe-colour);
 			}
 		}
 	}

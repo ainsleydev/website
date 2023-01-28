@@ -148,9 +148,7 @@ $highlight-padding: 10px;
 // ==========================================================================
 
 $table-border-width: 1.6px;
-$table-border-colour: #2b2b2b;
 $table-padding: 0.6rem 0.9rem;
-
 
 // Root
 // ==========================================================================
@@ -166,6 +164,9 @@ $table-padding: 0.6rem 0.9rem;
 	--colour-copy: #{$copy};
 	--colour-copy-dark: #{$copy-dark-bg};
 	--colour-copy-light: #{$copy-light-bg};
+	// Code
+	--code-colour: #{$black};
+	--code-background-colour: #{$white};
 	// Opacity
 	--alpha-standard: #{$alpha-standard};
 	--alpha-light: #{$alpha-light};
@@ -175,4 +176,23 @@ $table-padding: 0.6rem 0.9rem;
 	--margin-large: #{$margin-large};
 	// Links
 	--link-hover-colour: #{$blue};
+	// Table
+	--table-border-colour: #2b2b2b;
+	--table-cell-colour: #{$copy-dark-bg};
+	--table-stripe-colour: #{$grey-dark};
+
+	.theme-white {
+		background-color: #{$white};
+		// Colour
+		--colour-background: #{$white};
+		--colour-foreground: #{$black};
+		// Code
+		--code-colour: #{$black};
+		--code-background-colour: #E1E1E1;
+		// Table
+		--table-border-colour: #DDDDDD;
+		--table-cell-colour: #{$copy-light-bg};
+		--table-stripe-colour: #{$off-white};
+	}
 }
+

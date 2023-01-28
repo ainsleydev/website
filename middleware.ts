@@ -3,5 +3,5 @@
 // };
 
 export default function middleware(request: Request) {
-	console.log(request.url)
+	// console.log(request.url)
 }

@@ -27,12 +27,26 @@
   --colour-copy: #0A0A0A;
   --colour-copy-dark: #9A9A9A;
   --colour-copy-light: #595959;
+  --code-colour: #0A0A0A;
+  --code-background-colour: #ffffff;
   --alpha-standard: 0.15;
   --alpha-light: 0.1;
   --margin: 1.8rem;
   --margin-small: 1rem;
   --margin-large: 3rem;
-  --link-hover-colour: #70CBCE; }
+  --link-hover-colour: #70CBCE;
+  --table-border-colour: #2b2b2b;
+  --table-cell-colour: #9A9A9A;
+  --table-stripe-colour: #0F0F0F; }
+  :root .theme-white {
+    background-color: #ffffff;
+    --colour-background: #ffffff;
+    --colour-foreground: #0A0A0A;
+    --code-colour: #0A0A0A;
+    --code-background-colour: #E1E1E1;
+    --table-border-colour: #DDDDDD;
+    --table-cell-colour: #595959;
+    --table-stripe-colour: #F2F2F2; }
 
 /* ====================
     Vendor
@@ -336,12 +350,6 @@ body {
 
 body {
   background-color: #0A0A0A; }
-  body.theme-white {
-    background-color: #ffffff;
-    --colour-background: #ffffff;
-    --colour-foreground: #0A0A0A;
-    --color-mark: rgba(#ffffff, 0.15)
-	; }
 
 .content-wrapper {
   display: flex;
@@ -1829,30 +1837,6 @@ strong {
   .colour-foreground * {
     color: var(--colour-foreground); }
 
-.hover-line {
-  display: inline-block; }
-  .hover-line:before {
-    content: "";
-    display: none;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: #ffffff;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 300ms ease-in-out;
-    will-change: transform; }
-  .hover-line-white:before {
-    background-color: #ffffff; }
-  .hover-line-black:before {
-    background-color: #0A0A0A; }
-  .hover-line:hover:before {
-    transform: scaleX(1); }
-  @media (min-width: 1024px) {
-    .hover-line:before {
-      display: block; } }
 .margin {
   margin-bottom: 1.8rem; }
   .margin p:last-of-type {
@@ -2319,11 +2303,11 @@ a.btn {
 code {
   padding: 0.2em 0.4em;
   font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
-  color: var(--colour-background);
+  color: var(--code-colour);
   margin: 0;
   font-size: 13px;
   white-space: nowrap;
-  background-color: var(--colour-foreground);
+  background-color: var(--code-background-colour);
   border-radius: 4px;
   line-height: 1.5; }
 
@@ -2537,16 +2521,17 @@ table {
   table th,
   table td {
     padding: 0.6rem 0.9rem;
-    color: var(--colour-foreground);
-    border: 1.6px solid #2b2b2b; }
+    color: var(--table-cell-colour);
+    border: 1.6px solid var(--table-border-colour); }
   table thead {
     font-weight: bold; }
     table thead tr th {
+      color: var(--colour-foreground);
       font-size: 18px; }
   table tbody {
     font-size: 1rem; }
     table tbody tr:nth-child(2n) {
-      background-color: #171717; }
+      background-color: var(--table-stripe-colour); }
 
 hr,
 .line {
@@ -3149,7 +3134,7 @@ input[type=checkbox]:disabled {
           transition: transform 250ms ease-in-out;
           will-change: transform; }
         .nav-main .nav-link:after {
-          content: url("http://localhost:57975//images/icons/nav-arrow.svg");
+          content: url("http://localhost:62237//images/icons/nav-arrow.svg");
           position: absolute;
           top: 50%;
           left: 0;
@@ -3249,7 +3234,9 @@ input[type=checkbox]:disabled {
   border: 1px solid transparent;
   transition: transform 300ms ease, background 300ms ease, border-color 300ms ease; }
   .cursor-active {
-    cursor: none; }
+    cursor: none !important; }
+  .cursor-element {
+    display: inline-block; }
   .cursor-invert {
     mix-blend-mode: difference;
     cursor: none; }
@@ -3275,6 +3262,40 @@ input[type=checkbox]:disabled {
 .map {
   position: relative; }
 
+.quote {
+  display: block;
+  position: relative;
+  margin: 0;
+  font-size: inherit;
+  font-style: normal; }
+  .quote:before {
+    display: none; }
+  .quote-section {
+    position: relative; }
+  .quote-title {
+    margin: 0; }
+  .quote-cite {
+    display: block;
+    color: #9A9A9A;
+    font-style: normal;
+    font-weight: 300;
+    margin-top: 1.8rem;
+    margin-bottom: 0;
+    line-height: 1.2; }
+  .quote-mark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 44vw;
+    min-width: 150px;
+    max-width: 220px;
+    opacity: 0.1;
+    transform: translateY(-70%); }
+    .quote-mark svg {
+      width: 100%; }
+  @media (min-width: 1024px) {
+    .quote-mark {
+      transform: translate(-30%, -70%); } }
 /* ====================
     Pages
     ==================== */

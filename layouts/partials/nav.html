@@ -11,7 +11,7 @@
 					<li class="nav-item">
 						<a href="{{ .URL }}" class="nav-link" data-nav-image="#nav-picture-{{ .Identifier }}"
 						   aria-label="Navigate to the {{ .Name }} page">
-							<h2 class="nav-link-text heading-1 hover-line">{{ .Name }}</h2>
+							<h2 class="nav-link-text heading-1">{{ .Name }}</h2>
 						</a>
 					</li>
 				{{- end }}
@@ -47,7 +47,7 @@
                 {{ range . -}}
 					<li class="nav-item">
 						<a href="{{ .URL }}" class="nav-link" aria-label="Navigate to the {{ .Name }} page">
-							<span class="nav-link-text heading-5 hover-line hover-line-black">{{ .Name }}</span>
+							<span class="nav-link-text heading-5">{{ .Name }}</span>
 						</a>
 					</li>
                 {{- end }}
