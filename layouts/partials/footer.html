@@ -31,10 +31,10 @@
                     {{- end }}
 					<!-- Social -->
                     {{ with .Site.Params.social -}}
-						<nav class="footer-contact-social">
+						<menu class="footer-contact-social">
 							<h6>Connect with us</h6>
                             {{ partial "components/social.html" (dict "links" . "colour" "var(--colour-white)") }}
-						</nav>
+						</menu>
                     {{- end }}
 				</div><!-- /Contact -->
 			</div><!-- /Col -->
@@ -45,18 +45,16 @@
 				</figure>
 				<!-- Navigation -->
                 {{ with .Site.Menus.footer -}}
-					<nav class="footer-main-nav">
-						<ul class="footer-main-nav-list">
-                            {{ range . -}}
-								<li class="footer-main-nav-item">
-									<a href="{{ .URL }}" class="footer-main-nav-link"
-									   aria-label="Navigate to the {{ .Name }} page">
-										<h5 class="footer-main-nav-link-text cursor-element" data-cursor-border>{{ .Name }}</h5>
-									</a>
-								</li>
-                            {{- end }}
-						</ul><!-- /List -->
-					</nav><!-- /Navigation -->
+					<menu class="footer-main-menu">
+                        {{ range . -}}
+							<li class="footer-main-menu-item">
+								<a href="{{ .URL }}" class="footer-main-menu-link"
+								   aria-label="Navigate to the {{ .Name }} page">
+									<h5 class="cursor-element" data-cursor-border>{{ .Name }}</h5>
+								</a>
+							</li>
+                        {{- end }}
+					</menu><!-- /List -->
                 {{- else -}}
                     {{ errorf "No footer defined in menu.yaml" }}
                 {{- end }}
@@ -67,19 +65,18 @@
 			<div class="col-12">
 				<div class="footer-sub-wrapper">
 					<!-- Menu -->
-					<nav class="footer-sub-nav order-desk-last">
-						<ul class="footer-sub-nav-list">
-							<li class="footer-sub-nav-item">
-								<a class="footer-sub-nav-link" href="/terms">Terms & Conditions</a>
-							</li>
-							<li class="footer-sub-nav-item">
-								<a class="footer-sub-nav-link" href="/privacy">Privacy</a>
-							</li>
-							<li class="footer-sub-nav-item">
-								<a class="footer-sub-nav-link" href="/cookies">Cookies</a>
-							</li>
-						</ul>
-					</nav>
+                    {{ with .Site.Menus.terms -}}
+						<menu class="footer-sub-menu">
+                            {{ range . -}}
+								<li class="footer-sub-menu-item">
+									<a class="footer-sub-menu-link" href="{{ .URL }}"
+									   aria-label="Navigate to the {{ .Name }} page">
+                                        {{ .Name }}
+									</a>
+								</li>
+                            {{- end }}
+						</menu>
+                    {{- end }}
 					<!-- Text -->
 					<small class="footer-sub-text">
 						ainsley.dev is a registered company in England and Wales. Company

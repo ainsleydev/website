@@ -6,7 +6,7 @@
 	<div class="nav-main nav-main-active">
 		<!-- List -->
 		{{ with site.Menus.navmain -}}
-			<ul class="nav-list">
+			<menu class="nav-list">
 				{{ range . -}}
 					<li class="nav-item">
 						<a href="{{ .URL }}" class="nav-link" data-nav-image="#nav-picture-{{ .Identifier }}"
@@ -15,7 +15,7 @@
 						</a>
 					</li>
 				{{- end }}
-			</ul><!-- /List -->
+			</menu><!-- /List -->
 		{{- else -}}
             {{ errorf "No navmain defined in menu.yaml" }}
 		{{- end }}
@@ -43,7 +43,7 @@
 	<div class="nav-sub">
 		<!-- List -->
         {{ with site.Menus.navsub -}}
-			<ul class="nav-list nav-list-white">
+			<menu class="nav-list nav-list-white">
                 {{ range . -}}
 					<li class="nav-item">
 						<a href="{{ .URL }}" class="nav-link" aria-label="Navigate to the {{ .Name }} page">
@@ -51,7 +51,7 @@
 						</a>
 					</li>
                 {{- end }}
-			</ul><!-- /List -->
+			</menu><!-- /List -->
         {{- else -}}
             {{ errorf "No navsub defined in menu.yaml" }}
         {{- end }}

@@ -89,3 +89,16 @@ footer:
         name: Feedback
         url: /feedback/
         weight: 80
+terms:
+    -   identifier: terms-conditions
+        name: Terms & Conditions
+        url: /terms/
+        weight: 0
+    -   identifier: privacy
+        name: Privacy
+        url: /privacy/
+        weight: 10
+    -   identifier: cookies
+        name: Cookies
+        url: /cookies/
+        weight: 20
