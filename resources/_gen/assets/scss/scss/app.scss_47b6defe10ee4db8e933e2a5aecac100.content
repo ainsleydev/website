@@ -2573,6 +2573,8 @@ hr,
   .tag-black {
     background-color: #0F0F0F;
     color: #ffffff; }
+  .tag-white {
+    background-color: #ffffff; }
 
 input[type=checkbox]:disabled {
   appearance: none;
@@ -2883,70 +2885,52 @@ input[type=checkbox]:disabled {
   padding-top: 0 !important; }
 
 .form {
-  position: relative; }
-  .form-group {
-    display: flex;
-    flex-direction: column;
+  position: relative;
+  display: block; }
+  .form-wrapper {
+    padding: 2rem;
+    background-color: #F2F2F2;
+    border-radius: 8px;
     margin-bottom: 3rem; }
-    .form-group:last-child {
-      margin-bottom: 0; }
+  .form-group {
+    margin-bottom: 2rem; }
   .form-input {
     position: relative;
     width: 100%;
-    margin-bottom: 1rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    margin-bottom: 1.3rem;
     margin: 0;
+    padding: 0;
     border: none;
-    border-bottom: 2px solid rgba(10, 10, 10, 0.15);
+    color: #0A0A0A;
+    background-color: transparent;
     font-weight: bold;
     font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     outline: none;
-    color: #0A0A0A;
+    resize: vertical;
     -webkit-appearance: none;
     appearance: none; }
     .form-input {
-      font-size: 21px; }
+      font-size: 28px; }
       @media screen and (min-width: 300px) {
         .form-input {
-          font-size: calc(21px + 8 * ((100vw - 300px) / 1108)); } }
+          font-size: calc(28px + 22 * ((100vw - 300px) / 1108)); } }
       @media screen and (min-width: 1408px) {
         .form-input {
-          font-size: 29px; } }
+          font-size: 50px; } }
   .form-label {
     display: flex;
-    flex-direction: column;
-    flex-grow: 2;
     width: 100%; }
-  .form-placeholder {
-    position: relative;
-    margin-bottom: 0.9rem;
-    line-height: 1.36;
-    margin-bottom: 0;
-    font-weight: bold; }
-    .form-placeholder {
-      font-size: 19px; }
-      @media screen and (min-width: 300px) {
-        .form-placeholder {
-          font-size: calc(19px + 2.5 * ((100vw - 300px) / 1108)); } }
-      @media screen and (min-width: 1408px) {
-        .form-placeholder {
-          font-size: 21.5px; } }
-    .form-placeholder-required:after {
-      content: url("/images/icons/star.svg");
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      margin-left: 4px;
-      transform: translateY(-10px); }
-  .form-number {
-    display: block;
-    color: var(--colour-copy-dark);
-    margin-bottom: 10px; }
   .form-submit {
     display: flex;
     justify-content: flex-end;
-    width: 100%; }
+    width: 100%;
+    background-color: transparent; }
+  .form-error .form-number {
+    color: #FF5043; }
+  .form-error .form-input {
+    border-bottom-color: #FF5043; }
+  .form-success .form-input {
+    border-bottom-color: #70CBCE; }
   .form input:-webkit-autofill,
   .form input:-webkit-autofill:hover,
   .form input:-webkit-autofill:focus,
@@ -2963,15 +2947,7 @@ input[type=checkbox]:disabled {
   .form ::-ms-input-placeholder {
     /* Microsoft Edge */
     color: #0A0A0A; }
-  @media (min-width: 768px) {
-    .form-group {
-      flex-direction: row; }
-    .form-label {
-      flex-grow: 2; }
-    .form-number {
-      width: 10%;
-      margin-bottom: 0;
-      transform: translateY(6px); } }
+
 .header {
   position: fixed;
   display: flex;
@@ -3026,6 +3002,10 @@ input[type=checkbox]:disabled {
     display: flex;
     align-items: center;
     width: 100%; }
+  .hero-simple {
+    padding-top: 110px; }
+    .hero-simple-padding-bottom {
+      padding-bottom: clamp(80px, 20vw, 200px); }
   .hero-full-height {
     height: 100%;
     min-height: 100vh; }
@@ -3043,6 +3023,9 @@ input[type=checkbox]:disabled {
     width: clamp(30px, 12.5%, 70px); }
     .hero-arrow svg {
       width: 100%; }
+  @media (min-width: 768px) {
+    .hero-simple {
+      padding-top: clamp(80px, 20vw, 200px); } }
   @media (min-width: 1024px) {
     .hero-arrow {
       transition: all 100ms;
@@ -3246,32 +3229,14 @@ input[type=checkbox]:disabled {
 .section {
   position: relative; }
   .section-padding {
-    padding: 80px 0; }
-  .section-padding-small {
-    padding: 40px 0; }
-  .section-padding-large {
-    padding: 160px 0; }
-  @media (min-width: 768px) {
-    .section-padding {
-      padding: 120px 0; }
+    padding-top: clamp(80px, 20vw, 200px);
+    padding-bottom: clamp(80px, 20vw, 200px); }
     .section-padding-small {
-      padding: 60px 0; }
+      padding-top: clamp(40px, 5vw, 140px);
+      padding-bottom: clamp(40px, 5vw, 140px); }
     .section-padding-large {
-      padding: 240px 0; } }
-  @media (min-width: 1024px) {
-    .section-padding {
-      padding: 160px 0; }
-    .section-padding-small {
-      padding: 80px 0; }
-    .section-padding-large {
-      padding: 320px 0; } }
-  @media (min-width: 1600px) {
-    .section-padding {
-      padding: 200px 0; }
-    .section-padding-small {
-      padding: 100px 0; }
-    .section-padding-large {
-      padding: 400px 0; } }
+      padding-top: clamp(120px, 30vw, 240px);
+      padding-bottom: clamp(120px, 30vw, 240px); }
   .section-padding-bottom {
     padding-top: 0 !important; }
   .section-padding-top {
@@ -3304,7 +3269,7 @@ input[type=checkbox]:disabled {
     .cursor-invert-white {
       background: #ffffff; }
   .cursor-border {
-    border-color: #ffffff; }
+    border-color: var(--colour-foreground); }
   @media (hover: hover) {
     .cursor {
       display: block; } }
@@ -3446,23 +3411,14 @@ input[type=checkbox]:disabled {
   position: relative;
   overflow: hidden; }
   .contact-aside {
-    position: relative;
-    background-color: #F2F2F2; }
-    .contact-aside:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -20vw;
-      display: block;
-      background-color: #F2F2F2;
-      width: 150vw;
-      height: 100%;
-      z-index: -1; }
+    position: relative; }
     .contact-aside-item *:not(h6) {
       margin-bottom: 0; }
   @media (max-width: 1023px) {
     .contact {
-      padding-bottom: 0; } }
+      padding-bottom: 0; }
+      .contact-aside-item:not(:last-child) {
+        margin-bottom: 1.8rem; } }
   @media (min-width: 768px) and (max-width: 1023px) {
     .contact-aside {
       display: flex;
@@ -3480,8 +3436,6 @@ input[type=checkbox]:disabled {
         margin: 0;
         background-color: transparent; }
         .contact-aside:after {
-          display: none; }
-      .contact-form {
-        padding: 0; } }
+          display: none; } }
 
 /*# sourceMappingURL=app.css.map */

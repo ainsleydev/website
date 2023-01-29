@@ -81,14 +81,9 @@ $color-attr: (
 // Sections
 // =========================================================================
 
-$section-padding-divider: 2;
-$section-padding: (
-	mob: 80px,
-	tab: 120px,
-	desk: 160px,
-	desk-large: 160px,
-	hd: 200px
-);
+$section-padding: clamp(80px, 20vw, 200px);
+$section-padding-small: clamp(40px, 5vw, 140px);
+$section-padding-large: clamp(120px, 30vw, 240px);
 
 // Spacing
 // ==========================================================================

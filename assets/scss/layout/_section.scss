@@ -11,53 +11,18 @@
 	// Padding Modifiers
 	// =========================================================================
 
-	@each $responsive, $pixels in $section-padding {
-		@if ($responsive == tab) {
-			@include media-tab {
-				&-padding {
-					padding: $pixels 0;
-				}
-				&-padding-small {
-					padding: $pixels / $section-padding-divider 0;
-				}
-				&-padding-large {
-					padding: $pixels * $section-padding-divider 0;
-				}
-			}
-		} @else if ($responsive == desk) {
-			@include media-desk {
-				&-padding {
-					padding: $pixels 0;
-				}
-				&-padding-small {
-					padding: $pixels / $section-padding-divider 0;
-				}
-				&-padding-large {
-					padding: $pixels * $section-padding-divider 0;
-				}
-			}
-		} @else if ($responsive == hd) {
-			@include media-hd {
-				&-padding {
-					padding: $pixels 0;
-				}
-				&-padding-small {
-					padding: $pixels / $section-padding-divider 0;
-				}
-				&-padding-large {
-					padding: $pixels * $section-padding-divider 0;
-				}
-			}
-		} @else if ($responsive == mob) {
-			&-padding {
-				padding: $pixels 0;
-			}
-			&-padding-small {
-				padding: $pixels / $section-padding-divider 0;
-			}
-			&-padding-large {
-				padding: $pixels * $section-padding-divider 0;
-			}
+	&-padding {
+		padding-top: $section-padding;
+		padding-bottom: $section-padding;
+
+		&-small {
+			padding-top: $section-padding-small;
+			padding-bottom: $section-padding-small;
+		}
+
+		&-large {
+			padding-top: $section-padding-large;
+			padding-bottom: $section-padding-large;
 		}
 	}
 

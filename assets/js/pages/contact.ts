@@ -7,5 +7,8 @@
  */
 
 import load from "../components/map";
+import {Toast} from "../animations/toast";
 
 load();
+
+Toast("hey")

@@ -14,19 +14,7 @@
 
 	&-aside {
 		position: relative;
-		background-color: $off-white;
 
-		&:after {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: -20vw;
-			display: block;
-			background-color: $off-white;
-			width: 150vw;
-			height: 100%;
-			z-index: -1;
-		}
 
 		&-item *:not(h6) {
 			margin-bottom: 0;
@@ -38,6 +26,10 @@
 
 	@include media-desk-down {
 		padding-bottom: 0;
+
+		&-aside-item:not(:last-child) {
+			margin-bottom: $margin;
+		}
 	}
 
 	// Tablet
@@ -72,10 +64,6 @@
 			&:after {
 				display: none;
 			}
-		}
-
-		&-form {
-			padding: 0;
 		}
 	}
 }

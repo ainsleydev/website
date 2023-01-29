@@ -9,7 +9,7 @@ scripts:
 <!-- =====================
 	Contact
     ===================== -->
-<section class="section section-padding">
+<section class="hero hero-simple hero-simple-padding-bottom">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-desk-7">
@@ -29,44 +29,21 @@ scripts:
 		<div class="row">
 			<!-- Form -->
 			<div class="col-12 col-desk-8 order-desk-last">
-				<form action="" class="form contact-form section-padding section-padding-bottom">
-					<!-- Name -->
-					<fieldset class="form-group">
-						<h6 class="form-number">01</h6>
-						<label class="form-label">
-							<span class="form-placeholder form-placeholder-required">What's your name?</span>
-							<input class="form-input" type="text" name="name" autocomplete="name"/>
-						</label>
-					</fieldset>
-					<!-- Email -->
-					<fieldset class="form-group">
-						<h6 class="form-number">02</h6>
-						<label class="form-label">
-							<span class="form-placeholder">What’s your email address?</span>
-							<input class="form-input" type="text" name="email" autocomplete="email" required/>
-						</label>
-					</fieldset>
-					<!-- Organisation -->
-					<fieldset class="form-group">
-						<h6 class="form-number">03</h6>
-						<label class="form-label">
-							<span class="form-placeholder form-placeholder-required">What’s the name of your organisation?</span>
-							<input class="form-input" type="text" name="organisation"/>
-						</label>
-					</fieldset>
-					<!-- Message -->
-					<fieldset class="form-group">
-						<h6 class="form-number">04</h6>
-						<label class="form-label">
-							<span class="form-placeholder form-placeholder-required">Tell us how we can help</span>
-							<textarea class="form-input form-textarea" rows="6" name="message" required></textarea>
-						</label>
-					</fieldset>
+				<form action="" class="form contact-form">
+					<div class="form-wrapper">
+						<!-- Message -->
+						<fieldset class="form-group">
+							<label class="form-label">
+								<textarea class="form-input form-textarea" rows="6" name="message" >Hey ainsley.dev...</textarea>
+							</label>
+						</fieldset>
+						<!-- Message -->
+						<span class="tag tag-black form-message ml-0">Include your email in the message</span>
+					</div>
 					<!-- Submit -->
-					<fieldset class="form-submit">
-						{{< partial template="components/button.html" text="Let's go" colour="black" arrow=true >}}
-					</fieldset>
-
+					<button class="form-submit" type="submit">
+						{{< partial template="type/arrow-link.html" link="/brand" text="Let's go" colour="black" rotation=45 >}}
+					</button>
 				</form>
 			</div><!-- /Col -->
 			<!-- Contact -->

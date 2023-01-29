@@ -7,18 +7,23 @@
 	$self: &;
 
 	position: relative;
+	display: block;
+
+	// Wrapper
+	// =========================================================================
+
+	&-wrapper {
+		padding: 2rem;
+		background-color: $off-white;
+		border-radius: 8px;
+		margin-bottom: $margin-large;
+	}
 
 	// Group (Fieldset)
 	// =========================================================================
 
 	&-group {
-		display: flex;
-		flex-direction: column;
-		margin-bottom: $margin-large;
-
-		&:last-child {
-			margin-bottom: 0;
-		}
+		margin-bottom: 2rem;
 	}
 
 	// Input
@@ -27,16 +32,16 @@
 	&-input {
 		position: relative;
 		width: 100%;
-		@include h4;
-		padding-top: 1rem;
-		padding-bottom: 1rem;
+		@include h2;
 		margin: 0;
+		padding: 0;
 		border: none;
-		border-bottom: 2px solid rgba($black, $alpha-standard);
+		color: $copy;
+		background-color: transparent;
 		font-weight: bold;
 		font-family: $font;
 		outline: none;
-		color: $copy;
+		resize: vertical;
 		-webkit-appearance: none;
 		appearance: none;
 	}
@@ -46,37 +51,7 @@
 
 	&-label {
 		display: flex;
-		flex-direction: column;
-		flex-grow: 2;
 		width: 100%;
-	}
-
-	// Placeholder
-	// =========================================================================
-
-	&-placeholder {
-		position: relative;
-		@include h5;
-		margin-bottom: 0;
-		font-weight: bold;
-
-		&-required:after {
-			content: url("/images/icons/star.svg");
-			display: inline-block;
-			width: 12px;
-			height: 12px;
-			margin-left: 4px;
-			transform: translateY(-10px);
-		}
-	}
-
-	// Number
-	// =========================================================================
-
-	&-number {
-		display: block;
-		color: colour("copy-dark");
-		margin-bottom: 10px;
 	}
 
 	// Submit
@@ -86,15 +61,31 @@
 		display: flex;
 		justify-content: flex-end;
 		width: 100%;
+		background-color: transparent;
 	}
-
-
 
 	// Error
 	// =========================================================================
 
-	&-group-error {
+	&-error {
 
+		#{$self}-number {
+			color: $orange;
+		}
+
+		#{$self}-input {
+			border-bottom-color: $orange;
+		}
+	}
+
+	// Success
+	// =========================================================================
+
+	&-success {
+
+		#{$self}-input {
+			border-bottom-color: $blue;
+		}
 	}
 
 	// Autocomplete
@@ -131,25 +122,13 @@
 
 	@include media-tab {
 
-		&-group {
-			flex-direction: row;
-		}
-
-		&-label {
-			flex-grow: 2;
-		}
-
-		&-number {
-			width: 10%;
-			margin-bottom: 0;
-			transform: translateY(6px);
-		}
 	}
 
 	// Desktop
 	// =========================================================================
 
 	@include media-desk {
+
 	}
 }
 

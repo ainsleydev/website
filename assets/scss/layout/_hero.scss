@@ -37,6 +37,17 @@
 		width: 100%;
 	}
 
+	// Simple
+	// =========================================================================
+
+	&-simple {
+		padding-top: $header-height + 30px;
+
+		&-padding-bottom {
+			padding-bottom: $section-padding;
+		}
+	}
+
 	// Full Height
 	// =========================================================================
 
@@ -82,6 +93,10 @@
 	// =========================================================================
 
 	@include media-tab {
+
+		&-simple {
+			padding-top: $section-padding;
+		}
 	}
 
 	// Desktop
