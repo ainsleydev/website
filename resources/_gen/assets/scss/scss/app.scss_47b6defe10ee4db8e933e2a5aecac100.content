@@ -2687,7 +2687,7 @@ input[type=checkbox]:disabled {
     border-bottom: 2px solid rgba(10, 10, 10, 0.1); }
     .aside-link:first-child {
       padding-top: 0; }
-    .aside-link:last-child {
+    .aside-link:last-of-type {
       margin-bottom: 0;
       border-bottom: 0; }
   .aside-text {

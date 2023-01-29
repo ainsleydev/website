@@ -1,6 +1,6 @@
 <!-- =====================
     Quote
-		partial "sections/quote.html" ("text" "Amazing review! "cite" "ainsley.dev")
+		< sections/quote title="Quote" cite="ainsley.dev" >
 		- text:		The content of the quote.
 		- cite:		The author of the quote.
     ===================== -->
@@ -21,7 +21,7 @@
 				<blockquote class="quote">
 					<h2>
 						<!-- Title -->
-						{{ with .title -}}
+						{{ with .Get "title" -}}
 							<span class="quote-title">
 								“{{ . }}”
 							</span>
@@ -29,7 +29,7 @@
                             {{- warnf "No title provided to quote" -}}
 						{{- end }}
 						<!-- Cite -->
-						{{ with .cite -}}
+						{{ with .Get "cite" -}}
 							<cite class="quote-cite">{{ . }}</cite>
                         {{- end }}
 					</h2>
