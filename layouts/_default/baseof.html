@@ -33,7 +33,6 @@
 			<link rel="stylesheet" href="{{ $file.RelPermalink }}">
         {{- end }}
 		<!-- No JS -->
-
         {{ with index (partial "head/styles.html" (slice "scss/no-js.scss")) 0 }}
 			<noscript>
 				<link rel="stylesheet" href="{{ .RelPermalink }}">

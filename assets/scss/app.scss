@@ -16,7 +16,8 @@
  * environment the current build state is in.
  * Do not modify!
  */
-$publicPath: '{{ .Site.BaseURL }}';
+//$publicPath: '{{ .Site.BaseURL }}';
+$publicPath: '/';
 
 /*  ====================
     Abstracts

@@ -285,7 +285,7 @@
 
 				// Arrow
 				&:after {
-					content: url('#{$publicPath}/images/icons/nav-arrow.svg');
+					content: url('/images/icons/nav-arrow.svg');
 					position: absolute;
 					top: 50%;
 					left: 0;

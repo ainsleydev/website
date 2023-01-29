@@ -532,7 +532,8 @@ h4,
         font-size: 29px; } }
 h5,
 .heading-5 {
-  margin-bottom: 0.9rem; }
+  margin-bottom: 0.9rem;
+  line-height: 1.36; }
   h5,
   .heading-5 {
     font-size: 19px; }
@@ -3134,7 +3135,7 @@ input[type=checkbox]:disabled {
           transition: transform 250ms ease-in-out;
           will-change: transform; }
         .nav-main .nav-link:after {
-          content: url("//images/icons/nav-arrow.svg");
+          content: url("/images/icons/nav-arrow.svg");
           position: absolute;
           top: 50%;
           left: 0;
@@ -3270,14 +3271,13 @@ input[type=checkbox]:disabled {
     position: relative;
     display: flex;
     align-items: center;
-    width: 100vw;
-    height: 40vh; }
-    .map-wrapper .row {
-      width: auto;
-      background-color: pink; }
+    width: 100%;
+    height: 40vh;
+    overflow: hidden; }
   .map-info {
     position: relative;
     background-color: #0A0A0A;
+    color: #ffffff;
     padding: 3rem 2rem;
     border-radius: 8px;
     width: 340px;
@@ -3285,6 +3285,8 @@ input[type=checkbox]:disabled {
     z-index: 2; }
     .map-info address {
       font-style: normal; }
+      .map-info address * {
+        color: #ffffff; }
 
 .quote {
   display: block;

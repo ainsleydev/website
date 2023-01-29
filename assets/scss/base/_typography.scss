@@ -110,6 +110,7 @@ h4,
 @mixin h5 {
 	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 19px, 21.5px);
 	margin-bottom: 0.9rem;
+	line-height: 1.36;
 }
 
 h5,

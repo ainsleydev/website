@@ -10,7 +10,9 @@
 		{{ if ne hugo.Environment "development" -}}
 			{{ $cssOpts := (dict "targetPath" $target "enableSourceMap" false "outputStyle" "compressed") }}
 		{{ end }}
-		{{ $css = append ($resource | resources.ExecuteAsTemplate $target . | toCSS $cssOpts) $css }}
+		{{ $css = append ($resource | toCSS $cssOpts) $css }}
+
+		{{ warnf $target }}
 	{{ else }}
 		{{ errorf "SCSS file: %s, not found" $path }}
 	{{ end }}
