@@ -38,6 +38,7 @@
 		border: none;
 		color: $copy;
 		background-color: transparent;
+		line-height: 1.2;
 		font-weight: bold;
 		font-family: $font;
 		outline: none;
@@ -117,18 +118,14 @@
 		color: $copy;
 	}
 
-	// Tablet
-	// =========================================================================
-
-	@include media-tab {
-
-	}
-
 	// Desktop
 	// =========================================================================
 
 	@include media-desk {
 
+		&-wrapper {
+			padding: 3rem;
+		}
 	}
 }
 

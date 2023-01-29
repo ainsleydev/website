@@ -21,7 +21,7 @@ const loader = new Loader({
  * Once the loader has finished, initialise map variable and
  * set the zoom, lat and long and the custom marker.
  */
-const load = () => {
+const LoadMap = () => {
 	loader.load().then(() => {
 		let position = {
 			lat: 51.5155705754434,
@@ -58,7 +58,7 @@ const load = () => {
 	});
 }
 
-export default load;
+export default LoadMap;
 
 /**
  * Styling for the map as a JSON array.

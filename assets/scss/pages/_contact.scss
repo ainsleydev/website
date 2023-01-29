@@ -6,15 +6,11 @@
 .contact {
 	$self: &;
 
-	position: relative;
-	overflow: hidden;
-
 	// Aside
 	// =========================================================================
 
 	&-aside {
 		position: relative;
-
 
 		&-item *:not(h6) {
 			margin-bottom: 0;
@@ -40,9 +36,11 @@
 		&-aside {
 			display: flex;
 			justify-content: space-between;
+			padding-top: 4rem;
+			padding-bottom: 4rem;
 
 			&-item {
-				margin-bottom: 0;
+				margin-bottom: 0 !important;
 			}
 		}
 	}

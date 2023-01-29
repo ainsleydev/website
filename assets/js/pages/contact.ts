@@ -6,9 +6,8 @@
  * @author Email: hello@ainsley.dev
  */
 
-import load from "../components/map";
-import {Toast} from "../animations/toast";
+import LoadMap from "../components/map";
 
-load();
-
-Toast("hey")
+window.addEventListener("DOMContentLoaded", () => {
+	LoadMap();
+});

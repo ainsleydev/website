@@ -460,14 +460,13 @@ h4,
 h5 {
   display: block;
   color: var(--colour-foreground);
-  font-weight: bold;
-  letter-spacing: -1px;
-  line-height: 1.2; }
+  font-weight: bold; }
 
 h1,
 .heading-1 {
   margin-bottom: 1.4rem;
-  line-height: 0.9; }
+  line-height: 1;
+  letter-spacing: -1px; }
   h1,
   .heading-1 {
     font-size: 38px; }
@@ -492,7 +491,9 @@ h1,
         font-size: 80px; } }
 h2,
 .heading-2 {
-  margin-bottom: 1.3rem; }
+  margin-bottom: 1.3rem;
+  line-height: 1.2;
+  letter-spacing: -1px; }
   h2,
   .heading-2 {
     font-size: 28px; }
@@ -506,7 +507,9 @@ h2,
         font-size: 50px; } }
 h3,
 .heading-3 {
-  margin-bottom: 1.2rem; }
+  margin-bottom: 1.2rem;
+  line-height: 1.2;
+  letter-spacing: -1px; }
   h3,
   .heading-3 {
     font-size: 23px; }
@@ -520,7 +523,9 @@ h3,
         font-size: 37px; } }
 h4,
 .heading-4 {
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  letter-spacing: -1px; }
   h4,
   .heading-4 {
     font-size: 21px; }
@@ -535,7 +540,8 @@ h4,
 h5,
 .heading-5 {
   margin-bottom: 0.9rem;
-  line-height: 1.36; }
+  line-height: 1.36;
+  letter-spacing: -1px; }
   h5,
   .heading-5 {
     font-size: 19px; }
@@ -585,7 +591,7 @@ small {
   font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
   font-style: italic;
   font-weight: 300;
-  letter-spacing: -1.4px; }
+  letter-spacing: -2px; }
 
 .type-code {
   font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
@@ -2158,7 +2164,20 @@ strong {
     .arrow-hover:hover .arrow-hover-visible {
       transform: translate(100%, -100%);
       opacity: 0; }
-
+  @media (min-width: 1024px) {
+    .arrow-link-text {
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      margin-bottom: 0; }
+      .arrow-link-text {
+        font-size: 23px; } }
+    @media screen and (min-width: 1024px) and (min-width: 300px) {
+      .arrow-link-text {
+        font-size: calc(23px + 14 * ((100vw - 300px) / 1108)); } }
+    @media screen and (min-width: 1024px) and (min-width: 1408px) {
+      .arrow-link-text {
+        font-size: 37px; } }
 button,
 a.btn {
   border-radius: 4px;
@@ -2858,6 +2877,8 @@ input[type=checkbox]:disabled {
       order: 99; }
     .footer-heading {
       margin-bottom: 1.2rem;
+      line-height: 1.2;
+      letter-spacing: -1px;
       margin-bottom: 5rem; }
       .footer-heading {
         font-size: 23px; } }
@@ -2898,11 +2919,14 @@ input[type=checkbox]:disabled {
     position: relative;
     width: 100%;
     margin-bottom: 1.3rem;
+    line-height: 1.2;
+    letter-spacing: -1px;
     margin: 0;
     padding: 0;
     border: none;
     color: #0A0A0A;
     background-color: transparent;
+    line-height: 1.2;
     font-weight: bold;
     font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     outline: none;
@@ -2947,7 +2971,9 @@ input[type=checkbox]:disabled {
   .form ::-ms-input-placeholder {
     /* Microsoft Edge */
     color: #0A0A0A; }
-
+  @media (min-width: 1024px) {
+    .form-wrapper {
+      padding: 3rem; } }
 .header {
   position: fixed;
   display: flex;
@@ -3277,6 +3303,45 @@ input[type=checkbox]:disabled {
   transition: transform 100ms linear;
   will-change: transform; }
 
+.toastify {
+  position: fixed;
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 30px;
+  background-color: #0A0A0A;
+  color: #ffffff;
+  border-radius: 4px;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  cursor: pointer;
+  text-decoration: none;
+  z-index: 100999;
+  font-weight: bold; }
+  .toastify-close {
+    display: inline-flex;
+    align-items: center;
+    height: 0;
+    justify-content: center;
+    opacity: 1;
+    margin-left: 10px;
+    color: #ffffff;
+    font-size: 1.6rem;
+    line-height: 0;
+    border: 1px solid #171717;
+    transform: translateY(-3px); }
+  .toastify.on {
+    opacity: 1; }
+  .toastify .toast-close {
+    display: none; }
+  .toastify-right {
+    right: 5vw; }
+  .toastify-left {
+    left: 5vw; }
+  .toastify-top {
+    top: -150px; }
+  .toastify-bottom {
+    bottom: -150px; }
+
 /* ====================
     Sections
     ==================== */
@@ -3407,35 +3472,37 @@ input[type=checkbox]:disabled {
   .brand-list-description p {
     margin-bottom: 10px; } }
 
-.contact {
-  position: relative;
-  overflow: hidden; }
+.contact-aside {
+  position: relative; }
+  .contact-aside-item *:not(h6) {
+    margin-bottom: 0; }
+
+@media (max-width: 1023px) {
+  .contact {
+    padding-bottom: 0; }
+    .contact-aside-item:not(:last-child) {
+      margin-bottom: 1.8rem; } }
+
+@media (min-width: 768px) and (max-width: 1023px) {
   .contact-aside {
-    position: relative; }
-    .contact-aside-item *:not(h6) {
-      margin-bottom: 0; }
-  @media (max-width: 1023px) {
-    .contact {
-      padding-bottom: 0; }
-      .contact-aside-item:not(:last-child) {
-        margin-bottom: 1.8rem; } }
-  @media (min-width: 768px) and (max-width: 1023px) {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 4rem;
+    padding-bottom: 4rem; }
+    .contact-aside-item {
+      margin-bottom: 0 !important; } }
+
+@media (min-width: 1024px) {
+  .contact {
+    overflow: visible; }
     .contact-aside {
-      display: flex;
-      justify-content: space-between; }
-      .contact-aside-item {
-        margin-bottom: 0; } }
-  @media (min-width: 1024px) {
-    .contact {
-      overflow: visible; }
-      .contact-aside {
-        position: sticky;
-        flex-direction: column;
-        top: 100px;
-        padding: 0;
-        margin: 0;
-        background-color: transparent; }
-        .contact-aside:after {
-          display: none; } }
+      position: sticky;
+      flex-direction: column;
+      top: 100px;
+      padding: 0;
+      margin: 0;
+      background-color: transparent; }
+      .contact-aside:after {
+        display: none; } }
 
 /*# sourceMappingURL=app.css.map */

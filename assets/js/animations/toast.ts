@@ -18,9 +18,9 @@ export const Toast = (message: string): void => {
 	const toast = Toastify({
 		text: `
             <div class="toast-message">${message}</div>
-            <div class="toastify-close"><i class="icon icon-x"></i></div>
+            <div class="toastify-close type-serif">x</div>
         `,
-		duration: 2000,
+		duration: 3000,
 		newWindow: true,
 		close: true,
 		className: "toastify-error",
