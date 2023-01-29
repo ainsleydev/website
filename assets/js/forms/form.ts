@@ -106,11 +106,6 @@ export abstract class Form {
 			return Promise.reject(<Response>{message: "Validation failed", status: 400});
 		}
 
-		if (action === "") {
-			this.removeButtonLoading();
-			return Promise.reject(<Response>{message: "No action attached to request", status: 500});
-		}
-
 		if (!data) {
 			data = new FormData();
 		}

@@ -18,7 +18,7 @@ export class ContactForm extends Form {
 	 * Create a new Contact form.
 	 */
 	constructor() {
-		super(CONTACT_BUTTON_ID, "/api/contact");
+		super(CONTACT_BUTTON_ID, "/api/contact/");
 	}
 
 	/**
