@@ -1,0 +1,81 @@
+// -----------------------------------------------------------------------------
+// _contact.scss
+// This file contains all styles related to the contact page.
+// -----------------------------------------------------------------------------
+
+.contact {
+	$self: &;
+
+	position: relative;
+	overflow: hidden;
+
+	// Aside
+	// =========================================================================
+
+	&-aside {
+		position: relative;
+		background-color: $off-white;
+
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: -20vw;
+			display: block;
+			background-color: $off-white;
+			width: 150vw;
+			height: 100%;
+			z-index: -1;
+		}
+
+		&-item *:not(h6) {
+			margin-bottom: 0;
+		}
+	}
+
+	// Tablet Down
+	// =========================================================================
+
+	@include media-desk-down {
+		padding-bottom: 0;
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-tab-only {
+
+		&-aside {
+			display: flex;
+			justify-content: space-between;
+
+			&-item {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-desk {
+		overflow: visible;
+
+		&-aside {
+			position: sticky;
+			flex-direction: column;
+			top: 100px;
+			padding: 0;
+			margin: 0;
+			background-color: transparent;
+
+			&:after {
+				display: none;
+			}
+		}
+
+		&-form {
+			padding: 0;
+		}
+	}
+}

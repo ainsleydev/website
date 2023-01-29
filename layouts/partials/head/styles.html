@@ -11,8 +11,6 @@
 			{{ $cssOpts := (dict "targetPath" $target "enableSourceMap" false "outputStyle" "compressed") }}
 		{{ end }}
 		{{ $css = append ($resource | toCSS $cssOpts) $css }}
-
-		{{ warnf $target }}
 	{{ else }}
 		{{ errorf "SCSS file: %s, not found" $path }}
 	{{ end }}

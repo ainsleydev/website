@@ -3,6 +3,7 @@
 // This file contains all styles related to the footer of the site.
 // -----------------------------------------------------------------------------
 
+
 .footer {
 	$self: &;
 
@@ -114,7 +115,7 @@
 	&-logo {
 		display: none;
 		width: 30%;
-		max-width: 160px;
+		max-width: 240px;
 		margin-bottom: 1rem;
 
 		img {
@@ -239,4 +240,11 @@
 			}
 		}
 	}
+}
+
+// Padding Props
+// =========================================================================
+
+.theme-black .footer-main {
+	padding-top: 0 !important;
 }

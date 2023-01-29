@@ -126,7 +126,7 @@ h5,
 	letter-spacing: 2px;
 	font-weight: 500;
 	line-height: 1;
-	margin-bottom: 0.8rem;
+	margin-bottom: 0.9rem;
 }
 
 h6,
@@ -156,7 +156,7 @@ a {
 	font-size: $text-paragraph-size;
 	color: colour(foreground);
 	font-weight: bold;
-	text-decoration: underline;
+	text-decoration: none;
 	transition: color 160ms ease;
 
 	&:hover {

@@ -1,9 +1,9 @@
 ---
-title: From bedroom to agency
+title: Get in touch
 draft: false
 pageColour: white
 scripts:
-  - js/pages/contact.ts
+- js/pages/contact.ts
 ---
 
 <!-- =====================
@@ -13,8 +13,9 @@ scripts:
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-desk-7">
-				<h1>
-				Let’s capture <span class="type-serif">your vision*</span> and values so we can help you <u>build a vibrant</u> brand identity
+				<h1 class="mb-0">
+					Let’s capture <span class="type-serif">your vision*</span> and values so we can help you <u>build a
+						vibrant</u> brand identity
 				</h1>
 			</div><!-- /Col -->
 		</div><!-- /Row -->
@@ -23,13 +24,69 @@ scripts:
 <!-- =====================
 	Form
     ===================== -->
-<section class="section section-padding section-padding-bottom">
+<section class="section contact section-padding section-padding-bottom">
 	<div class="container">
 		<div class="row">
-			<div class="col-12 col-desk-7">
-				<h1>
-				Let’s capture <span class="type-serif">your vision*</span> and values so we can help you <u>build a vibrant</u> brand identity
-				</h1>
+			<!-- Form -->
+			<div class="col-12 col-desk-8 order-desk-last">
+				<form action="" class="form contact-form section-padding section-padding-bottom">
+					<!-- Name -->
+					<fieldset class="form-group">
+						<h6 class="form-number">01</h6>
+						<label class="form-label">
+							<span class="form-placeholder form-placeholder-required">What's your name?</span>
+							<input class="form-input" type="text" name="name" autocomplete="name"/>
+						</label>
+					</fieldset>
+					<!-- Email -->
+					<fieldset class="form-group">
+						<h6 class="form-number">02</h6>
+						<label class="form-label">
+							<span class="form-placeholder">What’s your email address?</span>
+							<input class="form-input" type="text" name="email" autocomplete="email" required/>
+						</label>
+					</fieldset>
+					<!-- Organisation -->
+					<fieldset class="form-group">
+						<h6 class="form-number">03</h6>
+						<label class="form-label">
+							<span class="form-placeholder form-placeholder-required">What’s the name of your organisation?</span>
+							<input class="form-input" type="text" name="organisation"/>
+						</label>
+					</fieldset>
+					<!-- Message -->
+					<fieldset class="form-group">
+						<h6 class="form-number">04</h6>
+						<label class="form-label">
+							<span class="form-placeholder form-placeholder-required">Tell us how we can help</span>
+							<textarea class="form-input form-textarea" rows="6" name="message" required></textarea>
+						</label>
+					</fieldset>
+				</form>
+			</div><!-- /Col -->
+			<!-- Contact -->
+			<div class="col-12 col-desk-4">
+				<aside class="contact-aside section-padding-small">
+					<!-- Email -->
+					<div class="contact-aside-item margin-large">
+						<h6>Email us</h6>
+						<a href="mailto:{{< param "contact.email" >}}" aria-label="Email ainsley.dev">
+							<h5>{{< param "contact.email" >}}</h5>
+						</a>
+					</div>
+					<!-- Phone -->
+					<div class="contact-aside-item margin-large">
+						<h6>Chat with us</h6>
+						<a href="tel:{{< param "contact.phone.link" >}}" aria-label="Phone ainsley.dev">
+							<h5>{{< param "contact.phone.pretty" >}}</h5>
+						</a>
+					</div>
+					<!-- Social -->
+					<div class="contact-aside-item">
+						<h6>Connect with us</h6>
+						{{< partial template="components/social.html"  >}}
+					</div>
+				</aside>
 			</div><!-- /Col -->
 		</div><!-- /Row -->
 	</div><!-- /Container -->
@@ -38,19 +95,18 @@ scripts:
     Map
     ===================== -->
 <section class="section map-wrapper">
-	<!-- Google Map -->
-	<div class="map"></div>
 	<!-- Content -->
-	<div class="container">
+	<div class="container map-container">
 		<div class="row">
 			<div class="col-12">
 				<!-- Info -->
-				<div class="map-info">
+				<div class="map-info section-padding-small">
+					<!-- Address -->
 					<div class="margin">
 						<h6>Write to us</h6>
 						<address>
 							<h5>
-								ainsley.dev LTD<br/>
+								ainsley.dev<br/>
 								71-75 Shelton Street<br/>
 								Covent Garden<br/>
 								London<br/>
@@ -58,10 +114,12 @@ scripts:
 							</h5>
 						</address>
 					</div>
-					<a target="_blank"
-					   href="https://www.google.com/maps/place/ainsley.dev/@51.5139491,-0.1232573,17.02z/data=!4m6!3m5!1s0x487605b625a28957:0xa6030818dec3f050!8m2!3d51.5149037!4d-0.1235842!16s%2Fg%2F11shgfsthh">Get directions</a>
+					<!-- Directions -->
+					<a target="_blank" class="map-info-link" href="{{< param "contact.map" >}}">Get directions</a>
 				</div><!-- /Info -->
 			</div><!-- /Col -->
 		</div><!-- /Row -->
 	</div><!-- /Container -->
+	<!-- Google Map -->
+	<div class="map"></div>
 </section>

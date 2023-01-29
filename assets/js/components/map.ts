@@ -23,19 +23,32 @@ const loader = new Loader({
  */
 const load = () => {
 	loader.load().then(() => {
-		const position = {
+		let position = {
 			lat: 51.5155705754434,
 			lng: -0.12367415060938884,
 		} as google.maps.LatLngLiteral;
 
+		let center = position;
+		if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+			center = {
+				lat: 51.517570791793474,
+				lng: -0.12637781729639475,
+			} as google.maps.LatLngLiteral;
+		}
+
 		const map = new google.maps.Map(document.querySelector(".map") as HTMLElement, {
 			backgroundColor: '#ffffff',
-			center: position,
+			center: center,
 			zoom: 16,
 			styles: style,
 			streetViewControl: false,
 			mapTypeControl: false,
+			draggable: true,
 		});
+
+		map.addListener("click", e => {
+			console.log(e.latLng.toJSON());
+		})
 
 		new google.maps.Marker({
 			position: position,

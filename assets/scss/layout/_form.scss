@@ -6,10 +6,19 @@
 .form {
 	$self: &;
 
-	// Container (Fieldset)
+	// Group (Fieldset)
 	// =========================================================================
 
-	&-cont {
+	&-group {
+		display: flex;
+		flex-direction: column;
+		border: none;
+		margin-bottom: $margin-large;
+		padding: 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	// Input
@@ -18,11 +27,63 @@
 	&-input {
 		position: relative;
 		width: 100%;
-		border: 0;
+		@include h4;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+		margin: 0;
+		border: none;
+		border-bottom: 2px solid rgba($black, $alpha-standard);
+		font-weight: bold;
+		font-family: $font;
 		outline: none;
 		color: $copy;
 		-webkit-appearance: none;
 		appearance: none;
+	}
+
+	// Label
+	// =========================================================================
+
+	&-label {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 2;
+		width: 100%;
+	}
+
+	// Placeholder
+	// =========================================================================
+
+	&-placeholder {
+		position: relative;
+		@include h5;
+		margin-bottom: 0;
+		font-weight: bold;
+
+		&-required:after {
+			content: url("/images/icons/star.svg");
+			display: inline-block;
+			width: 12px;
+			height: 12px;
+			margin-left: 4px;
+			transform: translateY(-10px);
+		}
+	}
+
+	// Number
+	// =========================================================================
+
+	&-number {
+		display: block;
+		color: colour("copy-dark");
+		margin-bottom: 10px;
+	}
+
+	// Error
+	// =========================================================================
+
+	&-group-error {
+
 	}
 
 	// Autocomplete
@@ -58,6 +119,20 @@
 	// =========================================================================
 
 	@include media-tab {
+
+		&-group {
+			flex-direction: row;
+		}
+
+		&-label {
+			flex-grow: 2;
+		}
+
+		&-number {
+			width: 10%;
+			margin-bottom: 0;
+			transform: translateY(6px);
+		}
 	}
 
 	// Desktop
