@@ -2,27 +2,8 @@
 <!-- =====================
     Variables
     ===================== -->
-<!-- CSS -->
-{{ $cssPath := "css/app.css" }}
-{{ $cssOpts := (dict "targetPath" $cssPath "enableSourceMap" true ) }}
-{{ if ne hugo.Environment "development" -}}
-    {{ $cssOpts := (dict "targetPath" $cssPath "enableSourceMap" false "outputStyle" "compressed") }}
-{{ end }}
-{{ $style := resources.Get "scss/app.scss" | resources.ExecuteAsTemplate "css/app.css" . | toCSS $cssOpts  }}
-<!-- No CSS -->
-{{ $noJSCssPath := "css/no-js.css" }}
-{{ $noJScssOpts := (dict "targetPath" $noJSCssPath "enableSourceMap" true ) }}
-{{ if ne hugo.Environment "development" -}}
-    {{ $noJSCssPath := (dict "targetPath" $noJSCssPath "enableSourceMap" false "outputStyle" "compressed") }}
-{{ end }}
-{{ $styleNoJS := resources.Get "scss/no-js.scss" | resources.ExecuteAsTemplate "css/no-js.css" . | toCSS $noJScssOpts  }}
-<!-- JS -->
-{{ $jsPath := "js/app.ts" }}
-{{ $jsOpts := (dict "targetPath" $jsPath "minify" false) }}
-{{ if ne hugo.Environment "development" -}}
-    {{ $jsOpts := (dict "targetPath" $jsPath "minify" true) }}
-{{ end }}
-{{ $js := resources.Get "js/app.ts" | babel | js.Build $jsOpts }}
+{{ $css := partial "head/styles.html" (append "scss/app.scss" .Params.styles) }}
+{{ $js := partial "head/scripts.html" (append "js/app.ts" .Params.scripts) }}
 <!-- =====================
     HTML
     ===================== -->
@@ -48,13 +29,20 @@
 			{{ template "_internal/google_analytics_async.html" . }}
         {{ end }}
         <!-- CSS -->
-		<link rel="stylesheet" href="{{ $style.Permalink }}">
+        {{ range $file := $css -}}
+			<link rel="stylesheet" href="{{ $file.RelPermalink }}">
+        {{- end }}
 		<!-- No JS -->
-		<noscript>
-			<link rel="stylesheet" href="{{ $styleNoJS.Permalink }}">
-		</noscript>
+
+        {{ with index (partial "head/styles.html" (slice "scss/no-js.scss")) 0 }}
+			<noscript>
+				<link rel="stylesheet" href="{{ .RelPermalink }}">
+			</noscript>
+		{{ end }}
 		<!-- Preload JS -->
-        <link rel="preload" href="{{ $js.Permalink }}" as="script">
+		{{ range $file := $js -}}
+			<link rel="preload" href="{{ $file.RelPermalink }}" as="script">
+		{{- end }}
         <!-- Favicon -->
 		<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -86,7 +74,9 @@
             {{- partial "footer.html" . -}}
 		</div>
         <!-- Javascript -->
-        <script src="{{ $js.RelPermalink }}"></script>
+		{{ range $file := $js -}}
+			<script src="{{ $file.RelPermalink }}"></script>
+		{{- end }}
         <!-- Google Transition Fix -->
         <script> </script>
     </body>

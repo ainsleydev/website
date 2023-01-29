@@ -1,0 +1,18 @@
+<!-- =====================
+    SCSS Files
+    ===================== -->
+{{ $css := slice }}
+{{ range $path := . }}
+	{{ $resource := resources.Get $path }}
+	{{ if $resource }}
+		{{ $target := (printf "%s.css" (strings.TrimSuffix (path.Ext $path) $path)) | replaceRE "scss" "css" }}
+		{{ $cssOpts := (dict "targetPath" $target "enableSourceMap" true ) }}
+		{{ if ne hugo.Environment "development" -}}
+			{{ $cssOpts := (dict "targetPath" $target "enableSourceMap" false "outputStyle" "compressed") }}
+		{{ end }}
+		{{ $css = append ($resource | resources.ExecuteAsTemplate $target . | toCSS $cssOpts) $css }}
+	{{ else }}
+		{{ errorf "SCSS file: %s, not found" $path }}
+	{{ end }}
+{{ end }}
+{{ return $css }}
