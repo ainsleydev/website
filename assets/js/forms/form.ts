@@ -115,12 +115,13 @@ export abstract class Form {
 			body: data,
 		}
 
-		let url = "/api/contact";
 		if (params) {
-			url += "?" + params
+			this.endpoint += "?" + params
 		}
 
-		return fetch(url, options)
+		const endpoint = window.location.origin + this.endpoint;
+		Log.info("Sending request to: " + endpoint);
+		return fetch(endpoint, options)
 			.then(res => res.json())
 			.then(res => Promise.resolve(<Response>res))
 			.then(data => data.error ? Promise.reject(<Response>data) : Promise.resolve(<Response>data))
