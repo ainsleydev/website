@@ -10,21 +10,6 @@ import {Log} from "../util/log";
 import {Toast} from "../animations/toast";
 
 /**
- * Result of localize_script
- */
-interface Localize {
-	ajax_url: string
-	ajax_nonce: string
-	home_url: string
-	template_url: string
-	stamped_store_hash: string
-	stamped_public_key: string
-}
-
-// @ts-ignore
-export const localizeData = <Localize>window.dataObj;
-
-/**
  * Result of a response from the backend.
  */
 export interface Response {
@@ -60,20 +45,29 @@ export abstract class Form {
 	formName: string
 
 	/**
+	 * Endpoint is the API route to send the form
+	 * data to.
+	 */
+	endpoint: string
+
+	/**
 	 * Creates a new form.
 	 *
 	 * @param buttonSelector
+	 * @param endpoint
 	 * @protected
 	 */
-	protected constructor(buttonSelector?: string) {
-		if (!buttonSelector) {
-			return;
-		}
+	protected constructor(buttonSelector: string, endpoint: string) {
+		this.endpoint = endpoint;
+
+		// Assign the button from the selector.
 		const btn = document.querySelector<HTMLButtonElement>(buttonSelector);
 		if (!btn) {
 			return;
 		}
-		const form = btn.closest("form")
+
+		// Find the closest form.
+		const form = btn.closest("form");
 		if (!form) {
 			Log.error(`Button missing from: ${buttonSelector}`);
 			return;
@@ -84,12 +78,10 @@ export abstract class Form {
 		// this.validation = new Validation();
 		this.formName = this.getFormName();
 
-		document.addEventListener("DOMContentLoaded", () => {
-			btn.addEventListener("click", e => {
-				e.preventDefault();
-				this.send();
-			}, true);
-		});
+		btn.addEventListener("click", e => {
+			e.preventDefault();
+			this.send();
+		}, true);
 	}
 
 	/**
@@ -98,14 +90,14 @@ export abstract class Form {
 	abstract send(): void|Promise<any>
 
 	/**
-	 * Fetch runs an action to the wordpress Admin Ajax URL.
+	 * Fetch sends the form data to the API.
 	 *
 	 * @param action
 	 * @param data
 	 * @param params
 	 * @returns Promise<Response>
 	 */
-	fetch(action: string, data?: FormData, params?: URLSearchParams, formName?: string): Promise<Response> {
+	fetch(data?: FormData, params?: URLSearchParams, formName?: string): Promise<Response> {
 		this.addButtonLoading();
 
 		if (!this.isValid()) {
@@ -122,15 +114,13 @@ export abstract class Form {
 		if (!data) {
 			data = new FormData();
 		}
-		data.append("action", action)
-		data.append("nonce", localizeData.ajax_nonce)
 
 		const options = <RequestInit>{
 			method: "POST",
 			body: data,
 		}
 
-		let url = localizeData.ajax_url;
+		let url = "/api/contact";
 		if (params) {
 			url += "?" + params
 		}
