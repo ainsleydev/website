@@ -371,6 +371,10 @@ menu {
   padding: 0;
   list-style-type: none; }
 
+fieldset {
+  border: none;
+  padding: 0; }
+
 .no-js .js-hide {
   display: none !important; }
 
@@ -2878,101 +2882,96 @@ input[type=checkbox]:disabled {
 .theme-black .footer-main {
   padding-top: 0 !important; }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  border: none;
-  margin-bottom: 3rem;
-  padding: 0; }
-  .form-group:last-child {
-    margin-bottom: 0; }
-
-.form-input {
-  position: relative;
-  width: 100%;
-  margin-bottom: 1rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  margin: 0;
-  border: none;
-  border-bottom: 2px solid rgba(10, 10, 10, 0.15);
-  font-weight: bold;
-  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  outline: none;
-  color: #0A0A0A;
-  -webkit-appearance: none;
-  appearance: none; }
-  .form-input {
-    font-size: 21px; }
-    @media screen and (min-width: 300px) {
-      .form-input {
-        font-size: calc(21px + 8 * ((100vw - 300px) / 1108)); } }
-    @media screen and (min-width: 1408px) {
-      .form-input {
-        font-size: 29px; } }
-.form-label {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 2;
-  width: 100%; }
-
-.form-placeholder {
-  position: relative;
-  margin-bottom: 0.9rem;
-  line-height: 1.36;
-  margin-bottom: 0;
-  font-weight: bold; }
-  .form-placeholder {
-    font-size: 19px; }
-    @media screen and (min-width: 300px) {
-      .form-placeholder {
-        font-size: calc(19px + 2.5 * ((100vw - 300px) / 1108)); } }
-    @media screen and (min-width: 1408px) {
-      .form-placeholder {
-        font-size: 21.5px; } }
-  .form-placeholder-required:after {
-    content: url("/images/icons/star.svg");
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    margin-left: 4px;
-    transform: translateY(-10px); }
-
-.form-number {
-  display: block;
-  color: var(--colour-copy-dark);
-  margin-bottom: 10px; }
-
-.form input:-webkit-autofill,
-.form input:-webkit-autofill:hover,
-.form input:-webkit-autofill:focus,
-.form input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px white inset !important; }
-
-.form ::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #0A0A0A;
-  opacity: 1;
-  /* Firefox */ }
-
-.form :-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #0A0A0A; }
-
-.form ::-ms-input-placeholder {
-  /* Microsoft Edge */
-  color: #0A0A0A; }
-
-@media (min-width: 768px) {
+.form {
+  position: relative; }
   .form-group {
-    flex-direction: row; }
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem; }
+    .form-group:last-child {
+      margin-bottom: 0; }
+  .form-input {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin: 0;
+    border: none;
+    border-bottom: 2px solid rgba(10, 10, 10, 0.15);
+    font-weight: bold;
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    outline: none;
+    color: #0A0A0A;
+    -webkit-appearance: none;
+    appearance: none; }
+    .form-input {
+      font-size: 21px; }
+      @media screen and (min-width: 300px) {
+        .form-input {
+          font-size: calc(21px + 8 * ((100vw - 300px) / 1108)); } }
+      @media screen and (min-width: 1408px) {
+        .form-input {
+          font-size: 29px; } }
   .form-label {
-    flex-grow: 2; }
-  .form-number {
-    width: 10%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    width: 100%; }
+  .form-placeholder {
+    position: relative;
+    margin-bottom: 0.9rem;
+    line-height: 1.36;
     margin-bottom: 0;
-    transform: translateY(6px); } }
-
+    font-weight: bold; }
+    .form-placeholder {
+      font-size: 19px; }
+      @media screen and (min-width: 300px) {
+        .form-placeholder {
+          font-size: calc(19px + 2.5 * ((100vw - 300px) / 1108)); } }
+      @media screen and (min-width: 1408px) {
+        .form-placeholder {
+          font-size: 21.5px; } }
+    .form-placeholder-required:after {
+      content: url("/images/icons/star.svg");
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin-left: 4px;
+      transform: translateY(-10px); }
+  .form-number {
+    display: block;
+    color: var(--colour-copy-dark);
+    margin-bottom: 10px; }
+  .form-submit {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%; }
+  .form input:-webkit-autofill,
+  .form input:-webkit-autofill:hover,
+  .form input:-webkit-autofill:focus,
+  .form input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important; }
+  .form ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #0A0A0A;
+    opacity: 1;
+    /* Firefox */ }
+  .form :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #0A0A0A; }
+  .form ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #0A0A0A; }
+  @media (min-width: 768px) {
+    .form-group {
+      flex-direction: row; }
+    .form-label {
+      flex-grow: 2; }
+    .form-number {
+      width: 10%;
+      margin-bottom: 0;
+      transform: translateY(6px); } }
 .header {
   position: fixed;
   display: flex;

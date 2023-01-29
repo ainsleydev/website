@@ -6,15 +6,15 @@
 .form {
 	$self: &;
 
+	position: relative;
+
 	// Group (Fieldset)
 	// =========================================================================
 
 	&-group {
 		display: flex;
 		flex-direction: column;
-		border: none;
 		margin-bottom: $margin-large;
-		padding: 0;
 
 		&:last-child {
 			margin-bottom: 0;
@@ -78,6 +78,17 @@
 		color: colour("copy-dark");
 		margin-bottom: 10px;
 	}
+
+	// Submit
+	// =========================================================================
+
+	&-submit {
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+	}
+
+
 
 	// Error
 	// =========================================================================
