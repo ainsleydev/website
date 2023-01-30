@@ -1,7 +1,6 @@
 languageCode: en-gb
 title: ainsley.dev® - Digital Craftsmanship Sculpting You As An Industry Leader.
 baseUrl: "http://localhost:1313"
-description: Description of the site
 build:
     writeStats: true
 disableKinds: [ "taxonomy", "taxonomyTerm" ]

@@ -2402,7 +2402,8 @@ code {
   height: auto; }
   .image img,
   .image source {
-    width: 100%; }
+    width: 100%;
+    height: auto; }
 
 .richtext ul,
 .richtext ol,

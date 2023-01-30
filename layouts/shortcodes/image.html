@@ -9,6 +9,11 @@
 	{{ if .Get "margin" -}} margin {{- end }}
 	{{ if .Get "margin-large" -}} margin-large {{- end }}
 	{{ with .Get "class" -}} {{ . }} {{- end }}">
-    {{ partial "media/image.html" (dict "image" (.Page.Resources.Get (.Get "src")) "alt" (.Get "alt")) }}
+    {{ partial "media/image.html" (dict
+		"image" (.Page.Resources.Get (.Get "src"))
+		"alt" (.Get "alt")
+		"width" (.Get "width")
+		"height" (.Get "height")
+	)}}
 </figure>
 

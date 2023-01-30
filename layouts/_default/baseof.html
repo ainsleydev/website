@@ -13,10 +13,18 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<!-- Title -->
         <title>{{ with .Params.title -}} {{ . }} | {{ end }}{{ .Site.Title }}</title>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <meta name="description" content="{{ .Site.Params.description }}">
-        <link rel="canonical" href="{{ .Site.BaseURL }}" />
+		<!-- Description -->
+        {{ if and (not .IsHome) (eq .Description "") }}
+			{{ warnf "No meta description for page: %s" .RelPermalink }}
+		{{- end }}
+		<!-- Canonical -->
+		<meta name="description"
+			  content="{{ if .IsHome -}} {{ $.Site.Params.description }} {{- else -}} {{ .Description }} {{- end }}"/>
+        <link rel="canonical"
+			  href="{{ with .Params.canonical -}} {{ . }} {{- else -}} {{ .Permalink }} {{- end }}"/>
 		<!-- Base -->
 		<base href="{{ .Site.BaseURL }}">
 		<script>window.BaseURL = {{ .Site.BaseURL }};</script>
@@ -24,10 +32,6 @@
         {{ template "_internal/opengraph.html" . }}
         <!-- Twitter -->
         {{ template "_internal/twitter_cards.html" . }}
-        <!-- Google Analytics -->
-        {{ if eq hugo.Environment "production" -}}
-			{{ template "_internal/google_analytics_async.html" . }}
-        {{ end }}
         <!-- CSS -->
         {{ range $file := $css -}}
 			<link rel="stylesheet" href="{{ $file.RelPermalink }}">
@@ -66,7 +70,7 @@
 		<!-- Wrapper -->
 		<div class="content-wrapper">
 			<!-- Main Content -->
-			<main>
+			<main id="main">
                 {{- block "main" . }}{{- end }}
 			</main>
 			<!-- Footer -->
