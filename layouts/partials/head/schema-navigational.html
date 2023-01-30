@@ -1,0 +1,22 @@
+{{ with . -}}
+	{{ $length := len . }}
+	<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "ItemList",
+			"itemListElement": [
+				{{ range $index, $item := . -}}
+				{
+					"@type": 		"SiteNavigationElement",
+					"position": 	{{ add $index 2 }},
+					"name": 		{{ $item.Name }},
+					{{- with $item.Params.description }}
+					"description": 	"{{ . }}",
+					{{- end }}
+					"url": 			{{ printf "%s/%s" (strings.TrimSuffix "/" site.BaseURL) (strings.TrimPrefix "/" $item.URL) }}
+				}{{ if ne (add $index 1) $length -}} , {{- end }}
+				{{ end }}
+			]
+		}
+	</script>
+{{- end }}

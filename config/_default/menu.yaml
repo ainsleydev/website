@@ -4,6 +4,7 @@ navMain:
         url: /who-we-are/
         weight: 10
         params:
+            description: TODO
             image:
                 url: /images/nav/about.jpg
                 alt: ainsley.dev Office Desk
@@ -12,6 +13,7 @@ navMain:
         url: /services/
         weight: 20
         params:
+            description: TODO
             image:
                 url: /images/nav/services.jpg
                 alt: Signpost with Logo
@@ -20,6 +22,7 @@ navMain:
         url: /portfolio/
         weight: 30
         params:
+            description: TODO
             image:
                 url: /images/nav/portfolio.jpg
                 alt: Portfolio Image
@@ -28,6 +31,7 @@ navMain:
         url: /insights/
         weight: 40
         params:
+            description: TODO
             image:
                 url: /images/nav/insights.jpg
                 alt: ainsley.dev Office Keyboard
@@ -36,6 +40,7 @@ navMain:
         url: /contact/
         weight: 50
         params:
+            description: TODO
             image:
                 url: /images/nav/contact.jpg
                 alt: ainsley.dev Office Desk
