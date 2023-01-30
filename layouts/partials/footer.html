@@ -23,8 +23,10 @@
 					<!-- Email -->
                     {{ with .Site.Params.contact.email -}}
 						<div class="footer-contact-email margin-large">
-							<h6>Email us</h6>
-							<a href="mailto:{{ . | safeHTMLAttr }}" aria-label="Email ainsley.dev">
+							<h6 class="footer-contact-sub">Email us</h6>
+							<a href="mailto:{{ . | safeHTMLAttr }}" class="cursor-element" title="Email ainsley.dev"
+							   aria-label="Email ainsley.dev"
+							   data-cursor-border data-cursor-border-white>
 								<span class="heading-5">{{ . }}</span>
 							</a>
 						</div>
@@ -32,7 +34,7 @@
 					<!-- Social -->
                     {{ with .Site.Params.social -}}
 						<menu class="footer-contact-social">
-							<h6>Connect with us</h6>
+							<h6 class="footer-contact-sub">Connect with us</h6>
                             {{ partial "components/social.html" (dict "colour" "white") }}
 						</menu>
                     {{- end }}
@@ -49,8 +51,10 @@
                         {{ range . -}}
 							<li class="footer-main-menu-item">
 								<a href="{{ .URL }}" class="footer-main-menu-link"
+								   title="{{ .Name }} Page"
 								   aria-label="Navigate to the {{ .Name }} page">
-									<h5 class="cursor-element" data-cursor-border data-cursor-border-white>{{ .Name }}</h5>
+									<h5 class="cursor-element" data-cursor-border
+										data-cursor-border-white>{{ .Name }}</h5>
 								</a>
 							</li>
                         {{- end }}
@@ -69,8 +73,10 @@
 						<menu class="footer-sub-menu">
                             {{ range . -}}
 								<li class="footer-sub-menu-item">
-									<a class="footer-sub-menu-link" href="{{ .URL }}"
-									   aria-label="Navigate to the {{ .Name }} page">
+									<a class="footer-sub-menu-link cursor-element" href="{{ .URL }}"
+									   title="{{ .Name }} Page"
+									   aria-label="Navigate to the {{ .Name }} page"
+									   data-cursor-border data-cursor-border-white>
                                         {{ .Name }}
 									</a>
 								</li>

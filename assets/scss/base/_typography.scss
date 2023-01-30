@@ -163,11 +163,11 @@ a {
 	color: colour(foreground);
 	font-weight: bold;
 	text-decoration: none;
-	transition: color 160ms ease;
-
-	&:hover {
-		color: var(--link-hover-colour);
-	}
+	//transition: color 160ms ease;
+	//
+	//&:hover {
+	//	color: var(--link-hover-colour);
+	//}
 }
 
 // Small

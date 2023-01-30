@@ -32,7 +32,14 @@
                         {{ with .Params.download -}}
                             {{ $file := $.Resources.GetMatch .path }}
                             {{ if $file -}}
-                                {{ partial "components/button.html" (dict "text" .text "link" ($.Resources.GetMatch .path).RelPermalink "arrow" true "colour" "white" "attr" (printf "download=%s" .name)) }}
+                                {{ partial "components/button.html" (dict
+									"text" .text
+									"link" ($.Resources.GetMatch .path).RelPermalink
+									"arrow" true
+                                	"colour" "white"
+									"title" "Download Brand Pack"
+									"attr" (printf "download=%s" .name)
+								)}}
                             {{- else -}}
                                 {{ errorf "File not found with path: %s" .path }}}
                             {{- end }}
@@ -40,7 +47,11 @@
 					</div>
 					<!-- Arrow TODO Should be: {{ .Page.Permalink }} use concat -->
 					<div class="hero-arrow">
-                        {{ partial "type/arrow-link.html" (dict "link" "#content" "rotation" 135) }}
+                        {{ partial "type/arrow-link.html" (dict
+							"link" "#content"
+							"rotation" 135
+							"title" (print "Explore the %s Brand Guidelines" .Title)
+						)}}
 					</div>
 				</div><!-- /Col -->
 			</div><!-- /Row -->

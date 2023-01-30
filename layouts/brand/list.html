@@ -26,10 +26,18 @@
 							<h1>ainsley.dev <span class="type-serif">brand <br/>guidelines*</span></h1>
 						</div>
 						<!-- Button -->
-                        {{ partial "components/button.html" (dict "text" "Download Pack" "button" "files.zip" "arrow" true "colour" "white") }}
+                        {{ partial "components/button.html" (dict
+							"text" "Download Pack"
+							"link" (.Resources.GetMatch "brand-pack.zip").RelPermalink
+							"arrow" true
+                        	"title" "Download Brand Pack"
+							"colour" "white"
+						)}}
 					</div><!-- /Text -->
 					<!-- Arrow -->
-					<a href="{{ .Page.Permalink }}#pages" class="hero-arrow">
+					<a href="{{ .Page.Permalink }}#pages" class="hero-arrow"
+						title="Explore ainsley.dev Brand Guidelines"
+					   	aria-label="Click to explore ainsley.dev Brand Guidelines">
                         {{ partial "images/arrow.html" (dict "colour" "white" "rotation" "135") }}
 					</a><!-- /Arrow -->
 				</div><!-- /Col -->
@@ -44,7 +52,12 @@
 			<div class="container">
 				<div class="row justify-content-between">
                     {{ range .Pages -}}
-						{{ partial "cards/horizontal.html" (dict "title" .Title "permalink" .RelPermalink "image" (.Resources.GetMatch .Params.featuredImage) "animate" true) }}
+						{{ partial "cards/horizontal.html" (dict
+							"title" .Title
+							"permalink" .RelPermalink
+							"image" (.Resources.GetMatch .Params.featuredImage)
+							"animate" true
+						)}}
                     {{- end }}
 				</div><!-- /Row -->
 			</div><!-- /Container -->

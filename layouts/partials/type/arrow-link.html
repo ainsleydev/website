@@ -1,13 +1,15 @@
 <!-- =====================
     Arrow Link
-    	partial "type/arrow-link.html" (dict "rotation" 45 "colour" "white" "stroke" 2)
+    	partial "type/arrow-link.html" (dict "rotation" 45 "colour" "white" "stroke" 2 "title" "Navigate to...")
     	- rotation:	The degree of rotation of the arrow
     	- colour:	The colour of the arrow, defaults to white.
 		- class:	Any class names to be appended to the arrow element.
+		- title:	The title & aria label of the link.
     ===================== -->
 {{ if .link }}
 	<a href="{{ .link }}"
 	   class="arrow-link arrow-hover cursor-element {{ with .class -}} {{ . }} {{- end }}"
+	   {{ with .title -}} title="{{ . }}" aria-label="{{ . }}" {{- end }}
 	   data-cursor-border>
 		<!-- Text -->
 		{{ with .text -}}

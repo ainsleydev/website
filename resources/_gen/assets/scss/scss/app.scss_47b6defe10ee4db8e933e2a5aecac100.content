@@ -577,10 +577,7 @@ a {
   font-size: 1.1rem;
   color: var(--colour-foreground);
   font-weight: bold;
-  text-decoration: none;
-  transition: color 160ms ease; }
-  a:hover {
-    color: var(--link-hover-colour); }
+  text-decoration: none; }
 
 small {
   display: inline-block;
@@ -2480,13 +2477,8 @@ ol.list {
     .social-icon {
       height: 20px; } }
   @media (min-width: 1024px) {
-    .social-icon path {
-      transition: fill 160ms ease;
-      will-change: fill; }
     .social-link {
-      margin-right: 2rem; }
-      .social-link:hover .social-icon path {
-        fill: var(--link-hover-colour); } }
+      margin-right: 2rem; } }
 blockquote {
   position: relative;
   display: flex;
@@ -2526,13 +2518,8 @@ blockquote {
     .social-icon {
       height: 20px; } }
   @media (min-width: 1024px) {
-    .social-icon path {
-      transition: fill 160ms ease;
-      will-change: fill; }
     .social-link {
-      margin-right: 2rem; }
-      .social-link:hover .social-icon path {
-        fill: var(--link-hover-colour); } }
+      margin-right: 2rem; } }
 table {
   position: relative;
   display: block;
@@ -2827,6 +2814,8 @@ input[type=checkbox]:disabled {
     flex-direction: column;
     align-items: flex-start;
     margin: 3rem 0; }
+    .footer-contact-sub {
+      color: var(--colour-copy-dark); }
   .footer-symbol {
     position: absolute;
     display: flex;

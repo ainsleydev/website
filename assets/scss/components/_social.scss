@@ -40,28 +40,13 @@
 		}
 	}
 
-	// Tablet
-	// =========================================================================
-
-	@include media-tab {
-	}
-
 	// Desktop
 	// =========================================================================
 
 	@include media-desk {
 
-		&-icon path {
-			transition: fill 160ms ease;
-			will-change: fill;
-		}
-
 		&-link {
 			margin-right: 2rem;
-
-			&:hover #{$self}-icon path {
-				fill: var(--link-hover-colour);
-			}
 		}
 	}
 }

@@ -1,14 +1,15 @@
 <!-- =====================
     Button
-    	partial "components/button.html" (dict "text" "Download" "link" "files.zip" "arrow" true "colour" "white" "attr" "download")
+    	partial "components/button.html" (dict "text" "Download" "link" "files.zip" "arrow" true "colour" "white" "title" "Navigate to..." "attr" "download")
     	- text: 		The text to appear within side the button.
     	- colour: 		The colour of the button, defaults to foreground.
     	- link: 		If the button should be an <a> tag.
     	- arrow: 		If an arrow should appear with the button.
+    	- title:		The title & aria label of the link.
     	- attributes: 	Any additional classnames or attributes to appear.
     ===================== -->
 {{ if .link -}}
-	<a href="{{ .link }}"
+	<a href="{{ .link }}" {{ with .title -}} title="{{ . }}" aria-label="{{ . }}" {{- end }}
 {{- else -}}
 	<button
 {{- end }}
