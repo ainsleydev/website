@@ -51,12 +51,14 @@
 
 	&-border {
 		border-color: colour("foreground");
-	}
 
-	// Tablet
-	// =========================================================================
+		&-black {
+			border-color: $black;
+		}
 
-	@include media-tab {
+		&-white {
+			border-color: $white;
+		}
 	}
 
 	// Non - Touch Screen

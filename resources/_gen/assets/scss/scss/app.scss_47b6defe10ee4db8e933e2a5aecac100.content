@@ -3296,6 +3296,10 @@ input[type=checkbox]:disabled {
       background: #ffffff; }
   .cursor-border {
     border-color: var(--colour-foreground); }
+    .cursor-border-black {
+      border-color: #0A0A0A; }
+    .cursor-border-white {
+      border-color: #ffffff; }
   @media (hover: hover) {
     .cursor {
       display: block; } }

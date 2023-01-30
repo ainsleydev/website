@@ -1,15 +1,11 @@
 <!-- =====================
     Arrow Link
-    	partial "type/arrow-link.html" (dict "rotation" 45 "colour" "var(--colour-white)" "stroke" 2)
+    	partial "type/arrow-link.html" (dict "rotation" 45 "colour" "white" "stroke" 2)
     	- rotation:	The degree of rotation of the arrow
     	- colour:	The colour of the arrow, defaults to white.
 		- class:	Any class names to be appended to the arrow element.
     ===================== -->
 {{ if .link }}
-	{{ $colour := "var(--colour-white)" }}
-	{{ if eq .colour "black" }}
-		{{ $colour = "var(--colour-black)" }}
-	{{ end }}
 	<a href="{{ .link }}"
 	   class="arrow-link arrow-hover cursor-element {{ with .class -}} {{ . }} {{- end }}"
 	   data-cursor-border>
@@ -20,10 +16,10 @@
 		<!-- Arrow -->
 		<figure class="arrow-link-image">
 			<div class="arrow-hover-visible">
-				{{ partial "images/arrow.html" (dict "rotation" .rotation "colour" $colour "stroke" 2) }}
+				{{ partial "images/arrow.html" (dict "rotation" .rotation "colour" .colour "stroke" 2) }}
 			</div>
 			<div class="arrow-hover-hidden">
-				{{ partial "images/arrow.html" (dict "rotation" .rotation "colour" $colour "stroke" 2) }}
+				{{ partial "images/arrow.html" (dict "rotation" .rotation "colour" .colour "stroke" 2) }}
 			</div>
 		</figure>
 	</a>

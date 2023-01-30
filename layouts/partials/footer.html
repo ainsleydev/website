@@ -33,7 +33,7 @@
                     {{ with .Site.Params.social -}}
 						<menu class="footer-contact-social">
 							<h6>Connect with us</h6>
-                            {{ partial "components/social.html" (dict "colour" "var(--colour-white)") }}
+                            {{ partial "components/social.html" (dict "colour" "white") }}
 						</menu>
                     {{- end }}
 				</div><!-- /Contact -->
@@ -41,7 +41,7 @@
 			<div class="col-12 col-desk-6 footer-main-col">
 				<!-- Logo -->
 				<figure class="footer-logo">
-                    {{- partial "images/logo.html" (dict "colour" "var(--colour-white") -}}
+                    {{- partial "images/logo.html" (dict "colour" "white") -}}
 				</figure>
 				<!-- Navigation -->
                 {{ with .Site.Menus.footer -}}
@@ -50,7 +50,7 @@
 							<li class="footer-main-menu-item">
 								<a href="{{ .URL }}" class="footer-main-menu-link"
 								   aria-label="Navigate to the {{ .Name }} page">
-									<h5 class="cursor-element" data-cursor-border>{{ .Name }}</h5>
+									<h5 class="cursor-element" data-cursor-border data-cursor-border-white>{{ .Name }}</h5>
 								</a>
 							</li>
                         {{- end }}
