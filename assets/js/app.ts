@@ -13,6 +13,7 @@ import {Cursor} from "./animations/cursor";
 import {Skew} from "./animations/skew";
 import {FitText} from "./components/fit-text";
 import {Collapse, CollapseOptions} from "./components/accordion";
+import {Card} from "./components/card";
 
 /**
  * Variables
@@ -34,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	new Cursor();
 	new Skew();
 	new FitText();
+	new Card();
 	new Collapse({
 		accordion: true,
 		container: '.accordion',

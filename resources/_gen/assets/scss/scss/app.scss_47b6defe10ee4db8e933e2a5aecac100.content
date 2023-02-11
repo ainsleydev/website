@@ -469,26 +469,26 @@ h1,
   letter-spacing: -1px; }
   h1,
   .heading-1 {
-    font-size: 38px; }
+    font-size: 40px; }
     @media screen and (min-width: 300px) {
       h1,
       .heading-1 {
-        font-size: calc(38px + 30 * ((100vw - 300px) / 1108)); } }
+        font-size: calc(40px + 34 * ((100vw - 300px) / 1108)); } }
     @media screen and (min-width: 1408px) {
       h1,
       .heading-1 {
-        font-size: 68px; } }
+        font-size: 74px; } }
   h1 .type-serif,
   .heading-1 .type-serif {
-    font-size: 48px; }
+    font-size: 50px; }
     @media screen and (min-width: 300px) {
       h1 .type-serif,
       .heading-1 .type-serif {
-        font-size: calc(48px + 32 * ((100vw - 300px) / 1108)); } }
+        font-size: calc(50px + 34 * ((100vw - 300px) / 1108)); } }
     @media screen and (min-width: 1408px) {
       h1 .type-serif,
       .heading-1 .type-serif {
-        font-size: 80px; } }
+        font-size: 84px; } }
 h2,
 .heading-2 {
   margin-bottom: 1.3rem;
@@ -2402,17 +2402,37 @@ a.btn {
   user-select: none; }
   .card-col.col-12:last-child .card {
     margin-bottom: 0; }
-  .card-image img {
-    width: 100%;
-    height: 100%; }
-  .card-text * {
-    margin-bottom: 0;
-    text-decoration: none; }
+  .card-image {
+    display: block; }
+    .card-image img {
+      width: 100%;
+      height: 100%; }
+  .card-text {
+    margin-top: 2rem; }
+    .card-text * {
+      text-decoration: none; }
+    .card-text-title {
+      margin-bottom: 0; }
   @media (min-width: 568px) {
     .card-col:nth-child(even) .card-half-margin {
       margin-top: 30%; }
     .card-half-margin {
       margin-bottom: 0; } }
+  .card-hover .card-image {
+    display: block;
+    height: 500px !important; }
+    .card-hover .card-image img {
+      object-fit: cover; }
+  .card-hover .card-image-clip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    z-index: 10;
+    transition: opacity 300ms ease; }
+
 code {
   padding: 0.2em 0.4em;
   font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;

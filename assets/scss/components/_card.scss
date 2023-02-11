@@ -26,6 +26,7 @@
 	// =========================================================================
 
 	&-image {
+		display: block;
 
 		img {
 			width: 100%;
@@ -37,10 +38,14 @@
 	// =========================================================================
 
 	&-text {
+		margin-top: 2rem;
 
 		* {
-			margin-bottom: 0;
 			text-decoration: none;
+		}
+
+		&-title {
+			margin-bottom: 0;
 		}
 	}
 
@@ -62,6 +67,29 @@
 
 		&-half-margin {
 			margin-bottom: 0;
+		}
+	}
+
+	&-hover {
+
+		#{$self}-image {
+			display: block;
+			height: 500px !important;
+
+			img {
+				object-fit: cover;
+			}
+		}
+
+		#{$self}-image-clip {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			opacity: 0;
+			z-index: 10;
+			transition: opacity 300ms ease;
 		}
 	}
 }
