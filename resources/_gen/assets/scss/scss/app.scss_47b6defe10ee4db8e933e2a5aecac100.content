@@ -351,6 +351,9 @@ body {
 body {
   background-color: #0A0A0A; }
 
+main {
+  flex-grow: 2; }
+
 .content-wrapper {
   display: flex;
   flex-direction: column;

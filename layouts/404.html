@@ -1,1 +1,37 @@
-Not found
+{{ define "main"}}
+	<!-- =====================
+		404
+		===================== -->
+	<section class="section section-padding section-padding-top">
+		<div class="container">
+			<div class="row">
+				<!-- Content -->
+				<div class="col-12 col-desk-5">
+					<!-- Heading -->
+					<div class="margin-large">
+						<h1>
+							<u>404</u><br/>
+							<span class="type-serif">page not found*</span>
+						</h1>
+						<p class="lead">
+							Sorry we couldn’t find that page, instead here’s a dancing Gopher in case you
+							needed this in your life.
+						</p>
+					</div>
+					<!-- Go Back -->
+                    {{ partial "components/button.html" (dict
+						"text" "Go Back"
+						"arrow" true
+						"colour" "white"
+                    )}}
+				</div><!-- /Col -->
+				<!-- Gopher -->
+				<div class="col-12 col-desk-5 offset-desk-2">
+					<figure class="hero-image">
+                        {{ partial "media/image.html" (dict "image" (resources.Get "images/gopher.gif")) }}
+					</figure>
+				</div>
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+{{ end }}

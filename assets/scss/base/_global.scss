@@ -36,6 +36,10 @@ body {
 	background-color: $black;
 }
 
+main {
+	flex-grow: 2;
+}
+
 .content-wrapper {
 	display: flex;
 	flex-direction: column;

@@ -17,9 +17,13 @@ imaging:
     quality: 75
     resampleFilter: Lanczos
 module:
-    mounts:
+     mounts:
         -   source: "./themes/reddico/node_modules/vanilla-lazyload/dist/lazyload.js"
             target: "assets/js/lazyload.js"
+        -   source: "assets"
+            target: "assets"
+        -   source: "static"
+            target: "assets"
 markup:
     defaultMarkdownHandler: goldmark
     goldmark:
