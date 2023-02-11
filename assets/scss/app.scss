@@ -40,6 +40,13 @@ $publicPath: '/';
 @import "base/typography";
 
 /* ====================
+    Animations
+    ==================== */
+@import "animations/cursor";
+@import "animations/skew";
+@import "animations/toast";
+
+/* ====================
     Grid
     ==================== */
 @import "grid/grid";
@@ -86,13 +93,6 @@ $publicPath: '/';
 @import "layout/nav";
 @import "layout/richtext";
 @import "layout/section";
-
-/* ====================
-    Animations
-    ==================== */
-@import "animations/cursor";
-@import "animations/skew";
-@import "animations/toast";
 
 /* ====================
     Sections

@@ -79,10 +79,12 @@
 			&-link {
 				text-decoration: none;
 				white-space: nowrap;
+				color: colour("copy-dark");
+				font-weight: normal;
 
 				&:after {
 					content: "|";
-					color: $white;
+					color: colour("copy-dark");
 					margin: 0 6px;
 				}
 			}
