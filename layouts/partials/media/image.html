@@ -1,6 +1,10 @@
 <!-- =====================
     Image
-		partial "media/image.html" ("image" (resources.Get "hello.jpg") "lazy" true "class" "class-name")
+		partial "media/image.html" (dict
+			"image" (resources.Get "hello.jpg")
+			"lazy" true
+			"class" "class-name"
+		)
 		- image:	The image resource, this has to be parsed or an error will be thrown.
 		- lazy:		If the image should be lazy loaded, defaults to false.
 		- class:	Any class names to be appended to the <picture> element.

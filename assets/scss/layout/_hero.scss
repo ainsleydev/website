@@ -82,11 +82,6 @@
 	&-arrow {
 		position: relative;
 		display: inline-block;
-		width: clamp(30px, 12.5%,  70px);
-
-		svg {
-			width: 100%;
-		}
 	}
 
 	// Tablet

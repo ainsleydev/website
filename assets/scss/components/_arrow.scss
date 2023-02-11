@@ -44,6 +44,19 @@
 				height: 100%;
 			}
 		}
+
+		&-down {
+
+			#{$self}-link-image {
+				top: 0;
+				right: auto;
+				width: clamp(30px, 12.5vw, 70px);
+				height: clamp(30px, 12.5vw, 70px);
+				max-width: none;
+				max-height: none;
+				transform: none;
+			}
+		}
 	}
 
 	// Hover
@@ -67,6 +80,10 @@
 			transform: translate(-100%, 100%);
 		}
 
+		&-down &-hidden {
+			transform: translate(-100%, -100%);
+		}
+
 		&:hover {
 
 			#{$self}-hover-hidden {
@@ -77,6 +94,10 @@
 			#{$self}-hover-visible {
 				transform: translate(100%, -100%);
 				opacity: 0;
+			}
+
+			&#{$self}-hover-down #{$self}-hover-visible {
+				transform: translate(100%, 100%);
 			}
 		}
 	}

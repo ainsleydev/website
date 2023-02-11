@@ -37,6 +37,7 @@
 									"link" ($.Resources.GetMatch .path).RelPermalink
 									"arrow" true
                                 	"colour" "white"
+									"size" "small"
 									"title" "Download Brand Pack"
 									"attr" (printf "download=%s" .name)
 								)}}
@@ -50,7 +51,8 @@
                         {{ partial "type/arrow-link.html" (dict
 							"link" "#content"
 							"rotation" 135
-							"title" (print "Explore the %s Brand Guidelines" .Title)
+							"title" (printf "Explore the %s Brand Guidelines" .Title)
+							"down" true
 						)}}
 					</div>
 				</div><!-- /Col -->

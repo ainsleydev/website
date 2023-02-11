@@ -1,6 +1,11 @@
 <!-- =====================
     Picture
-		partial "media/picture.html" (dict ("image" (resources.Get "hello.jpg") "lazy" true "mobile" false "class" "class-name")
+		partial "media/picture.html" (dict
+			("image" (resources.Get "hello.jpg")
+			"lazy" true
+			"mobile" false
+			"class" "class-name"
+		)
 		- image:					The image resource, this has to be parsed or an error will be thrown.
 		- lazy:						If the image should be lazy loaded, defaults to false.
 		- [css-key] string/image:	Hide a particular viewport by outputting a 1px dot by passing hide.
