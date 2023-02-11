@@ -2133,6 +2133,14 @@ strong {
   .px-hd-0 {
     padding-left: 0 !important; } }
 
+@media (max-width: 767px) {
+  .p-no-mob-down {
+    padding-bottom: 0 !important; } }
+
+@media (max-width: 1023px) {
+  .p-no-tab-down {
+    padding-bottom: 0 !important; } }
+
 /* ====================
     Components
     ==================== */
@@ -2224,20 +2232,22 @@ strong {
       .arrow-link-image svg {
         width: 100%;
         height: 100%; }
-    .arrow-link-down .arrow-link-image {
-      top: 0;
-      right: auto;
-      width: clamp(30px, 12.5vw, 70px);
-      height: clamp(30px, 12.5vw, 70px);
-      max-width: none;
-      max-height: none;
-      transform: none; }
+    .arrow-link-down {
+      min-height: clamp(30px, 12.5vw, 70px); }
+      .arrow-link-down .arrow-link-image {
+        top: 0;
+        right: auto;
+        width: clamp(30px, 12.5vw, 70px);
+        height: clamp(30px, 12.5vw, 70px);
+        max-width: none;
+        max-height: none;
+        transform: none; }
   .arrow-hover {
     text-decoration: none;
-    transition: all 200ms; }
+    transition: all 300ms; }
     .arrow-hover-hidden, .arrow-hover-visible {
       pointer-events: none;
-      transition: all 200ms; }
+      transition: all 300ms; }
     .arrow-hover-hidden {
       position: absolute;
       top: 0;
@@ -3009,7 +3019,7 @@ input[type=checkbox]:disabled {
       .footer-contact-email {
         margin-right: 0;
         margin-bottom: 1.6rem; } }
-.theme-black .footer-main {
+.theme-black .footer-main:not(.footer-padding) {
   padding-top: 0 !important; }
 
 .form {
@@ -3150,9 +3160,6 @@ input[type=checkbox]:disabled {
     margin-bottom: 8vh; }
     .hero-text-large {
       margin-bottom: 20vh; }
-  .hero-arrow {
-    position: relative;
-    display: inline-block; }
   @media (min-width: 768px) {
     .hero-simple {
       padding-top: clamp(80px, 20vw, 200px); } }

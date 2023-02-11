@@ -46,15 +46,15 @@
                             {{- end }}
                         {{- end }}
 					</div>
-					<!-- Arrow TODO Should be: {{ .Page.Permalink }} use concat -->
+					<!-- Arrow -->
 					<div class="hero-arrow">
                         {{ partial "type/arrow-link.html" (dict
-							"link" "#content"
-							"rotation" 135
+							"link" (printf "%s#content" .Page.Permalink)
+                       	 	"rotation" 135
 							"title" (printf "Explore the %s Brand Guidelines" .Title)
 							"down" true
 						)}}
-					</div>
+					</div><!-- /Arrow -->
 				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->

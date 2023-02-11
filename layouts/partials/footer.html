@@ -4,7 +4,7 @@
 <footer class="footer">
 	<div class="container">
 		<!-- Main -->
-		<div class="row footer-main">
+		<div class="row footer-main {{ if .Params.footerpadding -}} footer-padding {{- end }}">
 			<!-- Symbol -->
 			<figure class="footer-symbol">
                 {{ partial "images/a-symbol.html" (dict "opacity" 0.1 "greyscale" true) }}

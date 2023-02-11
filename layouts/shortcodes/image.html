@@ -10,7 +10,7 @@
 	{{ if .Get "margin-large" -}} margin-large {{- end }}
 	{{ with .Get "class" -}} {{ . }} {{- end }}">
     {{ partial "media/image.html" (dict
-		"image" (.Page.Resources.Get (.Get "src"))
+		"image" (resources.Get (.Get "src"))
 		"alt" (.Get "alt")
 		"width" (.Get "width")
 		"height" (.Get "height")

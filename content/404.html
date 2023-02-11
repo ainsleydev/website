@@ -7,11 +7,17 @@ url: 404.html
 <!-- =====================
 	404
 	===================== -->
-<section class="section section-padding section-padding-top">
+<section class="section section-padding section-padding">
 	<div class="container">
-		<div class="row">
+		<div class="row align-items-center justify-content-center">
+			<!-- Gopher -->
+			<div class="col-12 col-tab-8 col-desk-4 col-hd-5 offset-desk-2 order-desk-last">
+				<div class="margin mb-desk-0">
+					{{< image src="/images/gopher.gif" alt="Dancing Gopher" >}}
+				</div>
+			</div>
 			<!-- Content -->
-			<div class="col-12 col-desk-5">
+			<div class="col-12 col-desk-6 col-desk-large-5">
 				<!-- Heading -->
 				<div class="margin-large">
 					<h1>
@@ -24,19 +30,8 @@ url: 404.html
 					</p>
 				</div>
 				<!-- Go Back -->
-                {{ partial "components/button.html" (dict
-                "text" "Go Back"
-                "arrow" true
-                "colour" "white"
-                "attr" "data-go-back"
-                )}}
+				{{< partial template="components/button.html" text="Go back" arrow=true attr="data-go-back" >}}
 			</div><!-- /Col -->
-			<!-- Gopher -->
-			<div class="col-12 col-desk-5 offset-desk-2">
-				<figure class="hero-image">
-                    {{ partial "media/image.html" (dict "image" (resources.Get "images/gopher.gif")) }}
-				</figure>
-			</div>
 		</div><!-- /Row -->
 	</div><!-- /Container -->
 </section>

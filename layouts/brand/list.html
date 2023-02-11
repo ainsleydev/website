@@ -32,14 +32,16 @@
 							"arrow" true
                         	"title" "Download Brand Pack"
 							"colour" "white"
+                        	"size" "small"
 						)}}
 					</div><!-- /Text -->
 					<!-- Arrow -->
-					<a href="{{ .Page.Permalink }}#pages" class="hero-arrow"
-						title="Explore ainsley.dev Brand Guidelines"
-					   	aria-label="Click to explore ainsley.dev Brand Guidelines">
-                        {{ partial "images/arrow.html" (dict "colour" "white" "rotation" "135") }}
-					</a><!-- /Arrow -->
+                    {{ partial "type/arrow-link.html" (dict
+						"link" (printf "%s#content" .Page.Permalink)
+						"rotation" 135
+						"title" "Explore ainsley.dev Brand Guidelines"
+						"down" true
+                    )}}<!-- /Arrow -->
 				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->

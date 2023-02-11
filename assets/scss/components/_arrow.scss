@@ -46,6 +46,7 @@
 		}
 
 		&-down {
+			min-height: clamp(30px, 12.5vw, 70px);
 
 			#{$self}-link-image {
 				top: 0;
@@ -64,12 +65,12 @@
 
 	&-hover {
 		text-decoration: none;
-		transition: all 200ms;
+		transition: all 300ms;
 
 		&-hidden,
 		&-visible {
 			pointer-events: none;
-			transition: all 200ms;
+			transition: all 300ms;
 		}
 
 		&-hidden {

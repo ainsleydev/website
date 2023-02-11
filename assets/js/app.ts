@@ -7,8 +7,6 @@
  * @author Email: info@ainsleyclark.com
  */
 
-// import scripts from "./scripts/polyfills";
-import LazyLoad from 'vanilla-lazyload';
 import {Cursor} from "./animations/cursor";
 import {Skew} from "./animations/skew";
 import {FitText} from "./components/fit-text";
@@ -46,10 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /**
- * Vanilla Lazyload
- *
+ * Button - Go Back
  */
-let lazyLoadInstance = new LazyLoad({
-	elements_selector: '.lazy'
-	// ... more custom settings?
+document.querySelectorAll('[data-go-back]').forEach(btn => {
+	btn.addEventListener("click", e => {
+		e.preventDefault();
+		history.back();
+	});
 });
