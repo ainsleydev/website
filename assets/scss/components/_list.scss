@@ -12,7 +12,7 @@
 .footnotes ol,
 .list {
 	margin-top: 0;
-	margin-bottom: 0;
+	margin-bottom: 1rem;
 	padding: 0;
 	list-style-position: outside;
 
@@ -25,7 +25,8 @@
 		padding: 0 0 0 12px;
 		font-size: $text-paragraph-size;
 
-		&:last-child {
+		&:last-child,
+		p {
 			margin-bottom: 0;
 		}
 	}
@@ -60,8 +61,18 @@ ul.list {
 	// =========================================================================
 
 	li {
-		// TODO: This will need to be a different image for theme-white.
-		list-style-image: url("/images/icons/list-arrow.svg");
+		list-style-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11.483' height='10.022' viewBox='0 0 11.483 10.022'%3E%3Cpath d='M0,11.483,4.182,0H5.832l4.19,11.483H8.278L5.019,1.7l-3.3,9.779Z' transform='translate(11.483) rotate(90)' fill='%239a9a9a' opacity='0.6'/%3E%3C/svg%3E%0A");
+	}
+}
+
+// Theme White
+// =========================================================================
+
+.richtext ul,
+ul.list {
+
+	li {
+		list-style-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11.483' height='10.022' viewBox='0 0 11.483 10.022'%3E%3Cpath d='M0,11.483,4.182,0H5.832l4.19,11.483H8.278L5.019,1.7l-3.3,9.779Z' transform='translate(11.483) rotate(90)' fill='%23595959' opacity='0.6'/%3E%3C/svg%3E%0A");
 	}
 }
 

@@ -23,14 +23,21 @@
 		}
 	}
 
+	> :last-child {
+		// Assign no margin to the last element in the article.
+		margin-bottom: 0 !important;
+	}
+
 	// Paragraph
 	// ==========================================================================
 
-	p:empty {
-		display: none;
-		margin: 0;
-	}
+	p {
 
+		&:empty {
+			display: none;
+			margin: 0;
+		}
+	}
 	// Images
 	// ==========================================================================
 

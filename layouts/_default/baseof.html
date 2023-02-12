@@ -20,10 +20,10 @@
         {{ if and (not .IsHome) (eq .Description "") }}
 			{{ warnf "No meta description for page: %s" .RelPermalink }}
 		{{- end }}
-		<!-- Canonical -->
 		<meta name="description"
 			  content="{{ if .IsHome -}} {{ $.Site.Params.description }} {{- else -}} {{ .Description }} {{- end }}"/>
-        <link rel="canonical"
+		<!-- Canonical -->
+		<link rel="canonical"
 			  href="{{ with .Params.canonical -}} {{ . }} {{- else -}} {{ .Permalink }} {{- end }}"/>
 		<!-- Base -->
 		<base href="{{ .Site.BaseURL }}">
@@ -50,7 +50,7 @@
 		<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-		<link rel="manifest" href="/favicon/site.webmanifest">
+		<link rel="manifest" href="/favicon/site.webmanifest" crossorigin="use-credentials">
 		<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#0a0a0a">
 		<meta name="msapplication-TileColor" content="#0a0a0a">
 		<meta name="theme-color" content="#0a0a0a">

@@ -1,6 +1,6 @@
 ---
 title: Brand guidelines
-description: Discover ainsley.dev Brand Guidelines
+description: Discover ainsley.dev Brand Guidelines.
 draft: false
 page_colour: black
 listHero:

@@ -194,6 +194,11 @@ $table-padding: 0.6rem 0.9rem;
 		--table-border-colour: #DDDDDD;
 		--table-cell-colour: #{$copy-light-bg};
 		--table-stripe-colour: #{$off-white};
+
+		strong,
+		b {
+			color: $black;
+		}
 	}
 }
 

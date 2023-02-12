@@ -1,8 +1,10 @@
 ---
 title: Terms & conditions
+description: Read our terms and conditions that govern the contractual relationship between ainsley.dev and you, the user of our site & services.
 draft: false
-pageColour: white
+url: /terms
 layout: terms
+pageColour: white
 ---
 
 These terms and conditions apply to the use of this website (the “Website”). Please read these terms and conditions
@@ -188,5 +190,8 @@ the terms and conditions each time you use the Website.
 
 ### Contact Us
 
-If you have any questions about these Terms, please contact us by using the [contact](/contact/) form or emailing us at
-[hello@ainsley.dev](mailto:hello@ainsley.dev)
+If you have any questions about these Terms & Conditions, You can contact us:
+
+- By email: [{{< param "contact.email" >}}](mailto:{{< param "contact.email" >}})
+- By visiting this page on our website: [https://ainsley.dev/contact/](https://ainsley.dev/contact/)
+- By phone number: [{{< param "contact.phone.pretty" >}}](tel:{{< param "contact.phone.link" >}})

@@ -43,6 +43,9 @@
     --table-border-colour: #DDDDDD;
     --table-cell-colour: #595959;
     --table-stripe-colour: #F2F2F2; }
+    :root .theme-white strong,
+    :root .theme-white b {
+      color: #0A0A0A; }
 
 .cursor {
   display: none; }

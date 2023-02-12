@@ -58,6 +58,8 @@ markup:
         endLevel: 2
         ordered: false
         startLevel: 2
+permalinks:
+    posts: /portfolio
 security:
     exec:
         allow:  ["^dart-sass-embedded$", "^go$", "npx$", "^postcss$", "^babel$"]
