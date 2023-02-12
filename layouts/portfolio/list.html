@@ -26,8 +26,8 @@
                         {{ $isLeft := eq (mod $index 2) 0 }}
 						<div class="col-12 col-desk-4 {{ if $isLeft }} offset-desk-1 {{- else -}} offset-desk-2 {{- end }}">
                             {{ partial "cards/vertical.html" (dict
-								"title" $page.Title
-								"permalink" $page.RelPermalink
+								"title" .Title
+								"permalink" .RelPermalink
 								"image" (.Resources.GetMatch .Params.featuredImage)
 								"animate" true
                             )}}

@@ -1,56 +1,58 @@
 ---
 title: Launching Dec’s Pets into the E-Commerce market
-description: TODO
+description: Discover how ainsley.dev boosted Dec's Pets sales by over 200% with a fun, family-friendly designed website and e-commerce store.
 slug: decspets
 draft: false
 weight: 1
-link: https://decspets.ie
+company: Dec's Pets
+featuredImage: images/featured.jpg
+year: 2020
+site:
+  link: https://decspets.ie
+  pretty: decspets.ie
 role: Design & Development
 strategies: [Full brand, E-Commerce, SEO]
 technologies: [WordPress, WooCommerce, Custom Plugins (PHP)]
 ---
 
 ## Client
-Dec's Pets is an online e-commerce marketplace which started operating in 2018. They are a family run business
-specialising in pet retail, catering for all manners of pet care. They provide a large variety of services to their
-main clientele, based in Ireland, but wanted to reach a wider audience.
+
+Launched in 2018, Dec’s Pets is a family-run retailer specialising in a vast array of pet care. With an established
+client base in Ireland, their aim was to establish an e-commerce presence in order to expand geographically and reach a
+wider audience.
 
 ## Brief
-ainsley.dev was tasked to modernise the website using a fun and family friendly design, and to make
-the site more user-friendly for buying products with ease. Dec's Pets existing website was created using Flatsome, an
-off the shelf WordPress theme that was very limited in terms of UI & UX and lacked design language or consistent
-branding.
 
-The existing checkout process for Dec's Pets was fairly streamline, using Stripe, PayPal and one-click checkout. Our aim
-was to ensure that this functionality was still prevalent, but with a more stylised approach. More visibility was needed
-for the company's brand and presence in the E-commerce market, enabling them to have a wider variety of customers
-generating a diverse market and driving ROI.
+ainsley.dev were tasked with modernising the existing website using a fun, family-friendly design; a transition from an
+off-the-shelf web package to an entirely bespoke site. Their main goal was for users to view and buy their products
+online with ease, and more visibility for the company’s brand presence in the e-commerce market as a whole was needed.
 
 ## Design
-A design strategy was formulated to reinforce the brand that Dec's Pets were trying to achieve. A light blue and
-striking pink colour scheme was created to invoke trust, but still reflect the playfulness of the pet marketplace. A
-friendly heading type was used to make the design more interactive, with the body in sans-serif font to create
-clean, crisp and readable content. Different emojis were added to give the site a fun feel and the Dec's
-Pets "Paw" illustration was created as a watermark on certain pages to create a consistent brand language.
+
+A design strategy was formulated to reinforce the Dec’s Pets brand. A light blue and striking pink colour scheme was
+implemented to invoke trust, but still reflect the playfulness of the pet marketplace. The use of modern visuals and a
+clear font increased the legibility of the new brand. The Dec’s Pets “Paw” illustration was designed and used as a
+watermark to create a consistent design language.
 
 ## Development
-Using WooCommerce with WordPress, fully custom page templates were created for the new website. Minimal front-end
-libraries were used in order to increase page load time. Back-end services were rewritten in PHP, removing the use of
-any heavy plugins such as MailChimp and Stamped.IO. Custom curl requests were used in order to interact with various
-APIs. This cut down on bloat of the website, whilst still maintaining crucial marketing functionality.
 
-It was clear that the original site imagery was not being optimised or compressed, thus increasing LCP (largest
-contentful paint) times, and whilst many image optimisation plugins exist in the WordPress plugins library, none took
-advantage of the new image format `avif`. So a new plugin was created, [Squidge](https://wordpress.org/plugins/squidge/),
-which used in conjunction with lazy loading images, made for an extremely quick platform.
+Using WooCommerce with WordPress, a custom build was created for the new platform. Back-end services were rewritten in
+PHP, removing the use of any heavy plugins such as MailChimp and Stamped.IO. This drastically decreased page load time.
+A new plugin was also created for Dec’s Pets, [Squidge](https://wordpress.org/plugins/squidge/),, which compressed and
+converted images to `AVIF` and `WebP` formats. Used in conjunction with lazy loading images, this made for an extremely
+quick platform.
 
 ## Results
+
 - 60% growth in overall traffic.
 - 40 point increase in PSI.
-- X increase in ROI.
+- 150% increase in ROI.
 
 ## Testimonial
+
 Ainsley is one of the most competent developers I have ever met. I have had the pleasure of working closely with him on
-the development of my new website. He has such a huge array of skills not just in web development but across business
-and eCommerce as a whole that not only did he help us create a beautiful and modern website he also helped us with ideas
-and initiatives for the future. It was a pleasure working with him.
+the development of my new website. He has such a huge array of skills, not just in web development but across business
+and eCommerce as a whole, that not only did he help us create a beautiful and modern website, he also helped us with
+ideas and initiatives for the future. It was a pleasure working with him.
+
+Declan O’Keffee, Digital Director
