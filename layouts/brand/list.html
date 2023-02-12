@@ -57,9 +57,10 @@
 		<section class="section section-padding section-padding-bottom" id="pages">
 			<div class="container">
 				<div class="row justify-content-between">
-                    {{ range .Pages -}}
-						<div class="col-12 col-mob-6 col-tab-6 col-desk-5 card-col">
-							<div class="row">
+                    {{ range $index, $page := .Pages }}
+                        {{ $isLeft := eq (mod $index 2) 0 }}
+						<div class="col-12 col-mob-6 col-desk-5 card-col">
+							<div class="row {{ if not $isLeft }} justify-content-end {{- end }}">
 								<div class="col-12 col-tab-11 col-desk-12">
 									{{ partial "cards/horizontal.html" (dict
 										"title" .Title
