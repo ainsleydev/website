@@ -44,9 +44,9 @@ quick platform.
 
 ## Results
 
-- 60% growth in overall traffic.
-- 40 point increase in PSI.
-- 150% increase in ROI.
+- 60% growth in overall traffic
+- 40 point increase in PSI
+- 150% increase in ROI
 
 ## Testimonial
 

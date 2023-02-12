@@ -3,7 +3,7 @@ title: Transforming EDR Dental into a brand with a modern UI
 description: Discover how ainsley.dev transformed a slow, cumbersome, out of date website into a new and refreshed brand for EDR Dental.
 slug: edr-dental
 draft: false
-weight: 4
+weight: 7
 company: EDR Dental
 featuredImage: images/featured.jpg
 year: 2022
