@@ -16,6 +16,7 @@
 	// =========================================================================
 
 	&-col {
+		position: relative;
 
 		&.col-12:last-child #{$self} {
 			margin-bottom: 0;
@@ -62,7 +63,7 @@
 	@include media-mob {
 
 		&-col:nth-child(even) #{$self}-half-margin {
-			margin-top: 30%;
+			margin-top: $section-padding-large;
 		}
 
 		&-half-margin {

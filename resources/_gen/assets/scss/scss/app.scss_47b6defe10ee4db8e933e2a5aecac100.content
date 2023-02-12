@@ -2423,8 +2423,10 @@ a.btn {
   text-decoration: none;
   margin-bottom: 3.75rem;
   user-select: none; }
-  .card-col.col-12:last-child .card {
-    margin-bottom: 0; }
+  .card-col {
+    position: relative; }
+    .card-col.col-12:last-child .card {
+      margin-bottom: 0; }
   .card-image {
     display: block; }
     .card-image img {
@@ -2438,7 +2440,7 @@ a.btn {
       margin-bottom: 0; }
   @media (min-width: 568px) {
     .card-col:nth-child(even) .card-half-margin {
-      margin-top: 30%; }
+      margin-top: clamp(120px, 30vw, 240px); }
     .card-half-margin {
       margin-bottom: 0; } }
   .card-hover .card-image {
