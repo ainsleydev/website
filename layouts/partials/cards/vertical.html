@@ -1,6 +1,6 @@
 <!-- =====================
-    Card - Horizontal
-    	partial "cards/horizontal.html" (dict
+    Card - Vertical
+    	partial "cards/vertical.html" (dict
     		"text" "Download"
     		"link" "files.zip"
     		"arrow" true
@@ -13,18 +13,12 @@
     	- animate:		If the skew and cursor animations should run.
     ===================== -->
 <!-- Card -->
-<a href="{{ .permalink }}" class="card card-horizontal card-half-margin"
+<a href="{{ .permalink }}" class="card card-vertical card-half-margin"
    title="{{ .title}} Page Link"
    aria-label="Navigate to the {{ .title }} page">
 	<!-- Featured Image -->
 	{{ with .image -}}
-		<figure class="card-image margin skew {{ if $.animate }} cursor-element {{- end }}"
-				{{ if $.animate }}
-			data-cursor-invert data-cursor-invert-black data-cursor-scale="4"
-			data-skew-transform-x="0.1" data-skew-transform-y="0.1"
-			data-skew-rotate-x="-0.1" data-skew-rotate-y="-0.3"
-			data-skew-rotate
-				{{- end }}>
+		<figure class="card-image margin skew {{ if $.animate }} cursor-element {{- end }}">
 			<img loading="lazy" src="{{ .RelPermalink }}" alt="{{ .Title }}">
 		</figure>
 	{{- end }}

@@ -1,6 +1,7 @@
 ---
 title: From bedroom to agency
 draft: false
+slug: test
 ---
 
 **Insert Lead paragraph here.**

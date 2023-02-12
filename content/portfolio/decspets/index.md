@@ -1,5 +1,6 @@
 ---
-title: "Launching Dec’s Pets into the E-Commerce market"
+title: Launching Dec’s Pets into the E-Commerce market
+description: TODO
 slug: decspets
 draft: false
 weight: 1

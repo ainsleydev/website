@@ -11,7 +11,6 @@ enableGitInfo: false
 enableEmoji: true
 enableInlineShortcodes: true
 enableRobotsTXT: true
-googleAnalytics: UA-PROPERTY_ID
 imaging:
     hint: photo
     quality: 75
@@ -58,8 +57,6 @@ markup:
         endLevel: 2
         ordered: false
         startLevel: 2
-permalinks:
-    posts: /portfolio
 security:
     exec:
         allow:  ["^dart-sass-embedded$", "^go$", "npx$", "^postcss$", "^babel$"]

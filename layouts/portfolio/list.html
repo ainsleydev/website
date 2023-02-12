@@ -1,0 +1,40 @@
+{{ define "main" }}
+	<!-- =====================
+		Portfolio List
+		===================== -->
+	<section class="hero hero-simple hero-simple-padding-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-desk-6 offset-desk-1">
+					{{ with .Params.htmlTitle }}
+						<h1>{{ . | safeHTML }}</h1>
+					{{- else -}}
+						{{ warnf "No HTML title provided in Params for Portfolio index page" }}
+					{{- end }}
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+	<!-- =====================
+		Items
+		===================== -->
+    {{ if .Pages -}}
+		<section class="section section-padding section-padding-bottom" id="pages">
+			<div class="container">
+				<div class="row">
+                    {{ range $index, $page := .Pages }}
+                        {{ $isLeft := eq (mod $index 2) 0 }}
+						<div class="col-12 col-desk-4 {{ if $isLeft }} offset-desk-1 {{- else -}} offset-desk-2 {{- end }}">
+                            {{ partial "cards/vertical.html" (dict
+								"title" $page.Title
+								"permalink" $page.RelPermalink
+								"image" (.Resources.GetMatch .Params.featuredImage)
+								"animate" true
+                            )}}
+						</div><!--- /Col -->
+                    {{- end }}
+				</div><!-- /Row -->
+			</div><!-- /Container -->
+		</section>
+    {{- end }}
+{{ end }}
