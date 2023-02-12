@@ -14,17 +14,24 @@
     ===================== -->
 <!-- Card -->
 <a href="{{ .permalink }}" class="card card-vertical card-half-margin"
-   title="{{ .title}} Page Link"
+   title="{{ .title }} Page Link"
    aria-label="Navigate to the {{ .title }} page">
 	<!-- Featured Image -->
 	{{ with .image -}}
-		<figure class="card-image margin skew {{ if $.animate }} cursor-element {{- end }}">
+		<figure class="card-image margin">
 			<img loading="lazy" src="{{ .RelPermalink }}" alt="{{ .Title }}">
 		</figure>
 	{{- end }}
 	<!-- Text -->
 	<div class="card-text">
-		<h3 class="card-text-title">{{ .title }}</h3>
+		<!-- Sub -->
+		{{ with .sub -}}
+			<h6>{{ . }}</h6>
+		{{- end }}
+		<!-- Title -->
+		{{ with .title -}}
+			<h3 class="card-text-title">{{ . }}</h3>
+		{{- end }}
 	</div>
 </a><!-- /Card -->
 

@@ -14,7 +14,7 @@
     ===================== -->
 <!-- Card -->
 <a href="{{ .permalink }}" class="card card-horizontal card-half-margin"
-   title="{{ .title}} Page Link"
+   title="{{ .title }} Page Link"
    aria-label="Navigate to the {{ .title }} page">
 	<!-- Featured Image -->
 	{{ with .image -}}
@@ -30,7 +30,10 @@
 	{{- end }}
 	<!-- Text -->
 	<div class="card-text">
-		<h3 class="card-text-title">{{ .title }}</h3>
+		<!-- Title -->
+        {{ with .title -}}
+			<h3 class="card-text-title">{{ . }}</h3>
+        {{- end }}
 	</div>
 </a><!-- /Card -->
 
