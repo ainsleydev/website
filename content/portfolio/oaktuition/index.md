@@ -5,7 +5,6 @@ slug: oak-tuition
 draft: false
 weight: 2
 company: Oak Tuition
-featuredImage: images/featured.jpg
 year: 2019
 site:
   link: https://oaktuition.ainsleyclark.xyz

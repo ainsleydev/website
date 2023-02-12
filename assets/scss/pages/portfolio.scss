@@ -1,10 +1,17 @@
 // -----------------------------------------------------------------------------
-// _home.scss
-// This file contains all styles related to the home section.
+// _portfolio.scss
+// This file contains all styles related to the portfolio single page.
 // -----------------------------------------------------------------------------
 
+// Imports
+// =========================================================================
 
-.home {
+@import "../abstracts/_mixins";
+@import "../abstracts/_variables";
+
+.portfolio {
+	$self: &;
+
 	// Tablet
 	// =========================================================================
 

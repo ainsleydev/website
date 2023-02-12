@@ -5,7 +5,6 @@ slug: edr-dental
 draft: false
 weight: 7
 company: EDR Dental
-featuredImage: images/featured.jpg
 year: 2022
 site:
   link: https://edrdental.co.uk/

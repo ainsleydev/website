@@ -1,48 +1,65 @@
 {{ define "main" }}
 	<!-- =====================
-		Work - Single
+		Portfolio Single
 		===================== -->
-	<div class="container">
-		<div class="row">
-			<!-- =====================
-				Meta
-				===================== -->
-			<div class="col-12 col-desk-6">
-				<!-- Link -->
-                {{ with .Params.link }}
-					<div>
-						<h3>Link:</h3>
-						<a href="{{ . }}" target="_blank">{{ . }}</a>
-					</div>
-                {{ end }}<!-- /Role -->
-				<!-- Role -->
-                {{ with .Params.role }}
-					<div>
-						<h3>Role:</h3>
-						<p>{{ . }}</p>
-					</div>
-                {{ end }}<!-- /Role -->
-				<!-- Strategies -->
-                {{ with .Params.strategies }}
-					<div>
-						<h3>Strategies:</h3>
-						<p>{{ delimit . ", " }}</p>
-					</div>
-                {{ end }}<!-- /Strategies -->
-				<!-- Technologies -->
-                {{ with .Params.technologies }}
-					<div>
-						<h3>Technologies:</h3>
-						<p>{{ delimit . ", " }}</p>
-					</div>
-                {{ end }}<!-- /Technologies -->
-			</div><!-- /Col -->
-			<!-- =====================
-				Content
-				===================== -->
-			<div class="col-12 col-desk-6">
-                {{ .Content }}
-			</div>
-		</div><!-- /Row -->
-	</div><!-- /Container -->
+	<section class="portfolio">
+		<div class="container">
+			<div class="row">
+				<!-- =====================
+					Meta
+					===================== -->
+				<div class="col-12 col-desk-5">
+					<aside class="portfolio-aside">
+						<!-- Logo -->
+						<figure class="margin">
+                            {{ partial "media/image.html" (dict
+                            	"image" (.Resources.GetMatch "images/logo.svg")
+                            	"alt" (printf "%s Logo" .Params.company))
+                            }}
+						</figure><!-- /Log -->
+						<!-- Title -->
+						<div class="margin-large">
+							<h1 class="heading-2 mb-0">{{ .Title }}</h1>
+						</div><!-- /Title -->
+						<!-- Year -->
+                        {{ with .Params.year }}
+							<div class="margin">
+								<h5 class="mb-0">Year</h5>
+								<p>{{ . }}</p>
+							</div>
+                        {{ end }}<!-- /Year -->
+						<!-- Strategies -->
+                        {{ with .Params.strategies }}
+							<div class="margin">
+								<h5 class="mb-0">Strategy</h5>
+								<p>{{ delimit . ", " }}</p>
+							</div>
+                        {{ end }}<!-- /Strategies -->
+						<!-- Technologies -->
+                        {{ with .Params.technologies }}
+							<div class="margin">
+								<h5 class="mb-0">Technologies:</h5>
+								<p>{{ delimit . ", " }}</p>
+							</div>
+                        {{ end }}<!-- /Technologies -->
+						<!-- Website -->
+                        {{ with .Params.site }}
+							<div class="margin">
+								<h5 class="mb-0">Website</h5>
+								<a href="{{ .link }}" target="_blank"><p>{{ .pretty }}</p></a>
+							</div>
+                        {{ end }}<!-- /Website -->
+					</aside>
+				</div><!-- /Col -->
+				<!-- =====================
+					Content
+					===================== -->
+				<div class="col-12 col-desk-6 offset-desk-1">
+					<article class="portfolio-content">
+                        {{ .Content }}
+					</article>
+				</div>
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
 {{ end }}

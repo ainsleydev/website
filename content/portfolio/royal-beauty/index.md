@@ -5,7 +5,6 @@ slug: royal-beauty
 draft: false
 weight: 3
 company: Royal Beauty
-featuredImage: images/featured.jpg
 year: 2019
 site:
   link: https://katherinebodycare.co.uk/

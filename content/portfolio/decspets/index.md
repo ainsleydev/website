@@ -5,7 +5,6 @@ slug: decspets
 draft: false
 weight: 1
 company: Dec's Pets
-featuredImage: images/featured.jpg
 year: 2020
 site:
   link: https://decspets.ie
@@ -13,6 +12,8 @@ site:
 role: Design & Development
 strategies: [Full brand, E-Commerce, SEO]
 technologies: [WordPress, WooCommerce, Custom Plugins (PHP)]
+styles:
+- scss/pages/portfolio.scss
 ---
 
 ## Client

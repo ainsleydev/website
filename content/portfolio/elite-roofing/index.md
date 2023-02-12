@@ -5,7 +5,6 @@ slug: elite-roofing
 draft: false
 weight: 4
 company: Elite Roofing
-featuredImage: images/featured.jpg
 year: 2022
 site:
   link: https://eliters.uk/

@@ -5,7 +5,6 @@ slug: scotts-guttering
 draft: false
 weight: 6
 company: Scott's Guttering
-featuredImage: images/featured.jpg
 year: 2019
 site:
   link: https://scottsguttering.ainsleyclark.xyz

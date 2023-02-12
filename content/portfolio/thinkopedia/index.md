@@ -5,7 +5,6 @@ slug: thinkopedia
 draft: false
 weight: 5
 company: Thinkopedia
-featuredImage: images/featured.jpg
 year: 2019
 site:
   link: https://thinkopedia.ainsleyclark.xyz
