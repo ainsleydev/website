@@ -161,6 +161,8 @@ $table-padding: 0.6rem 0.9rem;
 	--colour-copy: #{$copy};
 	--colour-copy-dark: #{$copy-dark-bg};
 	--colour-copy-light: #{$copy-light-bg};
+	--colour-paragraph: #{$copy-dark-bg};
+	--colour-list: #{$white};
 	// Code
 	--code-colour: #{$black};
 	--code-background-colour: #{$white};
@@ -183,6 +185,8 @@ $table-padding: 0.6rem 0.9rem;
 		// Colour
 		--colour-background: #{$white};
 		--colour-foreground: #{$black};
+		--colour-paragraph: #{$copy-light-bg};
+		--colour-list: #{$copy-light-bg};
 		// Code
 		--code-colour: #{$black};
 		--code-background-colour: #E1E1E1;

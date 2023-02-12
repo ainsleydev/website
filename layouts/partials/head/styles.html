@@ -3,16 +3,21 @@
     ===================== -->
 {{ $css := slice }}
 {{ range $path := . }}
-	{{ $resource := resources.Get $path }}
-	{{ if $resource }}
-		{{ $target := (printf "%s.css" (strings.TrimSuffix (path.Ext $path) $path)) | replaceRE "scss" "css" }}
-		{{ $cssOpts := (dict "targetPath" $target "enableSourceMap" true ) }}
-		{{ if ne hugo.Environment "development" -}}
-			{{ $cssOpts := (dict "targetPath" $target "enableSourceMap" false "outputStyle" "compressed") }}
+	{{ if strings.Contains . "http" -}}
+		{{- $css = append . $css -}}
+	{{- else -}}
+		{{ $resource := resources.Get $path }}
+		{{ if $resource }}
+			{{ $target := (printf "%s.css" (strings.TrimSuffix (path.Ext $path) $path)) | replaceRE "scss" "css" }}
+			{{ $cssOpts := (dict "targetPath" $target "enableSourceMap" true ) }}
+			{{ if ne hugo.Environment "development" -}}
+				{{ $cssOpts := (dict "targetPath" $target "enableSourceMap" false "outputStyle" "compressed") }}
+			{{ end }}
+			{{ $file := $resource | toCSS $cssOpts }}
+			{{ $css = append $file.RelPermalink $css }}
+		{{ else }}
+			{{ errorf "SCSS file: %s, not found" $path }}
 		{{ end }}
-		{{ $css = append ($resource | toCSS $cssOpts) $css }}
-	{{ else }}
-		{{ errorf "SCSS file: %s, not found" $path }}
-	{{ end }}
+    {{- end }}
 {{ end }}
 {{ return $css }}

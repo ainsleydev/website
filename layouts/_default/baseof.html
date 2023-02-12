@@ -34,17 +34,17 @@
         {{ template "_internal/twitter_cards.html" . }}
         <!-- CSS -->
         {{ range $file := $css -}}
-			<link rel="stylesheet" href="{{ $file.RelPermalink }}">
+			<link rel="stylesheet" href="{{ $file }}">
         {{- end }}
 		<!-- No JS -->
         {{ with index (partial "head/styles.html" (slice "scss/no-js.scss")) 0 }}
 			<noscript>
-				<link rel="stylesheet" href="{{ .RelPermalink }}">
+				<link rel="stylesheet" href="{{ . }}">
 			</noscript>
 		{{ end }}
 		<!-- Preload JS -->
 		{{ range $file := $js -}}
-			<link rel="preload" href="{{ $file.RelPermalink }}" as="script">
+			<link rel="preload" href="{{ $file }}" as="script">
 		{{- end }}
         <!-- Favicon -->
 		<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
@@ -86,7 +86,7 @@
 		</div>
         <!-- Javascript -->
 		{{ range $file := $js -}}
-			<script src="{{ $file.RelPermalink }}"></script>
+			<script src="{{ $file }}"></script>
 		{{- end }}
         <!-- Google Transition Fix -->
         <script> </script>

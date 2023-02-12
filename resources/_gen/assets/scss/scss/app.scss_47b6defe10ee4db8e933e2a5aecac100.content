@@ -27,6 +27,8 @@
   --colour-copy: #0A0A0A;
   --colour-copy-dark: #9A9A9A;
   --colour-copy-light: #595959;
+  --colour-paragraph: #9A9A9A;
+  --colour-list: #ffffff;
   --code-colour: #0A0A0A;
   --code-background-colour: #ffffff;
   --alpha-standard: 0.15;
@@ -42,6 +44,8 @@
     background-color: #ffffff;
     --colour-background: #ffffff;
     --colour-foreground: #0A0A0A;
+    --colour-paragraph: #595959;
+    --colour-list: #595959;
     --code-colour: #0A0A0A;
     --code-background-colour: #E1E1E1;
     --table-border-colour: #DDDDDD;
@@ -339,6 +343,7 @@ body {
   font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1rem;
   line-height: 1.6;
+  overflow: auto !important;
   font-kerning: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent; }
@@ -568,13 +573,15 @@ h6,
   margin-bottom: 0.9rem; }
 
 p {
-  color: var(--colour-copy-dark);
+  color: var(--colour-paragraph);
   font-size: 1.1rem;
   margin-bottom: 1rem;
   line-height: 1.8; }
   p.lead {
     font-size: 1.2rem;
     line-height: 1.6; }
+    p.lead-max-width {
+      max-width: 580px; }
 
 a {
   font-size: 1.1rem;
@@ -2544,7 +2551,7 @@ code {
   .footnotes ul li,
   .footnotes ol li,
   .list li {
-    color: var(--colour-foreground);
+    color: var(--colour-list);
     margin-bottom: 10px;
     padding: 0 0 0 12px;
     font-size: 1.1rem; }
@@ -3345,6 +3352,18 @@ input[type=checkbox]:disabled {
         flex-direction: row; }
         .nav-contact-section:first-child {
           margin-right: 3rem; } }
+.richtext p + h1,
+.richtext p + h2,
+.richtext p + h3,
+.richtext p + h4,
+.richtext p + h5,
+.richtext ul + h1,
+.richtext ul + h2,
+.richtext ul + h3,
+.richtext ul + h4,
+.richtext ul + h5 {
+  margin-top: 3rem; }
+
 .richtext p:empty {
   display: none;
   margin: 0; }

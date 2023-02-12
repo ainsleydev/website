@@ -73,7 +73,7 @@
 		#{$self}-item:not(:last-child) #{$self}-link-text:after {
 			content: "|";
 			display: inline-block;
-			color: colour(black);
+			color: colour("black");
 			margin: 0 8px;
 		}
 
@@ -82,7 +82,7 @@
 		}
 
 		&-copyright {
-			color: colour(copy-light);
+			color: colour("copy-light");
 		}
 	}
 
@@ -164,7 +164,7 @@
 		z-index: 10;
 
 		&-text {
-			color: colour(white);
+			color: colour("white");
 			margin-right: 6px;
 			margin-bottom: 0;
 			font-size: 13px;

@@ -19,6 +19,8 @@
   --colour-copy: #0A0A0A;
   --colour-copy-dark: #9A9A9A;
   --colour-copy-light: #595959;
+  --colour-paragraph: #9A9A9A;
+  --colour-list: #ffffff;
   --code-colour: #0A0A0A;
   --code-background-colour: #ffffff;
   --alpha-standard: 0.15;
@@ -34,6 +36,8 @@
     background-color: #ffffff;
     --colour-background: #ffffff;
     --colour-foreground: #0A0A0A;
+    --colour-paragraph: #595959;
+    --colour-list: #595959;
     --code-colour: #0A0A0A;
     --code-background-colour: #E1E1E1;
     --table-border-colour: #DDDDDD;
