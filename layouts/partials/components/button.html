@@ -2,16 +2,16 @@
     Button
     	partial "components/button.html" (dict
     		"text" "Download"
-    		"colour" "white"
     		"link" "files.zip"
+    		"colour" "white"
     		"size" "small"
     		"arrow" true
     		"title" "Navigate to..."
     		"attr" "download"
     	)
     	- text: 		The text to appear within side the button.
-    	- colour: 		The colour of the button, defaults to foreground.
     	- link: 		If the button should be an <a> tag.
+    	- colour: 		The colour of the button, defaults to foreground.
     	- size:			The size of the button (small or large)
     	- arrow: 		If an arrow should appear with the button.
     	- title:		The title & aria label of the link.
@@ -41,7 +41,7 @@
 				</span>
             {{- end }}
 			<!-- Arrow -->
-            {{ if .arrow }}
+            {{ if .arrow -}}
                 {{ partial "images/arrow.html" (dict "colour" "black" "rotation" "90" "stroke" 3 "class" "btn-arrow-image btn-arrow-left") }}
                 {{ partial "images/arrow.html" (dict "colour" "black" "rotation" "90" "stroke" 3 "class" "btn-arrow-image btn-arrow-right") }}
             {{- end }}

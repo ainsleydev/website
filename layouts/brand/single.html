@@ -35,9 +35,9 @@
                                 {{ partial "components/button.html" (dict
 									"text" .text
 									"link" ($.Resources.GetMatch .path).RelPermalink
-									"arrow" true
                                 	"colour" "white"
-									"size" "small"
+                                	"size" "small"
+									"arrow" true
 									"title" "Download Brand Pack"
 									"attr" (printf "download=%s" .name)
 								)}}

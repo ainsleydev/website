@@ -3,9 +3,16 @@
     ===================== -->
 {{ if .IsBlock }}
 	<picture class="image {{ .Attributes.class }}">
-        {{ partial "media/picture.html" (dict "image" (.Page.Resources.Get (.Destination | safeURL)) "alt" .Text) }}
+        {{ partial "media/picture.html" (dict
+			"image" (.Page.Resources.Get (.Destination | safeURL))
+			"alt" .Text
+		)}}
 	</picture>
 {{ else }}
-	{{ partial "media/image.html" (dict "image" (.Page.Resources.Get (.Destination | safeURL)) "alt" .Text "class" .Attributes.class ) }}
+	{{ partial "media/image.html" (dict
+		"image" (.Page.Resources.Get (.Destination | safeURL))
+		"alt" .Text
+		"class" .Attributes.class
+	)}}
 {{ end }}
 

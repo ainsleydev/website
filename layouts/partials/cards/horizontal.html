@@ -3,6 +3,8 @@
     	partial "cards/horizontal.html" (dict
     		"title" "Download"
     		"permalink" .RelPermalink
+    		"image" (.Resources.GetMatch .Params.featuredImage)
+			"animate" true
     	)
     	- title:		The title of the card.
     	- permalink:	The relative permalink that the card will link to.
