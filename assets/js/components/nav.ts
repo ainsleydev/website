@@ -13,18 +13,20 @@ import {Log} from "../util/log";
  * Log is responsible for logging to the stdout
  * within the website.
  */
-class Navigation {
+export class Navigation {
 
 	/**
-	 * TODO
+	 * The toggle to display the navigation element.
 	 */
 	checkbox: HTMLFormElement
 
 	/**
-	 * TODO
+	 * Initialises the cursor element.
+	 *
+	 * @constructor
 	 */
 	constructor() {
-		this.checkbox = <HTMLFormElement>document.querySelector(".nav .nav-checkbox")
+		this.checkbox = <HTMLFormElement>document.querySelector(".nav .nav-checkbox");
 		this.pictureHover();
 	}
 
@@ -80,6 +82,3 @@ class Navigation {
 		});
 	}
 }
-
-const Nav = new Navigation();
-export default Nav;

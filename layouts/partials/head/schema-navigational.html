@@ -1,7 +1,8 @@
 <!-- =====================
     Schema - Navigational
+    TODO, figure out descriptions
     ===================== -->
-{{ with . -}}
+{{ with .menus -}}
 	{{ $length := len . }}
 	<script type="application/ld+json">
 		{
@@ -9,11 +10,12 @@
 			"@type": "ItemList",
 			"itemListElement": [
 				{{ range $index, $item := . -}}
+       	 		{{ $page := $.site.GetPage (strings.TrimPrefix "/" $item.URL) }}
 				{
 					"@type": 		"SiteNavigationElement",
-					"position": 	{{ add $index 2 }},
+					"position": 	{{ add $index 2 -}},
 					"name": 		{{ $item.Name }},
-					{{- with $item.Params.description }}
+					{{- with $page.Params.Description  }}
 					"description": 	"{{ . }}",
 					{{- end }}
 					"url": 			{{ printf "%s/%s" (strings.TrimSuffix "/" site.BaseURL) (strings.TrimPrefix "/" $item.URL) }}

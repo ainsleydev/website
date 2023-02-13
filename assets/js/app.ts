@@ -12,6 +12,7 @@ import {Skew} from "./animations/skew";
 import {FitText} from "./components/fit-text";
 import {Collapse, CollapseOptions} from "./components/accordion";
 import {Card} from "./components/card";
+import {Navigation} from "./components/nav";
 
 /**
  * Variables
@@ -30,6 +31,7 @@ html.classList.add('js');
  * Initialise components & types.
  */
 document.addEventListener("DOMContentLoaded", () => {
+	new Navigation();
 	new Cursor();
 	new Skew();
 	new FitText();

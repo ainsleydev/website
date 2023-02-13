@@ -16,8 +16,10 @@ work: # Creates a new work post.
 todo: # Show to-do items per file
 	$(Q) grep \
 		--exclude=Makefile.util \
+		--exclude=TODO.md \
 		--exclude-dir=vendor \
 		--exclude-dir=.idea \
+		--exclude-dir=public \
 		--exclude-dir=node_modules \
 		--text \
 		--color \
