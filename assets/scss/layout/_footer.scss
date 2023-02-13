@@ -50,8 +50,7 @@
 
 		&-wrapper {
 			display: flex;
-			flex-direction: column;
-			flex-wrap: nowrap;
+			flex-flow: column nowrap;
 			border-top: 2px solid rgba($white, $alpha-standard);
 			padding-top: 1.4rem;
 			padding-bottom: 1.4rem;
@@ -66,14 +65,6 @@
 			flex-direction: row;
 			margin-bottom: 0.8rem;
 
-			&-item:not(:last-child) {
-				margin-right: 6px;
-			}
-
-			&-item:last-child &-link:after {
-				display: none;
-			}
-
 			&-link {
 				text-decoration: none;
 				white-space: nowrap;
@@ -85,6 +76,14 @@
 					color: colour("copy-dark");
 					margin: 0 6px;
 				}
+			}
+
+			&-item:not(:last-child) {
+				margin-right: 6px;
+			}
+
+			&-item:last-child &-link::after {
+				display: none;
 			}
 		}
 	}
@@ -142,7 +141,7 @@
 		&-sub-menu {
 			flex-direction: column;
 
-			&-link:after {
+			&-link::after {
 				display: none;
 			}
 		}

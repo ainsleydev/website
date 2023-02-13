@@ -3,6 +3,7 @@
 	"rules": {
 		"color-hex-length": null,
 		"comment-empty-line-before": "always",
+		"no-invalid-double-slash-comments": null,
 		"declaration-empty-line-before": "never",
 		"value-keyword-case": ["lower", { "ignoreProperties": ["/^\\$/"] }],
 		"rule-empty-line-before": [

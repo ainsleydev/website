@@ -28,7 +28,7 @@ blockquote {
 	// Line
 	// =========================================================================
 
-	&:before {
+	&::before {
 		content: "";
 		position: relative;
 		display: block;
@@ -42,7 +42,6 @@ blockquote {
 
 .quote {
 	$self: &;
-
 	position: relative;
 
 	// Temp
