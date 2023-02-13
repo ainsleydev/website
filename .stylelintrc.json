@@ -2,6 +2,7 @@
 	"extends": "stylelint-config-standard-scss",
 	"rules": {
 		"color-hex-length": null,
+		"color-function-notation": "legacy",
 		"comment-empty-line-before": "always",
 		"no-invalid-double-slash-comments": null,
 		"declaration-empty-line-before": "never",

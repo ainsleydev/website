@@ -3,7 +3,7 @@
 // This file contains all styles related to the TO-DO component.
 // -----------------------------------------------------------------------------
 
-input[type=checkbox]:disabled {
+input[type="checkbox"]:disabled {
 	$self: &;
 	appearance: none;
 	border: none;

@@ -31,7 +31,7 @@
 	&-input {
 		position: relative;
 		width: 100%;
-		@include h2;
+		@include h2;  /* stylelint-disable-line at-rule-empty-line-before */
 		margin: 0;
 		padding: 0;
 		border: none;
@@ -102,18 +102,18 @@
 	// =========================================================================
 
 	::placeholder {
-		/* Chrome, Firefox, Opera, Safari 10.1+ */
+		// Chrome, Firefox, Opera, Safari 10.1+
 		color: $copy;
 		opacity: 1; /* Firefox */
 	}
 
 	:-ms-input-placeholder {
-		/* Internet Explorer 10-11 */
+		// Internet Explorer 10-11
 		color: $copy;
 	}
 
 	::-ms-input-placeholder {
-		/* Microsoft Edge */
+		// Microsoft Edge
 		color: $copy;
 	}
 

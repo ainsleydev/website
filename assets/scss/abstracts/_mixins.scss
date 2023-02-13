@@ -3,8 +3,7 @@
 // This file contains all mixin's for use with scss files.
 // -----------------------------------------------------------------------------
 
-// sass-lint:disable no-duplicate-properties
-// sass-lint:disable no-vendor-prefixes
+@use "sass:math";
 
 // Breakpoint Mixins
 // ==========================================================================
@@ -92,7 +91,7 @@
 }
 
 @mixin media-desk-large-only {
-	@media (min-width: $grid-breakpoint-desk-large * 1px) and (max-width: $grid-breakpoint-hd * 1px - 1p) {
+	@media (min-width: $grid-breakpoint-desk-large * 1px) and (max-width: $grid-breakpoint-hd * 1px - 1px) {
 		@content;
 	}
 }
@@ -164,24 +163,25 @@
 // Usage:
 // @include fluid-type(320px, 1408px, 34px, 98px);
 @mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
-	$u1: unit($min-vw);
-	$u2: unit($max-vw);
-	$u3: unit($min-font-size);
-	$u4: unit($max-font-size);
+	$u1: math.unit($min-vw);
+	$u2: math.unit($max-vw);
+	$u3: math.unit($min-font-size);
+	$u4: math.unit($max-font-size);
 
 	@if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
 		& {
 			font-size: $min-font-size;
+
 			@media screen and (min-width: $min-vw) {
 				font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
 			}
+
 			@media screen and (min-width: $max-vw) {
 				font-size: $max-font-size;
 			}
 		}
 	}
 }
-
 
 // Landscape Mixin
 // ==========================================================================
@@ -204,7 +204,7 @@
 
 // IE11 and Edge
 @mixin ie11andedge {
-	@media screen and (-webkit-min-device-pixel-ratio: 0) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	@media screen and (-webkit-min-device-pixel-ratio: 0) and (-ms-high-contrast: none), (-ms-high-contrast: active) { /* stylelint-disable media-feature-name-no-vendor-prefix */
 		@content;
 	}
 }
@@ -231,7 +231,7 @@
 /// @author Ainsley Clark
 /// @param {Number} $breakpoint - Initial breakpoint
 @mixin create-mediaquery($breakpoint) {
-	@if ($breakpoint == 0) {
+	@if $breakpoint == 0 {
 		@content;
 	} @else {
 		@media (min-width: $breakpoint * 1px) {

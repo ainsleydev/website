@@ -35,12 +35,16 @@
 			display: none;
 			margin: 0;
 		}
+
+		& + .image {
+			margin-top: $margin;
+		}
 	}
 
 	// Images
 	// ==========================================================================
 
-	.image {
+	.image { /* stylelint-disable-line no-descending-specificity */
 
 		+ h1,
 		+ h2,
@@ -54,9 +58,5 @@
 		+ .image {
 			margin-bottom: 1.6rem;
 		}
-	}
-
-	p + .image {
-		margin-top: $margin;
 	}
 }
