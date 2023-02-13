@@ -1,0 +1,7 @@
+{
+	"extends": "stylelint-config-standard-scss",
+	"rules": {
+		"declaration-empty-line-before": "never",
+		"rule-empty-line-before": "inside-block-and-after-rule"
+	}
+}

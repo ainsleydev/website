@@ -5,7 +5,6 @@
 
 input[type=checkbox]:disabled {
 	$self: &;
-
 	appearance: none;
 	border: none;
 	color: colour("foreground");
