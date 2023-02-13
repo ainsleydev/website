@@ -1,16 +1,15 @@
 <!-- =====================
     Card - Vertical
     	partial "cards/vertical.html" (dict
-    		"text" "Download"
-    		"link" "files.zip"
-    		"arrow" true
-    		"colour" "white"
-    		"attr" "download"
+    		"text" "Title"
+    		"sub" "Sub Heading
+    		"permalink" .RelPermalink
+
     	)
     	- title:		The title of the card.
+    	- sub:			The sub heading that appears beneath the card.
     	- permalink:	The relative permalink that the card will link to.
     	- image:		The featured image as a resource.
-    	- animate:		If the skew and cursor animations should run.
     ===================== -->
 <!-- Card -->
 <a href="{{ .permalink }}" class="card card-vertical card-half-margin"
@@ -19,14 +18,14 @@
 	<!-- Featured Image -->
 	{{ with .image -}}
 		<figure class="card-image margin">
-			<img loading="lazy" src="{{ .RelPermalink }}" alt="{{ .Title }}">
+			<img loading="lazy" src="{{ .RelPermalink }}" alt="{{ $.title }}">
 		</figure>
 	{{- end }}
 	<!-- Text -->
 	<div class="card-text">
 		<!-- Sub -->
 		{{ with .sub -}}
-			<h6>{{ . }}</h6>
+			<h6 class="margin">{{ . }}</h6>
 		{{- end }}
 		<!-- Title -->
 		{{ with .title -}}

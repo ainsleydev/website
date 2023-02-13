@@ -2428,16 +2428,27 @@ a.btn {
     .card-col.col-12:last-child .card {
       margin-bottom: 0; }
   .card-image {
+    position: relative;
     display: block; }
     .card-image img {
+      position: absolute;
       width: 100%;
-      height: 100%; }
+      height: 100%;
+      top: 0;
+      bottom: auto;
+      left: 0;
+      right: auto;
+      object-fit: cover; }
   .card-text {
     margin-top: 2rem; }
     .card-text * {
       text-decoration: none; }
     .card-text-title {
       margin-bottom: 0; }
+  .card-vertical .card-image {
+    padding-top: 135%; }
+  .card-horizontal .card-image {
+    padding-top: 65%; }
   @media (min-width: 568px) {
     .card-col:nth-child(even) .card-half-margin {
       margin-top: clamp(120px, 30vw, 240px); }

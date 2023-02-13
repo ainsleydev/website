@@ -1,11 +1,8 @@
 <!-- =====================
     Card - Horizontal
     	partial "cards/horizontal.html" (dict
-    		"text" "Download"
-    		"link" "files.zip"
-    		"arrow" true
-    		"colour" "white"
-    		"attr" "download"
+    		"title" "Download"
+    		"permalink" .RelPermalink
     	)
     	- title:		The title of the card.
     	- permalink:	The relative permalink that the card will link to.
@@ -19,13 +16,13 @@
 	<!-- Featured Image -->
 	{{ with .image -}}
 		<figure class="card-image margin skew {{ if $.animate }} cursor-element {{- end }}"
-				{{ if $.animate }}
+			{{ if $.animate }}
 			data-cursor-invert data-cursor-invert-black data-cursor-scale="4"
 			data-skew-transform-x="0.1" data-skew-transform-y="0.1"
 			data-skew-rotate-x="-0.1" data-skew-rotate-y="-0.3"
 			data-skew-rotate
-				{{- end }}>
-			<img loading="lazy" src="{{ .RelPermalink }}" alt="{{ .Title }}">
+			{{- end }}>
+			<img loading="lazy" src="{{ .RelPermalink }}" alt="{{ $.title }}">
 		</figure>
 	{{- end }}
 	<!-- Text -->

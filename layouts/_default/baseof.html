@@ -10,11 +10,11 @@
 <html class="no-js" lang="en-GB">
     <head>
         <!-- Meta -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
-		<!-- Title -->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
         <title>{{ with .Params.title -}} {{ . }} | {{ end }}{{ .Site.Title }}</title>
 		<!-- Description -->
         {{ if and (not .IsHome) (eq .Description "") }}
