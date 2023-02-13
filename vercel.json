@@ -1,6 +1,6 @@
 {
 	"buildCommand": "./vercel.sh",
-	"cleanUrls": true,
+	"cleanUrls": false,
 	"devCommand": "hugo server -D -w -p $PORT",
 	"installCommand": "npm install",
 	"outputDirectory": "public",
@@ -13,5 +13,11 @@
 		"deploymentEnabled": {
 			"dev": false
 		}
-	}
+	},
+	"rewrites": [
+		{
+			"source": "/api/(.*)",
+			"destination": "/api/entrypoint.go"
+		}
+	]
 }
