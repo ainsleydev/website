@@ -161,6 +161,8 @@
 	@return $value / ($value * 0 + 1);
 }
 
+// Usage:
+// @include fluid-type(320px, 1408px, 34px, 98px);
 @mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
 	$u1: unit($min-vw);
 	$u2: unit($max-vw);
@@ -179,8 +181,7 @@
 		}
 	}
 }
-//Usage:
-//@include fluid-type(320px, 1408px, 34px, 98px);
+
 
 // Landscape Mixin
 // ==========================================================================
@@ -248,21 +249,25 @@
 /// @param {Number} $breakpoint - Media breakpoint
 @mixin create-col-classes($modifier, $grid-cols, $breakpoint) {
 	@include create-mediaquery($breakpoint) {
-		//Columns
+		å
+		// Columns
 		.col#{$modifier}-auto {
 			flex: 0 0 auto;
 			width: auto;
 			max-width: 100%;
 		}
+
 		@for $i from 1 through $grid-columns {
 			.col#{$modifier}-#{$i} {
 				width: (100 / ($grid-columns / $i)) * 1%;
 			}
 		}
-		//Offsets
+
+		// Offsets
 		.offset#{$modifier}-0 {
 			margin-left: 0;
 		}
+
 		@for $i from 1 through $grid-columns {
 			.offset#{$modifier}-#{$i} {
 				margin-left: (100 / ($grid-columns / $i)) * 1%;

@@ -3,10 +3,8 @@
 // This file contains all styles related to the footer of the site.
 // -----------------------------------------------------------------------------
 
-
 .footer {
 	$self: &;
-
 	position: relative;
 	display: block;
 	overflow: hidden;
@@ -82,7 +80,7 @@
 				color: colour("copy-dark");
 				font-weight: normal;
 
-				&:after {
+				&::after {
 					content: "|";
 					color: colour("copy-dark");
 					margin: 0 6px;

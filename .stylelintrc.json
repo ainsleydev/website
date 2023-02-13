@@ -1,7 +1,17 @@
 {
 	"extends": "stylelint-config-standard-scss",
 	"rules": {
+		"color-hex-length": null,
+		"comment-empty-line-before": "always",
 		"declaration-empty-line-before": "never",
-		"rule-empty-line-before": "inside-block-and-after-rule"
+		"value-keyword-case": ["lower", { "ignoreProperties": ["/^\\$/"] }],
+		"rule-empty-line-before": [
+			"always",
+			{
+				"ignore": ["inside-block-and-after-rule"]
+			}
+		],
+		"property-no-vendor-prefix": null,
+		"selector-no-vendor-prefix": null
 	}
 }

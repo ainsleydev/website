@@ -199,7 +199,7 @@ a.btn {
 			opacity: 0;
 		}
 
-		&:after {
+		&::after {
 			content: "";
 			width: 18px;
 			height: 18px;

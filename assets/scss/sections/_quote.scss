@@ -5,7 +5,6 @@
 
 .quote {
 	$self: &;
-
 	display: block;
 	position: relative;
 	margin: 0;
@@ -15,7 +14,7 @@
 	// Props
 	// =========================================================================
 
-	&:before {
+	&::before {
 		display: none;
 	}
 

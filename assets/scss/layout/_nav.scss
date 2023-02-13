@@ -5,7 +5,6 @@
 
 .nav {
 	$self: &;
-
 	position: fixed;
 	display: flex;
 	flex-direction: column;
@@ -226,7 +225,7 @@
 			padding-top: 4rem;
 			padding-bottom: 4rem;
 
-			&:before {
+			&::before {
 				content: "";
 			}
 		}
@@ -284,7 +283,7 @@
 				}
 
 				// Arrow
-				&:after {
+				&::after {
 					content: url('/images/icons/nav-arrow.svg');
 					position: absolute;
 					top: 50%;
@@ -302,7 +301,7 @@
 					}
 
 					// Arrow
-					&:after {
+					&::after {
 						opacity: 1;
 						transform: translate(0, -50%);
 					}
@@ -331,7 +330,7 @@
 				}
 			}
 
-			#{$self}-link-text:after {
+			#{$self}-link-text::after {
 				display: none !important; // Override nth-child
 			}
 		}
