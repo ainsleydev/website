@@ -5,12 +5,16 @@
 		- alt:
 		- margin:
     ===================== -->
+{{ $image := .Page.Resources.Get (.Get "src") -}}
+{{ if not $image -}}
+{{ $image = resources.Get (.Get "src") }}
+{{ end }}
 <figure class="image
 	{{ if .Get "margin" -}} margin {{- end }}
 	{{ if .Get "margin-large" -}} margin-large {{- end }}
 	{{ with .Get "class" -}} {{ . }} {{- end }}">
     {{ partial "media/image.html" (dict
-		"image" (resources.Get (.Get "src"))
+		"image" $image
 		"alt" (.Get "alt")
 		"width" (.Get "width")
 		"height" (.Get "height")

@@ -45,5 +45,5 @@
 			width="{{ .image.Width }}" height="{{ .image.Height }}"/>
 	{{- end }}
 {{- else -}}
-    {{ warnf "Image not found with url: %v" .image }}
+    {{ warnf "Image not found: %v" . }}
 {{- end }}
