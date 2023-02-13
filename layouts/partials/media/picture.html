@@ -25,6 +25,7 @@
 	{{ if eq .image.MediaType.SubType "svg" }}
         {{ partial "partials/media/image.html" (dict
 			"image" .image
+			"alt" .alt
 			"lazy" .lazy
 			"class" .class
 			"width" .width
@@ -78,6 +79,7 @@
 		<!-- Original -->
         {{ partial "partials/media/image.html" (dict
 			"image" .image
+        	"alt" .alt
 			"lazy" .lazy
 			"class" .class
 			"width" .width

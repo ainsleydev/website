@@ -11,8 +11,8 @@
 					"mob" ($.Parent.Resources.Get .mobile)
 					"tab" ($.Parent.Resources.Get .tablet)
 					"lazy" false
-					"alt" "ainsley.dev Desk & Keyboard")
-                }}
+					"alt" "ainsley.dev Desk & Keyboard"
+				)}}
 			</picture>
         {{- end }}
 		<!-- Content -->
@@ -89,7 +89,7 @@
 				</div><!-- /Col -->
 				<!-- Content -->
 				<div class="col-12 col-desk-8 offset-desk-1">
-                    {{ .Content }}
+                    {{ .Content | safeHTML }}
 				</div>
 			</div><!-- /Row -->
 		</div><!-- /Container -->

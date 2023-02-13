@@ -1,7 +1,7 @@
 ---
 title: From bedroom to agency
 draft: false
-slug: test
+slug: bedroom-to-agency
 ---
 
 **Insert Lead paragraph here.**
