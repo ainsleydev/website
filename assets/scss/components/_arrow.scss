@@ -45,13 +45,13 @@
 		}
 
 		&-down {
-			min-height: clamp(30px, 12.5vw, 70px);
+			min-height: 4rem;
 
 			#{$self}-link-image {
 				top: 0;
 				right: auto;
-				width: clamp(30px, 12.5vw, 70px);
-				height: clamp(30px, 12.5vw, 70px);
+				width: 4rem;
+				height: 4rem;
 				max-width: none;
 				max-height: none;
 				transform: none;

@@ -43,7 +43,7 @@
 			<div class="col-12 col-desk-6 footer-main-col">
 				<!-- Logo -->
 				<figure class="footer-logo">
-                    {{- partial "images/logo.html" (dict "colour" "white") -}}
+                    {{- partial "images/logo.html" "white" -}}
 				</figure>
 				<!-- Navigation -->
                 {{ with .Site.Menus.footer -}}
@@ -88,9 +88,7 @@
 						ainsley.dev is a registered company in England and Wales. Company
 						Number {{ with .Site.Params.company.number -}} 14550437 {{- end}}. ©{{ now.Year }}
 						ainsley.dev LTD. All rights reserved. <br class="d-none d-desk-large-inline"/>The ainsley.dev
-						logo are
-						registered trademarks of
-						ainsley.dev LTD.
+						logo are registered trademarks of ainsley.dev LTD.
 					</small>
 				</div><!-- /Wrapper -->
 			</div><!-- /CXol -->

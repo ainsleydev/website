@@ -140,7 +140,7 @@ $button-arrow-size: 20px;
 // Highlight
 // ==========================================================================
 
-$highlight-bg-colour: color.adjust($white, 0.1);
+$highlight-bg-colour: lighten($white, 0.1);
 $highlight-padding: 10px;
 
 // Table
