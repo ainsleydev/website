@@ -2455,8 +2455,7 @@ a.btn {
     .card-half-margin {
       margin-bottom: 0; } }
   .card-hover .card-image {
-    display: block;
-    height: 500px !important; }
+    display: block; }
     .card-hover .card-image img {
       object-fit: cover; }
   .card-hover .card-image-clip {

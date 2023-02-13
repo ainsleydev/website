@@ -5,20 +5,32 @@
 			"lazy" true
 			"mobile" false
 			"class" "class-name"
+			"width"	100
+			"height" 100
+			"mob" "hide"
 		)
-		- image:					The image resource, this has to be parsed or an error will be thrown.
+		- image:					The image resource. A warning will be thrown without this key.
+		- alt:						The alternative text for the image. A warning will be thrown without this key.
 		- lazy:						If the image should be lazy loaded, defaults to false.
+		- class:					Any class names to be appended to the <img> or <source> element(s).
+		- width:	Optional width in px for the image (for SVG images).
+		- height:	Optional height in px for the image (for SVG images).
 		- [css-key] string/image:	Hide a particular viewport by outputting a 1px dot by passing hide.
 									If the key is of type resources, it will be outputted otherwise it will be resized.
 									See .Params for the css keys.
 		Reference: https://bitbanged.com/posts/using-responsive-images-effortlessly-with-hugo/
     ===================== -->
 {{ if .image }}
+	<!-- SVG -->
 	{{ if eq .image.MediaType.SubType "svg" }}
-		<img {{ if .lazy }} loading="lazy" {{- end }}
-			src="{{ .image.RelPermalink }}"
-			class="{{ with .class -}} {{ . }} {{- end }}"
-			alt="{{ with .alt -}} {{ . }} {{- end }}"/>
+        {{ partial "partials/media/image.html" (dict
+			"image" .image
+			"lazy" .lazy
+			"class" .class
+			"width" .width
+			"height" .height
+		)}}
+	<!-- JPG/PNG -->
 	{{- else -}}
 		<!-- Container Sizes -->
 		{{ range $container := site.Params.imagery.container -}}
@@ -41,25 +53,36 @@
 						{{- $noExtension := strings.TrimSuffix (path.Ext $src.RelPermalink) $src.RelPermalink -}}
 						<!-- AVIF -->
 						<source media="(max-width: {{ $container.size }}px)"
+							srcset="{{ $noExtension }}.avif"
 							class="{{ with .class -}} {{ . }} {{- end }}"
-							width="{{ $src.Width }}" height="{{ $src.Height }}"
-							srcset="{{ $noExtension }}.avif" type="image/avif"/>
+							type="image/avif"
+							width="{{ $src.Width }}"
+							height="{{ $src.Height }}"/>
 						<!-- WebP -->
 						<source media="(max-width: {{ $container.size }}px)"
+							srcset="{{ $noExtension }}.webp"
 							class="{{ with .class -}} {{ . }} {{- end }}"
-							width="{{ $src.Width }}" height="{{ $src.Height }}"
-							srcset="{{ $noExtension }}.webp" type="image/webp"/>
+							type="image/webp"
+							width="{{ $src.Width }}"
+							height="{{ $src.Height }}"/>
 					{{- end }}
 					<!-- Original -->
 					<source media="(max-width: {{ $container.size }}px)"
-							class="{{ with .class -}} {{ . }} {{- end }}"
-							width="{{ $src.Width }}" height="{{ $src.Height }}"
-							srcset="{{ $src.RelPermalink }}"/>
+						srcset="{{ $src.RelPermalink }}"
+						class="{{ with .class -}} {{ . }} {{- end }}"
+						width="{{ $src.Width }}"
+						height="{{ $src.Height }}"/>
 				{{- end }}
 			 {{ end }}
 		{{- end }}
 		<!-- Original -->
-		{{ partial "partials/media/image.html" (dict "image" .image "lazy" .lazy "class" .class) }}
+        {{ partial "partials/media/image.html" (dict
+			"image" .image
+			"lazy" .lazy
+			"class" .class
+			"width" .width
+			"height" .height
+        )}}
     {{- end }}
 {{- else -}}
     {{ warnf "Image not found: %v" . }}
