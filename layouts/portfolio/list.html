@@ -27,13 +27,7 @@
 						<div class="col-12 col-mob-6 col-desk-5 {{ if not $isLeft }} offset-desk-2 {{- end }} card-col">
 							<div class="row {{ if not $isLeft }} justify-content-end {{- end }}">
 								<div class="col-12 col-mob-11 col-desk-12">
-                                    {{ partial "cards/vertical.html" (dict
-										"title" .Title
-										"sub" .Params.company
-										"permalink" .RelPermalink
-										"image" (.Resources.GetMatch "images/featured.jpg")
-										"animate" true
-                                    )}}
+									{{ .Render "card" }}
 								</div><!-- /Col -->
 							</div><!-- /Row -->
 						</div><!--- /Col -->
@@ -41,8 +35,8 @@
 				</div><!-- /Row -->
 			</div><!-- /Container -->
 		</section>
+    {{- end }}
 	<!-- =====================
 		CTA
 		===================== -->
-    {{- end }}
 {{ end }}
