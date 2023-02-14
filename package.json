@@ -54,7 +54,7 @@
 		"*.{ts,tsx,scss}": [
 			"prettier --write"
 		],
-		"*.{ts}": [
+		"*.ts": [
 			"eslint --fix"
 		],
 		"*.go": [
