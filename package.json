@@ -15,7 +15,7 @@
 		"image": "npx ts-node image.ts",
 		"clean": "prettier --config ./config/.prettierrc --write ./**/*.{css,scss,json,js} --ignore-path ./config/.prettierignore && npx eslint -c ./config/.eslintrc assets/js/app.js --fix",
 		"lint": "npm run lint:scss && npm run lint:js",
-		"lint:scss": "sass-lint --config ./config/.sass-lint.yml '**/*.scss' --verbose --no-exit",
+		"lint:scss": "npx stylelint '**/*.scss'",
 		"lint:js": "eslint --config .eslintrc.json --fix 'assets/**/*.{ts,tsx}'"
 	},
 	"dependencies": {
@@ -38,7 +38,6 @@
 		"@typescript-eslint/parser": "^5.52.0",
 		"eslint": "^8.34.0",
 		"hugo-bin-extended": "^0.109.0",
-		"husky": "^8.0.0",
 		"lint-staged": "^13.1.2",
 		"prettier": "2.8.4",
 		"stylelint": "^15.1.0",
