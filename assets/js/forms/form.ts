@@ -14,7 +14,7 @@ import {Toast} from "../animations/toast";
  */
 export interface Response {
 	status: number
-	data: any
+	data: unknown
 	message: string
 	error: boolean
 }
@@ -37,7 +37,7 @@ export abstract class Form {
 	/**
 	 * The validation class for validating fields.
 	 */
-	validation: any
+	//validation: any
 
 	/**
 	 * The form name associated with the DOM element.
@@ -87,7 +87,7 @@ export abstract class Form {
 	/**
 	 * The send callback of the class.
 	 */
-	abstract send(): void|Promise<any>
+	abstract send(): void|Promise<Response>
 
 	/**
 	 * Fetch sends the form data to the API.
@@ -100,15 +100,17 @@ export abstract class Form {
 	fetch(data?: FormData, params?: URLSearchParams, formName?: string): Promise<Response> {
 		this.addButtonLoading();
 
-		if (!this.isValid()) {
-			this.removeButtonLoading();
-			Log.warn("Validation failed for " + this.formName);
-			return Promise.reject(<Response>{message: "Validation failed", status: 400});
-		}
+		// if (!this.isValid()) {
+		// 	this.removeButtonLoading();
+		// 	Log.warn("Validation failed for " + this.formName);
+		// 	return Promise.reject(<Response>{message: "Validation failed", status: 400});
+		// }
 
 		if (!data) {
 			data = new FormData();
 		}
+
+		data.append("formName", formName);
 
 		const options = <RequestInit>{
 			method: "POST",
@@ -141,7 +143,6 @@ export abstract class Form {
 			if (input.type === 'checkbox') {
 				value = input.checked;
 			} else if (input.type === 'file') {
-				// @ts-ignore
 				value = input.files[0];
 			} else {
 				value = input.value;
@@ -156,12 +157,12 @@ export abstract class Form {
 	 * Determines if the form has any errors before
 	 * proceeding.
 	 */
-	protected isValid(): boolean {
-		if (!this.validation) {
-			return true;
-		}
-		return this.validation.validate(this.form);
-	}
+	// protected isValid(): boolean {
+	// 	if (!this.validation) {
+	// 		return true;
+	// 	}
+	// 	return this.validation.validate(this.form);
+	// }
 
 	/**
 	 * Add the button loading class.

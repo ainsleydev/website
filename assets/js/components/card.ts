@@ -42,7 +42,7 @@ export class Card {
 				return;
 			}
 
-			const getCordinates = (e: any) => {
+			const getCordinates = (e: MouseEvent) => {
 				const offset = image.getBoundingClientRect(),
 					x = e.clientX - offset.left,
 					y = e.clientY - offset.top;
@@ -52,7 +52,7 @@ export class Card {
 				}
 			};
 
-			let isAnimating = true;
+			// const isAnimating = true;
 
 			card.addEventListener("mousemove", e => {
 				// if (!isAnimating) return;
@@ -67,8 +67,8 @@ export class Card {
 				// }, 1000);
 			});
 
-			card.addEventListener("mouseleave", e => {
-				const cord = getCordinates(e);
+			card.addEventListener("mouseleave", () => {
+				// const cord = getCordinates(e);
 				card.classList.remove("card-active");
 				// image.style.clipPath = `circle(0px at ${cord.x}px ${cord.y}px)`;
 				image.style.opacity = '0';

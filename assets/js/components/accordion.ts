@@ -65,7 +65,7 @@ export class Collapse {
 	 * @private
 	 */
 	private attachClickHandler(container: HTMLElement): void {
-		let headers = container.querySelectorAll<HTMLElement>(this.options.item);
+		const headers = container.querySelectorAll<HTMLElement>(this.options.item);
 		headers.forEach(header => {
 			header.addEventListener('click', e => {
 				e.preventDefault();
@@ -82,7 +82,7 @@ export class Collapse {
 	 * @param current
 	 * @private
 	 */
-	private accordion(headers: any, current: HTMLElement): void {
+	private accordion(headers: NodeListOf<HTMLElement>, current: HTMLElement): void {
 		headers.forEach(el => this.toggle(el, el !== current));
 	}
 
@@ -121,7 +121,7 @@ export class Collapse {
 	 * @private
 	 */
 	private calculateHeight(el: HTMLElement): number {
-		let children = el.children;
+		const children = el.children;
 		let height = 0;
 		for (let i = 0; i < children.length; i++) {
 			height += children[i].clientHeight;

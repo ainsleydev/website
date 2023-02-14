@@ -23,7 +23,7 @@ const loader = new Loader({
  */
 const LoadMap = () => {
 	loader.load().then(() => {
-		let position = {
+		const position = {
 			lat: 51.5155705754434,
 			lng: -0.12367415060938884,
 		} as google.maps.LatLngLiteral;

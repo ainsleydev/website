@@ -15,7 +15,7 @@ import Toastify from 'toastify-js'
  * @constructor
  */
 export const Toast = (message: string): void => {
-	const toast = Toastify({
+	const options = {
 		text: `
             <div class="toast-message">${message}</div>
             <div class="toastify-close type-serif">x</div>
@@ -30,12 +30,15 @@ export const Toast = (message: string): void => {
 		escapeMarkup: false,
 		offset: {
 			y: "3vw",
+			x: "3vw"
 		}
-	}) as any;
+	} as Toastify.Options
+
+	const toast = Toastify(options);
 
 	toast.showToast();
 
 	toast.toastElement.querySelector('.toastify-close').addEventListener('click', () => {
-		toast.removeElement(toast.toastElement);
+		toast.hideToast();
 	});
 };

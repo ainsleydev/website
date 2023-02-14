@@ -72,7 +72,6 @@ export class Cursor {
 	 * @private
 	 */
 	private attachElementHandlers(el: HTMLElement): void {
-		// @ts-ignore
 		const classes = el.getAttributeNames().filter(a => a.startsWith("data-cursor"));
 
 		el.addEventListener("mousemove", () => classes.forEach(c => {
@@ -82,7 +81,7 @@ export class Cursor {
 		}));
 
 		el.addEventListener("mouseleave", () => classes.forEach(c => {
-			this.removeScale(el);
+			this.removeScale();
 			this.el.classList.remove("cursor-active");
 			this.el.classList.remove(c.replace("data-", ""));
 		}));
@@ -96,17 +95,16 @@ export class Cursor {
 	 * @private
 	 */
 	private addScale(el: HTMLElement): void {
-		let scale = el.getAttribute("data-cursor-scale") ?? "1.5";
+		const scale = el.getAttribute("data-cursor-scale") ?? "1.5";
 		this.el.style.transform = `translate(-50%, -50%) scale(${scale})`;
 	}
 
 	/**
 	 * Removes the scale when the mouse is out.
 	 *
-	 * @param el
 	 * @private
 	 */
-	private removeScale(el: HTMLElement): void {
+	private removeScale(): void {
 		this.el.style.transform = `translate(-50%, -50%) scale(0)`;
 	}
 }
