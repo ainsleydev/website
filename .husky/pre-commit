@@ -1,5 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx lint-staged --cwd assets
-npx lint-staged --cwd api
+npx lint-staged
+npx lint-staged
