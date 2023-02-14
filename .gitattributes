@@ -1,0 +1,14 @@
+# Auto detect text files and perform LF normalization.
+* text eol=lf
+
+# Denote all files that are truly binary and should not be modified.
+*.png binary
+*.jpg binary
+*.ico binary
+*.avif binary
+*.webp binary
+
+# Treat all Go files in this repo as binary, with no git magic updating
+# line endings. Windows users contributing to Go will need to use a
+# modern version of git and editors capable of LF line endings.
+*.go -text diff=golang
