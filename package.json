@@ -54,6 +54,9 @@
 		"*.{ts,tsx,scss}": [
 			"prettier --write"
 		],
+		"*.{ts}": [
+			"eslint --fix"
+		],
 		"*.go": [
 			"go fmt",
 			"go generate",
