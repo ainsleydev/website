@@ -11,6 +11,7 @@
 		"build:staging": "npm run hugo:clean && hugo --environment staging --config params.yaml,config-staging.yaml --minify && npm run image",
 		"build:prod": "npm run hugo:clean && hugo --environment production --config params.yaml,config-production.yaml --minify && npm run image",
 		"hugo:clean": "rm -rf public",
+		"precommit": "lint-staged",
 		"image": "npx ts-node image.ts",
 		"clean": "prettier --config ./config/.prettierrc --write ./**/*.{css,scss,json,js} --ignore-path ./config/.prettierignore && npx eslint -c ./config/.eslintrc assets/js/app.js --fix",
 		"lint": "npm run lint:scss && npm run lint:js",
@@ -41,11 +42,12 @@
 		"prettier": "2.8.4",
 		"stylelint": "^15.1.0",
 		"stylelint-config-standard-scss": "^7.0.0",
-		"typescript": "^4.9.5"
+		"typescript": "^4.9.5",
+		"husky": "^8.0.0"
 	},
 	"lint-staged": {
-		"{src,utils,test}/**/*.ts": [
-			"npm run lint:js"
+		"{assets}/**/*.ts": [
+			"eslint"
 		]
 	},
 	"prettier": {

@@ -2,6 +2,7 @@ setup: # Setup dependencies
 	npm install
 	go mod tidy
 	go install github.com/deepmap/oapi-codegen/cmd/oapi-codegen@latest
+	husky install
 	go generate ./...
 
 serve: # Serve the application
