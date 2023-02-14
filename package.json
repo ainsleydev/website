@@ -46,9 +46,14 @@
 		"typescript": "^4.9.5"
 	},
 	"lint-staged": {
-		"assets/*.{scss,ts,tx,json}": [
+		"*.{ts,scss}": [
 			"prettier --write"
 		]
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
 	},
 	"prettier": {
 		"semi": true,
