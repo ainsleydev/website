@@ -1,7 +1,7 @@
 {
 	"buildCommand": "./vercel.sh",
 	"cleanUrls": false,
-	"devCommand": "hugo server -D -w -p $PORT",
+	"devCommand": "hugo server --buildDrafts --watch --quiet --port $PORT",
 	"installCommand": "npm install",
 	"outputDirectory": "public",
 	"public": false,
