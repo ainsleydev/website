@@ -7,13 +7,13 @@
  */
 
 const glob = require('glob'),
-	fs = require("fs"),
+	fs = require('fs'),
 	path = require('path'),
 	sharp = require('sharp'),
 	svgo = require('svgo');
 
-import {AvifOptions, OutputInfo, WebpOptions} from "sharp";
-import {Config} from "svgo";
+import { AvifOptions, OutputInfo, WebpOptions } from 'sharp';
+import { Config } from 'svgo';
 
 /**
  * CollapseOptions is the global configuration of
@@ -21,15 +21,15 @@ import {Config} from "svgo";
  */
 export interface Options {
 	// The filepath to traverse.
-	filepath: string
+	filepath: string;
 	// The quality of the images to be compressed.
-	quality?: number
+	quality?: number;
 	// Enables WebP conversion
-	enableWebP?: boolean
+	enableWebP?: boolean;
 	// Enables AVIF conversion
-	enableAvif?: boolean
+	enableAvif?: boolean;
 	// Enables SVG optimisation.
-	enableSVG?: boolean
+	enableSVG?: boolean;
 }
 
 /**
@@ -37,7 +37,6 @@ export interface Options {
  * JPG, PNG & SVG images using sharp and SVG.
  */
 export class Imagery {
-
 	/**
 	 * The default options for the collapsable content,
 	 * when properties are not defined.
@@ -45,17 +44,17 @@ export class Imagery {
 	 * @readonly
 	 */
 	public readonly defaultOptions: Options = {
-		filepath: "",
+		filepath: '',
 		quality: 80,
 		enableWebP: true,
 		enableAvif: true,
 		enableSVG: true,
-	}
+	};
 
 	/**
 	 * Options define the collapsible options.
 	 */
-	private readonly options: Options
+	private readonly options: Options;
 
 	/**
 	 * The pattern of files to match.
@@ -68,7 +67,7 @@ export class Imagery {
 	 */
 	constructor(options: Options) {
 		this.options = this.defaultOptions;
-		this.options = {...this.defaultOptions, ...options};
+		this.options = { ...this.defaultOptions, ...options };
 	}
 
 	/**
@@ -78,7 +77,11 @@ export class Imagery {
 	 *
 	 */
 	public run(): void {
-		console.log("ℹ️ Running, options are: " + JSON.stringify(this.options, null, 4) + "\n");
+		console.log(
+			'ℹ️ Running, options are: ' +
+				JSON.stringify(this.options, null, 4) +
+				'\n',
+		);
 		this.traverse();
 	}
 
@@ -90,9 +93,13 @@ export class Imagery {
 	 * @returns void
 	 */
 	private traverse(): void {
-		glob(__dirname + `${this.options.filepath}**/*.@(${this.globPattern})`, {}, (err, files) => {
-			files.forEach(file => this.convertOptimise(file));
-		});
+		glob(
+			__dirname + `${this.options.filepath}**/*.@(${this.globPattern})`,
+			{},
+			(err, files) => {
+				files.forEach((file) => this.convertOptimise(file));
+			},
+		);
 	}
 
 	/**
@@ -104,10 +111,10 @@ export class Imagery {
 	 */
 	private convertOptimise = async (file: string) => {
 		const ext = this.extension(file);
-		if (ext === ".jpg" || ext === ".jpeg" || ext === ".png") {
+		if (ext === '.jpg' || ext === '.jpeg' || ext === '.png') {
 			if (this.options.enableWebP) await this.webp(file);
 			if (this.options.enableAvif) await this.avif(file);
-		} else if (ext === ".svg") {
+		} else if (ext === '.svg') {
 			if (this.options.enableSVG) await this.svg(file);
 		}
 	};
@@ -130,7 +137,7 @@ export class Imagery {
 			} as WebpOptions)
 			.toFile(newFile)
 			.then(() => this.printSuccess(newFile))
-			.catch(err => this.printError(newFile, err))
+			.catch((err) => this.printError(newFile, err));
 	}
 
 	/**
@@ -151,7 +158,7 @@ export class Imagery {
 			} as AvifOptions)
 			.toFile(newFile)
 			.then(() => this.printSuccess(newFile))
-			.catch(err => this.printError(newFile, err))
+			.catch((err) => this.printError(newFile, err));
 	}
 
 	/**
@@ -184,7 +191,7 @@ export class Imagery {
 	 * @private
 	 */
 	private filePath(file: string): string {
-		return file.replace(/\.[^/.]+$/, "")
+		return file.replace(/\.[^/.]+$/, '');
 	}
 
 	/**
@@ -195,9 +202,8 @@ export class Imagery {
 	 * @private
 	 */
 	private extension(file: string): string {
-		return path.extname(file)
+		return path.extname(file);
 	}
-
 
 	/**
 	 * Obtains the file new file that is converted.
@@ -208,7 +214,7 @@ export class Imagery {
 	 * @private
 	 */
 	private getConvertedFile(file: string, extension: string): string {
-		return this.filePath(file) + "." + extension;
+		return this.filePath(file) + '.' + extension;
 	}
 
 	/**
@@ -220,7 +226,6 @@ export class Imagery {
 	 * @private
 	 */
 	private printSuccess(file: string): void {
-
 		console.log(`✅ Image converted successfully: ${file}`);
 	}
 
@@ -242,9 +247,9 @@ export class Imagery {
  * Instantiate and Run
  */
 new Imagery({
-	filepath: "/public/",
+	filepath: '/public/',
 	quality: 90,
 	enableAvif: true,
 	enableWebP: true,
 	enableSVG: false,
-} as Options).run()
+} as Options).run();
