@@ -46,7 +46,7 @@
 		"typescript": "^4.9.5"
 	},
 	"lint-staged": {
-		"**/*.{ts,tsx,scss}": [
+		"*.{ts,tsx,scss}": [
 			"prettier --write"
 		]
 	},
