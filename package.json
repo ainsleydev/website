@@ -46,9 +46,14 @@
 		"husky": "^8.0.0"
 	},
 	"lint-staged": {
-		"{assets}/**/*.ts": [
+		"assets/**/*.ts": [
 			"eslint"
 		]
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
 	},
 	"prettier": {
 		"semi": true,
