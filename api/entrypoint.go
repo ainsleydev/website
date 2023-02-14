@@ -17,6 +17,7 @@ var (
 )
 
 func init() {
+
 	app = echo.New()
 	handler = &httpservice.Handler{}
 	echo.NotFoundHandler = func(c echo.Context) error {

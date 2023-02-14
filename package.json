@@ -54,8 +54,8 @@
 		"*.{ts,tsx,scss}": [
 			"prettier --write"
 		],
-		"*.go": [
-			"gofmt -w"
+		"*.{go}": [
+			"go fmt"
 		]
 	},
 	"prettier": {
