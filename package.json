@@ -11,12 +11,12 @@
 		"build:staging": "npm run hugo:clean && hugo --environment staging --config params.yaml,config-staging.yaml --minify && npm run image",
 		"build:prod": "npm run hugo:clean && hugo --environment production --config params.yaml,config-production.yaml --minify && npm run image",
 		"hugo:clean": "rm -rf public",
-		"precommit": "lint-staged",
 		"image": "npx ts-node image.ts",
 		"clean": "prettier --write ./**/*.{scss,json,js} && npm run lint:js",
 		"lint": "npm run lint:scss && npm run lint:js",
 		"lint:scss": "npx stylelint '**/*.scss'",
-		"lint:js": "eslint --config .eslintrc.json --fix 'assets/**/*.{ts,tsx}'"
+		"lint:js": "eslint --config .eslintrc.json --fix 'assets/**/*.{ts,tsx}'",
+		"prepare": "husky install"
 	},
 	"dependencies": {
 		"@barba/core": "^2.9.7",
@@ -38,6 +38,7 @@
 		"@typescript-eslint/parser": "^5.52.0",
 		"eslint": "^8.34.0",
 		"hugo-bin-extended": "^0.109.0",
+		"husky": "^8.0.3",
 		"lint-staged": "^13.1.2",
 		"prettier": "2.8.4",
 		"stylelint": "^15.1.0",
@@ -45,15 +46,9 @@
 		"typescript": "^4.9.5"
 	},
 	"lint-staged": {
-		"assets*/*/**.{ts,tsx,scss,json}": [
+		"/assets*.{scss,ts,tx,json}": [
 			"prettier --write"
 		]
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged",
-			"post-commit": "git update-index --again"
-		}
 	},
 	"prettier": {
 		"semi": true,
