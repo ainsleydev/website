@@ -1,38 +1,37 @@
 /**
  * form.ts
-*
+ *
  * @author Ainsley Clark
  * @author URL:   https://ainsley.dev
  * @author Email: hello@ainsley.dev
  */
 
-import {Log} from "../util/log";
-import {Toast} from "../animations/toast";
+import { Log } from '../util/log';
+import { Toast } from '../animations/toast';
 
 /**
  * Result of a response from the backend.
  */
 export interface Response {
-	status: number
-	data: unknown
-	message: string
-	error: boolean
+	status: number;
+	data: unknown;
+	message: string;
+	error: boolean;
 }
 
 /**
  * AdminAjax
  */
 export abstract class Form {
-
 	/**
 	 * The associated with the class.
 	 */
-	form: HTMLFormElement
+	form: HTMLFormElement;
 
 	/**
 	 * The submit button associated with the form.
 	 */
-	button: HTMLButtonElement
+	button: HTMLButtonElement;
 
 	/**
 	 * The validation class for validating fields.
@@ -42,13 +41,13 @@ export abstract class Form {
 	/**
 	 * The form name associated with the DOM element.
 	 */
-	formName: string
+	formName: string;
 
 	/**
 	 * Endpoint is the API route to send the form
 	 * data to.
 	 */
-	endpoint: string
+	endpoint: string;
 
 	/**
 	 * Creates a new form.
@@ -67,7 +66,7 @@ export abstract class Form {
 		}
 
 		// Find the closest form.
-		const form = btn.closest("form");
+		const form = btn.closest('form');
 		if (!form) {
 			Log.error(`Button missing from: ${buttonSelector}`);
 			return;
@@ -78,16 +77,20 @@ export abstract class Form {
 		// this.validation = new Validation();
 		this.formName = this.getFormName();
 
-		btn.addEventListener("click", e => {
-			e.preventDefault();
-			this.send();
-		}, true);
+		btn.addEventListener(
+			'click',
+			(e) => {
+				e.preventDefault();
+				this.send();
+			},
+			true,
+		);
 	}
 
 	/**
 	 * The send callback of the class.
 	 */
-	abstract send(): void|Promise<Response>
+	abstract send(): void | Promise<Response>;
 
 	/**
 	 * Fetch sends the form data to the API.
@@ -97,7 +100,11 @@ export abstract class Form {
 	 * @param params
 	 * @returns Promise<Response>
 	 */
-	fetch(data?: FormData, params?: URLSearchParams, formName?: string): Promise<Response> {
+	fetch(
+		data?: FormData,
+		params?: URLSearchParams,
+		formName?: string,
+	): Promise<Response> {
 		this.addButtonLoading();
 
 		// if (!this.isValid()) {
@@ -110,24 +117,28 @@ export abstract class Form {
 			data = new FormData();
 		}
 
-		data.append("formName", formName);
+		data.append('formName', formName);
 
 		const options = <RequestInit>{
-			method: "POST",
+			method: 'POST',
 			body: data,
-		}
+		};
 
 		if (params) {
-			this.endpoint += "?" + params
+			this.endpoint += '?' + params;
 		}
 
 		const endpoint = window.location.origin + this.endpoint;
-		Log.info("Sending request to: " + endpoint);
+		Log.info('Sending request to: ' + endpoint);
 		return fetch(endpoint, options)
-			.then(res => res.json())
-			.then(res => Promise.resolve(<Response>res))
-			.then(data => data.error ? Promise.reject(<Response>data) : Promise.resolve(<Response>data))
-			.catch(err => Promise.reject(<Response>err))
+			.then((res) => res.json())
+			.then((res) => Promise.resolve(<Response>res))
+			.then((data) =>
+				data.error
+					? Promise.reject(<Response>data)
+					: Promise.resolve(<Response>data),
+			)
+			.catch((err) => Promise.reject(<Response>err))
 			.finally(() => this.removeButtonLoading());
 	}
 
@@ -138,17 +149,19 @@ export abstract class Form {
 	 */
 	getValues(): FormData {
 		const data = new FormData();
-		this.form.querySelectorAll<HTMLInputElement>("input, textarea").forEach(input => {
-			let value;
-			if (input.type === 'checkbox') {
-				value = input.checked;
-			} else if (input.type === 'file') {
-				value = input.files[0];
-			} else {
-				value = input.value;
-			}
-			data.append(input.name, value);
-		});
+		this.form
+			.querySelectorAll<HTMLInputElement>('input, textarea')
+			.forEach((input) => {
+				let value;
+				if (input.type === 'checkbox') {
+					value = input.checked;
+				} else if (input.type === 'file') {
+					value = input.files[0];
+				} else {
+					value = input.value;
+				}
+				data.append(input.name, value);
+			});
 		data.append('form-url', window.location.href);
 		return data;
 	}
@@ -169,7 +182,7 @@ export abstract class Form {
 	 */
 	protected addButtonLoading(): void {
 		if (this.button) {
-			this.button.classList.add("btn-loading");
+			this.button.classList.add('btn-loading');
 		}
 	}
 
@@ -178,7 +191,7 @@ export abstract class Form {
 	 */
 	protected removeButtonLoading(): void {
 		if (this.button) {
-			this.button.classList.remove("btn-loading");
+			this.button.classList.remove('btn-loading');
 		}
 	}
 
@@ -188,8 +201,10 @@ export abstract class Form {
 	 * @protected
 	 */
 	protected getFormName(): string {
-		const defaultName = "Form",
-			input = <HTMLFormElement>this.form.querySelector("input[name='form-name']");
+		const defaultName = 'Form',
+			input = <HTMLFormElement>(
+				this.form.querySelector("input[name='form-name']")
+			);
 		if (!input || input.value === '') {
 			return defaultName;
 		}
@@ -202,8 +217,8 @@ export abstract class Form {
 	 * @protected
 	 */
 	protected failValidation(): void {
-		Log.warn("Validation failed for " + this.formName);
-		Toast("Validation failed");
+		Log.warn('Validation failed for ' + this.formName);
+		Toast('Validation failed');
 		this.removeButtonLoading();
 	}
 }

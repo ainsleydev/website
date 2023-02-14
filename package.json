@@ -47,7 +47,8 @@
 	},
 	"lint-staged": {
 		"assets/**/*.ts": [
-			"eslint"
+			"eslint",
+			"prettier --write"
 		]
 	},
 	"husky": {

@@ -6,16 +6,16 @@
  * @author Email: hello@ainsley.dev
  */
 
-import {Log} from "../util/log";
+import { Log } from '../util/log';
 
 /**
  * FitTextOptions is the configuration of a singular
  * text element.
  */
 interface FitTextOptions {
-	compressor: number
-	minFontSize: number
-	maxFontSize: number
+	compressor: number;
+	minFontSize: number;
+	maxFontSize: number;
 }
 
 /**
@@ -26,13 +26,12 @@ interface FitTextOptions {
  *  @see https://github.com/adactio/FitText.js
  */
 export class FitText {
-
 	/**
 	 * The DOM selector for the elements.
 	 *
 	 * @readonly
 	 */
-	public readonly selector = ".fit-text"
+	public readonly selector = '.fit-text';
 
 	/**
 	 * The default configuration for fitting elements,
@@ -42,9 +41,9 @@ export class FitText {
 	 */
 	public readonly defaultOptions: FitTextOptions = {
 		compressor: 1,
-		minFontSize: -1/0,
-		maxFontSize: 1/0,
-	}
+		minFontSize: -1 / 0,
+		maxFontSize: 1 / 0,
+	};
 
 	/**
 	 * Initialises the elements marked as FitText.
@@ -52,7 +51,7 @@ export class FitText {
 	 * @constructor
 	 */
 	constructor() {
-		document.querySelectorAll<HTMLElement>(".fit-text").forEach(el => {
+		document.querySelectorAll<HTMLElement>('.fit-text').forEach((el) => {
 			this.change(el, this.getOptions(el));
 		});
 	}
@@ -67,7 +66,14 @@ export class FitText {
 	 */
 	private change(el: HTMLElement, options: FitTextOptions) {
 		const resizer = () => {
-			const fontSize = Math.max(Math.min(el.clientWidth / (options.compressor*10), options.maxFontSize), options.minFontSize) + 'px';
+			const fontSize =
+				Math.max(
+					Math.min(
+						el.clientWidth / (options.compressor * 10),
+						options.maxFontSize,
+					),
+					options.minFontSize,
+				) + 'px';
 			el.style.fontSize = fontSize;
 		};
 
@@ -88,9 +94,15 @@ export class FitText {
 	 */
 	private getOptions(el: HTMLElement): FitTextOptions {
 		return {
-			compressor: this.getAttribute(el,"data-fit-text-compressor") ?? this.defaultOptions.compressor,
-			minFontSize: this.getAttribute(el, "data-fit-text-min-font-size") ?? this.defaultOptions.minFontSize,
-			maxFontSize: this.getAttribute(el,"data-fit-text-max-font-size") ?? this.defaultOptions.maxFontSize,
+			compressor:
+				this.getAttribute(el, 'data-fit-text-compressor') ??
+				this.defaultOptions.compressor,
+			minFontSize:
+				this.getAttribute(el, 'data-fit-text-min-font-size') ??
+				this.defaultOptions.minFontSize,
+			maxFontSize:
+				this.getAttribute(el, 'data-fit-text-max-font-size') ??
+				this.defaultOptions.maxFontSize,
 		} as FitTextOptions;
 	}
 
@@ -105,11 +117,11 @@ export class FitText {
 	private getAttribute(el: HTMLElement, attr: string): number | null {
 		const contents = el.getAttribute(attr);
 		if (!contents) {
-			return null
+			return null;
 		}
 		const num = Number(contents);
 		if (isNaN(num)) {
-			Log.error("Attribute is NaN: " + attr);
+			Log.error('Attribute is NaN: ' + attr);
 			return null;
 		}
 		return num;

@@ -6,18 +6,18 @@
  * @author Email: hello@ainsley.dev
  */
 
-import {Log} from "../util/log";
+import { Log } from '../util/log';
 
 /**
  * CollapseOptions is the global configuration of
  * collapsible elements.
  */
 export interface CollapseOptions {
-	accordion?: boolean
-	container?: string
-	item?: string
-	inner?: string
-	activeClass?: string,
+	accordion?: boolean;
+	container?: string;
+	item?: string;
+	inner?: string;
+	activeClass?: string;
 }
 
 /**
@@ -25,7 +25,6 @@ export interface CollapseOptions {
  * animations from multiple containers.
  */
 export class Collapse {
-
 	/**
 	 * The default options for the collapsable content,
 	 * when properties are not defined.
@@ -38,12 +37,12 @@ export class Collapse {
 		item: '.collapse-item',
 		inner: '.collapse-content',
 		activeClass: 'collapse-item-active',
-	}
+	};
 
 	/**
 	 * Options define the collapsible options.
 	 */
-	private options: CollapseOptions
+	private options: CollapseOptions;
 
 	/**
 	 * Creates a new collapsible type ranging over
@@ -51,9 +50,9 @@ export class Collapse {
 	 */
 	constructor(options?: CollapseOptions) {
 		this.options = this.defaultOptions;
-		this.options = {...this.defaultOptions, ...options};
-		const containers = document.querySelectorAll(".accordion");
-		containers.forEach(container => {
+		this.options = { ...this.defaultOptions, ...options };
+		const containers = document.querySelectorAll('.accordion');
+		containers.forEach((container) => {
 			this.attachClickHandler(<HTMLElement>container);
 		});
 	}
@@ -65,11 +64,15 @@ export class Collapse {
 	 * @private
 	 */
 	private attachClickHandler(container: HTMLElement): void {
-		const headers = container.querySelectorAll<HTMLElement>(this.options.item);
-		headers.forEach(header => {
-			header.addEventListener('click', e => {
+		const headers = container.querySelectorAll<HTMLElement>(
+			this.options.item,
+		);
+		headers.forEach((header) => {
+			header.addEventListener('click', (e) => {
 				e.preventDefault();
-				this.options.accordion ? this.accordion(headers, header) : this.toggle(header, false)
+				this.options.accordion
+					? this.accordion(headers, header)
+					: this.toggle(header, false);
 			});
 		});
 	}
@@ -82,8 +85,11 @@ export class Collapse {
 	 * @param current
 	 * @private
 	 */
-	private accordion(headers: NodeListOf<HTMLElement>, current: HTMLElement): void {
-		headers.forEach(el => this.toggle(el, el !== current));
+	private accordion(
+		headers: NodeListOf<HTMLElement>,
+		current: HTMLElement,
+	): void {
+		headers.forEach((el) => this.toggle(el, el !== current));
 	}
 
 	/**
@@ -98,7 +104,7 @@ export class Collapse {
 		const active = this.options.activeClass;
 		const inner = item.querySelector(this.options.inner) as HTMLElement;
 		if (!inner) {
-			Log.error("No inner item found for accordion item: " + item);
+			Log.error('No inner item found for accordion item: ' + item);
 			return;
 		}
 

@@ -6,10 +6,10 @@
  * @author Email: hello@ainsley.dev
  */
 
-import LoadMap from "../components/map";
-import {ContactForm} from "../forms/contact";
+import LoadMap from '../components/map';
+import { ContactForm } from '../forms/contact';
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener('DOMContentLoaded', () => {
 	LoadMap();
 	new ContactForm();
 });

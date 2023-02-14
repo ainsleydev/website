@@ -7,12 +7,12 @@
  * @author Email: info@ainsleyclark.com
  */
 
-import {Cursor} from "./animations/cursor";
-import {Skew} from "./animations/skew";
-import {FitText} from "./components/fit-text";
-import {Collapse, CollapseOptions} from "./components/accordion";
-import {Card} from "./components/card";
-import {Navigation} from "./components/nav";
+import { Cursor } from './animations/cursor';
+import { Skew } from './animations/skew';
+import { FitText } from './components/fit-text';
+import { Collapse, CollapseOptions } from './components/accordion';
+import { Card } from './components/card';
+import { Navigation } from './components/nav';
 
 /**
  * Variables
@@ -30,7 +30,7 @@ html.classList.add('js');
 /**
  * Initialise components & types.
  */
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
 	new Navigation();
 	new Cursor();
 	new Skew();
@@ -48,8 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
 /**
  * Button - Go Back
  */
-document.querySelectorAll('[data-go-back]').forEach(btn => {
-	btn.addEventListener("click", e => {
+document.querySelectorAll('[data-go-back]').forEach((btn) => {
+	btn.addEventListener('click', (e) => {
 		e.preventDefault();
 		history.back();
 	});

@@ -11,12 +11,11 @@
  * within the website.
  */
 export class Log {
-
 	/**
 	 * Prefix is teh string prefixed before the
 	 * Log message.
 	 */
-	static readonly prefix = "ainsley.dev";
+	static readonly prefix = 'ainsley.dev';
 
 	/**
 	 * Log a console error with a prefix.

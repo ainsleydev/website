@@ -6,7 +6,7 @@
  * @author Email: info@ainsleyclark.com
  */
 
-import Toastify from 'toastify-js'
+import Toastify from 'toastify-js';
 
 /**
  * Display a toast message.
@@ -23,22 +23,24 @@ export const Toast = (message: string): void => {
 		duration: 3000,
 		newWindow: true,
 		close: true,
-		className: "toastify-error",
-		gravity: "bottom", // `top` or `bottom`
-		position: "right", // `left`, `center` or `right`
+		className: 'toastify-error',
+		gravity: 'bottom', // `top` or `bottom`
+		position: 'right', // `left`, `center` or `right`
 		stopOnFocus: true, // Prevents dismissing of toast on hover
 		escapeMarkup: false,
 		offset: {
-			y: "3vw",
-			x: "3vw"
-		}
-	} as Toastify.Options
+			y: '3vw',
+			x: '3vw',
+		},
+	} as Toastify.Options;
 
 	const toast = Toastify(options);
 
 	toast.showToast();
 
-	toast.toastElement.querySelector('.toastify-close').addEventListener('click', () => {
-		toast.hideToast();
-	});
+	toast.toastElement
+		.querySelector('.toastify-close')
+		.addEventListener('click', () => {
+			toast.hideToast();
+		});
 };
