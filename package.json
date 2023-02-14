@@ -48,7 +48,8 @@
 	"lint-staged": {
 		"assets/**/*.ts": [
 			"eslint",
-			"prettier --write"
+			"prettier --write",
+			"git add"
 		]
 	},
 	"husky": {
