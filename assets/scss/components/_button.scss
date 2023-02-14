@@ -26,10 +26,11 @@ a.btn {
 	display: inline-block;
 	height: auto;
 	padding: $button-padding;
-	background-color: colour("foreground");
-	color: colour("background");
+	background-color: colour('foreground');
+	color: colour('background');
 	border: none;
-	transition: transform 100ms linear, color 100ms linear, background 100ms linear;
+	transition: transform 100ms linear, color 100ms linear,
+		background 100ms linear;
 	will-change: transform, color, background;
 
 	// Defaults
@@ -74,12 +75,12 @@ a.btn {
 	// =========================================================================
 
 	&-colour {
-
 		&-white {
 			background-color: $white;
 			color: $black;
 
-			svg path { /* stylelint-disable-line no-descending-specificity */
+			svg path {
+				/* stylelint-disable-line no-descending-specificity */
 				stroke: $black;
 				fill: $black;
 			}
@@ -104,7 +105,8 @@ a.btn {
 			background-color: $black;
 			color: $white;
 
-			svg path { /* stylelint-disable-line no-descending-specificity */
+			svg path {
+				/* stylelint-disable-line no-descending-specificity */
 				stroke: $white;
 				fill: $white;
 			}
@@ -130,7 +132,6 @@ a.btn {
 	// =========================================================================
 
 	&-size {
-
 		&-small {
 			padding: $button-padding-small;
 		}
@@ -140,7 +141,6 @@ a.btn {
 	// =========================================================================
 
 	&-arrow {
-
 		&-image {
 			width: $button-arrow-size;
 			height: $button-arrow-size;
@@ -170,7 +170,6 @@ a.btn {
 		}
 
 		&:hover {
-
 			#{$self}-text {
 				transform: translateX(30px);
 				color: inherit;
@@ -200,7 +199,7 @@ a.btn {
 		}
 
 		&::after {
-			content: "";
+			content: '';
 			width: 18px;
 			height: 18px;
 			border: 2px solid $black;

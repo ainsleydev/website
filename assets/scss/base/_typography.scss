@@ -40,7 +40,7 @@ h6,
 p {
 	position: relative;
 	margin: 0;
-	color: colour("foreground");
+	color: colour('foreground');
 }
 
 // Headings
@@ -56,18 +56,28 @@ h4,
 .heading-4,
 h5 {
 	display: block;
-	color: colour("foreground");
+	color: colour('foreground');
 	font-weight: bold;
 }
 
 @mixin h1 {
-	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 40px, 74px);
+	@include fluid-type(
+		$text-fluid-start-size,
+		$text-fluid-end-size,
+		40px,
+		74px
+	);
 	margin-bottom: 1.4rem;
 	line-height: 1;
 	letter-spacing: $text-letter-spacing;
 
 	.type-serif {
-		@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 50px, 84px);
+		@include fluid-type(
+			$text-fluid-start-size,
+			$text-fluid-end-size,
+			50px,
+			84px
+		);
 	}
 }
 
@@ -77,7 +87,12 @@ h1,
 }
 
 @mixin h2 {
-	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 28px, 50px);
+	@include fluid-type(
+		$text-fluid-start-size,
+		$text-fluid-end-size,
+		28px,
+		50px
+	);
 	margin-bottom: 1.3rem;
 	line-height: 1.2;
 	letter-spacing: $text-letter-spacing;
@@ -89,7 +104,12 @@ h2,
 }
 
 @mixin h3 {
-	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 23px, 37px);
+	@include fluid-type(
+		$text-fluid-start-size,
+		$text-fluid-end-size,
+		23px,
+		37px
+	);
 	margin-bottom: 1.2rem;
 	line-height: 1.2;
 	letter-spacing: $text-letter-spacing;
@@ -101,7 +121,12 @@ h3,
 }
 
 @mixin h4 {
-	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 21px, 29px);
+	@include fluid-type(
+		$text-fluid-start-size,
+		$text-fluid-end-size,
+		21px,
+		29px
+	);
 	margin-bottom: 1rem;
 	line-height: 1.2;
 	letter-spacing: $text-letter-spacing;
@@ -113,7 +138,12 @@ h4,
 }
 
 @mixin h5 {
-	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 19px, 21.5px);
+	@include fluid-type(
+		$text-fluid-start-size,
+		$text-fluid-end-size,
+		19px,
+		21.5px
+	);
 	margin-bottom: 0.9rem;
 	line-height: 1.36;
 	letter-spacing: $text-letter-spacing;
@@ -126,7 +156,7 @@ h5,
 
 @mixin h6 {
 	display: block;
-	color: colour("copy-dark");
+	color: colour('copy-dark');
 	font-size: 0.84rem;
 	text-transform: uppercase;
 	letter-spacing: 2px;
@@ -144,7 +174,7 @@ h6,
 // =========================================================================
 
 p {
-	color: colour("paragraph");
+	color: colour('paragraph');
 	font-size: $text-paragraph-size;
 	margin-bottom: 1rem;
 	line-height: 1.8;
@@ -164,7 +194,7 @@ p {
 
 a {
 	font-size: $text-paragraph-size;
-	color: colour("foreground");
+	color: colour('foreground');
 	font-weight: bold;
 	text-decoration: none;
 }
@@ -182,7 +212,6 @@ small {
 // =========================================================================
 
 .type {
-
 	&-serif {
 		font-family: $font-serif;
 		font-style: italic;

@@ -30,7 +30,7 @@
 }
 
 .no-gaps > .col,
-.no-gaps > [class*="col-"] {
+.no-gaps > [class*='col-'] {
 	padding-right: 0;
 	padding-left: 0;
 }
@@ -44,7 +44,6 @@
 }
 
 @each $modifier, $breakpoint in $grid-properties {
-
 	.col#{$modifier}-auto {
 		@extend %column-props;
 	}

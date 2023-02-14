@@ -36,7 +36,7 @@
 		}
 
 		&:hover svg path {
-			fill: colour("orange");
+			fill: colour('orange');
 		}
 	}
 
@@ -44,7 +44,6 @@
 	// ==========================================================================
 
 	&-colour {
-
 		&-black {
 			background-color: rgba($black, $header-background-opacity);
 		}

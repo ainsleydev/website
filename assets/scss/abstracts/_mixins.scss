@@ -3,7 +3,7 @@
 // This file contains all mixin's for use with scss files.
 // -----------------------------------------------------------------------------
 
-@use "sass:math";
+@use 'sass:math';
 
 // Breakpoint Mixins
 // ==========================================================================
@@ -32,7 +32,6 @@
 		@content;
 	}
 }
-
 
 @mixin media-hd {
 	@media (min-width: $grid-breakpoint-hd * 1px) {
@@ -98,13 +97,13 @@
 
 // Mods
 @mixin media-landscape {
-	@media screen and (orientation:landscape) and (min-width: $grid-breakpoint-mob * 1px) {
+	@media screen and (orientation: landscape) and (min-width: $grid-breakpoint-mob * 1px) {
 		@content;
 	}
 }
 
 @mixin media-portrait {
-	@media screen and (orientation:portrait) and (max-width: $grid-breakpoint-tab * 1px) {
+	@media screen and (orientation: portrait) and (max-width: $grid-breakpoint-tab * 1px) {
 		@content;
 	}
 }
@@ -114,7 +113,7 @@
 
 @mixin media-small-phones {
 	@media (max-width: 350px) {
-		@content
+		@content;
 	}
 }
 
@@ -125,7 +124,7 @@
 /// @param {Number} $pxValue - Pixel amount to convert
 /// @param {String} $property [font-size] - Property to convert
 /// @param {Number} $standard-size - Initial base rem size
-@mixin px-to-rem($pxValue, $property: "font-size", $standard-size: 16) {
+@mixin px-to-rem($pxValue, $property: 'font-size', $standard-size: 16) {
 	#{$property}: $pxValue + px;
 	#{$property}: $pxValue / å$standard-size + rem;
 }
@@ -173,7 +172,16 @@
 			font-size: $min-font-size;
 
 			@media screen and (min-width: $min-vw) {
-				font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+				font-size: calc(
+					#{$min-font-size} + #{strip-unit(
+							$max-font-size - $min-font-size
+						)} *
+						(
+							(100vw - #{$min-vw}) / #{strip-unit(
+									$max-vw - $min-vw
+								)}
+						)
+				);
 			}
 
 			@media screen and (min-width: $max-vw) {
@@ -204,7 +212,9 @@
 
 // IE11 and Edge
 @mixin ie11andedge {
-	@media screen and (-webkit-min-device-pixel-ratio: 0) and (-ms-high-contrast: none), (-ms-high-contrast: active) { /* stylelint-disable media-feature-name-no-vendor-prefix */
+	@media screen and (-webkit-min-device-pixel-ratio: 0) and (-ms-high-contrast: none),
+		(-ms-high-contrast: active) {
+		/* stylelint-disable media-feature-name-no-vendor-prefix */
 		@content;
 	}
 }

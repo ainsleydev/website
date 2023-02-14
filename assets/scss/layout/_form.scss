@@ -31,7 +31,7 @@
 	&-input {
 		position: relative;
 		width: 100%;
-		@include h2;  /* stylelint-disable-line at-rule-empty-line-before */
+		@include h2; /* stylelint-disable-line at-rule-empty-line-before */
 		margin: 0;
 		padding: 0;
 		border: none;
@@ -68,7 +68,6 @@
 	// =========================================================================
 
 	&-error {
-
 		#{$self}-number {
 			color: $orange;
 		}
@@ -82,7 +81,6 @@
 	// =========================================================================
 
 	&-success {
-
 		#{$self}-input {
 			border-bottom-color: $blue;
 		}
@@ -121,10 +119,8 @@
 	// =========================================================================
 
 	@include media-desk {
-
 		&-wrapper {
 			padding: 3rem;
 		}
 	}
 }
-

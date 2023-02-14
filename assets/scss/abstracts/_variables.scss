@@ -3,7 +3,7 @@
 // This file contains all variables for use with scss files.
 // -----------------------------------------------------------------------------
 
-@use "sass:color";
+@use 'sass:color';
 
 // Grid
 // ==========================================================================
@@ -21,12 +21,12 @@ $grid-breakpoint-hd: 1600;
 
 // Properties for grid
 $grid-properties: (
-	"": 0,
-	"-mob": $grid-breakpoint-mob,
-	"-tab": $grid-breakpoint-tab,
-	"-desk": $grid-breakpoint-desk,
-	"-desk-large": $grid-breakpoint-desk-large,
-	"-hd": $grid-breakpoint-hd
+	'': 0,
+	'-mob': $grid-breakpoint-mob,
+	'-tab': $grid-breakpoint-tab,
+	'-desk': $grid-breakpoint-desk,
+	'-desk-large': $grid-breakpoint-desk-large,
+	'-hd': $grid-breakpoint-hd,
 );
 
 // Container
@@ -36,31 +36,45 @@ $container-padding-x: 5vw;
 // Fonts
 // ==========================================================================
 
-$font: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$font-serif: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
-$font-code: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
-$font-path: "/fonts/";
+$font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+	Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+	'Segoe UI Symbol';
+$font-serif: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia,
+	serif;
+$font-code: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+	Liberation Mono, monospace;
+$font-path: '/fonts/';
 
 // Display
 // ==========================================================================
 
-$display-properties: (none, inline, inline-block, block, flex, inline-flex, table, table-row, table-cell) !default;
+$display-properties: (
+	none,
+	inline,
+	inline-block,
+	block,
+	flex,
+	inline-flex,
+	table,
+	table-row,
+	table-cell
+) !default;
 
 // Color
 // ==========================================================================
 
 $white: #ffffff;
-$black: #0A0A0A;
-$orange: #FF5043;
-$blue: #70CBCE;
+$black: #0a0a0a;
+$orange: #ff5043;
+$blue: #70cbce;
 $copy: $black;
-$copy-dark-bg: #9A9A9A; // Fossil
+$copy-dark-bg: #9a9a9a; // Fossil
 $copy-light-bg: #595959; // Iron
-$grey-dark: #0F0F0F; // Onyx
+$grey-dark: #0f0f0f; // Onyx
 $grey-light: #171717;
-$off-white: #F2F2F2; // White smoke
+$off-white: #f2f2f2; // White smoke
 $alpha-standard: 0.15;
-$alpha-light: 0.10;
+$alpha-light: 0.1;
 $mark: rgba($white, $alpha-standard);
 
 // Color palette
@@ -76,8 +90,8 @@ $palette: (
 
 // Color attributes
 $color-attr: (
-	c: "color",
-	bg: "background-color"
+	c: 'color',
+	bg: 'background-color',
 );
 
 // Sections
@@ -127,7 +141,7 @@ $text-letter-spacing: -1px;
 
 $accordion-height-transition: 0.5s;
 $accordion-arrow-size: 21px;
-$accordion-hover-colour: colour("orange");
+$accordion-hover-colour: colour('orange');
 
 // Button
 // ==========================================================================
@@ -198,10 +212,10 @@ $table-padding: 0.6rem 0.9rem;
 
 		// Code
 		--code-colour: #{$black};
-		--code-background-colour: #E1E1E1;
+		--code-background-colour: #e1e1e1;
 
 		// Table
-		--table-border-colour: #DDDDDD;
+		--table-border-colour: #dddddd;
 		--table-cell-colour: #{$copy-light-bg};
 		--table-stripe-colour: #{$off-white};
 
@@ -211,4 +225,3 @@ $table-padding: 0.6rem 0.9rem;
 		}
 	}
 }
-

@@ -10,87 +10,87 @@
 /*  ====================
     Abstracts
     ==================== */
-@import "abstracts/functions";
-@import "abstracts/mixins";
-@import "abstracts/variables";
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
 
 /* ====================
     Vendor
     ==================== */
-@import "~normalize.css/normalize.css";
-@import "./vendor/highlight";
+@import '~normalize.css/normalize.css';
+@import './vendor/highlight';
 
 /* ====================
     Base
     ==================== */
-@import "base/global";
-@import "base/fonts";
-@import "base/typography";
+@import 'base/global';
+@import 'base/fonts';
+@import 'base/typography';
 
 /* ====================
     Animations
     ==================== */
-@import "animations/cursor";
-@import "animations/skew";
-@import "animations/toast";
+@import 'animations/cursor';
+@import 'animations/skew';
+@import 'animations/toast';
 
 /* ====================
     Grid
     ==================== */
-@import "grid/grid";
-@import "grid/flex";
-@import "grid/order";
-@import "grid/display";
+@import 'grid/grid';
+@import 'grid/flex';
+@import 'grid/order';
+@import 'grid/display';
 
 /* ====================
     Util
     ==================== */
-@import "util/colors";
-@import "util/spacing";
+@import 'util/colors';
+@import 'util/spacing';
 
 /* ====================
     Components
     ==================== */
-@import "components/accordion";
-@import "components/arrow";
-@import "components/button";
-@import "components/card";
-@import "components/code";
-@import "components/gradient";
-@import "components/highlight";
-@import "components/image";
-@import "components/list";
-@import "components/quote";
-@import "components/social";
-@import "components/table";
-@import "components/rule";
-@import "components/tag";
-@import "components/todo";
-@import "components/vertical";
-@import "components/video";
+@import 'components/accordion';
+@import 'components/arrow';
+@import 'components/button';
+@import 'components/card';
+@import 'components/code';
+@import 'components/gradient';
+@import 'components/highlight';
+@import 'components/image';
+@import 'components/list';
+@import 'components/quote';
+@import 'components/social';
+@import 'components/table';
+@import 'components/rule';
+@import 'components/tag';
+@import 'components/todo';
+@import 'components/vertical';
+@import 'components/video';
 
 /* ====================
     Layout
     ==================== */
-@import "layout/aside";
-@import "layout/footer";
-@import "layout/form";
-@import "layout/header";
-@import "layout/hero";
-@import "layout/nav";
-@import "layout/richtext";
-@import "layout/section";
+@import 'layout/aside';
+@import 'layout/footer';
+@import 'layout/form';
+@import 'layout/header';
+@import 'layout/hero';
+@import 'layout/nav';
+@import 'layout/richtext';
+@import 'layout/section';
 
 /* ====================
     Sections
     ==================== */
-@import "sections/banner";
-@import "sections/map";
-@import "sections/quote";
+@import 'sections/banner';
+@import 'sections/map';
+@import 'sections/quote';
 
 /* ====================
     Pages
     ==================== */
-@import "pages/brand";
-@import "pages/contact";
-@import "pages/home";
+@import 'pages/brand';
+@import 'pages/contact';
+@import 'pages/home';

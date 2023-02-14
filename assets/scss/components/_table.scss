@@ -31,8 +31,8 @@ table {
 		font-weight: bold;
 
 		tr th {
-			color: colour("foreground");
-			font-size:  18px;
+			color: colour('foreground');
+			font-size: 18px;
 		}
 	}
 
@@ -43,7 +43,6 @@ table {
 		font-size: 1rem;
 
 		tr {
-
 			&:nth-child(2n) {
 				background-color: var(--table-stripe-colour);
 			}

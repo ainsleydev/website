@@ -24,12 +24,12 @@
 		outline: none;
 
 		::marker {
-			content: "";
+			content: '';
 			display: none;
 		}
 
 		&::after {
-			content: "";
+			content: '';
 		}
 
 		&-active #{$self}-header:after {
@@ -99,7 +99,6 @@
 	// =========================================================================
 
 	&-header:hover {
-
 		#{$self}-title {
 			color: $accordion-hover-colour;
 		}

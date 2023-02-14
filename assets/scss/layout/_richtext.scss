@@ -11,7 +11,6 @@
 
 	p,
 	ul {
-
 		+ h1,
 		+ h2,
 		+ h3,
@@ -30,7 +29,6 @@
 	// ==========================================================================
 
 	p {
-
 		&:empty {
 			display: none;
 			margin: 0;
@@ -44,7 +42,8 @@
 	// Images
 	// ==========================================================================
 
-	.image { /* stylelint-disable-line no-descending-specificity */
+	.image {
+		/* stylelint-disable-line no-descending-specificity */
 
 		+ h1,
 		+ h2,

@@ -14,7 +14,8 @@
 	pointer-events: none;
 	transform: translate(-50%, -50%) scale(0);
 	border: 1px solid transparent;
-	transition: transform 300ms ease, background 300ms ease, border-color 300ms ease;
+	transition: transform 300ms ease, background 300ms ease,
+		border-color 300ms ease;
 
 	// Active
 	// =========================================================================
@@ -50,7 +51,7 @@
 	// =========================================================================
 
 	&-border {
-		border-color: colour("foreground");
+		border-color: colour('foreground');
 
 		&-black {
 			border-color: $black;

@@ -79,7 +79,6 @@
 	// =========================================================================
 
 	@include media-tab {
-
 		&-simple {
 			padding-top: $section-padding;
 		}
@@ -89,7 +88,6 @@
 	// =========================================================================
 
 	@include media-desk {
-
 		&-arrow {
 			transition: all 100ms;
 			transform-style: preserve-3d;

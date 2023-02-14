@@ -85,7 +85,6 @@
 		}
 
 		&:hover {
-
 			#{$self}-hover-hidden {
 				transform: translate(0);
 				opacity: 1;
@@ -106,7 +105,6 @@
 	// =========================================================================
 
 	@include media-desk {
-
 		&-link-text {
 			@include h3;
 			margin-bottom: 0;

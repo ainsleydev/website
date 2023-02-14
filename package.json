@@ -13,7 +13,7 @@
 		"hugo:clean": "rm -rf public",
 		"precommit": "lint-staged",
 		"image": "npx ts-node image.ts",
-		"clean": "prettier --config ./config/.prettierrc --write ./**/*.{css,scss,json,js} --ignore-path ./config/.prettierignore && npx eslint -c ./config/.eslintrc assets/js/app.js --fix",
+		"clean": "prettier --write ./**/*.{scss,json,js} && npm run lint:js",
 		"lint": "npm run lint:scss && npm run lint:js",
 		"lint:scss": "npx stylelint '**/*.scss'",
 		"lint:js": "eslint --config .eslintrc.json --fix 'assets/**/*.{ts,tsx}'"

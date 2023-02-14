@@ -62,17 +62,14 @@
 
 .p {
 	@include media-tab-down {
-
 		&-no-mob-down {
 			padding-bottom: 0 !important;
 		}
 	}
 
 	@include media-desk-down {
-
 		&-no-tab-down {
 			padding-bottom: 0 !important;
 		}
 	}
 }
-

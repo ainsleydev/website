@@ -11,13 +11,17 @@
 	// =========================================================================
 
 	&::after {
-		content: "";
+		content: '';
 		position: absolute;
 		bottom: 0;
 		left: 0;
 		height: 0;
 		width: 100%;
-		background: linear-gradient(180deg, rgba($black, 0) 0%, rgba($black, 1) 100%);
+		background: linear-gradient(
+			180deg,
+			rgba($black, 0) 0%,
+			rgba($black, 1) 100%
+		);
 		z-index: 10;
 	}
 

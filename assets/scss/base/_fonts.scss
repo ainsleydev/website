@@ -9,8 +9,8 @@
 @font-face {
 	font-family: 'Plus Jakarta Sans';
 	src: local('Plus Jakarta Sans Regular'), local('PlusJakartaSans-Regular'),
-	url('#{$font-path}PlusJakartaSans-Regular.woff2') format('woff2'),
-	url('#{$font-path}PlusJakartaSans-Regular.woff') format('woff');
+		url('#{$font-path}PlusJakartaSans-Regular.woff2') format('woff2'),
+		url('#{$font-path}PlusJakartaSans-Regular.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
@@ -19,8 +19,8 @@
 @font-face {
 	font-family: 'Plus Jakarta Sans';
 	src: local('Plus Jakarta Sans Medium'), local('PlusJakartaSans-Medium'),
-	url('#{$font-path}PlusJakartaSans-Medium.woff2') format('woff2'),
-	url('#{$font-path}PlusJakartaSans-Medium.woff') format('woff');
+		url('#{$font-path}PlusJakartaSans-Medium.woff2') format('woff2'),
+		url('#{$font-path}PlusJakartaSans-Medium.woff') format('woff');
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
@@ -29,8 +29,8 @@
 @font-face {
 	font-family: 'Plus Jakarta Sans';
 	src: local('Plus Jakarta Sans Bold'), local('PlusJakartaSans-Bold'),
-	url('#{$font-path}PlusJakartaSans-Bold.woff2') format('woff2'),
-	url('#{$font-path}PlusJakartaSans-Bold.woff') format('woff');
+		url('#{$font-path}PlusJakartaSans-Bold.woff2') format('woff2'),
+		url('#{$font-path}PlusJakartaSans-Bold.woff') format('woff');
 	font-weight: bold;
 	font-style: normal;
 	font-display: swap;
@@ -42,8 +42,8 @@
 @font-face {
 	font-family: 'JetBrains Mono';
 	src: local('JetBrains Mono Regular'), local('JetBrainsMono-Regular'),
-	url('#{$font-path}JetBrainsMono-Regular.woff2') format('woff2'),
-	url('#{$font-path}JetBrainsMono-Regular.woff') format('woff');
+		url('#{$font-path}JetBrainsMono-Regular.woff2') format('woff2'),
+		url('#{$font-path}JetBrainsMono-Regular.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
@@ -52,8 +52,8 @@
 @font-face {
 	font-family: 'JetBrains Mono';
 	src: local('JetBrains Mono Bold'), local('JetBrainsMono-Bold'),
-	url('#{$font-path}JetBrainsMono-Bold.woff2') format('woff2'),
-	url('#{$font-path}JetBrainsMono-Bold.woff') format('woff');
+		url('#{$font-path}JetBrainsMono-Bold.woff2') format('woff2'),
+		url('#{$font-path}JetBrainsMono-Bold.woff') format('woff');
 	font-weight: bold;
 	font-style: normal;
 	font-display: swap;
