@@ -48,6 +48,10 @@
 	"lint-staged": {
 		"*.{ts,tsx,scss}": [
 			"prettier --write"
+		],
+		"*.go": [
+			"go generate ./...",
+			"go test ./..."
 		]
 	},
 	"prettier": {
