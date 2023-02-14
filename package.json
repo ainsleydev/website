@@ -45,12 +45,8 @@
 		"typescript": "^4.9.5"
 	},
 	"lint-staged": {
-		"*.ts": [
-			"eslint",
+		"assets*/*/**.{ts,tsx,scss,json}": [
 			"prettier --write"
-		],
-		"assets/**/*.scss": [
-			"sass-lint"
 		]
 	},
 	"husky": {
