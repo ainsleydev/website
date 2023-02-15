@@ -17,4 +17,42 @@
 		width: 100%;
 		height: auto;
 	}
+
+	// Split
+	// =========================================================================
+
+	&-split {
+		padding: 0 $container-padding-x;
+
+		// Temp
+		height: auto;
+		img {
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-tab {
+		&-split {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: calc(50vw - #{$gap-width});
+			height: 100%;
+			padding: 0;
+
+			&-left {
+				left: 0;
+				right: auto;
+			}
+
+			&-right {
+				right: 0;
+				left: auto;
+			}
+		}
+	}
 }

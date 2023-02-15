@@ -7,7 +7,7 @@
 	$self: &;
 	position: relative;
 
-	// Padding Modifiers
+	// Padding
 	// =========================================================================
 
 	&-padding {
@@ -30,6 +30,32 @@
 
 		&-top {
 			padding-bottom: 0 !important;
+		}
+	}
+
+	// Margin
+	// =========================================================================
+
+	&-margin {
+		margin-top: $section-padding;
+		margin-bottom: $section-padding;
+
+		&-small {
+			margin-top: $section-padding-small;
+			margin-bottom: $section-padding-small;
+		}
+
+		&-large {
+			margin-top: $section-padding-large;
+			margin-bottom: $section-padding-large;
+		}
+
+		&-bottom {
+			margin-top: 0 !important;
+		}
+
+		&-top {
+			margin-bottom: 0 !important;
 		}
 	}
 }
