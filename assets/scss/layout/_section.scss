@@ -58,4 +58,11 @@
 			margin-bottom: 0 !important;
 		}
 	}
+
+	// Overflow
+	// =========================================================================
+
+	&-hide-overflow {
+		overflow-x: hidden;
+	}
 }

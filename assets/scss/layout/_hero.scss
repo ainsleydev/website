@@ -7,11 +7,19 @@
 	$self: &;
 	position: relative;
 
+	// Props
+	// =========================================================================
+
+	.container {
+		z-index: 9;
+	}
+
 	// Background
 	// =========================================================================
 
 	&-background {
 		position: absolute;
+		display: block;
 		top: 0;
 		left: 0;
 		width: 100%;
@@ -112,11 +120,6 @@
 			transition: all 100ms;
 			transform-style: preserve-3d;
 			transform-origin: 50% 50%;
-		}
-
-		&-align-bottom {
-			align-items: center;
-			padding-bottom: 0;
 		}
 	}
 }
