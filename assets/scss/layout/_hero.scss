@@ -76,27 +76,19 @@
 		}
 	}
 
-	// Overlay
+	// Lead
 	// =========================================================================
 
-	&-overlay {
-		&::after {
-			content: '';
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-color: $black;
-			z-index: -2;
-		}
+	&-lead {
+		margin-bottom: 0;
+	}
 
-		// Opacity
-		@for $i from 0 through 20 {
-			&-opacity-#{$i * 5}:after {
-				opacity: $i * 5%;
-			}
-		}
+	// Align Bottom
+	// =========================================================================
+
+	&-align-bottom {
+		align-items: flex-end;
+		padding-bottom: $section-padding;
 	}
 
 	// Tablet
@@ -120,6 +112,11 @@
 			transition: all 100ms;
 			transform-style: preserve-3d;
 			transform-origin: 50% 50%;
+		}
+
+		&-align-bottom {
+			align-items: center;
+			padding-bottom: 0;
 		}
 	}
 }

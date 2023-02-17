@@ -24,11 +24,8 @@
 	&-split {
 		padding: 0 $container-padding-x;
 
-		// Temp
-		height: auto;
-		img {
-			height: 100%;
-			object-fit: cover;
+		&-section {
+			margin-bottom: $section-padding;
 		}
 	}
 
@@ -37,21 +34,25 @@
 
 	@include media-tab {
 		&-split {
-			position: absolute;
+			position: relative;
 			top: 0;
 			right: 0;
 			width: calc(50vw - #{$gap-width});
-			height: 100%;
+			height: auto;
 			padding: 0;
-
-			&-left {
-				left: 0;
-				right: auto;
-			}
+			margin-bottom: 0;
 
 			&-right {
-				right: 0;
-				left: auto;
+				margin-left: 50%;
+			}
+
+			&-section {
+				.container {
+					top: 50%;
+					left: 50%;
+					position: absolute;
+					transform: translate(-50%, -50%);
+				}
 			}
 		}
 	}

@@ -46,6 +46,8 @@
     Util
     ==================== */
 @import 'util/colors';
+@import 'util/gradient';
+@import 'util/overlay';
 @import 'util/spacing';
 
 /* ====================
@@ -56,7 +58,6 @@
 @import 'components/button';
 @import 'components/card';
 @import 'components/code';
-@import 'components/gradient';
 @import 'components/highlight';
 @import 'components/image';
 @import 'components/list';

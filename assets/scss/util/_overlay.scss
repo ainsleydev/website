@@ -1,0 +1,32 @@
+// -----------------------------------------------------------------------------
+// _overlay.scss
+// This file contains all styles related to linear gradients and shades
+// -----------------------------------------------------------------------------
+
+.overlay {
+	$self: &;
+	position: relative;
+
+	// Element
+	// =========================================================================
+
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: $black;
+		z-index: -2;
+	}
+
+	// Opacity
+	// =========================================================================
+
+	@for $i from 0 through 20 {
+		&-opacity-#{$i * 5}:after {
+			opacity: $i * 5%;
+		}
+	}
+}
