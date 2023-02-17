@@ -29,7 +29,6 @@
 
 		img,
 		source {
-			width: 100%;
 			height: 100%;
 			max-height: 800px;
 			object-fit: cover;
@@ -51,11 +50,11 @@
 			top: 0;
 			left: 0;
 			width: calc(45vw - #{$gap-width});
-			padding: 0;
-			margin-bottom: 0;
-			//max-height: 1000px;
 			min-width: 0;
 			max-width: 1200px;
+			min-height: 600px;
+			padding: 0;
+			margin-bottom: 0;
 			aspect-ratio: 10/11;
 
 			img,
@@ -81,6 +80,9 @@
 			}
 		}
 	}
+
+	// Desktop
+	// =========================================================================
 
 	@include media-desk {
 		&-split {

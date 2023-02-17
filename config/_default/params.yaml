@@ -26,6 +26,6 @@ imagery:
     webpAvif: false
     container:
         -   name: mob
-            size: 768
+            size: 767
         -   name: tab
-            size: 1024
+            size: 1023
