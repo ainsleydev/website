@@ -29,5 +29,3 @@ imagery:
             size: 568
         -   name: tab
             size: 768
-        -   name: desk
-            size: 1024

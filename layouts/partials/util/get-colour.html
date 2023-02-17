@@ -2,7 +2,7 @@
    	Get Colour
    		Retrieves a colour passed and defaults to the foreground.
     ===================== -->
-{{- $colour := "var(--colour-foreground)" -}}
+{{ $colour := "var(--colour-foreground)" -}}
 {{- with . -}}
     {{- $colour = (printf "var(--colour-%s)" . ) -}}
 {{- end -}}

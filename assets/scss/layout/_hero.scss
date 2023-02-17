@@ -16,7 +16,8 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		z-index: -1;
+		max-width: 100vw;
+		z-index: -2;
 
 		img,
 		source {
@@ -72,6 +73,29 @@
 
 		&-large {
 			margin-bottom: 20vh;
+		}
+	}
+
+	// Overlay
+	// =========================================================================
+
+	&-overlay {
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: $black;
+			z-index: -2;
+		}
+
+		// Opacity
+		@for $i from 0 through 20 {
+			&-opacity-#{$i * 5}:after {
+				opacity: $i * 5%;
+			}
 		}
 	}
 

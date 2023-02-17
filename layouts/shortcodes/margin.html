@@ -1,7 +1,6 @@
 <!-- =====================
     Margin
 		< margin > / < margin large >
-		- large: Determines if large margin should be used.
     ===================== -->
 <div class="margin {{ if eq (.Get 0) "large" -}} margin-large {{- end }}">
     {{ .Inner | .Page.RenderString }}

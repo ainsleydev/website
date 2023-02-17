@@ -1,23 +1,16 @@
 <!-- =====================
     Image
-		TODO
-		- src:
-		- alt:
-		- margin:
+		< image src="images/image.jpg" alt="alt" class="class-name" lazy=true width=300 height=300 >
     ===================== -->
-{{ $image := .Page.Resources.Get (.Get "src") -}}
-{{ if not $image -}}
-{{ $image = resources.Get (.Get "src") }}
-{{ end }}
 <figure class="image
 	{{ if .Get "margin" -}} margin {{- end }}
 	{{ if .Get "margin-large" -}} margin-large {{- end }}
 	{{ with .Get "class" -}} {{ . }} {{- end }}">
     {{ partial "media/image.html" (dict
-		"image" $image
+		"image" (partial "util/resource.html" (dict "src" (.Get "src") "ctx" .))
 		"alt" (.Get "alt")
 		"width" (.Get "width")
 		"height" (.Get "height")
+		"lazy" (.Get "lazy")
 	)}}
 </figure>
-
