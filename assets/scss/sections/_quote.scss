@@ -52,9 +52,7 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 44vw;
-		min-width: 150px;
-		max-width: 220px;
+		width: clamp(150px, 44vw, 300px);
 		opacity: $alpha-light;
 		transform: translateY(-70%);
 
@@ -67,6 +65,11 @@
 	// =========================================================================
 
 	@include media-desk {
+		&-text {
+			@include h2;
+			margin-bottom: 0;
+		}
+
 		&-mark {
 			transform: translate(-30%, -70%);
 		}

@@ -1,6 +1,6 @@
 <!-- =====================
     Quote
-    	TODO, change to Partial syntax.
+    	partial "sections/quote.html" (dict "text" "Text" "cite" "Cite" )}}
 		< sections/quote title="Quote" cite="ainsley.dev" >
 		- text:		The content of the quote.
 		- cite:		The author of the quote.
@@ -20,20 +20,20 @@
 				</figure>
 				<!-- Content -->
 				<blockquote class="quote">
-					<h2>
+					<h3 class="quote-text">
 						<!-- Title -->
-						{{ with .Get "title" -}}
+						{{ with .text -}}
 							<span class="quote-title">
-								“{{ . }}”
+								{{ . | strings.TrimPrefix " " | strings.TrimSuffix " " }}
 							</span>
 						{{- else -}}
                             {{- warnf "No title provided to quote" -}}
 						{{- end }}
 						<!-- Cite -->
-						{{ with .Get "cite" -}}
+						{{ with .cite -}}
 							<cite class="quote-cite">{{ . }}</cite>
                         {{- end }}
-					</h2>
+					</h3>
 				</blockquote>
 			</div><!--/Col -->
 		</div><!--/Row -->
