@@ -9,7 +9,9 @@
 		- number:	A optional number associated with the text.
 		- line:
     ===================== -->
-<div class="vertical {{ with .number }} vertical-with-number {{- end }}">
+<div class="vertical
+	{{ with .number }} vertical-with-number {{- end }}
+	{{ if .fill -}} vertical-fill {{- end }}">
 	<!-- Line -->
     {{ if .line -}}
 		<span class="vertical-line"></span>

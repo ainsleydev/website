@@ -17,6 +17,11 @@
 			"source": "/about/",
 			"destination": "/who-we-are/",
 			"permanent": true
+		},
+		{
+			"source": "/work/",
+			"destination": "/portfolio/",
+			"permanent": true
 		}
 	],
 	"rewrites": [
