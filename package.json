@@ -12,7 +12,7 @@
 		"build:prod": "npm run hugo:clean && hugo --environment production --config params.yaml,config-production.yaml --minify && npm run image",
 		"hugo:clean": "rm -rf public",
 		"image": "npx ts-node image.ts",
-		"clean": "prettier --write ./**/*.{html,ts,tsx,scss,json}",
+		"clean": "prettier --write ./**/*.{ts,tsx,scss,json}",
 		"lint": "npm run lint:scss && npm run lint:js",
 		"lint:scss": "npx stylelint '**/*.scss'",
 		"lint:js": "eslint --config .eslintrc.json --fix 'assets/**/*.{ts,tsx}'",
@@ -75,7 +75,8 @@
 					"*.html"
 				],
 				"options": {
-					"parser": "go-template"
+					"parser": "go-template",
+					"bracketSameLine": false
 				}
 			}
 		]
