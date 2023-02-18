@@ -22,16 +22,23 @@
 	// =========================================================================
 
 	&-split {
+		position: relative;
 		display: block;
-		padding: 0 $container-padding-x;
-		width: 100%;
-		min-width: 100%;
+		width: 80vw;
+		max-height: 960px;
+		max-width: 640px;
+		margin-bottom: $margin-large;
+		aspect-ratio: 2 / 3;
 
 		img,
 		source {
 			height: 100%;
-			max-height: 800px;
 			object-fit: cover;
+		}
+
+		&-right {
+			margin-right: 0;
+			margin-left: auto;
 		}
 
 		&-section {
@@ -40,42 +47,25 @@
 		}
 	}
 
-	// Tablet
+	// Desktop
 	// =========================================================================
 
-	@include media-tab {
+	@include media-desk {
 		&-split {
-			position: relative;
-			display: block;
-			top: 0;
-			left: 0;
-			width: calc(45vw - #{$gap-width});
-			min-width: 0;
-			max-width: 1200px;
-			min-height: 600px;
-			padding: 0;
+			width: 40vw;
+			max-width: 40vw;
 			margin-bottom: 0;
-			aspect-ratio: 10/11;
-
-			img,
-			source {
-				max-height: none;
-			}
-
-			&-right {
-				margin-left: auto;
-				margin-right: 0;
-			}
+			max-height: 100vh;
 
 			&-section {
+				display: flex;
+				align-items: center;
+
 				.container {
 					position: absolute;
-					display: flex;
-					align-items: center;
-					top: 0;
+					top: 50%;
 					left: 50%;
-					height: 100%;
-					transform: translateX(-50%);
+					transform: translate(-50%, -50%);
 				}
 			}
 		}
@@ -86,7 +76,7 @@
 
 	@include media-desk {
 		&-split {
-			width: calc(50vw - #{$gap-width});
+			width: calc(50% - #{$gap-width});
 		}
 	}
 }
