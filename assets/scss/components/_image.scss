@@ -60,23 +60,14 @@
 			&-section {
 				display: flex;
 				align-items: center;
-
-				.container {
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-				}
 			}
-		}
-	}
 
-	// Desktop
-	// =========================================================================
-
-	@include media-desk {
-		&-split {
-			width: calc(50% - #{$gap-width});
+			&-container {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
 		}
 	}
 }
