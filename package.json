@@ -76,7 +76,8 @@
 				],
 				"options": {
 					"parser": "go-template",
-					"bracketSameLine": false
+					"bracketSameLine": false,
+					"htmlWhitespaceSensitivity": "ignore"
 				}
 			}
 		]
