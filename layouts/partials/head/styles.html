@@ -13,8 +13,7 @@
             {{ if ne hugo.Environment "development" -}}
                 {{ $file = $file | resources.Minify }}
 			{{ end }}
-            {{ $secure := $file | resources.Fingerprint "sha512" }}
-			{{ $css = append (dict "permalink" $secure.RelPermalink "integrity" $secure.Data.Integrity) $css }}
+			{{ $css = append (dict "permalink" $file.RelPermalink) $css }}
 		{{ else }}
 			{{ errorf "SCSS file: %s, not found" $path }}
 		{{ end }}

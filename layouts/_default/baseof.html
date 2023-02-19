@@ -3,10 +3,12 @@
     Variables
     ===================== -->
 {{ $css := partial "head/styles.html" (append "scss/app.scss" .Params.styles) }}
-{{ $js := partial "head/scripts.html" (append "js/app.ts" .Params.scripts) }}
+{{ $js := partial "head/scripts.html" (append "js/app.ts" .Params.scripts) }}]
+{{ $hash := .GitInfo.AbbreviatedHash }}
 <!-- =====================
     HTML
     ===================== -->
+
 <html class="no-js" lang="en-GB">
     <head>
         <!-- Meta -->
@@ -34,17 +36,17 @@
         {{ template "_internal/twitter_cards.html" . }}
         <!-- CSS -->
         {{ range $file := $css -}}
-			<link rel="stylesheet" href="{{ .permalink }}">
+			<link rel="stylesheet" href="{{ .permalink }}?{{ $hash }}">
         {{- end }}
 		<!-- No JS -->
         {{ with index (partial "head/styles.html" (slice "scss/no-js.scss")) 0 }}
 			<noscript>
-				<link rel="stylesheet" href="{{ .permalink }}">
+				<link rel="stylesheet" href="{{ .permalink }}?{{ $hash }}">
 			</noscript>
 		{{ end }}
 		<!-- Preload JS -->
 		{{ range $file := $js -}}
-			<link rel="preload" href="{{ $file.permalink }}" as="script">
+			<link rel="preload" href="{{ $file.permalink }}?{{ $hash }}" as="script">
 		{{- end }}
         <!-- Favicon -->
 		<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
@@ -86,9 +88,10 @@
 		</div>
         <!-- Javascript -->
 		{{ range $file := $js -}}
-			<script src="{{ $file.permalink }}" {{ with $file.integrity }} integrity="{{ . }}" {{- end }}></script>
+			<script src="{{ $file.permalink }}?{{ $hash }}" {{ with $file.integrity }} integrity="{{ . }}" {{- end }}></script>
 		{{- end }}
         <!-- Google Transition Fix -->
         <script> </script>
+	{{ $hash }}
     </body>
 </html>

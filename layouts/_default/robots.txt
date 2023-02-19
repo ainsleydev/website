@@ -1,0 +1,7 @@
+Sitemap: {{ .Site.BaseURL | strings.TrimSuffix "/" }}/sitemap.xml
+User-agent: *
+{{ if eq hugo.Environment "production" -}}
+Disallow:
+{{- else -}}
+Disallow: /
+{{- end }}
