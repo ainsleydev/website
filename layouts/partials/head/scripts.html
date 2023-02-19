@@ -9,11 +9,7 @@
 		{{ $resource := resources.Get $path }}
 		{{ if $resource }}
 			{{ $target := printf "%s.js" (strings.TrimSuffix (path.Ext $path) $path) }}
-			{{ $jsOpts := (dict "targetPath" $target "minify" false) }}
-			{{ if ne hugo.Environment "development" -}}
-				{{ $jsOpts := (dict "targetPath" $target "minify" true) }}
-			{{ end }}
-			{{ $file := $resource | babel | js.Build $jsOpts }}
+			{{ $file := $resource | babel | js.Build (dict "targetPath" $target) | resources.Minify }}
 			{{ $js = append $file.RelPermalink $js }}
 		{{ else }}
 			{{ errorf "Typescript file: %s, not found" $path }}
