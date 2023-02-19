@@ -67,6 +67,12 @@
 			"gofmt -w"
 		]
 	},
+	"babel": {
+		"presets": [
+			"@babel/preset-typescript",
+			"@babel/preset-env"
+		]
+	},
 	"prettier": {
 		"semi": true,
 		"singleQuote": true,
