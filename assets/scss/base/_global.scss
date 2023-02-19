@@ -55,7 +55,13 @@ main {
 // =========================================================================
 
 figure {
+	vertical-align: baseline;
 	margin: 0;
+}
+
+image,
+source {
+	vertical-align: top;
 }
 
 ul,

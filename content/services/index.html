@@ -10,8 +10,11 @@ footerPadding: true
 	Services
     ===================== -->
 <section class="hero hero-full-height">
-
-	{{< partial template="images/a-symbol.html" opacity=0.1 greyscale=true clip="right" >}}
+	<!-- A Symbol -->
+	<figure class="hero-a-symbol hero-a-symbol-right gradient gradient-height-30">
+		{{< partial template="images/a-symbol.html" opacity=0.1 greyscale=true clip="right" >}}
+	</figure>
+	<!-- Content -->
 	<div class="container">
 		<!-- Heading -->
 		<div class="row">
@@ -23,7 +26,7 @@ footerPadding: true
 			</div><!-- /Col -->
 		</div><!-- /Row -->
 		<!-- Lead -->
-		<div class="row">
+		<div class="row" style="margin-bottom: 200px;">
 			<div class="col-12 col-tab-10 col-desk-6 col-desk-large-">
 				<p class="hero-lead lead c-white">
 					We offer a wide range of services, from UI/UX design to website development. Specialising in
@@ -35,7 +38,16 @@ footerPadding: true
 		<!-- Logos -->
 		<div class="row">
 			<div class="col-12">
-				<h6>Trusted By</h6>
+				<h6 class="margin">Trusted By</h6>
+				<div class="hero-logos">
+					{{< image src="images/decs-pets.svg" alt="Dec's Pets Logo" >}}
+					{{< image src="images/oak-tuition.svg" alt="Oak Tuition Logo" >}}
+					{{< image src="images/thinkopedia.svg" alt="Thinkopedia Logo" >}}
+					{{< image src="images/royal-beauty.svg" alt="Royal Beauty Logo" >}}
+					{{< image src="images/scotts-guttering.svg" alt="Scott's Guttering Logo" >}}
+					{{< image src="images/edr.svg" alt="Elite Dental Restorations Logo" >}}
+					{{< image src="images/elite-roofing.svg" alt="Elite Roofing Logo" >}}
+				</div>
 			</div><!-- /Col -->
 		</div><!-- /Row -->
 	</div><!-- /Container -->

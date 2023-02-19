@@ -13,7 +13,6 @@ const glob = require('glob'),
 	svgo = require('svgo');
 
 import { AvifOptions, OutputInfo, WebpOptions } from 'sharp';
-import { Config } from 'svgo';
 
 /**
  * CollapseOptions is the global configuration of
@@ -77,11 +76,7 @@ export class Imagery {
 	 *
 	 */
 	public run(): void {
-		console.log(
-			'ℹ️ Running, options are: ' +
-				JSON.stringify(this.options, null, 4) +
-				'\n',
-		);
+		console.log('ℹ️ Running, options are: ' + JSON.stringify(this.options, null, 4) + '\n');
 		this.traverse();
 	}
 
@@ -93,13 +88,9 @@ export class Imagery {
 	 * @returns void
 	 */
 	private traverse(): void {
-		glob(
-			__dirname + `${this.options.filepath}**/*.@(${this.globPattern})`,
-			{},
-			(err, files) => {
-				files.forEach((file) => this.convertOptimise(file));
-			},
-		);
+		glob(__dirname + `${this.options.filepath}**/*.@(${this.globPattern})`, {}, (err, files) => {
+			files.forEach((file) => this.convertOptimise(file));
+		});
 	}
 
 	/**
@@ -110,13 +101,8 @@ export class Imagery {
 	 * @async
 	 */
 	private convertOptimise = async (file: string) => {
-		const ext = this.extension(file);
-		if (ext === '.jpg' || ext === '.jpeg' || ext === '.png') {
-			if (this.options.enableWebP) await this.webp(file);
-			if (this.options.enableAvif) await this.avif(file);
-		} else if (ext === '.svg') {
-			if (this.options.enableSVG) await this.svg(file);
-		}
+		if (this.options.enableWebP) await this.webp(file);
+		if (this.options.enableAvif) await this.avif(file);
 	};
 
 	/**
@@ -159,26 +145,6 @@ export class Imagery {
 			.toFile(newFile)
 			.then(() => this.printSuccess(newFile))
 			.catch((err) => this.printError(newFile, err));
-	}
-
-	/**
-	 * Optimises an SVG image using SVGO.
-	 *
-	 * @param file
-	 * @returns void
-	 * @private
-	 */
-	private async svg(file: string) {
-		try {
-			svgo.optimize(file, {
-				path: file,
-				multipass: true,
-			} as Config);
-			this.printSuccess(file);
-		} catch (err) {
-			console.log(err);
-			this.printError(file, err);
-		}
 	}
 
 	/**

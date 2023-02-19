@@ -22,12 +22,10 @@
 					<!-- Text -->
 					<div class="hero-text">
 						<!-- Heading -->
-						<div class="margin-large">
-							<h1>
-								Brand guidelines <br/>
-								<span class="type-serif type-lowercase">{{ .Title }}*</span>
-							</h1>
-						</div>
+						<h1 class="margin-large">
+							Brand guidelines <br/>
+							<span class="type-serif type-lowercase">{{ .Title }}*</span>
+						</h1>
 						<!-- File -->
                         {{ with .Params.download -}}
                             {{ $file := $.Resources.GetMatch .path }}
