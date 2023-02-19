@@ -107,10 +107,7 @@
 
 	&-lead {
 		margin-bottom: 0;
-
-		&-max-width {
-			max-width: 570px;
-		}
+		color: $white;
 	}
 
 	// Align Bottom
@@ -212,6 +209,11 @@
 			transition: all 100ms;
 			transform-style: preserve-3d;
 			transform-origin: 50% 50%;
+		}
+
+		&-a-symbol svg g {
+			opacity: 1;
+			mix-blend-mode: normal !important;
 		}
 
 		&-logos {

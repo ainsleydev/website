@@ -44,6 +44,7 @@
 		"hugo-bin-extended": "^0.109.0",
 		"husky": "^8.0.3",
 		"lint-staged": "^13.1.2",
+		"openapi-typescript-codegen": "^0.23.0",
 		"prettier": "2.8.4",
 		"prettier-plugin-go-template": "^0.0.13",
 		"stylelint": "^15.1.0",
