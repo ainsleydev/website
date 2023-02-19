@@ -43,6 +43,12 @@ test: # Test uses race and coverage
 	go clean -testcache && go test -race $$(go list ./... | $(excluded)) -coverprofile=coverage.out -covermode=atomic
 .PHONY: test
 
+all: # Make format, lint and test
+	$(MAKE) format
+	$(MAKE) lint
+	$(MAKE) test
+.PHONY: all
+
 cover: test # Run all the tests and opens the coverage report
 	go tool cover -html=coverage.out
 .PHONY: cover
