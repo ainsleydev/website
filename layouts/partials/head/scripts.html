@@ -4,13 +4,17 @@
 {{ $js := slice }}
 {{ range $path := . }}
 	{{ if strings.Contains . "http" -}}
-        {{- $js = append . $js -}}
+        {{- $js = append (dict "permalink" .) $js -}}
 	{{- else -}}
 		{{ $resource := resources.Get $path }}
 		{{ if $resource }}
 			{{ $target := printf "%s.js" (strings.TrimSuffix (path.Ext $path) $path) }}
-			{{ $file := $resource | babel | js.Build (dict "targetPath" $target) | resources.Minify }}
-			{{ $js = append $file.RelPermalink $js }}
+			{{ $file := $resource | babel | js.Build (dict "targetPath" $target) }}
+            {{ if ne hugo.Environment "development" -}}
+                {{ $file = $file | resources.Minify }}
+            {{ end }}
+            {{ $secure := $file | resources.Fingerprint "sha512" }}
+            {{ $js = append (dict "permalink" $secure.RelPermalink "integrity" $secure.Data.Integrity) $js }}
 		{{ else }}
 			{{ errorf "Typescript file: %s, not found" $path }}
 		{{ end }}

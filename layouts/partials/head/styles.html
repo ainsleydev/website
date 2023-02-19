@@ -4,13 +4,17 @@
 {{ $css := slice }}
 {{ range $path := . }}
 	{{ if strings.Contains . "http" -}}
-		{{- $css = append . $css -}}
+		{{- $css = append (dict "permalink" .) $css -}}
 	{{- else -}}
 		{{ $resource := resources.Get $path }}
 		{{ if $resource }}
 			{{ $target := (printf "%s.css" (strings.TrimSuffix (path.Ext $path) $path)) | replaceRE "scss" "css" }}
-			{{ $file := $resource | toCSS (dict "targetPath" $target "enableSourceMap" true) | resources.Minify }}
-			{{ $css = append $file.RelPermalink $css }}
+			{{ $file := $resource | toCSS (dict "targetPath" $target "enableSourceMap" true) }}
+            {{ if ne hugo.Environment "development" -}}
+                {{ $file = $file | resources.Minify }}
+			{{ end }}
+            {{ $secure := $file | resources.Fingerprint "sha512" }}
+			{{ $css = append (dict "permalink" $secure.RelPermalink "integrity" $secure.Data.Integrity) $css }}
 		{{ else }}
 			{{ errorf "SCSS file: %s, not found" $path }}
 		{{ end }}

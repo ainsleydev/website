@@ -1,7 +1,7 @@
 {
 	"buildCommand": "./vercel.sh",
 	"cleanUrls": false,
-	"devCommand": "hugo server --buildDrafts --watch --quiet --port $PORT",
+	"devCommand": "hugo server --buildDrafts --watch --port $PORT",
 	"installCommand": "make setup",
 	"outputDirectory": "public",
 	"public": false,

@@ -17,7 +17,7 @@ imaging:
     quality: 75
     resampleFilter: Lanczos
 module:
-     mounts:
+    mounts:
         -   source: "assets"
             target: "assets"
         -   source: "static"
@@ -58,7 +58,7 @@ markup:
         startLevel: 2
 security:
     exec:
-        allow:  ["^dart-sass-embedded$", "^go$", "npx$", "^postcss$", "^babel$"]
+        allow: [ "^dart-sass-embedded$", "^go$", "npx$", "^postcss$", "^babel$" ]
 sitemap:
     changefreq: monthly
     filename: sitemap.xml
