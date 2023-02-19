@@ -16,7 +16,8 @@
 		"lint": "npm run lint:scss && npm run lint:js",
 		"lint:scss": "npx stylelint '**/*.scss'",
 		"lint:js": "eslint --config .eslintrc.json --fix 'assets/**/*.{ts,tsx}'",
-		"prepare": "husky install"
+		"prepare": "husky install",
+		"precommit": "npx lint-staged"
 	},
 	"dependencies": {
 		"@barba/core": "^2.9.7",
@@ -59,9 +60,10 @@
 		"*.ts": [
 			"eslint --fix"
 		],
-		"*.go": [
-			"go fmt",
-			"go generate",
+		"./...": [
+			"gofmt -w",
+			"golangci-lint run ./...",
+			"go generate ./...",
 			"go test"
 		]
 	},
