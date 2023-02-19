@@ -25,6 +25,10 @@ dist/
 # JetBrains IDE
 .idea/
 
+# Sensitive Info
+credentials.md
+CREDENTIALS.md
+
 # Unit test reports
 TEST*.xml
 
@@ -41,6 +45,9 @@ Thumbs.db
 
 # Blobs
 .vercel
+
+# Coverage
+coverage.out
 
 # Generated files by hugo
 /public/

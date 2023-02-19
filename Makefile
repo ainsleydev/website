@@ -24,17 +24,15 @@ work: # Creates a new work post.
 
 clean: # Remove unused entries, dependencies and cache
 	hugo mod clean
-	hugo mod tidy
 	rm -rf public
 .PHONY: clean
 
 lint: # Run linter
-	golangci-lint run --fix ./...
+	golangci-lint run --fix ./api/...
 .PHONY: lint
 
 format: # Run gofmt
 	go fmt ./...
-	swag fmt
 .PHONY: format
 
 excluded := grep -v /res/ | grep -v /mocks/

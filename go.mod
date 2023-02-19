@@ -5,6 +5,7 @@ go 1.19
 require (
 	github.com/getkin/kin-openapi v0.114.0
 	github.com/labstack/echo/v4 v4.10.0
+	github.com/pkg/errors v0.9.1
 	github.com/slack-go/slack v0.12.1
 	github.com/stretchr/testify v1.8.1
 )
@@ -22,7 +23,6 @@ require (
 	github.com/mattn/go-isatty v0.0.16 // indirect
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
 	github.com/perimeterx/marshmallow v1.1.4 // indirect
-	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.2 // indirect

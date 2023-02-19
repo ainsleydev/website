@@ -5,7 +5,6 @@
 package api
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/ainsleyclark/ainsley.dev/api/httpservice"
@@ -21,7 +20,7 @@ func init() {
 	app = echo.New()
 	handler = &httpservice.Handler{}
 	echo.NotFoundHandler = func(c echo.Context) error {
-		fmt.Println(c.Request().URL)
+		// fmt.Println(c.Request().URL)
 		return nil
 	}
 	httpservice.RegisterHandlersWithBaseURL(app, handler, "/api")

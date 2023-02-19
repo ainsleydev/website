@@ -14,9 +14,6 @@ linters:
         - misspell
 
 linters-settings:
-    forbidigo:
-        forbid:
-            - 'ioutil\.*'
     tagliatelle:
         case:
             use-field-name: false

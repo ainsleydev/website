@@ -1,9 +1,5 @@
 mode: atomic
 github.com/ainsleyclark/ainsley.dev/api/lib/stringutil/stringutil.go:13.39,16.2 2 5
-github.com/ainsleyclark/ainsley.dev/api/lib/gateway/slack/slack.go:29.42,34.2 1 1
-github.com/ainsleyclark/ainsley.dev/api/lib/gateway/slack/slack.go:40.74,47.16 3 2
-github.com/ainsleyclark/ainsley.dev/api/lib/gateway/slack/slack.go:54.2,54.12 1 1
-github.com/ainsleyclark/ainsley.dev/api/lib/gateway/slack/slack.go:47.16,53.3 1 1
 github.com/ainsleyclark/ainsley.dev/api/httpservice/service.go:11.53,13.2 1 0
 github.com/ainsleyclark/ainsley.dev/api/httpservice/test.gen.go:79.70,85.25 2 0
 github.com/ainsleyclark/ainsley.dev/api/httpservice/test.gen.go:91.2,91.44 1 0
@@ -94,3 +90,7 @@ github.com/ainsleyclark/ainsley.dev/api/httpservice/test.gen.go:421.3,421.19 1 0
 github.com/ainsleyclark/ainsley.dev/api/httpservice/test.gen.go:417.10,420.4 2 0
 github.com/ainsleyclark/ainsley.dev/api/httpservice/test.gen.go:425.16,427.3 1 0
 github.com/ainsleyclark/ainsley.dev/api/httpservice/test.gen.go:429.16,431.3 1 0
+github.com/ainsleyclark/ainsley.dev/api/lib/gateway/slack/slack.go:30.42,35.2 1 1
+github.com/ainsleyclark/ainsley.dev/api/lib/gateway/slack/slack.go:41.74,48.16 3 2
+github.com/ainsleyclark/ainsley.dev/api/lib/gateway/slack/slack.go:55.2,55.12 1 1
+github.com/ainsleyclark/ainsley.dev/api/lib/gateway/slack/slack.go:48.16,54.3 1 1
