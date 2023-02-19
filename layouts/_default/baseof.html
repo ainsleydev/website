@@ -3,7 +3,7 @@
     Variables
     ===================== -->
 {{ $css := partial "head/styles.html" (append "scss/app.scss" .Params.styles) }}
-{{ $js := partial "head/scripts.html" (append "js/app.ts" .Params.scripts) }}]
+{{ $js := partial "head/scripts.html" (append "js/app.ts" .Params.scripts) }}
 {{ $hash := .GitInfo.AbbreviatedHash }}
 <!-- =====================
     HTML
@@ -92,6 +92,5 @@
 		{{- end }}
         <!-- Google Transition Fix -->
         <script> </script>
-	{{ $hash }}
     </body>
 </html>
