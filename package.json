@@ -25,6 +25,7 @@
 		"@types/toastify-js": "^1.11.1",
 		"@vercel/edge": "^0.2.7",
 		"normalize.css": "^8.0.1",
+		"sharp-cli": "^4.1.0",
 		"smoothscroll-polyfill": "^0.4.4",
 		"toastify-js": "^1.12.0"
 	},
