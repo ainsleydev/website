@@ -1,6 +1,7 @@
 ---
 title: Terms & conditions
-description: Read our terms and conditions that govern the contractual relationship between ainsley.dev and you, the user of our site & services.
+description: Read our terms and conditions that govern the contractual relationship between ainsley.dev and you, the
+user of our site & services.
 draft: false
 url: /terms
 layout: terms
@@ -100,8 +101,8 @@ representation, warranty, condition, undertaking or term, whether express or imp
 performance, accuracy, suitability, fitness for purpose, completeness or freedom from viruses of the content contained
 on the Website or that such content will be accurate, up to date, uninterrupted or error fee. Whilst we take every care
 to ensure that the standard of the Website remains high and to maintain the continuity of it, the internet is not always
-a stable medium and errors, omissions, interruptions of service and delays may occur at any time, for which Reddico
-Digital Limited accepts no responsibility.
+a stable medium and errors, omissions, interruptions of service and delays may occur at any time, for which ainsley.dev
+LTD Limited accepts no responsibility.
 
 ### Trademarks
 
@@ -114,15 +115,15 @@ The Client is responsible for renewing domain names and management of DNS record
 files & graphics. However, ainsley.dev LTD retains all rights for graphics and code as inteluctal property.
 
 - Client agrees that any marketing material, digital assets or graphics can be showcased on any social media platforms
-	or
-	website that is owned by ainsley.dev LTD and agrees that a backlink will be placed on the platform linking back to any
-	of ainsley.dev LTD’s website(s).
+  or
+  website that is owned by ainsley.dev LTD and agrees that a backlink will be placed on the platform linking back to any
+  of ainsley.dev LTD’s website(s).
 - Any on going costs that are required for the Services or Deliverables to function correctly is the Clients
-	responsibility.
+  responsibility.
 - If failure of payment for these on-going costs have an effect on the Deliverables, ainsley.dev LTD will not be made
-	liable; and will incur a charge if a fix or patch is required.
+  liable; and will incur a charge if a fix or patch is required.
 - Client is responsible for populating any content or copywriting for the application or website. Including but not
-	limited to, posts, products and articles.
+  limited to, posts, products and articles.
 
 ### ainsley.dev LTD Responsibilities
 
@@ -131,12 +132,12 @@ and necessary additional items as listed in accordance with the Proposal submitt
 signed on the Agreement date.
 
 - Changes to this Agreement or to any Deliverables in this contract must be submitted in writing and approved by both
-	parties prior to taking place.
+  parties prior to taking place.
 - The Cient agrees to notify ainsley.dev LTD if any risks or schedule delays may take place effecting the delivery dates
-	and presentation of the completed work as defined in the schedule.
+  and presentation of the completed work as defined in the schedule.
 - ainsley.dev LTD agrees to notify the Client if any risks or schedule delays may take place effecting delivery dates
-	and
-	final presentation of the Deliverables.
+  and
+  final presentation of the Deliverables.
 - Client shall provide ainsley.dev LTD with appropriate space and resources for such presentation to take place.
 
 ### Hosting
@@ -146,10 +147,10 @@ or website has been developed.
 
 - Hosting will be on a dedicated platform with a minimum of 99% uptime.
 - Failure of payment will result in any application being temporarily removed from the server until payment is received.
-	ainsley.dev LTD will ensure that any databases that are needed outlined in the Proposal are backed up on a regular
-	basis
-	and provided to the Client if they request it.
-	-ainsley.dev LTD will ensure that an SSL certificate if automatically renewed every 3 months.
+  ainsley.dev LTD will ensure that any databases that are needed outlined in the Proposal are backed up on a regular
+  basis
+  and provided to the Client if they request it.
+  -ainsley.dev LTD will ensure that an SSL certificate if automatically renewed every 3 months.
 
 ### Pricing
 
@@ -184,8 +185,8 @@ responsible for ensuring compliance with any local laws relating to access.
 
 Changes are periodically made to the information on the Website and to these terms and conditions and these changes will
 be incorporated in new editions of this site. ainsley.dev LTD reserves the right to alter or amend any
-information set out in the Website and these terms and conditions without notice. If you use the Website after Reddico
-Digital Limited has posted the changes, you will be bound by the new terms. You should therefore ensure that you read
+information set out in the Website and these terms and conditions without notice. If you use the Website after
+ainsley.dev LTD has posted the changes, you will be bound by the new terms. You should therefore ensure that you read
 the terms and conditions each time you use the Website.
 
 ### Contact Us

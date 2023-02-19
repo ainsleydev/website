@@ -6,7 +6,7 @@
 <!-- Filetypes -->
 {{ $videowebm := replace $resource ".mp4" ".webm" }}
 {{ $videoogg := replace $resource ".mp4" ".ogv" }}
-{{ $postFolder := "themes/reddico/static/videos" }}
+{{ $postFolder := "CHANGE" }}
 {{ if fileExists $postFolder }}
 	<video {{ with .class }} class="{{ . }}" {{ end }} {{ with .attributes -}} {{ . | safeHTMLAttr}} {{- end }} {{ with .poster }} poster="{{ . }}" {{ end }} preload="auto">
 		{{ range readDir $postFolder }}

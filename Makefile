@@ -23,6 +23,10 @@ work: # Creates a new work post.
 	hugo new --kind work-bundle work/$(name)
 .PHONY: work
 
+sdk: # Generates the typescript API SDK
+	swagger-typescript-api --path api/openapi.yaml --output gen/sdk --templates gen/templates --name API --clean-output --module-name-first-tag
+.PHONY: sdk
+
 clean: # Remove unused entries, dependencies and cache
 	hugo mod clean
 	rm -rf public

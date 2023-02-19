@@ -18,8 +18,6 @@ imaging:
     resampleFilter: Lanczos
 module:
      mounts:
-        -   source: "./themes/reddico/node_modules/vanilla-lazyload/dist/lazyload.js"
-            target: "assets/js/lazyload.js"
         -   source: "assets"
             target: "assets"
         -   source: "static"
