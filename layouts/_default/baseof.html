@@ -46,7 +46,10 @@
 		{{ end }}
 		<!-- Preload JS -->
 		{{ range $file := $js -}}
-			<link rel="preload" href="{{ $file.permalink }}?{{ $hash }}" as="script">
+			<link rel="preload"
+				href="{{ $file.permalink }}?{{ $hash }}"
+				{{ with $file.integrity }} integrity="{{ . }}" crossorigin="anonymous" {{- end }}
+				as="script">
 		{{- end }}
         <!-- Favicon -->
 		<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
@@ -88,7 +91,8 @@
 		</div>
         <!-- Javascript -->
 		{{ range $file := $js -}}
-			<script src="{{ $file.permalink }}?{{ $hash }}" {{ with $file.integrity }} integrity="{{ . }}" {{- end }}></script>
+			<script src="{{ $file.permalink }}?{{ $hash }}"
+				{{ with $file.integrity }} integrity="{{ . }}" crossorigin="anonymous" {{- end }}></script>
 		{{- end }}
         <!-- Google Transition Fix -->
         <script> </script>
