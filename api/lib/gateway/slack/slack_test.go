@@ -6,10 +6,11 @@ package gateway
 
 import (
 	"context"
+	"testing"
+
 	"github.com/pkg/errors"
 	"github.com/slack-go/slack"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func TestNew(t *testing.T) {

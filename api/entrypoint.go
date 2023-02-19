@@ -6,9 +6,10 @@ package api
 
 import (
 	"fmt"
+	"net/http"
+
 	"github.com/ainsleyclark/ainsley.dev/api/httpservice"
 	"github.com/labstack/echo/v4"
-	"net/http"
 )
 
 var (
@@ -17,7 +18,6 @@ var (
 )
 
 func init() {
-
 	app = echo.New()
 	handler = &httpservice.Handler{}
 	echo.NotFoundHandler = func(c echo.Context) error {

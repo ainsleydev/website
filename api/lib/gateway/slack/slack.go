@@ -6,6 +6,7 @@ package gateway
 
 import (
 	"context"
+
 	"github.com/pkg/errors"
 	"github.com/slack-go/slack"
 )
