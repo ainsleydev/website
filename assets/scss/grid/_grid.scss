@@ -12,7 +12,7 @@
 	max-width: $container-max-width;
 	padding: 0 $container-padding-x;
 
-	@media (min-width: $container-max-width + 50) {
+	@media (min-width: $container-max-width + 100) {
 		padding: 0;
 	}
 }

@@ -30,7 +30,7 @@ $grid-properties: (
 );
 
 // Container
-$container-max-width: 1450px;
+$container-max-width: 1600px;
 $container-padding-x: 7vw;
 
 // Fonts
@@ -117,8 +117,8 @@ $nav-padding-desktop: 4rem 6rem;
 // Text
 // ==========================================================================
 
-$text-fluid-start-size: 300px;
-$text-fluid-end-size: 1408px;
+$text-fluid-start-size: 400px;
+$text-fluid-end-size: $container-max-width;
 $text-paragraph-size: 1.1rem;
 $text-lead-size: 1.2rem;
 $text-letter-spacing: -1px;
