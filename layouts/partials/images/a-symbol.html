@@ -2,7 +2,6 @@
     A Symbol
     ainsley.dev and the ainsley.dev logo are either registered trademarks or trademarks of ainsley.dev
  	LTD in the United Kingdom and/or other countries. All other trademarks are the property of their respective owners.
-    	TODO: Clip, left or right.
     	partial "images/a-symbol.html" (dict
     		"opacity" 1
     		"greyscale" true
@@ -15,7 +14,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 	 width="316.223"
 	 height="285.449"
-	 viewBox="0 0 316.223 285.449">
+	 viewBox="0 0 316.223 285.449"
+	 class="a-symbol
+	{{ with .clip -}} a-symbol-clip a-symbol-clip-{{ . }} {{- end }}">
 	<!-- Gradient -->
 	<defs>
 		<linearGradient id="a-symbol-linear-gradient"
@@ -26,24 +27,28 @@
 			<stop offset="1" stop-opacity="0"/>
 		</linearGradient>
 	</defs>
-	<g transform="translate(-4.8 -4)"
-            {{ with .opacity -}} opacity="{{ . }}" {{- end }}
-            {{ if .greyscale -}} style="mix-blend-mode: luminosity;" {{- end }}>
-		<!-- Left (Orange) -->
-		<g class="a-symbol-left" transform="translate(4.8 4)">
-			<path d="M192.84,4H132.982L4.8,289.449H72.125Z"
-				  transform="translate(-4.8 -4)"
-				  fill="var(--colour-orange)"/>
-			<path d="M192.84,4H132.982L4.8,289.449H72.125Z"
-				  transform="translate(-4.8 -4)"
-				  opacity="0.57"
-				  fill="url(#a-symbol-linear-gradient)"/>
+	<!-- Group -->
+	<g class="a-symbol-group"
+	   		{{ with .clip -}} style="transform: translateX(var(--a-symbol-clip-{{ . }}))" {{- end }}>
+		<g transform="translate(-4.8 -4)"
+                {{ with .opacity -}} opacity="{{ . }}" {{- end }}
+                {{ if .greyscale -}} style="mix-blend-mode: luminosity;" {{- end }}>
+			<!-- Left (Orange) -->
+			<g class="a-symbol-left" transform="translate(4.8 4)">
+				<path d="M192.84,4H132.982L4.8,289.449H72.125Z"
+					  transform="translate(-4.8 -4)"
+					  fill="var(--colour-orange)"/>
+				<path d="M192.84,4H132.982L4.8,289.449H72.125Z"
+					  transform="translate(-4.8 -4)"
+					  opacity="0.57"
+					  fill="url(#a-symbol-linear-gradient)"/>
+			</g>
+			<!-- Right (Blue) -->
+			<g class="a-symbol-right" transform="translate(132.982 4)">
+				<path d="M543.8,4h59.858L731.841,289.449H664.515Z"
+					  transform="translate(-543.8 -4)"
+					  fill="var(--colour-blue)"/>
+			</g>
 		</g>
-		<!-- Right (Blue) -->
-		<g class="a-symbol-right" transform="translate(132.982 4)">
-			<path d="M543.8,4h59.858L731.841,289.449H664.515Z"
-				  transform="translate(-543.8 -4)"
-				  fill="var(--colour-blue)"/>
-		</g>
-	</g>
+	</g><!-- /Group -->
 </svg>

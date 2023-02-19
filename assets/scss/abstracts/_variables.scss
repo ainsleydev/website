@@ -36,29 +36,16 @@ $container-padding-x: 7vw;
 // Fonts
 // ==========================================================================
 
-$font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-	Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-	'Segoe UI Symbol';
-$font-serif: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia,
-	serif;
-$font-code: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
-	Liberation Mono, monospace;
+$font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+	'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+$font-serif: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
+$font-code: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
 $font-path: '/fonts/';
 
 // Display
 // ==========================================================================
 
-$display-properties: (
-	none,
-	inline,
-	inline-block,
-	block,
-	flex,
-	inline-flex,
-	table,
-	table-row,
-	table-cell
-) !default;
+$display-properties: (none, inline, inline-block, block, flex, inline-flex, table, table-row, table-cell) !default;
 
 // Color
 // ==========================================================================
@@ -143,6 +130,12 @@ $accordion-height-transition: 0.5s;
 $accordion-arrow-size: 21px;
 $accordion-hover-colour: colour('orange');
 
+// A Symbol
+// ==========================================================================
+
+$a-symbol-clip-left: -22%;
+$a-symbol-clip-right: 22%;
+
 // Button
 // ==========================================================================
 
@@ -179,6 +172,10 @@ $table-padding: 0.6rem 0.9rem;
 	--colour-copy-light: #{$copy-light-bg};
 	--colour-paragraph: #{$copy-dark-bg};
 	--colour-list: #{$white};
+
+	// A Symbol
+	--a-symbol-clip-left: #{$a-symbol-clip-left};
+	--a-symbol-clip-right: #{$a-symbol-clip-right};
 
 	// Code
 	--code-colour: #{$black};
