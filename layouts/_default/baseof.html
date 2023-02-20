@@ -35,20 +35,20 @@
         <!-- Twitter -->
         {{ template "_internal/twitter_cards.html" . }}
         <!-- CSS -->
-        {{ range $file := $css -}}
-			<link rel="stylesheet" href="{{ .permalink }}?{{ $hash }}">
+        {{ range $css -}}
+			<link rel="stylesheet" href="{{ .RelPermalink }}?{{ $hash }}">
         {{- end }}
 		<!-- No JS -->
         {{ with index (partial "head/styles.html" (slice "scss/no-js.scss")) 0 }}
 			<noscript>
-				<link rel="stylesheet" href="{{ .permalink }}?{{ $hash }}">
+				<link rel="stylesheet" href="{{ .RelPermalink }}?{{ $hash }}">
 			</noscript>
 		{{ end }}
 		<!-- Preload JS -->
-		{{ range $file := $js -}}
+		{{ range $js -}}
 			<link rel="preload"
-				href="{{ $file.permalink }}?{{ $hash }}"
-				{{ with $file.integrity }} integrity="{{ . }}" crossorigin="anonymous" {{- end }}
+				href="{{ .RelPermalink }}?{{ $hash }}"
+				{{ with .Data.Integrity }} integrity="{{ . }}" crossorigin="anonymous" {{- end }}
 				as="script">
 		{{- end }}
         <!-- Favicon -->
@@ -90,9 +90,10 @@
             {{- partial "footer.html" . -}}
 		</div>
         <!-- Javascript -->
-		{{ range $file := $js -}}
-			<script src="{{ $file.permalink }}?{{ $hash }}"
-				{{ with $file.integrity }} integrity="{{ . }}" crossorigin="anonymous" {{- end }}></script>
+		{{ range $js -}}
+			<script src="{{ .RelPermalink }}?{{ $hash }}"
+				{{ with .Data.Integrity }} integrity="{{ . }}" crossorigin="anonymous" {{- end }}>
+			</script>
 		{{- end }}
         <!-- Google Transition Fix -->
         <script> </script>
