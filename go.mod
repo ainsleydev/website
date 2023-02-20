@@ -11,6 +11,7 @@ require (
 )
 
 require (
+	github.com/ainsleyclark/go-mail v1.1.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/go-openapi/jsonpointer v0.19.5 // indirect
 	github.com/go-openapi/swag v0.19.5 // indirect

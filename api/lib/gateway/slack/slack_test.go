@@ -21,7 +21,7 @@ func TestNew(t *testing.T) {
 
 func TestSlack_Send(t *testing.T) {
 	t.Run("Success", func(t *testing.T) {
-		s := Slack{
+		s := Client{
 			slackSendFunc: func(ctx context.Context, channelID string, options ...slack.MsgOption) (string, string, error) {
 				return "", "", nil
 			},
@@ -31,7 +31,7 @@ func TestSlack_Send(t *testing.T) {
 	})
 
 	t.Run("Error", func(t *testing.T) {
-		s := Slack{
+		s := Client{
 			slackSendFunc: func(ctx context.Context, channelID string, options ...slack.MsgOption) (string, string, error) {
 				return "id", "timestamp", errors.New("error")
 			},
