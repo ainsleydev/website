@@ -13,6 +13,7 @@ import { FitText } from './components/fit-text';
 import { Collapse, CollapseOptions } from './components/accordion';
 import { Card } from './components/card';
 import { Navigation } from './components/nav';
+import smoothscroll from 'smoothscroll-polyfill';
 
 /**
  * Variables
@@ -44,6 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		activeClass: 'accordion-item-active',
 	} as CollapseOptions);
 });
+
+/**
+ * Kick off Smooth Scroll Polyfill
+ */
+smoothscroll.polyfill();
 
 /**
  * Button - Go Back
