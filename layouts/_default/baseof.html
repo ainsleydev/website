@@ -48,7 +48,9 @@
 		{{ range $js -}}
 			<link rel="preload"
 				href="{{ .RelPermalink }}?{{ $hash }}"
-				{{ with .Data.Integrity }} integrity="{{ . }}" crossorigin="anonymous" {{- end }}
+				{{ if ne hugo.Environment "development" -}}
+                	{{ with .Data.Integrity }} integrity="{{ . }}" crossorigin="anonymous" {{- end }}
+				{{ end }}
 				as="script">
 		{{- end }}
         <!-- Favicon -->
@@ -92,7 +94,9 @@
         <!-- Javascript -->
 		{{ range $js -}}
 			<script src="{{ .RelPermalink }}?{{ $hash }}"
-				{{ with .Data.Integrity }} integrity="{{ . }}" crossorigin="anonymous" {{- end }}>
+				{{ if ne hugo.Environment "development" -}}
+					{{ with .Data.Integrity }} integrity="{{ . }}" crossorigin="anonymous" {{- end }}
+				{{ end }}>
 			</script>
 		{{- end }}
         <!-- Google Transition Fix -->
