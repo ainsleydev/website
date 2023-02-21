@@ -3,6 +3,6 @@
     ===================== -->
 <a href="{{ .Destination | safeURL }}"
 	{{ with .Title -}} title="{{ . }}" aria-label="{{ . }}" {{- end }}
-	{{ if strings.HasPrefix .Destination "http" -}} target="_blank" rel="noopener" {{- end }}>
+	{{ if strings.HasPrefix .Destination "http" -}} target="_blank" rel="noopener nofollow" {{- end }}>
 		{{ .Text | safeHTML }}
 </a>

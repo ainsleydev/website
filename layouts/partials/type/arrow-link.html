@@ -27,10 +27,18 @@
 		<!-- Arrow -->
 		<figure class="arrow-link-image">
 			<div class="arrow-hover-visible">
-				{{ partial "images/arrow.html" (dict "rotation" .rotation "colour" .colour "stroke" 2) }}
+				{{ partial "svgs/arrow.html" (dict
+					"rotation" .rotation
+					"colour" .colour
+					"stroke" 2
+				)}}
 			</div>
 			<div class="arrow-hover-hidden">
-				{{ partial "images/arrow.html" (dict "rotation" .rotation "colour" .colour "stroke" 2) }}
+				{{ partial "svgs/arrow.html" (dict
+					"rotation" .rotation
+					"colour" .colour
+					"stroke" 2
+				)}}
 			</div>
 		</figure>
 	</a>

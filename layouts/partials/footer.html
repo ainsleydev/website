@@ -7,7 +7,7 @@
 		<div class="row footer-main {{ if .Params.footerpadding -}} footer-padding {{- end }}">
 			<!-- Symbol -->
 			<figure class="footer-symbol">
-                {{ partial "images/a-symbol.html" (dict "opacity" 0.1 "greyscale" true) }}
+                {{ partial "svgs/a-symbol.html" (dict "opacity" 0.1 "greyscale" true) }}
 			</figure>
 			<div class="col-12 col-desk-6 footer-main-col">
 				<!-- Heading -->
@@ -43,7 +43,7 @@
 			<div class="col-12 col-desk-6 footer-main-col">
 				<!-- Logo -->
 				<figure class="footer-logo">
-                    {{- partial "images/logo.html" "white" -}}
+                    {{- partial "svgs/logo.html" "white" -}}
 				</figure>
 				<!-- Navigation -->
                 {{ with .Site.Menus.footer -}}

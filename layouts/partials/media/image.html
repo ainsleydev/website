@@ -39,7 +39,7 @@
 			<!-- WebP -->
 			<img {{ if .lazy }} loading="lazy" {{- end }}
 				src="{{ $noExtension }}.webp"
-                    {{ with .class -}} class="{{ . }}" {{- end }}
+				{{ with .class -}} class="{{ . }}" {{- end }}
 				alt="{{ with .alt -}} {{ . }} {{- end }}"
 				type="image/webp"
 				width="{{ .image.Width }}"
