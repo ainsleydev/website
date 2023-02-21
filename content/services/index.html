@@ -57,11 +57,11 @@ footerPadding: true
 	<div class="container">
 		<div class="row">
 			<!-- Heading -->
-			<div class="col-12 col-desk-3">
-				<h2>Our services</h2>
+			<div class="col-12 col-mob-3">
+				{{< partial template="type/vertical.html" text="Our services" line=true fill=true >}}
 			</div><!-- /Col -->
 			<!-- Content -->
-			<div class="col-12 col-desk-9">
+			<div class="col-12 col-mob-9">
 				<div class="row justify-content-between">
 					<!-- Digital experience -->
 					<div class="col-12 col-desk-5 margin">
@@ -123,20 +123,20 @@ footerPadding: true
 	<div class="container">
 		<div class="row">
 			<!-- Heading -->
-			<div class="col-12 col-desk-3">
-				{{< partial template="type/vertical.html" text="Our<br/>process" line=true fill=true >}}
+			<div class="col-12 col-mob-3">
+				{{< partial template="type/vertical.html" text="Our process" line=true fill=true >}}
 			</div><!-- /Col -->
 			<!-- Content -->
-			<div class="col-12 col-desk-9">
+			<div class="col-12 col-mob-9">
 				<!-- Discovery -->
 				<article class="section section-padding-small section-padding-bottom">
 					<!-- Intro -->
 					<div class="row align-items-center justify-content-between">
 						<div class="col-10">
-							<h2 class="type-serif">01*</h2>
+							<h2 class="type-serif m-no-mob-down">01*</h2>
 						</div><!-- /Col -->
 						<div class="col-2">
-							<h4 class="line line-medium"></h4>
+							<hr class="line line-medium d-none d-desk-block"/>
 						</div><!-- /Col -->
 					</div><!-- /Row -->
 					<!-- Content -->
@@ -156,10 +156,10 @@ footerPadding: true
 					<!-- Intro -->
 					<div class="row align-items-center justify-content-between">
 						<div class="col-10">
-							<h2 class="type-serif">02*</h2>
+							<h2 class="type-serif m-no-mob-down">02*</h2>
 						</div><!-- /Col -->
 						<div class="col-2">
-							<h4 class="line line-medium"></h4>
+							<hr class="line line-medium d-none d-desk-block"/>
 						</div><!-- /Col -->
 					</div><!-- /Row -->
 					<!-- Content -->
@@ -175,14 +175,14 @@ footerPadding: true
 					</div><!-- /Row -->
 				</article>
 				<!-- Design & Architecture -->
-				<article class="section">
+				<article class="section section-padding-small section-padding-bottom">
 					<!-- Intro -->
 					<div class="row align-items-center justify-content-between">
 						<div class="col-10">
-							<h2 class="type-serif">01*</h2>
+							<h2 class="type-serif m-no-mob-down">03*</h2>
 						</div><!-- /Col -->
 						<div class="col-2">
-							<h4 class="line line-medium"></h4>
+							<hr class="line line-medium d-none d-desk-block"/>
 						</div><!-- /Col -->
 					</div><!-- /Row -->
 					<!-- Content -->
@@ -192,6 +192,28 @@ footerPadding: true
 								<h2>Design & Architecture</h2>
 								<p>Once we know your vision and how you want to see yourself in the market, we proceed to the design. The objective of the design phase is to create a fresh, coherent, user-friendly brand for your website. Potential design routes will be presented for you to choose from. Once you have provided feedback on these concepts, a custom design for the whole site will be created with a particular brand language using Adobe XD.</p>
 								<p>This design will be published as a prototype, ready for easy commenting and adding any suggestions you see fit through a simple communication process.</p>
+							</div>
+						</div><!-- /Col -->
+					</div><!-- /Row -->
+				</article>
+				<!-- Development -->
+				<article class="section">
+					<!-- Intro -->
+					<div class="row align-items-center justify-content-between">
+						<div class="col-10">
+							<h2 class="type-serif m-no-mob-down">04*</h2>
+						</div><!-- /Col -->
+						<div class="col-2">
+							<hr class="line line-medium d-none d-desk-block"/>
+						</div><!-- /Col -->
+					</div><!-- /Row -->
+					<!-- Content -->
+					<div class="row justify-content-between">
+						<div class="col-12 col-desk-10">
+							<div class="margin margin-none">
+								<h2>Development</h2>
+								<p>Commencing the development of the website or application, we will consider any existing website infrastructure. Ensuring that the brand migration process goes smoothly is essential to avoid the loss of organic traffic, so all of this is taken into consideration before we make the switch.</p>
+								<p>A mobile-first development approach will be used to ensure the site is fully responsive across all viewports (mobile, tablet and desktop). SEO will be considered from the very beginning of the project, ensuring your site ranks highly. Factoring in high page speed, usability, accessibility and user experience will make the application easier for potential customers to discover and use and increase conversions.</p>
 							</div>
 						</div><!-- /Col -->
 					</div><!-- /Row -->
@@ -207,11 +229,11 @@ footerPadding: true
 	<div class="container">
 		<div class="row">
 			<!-- Heading -->
-			<div class="col-12 col-desk-3">
-				{{< partial template="type/vertical.html" text="Your<br/>questions" line=true fill=true >}}
+			<div class="col-12 col-mob-3">
+				{{< partial template="type/vertical.html" text="Your questions" line=true fill=true >}}
 			</div><!-- /Col -->
 			<!-- Content -->
-			<div class="col-12 col-desk-9">
+			<div class="col-12 col-mob-9">
 				{{< accordion/wrapper >}}
 					{{< accordion/item title="How do you price a project?" >}}
 						Upon receipt of your brief and our initial kick-off meeting, we will review everything and get back to you with a proposal and fixed cost. If you have a budget in mind, please let us know in advance.

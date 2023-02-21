@@ -5,11 +5,12 @@
 package mail
 
 import (
+	"log"
+
 	"github.com/ainsleyclark/go-mail/drivers"
 	"github.com/ainsleyclark/go-mail/mail"
 	"github.com/pkg/errors"
 	"golang.org/x/net/context"
-	"log"
 )
 
 type (

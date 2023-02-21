@@ -16,8 +16,6 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding-left: 1rem;
-		padding-right: 1rem;
 		cursor: pointer;
 		position: relative;
 		border-bottom: 1px solid $mark;
@@ -97,6 +95,16 @@
 	&-header:hover {
 		#{$self}-title {
 			color: $accordion-hover-colour;
+		}
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-tab {
+		&-item {
+			padding-left: 1rem;
+			padding-right: 1rem;
 		}
 	}
 }
