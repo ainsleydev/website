@@ -73,21 +73,18 @@
 		min-height: 500px;
 	}
 
-	&-space-around {
-		//display: flex;
-		//flex-direction: column;
-		//justify-content: space-around;
-		//height: 80%;
-		display: flex;
-		//background-color: yellow;
+	// Space Around (With Logos)
+	// =========================================================================
 
-		.container {
+	&-space-around {
+		display: flex;
+
+		#{$self}-container {
 			display: flex;
 			flex-direction: column;
 			height: 90%;
 			justify-content: space-around;
 			align-self: flex-end;
-			//background-color: red;
 		}
 	}
 

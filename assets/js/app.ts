@@ -60,3 +60,12 @@ document.querySelectorAll('[data-go-back]').forEach((btn) => {
 		history.back();
 	});
 });
+
+/**
+ * Lazy Images
+ */
+document.querySelectorAll('.lazy-animate').forEach((lazy) => {
+	lazy.addEventListener('load', () => {
+		lazy.classList.add('lazy-loaded');
+	});
+});

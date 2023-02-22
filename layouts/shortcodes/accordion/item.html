@@ -6,9 +6,12 @@
     ===================== -->
 <details class="accordion-item" open>
 	<!-- Title -->
-	<summary class="accordion-header">
+	<summary class="accordion-header cursor-element"
+		data-cursor-border data-cursor-border-white>
         {{ with .Get "title" -}}
-			<h4 class="accordion-title">{{ . | safeHTML }}</h4>
+			<h4 class="accordion-title">
+				{{ . | safeHTML }}
+			</h4>
 		{{- else -}}
 			{{- warnf "No title provided to accordion item" -}}
 		{{- end }}
@@ -23,4 +26,4 @@
             {{- warnf "No content provided to accordion item" -}}
         {{- end }}
 	</div><!-- /Content -->
-</details><!-- /Accordion Item -->
+</details><!-- / Item -->
