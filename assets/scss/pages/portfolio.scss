@@ -8,31 +8,37 @@
 
 .portfolio {
 	$self: &;
+	overflow-x: clip;
 
-	// Aside
+	// Featured
 	// =========================================================================
 
-	&-aside {
-		align-items: center;
-		min-height: 100vh;
+	&-featured {
+		display: block;
+		height: 100vh;
+		width: 50vw;
+
+		img,
+		source {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
 	}
 
 	// Content
 	// =========================================================================
 
 	&-content {
-		overflow-x: hidden;
 	}
 
-	// Tablet
+	// Mobile
 	// =========================================================================
 
 	@include media-mob {
 		&-content picture {
-			display: flex;
-			width: 83.33333333%;
-			margin-left: 16.66666667%;
-			padding: $gap-width 0;
+			width: 75%;
+			margin-left: 25%;
 		}
 	}
 
@@ -40,6 +46,15 @@
 	// =========================================================================
 
 	@include media-desk {
+		&-aside {
+			position: sticky;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			height: 100vh;
+			top: 0;
+		}
+
 		&-content picture {
 			display: flex;
 			width: 50vw;

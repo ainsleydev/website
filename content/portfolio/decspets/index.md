@@ -7,8 +7,8 @@ weight: 1
 company: Dec's Pets
 year: 2020
 site:
-link: https://decspets.ie
-pretty: decspets.ie
+  link: https://decspets.ie
+  pretty: decspets.ie
 role: Design & Development
 strategies: [Full brand, E-Commerce, SEO]
 technologies: [WordPress, WooCommerce, Custom Plugins (PHP)]
@@ -29,7 +29,7 @@ wider audience.
 {{< /vertical-wrapper >}}
 
 <!-- Picture 1 -->
-{{< picture src="images/shop.jpg" alt="Dec's Pets Shop" class="image image-half" >}}
+{{< picture src="images/shop.jpg" alt="Dec's Pets Shop" >}}
 
 <!-- Brief -->
 {{< vertical-wrapper text="Brief" number="01" >}}
@@ -39,7 +39,7 @@ online with ease, and more visibility for the company’s brand presence in the 
 {{< /vertical-wrapper >}}
 
 <!-- Picture 2 -->
-{{< picture src="images/shop.jpg" alt="Dec's Pets Shop" class="image image-half" >}}
+{{< picture src="images/shop.jpg" alt="Dec's Pets Shop" >}}
 
 <!-- Design -->
 {{< vertical-wrapper text="Design" number="02" >}}
@@ -50,7 +50,7 @@ watermark to create a consistent design language.
 {{< /vertical-wrapper >}}
 
 <!-- Picture 3 -->
-{{< picture src="images/mockup.jpg" alt="Dec's Pets Shop" class="image image-half" >}}
+{{< picture src="images/mockup.jpg" alt="Dec's Pets Shop" >}}
 
 <!-- Development -->
 {{< vertical-wrapper text="Develop " number="03" >}}

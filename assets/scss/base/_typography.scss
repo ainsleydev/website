@@ -79,7 +79,7 @@ h1,
 @mixin h2 {
 	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 34px, 50px);
 	margin-bottom: 1.3rem;
-	line-height: 1.3;
+	line-height: 1.2;
 	letter-spacing: $text-letter-spacing;
 }
 
@@ -192,6 +192,10 @@ small {
 
 	&-code {
 		font-family: $font-code;
+		font-weight: normal;
+	}
+
+	&-weight-normal {
 		font-weight: normal;
 	}
 }

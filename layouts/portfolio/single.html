@@ -13,7 +13,7 @@
 						<!-- Logo -->
 						<figure class="margin">
                             {{ partial "media/image.html" (dict
-                            	"image" (.Resources.GetMatch "svgs/logo.html")
+                            	"image" (.Resources.GetMatch "images/logo.svg")
                             	"alt" (printf "%s Logo" .Params.company))
                             }}
 						</figure><!-- /Log -->
@@ -38,7 +38,7 @@
 						<!-- Technologies -->
                         {{ with .Params.technologies }}
 							<div class="margin">
-								<h5 class="mb-0">Technologies:</h5>
+								<h5 class="mb-0">Technologies</h5>
 								<p>{{ delimit . ", " }}</p>
 							</div>
                         {{ end }}<!-- /Technologies -->
@@ -46,22 +46,27 @@
                         {{ with .Params.site }}
 							<div class="margin">
 								<h5 class="mb-0">Website</h5>
-								<a href="{{ .link }}" target="_blank"><p>{{ .pretty }}</p></a>
+								<a href="{{ .link }}" class="type-weight-normal" target="_blank">
+									<p>{{ .pretty }}</p>
+								</a>
 							</div>
                         {{ end }}<!-- /Website -->
 					</aside>
 				</div><!-- /Col -->
-			</div><!-- /Row -->
-		</div><!-- /Container -->
-	</section>
-	<!-- =====================
-		Content
-		===================== -->
-	<section class="portfolio-content">
-		<div class="container">
-			<div class="row justify-content-desk-end">
-				<div class="col-12 col-desk-6">
-					<article>
+				<!-- =====================
+					Content
+					===================== -->
+				<div class="col-12 col-desk-6 offset-desk-1">
+					<article class="portfolio-content">
+						<!-- Featured Image -->
+						<pictute class="portfolio-featured">
+                            {{ partial "media/picture.html" (dict
+								"image" (.Resources.GetMatch "images/featured.jpg")
+								"alt" (printf "ainsley.dev %s Mockup" .Params.company)
+								"lazy" false
+                            )}}
+						</pictute>
+						<!-- Render -->
 						{{ .Content }}
 					</article>
 				</div><!-- /Col -->
@@ -76,5 +81,31 @@
 			"text" .text
 			"cite" .person
 		)}}
+	{{- end }}
+	<!-- =====================
+		Next Project
+		===================== -->
+	{{ with .PrevInSection}}
+		<section class="section">
+		   <!-- Next Image -->
+		   <picture class="portfolio-next-image">
+
+		   </picture>
+			<!-- Link -->
+		   <div class="container">
+			   <div class="row">
+				   <div class="col-12 col-desk-4 offset-desk-8">
+						<!-- Company -->
+						{{ with .Params.company }}
+							<h6>{{ . }}</h6>
+						{{- end }}
+						<a href="{{ .Permalink }}"
+							title="Next page in {{ .Section }}">
+							Next
+						</a>
+				   </div><!-- /Col -->
+			   </div><!-- /Row -->
+		   </div><!-- /Container -->
+	   </section>
 	{{- end }}
 {{ end }}

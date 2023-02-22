@@ -104,6 +104,12 @@
 		display: none;
 	}
 
+	@include media-mob-only {
+		.vertical-number {
+			margin-left: 0;
+		}
+	}
+
 	@include media-mob {
 		// Content
 		// =========================================================================
