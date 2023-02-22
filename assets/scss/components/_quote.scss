@@ -3,7 +3,6 @@
 // This file contains all styles related to the quote component.
 // -----------------------------------------------------------------------------
 
-
 // Standard Blockquote
 // =========================================================================
 
@@ -28,23 +27,13 @@ blockquote {
 	// Line
 	// =========================================================================
 
-	&:before {
-		content: "";
+	&::before {
+		content: '';
 		position: relative;
 		display: block;
-		//height: 100%;
-		//min-height: 100px;
-		width: 4px;
+		width: $line-size-thick;
+		min-width: $line-size-thick;
 		margin-right: 2rem;
-		background-color: colour("blue");
+		background-color: colour('blue');
 	}
-}
-
-.quote {
-	$self: &;
-
-	position: relative;
-
-	// Temp
-	// =========================================================================
 }

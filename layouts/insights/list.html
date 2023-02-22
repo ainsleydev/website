@@ -1,0 +1,37 @@
+{{ define "main" }}
+	<!-- =====================
+		Insights List
+		===================== -->
+	<section class="hero hero-simple hero-simple-padding-bottom">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-12 col-tab-10">
+                    {{ with .Params.htmlTitle }}
+						<h1>{{ . | safeHTML }}</h1>
+                    {{- else -}}
+                        {{ warnf "No HTML title provided in Params for Portfolio index page" }}
+                    {{- end }}
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+	<!-- =====================
+		Items
+		===================== -->
+    {{ if .Pages -}}
+		<section class="section section-padding section-padding-bottom" id="pages">
+			<div class="container">
+				<div class="row justify-content-between">
+                    {{ range .Pages -}}
+                        {{ partial "cards/horizontal.html" (dict
+							"title" .Title
+							"permalink" .RelPermalink
+							"image" (.Resources.GetMatch .Params.featuredImage)
+							"animate" true
+                        )}}
+                    {{- end }}
+				</div><!-- /Row -->
+			</div><!-- /Container -->
+		</section>
+    {{- end }}
+{{ end }}

@@ -1,0 +1,43 @@
+// -----------------------------------------------------------------------------
+// _gradient.scss
+// This file contains all styles related to linear gradients and shades
+// -----------------------------------------------------------------------------
+
+.gradient {
+	$self: &;
+	position: relative;
+
+	// Element
+	// =========================================================================
+
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 0;
+		width: 100%;
+		background: linear-gradient(
+			180deg,
+			rgba($black, 0) 0%,
+			rgba($black, 1) 100%
+		);
+		z-index: 1;
+	}
+
+	// Size
+	// =========================================================================
+
+	@for $i from 0 through 10 {
+		&-height-#{$i * 10}:after {
+			height: $i * 10%;
+		}
+	}
+
+	// Full
+	// =========================================================================
+
+	&-full {
+		height: 100%;
+	}
+}

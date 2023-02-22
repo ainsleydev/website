@@ -1,0 +1,25 @@
+<!-- =====================
+    SCSS Files
+    ===================== -->
+{{ $css := slice }}
+{{ range $path := . }}
+    {{ $file := "" }}
+	<!-- Remote JS Files -->
+    {{ if strings.Contains . "http" -}}
+        {{- $file = resources.GetRemote $path  -}}
+	<!-- Local JS Files -->
+    {{- else -}}
+		{{ $resource := resources.Get $path }}
+		{{ if $resource }}
+			{{ $target := (printf "%s.css" (strings.TrimSuffix (path.Ext $path) $path)) | replaceRE "scss" "css" }}
+			{{ $file = $resource | toCSS (dict "targetPath" $target "enableSourceMap" true) }}
+		{{ else }}
+			{{ errorf "SCSS file: %s, not found" $path }}
+		{{ end }}
+    {{- end }}
+    {{ if ne hugo.Environment "development" -}}
+        {{ $file = $file | resources.Minify }}
+    {{ end }}
+    {{- $css = append ($file | resources.Fingerprint "sha512") $css -}}
+{{ end }}
+{{ return $css }}

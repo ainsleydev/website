@@ -1,0 +1,83 @@
+// -----------------------------------------------------------------------------
+// _brand.scss
+// This file contains all styles related to the brand pages.
+// -----------------------------------------------------------------------------
+
+@import '../abstracts/mixins';
+@import '../abstracts/variables';
+
+.brand {
+	// List (Split Section)
+	// =========================================================================
+
+	&-list {
+		color: colour('foreground');
+
+		&-description {
+			* {
+				color: colour('copy-dark');
+			}
+		}
+	}
+
+	// Box
+	// =========================================================================
+
+	&-box {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 20vh;
+		min-height: 160px;
+		max-height: 250px;
+		background: repeating-linear-gradient(45deg, transparent, transparent 18px, rgba($white, 0.1) 20px);
+		border: 2px solid $grey-light;
+
+		&-white {
+			background: $white repeating-linear-gradient(45deg, transparent, transparent 18px, rgba($black, 0.1) 20px);
+		}
+
+		&-auto-height {
+			height: auto;
+			min-height: 0;
+			max-height: none;
+		}
+
+		&-aspect {
+			width: 100%;
+			padding-top: 56.25%;
+			height: 0;
+			max-height: none;
+
+			&-item {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+
+		&-margin {
+			&-large {
+				height: $margin-large;
+			}
+
+			&-regular {
+				height: $margin;
+			}
+		}
+	}
+
+	// Mobile Down
+	// =========================================================================
+
+	@include media-tab-down {
+		&-list-description {
+			p {
+				margin-bottom: 10px;
+			}
+		}
+	}
+}

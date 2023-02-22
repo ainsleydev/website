@@ -5,13 +5,13 @@
 
 code {
 	$self: &;
-
 	padding: 0.2em 0.4em;
 	font-family: $font-code;
-	color: colour("background");
+	color: var(--code-colour);
 	margin: 0;
-	font-size: 0.8rem;
+	font-size: 13px;
 	white-space: nowrap;
-	background-color: colour("foreground");
+	background-color: var(--code-background-colour);
 	border-radius: 4px;
+	line-height: 1.5;
 }

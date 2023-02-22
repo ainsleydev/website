@@ -3,6 +3,8 @@
 // This file contains all variables for use with scss files.
 // -----------------------------------------------------------------------------
 
+@use 'sass:color';
+
 // Grid
 // ==========================================================================
 
@@ -19,25 +21,26 @@ $grid-breakpoint-hd: 1600;
 
 // Properties for grid
 $grid-properties: (
-	"": 0,
-	"-mob": $grid-breakpoint-mob,
-	"-tab": $grid-breakpoint-tab,
-	"-desk": $grid-breakpoint-desk,
-	"-desk-large": $grid-breakpoint-desk-large,
-	"-hd": $grid-breakpoint-hd
+	'': 0,
+	'-mob': $grid-breakpoint-mob,
+	'-tab': $grid-breakpoint-tab,
+	'-desk': $grid-breakpoint-desk,
+	'-desk-large': $grid-breakpoint-desk-large,
+	'-hd': $grid-breakpoint-hd,
 );
 
 // Container
-$container-max-width: 1450px;
-$container-padding-x: 5vw;
+$container-max-width: 1600px;
+$container-padding-x: 7vw;
 
 // Fonts
 // ==========================================================================
 
-$font: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$font-serif: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
-$font-code: "JetBrains Mono", Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-$font-path: "/fonts/";
+$font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+	'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+$font-serif: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
+$font-code: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+$font-path: '/fonts/';
 
 // Display
 // ==========================================================================
@@ -48,16 +51,18 @@ $display-properties: (none, inline, inline-block, block, flex, inline-flex, tabl
 // ==========================================================================
 
 $white: #ffffff;
-$black: #0A0A0A;
-$orange: #FF5043;
-$blue: #70CBCE;
+$black: #0a0a0a;
+$orange: #ff5043;
+$blue: #70cbce;
 $copy: $black;
-$copy-dark-bg: #9A9A9A; // Fossil
+$copy-dark-bg: #9a9a9a; // Fossil
 $copy-light-bg: #595959; // Iron
-$grey-dark: #0F0F0F; // Onyx
+$grey-dark: #0f0f0f; // Onyx
 $grey-light: #171717;
-$off-white: #F2F2F2; // White smoke
-$mark: rgba($white, 0.15);
+$off-white: #f2f2f2; // White smoke
+$alpha-standard: 0.15;
+$alpha-light: 0.1;
+$mark: rgba($white, $alpha-standard);
 
 // Color palette
 $palette: (
@@ -72,25 +77,23 @@ $palette: (
 
 // Color attributes
 $color-attr: (
-	c: "color",
-	bg: "background-color"
+	c: 'color',
+	bg: 'background-color',
 );
 
 // Sections
 // =========================================================================
 
-$section-padding: (
-	mob: 80px,
-	tab: 120px,
-	desk: 160px,
-	desk-large: 160px,
-	hd: 200px
-);
-$section-padding-divider: 3;
+$section-padding: clamp(80px, 20vw, 200px);
+$section-padding-small: clamp(40px, 5vw, 140px);
+$section-padding-large: clamp(120px, 30vw, 240px);
 
 // Spacing
 // ==========================================================================
 
+$margin: 1.8rem;
+$margin-small: 1rem;
+$margin-large: 3rem;
 $spacing-properties: (
 	0: 0,
 );
@@ -103,6 +106,7 @@ $header-padding-x-mob: $container-padding-x;
 $header-padding-x-desk: 30px;
 $header-logo-size: 115px;
 $header-background-opacity: 0.6;
+$header-z-index: 99999;
 
 // Nav
 // =========================================================================
@@ -113,32 +117,51 @@ $nav-padding-desktop: 4rem 6rem;
 // Text
 // ==========================================================================
 
-$text-fluid-start-size: 300px;
-$text-fluid-end-size: 1408px;
+$text-fluid-start-size: 400px;
+$text-fluid-end-size: $container-max-width;
+$text-paragraph-size: 1.1rem;
 $text-lead-size: 1.2rem;
-$text-wrapper-small-diff: 0.5rem;
-$text-wrapper-large-diff: 1rem;
-$text-margin-properties: (
-	"": 1.2rem,
-	"-mob": 1.2rem,
-	"-tab": 1.4rem,
-	"-desk": 1.6rem,
-	"-desk-large": 1.8rem,
-	"-hd": 2rem,
-);
+$text-letter-spacing: -1px;
+
+// Accordion
+// ==========================================================================
+
+$accordion-height-transition: 0.5s;
+$accordion-arrow-size: 21px;
+$accordion-hover-colour: colour('orange');
+
+// A Symbol
+// ==========================================================================
+
+$a-symbol-clip-left: -22%;
+$a-symbol-clip-right: 22%;
 
 // Button
 // ==========================================================================
 
 $button-padding: 1rem 1.9rem;
+$button-padding-small: 0.8rem 1.6rem;
 $button-transition-time: 200ms;
 $button-arrow-size: 20px;
+
+// Line
+// ==========================================================================
+
+$line-size: 2px;
+$line-size-medium: 3px;
+$line-size-thick: 4px;
 
 // Highlight
 // ==========================================================================
 
 $highlight-bg-colour: lighten($white, 0.1);
 $highlight-padding: 10px;
+
+// Table
+// ==========================================================================
+
+$table-border-width: 1.6px;
+$table-padding: 0.6rem 0.9rem;
 
 // Root
 // ==========================================================================
@@ -154,15 +177,55 @@ $highlight-padding: 10px;
 	--colour-copy: #{$copy};
 	--colour-copy-dark: #{$copy-dark-bg};
 	--colour-copy-light: #{$copy-light-bg};
-	--colour-mark: rgba(#{$black}, 0.15);
-	// Type
-	--text-margin-mob: #{map-get($text-margin-properties, "-mob")};
-	--text-margin-tab: #{map-get($text-margin-properties, "-mob")};
-	--text-margin-desk: #{map-get($text-margin-properties, "-mob")};
-	--text-margin-desk-large: #{map-get($text-margin-properties, "-mob")};
-	--text-margin-hd: #{map-get($text-margin-properties, "-mob")};
-	--text-margin-small-diff: #{$text-wrapper-small-diff};
-	--text-margin-large-diff: #{$text-wrapper-large-diff};
+	--colour-paragraph: #{$copy-dark-bg};
+	--colour-list: #{$white};
+
+	// A Symbol
+	--a-symbol-clip-left: #{$a-symbol-clip-left};
+	--a-symbol-clip-right: #{$a-symbol-clip-right};
+
+	// Code
+	--code-colour: #{$black};
+	--code-background-colour: #{$white};
+
+	// Opacity
+	--alpha-standard: #{$alpha-standard};
+	--alpha-light: #{$alpha-light};
+
+	// Spacing
+	--margin: #{$margin};
+	--margin-small: #{$margin-small};
+	--margin-large: #{$margin-large};
+
 	// Links
 	--link-hover-colour: #{$blue};
+
+	// Table
+	--table-border-colour: #2b2b2b;
+	--table-cell-colour: #{$copy-dark-bg};
+	--table-stripe-colour: #{$grey-dark};
+
+	.theme-white {
+		background-color: #{$white};
+
+		// Colour
+		--colour-background: #{$white};
+		--colour-foreground: #{$black};
+		--colour-paragraph: #{$copy-light-bg};
+		--colour-list: #{$copy-light-bg};
+
+		// Code
+		--code-colour: #{$black};
+		--code-background-colour: #e1e1e1;
+
+		// Table
+		--table-border-colour: #dddddd;
+		--table-cell-colour: #{$copy-light-bg};
+		--table-stripe-colour: #{$off-white};
+
+		strong,
+		b {
+			color: $black;
+		}
+	}
 }

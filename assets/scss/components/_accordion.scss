@@ -1,11 +1,10 @@
 // -----------------------------------------------------------------------------
 // _accordion.scss
-// This file contains all styles related to the tag component.
+// This file contains all styles related to the accordion component.
 // -----------------------------------------------------------------------------
 
 .accordion {
 	$self: &;
-
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -17,32 +16,52 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding-left: 1rem;
-		padding-right: 1rem;
 		cursor: pointer;
 		position: relative;
 		border-bottom: 1px solid $mark;
 		outline: none;
 
 		::marker {
-			content: "";
+			content: '';
 			display: none;
 		}
 
-		&:after {
-			content: "";
+		&::after {
+			content: '';
+		}
+
+		&-active #{$self}-header:after {
+			transform: rotate(-135deg);
 		}
 	}
 
-	// Title
+	// Header
 	// =========================================================================
 
-	&-title {
-		user-select: none;
+	&-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 		padding: 1.2rem 0;
+		user-select: none;
+		outline: none;
 
 		* {
 			margin-bottom: 0;
+		}
+
+		&::after {
+			content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3e%3cpath d='M17.941%2c0V13.433H16.449V2.546L1.055%2c17.91%2c0%2c16.853%2c15.391%2c1.492H4.475V0Z' transform='translate(17.91) rotate(90)' fill='%239a9a9a'/%3e%3c/svg%3e");
+			display: block;
+			width: $accordion-arrow-size;
+			height: $accordion-arrow-size;
+			max-width: $accordion-arrow-size;
+			max-height: $accordion-arrow-size;
+			margin-left: 1.6rem;
+			transform-origin: 50% 50%;
+			transition: transform 200ms ease;
+			will-change: transform;
+			transform-style: preserve-3d;
 		}
 	}
 
@@ -52,17 +71,23 @@
 	&-content {
 		display: block;
 		max-height: 0;
-		transition: 0.5s;
+		transition: $accordion-height-transition;
 		will-change: max-height;
 		overflow: hidden;
-
-		* {
-			font-size: 1rem;
-		}
 
 		p:last-child {
 			margin-bottom: 0;
 			padding-bottom: 1.2rem;
+		}
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-tab {
+		&-item {
+			padding-left: 1rem;
+			padding-right: 1rem;
 		}
 	}
 }

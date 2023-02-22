@@ -1,13 +1,16 @@
 ---
 title: Components
+description: Discover ainsley.dev Component Guidelines.
+draft: false
 weight: 7
 featuredImage: images/featured.svg
+footerNoPadding: true
 ---
 
 <!-- =====================
 	Components
 	===================== -->
-<div class="text-wrapper">
+<div class="margin-large">
 	<h3>Components</h3>
 	<p>
 		This selection of components makes up the ainsley.dev brand and are the building blocks of any material or site
@@ -17,9 +20,9 @@ featuredImage: images/featured.svg
 <!-- =====================
 	Buttons
 	===================== -->
-<div class="text-wrapper-large">
+<div class="margin-large">
 	<!-- Content -->
-	<div class="text-wrapper">
+	<div class="margin">
 		<h3>Buttons</h3>
 		<p>
 			Buttons should appear with an arrow next to them. If placed on a dark background, a white button should be
@@ -28,7 +31,7 @@ featuredImage: images/featured.svg
 	</div><!-- /Row -->
 	<!-- Buttons -->
 	<div class="row">
-		<div class="col-12 col-tab-6 text-wrapper mb-tab-0">
+		<div class="col-12 col-tab-6 margin mb-tab-0">
 			<div class="brand-box">
 				{{< partial template="components/button.html" text="A button" arrow=true >}}
 			</div>
@@ -43,9 +46,9 @@ featuredImage: images/featured.svg
 <!-- =====================
 	Tags
 	===================== -->
-<div class="text-wrapper-large">
+<div class="margin-large">
 	<!-- Content -->
-	<div class="text-wrapper">
+	<div class="margin">
 		<h3>Tags</h3>
 		<p>
 			Small tags are used for categorising content for blog posts and articles. As with buttons, they should be
@@ -54,7 +57,7 @@ featuredImage: images/featured.svg
 	</div><!-- /Row -->
 	<!-- Tags -->
 	<div class="row">
-		<div class="col-12 col-tab-6 text-wrapper mb-tab-0">
+		<div class="col-12 col-tab-6 margin mb-tab-0">
 			<div class="brand-box">
 				<span class="tag">SEO</span>
 				<span class="tag">Javascript</span>
@@ -73,9 +76,9 @@ featuredImage: images/featured.svg
 <!-- =====================
 	Arrow
 	===================== -->
-<div class="text-wrapper-large">
+<div class="margin-large">
 	<!-- Content -->
-	<div class="text-wrapper">
+	<div class="margin">
 		<h3>Arrow</h3>
 		<p>
 			Using the ainsley.dev arrow can be a convenient way to navigate the user to additional content that’s not on
@@ -84,89 +87,106 @@ featuredImage: images/featured.svg
 	</div><!-- /Row -->
 	<!-- Arrow -->
 	<div class="row">
-		<div class="col-12 col-tab-6 text-wrapper mb-tab-0">
+		<div class="col-12 col-tab-6 margin mb-tab-0">
 			<div class="brand-box">
-
+				{{< partial template="type/arrow-link.html" link="/brand/components/" text="Full article" rotation=45 >}}
 			</div>
 		</div><!-- /Col -->
 	</div><!-- /Row -->
 </div><!-- /Arrow -->
 <!-- =====================
 	FAQs
-	TODO: This will be a partial
 	===================== -->
-<div class="text-wrapper-large">
+<div class="margin-large">
 	<!-- Content -->
-	<div class="text-wrapper">
+	<div class="margin">
 		<h3>FAQs</h3>
 		<p>
 			Questions and answers should be placed in an accordion alongside the ainsley.dev arrow.
 		</p>
 	</div><!-- /Row -->
 	<!-- Accordion -->
-	<div class="accordion">
-		<!-- Accordion Item -->
-		<details class="accordion-item" open>
-			<summary class="accordion-title">
-				<h5>I’m baby umami pickled narwhal woke food truck tilde?</h5>
-			</summary>
-			<div class="accordion-content">
-				<p>
-					I’m baby umami pickled narwhal woke food truck tilde gastropub polaroid forage. Chicharrones kickstarter
-					hell of, narwhal craft beer XOXO literally gluten-free. ruffaut hella live-edge squid, ramps pickled
-					dreamcatcher.
-				</p>
-			</div>
-		</details><!-- /Accordion Item -->
-		<!-- Accordion Item -->
-		<details class="accordion-item" open>
-			<summary class="accordion-title">
-				<h5>I’m baby umami pickled narwhal woke food truck tilde?</h5>
-			</summary>
-			<div class="accordion-content">
-				<p>
-					I’m baby umami pickled narwhal woke food truck tilde gastropub polaroid forage. Chicharrones kickstarter
-					hell of, narwhal craft beer XOXO literally gluten-free. ruffaut hella live-edge squid, ramps pickled
-					dreamcatcher.
-				</p>
-			</div>
-		</details><!-- /Accordion Item -->
-		<!-- Accordion Item -->
-		<details class="accordion-item" open>
-			<summary class="accordion-title">
-				<h5>I’m baby umami pickled narwhal woke food truck tilde?</h5>
-			</summary>
-			<div class="accordion-content">
-				<p>
-					I’m baby umami pickled narwhal woke food truck tilde gastropub polaroid forage. Chicharrones kickstarter
-					hell of, narwhal craft beer XOXO literally gluten-free. ruffaut hella live-edge squid, ramps pickled
-					dreamcatcher.
-				</p>
-			</div>
-		</details><!-- /Accordion Item -->
-	</div>
+	{{< accordion/wrapper >}}
+		{{< accordion/item title="How do you price a project?" >}}
+			I’m baby umami pickled narwhal woke food truck tilde gastropub polaroid forage. Chicharrones kickstarter hell of, narwhal craft beer XOXO literally gluten-free. ruffaut hella live-edge squid, ramps pickled dreamcatcher.
+		{{< /accordion/item >}}
+		{{< accordion/item title="I’m baby umami pickled narwhal woke food truck tilde?" >}}
+			I’m baby umami pickled narwhal woke food truck tilde gastropub polaroid forage. Chicharrones kickstarter hell of, narwhal craft beer XOXO literally gluten-free. ruffaut hella live-edge squid, ramps pickled dreamcatcher.
+		{{< /accordion/item >}}
+		{{< accordion/item title="I’m baby umami pickled narwhal woke food truck tilde?" >}}
+			I’m baby umami pickled narwhal woke food truck tilde gastropub polaroid forage. Chicharrones kickstarter hell of, narwhal craft beer XOXO literally gluten-free. ruffaut hella live-edge squid, ramps pickled dreamcatcher.
+		{{< /accordion/item >}}
+	{{< /accordion/wrapper >}}
 </div><!-- /FAQs -->
 <!-- =====================
 	Cards
 	===================== -->
-<div class="text-wrapper-large">
+<div class="margin-large">
 	<!-- Content -->
-	<div class="text-wrapper">
+	<div class="margin">
 		<h3>Cards</h3>
 		<p>
 			Used to display custom types and rich pieces of content.
 		</p>
 	</div><!-- /Row -->
+	<!-- Portrait -->
+	<h4>Portrait</h4>
+	<div class="row">
+		<div class="col-12 col-mob-6 col-tab-6 col-desk-5 card-col">
+			<div class="card card-half-margin card-hover">
+				<picture class="card-image">
+					<img src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=pexels-pixabay-45201.jpg&fm=jpg" alt="">
+				</picture>
+				<picture class="card-image card-image-clip">
+					<img src="https://cdn.shopify.com/s/files/1/0306/4253/6586/products/the-baron-custom-vintage-pet-portrait-324790_650x.jpg?v=1656938221" alt="">
+				</picture>
+				<div class="card-text">
+					<h6 class="card-text-sub">Hipstur Ipsum</h6>
+					<h3 class="card-text-title">I’m baby umami pickled narwhal woke</h3>
+				</div>
+			</div>
+		</div>
+		<div class="col-12 col-mob-6 col-tab-6 col-desk-5 card-col">
+			<div class="card card-half-margin">
+				<picture class="card-image">
+					<img src="https://cdn.shopify.com/s/files/1/0306/4253/6586/products/the-baron-custom-vintage-pet-portrait-324790_650x.jpg?v=1656938221" alt="">
+				</picture>
+				<div class="card-text">
+					<h6 class="card-text-sub">Hipstur Ipsum</h6>
+					<h3 class="card-text-title">I’m baby umami pickled narwhal woke</h3>
+				</div>
+			</div>
+		</div>
+	</div>
 </div><!-- /Cards -->
 <!-- =====================
 	Margin
 	===================== -->
-<div class="text-wrapper-large">
+<div class="margin-none">
 	<!-- Content -->
-	<div class="text-wrapper">
+	<div class="margin">
 		<h3>Margin</h3>
 		<p>
 			Defines the amount of space between sections, components and text on the y axis.
 		</p>
+	</div><!-- /Row -->
+	<!-- Arrow -->
+	<div class="row">
+		<div class="col-12">
+			<!-- Section -->
+			<div class="brand-box brand-box-auto-height margin">
+				<div class="section-padding">
+					<p class="c-white">Section padding</p>
+				</div>
+			</div>
+			<!-- Large -->
+			<div class="brand-box brand-box-auto-height brand-box-margin-large margin">
+				<p class="c-white">Margin large</p>
+			</div>
+			<!-- Regular -->
+			<div class="brand-box brand-box-auto-height brand-box-margin-regular">
+				<p class="c-white mb-0">Margin regular</p>
+			</div>
+		</div><!-- /Col -->
 	</div><!-- /Row -->
 </div><!-- /Margin -->

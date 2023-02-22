@@ -1,0 +1,114 @@
+---
+title: Get in touch
+description: Get in touch with ainsley.dev to capture your vision and values, so we can help you build a vibrant brand identity.
+draft: false
+pageColour: white
+scripts:
+- js/pages/contact.ts
+---
+
+<!-- =====================
+	Contact
+    ===================== -->
+<section class="hero hero-simple hero-simple-padding-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-desk-7">
+				<h1 class="mb-0">
+					Let’s capture <span class="type-serif">your vision*</span> and values, so we can help you <u>build a
+						vibrant</u> brand identity
+				</h1>
+			</div><!-- /Col -->
+		</div><!-- /Row -->
+	</div><!-- /Container -->
+</section>
+<!-- =====================
+	Form
+    ===================== -->
+<section class="section contact section-padding section-padding-bottom">
+	<div class="container">
+		<div class="row">
+			<!-- Form -->
+			<div class="col-12 col-desk-8 order-desk-last">
+				<form action="" class="form contact-form">
+					<div class="form-wrapper">
+						<!-- Message -->
+						<fieldset class="form-group">
+							<label class="form-label">
+								<textarea class="form-input form-textarea" rows="6"
+										  name="message">Hey ainsley.dev...</textarea>
+							</label>
+						</fieldset>
+						<!-- Message -->
+						<span class="tag tag-black form-message ml-0">Include your email in the message</span>
+					</div>
+					<!-- Submit -->
+					<button class="form-submit" type="submit" id="ac-contact">
+						{{< partial template="type/arrow-link.html" link="/brand" text="Let's go" colour="black" rotation=45 >}}
+					</button>
+				</form>
+			</div><!-- /Col -->
+			<!-- Contact -->
+			<div class="col-12 col-desk-4">
+				<aside class="contact-aside section-padding-small">
+					<!-- Email -->
+					<div class="contact-aside-item margin-large">
+						<h6>Email us</h6>
+						<a href="mailto:{{< param "contact.email" >}}"
+							title="Email ainsley.dev" aria-label="Email ainsley.dev">
+						<h5>{{< param "contact.email" >}}</h5>
+						</a>
+					</div>
+					<!-- Phone -->
+					<div class="contact-aside-item margin-large">
+						<h6>Chat with us</h6>
+						<a href="tel:{{< param "contact.phone.link" >}}"
+							title="Phone ainsley.dev" aria-label="Phone ainsley.dev">
+						<h5>{{< param "contact.phone.pretty" >}}</h5>
+						</a>
+					</div>
+					<!-- Social -->
+					<div class="contact-aside-item">
+						<h6>Connect with us</h6>
+						{{< partial template="components/social.html" >}}
+					</div>
+				</aside>
+			</div><!-- /Col -->
+		</div><!-- /Row -->
+	</div><!-- /Container -->
+</section>
+<!-- =====================
+    Map
+    ===================== -->
+<section class="section map-wrapper">
+	<!-- Content -->
+	<div class="container map-container">
+		<div class="row">
+			<div class="col-12">
+				<!-- Info -->
+				<div class="map-info section-padding-small">
+					<!-- Address -->
+					<div class="margin">
+						<h6>Write to us</h6>
+						<address>
+							<h5>
+								ainsley.dev<br/>
+								71-75 Shelton Street<br/>
+								Covent Garden<br/>
+								London<br/>
+								WC2H 9JQ
+							</h5>
+						</address>
+					</div>
+					<!-- Directions -->
+					<a href="{{< param "contact.map" >}}" class="map-info-link" target="_blank"
+					title="Get Directions to ainsley.dev"
+					aria-label="Navigate to a link containing directions to ainsley.dev">Get
+					directions</a>
+				</div><!-- /Info -->
+			</div><!-- /Col -->
+		</div><!-- /Row -->
+	</div><!-- /Container -->
+	<!-- Google Map -->
+	<div class="map"></div>
+</section>

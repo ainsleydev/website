@@ -6,34 +6,33 @@
  * @author Email: hello@ainsley.dev
  */
 
-import {Log} from "../util/log";
+import { Log } from '../util/log';
 
 /**
  * Cursor is responsible for adding and removing
  * classes when an event has been triggered.
  */
 export class Cursor {
-
 	/**
 	 * The DOM selector for the element.
 	 *
 	 * @public
 	 */
-	public readonly selector = ".cursor"
+	public readonly selector = '.cursor';
 
 	/**
 	 * The DOM selector for the cursor.
 	 *
 	 * @public
 	 */
-	public readonly elementSelector = ".cursor-element"
+	public readonly elementSelector = '.cursor-element';
 
 	/**
 	 * The cursor HTML element.
 	 *
 	 * @private
 	 */
-	private el: HTMLDivElement
+	private el: HTMLDivElement;
 
 	/**
 	 * Initialises the cursor element.
@@ -48,8 +47,9 @@ export class Cursor {
 		}
 		this.el = el as HTMLDivElement;
 		this.attachMouseMove();
-		document.querySelectorAll<HTMLElement>(this.elementSelector)
-			.forEach(el => this.attachElementHandlers(el));
+		document
+			.querySelectorAll<HTMLElement>(this.elementSelector)
+			.forEach((el) => this.attachElementHandlers(el));
 	}
 
 	/**
@@ -59,7 +59,7 @@ export class Cursor {
 	 * @private
 	 */
 	private attachMouseMove(): void {
-		document.addEventListener('mousemove', e => {
+		document.addEventListener('mousemove', (e) => {
 			this.el.style.left = e.clientX + 'px';
 			this.el.style.top = e.clientY + 'px';
 		});
@@ -72,20 +72,25 @@ export class Cursor {
 	 * @private
 	 */
 	private attachElementHandlers(el: HTMLElement): void {
-		// @ts-ignore
-		const classes = el.getAttributeNames().filter(a => a.startsWith("data-cursor"));
+		const classes = el
+			.getAttributeNames()
+			.filter((a) => a.startsWith('data-cursor'));
 
-		el.addEventListener("mousemove", () => classes.forEach(c => {
-			this.addScale(el);
-			this.el.classList.add("cursor-active");
-			this.el.classList.add(c.replace("data-", ""));
-		}));
+		el.addEventListener('mousemove', () =>
+			classes.forEach((c) => {
+				this.addScale(el);
+				this.el.classList.add('cursor-active');
+				this.el.classList.add(c.replace('data-', ''));
+			}),
+		);
 
-		el.addEventListener("mouseleave", () => classes.forEach(c => {
-			this.removeScale(el);
-			this.el.classList.remove("cursor-active");
-			this.el.classList.remove(c.replace("data-", ""));
-		}));
+		el.addEventListener('mouseleave', () =>
+			classes.forEach((c) => {
+				this.removeScale();
+				this.el.classList.remove('cursor-active');
+				this.el.classList.remove(c.replace('data-', ''));
+			}),
+		);
 	}
 
 	/**
@@ -96,17 +101,16 @@ export class Cursor {
 	 * @private
 	 */
 	private addScale(el: HTMLElement): void {
-		let scale = el.getAttribute("data-cursor-scale") ?? "1.5";
+		const scale = el.getAttribute('data-cursor-scale') ?? '1.5';
 		this.el.style.transform = `translate(-50%, -50%) scale(${scale})`;
 	}
 
 	/**
 	 * Removes the scale when the mouse is out.
 	 *
-	 * @param el
 	 * @private
 	 */
-	private removeScale(el: HTMLElement): void {
-		this.el.style.transform = `translate(-50%, -50%)`;
+	private removeScale(): void {
+		this.el.style.transform = `translate(-50%, -50%) scale(0)`;
 	}
 }

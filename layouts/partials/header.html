@@ -4,7 +4,7 @@
 <header class="header header-colour-{{ .colour }}">
 	<!-- Logo -->
 	<a href="/" class="header-logo" aria-label="Navigate to the homepage">
-        {{- partial "images/logo.html" -}}
+        {{- partial "svgs/logo.html" -}}
 	</a>
 	<!-- Hamburger -->
 	<input class="nav-checkbox" type="checkbox" id="nav-check" aria-hidden="true" />
@@ -12,7 +12,10 @@
 	<label class="nav-btn" for="nav-check">
 		<h6 class="nav-btn-text">Menu</h6>
 		<figure class="nav-btn-arrow">
-            {{- partial "images/arrow.html" (dict "rotation" 45 "colour" "white") -}}
+            {{ partial "svgs/arrow.html" (dict
+				"rotation" 45
+				"colour" "white"
+			)}}
 		</figure>
 	</label>
 	<!-- Navigation -->

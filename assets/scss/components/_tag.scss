@@ -5,7 +5,6 @@
 
 .tag {
 	$self: &;
-
 	position: relative;
 	display: inline-flex;
 	margin: 0 4px;
@@ -23,5 +22,9 @@
 	&-black {
 		background-color: $grey-dark;
 		color: $white;
+	}
+
+	&-white {
+		background-color: $white;
 	}
 }

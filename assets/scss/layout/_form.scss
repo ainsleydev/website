@@ -5,11 +5,24 @@
 
 .form {
 	$self: &;
+	position: relative;
+	display: block;
 
-	// Container
+	// Wrapper
 	// =========================================================================
 
-	&-cont {
+	&-wrapper {
+		padding: 2rem;
+		background-color: $off-white;
+		border-radius: 8px;
+		margin-bottom: $margin-large;
+	}
+
+	// Group (Fieldset)
+	// =========================================================================
+
+	&-group {
+		margin-bottom: 2rem;
 	}
 
 	// Input
@@ -18,11 +31,59 @@
 	&-input {
 		position: relative;
 		width: 100%;
-		border: 0;
-		outline: none;
+		@include h2; /* stylelint-disable-line at-rule-empty-line-before */
+		margin: 0;
+		padding: 0;
+		border: none;
 		color: $copy;
+		background-color: transparent;
+		line-height: 1.2;
+		font-weight: bold;
+		font-family: $font;
+		outline: none;
+		resize: vertical;
 		-webkit-appearance: none;
 		appearance: none;
+	}
+
+	// Label
+	// =========================================================================
+
+	&-label {
+		display: flex;
+		width: 100%;
+	}
+
+	// Submit
+	// =========================================================================
+
+	&-submit {
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+		background-color: transparent;
+	}
+
+	// Error
+	// =========================================================================
+
+	&-error {
+		#{$self}-number {
+			color: $orange;
+		}
+
+		#{$self}-input {
+			border-bottom-color: $orange;
+		}
+	}
+
+	// Success
+	// =========================================================================
+
+	&-success {
+		#{$self}-input {
+			border-bottom-color: $blue;
+		}
 	}
 
 	// Autocomplete
@@ -39,30 +100,27 @@
 	// =========================================================================
 
 	::placeholder {
-		/* Chrome, Firefox, Opera, Safari 10.1+ */
+		// Chrome, Firefox, Opera, Safari 10.1+
 		color: $copy;
 		opacity: 1; /* Firefox */
 	}
 
 	:-ms-input-placeholder {
-		/* Internet Explorer 10-11 */
+		// Internet Explorer 10-11
 		color: $copy;
 	}
 
 	::-ms-input-placeholder {
-		/* Microsoft Edge */
+		// Microsoft Edge
 		color: $copy;
-	}
-
-	// Tablet
-	// =========================================================================
-
-	@include media-tab {
 	}
 
 	// Desktop
 	// =========================================================================
 
 	@include media-desk {
+		&-wrapper {
+			padding: 3rem;
+		}
 	}
 }

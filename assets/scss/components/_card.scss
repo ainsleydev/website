@@ -5,21 +5,39 @@
 
 .card {
 	$self: &;
-
 	position: relative;
 	display: block;
 	text-decoration: none;
 	margin-bottom: 3.75rem;
 	user-select: none;
 
+	// Col
+	// =========================================================================
+
+	&-col {
+		position: relative;
+
+		&.col-12:last-child #{$self} {
+			margin-bottom: 0;
+		}
+	}
+
 	// Image
 	// =========================================================================
 
 	&-image {
+		position: relative;
+		display: block;
 
 		img {
+			position: absolute;
 			width: 100%;
 			height: 100%;
+			top: 0;
+			bottom: auto;
+			left: 0;
+			right: auto;
+			object-fit: cover;
 		}
 	}
 
@@ -27,10 +45,23 @@
 	// =========================================================================
 
 	&-text {
+		margin-top: 2rem;
 
 		* {
-			margin-bottom: 0;
 			text-decoration: none;
+		}
+
+		&-title {
+			margin-bottom: 0;
+		}
+	}
+
+	// Vertical
+	// =========================================================================
+
+	&-vertical {
+		#{$self}-image {
+			padding-top: 135%;
 		}
 	}
 
@@ -38,16 +69,17 @@
 	// =========================================================================
 
 	&-horizontal {
-
+		#{$self}-image {
+			padding-top: 65%;
+		}
 	}
 
 	// Tablet
 	// =========================================================================
 
 	@include media-mob {
-
 		&-col:nth-child(even) #{$self}-half-margin {
-			margin-top: 30%;
+			margin-top: $section-padding-large;
 		}
 
 		&-half-margin {
@@ -55,10 +87,24 @@
 		}
 	}
 
-	// Desktop
-	// =========================================================================
+	&-hover {
+		#{$self}-image {
+			display: block;
 
-	@include media-desk {
+			img {
+				object-fit: cover;
+			}
+		}
 
+		#{$self}-image-clip {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			opacity: 0;
+			z-index: 10;
+			transition: opacity 300ms ease;
+		}
 	}
 }

@@ -1,6 +1,6 @@
 {{ define "main" }}
 	<!-- =====================
-		Brand Archive
+		Brand List
 		===================== -->
 	<section class="hero hero-full-height">
 		<!-- Background -->
@@ -22,29 +22,55 @@
 					<!-- Text -->
 					<div class="hero-text-large">
 						<!-- Heading -->
-						<div class="text-wrapper-large">
-							<h1>ainsley.dev <span class="type-serif">brand <br/>guidelines*</span></h1>
+						<div class="margin-large">
+                            {{ with .Params.htmlTitle }}
+								<h1>{{ . | safeHTML }}</h1>
+                            {{- else -}}
+                                {{ warnf "No HTML title provided in Params for Brand index page" }}
+                            {{- end }}
 						</div>
 						<!-- Button -->
-                        {{ partial "components/button.html" (dict "text" "Download Pack" "button" "files.zip" "arrow" true "colour" "white") }}
+                        {{ partial "components/button.html" (dict
+							"text" "Download Pack"
+							"link" (.Resources.GetMatch "brand-pack.zip").RelPermalink
+                        	"colour" "white"
+							"size" "small"
+							"arrow" true
+                        	"title" "Download Brand Pack"
+						)}}
 					</div><!-- /Text -->
 					<!-- Arrow -->
-					<a href="{{ .Page.Permalink }}#pages" class="hero-arrow">
-                        {{ partial "images/arrow.html" (dict "colour" "white" "rotation" "135") }}
-					</a><!-- /Arrow -->
+                    {{ partial "type/arrow-link.html" (dict
+						"link" (printf "%s#content" .Page.Permalink)
+						"rotation" 135
+						"title" "Explore ainsley.dev Brand Guidelines"
+						"down" true
+                    )}}<!-- /Arrow -->
 				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
 	</section>
 	<!-- =====================
-		Pages
+		Items
 		===================== -->
     {{ if .Pages -}}
-		<section class="section" id="pages">
+		<section class="section section-padding section-padding-bottom" id="pages">
 			<div class="container">
 				<div class="row justify-content-between">
-                    {{ range .Pages -}}
-						{{ partial "cards/horizontal.html" (dict "title" .Title "permalink" .RelPermalink "image" (.Resources.GetMatch .Params.featuredImage) "animate" true) }}
+                    {{ range $index, $page := .Pages }}
+                        {{ $isLeft := eq (mod $index 2) 0 }}
+						<div class="col-12 col-mob-6 col-desk-5 card-col">
+							<div class="row {{ if not $isLeft }} justify-content-end {{- end }}">
+								<div class="col-12 col-tab-11 col-desk-12">
+									{{ partial "cards/horizontal.html" (dict
+										"title" .Title
+										"permalink" .RelPermalink
+										"image" (.Resources.GetMatch .Params.featuredImage)
+										"animate" true
+									)}}
+								</div><!-- /Col -->
+							</div><!-- /Row -->
+						</div><!-- /Col -->
                     {{- end }}
 				</div><!-- /Row -->
 			</div><!-- /Container -->

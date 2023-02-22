@@ -5,13 +5,12 @@
 
 .highlight {
 	$self: &;
-
 	padding-left: $highlight-padding;
 	padding-right: $highlight-padding;
 	background-color: $highlight-bg-colour;
 	border-radius: 4px;
 	overflow: hidden;
-	border: 1px solid rgba($black, 0.10);
+	border: 1px solid rgba($black, 0.1);
 
 	// Props
 	// =========================================================================
@@ -44,9 +43,18 @@
 
 	code {
 		font-family: $font-code;
-		font-size: 0.95rem;
+		font-size: 14px;
 		padding: 0;
 		border-radius: 0;
 		white-space: break-spaces;
+	}
+
+	// Rule
+	// =========================================================================
+
+	.line {
+		opacity: 1;
+		margin: 0;
+		border: none;
 	}
 }

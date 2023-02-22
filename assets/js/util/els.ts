@@ -11,23 +11,22 @@
  * the website.
  */
 export class Elements {
-
 	/**
 	 * The header element.
 	 */
-	public static Header: HTMLElement
+	public static Header: HTMLElement;
 
 	/**
 	 * The navigation element.
 	 */
-	public static Nav: HTMLElement
+	public static Nav: HTMLElement;
 
 	/**
 	 * Initialise sets up the Elements.
 	 */
 	public static _initialize() {
-		this.Header = <HTMLElement>document.querySelector(".header")
-		this.Nav = <HTMLElement>document.querySelector(".nav")
+		this.Header = <HTMLElement>document.querySelector('.header');
+		this.Nav = <HTMLElement>document.querySelector('.nav');
 	}
 }
 

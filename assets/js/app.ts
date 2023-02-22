@@ -1,17 +1,19 @@
 /**
  * app.js
- * All custom JS for theme stored here.
+ * All custom JS for application stored here.
+ *
  * @author Ainsley Clark
  * @author URL:   https://www.ainsleyclark.com
  * @author Email: info@ainsleyclark.com
  */
 
-import scripts from "./scripts/polyfills";
-import LazyLoad from 'vanilla-lazyload';
-import { Cursor } from "./animations/cursor";
-import { Skew } from "./animations/skew";
-import { FitText } from "./components/fit-text";
-import {}  from "./components/accordion";
+import { Cursor } from './animations/cursor';
+import { Skew } from './animations/skew';
+import { FitText } from './components/fit-text';
+import { Collapse, CollapseOptions } from './components/accordion';
+import { Card } from './components/card';
+import { Navigation } from './components/nav';
+import smoothscroll from 'smoothscroll-polyfill';
 
 /**
  * Variables
@@ -29,17 +31,41 @@ html.classList.add('js');
 /**
  * Initialise components & types.
  */
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
+	new Navigation();
 	new Cursor();
 	new Skew();
 	new FitText();
+	new Card();
+	new Collapse({
+		accordion: true,
+		container: '.accordion',
+		item: '.accordion-item',
+		inner: '.accordion-content',
+		activeClass: 'accordion-item-active',
+	} as CollapseOptions);
 });
 
 /**
- * Vanilla Lazyload
- *
+ * Kick off Smooth Scroll Polyfill
  */
-let lazyLoadInstance = new LazyLoad({
-	elements_selector: '.lazy'
-	// ... more custom settings?
+smoothscroll.polyfill();
+
+/**
+ * Button - Go Back
+ */
+document.querySelectorAll('[data-go-back]').forEach((btn) => {
+	btn.addEventListener('click', (e) => {
+		e.preventDefault();
+		history.back();
+	});
+});
+
+/**
+ * Lazy Images
+ */
+document.querySelectorAll('.lazy-animate').forEach((lazy) => {
+	lazy.addEventListener('load', () => {
+		lazy.classList.add('lazy-loaded');
+	});
 });

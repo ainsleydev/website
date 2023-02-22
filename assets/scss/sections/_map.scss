@@ -1,0 +1,102 @@
+// -----------------------------------------------------------------------------
+// _map.scss
+// This file contains all styles related to the Google Map.
+// -----------------------------------------------------------------------------
+
+.map {
+	$self: &;
+	position: relative;
+	width: 100%;
+	height: 60vh;
+	min-height: 300px;
+	z-index: 1;
+
+	// Wrapper
+	// =========================================================================
+
+	&-wrapper {
+		position: relative;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		overflow: hidden;
+	}
+
+	// Container
+	// =========================================================================
+
+	&-container {
+		background-color: $grey-dark;
+	}
+
+	// Info
+	// =========================================================================
+
+	&-info {
+		position: relative;
+		width: 100%;
+		margin: 0;
+		background-color: transparent;
+		color: $white;
+		user-select: none;
+		z-index: 2;
+
+		&-link {
+			margin: 0;
+			color: $white;
+		}
+
+		address {
+			font-style: normal;
+
+			* {
+				color: $white;
+			}
+		}
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-tab {
+		position: absolute !important;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+
+		&-wrapper {
+			flex-direction: row;
+			align-items: flex-start;
+			width: 100%;
+			height: 80vh;
+		}
+
+		&-container {
+			background-color: transparent;
+		}
+
+		&-info {
+			width: 340px;
+			padding: 3rem 2rem;
+			margin-top: $container-padding-x;
+			background-color: $grey-dark;
+			border-radius: 8px;
+		}
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-desk {
+		&-wrapper {
+			height: 600px;
+			align-items: center;
+		}
+
+		&-info {
+			margin-top: 0;
+		}
+	}
+}

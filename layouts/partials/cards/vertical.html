@@ -1,0 +1,36 @@
+<!-- =====================
+    Card - Vertical
+    	partial "cards/vertical.html" (dict
+    		"text" "Title"
+    		"sub" "Sub Heading
+    		"permalink" .RelPermalink
+			"image" (.Resources.GetMatch .Params.featuredImage)
+    	)
+    	- title:		The title of the card.
+    	- sub:			The sub heading that appears beneath the card.
+    	- permalink:	The relative permalink that the card will link to.
+    	- image:		The featured image as a resource.
+    ===================== -->
+<!-- Card -->
+<a href="{{ .permalink }}" class="card card-vertical card-half-margin"
+   title="{{ .title }} Page Link"
+   aria-label="Navigate to the {{ .title }} page">
+	<!-- Featured Image -->
+	{{ with .image -}}
+		<figure class="card-image margin">
+			<img loading="lazy" class="lazy-animate" src="{{ .RelPermalink }}" alt="{{ $.title }}">
+		</figure>
+	{{- end }}
+	<!-- Text -->
+	<div class="card-text">
+		<!-- Sub -->
+		{{ with .sub -}}
+			<h6 class="margin">{{ . }}</h6>
+		{{- end }}
+		<!-- Title -->
+		{{ with .title -}}
+			<h3 class="card-text-title">{{ . }}</h3>
+		{{- end }}
+	</div>
+</a><!-- /Card -->
+

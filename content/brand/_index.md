@@ -1,8 +1,9 @@
 ---
-title: "Brand guidelines"
-description: "Description"
+title: Brand guidelines
+description: Discover ainsley.dev Brand Guidelines.
 draft: false
-page_colour: black
+htmlTitle: ainsley.dev <span class="type-serif">brand <br/>guidelines*</span>
+footerNoPadding: true
 listHero:
   default: list-hero.jpg
   mobile: list-hero-mobile.jpg

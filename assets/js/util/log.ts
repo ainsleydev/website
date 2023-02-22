@@ -11,19 +11,18 @@
  * within the website.
  */
 export class Log {
-
 	/**
 	 * Prefix is teh string prefixed before the
 	 * Log message.
 	 */
-	static readonly prefix = "ainsley.dev";
+	static readonly prefix = 'ainsley.dev';
 
 	/**
 	 * Log a console error with a prefix.
 	 *
 	 * @param message
 	 */
-	static error(message: any) {
+	static error(message: unknown) {
 		console.error(`${this.prefix} Error: ${message}`);
 	}
 
@@ -32,7 +31,7 @@ export class Log {
 	 *
 	 * @param message
 	 */
-	static warn(message: any) {
+	static warn(message: unknown) {
 		console.error(`${this.prefix} Warning: ${message}`);
 	}
 
@@ -41,7 +40,7 @@ export class Log {
 	 *
 	 * @param message
 	 */
-	static info(message: any) {
+	static info(message: unknown) {
 		console.error(`${this.prefix} Info: ${message}`);
 	}
 }

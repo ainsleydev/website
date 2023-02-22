@@ -1,0 +1,24 @@
+// -----------------------------------------------------------------------------
+// _lazy.scss
+// This file contains native lazy loading animations.
+// -----------------------------------------------------------------------------
+
+.lazy {
+	// Animate
+	// =========================================================================
+
+	&-animate {
+		opacity: 0;
+		transition: opacity 300ms ease-in;
+		transform: translateY(20%);
+		will-change: opacity;
+	}
+
+	// Loaded
+	// =========================================================================
+
+	&-loaded {
+		opacity: 1;
+		transform: none;
+	}
+}

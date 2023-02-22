@@ -5,12 +5,8 @@
 
 .vertical {
 	$self: &;
-
 	position: relative;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: flex-start;
+	width: 100%;
 	z-index: 999;
 
 	// Props
@@ -19,18 +15,39 @@
 	* {
 		display: block;
 		line-height: 1;
+		color: colour('foreground');
+	}
+
+	// Container
+	// =========================================================================
+
+	&-container {
+		display: flex;
+		width: 100%;
+		height: 100%;
+	}
+
+	// Text
+	// =========================================================================
+
+	&-text {
+		@include h2;
+		font-weight: bold;
+		margin-bottom: 0;
 	}
 
 	// Line
 	// =========================================================================
 
 	&-line {
+		content: '';
 		position: relative;
 		display: block;
 		height: 3px;
-		width: 100px;
-		margin-right: 10px;
-		background-color: $white;
+		width: 100%;
+		margin-top: $margin;
+		margin-bottom: $margin;
+		background-color: colour('foreground');
 	}
 
 	// Number
@@ -38,42 +55,62 @@
 
 	&-number {
 		display: block;
+		margin-bottom: 6px;
 	}
 
-	// Tablet
+	// Mobile
 	// =========================================================================
 
-	@include media-tab {
+	@include media-mob {
+		display: flex;
 		position: relative;
-		align-items: flex-start;
 		flex-direction: row-reverse;
+		align-items: flex-start;
 		margin-top: 1rem;
 		writing-mode: vertical-rl;
 		transform: scale(-1);
+		width: auto;
+
+		&-text {
+			@include h1;
+			margin-bottom: 0;
+		}
 
 		&-line {
-			height: 200px;
+			height: 30vh;
+			min-height: 130px;
+			max-height: 220px;
 			width: 5px;
 			min-width: 5px;
-			margin-top: 0;
-			margin-bottom: 2rem;
-			margin-right: 2rem;
+			margin: 0 1.6rem $margin 0;
+		}
+
+		&-word {
+			line-height: 0.9;
 		}
 
 		&-number {
-			margin-left: 1.6rem;
+			margin-bottom: 0;
+			height: 60px;
 		}
 
 		&-with-number {
-			align-items: center;
+			align-items: flex-end;
 
 			#{$self}-line {
-				margin-right: 0;
+				margin: 0 0 $margin clamp(16px, 2vw, 27px);
 			}
 		}
 
-		&-text {
-			margin-bottom: 0;
+		&-fill {
+			//flex-grow: 2;
+			margin-top: 0;
+
+			#{$self}-line {
+				flex-grow: 2;
+				height: 100%;
+				max-height: 400px;
+			}
 		}
 	}
 }

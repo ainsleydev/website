@@ -1,0 +1,27 @@
+<!-- =====================
+    Schema - Navigational
+    TODO, figure out descriptions
+    ===================== -->
+{{ with .menus -}}
+	{{ $length := len . }}
+	<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "ItemList",
+			"itemListElement": [
+				{{ range $index, $item := . -}}
+       	 		{{ $page := $.site.GetPage (strings.TrimPrefix "/" $item.URL) }}
+				{
+					"@type": 		"SiteNavigationElement",
+					"position": 	{{ add $index 2 -}},
+					"name": 		{{ $item.Name }},
+					{{- with $page.Params.Description  }}
+					"description": 	"{{ . }}",
+					{{- end }}
+					"url": 			{{ printf "%s/%s" (strings.TrimSuffix "/" site.BaseURL) (strings.TrimPrefix "/" $item.URL) }}
+				}{{ if ne (add $index 1) $length -}} , {{- end }}
+				{{ end }}
+			]
+		}
+	</script>
+{{- end }}

@@ -1,0 +1,22 @@
+{{ define "main" }}
+	<!-- =====================
+		Terms
+		===================== -->
+	<section class="hero hero-simple hero-simple-padding-bottom">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-12 col-desk-7">
+					<!-- Title -->
+					<h1 class="margin-large">
+						{{ .Title }}<br/>
+						The <u>boring</u> <span class="type-serif">stuff*</span>
+					</h1>
+					<!-- Content -->
+					<article class="richtext">
+						{{ .Content }}
+					</article>
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+{{ end }}

@@ -1,0 +1,10 @@
+<!-- =====================
+	Portfolio Card
+	===================== -->
+{{ partial "cards/vertical.html" (dict
+	"title" .Title
+	"sub" .Params.company
+	"permalink" .RelPermalink
+	"image" (.Resources.GetMatch "images/card.jpg")
+	"animate" true
+)}}
