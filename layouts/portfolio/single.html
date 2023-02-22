@@ -86,23 +86,29 @@
 		Next Project
 		===================== -->
 	{{ with .PrevInSection}}
-		<section class="section">
+		<section class="portfolio-next">
 		   <!-- Next Image -->
 		   <picture class="portfolio-next-image">
-
+               {{ partial "media/picture.html" (dict
+				   "image" (.Resources.GetMatch "images/horizontal.jpg")
+				   "alt" (printf "ainsley.dev %s Mockup" .Params.company)
+				   "lazy" false
+               )}}
 		   </picture>
 			<!-- Link -->
-		   <div class="container">
+		   <div class="container portfolio-next-container">
 			   <div class="row">
-				   <div class="col-12 col-desk-4 offset-desk-8">
+				   <div class="col-12 col-desk-3 offset-desk-9">
 						<!-- Company -->
 						{{ with .Params.company }}
-							<h6>{{ . }}</h6>
+							<h6 class="margin">{{ . }}</h6>
 						{{- end }}
-						<a href="{{ .Permalink }}"
-							title="Next page in {{ .Section }}">
-							Next
-						</a>
+					   {{ partial "type/arrow-link.html" (dict
+							"link" .Permalink
+							"text" "Next project"
+							"title" (printf "Next page in %s" .Section)
+							"rotation" 45
+					   )}}
 				   </div><!-- /Col -->
 			   </div><!-- /Row -->
 		   </div><!-- /Container -->

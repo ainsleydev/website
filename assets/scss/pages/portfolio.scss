@@ -32,6 +32,9 @@
 	&-content {
 	}
 
+	// Next
+	// =========================================================================
+
 	// Mobile
 	// =========================================================================
 
@@ -39,6 +42,32 @@
 		&-content picture {
 			width: 75%;
 			margin-left: 25%;
+		}
+
+		&-next {
+			position: relative;
+			background-color: $grey-dark;
+			height: 50vh;
+
+			&-image {
+				display: block;
+				width: 50vw;
+				height: 100%;
+
+				img,
+				source {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+
+			&-container {
+				position: absolute !important;
+				top: 50%;
+				transform: translateY(-50%);
+				z-index: 2;
+			}
 		}
 	}
 
@@ -60,6 +89,42 @@
 			width: 50vw;
 			margin-left: 0;
 			padding: 0;
+		}
+	}
+}
+
+// Temp
+// =========================================================================
+
+.test {
+	$self: &;
+
+	&-vertical-line {
+		display: none;
+	}
+
+	@include media-mob-only {
+		.vertical-number {
+			margin-left: 0 !important;
+		}
+	}
+
+	@include media-mob {
+		// Content
+		// =========================================================================
+
+		&-content {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		// Vertical Line
+		// =========================================================================
+
+		&-vertical-line {
+			display: block;
+			margin: 0 0 0 calc(80px);
 		}
 	}
 }

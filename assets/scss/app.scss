@@ -96,37 +96,4 @@
 @import 'pages/brand';
 @import 'pages/contact';
 @import 'pages/home';
-
-.test {
-	$self: &;
-
-	&-vertical-line {
-		display: none;
-	}
-
-	@include media-mob-only {
-		.vertical-number {
-			margin-left: 0;
-		}
-	}
-
-	@include media-mob {
-		// Content
-		// =========================================================================
-
-		&-content {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-		}
-
-		// Vertical Line
-		// =========================================================================
-
-		&-vertical-line {
-			display: block;
-			// TODO, change to variable
-			margin: 0 40% 0 auto;
-		}
-	}
-}
+@import 'pages/portfolio';

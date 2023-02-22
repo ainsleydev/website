@@ -20,19 +20,20 @@
 		position: relative;
 		display: flex;
 		align-items: center;
+		justify-content: flex-start;
 
 		&-text {
 			display: inline-block;
 			margin-bottom: 0;
 			margin-right: 1rem;
 			user-select: none;
-			padding-right: 30px;
+			//padding-right: 30px;
 		}
 
 		&-image {
-			position: absolute;
-			right: 0;
-			bottom: 0;
+			//position: absolute;
+			//right: 0;
+			//bottom: 0;
 			width: 6vw;
 			min-width: 25px;
 			max-width: 40px;

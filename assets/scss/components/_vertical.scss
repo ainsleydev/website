@@ -82,16 +82,16 @@
 			max-height: 220px;
 			width: 5px;
 			min-width: 5px;
-			margin: 0 1.5rem $margin 0;
+			margin: 0 calc(1.6rem + 0.5vw) $margin 0;
 		}
 
 		&-word {
-			line-height: 0.9;
+			line-height: 1;
 		}
 
 		&-number {
 			margin-bottom: 0;
-			margin-left: 0.6rem;
+			height: 60px;
 		}
 
 		&-with-number {

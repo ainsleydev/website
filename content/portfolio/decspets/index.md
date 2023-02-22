@@ -17,7 +17,6 @@ quote:
   text: I have had the pleasure of working closely with ainsley.dev on the development of my new website. They have such a huge array of skills, not just in web development but across business and eCommerce as a whole, that not only did they help us create a beautiful and modern website, they also helped us with ideas and initiatives for the future. It was a pleasure working with them.
 styles:
 - scss/pages/portfolio.scss
-footerPadding: true
 
 ---
 
@@ -28,7 +27,7 @@ client base in Ireland, their aim was to establish an e-commerce presence in ord
 wider audience.
 {{< /vertical-wrapper >}}
 
-<!-- Picture 1 -->
+<!-- Shop -->
 {{< picture src="images/shop.jpg" alt="Dec's Pets Shop" >}}
 
 <!-- Brief -->
@@ -38,7 +37,7 @@ off-the-shelf web package to an entirely bespoke site. Their main goal was for u
 online with ease, and more visibility for the company’s brand presence in the e-commerce market as a whole was needed.
 {{< /vertical-wrapper >}}
 
-<!-- Picture 2 -->
+<!-- Video -->
 {{< picture src="images/shop.jpg" alt="Dec's Pets Shop" >}}
 
 <!-- Design -->
@@ -49,7 +48,7 @@ clear font increased the legibility of the new brand. The Dec’s Pets “Paw”
 watermark to create a consistent design language.
 {{< /vertical-wrapper >}}
 
-<!-- Picture 3 -->
+<!-- Mockup -->
 {{< picture src="images/mockup.jpg" alt="Dec's Pets Shop" >}}
 
 <!-- Development -->

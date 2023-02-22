@@ -19,8 +19,8 @@ hr,
 	&-vertical {
 		width: auto;
 		border-style: none;
-		border-right-width: $line-size-thick;
-		border-right-style: solid;
+		border-left-width: $line-size-thick;
+		border-left-style: solid;
 		height: 100%;
 		margin: 0;
 	}
