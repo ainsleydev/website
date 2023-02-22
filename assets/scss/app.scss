@@ -96,3 +96,46 @@
 @import 'pages/brand';
 @import 'pages/contact';
 @import 'pages/home';
+
+.test {
+	$self: &;
+
+	&-line {
+		margin-top: 0;
+		width: 20%;
+	}
+
+	@include media-mob {
+		// Content
+		// =========================================================================
+
+		&-content {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		// Text
+		// =========================================================================
+
+		&-text {
+			//padding-left: 5rem;
+			margin-bottom: 0;
+			//min-height: clamp(320px, 40vh, 500px);
+		}
+
+		// Vertical Line
+		// =========================================================================
+
+		&-vertical-line {
+			display: block;
+			// TODO, change to variable
+			width: 5px;
+			min-width: 5px;
+			height: 100%;
+			margin: 0 2.8rem 0 auto;
+			//vertical-align: middle;
+			background-color: $white;
+		}
+	}
+}

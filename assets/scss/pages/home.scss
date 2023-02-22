@@ -3,6 +3,9 @@
 // This file contains all styles related to the home section.
 // -----------------------------------------------------------------------------
 
+@import '../abstracts/mixins';
+@import '../abstracts/variables';
+
 .home {
 	$self: &;
 }

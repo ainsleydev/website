@@ -3,6 +3,9 @@
 // This file contains all styles related to the contact page.
 // -----------------------------------------------------------------------------
 
+@import '../abstracts/mixins';
+@import '../abstracts/variables';
+
 .contact {
 	$self: &;
 

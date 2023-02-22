@@ -1,0 +1,40 @@
+<!-- =====================
+    Vertical Wrapper
+		< margin > / < margin large >
+    ===================== -->
+{{/*                {{ if .Get "text" }}*/}}
+{{/*					<hr class="test-line line line-medium d-none d-mob-block"/>*/}}
+{{/*                {{- end }}*/}}
+
+
+<section class="section section-padding">
+	<div class="test">
+		<div class="row justify-content-between margin">
+			<div class="col-3">
+                {{ if .Get "text" -}}
+                    {{ partial "type/vertical.html" (dict
+						"text" (.Get "text")
+						"number" (.Get "number")
+						"line" false
+                    )}}
+                {{- end }}
+			</div><!-- /Col -->
+			<div class="col-3">
+				<hr class="line line-medium"/>
+			</div><!-- /Col -->
+		</div><!-- /Row -->
+		<!-- Content -->
+		<div class="row align-items-stretch">
+			<div class="col-3">
+				<!-- Line -->
+				<span class="test-vertical-line"></span>
+			</div><!-- /Col -->
+			<div class="col-9">
+				<!-- Text -->
+				<p class="test-text lead">
+                    {{ .Inner | markdownify  }}
+				</p>
+			</div><!-- /Col -->
+		</div><!-- /Row -->
+	</div>
+</section>

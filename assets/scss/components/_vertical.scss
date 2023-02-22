@@ -58,10 +58,10 @@
 		margin-bottom: 6px;
 	}
 
-	// Tablet
+	// Mobile
 	// =========================================================================
 
-	@include media-tab {
+	@include media-mob {
 		display: flex;
 		position: relative;
 		flex-direction: row-reverse;
@@ -69,6 +69,7 @@
 		margin-top: 1rem;
 		writing-mode: vertical-rl;
 		transform: scale(-1);
+		width: auto;
 
 		&-text {
 			@include h1;
@@ -81,7 +82,7 @@
 			max-height: 220px;
 			width: 5px;
 			min-width: 5px;
-			margin: 0 4% $margin 0;
+			margin: 0 1.5rem $margin 0;
 		}
 
 		&-word {
@@ -89,22 +90,26 @@
 		}
 
 		&-number {
-			margin-left: $margin;
+			margin-bottom: 0;
+			margin-left: 0.6rem;
 		}
 
-		&-with-number #{$self}-line {
-			margin: 0 22% $margin 0;
+		&-with-number {
+			align-items: flex-end;
+
+			#{$self}-line {
+				margin: 0 0 $margin clamp(16px, 2vw, 27px);
+			}
 		}
 
 		&-fill {
-			flex-grow: 2;
+			//flex-grow: 2;
 			margin-top: 0;
 
 			#{$self}-line {
 				flex-grow: 2;
 				height: 100%;
 				max-height: 400px;
-				margin: 0 28px $margin 0;
 			}
 		}
 	}

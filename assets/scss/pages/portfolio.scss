@@ -3,12 +3,32 @@
 // This file contains all styles related to the portfolio single page.
 // -----------------------------------------------------------------------------
 
-// Imports
-// =========================================================================
-
 @import '../abstracts/mixins';
 @import '../abstracts/variables';
 
 .portfolio {
 	$self: &;
+
+	// Aside
+	// =========================================================================
+
+	&-aside {
+		align-items: center;
+		min-height: 100vh;
+	}
+
+	@include media-tab {
+	}
+
+	// Content
+	// =========================================================================
+
+	&-content {
+		overflow-x: hidden;
+
+		picture {
+			display: flex;
+			width: 50vw;
+		}
+	}
 }

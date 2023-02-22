@@ -51,15 +51,30 @@
                         {{ end }}<!-- /Website -->
 					</aside>
 				</div><!-- /Col -->
-				<!-- =====================
-					Content
-					===================== -->
-				<div class="col-12 col-desk-6 offset-desk-1">
-					<article class="portfolio-content">
-                        {{ .Content }}
-					</article>
-				</div>
 			</div><!-- /Row -->
 		</div><!-- /Container -->
 	</section>
+	<!-- =====================
+		Content
+		===================== -->
+	<section class="portfolio-content">
+		<div class="container">
+			<div class="row justify-content-desk-end">
+				<div class="col-12 col-desk-6">
+					<article>
+						{{ .Content }}
+					</article>
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+	<!-- =====================
+		Quote
+		===================== -->
+	{{ with .Params.quote -}}
+		{{ partial "sections/quote.html" (dict
+			"text" .text
+			"cite" .person
+		)}}
+	{{- end }}
 {{ end }}
