@@ -11,8 +11,8 @@
 					"mob" ($.Parent.Resources.Get .mobile)
 					"tab" ($.Parent.Resources.Get .tablet)
 					"lazy" false
-					"alt" "ainsley.dev Desk & Keyboard")
-                }}
+					"alt" "ainsley.dev Desk & Keyboard"
+				)}}
 			</picture>
         {{- end }}
 		<!-- Content -->
@@ -22,26 +22,37 @@
 					<!-- Text -->
 					<div class="hero-text">
 						<!-- Heading -->
-						<div class="text-wrapper-large">
-							<h1>
-								Brand guidelines <br/>
-								<span class="type-serif type-lowercase">{{ .Title }}*</span>
-							</h1>
-						</div>
+						<h1 class="margin-large">
+							Brand guidelines <br/>
+							<span class="type-serif type-lowercase">{{ .Title }}*</span>
+						</h1>
 						<!-- File -->
                         {{ with .Params.download -}}
                             {{ $file := $.Resources.GetMatch .path }}
                             {{ if $file -}}
-                                {{ partial "components/button.html" (dict "text" .text "link" ($.Resources.GetMatch .path).RelPermalink "arrow" true "colour" "white" "attr" (printf "download=%s" .name)) }}
+                                {{ partial "components/button.html" (dict
+									"text" .text
+									"link" ($.Resources.GetMatch .path).RelPermalink
+                                	"colour" "white"
+                                	"size" "small"
+									"arrow" true
+									"title" "Download Brand Pack"
+									"attr" (printf "download=%s" .name)
+								)}}
                             {{- else -}}
                                 {{ errorf "File not found with path: %s" .path }}}
                             {{- end }}
                         {{- end }}
 					</div>
 					<!-- Arrow -->
-					<a href="{{ .Page.Permalink }}#content" class="hero-arrow">
-                        {{ partial "images/arrow.html" (dict "colour" "white" "rotation" "135") }}
-					</a>
+					<div class="hero-arrow">
+                        {{ partial "type/arrow-link.html" (dict
+							"link" (printf "%s#content" .Page.Permalink)
+                       	 	"rotation" 135
+							"title" (printf "Explore the %s Brand Guidelines" .Title)
+							"down" true
+						)}}
+					</div><!-- /Arrow -->
 				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
@@ -49,22 +60,34 @@
 	<!-- =====================
 		Content
 		===================== -->
-	<section class="section section-padding section-padding-top" id="content">
+	<section class="section section-padding" id="content">
 		<div class="container">
 			<div class="row">
 				<!-- Sidebar -->
 				<div class="col-12 col-desk-3">
-					<aside class="aside aside-brand">
+					<input class="aside-checkbox" type="checkbox" id="brand-aside-check"/>
+					<aside class="aside">
+						<!-- Links -->
                         {{ range (where .Site.RegularPages "Type" "brand") }}
 							<a href="{{ .RelPermalink }}" class="aside-link">
 								<h5 class="aside-text {{ if eq $.Page.RelPermalink .RelPermalink -}} aside-active {{- end }}">{{ .Title }}</h5>
 							</a>
                         {{- end }}
+						<!-- Button -->
+						<label class="aside-btn" for="brand-aside-check">
+							<span class="aside-btn-text heading-6">Menu</span>
+						</label>
+						<!-- Close -->
+						<label class="aside-close" for="brand-aside-check">
+							<span class="heading-6">Close</span>
+						</label>
 					</aside>
+					<!-- Overlay -->
+					<label class="aside-overlay" for="brand-aside-check"></label>
 				</div><!-- /Col -->
 				<!-- Content -->
 				<div class="col-12 col-desk-8 offset-desk-1">
-                    {{ .Content }}
+                    {{ .Content | safeHTML }}
 				</div>
 			</div><!-- /Row -->
 		</div><!-- /Container -->

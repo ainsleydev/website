@@ -5,7 +5,6 @@
 
 .nav {
 	$self: &;
-
 	position: fixed;
 	display: flex;
 	flex-direction: column;
@@ -42,7 +41,7 @@
 		flex-grow: 2;
 		z-index: 10;
 		margin-top: $header-height / 2;
-		box-shadow: 10px 0 30px 0 rgba($black, 0.30);
+		box-shadow: 10px 0 30px 0 rgba($black, 0.3);
 
 		#{$self}-list {
 			margin-bottom: 2.4rem;
@@ -71,9 +70,9 @@
 		}
 
 		#{$self}-item:not(:last-child) #{$self}-link-text:after {
-			content: "|";
+			content: '|';
 			display: inline-block;
-			color: colour(black);
+			color: colour('black');
 			margin: 0 8px;
 		}
 
@@ -82,7 +81,7 @@
 		}
 
 		&-copyright {
-			color: colour(copy-light);
+			color: colour('copy-light');
 		}
 	}
 
@@ -90,7 +89,6 @@
 	// =========================================================================
 
 	&-contact {
-
 		&-section {
 			margin-bottom: 1.6em;
 		}
@@ -164,7 +162,7 @@
 		z-index: 10;
 
 		&-text {
-			color: colour(white);
+			color: colour('white');
 			margin-right: 6px;
 			margin-bottom: 0;
 			font-size: 13px;
@@ -205,8 +203,7 @@
 	// Small Phones
 	// =========================================================================
 
-	@include media-small-phones  {
-
+	@include media-small-phones {
 		&-main #{$self}-link-text {
 			font-size: 30px;
 		}
@@ -216,7 +213,6 @@
 	// =========================================================================
 
 	@include media-tab {
-
 		// Main
 		// =========================================================================
 
@@ -226,8 +222,8 @@
 			padding-top: 4rem;
 			padding-bottom: 4rem;
 
-			&:before {
-				content: "";
+			&::before {
+				content: '';
 			}
 		}
 
@@ -284,25 +280,25 @@
 				}
 
 				// Arrow
-				&:after {
-					content: url('#{$publicPath}/images/icons/nav-arrow.svg');
+				&::after {
+					content: url('/images/icons/nav-arrow.svg');
 					position: absolute;
 					top: 50%;
 					left: 0;
 					transform: translate(-100%, -50%);
 					opacity: 0;
-					transition: transform $arrow-transition, opacity $arrow-transition;
+					transition: transform $arrow-transition,
+						opacity $arrow-transition;
 					will-change: transform, opacity;
 				}
 
 				&:hover {
-
 					#{$self}-link-text {
 						transform: translateX(100px);
 					}
 
 					// Arrow
-					&:after {
+					&::after {
 						opacity: 1;
 						transform: translate(0, -50%);
 					}
@@ -325,13 +321,12 @@
 			}
 
 			#{$self}-item {
-
 				&:not(:last-child) {
 					margin-bottom: 0.4rem;
 				}
 			}
 
-			#{$self}-link-text:after {
+			#{$self}-link-text::after {
 				display: none !important; // Override nth-child
 			}
 		}

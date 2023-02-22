@@ -5,7 +5,6 @@
 
 .header {
 	$self: &;
-
 	position: fixed;
 	display: flex;
 	align-items: center;
@@ -16,7 +15,7 @@
 	width: 100vw;
 	padding: 0 $header-padding-x-mob;
 	backdrop-filter: blur(1px);
-	z-index: 99999;
+	z-index: $header-z-index;
 
 	// Logo
 	// ==========================================================================
@@ -37,7 +36,7 @@
 		}
 
 		&:hover svg path {
-			fill: colour(orange);
+			fill: colour('orange');
 		}
 	}
 
@@ -45,7 +44,6 @@
 	// ==========================================================================
 
 	&-colour {
-
 		&-black {
 			background-color: rgba($black, $header-background-opacity);
 		}
@@ -60,7 +58,7 @@
 
 	&-scrolled {
 		background-color: (orange);
-		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.23);
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 10%), 0 3px 6px rgba(0, 0, 0, 23%);
 	}
 
 	// Desktop

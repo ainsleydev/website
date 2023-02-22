@@ -1,28 +1,42 @@
 <!-- =====================
     Vertical
-		partial "type/vertical.html" (dict "text" "Vertical <br/>heading" "number" 1 "line" true)
+		partial "type/vertical.html" (dict
+			"text" "Vertical <br/>heading"
+			"number" 1
+			"line" true
+			"fill" true
+		)
 		- text:		The content of the quote.
 		- number:	A optional number associated with the text.
-		- line:
+		- line:		If the line should be displayed
+		- fill:		If the line should stretch to fit the container
     ===================== -->
-<div class="vertical {{ with .number }} vertical-with-number {{- end }}">
-	<!-- Wrapper -->
-	<span class="vertical-wrapper">
-		<!-- Number -->
-		{{ with .number }}
-			<span class="vertical-number heading-2 type-serif">
+<div class="vertical-container">
+	<div class="vertical
+	{{ with .number }} vertical-with-number {{- end }}
+	{{ if .fill -}} vertical-fill {{- end }}">
+		<!-- Wrapper -->
+		<div class="vertical-wrapper">
+			<!-- Number -->
+            {{ with .number }}
+				<span class="vertical-number heading-2 type-serif">
 				{{ . | safeHTML }}*
 			</span>
-		{{- end }}
-		<!-- Text -->
-        {{ with .text -}}
-			<span class="vertical-text heading-1">
-				{{ . | safeHTML }}
-			</span>
+            {{- end }}
+			<!-- Text -->
+            {{ with .text -}}
+				<div class="vertical-text">
+                    {{ range $index, $word := split . " " }}
+						<span class="vertical-word">
+						{{ . | safeHTML }}
+					</span>
+                    {{ end  }}
+				</div>
+            {{- end }}
+		</div><!-- /Wrapper -->
+		<!-- Line -->
+        {{ if .line -}}
+			<span class="vertical-line"></span>
         {{- end }}
-	</span><!-- /Wrapper -->
-	<!-- Line -->
-	{{ if .line -}}
-		<span class="vertical-line"></span>
-	{{- end }}
-</div>
+	</div><!-- /Wrapper -->
+</div><!-- /Vertical -->

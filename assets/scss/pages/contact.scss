@@ -1,0 +1,69 @@
+// -----------------------------------------------------------------------------
+// _contact.scss
+// This file contains all styles related to the contact page.
+// -----------------------------------------------------------------------------
+
+@import '../abstracts/mixins';
+@import '../abstracts/variables';
+
+.contact {
+	$self: &;
+
+	// Aside
+	// =========================================================================
+
+	&-aside {
+		position: relative;
+
+		&-item *:not(h6) {
+			margin-bottom: 0;
+		}
+	}
+
+	// Tablet Down
+	// =========================================================================
+
+	@include media-desk-down {
+		padding-bottom: 0;
+
+		&-aside-item:not(:last-child) {
+			margin-bottom: $margin;
+		}
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-tab-only {
+		&-aside {
+			display: flex;
+			justify-content: space-between;
+			padding-top: 4rem;
+			padding-bottom: 4rem;
+
+			&-item {
+				margin-bottom: 0 !important;
+			}
+		}
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-desk {
+		overflow: visible;
+
+		&-aside {
+			position: sticky;
+			flex-direction: column;
+			top: 100px;
+			padding: 0;
+			margin: 0;
+			background-color: transparent;
+
+			&::after {
+				display: none;
+			}
+		}
+	}
+}

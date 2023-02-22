@@ -3,8 +3,7 @@
 // This file contains all mixin's for use with scss files.
 // -----------------------------------------------------------------------------
 
-// sass-lint:disable no-duplicate-properties
-// sass-lint:disable no-vendor-prefixes
+@use 'sass:math';
 
 // Breakpoint Mixins
 // ==========================================================================
@@ -33,7 +32,6 @@
 		@content;
 	}
 }
-
 
 @mixin media-hd {
 	@media (min-width: $grid-breakpoint-hd * 1px) {
@@ -92,20 +90,20 @@
 }
 
 @mixin media-desk-large-only {
-	@media (min-width: $grid-breakpoint-desk-large * 1px) and (max-width: $grid-breakpoint-hd * 1px - 1p) {
+	@media (min-width: $grid-breakpoint-desk-large * 1px) and (max-width: $grid-breakpoint-hd * 1px - 1px) {
 		@content;
 	}
 }
 
 // Mods
 @mixin media-landscape {
-	@media screen and (orientation:landscape) and (min-width: $grid-breakpoint-mob * 1px) {
+	@media screen and (orientation: landscape) and (min-width: $grid-breakpoint-mob * 1px) {
 		@content;
 	}
 }
 
 @mixin media-portrait {
-	@media screen and (orientation:portrait) and (max-width: $grid-breakpoint-tab * 1px) {
+	@media screen and (orientation: portrait) and (max-width: $grid-breakpoint-tab * 1px) {
 		@content;
 	}
 }
@@ -115,34 +113,7 @@
 
 @mixin media-small-phones {
 	@media (max-width: 350px) {
-		@content
-	}
-}
-
-// Text Wrapper
-// =========================================================================
-
-@mixin text-wrapper($diff: 0) {
-	@each $modifier, $breakpoint in $grid-properties {
-		@include create-mediaquery($breakpoint) {
-			@if ($breakpoint == 0) {
-				margin-bottom: map-get($text-margin-properties, "-mob") + $diff;
-			} @else {
-				margin-bottom: map-get($text-margin-properties, $modifier) + $diff;
-			}
-		}
-	}
-}
-
-@mixin text-wrapper-top($diff: 0) {
-	@each $modifier, $breakpoint in $grid-properties {
-		@include create-mediaquery($breakpoint) {
-			@if ($breakpoint == 0) {
-				margin-top: map-get($text-margin-properties, "-mob") + $diff;
-			} @else {
-				margin-top: map-get($text-margin-properties, $modifier) + $diff;
-			}
-		}
+		@content;
 	}
 }
 
@@ -153,7 +124,7 @@
 /// @param {Number} $pxValue - Pixel amount to convert
 /// @param {String} $property [font-size] - Property to convert
 /// @param {Number} $standard-size - Initial base rem size
-@mixin px-to-rem($pxValue, $property: "font-size", $standard-size: 16) {
+@mixin px-to-rem($pxValue, $property: 'font-size', $standard-size: 16) {
 	#{$property}: $pxValue + px;
 	#{$property}: $pxValue / å$standard-size + rem;
 }
@@ -188,6 +159,8 @@
 	@return $value / ($value * 0 + 1);
 }
 
+// Usage:
+// @include fluid-type(320px, 1408px, 34px, 98px);
 @mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
 	$u1: unit($min-vw);
 	$u2: unit($max-vw);
@@ -197,17 +170,26 @@
 	@if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
 		& {
 			font-size: $min-font-size;
+
 			@media screen and (min-width: $min-vw) {
-				font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+				font-size: calc(
+					#{$min-font-size} + #{strip-unit(
+							$max-font-size - $min-font-size
+						)} *
+						(
+							(100vw - #{$min-vw}) / #{strip-unit(
+									$max-vw - $min-vw
+								)}
+						)
+				);
 			}
+
 			@media screen and (min-width: $max-vw) {
 				font-size: $max-font-size;
 			}
 		}
 	}
 }
-//Usage:
-//@include fluid-type(320px, 1408px, 34px, 98px);
 
 // Landscape Mixin
 // ==========================================================================
@@ -230,7 +212,9 @@
 
 // IE11 and Edge
 @mixin ie11andedge {
-	@media screen and (-webkit-min-device-pixel-ratio: 0) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	@media screen and (-webkit-min-device-pixel-ratio: 0) and (-ms-high-contrast: none),
+		(-ms-high-contrast: active) {
+		/* stylelint-disable media-feature-name-no-vendor-prefix */
 		@content;
 	}
 }
@@ -257,7 +241,7 @@
 /// @author Ainsley Clark
 /// @param {Number} $breakpoint - Initial breakpoint
 @mixin create-mediaquery($breakpoint) {
-	@if ($breakpoint == 0) {
+	@if $breakpoint == 0 {
 		@content;
 	} @else {
 		@media (min-width: $breakpoint * 1px) {
@@ -275,21 +259,25 @@
 /// @param {Number} $breakpoint - Media breakpoint
 @mixin create-col-classes($modifier, $grid-cols, $breakpoint) {
 	@include create-mediaquery($breakpoint) {
-		//Columns
+		å
+		// Columns
 		.col#{$modifier}-auto {
 			flex: 0 0 auto;
 			width: auto;
 			max-width: 100%;
 		}
+
 		@for $i from 1 through $grid-columns {
 			.col#{$modifier}-#{$i} {
 				width: (100 / ($grid-columns / $i)) * 1%;
 			}
 		}
-		//Offsets
+
+		// Offsets
 		.offset#{$modifier}-0 {
 			margin-left: 0;
 		}
+
 		@for $i from 1 through $grid-columns {
 			.offset#{$modifier}-#{$i} {
 				margin-left: (100 / ($grid-columns / $i)) * 1%;

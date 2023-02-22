@@ -1,25 +1,27 @@
-languageCode: "en-gb"
-title: "ainsley.dev"
+languageCode: en-gb
+title: ainsley.dev® - Digital Craftsmanship Sculpting You As An Industry Leader.
 baseUrl: "http://localhost:1313"
 build:
+    noJSConfigInAssets: true
     writeStats: true
 disableKinds: [ "taxonomy", "taxonomyTerm" ]
 ignoreErrors: [ "error-disable-taxonomy" ]
 copyright: "ainsley.dev LTD is a registered company in England and Wales. Company Number 12478393. ©2022 ainsley.dev LTD. All rights reserved."
 disableHugoGeneratorInject: true
-enableGitInfo: false
+enableGitInfo: true
 enableEmoji: true
 enableInlineShortcodes: true
 enableRobotsTXT: true
-googleAnalytics: UA-PROPERTY_ID
 imaging:
     hint: photo
     quality: 75
     resampleFilter: Lanczos
 module:
     mounts:
-        -   source: "./themes/reddico/node_modules/vanilla-lazyload/dist/lazyload.js"
-            target: "assets/js/lazyload.js"
+        -   source: "assets"
+            target: "assets"
+        -   source: "static"
+            target: "assets"
 markup:
     defaultMarkdownHandler: goldmark
     goldmark:
@@ -56,7 +58,7 @@ markup:
         startLevel: 2
 security:
     exec:
-        allow:  ["^dart-sass-embedded$", "^go$", "npx$", "^postcss$", "^babel$"]
+        allow: [ "^dart-sass-embedded$", "^go$", "npx$", "^postcss$", "^babel$" ]
 sitemap:
     changefreq: monthly
     filename: sitemap.xml

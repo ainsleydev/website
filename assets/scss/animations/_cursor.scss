@@ -12,18 +12,26 @@
 	border-radius: 50%;
 	background: none;
 	pointer-events: none;
-	transform: translate(-50%, -50%);
-	transition: transform 300ms ease, background 300ms ease, border-color 300ms ease;
-	border: 1px solid $white;
+	transform: translate(-50%, -50%) scale(0);
+	border: 1px solid transparent;
+	transition: transform 300ms ease, background 300ms ease,
+		border-color 300ms ease;
 
 	// Active
 	// =========================================================================
 
 	&-active {
-		//background-color: red !important;
+		cursor: none !important;
 	}
 
-	// Active
+	// Element
+	// =========================================================================
+
+	&-element {
+		display: inline-block;
+	}
+
+	// Invert
 	// =========================================================================
 
 	&-invert {
@@ -39,10 +47,19 @@
 		}
 	}
 
-	// Tablet
+	// Border
 	// =========================================================================
 
-	@include media-tab {
+	&-border {
+		border-color: colour('foreground');
+
+		&-black {
+			border-color: $black;
+		}
+
+		&-white {
+			border-color: $white;
+		}
 	}
 
 	// Non - Touch Screen

@@ -1,0 +1,29 @@
+<!-- =====================
+    Accordion
+    	< accordion/item title="Title" >
+    		Content
+    	< /accordion/item >
+    ===================== -->
+<details class="accordion-item" open>
+	<!-- Title -->
+	<summary class="accordion-header cursor-element"
+		data-cursor-border data-cursor-border-white>
+        {{ with .Get "title" -}}
+			<h4 class="accordion-title">
+				{{ . | safeHTML }}
+			</h4>
+		{{- else -}}
+			{{- warnf "No title provided to accordion item" -}}
+		{{- end }}
+	</summary><!-- /Title -->
+	<!-- Content -->
+	<div class="accordion-content">
+		{{ with .Inner -}}
+			<p class="lead">
+				{{ . | safeHTML }}
+			</p>
+        {{- else -}}
+            {{- warnf "No content provided to accordion item" -}}
+        {{- end }}
+	</div><!-- /Content -->
+</details><!-- / Item -->

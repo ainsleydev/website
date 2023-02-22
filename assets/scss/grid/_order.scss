@@ -8,9 +8,11 @@
 		.order#{$modifier}-first {
 			order: -1 !important;
 		}
+
 		.order#{$modifier}-last {
 			order: $grid-columns + 1 !important;
 		}
+
 		@for $i from 1 through $grid-columns {
 			.order#{$modifier}-#{$i} {
 				order: #{$i} !important;

@@ -4,58 +4,61 @@
 <footer class="footer">
 	<div class="container">
 		<!-- Main -->
-		<div class="row footer-main">
+		<div class="row footer-main {{ if .Params.footerNoPadding -}} pt-0 {{- end }}">
 			<!-- Symbol -->
 			<figure class="footer-symbol">
-                {{ partial "images/a-symbol.html" (dict "opacity" 0.1 "greyscale" true) }}
+                {{ partial "svgs/a-symbol.html" (dict "opacity" 0.1 "greyscale" true) }}
 			</figure>
 			<div class="col-12 col-desk-6 footer-main-col">
 				<!-- Heading -->
-				<h3 class="footer-heading">
-					Digital craftmanship sculpting
+				<h2 class="footer-heading">
+					Digital craftmanship <br class="d-mob-none"/>
+					sculpting
 					<br class="d-none d-mob-inline"/>
 					you as an
 					<br class="d-mob-none"/>industry <u>leader</u>.
-				</h3><!-- /Heading -->
+				</h2><!-- /Heading -->
 				<!-- Contact -->
 				<div class="footer-contact">
 					<!-- Email -->
                     {{ with .Site.Params.contact.email -}}
-						<div class="footer-contact-email text-wrapper-large">
-							<h6>Email us</h6>
-							<a href="mailto:{{ . | safeHTMLAttr }}" aria-label="Email ainsley.dev">
+						<div class="footer-contact-email margin-large">
+							<h6 class="footer-contact-sub">Email us</h6>
+							<a href="mailto:{{ . | safeHTMLAttr }}" class="cursor-element" title="Email ainsley.dev"
+							   aria-label="Email ainsley.dev"
+							   data-cursor-border data-cursor-border-white>
 								<span class="heading-5">{{ . }}</span>
 							</a>
 						</div>
                     {{- end }}
 					<!-- Social -->
                     {{ with .Site.Params.social -}}
-						<nav class="footer-contact-social">
-							<h6>Connect with us</h6>
-                            {{ partial "components/social.html" (dict "links" . "colour" "var(--colour-white)") }}
-						</nav>
+						<menu class="footer-contact-social">
+							<h6 class="footer-contact-sub">Connect with us</h6>
+                            {{ partial "components/social.html" (dict "colour" "white") }}
+						</menu>
                     {{- end }}
 				</div><!-- /Contact -->
 			</div><!-- /Col -->
 			<div class="col-12 col-desk-6 footer-main-col">
 				<!-- Logo -->
 				<figure class="footer-logo">
-                    {{- partial "images/logo.html" -}}
+                    {{- partial "svgs/logo.html" "white" -}}
 				</figure>
 				<!-- Navigation -->
                 {{ with .Site.Menus.footer -}}
-					<nav class="footer-main-nav">
-						<ul class="footer-main-nav-list">
-                            {{ range . -}}
-								<li class="footer-main-nav-item">
-									<a href="{{ .URL }}" class="footer-main-nav-link"
-									   aria-label="Navigate to the {{ .Name }} page">
-										<h5 class="footer-main-nav-link-text hover-line hover-line-white">{{ .Name }}</h5>
-									</a>
-								</li>
-                            {{- end }}
-						</ul><!-- /List -->
-					</nav><!-- /Navigation -->
+					<menu class="footer-main-menu">
+                        {{ range . -}}
+							<li class="footer-main-menu-item">
+								<a href="{{ .URL }}" class="footer-main-menu-link"
+								   title="{{ .Name }} Page"
+								   aria-label="Navigate to the {{ .Name }} page">
+									<h5 class="cursor-element" data-cursor-border
+										data-cursor-border-white>{{ .Name }}</h5>
+								</a>
+							</li>
+                        {{- end }}
+					</menu><!-- /List -->
                 {{- else -}}
                     {{ errorf "No footer defined in menu.yaml" }}
                 {{- end }}
@@ -66,27 +69,26 @@
 			<div class="col-12">
 				<div class="footer-sub-wrapper">
 					<!-- Menu -->
-					<nav class="footer-sub-nav order-desk-last">
-						<ul class="footer-sub-nav-list">
-							<li class="footer-sub-nav-item">
-								<a class="footer-sub-nav-link" href="/terms">Terms & Conditions</a>
-							</li>
-							<li class="footer-sub-nav-item">
-								<a class="footer-sub-nav-link" href="/privacy">Privacy</a>
-							</li>
-							<li class="footer-sub-nav-item">
-								<a class="footer-sub-nav-link" href="/cookies">Cookies</a>
-							</li>
-						</ul>
-					</nav>
+                    {{ with .Site.Menus.terms -}}
+						<menu class="footer-sub-menu">
+                            {{ range . -}}
+								<li class="footer-sub-menu-item">
+									<a class="footer-sub-menu-link cursor-element" href="{{ .URL }}"
+									   title="{{ .Name }} Page"
+									   aria-label="Navigate to the {{ .Name }} page"
+									   data-cursor-border data-cursor-border-white>
+                                        {{ .Name }}
+									</a>
+								</li>
+                            {{- end }}
+						</menu>
+                    {{- end }}
 					<!-- Text -->
 					<small class="footer-sub-text">
 						ainsley.dev is a registered company in England and Wales. Company
 						Number {{ with .Site.Params.company.number -}} 14550437 {{- end}}. ©{{ now.Year }}
 						ainsley.dev LTD. All rights reserved. <br class="d-none d-desk-large-inline"/>The ainsley.dev
-						logo are
-						registered trademarks of
-						ainsley.dev LTD.
+						logo are registered trademarks of ainsley.dev LTD.
 					</small>
 				</div><!-- /Wrapper -->
 			</div><!-- /CXol -->

@@ -3,14 +3,8 @@
 // This file contains all styles related to the table component.
 // -----------------------------------------------------------------------------
 
-$table-border-width: 1.6px;
-$table-border-colour: #2b2b2b;
-$table-padding: 0.6rem 0.9rem;
-
-
 table {
 	$self: &;
-
 	position: relative;
 	display: block;
 	max-width: fit-content;
@@ -19,7 +13,6 @@ table {
 	border-spacing: 0;
 	border-collapse: collapse;
 	box-sizing: border-box;
-	@include text-wrapper;
 
 	// Cells
 	// =========================================================================
@@ -27,8 +20,8 @@ table {
 	th,
 	td {
 		padding: $table-padding;
-		color: colour("foreground");
-		border: $table-border-width solid $table-border-colour;
+		color: var(--table-cell-colour);
+		border: $table-border-width solid var(--table-border-colour);
 	}
 
 	// Head
@@ -36,6 +29,11 @@ table {
 
 	thead {
 		font-weight: bold;
+
+		tr th {
+			color: colour('foreground');
+			font-size: 18px;
+		}
 	}
 
 	// Body
@@ -45,9 +43,8 @@ table {
 		font-size: 1rem;
 
 		tr {
-
 			&:nth-child(2n) {
-				background-color: $grey-light;
+				background-color: var(--table-stripe-colour);
 			}
 		}
 	}

@@ -5,7 +5,7 @@
 
 @each $modifier, $breakpoint in $grid-properties {
 	@include create-mediaquery($breakpoint) {
-		//Flex Direction
+		// Flex Direction
 		.flex#{$modifier}-row {
 			flex-direction: row !important;
 		}
@@ -19,7 +19,7 @@
 			flex-direction: column-reverse !important;
 		}
 
-		//Justify Content
+		// Justify Content
 		.justify-content#{$modifier}-start {
 			justify-content: flex-start !important;
 		}
@@ -39,8 +39,8 @@
 			justify-content: space-evenly !important;
 		}
 
-		//Align Self & Align Items
-		@each $property in ("self", "items") {
+		// Align Self & Align Items
+		@each $property in ('self', 'items') {
 			.align-#{$property}#{$modifier}-start {
 				align-#{$property}: flex-start !important;
 			}
@@ -58,7 +58,7 @@
 			}
 		}
 
-		//Align Content
+		// Align Content
 		.align-content#{$modifier}-start {
 			align-content: flex-start !important;
 		}
@@ -78,7 +78,7 @@
 			align-content: space-around !important;
 		}
 
-		//Wrap
+		// Wrap
 		.flex#{$modifier}-wrap {
 			flex-wrap: wrap !important;
 		}
@@ -89,12 +89,12 @@
 			flex-wrap: wrap-reverse !important;
 		}
 
-		//Fill
+		// Fill
 		.flex#{$modifier}-fill {
 			flex: 1 1 auto !important;
 		}
 
-		//Grow & Shrink
+		// Grow & Shrink
 		.flex#{$modifier}-grow-0 {
 			flex-grow: 0 !important;
 		}

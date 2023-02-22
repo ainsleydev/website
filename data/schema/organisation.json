@@ -1,0 +1,24 @@
+{
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	"url": "https://ainsley.dev",
+	"legalName": "ainsley.dev LTD",
+	"description": "Digital craftsmanship sculpting you as an industry leader. Coupling state-of-the-art technology with beautiful, memorable designs, we create memorable digital transformations and well-crafted software for everyone from startups to established brands.",
+	"logo": "https://ainsley.dev/images/logo.jpg",
+	"sameAs": [
+		"https://find-and-update.company-information.service.gov.uk/company/14550437",
+		"https://github.com/ainsleyclark",
+		"https://www.linkedin.com/in/ainsleyclark/",
+		"https://twitter.com/ainsleydev/",
+		"https://www.facebook.com/ainsley.devltd/",
+		"https://www.instagram.com/ainsley.devltd/",
+		"https://dribbble.com/ainsleyclark/"
+	],
+	"address": {
+		"@type": "PostalAddress",
+		"addressLocality": "London",
+		"addressCountry": "UK",
+		"postalCode": "WC2H 9JQ",
+		"streetAddress": "ainsley.dev, 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ"
+	}
+}

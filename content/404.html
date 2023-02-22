@@ -1,0 +1,38 @@
+---
+title: 404 - Page not found
+description: Sorry we couldn’t find that page.
+draft: false
+url: 404.html
+---
+
+<!-- =====================
+	404
+	===================== -->
+<section class="hero hero-simple hero-simple-padding-bottom">
+	<div class="container">
+		<div class="row align-items-center justify-content-center justify-content-desk-start">
+			<!-- Gopher -->
+			<div class="col-12 col-tab-8 col-desk-5 offset-desk-1 offset-desk-large-2 order-desk-last">
+				<div class="margin mb-desk-0">
+					{{< image src="images/gopher.gif" alt="Dancing Gopher" >}}
+				</div>
+			</div>
+			<!-- Content -->
+			<div class="col-12 col-desk-6 col-desk-large-5">
+				<!-- Heading -->
+				<div class="margin-large">
+					<h1>
+						<u>404</u><br/>
+						<span class="type-serif">page not found*</span>
+					</h1>
+					<p class="lead lead-max-width">
+						Sorry we couldn’t find that page, instead here’s a dancing Gopher in case you
+						needed this in your life.
+					</p>
+				</div>
+				<!-- Go Back -->
+				{{< partial template="components/button.html" text="Go back" arrow=true attr="data-go-back" >}}
+			</div><!-- /Col -->
+		</div><!-- /Row -->
+	</div><!-- /Container -->
+</section>

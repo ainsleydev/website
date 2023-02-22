@@ -1,0 +1,16 @@
+<!-- =====================
+    Picture
+		< picture src="images/image.jpg" mob="image.jpg" tab="image.jpg" alt="alt" class="class-name" lazy=true >
+    ===================== -->
+<picture class="image
+	{{ if .Get "margin" -}} margin {{- end }}
+	{{ if .Get "margin-large" -}} margin-large {{- end }}
+	{{ with .Get "class" -}} {{ . }} {{- end }}">
+		{{ partial "media/picture.html" (dict
+        	"image" (partial "util/resource.html" (dict "src" (.Get "src") "ctx" .))
+        	"alt" (.Get "alt")
+			"mob" (partial "util/resource.html" (dict "src" (.Get "mob") "ctx" .))
+			"tab" (partial "util/resource.html" (dict "src" (.Get "tab") "ctx" .))
+        	"lazy" (.Get "lazy")
+		)}}
+</picture>

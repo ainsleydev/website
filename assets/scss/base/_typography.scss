@@ -27,6 +27,10 @@ body {
 	}
 }
 
+main {
+	font-size: $text-paragraph-size;
+}
+
 h1,
 h2,
 h3,
@@ -36,7 +40,7 @@ h6,
 p {
 	position: relative;
 	margin: 0;
-	color: colour(foreground);
+	color: colour('foreground');
 }
 
 // Headings
@@ -52,70 +56,107 @@ h4,
 .heading-4,
 h5 {
 	display: block;
-	color: colour(foreground);
+	color: colour('foreground');
 	font-weight: bold;
-	letter-spacing: -1px;
-	line-height: 1.2;
+}
+
+@mixin h1 {
+	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 40px, 68px);
+	margin-bottom: 1.8rem;
+	line-height: 1.03;
+	letter-spacing: $text-letter-spacing;
+
+	.type-serif {
+		@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 50px, 80px);
+	}
 }
 
 h1,
 .heading-1 {
-	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 38px, 68px);
-	margin-bottom: 1.4rem;
-	line-height: 0.9;
+	@include h1;
+}
 
-	.type-serif {
-		@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 48px, 80px);
-	}
+@mixin h2 {
+	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 34px, 50px);
+	margin-bottom: 1.3rem;
+	line-height: 1.2;
+	letter-spacing: $text-letter-spacing;
 }
 
 h2,
 .heading-2 {
-	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 28px, 50px);
-	margin-bottom: 1.3rem;
+	@include h2;
+}
+
+@mixin h3 {
+	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 23px, 37px);
+	margin-bottom: 1rem;
+	line-height: 1.4;
+	letter-spacing: $text-letter-spacing;
 }
 
 h3,
 .heading-3 {
-	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 23px, 37px);
-	margin-bottom: 1.2rem;
+	@include h3;
+}
+
+@mixin h4 {
+	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 21px, 29px);
+	margin-bottom: 1rem;
+	line-height: 1.55;
+	letter-spacing: $text-letter-spacing;
 }
 
 h4,
 .heading-4 {
-	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 21px, 29px);
-	margin-bottom: 1rem;
+	@include h4;
+}
+
+@mixin h5 {
+	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 19px, 21.5px);
+	margin-bottom: 0.9rem;
+	line-height: 1.36;
+	letter-spacing: $text-letter-spacing;
 }
 
 h5,
 .heading-5 {
-	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 19px, 21.5px);
-	margin-bottom: 0.9rem;
+	@include h5;
 }
 
-h6,
-.heading-6 {
+@mixin h6 {
 	display: block;
-	color: colour(copy-dark);
+	color: colour('copy-dark');
 	font-size: 0.84rem;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	font-weight: 500;
 	line-height: 1;
-	margin-bottom: 0.8rem;
+	margin-bottom: 0.9rem;
+}
+
+h6,
+.heading-6 {
+	@include h6;
 }
 
 // Paragraph
 // =========================================================================
 
 p {
-	color: colour(copy-dark);
-	font-size: 1.1rem;
+	color: colour('paragraph');
+	font-size: $text-paragraph-size;
 	margin-bottom: 1rem;
 	line-height: 1.8;
+	letter-spacing: 0;
 
 	&.lead {
 		font-size: $text-lead-size;
+		line-height: 1.8;
+
+		&-max-width {
+			max-width: 580px;
+		}
 	}
 }
 
@@ -123,15 +164,10 @@ p {
 // =========================================================================
 
 a {
-	font-size: 1rem;
-	color: colour(foreground);
+	font-size: $text-paragraph-size;
+	color: colour('foreground');
 	font-weight: bold;
-	text-decoration: underline;
-	transition: color 160ms ease;
-
-	&:hover {
-		color: var(--link-hover-colour);
-	}
+	text-decoration: none;
 }
 
 // Small
@@ -147,16 +183,19 @@ small {
 // =========================================================================
 
 .type {
-
 	&-serif {
 		font-family: $font-serif;
 		font-style: italic;
 		font-weight: 300;
-		letter-spacing: -1.4px;
+		letter-spacing: -2px;
 	}
 
 	&-code {
 		font-family: $font-code;
+		font-weight: normal;
+	}
+
+	&-weight-normal {
 		font-weight: normal;
 	}
 }
@@ -173,8 +212,9 @@ strong {
 
 .number {
 	display: block;
-	font-family: 'Times New Roman';
+	font-family: 'Times New Roman', serif;
 	font-size: 7.5rem;
+	letter-spacing: -4px;
 	font-style: italic;
 	line-height: 1;
 }
@@ -212,42 +252,5 @@ strong {
 	::-moz-selection {
 		background: $black;
 		color: $white;
-	}
-}
-
-// Text Wrappers
-// =========================================================================
-
-.text-wrapper,
-ul,
-ol,
-blockquote,
-.highlight,
-table {
-	@include text-wrapper;
-
-	p:last-of-type {
-		margin-bottom: 0;
-	}
-
-	&-no-margin {
-		margin-bottom: 0 !important;
-	}
-
-	&-small {
-		@include text-wrapper(-$text-wrapper-small-diff);
-	}
-
-	&-large {
-		@include text-wrapper($text-wrapper-large-diff);
-	}
-
-	@each $modifier, $breakpoint in $grid-properties {
-		@include create-mediaquery($breakpoint) {
-
-			&-small {
-				margin-bottom: map-get($text-margin-properties, $modifier) + $text-wrapper-small-diff;
-			}
-		}
 	}
 }

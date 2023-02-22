@@ -1,7 +1,8 @@
 {
-	"buildCommand": "bash vercel.sh",
-	"cleanUrls": true,
-	"installCommand": "npm install",
+	"buildCommand": "./vercel.sh",
+	"cleanUrls": false,
+	"devCommand": "hugo server --buildDrafts --watch --port $PORT",
+	"installCommand": "make setup",
 	"outputDirectory": "public",
 	"public": false,
 	"regions": ["lhr1"],
@@ -10,5 +11,23 @@
 		"deploymentEnabled": {
 			"dev": false
 		}
-	}
+	},
+	"redirects": [
+		{
+			"source": "/about/",
+			"destination": "/who-we-are/",
+			"permanent": true
+		},
+		{
+			"source": "/work/",
+			"destination": "/portfolio/",
+			"permanent": true
+		}
+	],
+	"rewrites": [
+		{
+			"source": "/api/(.*)",
+			"destination": "/api/entrypoint.go"
+		}
+	]
 }

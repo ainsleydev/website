@@ -4,23 +4,51 @@
 // Ref: https://codepen.io/milanraring/pen/gOwGpdm
 // -----------------------------------------------------------------------------
 
-.btn {
-	$self: &;
+// Resets & Props
+// =========================================================================
 
-	position: relative;
-	display: inline-block;
-	height: auto;
-	padding: $button-padding;
-	background-color: colour(foreground);
-	color: colour(background);
-	border: none;
+button,
+a.btn {
 	border-radius: 4px;
 	cursor: pointer;
 	outline: none;
 	user-select: none;
 	text-decoration: none;
-	transition: transform 100ms linear, color 100ms linear, background 100ms linear;
+	border: none;
+}
+
+// Element
+// =========================================================================
+
+.btn {
+	$self: &;
+	position: relative;
+	display: inline-block;
+	height: auto;
+	padding: $button-padding;
+	background-color: colour('foreground');
+	color: colour('background');
+	border: none;
+	transition: transform 100ms linear, color 100ms linear,
+		background 100ms linear;
 	will-change: transform, color, background;
+
+	// Defaults
+	// =========================================================================
+
+	&:active {
+		background-color: $black;
+		color: $white;
+
+		&-text {
+			color: $white;
+		}
+
+		svg path {
+			stroke: $white;
+			fill: $white;
+		}
+	}
 
 	// Wrapper
 	// =========================================================================
@@ -43,23 +71,16 @@
 		line-height: 1;
 	}
 
-	// Hover
-	// =========================================================================
-
-	&:hover {
-		color: inherit;
-	}
-
 	// Colours
 	// =========================================================================
 
 	&-colour {
-
 		&-white {
 			background-color: $white;
 			color: $black;
 
 			svg path {
+				/* stylelint-disable-line no-descending-specificity */
 				stroke: $black;
 				fill: $black;
 			}
@@ -85,6 +106,7 @@
 			color: $white;
 
 			svg path {
+				/* stylelint-disable-line no-descending-specificity */
 				stroke: $white;
 				fill: $white;
 			}
@@ -106,11 +128,19 @@
 		}
 	}
 
+	// Sizes
+	// =========================================================================
+
+	&-size {
+		&-small {
+			padding: $button-padding-small;
+		}
+	}
+
 	// Arrow
 	// =========================================================================
 
 	&-arrow {
-
 		&-image {
 			width: $button-arrow-size;
 			height: $button-arrow-size;
@@ -140,7 +170,6 @@
 		}
 
 		&:hover {
-
 			#{$self}-text {
 				transform: translateX(30px);
 				color: inherit;
@@ -169,8 +198,8 @@
 			opacity: 0;
 		}
 
-		&:after {
-			content: "";
+		&::after {
+			content: '';
 			width: 18px;
 			height: 18px;
 			border: 2px solid $black;
@@ -201,17 +230,5 @@
 		&:hover {
 			box-shadow: none;
 		}
-	}
-
-	// Tablet
-	// =========================================================================
-
-	@include media-tab {
-	}
-
-	// Desktop
-	// =========================================================================
-
-	@include media-desk {
 	}
 }

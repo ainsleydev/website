@@ -1,0 +1,36 @@
+<!-- =====================
+    Banner
+		< sections/quote sub="Get in touch" cite="ainsley.dev" >
+		- text:		TODO
+    ===================== -->
+<a href="/temp" class="banner cursor-element"
+	data-cursor-border data-cursor-border-white data-cursor-scale="3">
+	<!-- Image -->
+	<picture class="banner-image brightness-80">
+		{{ partial "media/picture.html" (dict
+			"image" (resources.Get "images/banners/desk.jpg")
+			"lazy" true
+			"alt" "ainsley.dev Office"
+		)}}
+	</picture><!-- /Image -->
+	<!-- Content -->
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-desk-9 offset-desk-2">
+				<!-- Content -->
+				<div class="banner-content">
+					<!-- Sub -->
+					<h6 class="banner-sub margin">
+						Get in touch
+					</h6>
+					<!-- Title -->
+					<span class="banner-title heading-1">
+						Say <br/><span class="type-serif">hello*</span>
+					</span>
+					<!-- Arrow Link -->
+                    {{ partial "svgs/arrow.html" (dict "rotation" 45 "colour" .colour "stroke" 1) }}
+				</div><!-- /Content -->
+			</div><!-- /Col -->
+		</div><!-- /Row -->
+	</div><!--- /Col -->
+</a>

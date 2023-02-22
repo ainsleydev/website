@@ -6,23 +6,44 @@
 .richtext {
 	$self: &;
 
-	// Paragraph
+	// Margin
+	// ==========================================================================
+
+	p,
+	ul {
+		+ h1,
+		+ h2,
+		+ h3,
+		+ h4,
+		+ h5 {
+			margin-top: $margin-large;
+		}
+	}
+
+	> :last-child {
+		// Assign no margin to the last element in the article.
+		margin-bottom: 0 !important;
+	}
+
 	// Paragraph
 	// ==========================================================================
 
-	p:empty {
-		display: none;
-		margin: 0;
+	p {
+		&:empty {
+			display: none;
+			margin: 0;
+		}
+
+		& + .image {
+			margin-top: $margin;
+		}
 	}
 
 	// Images
 	// ==========================================================================
 
-	p + .image {
-		@include text-wrapper-top;
-	}
-
 	.image {
+		/* stylelint-disable-line no-descending-specificity */
 
 		+ h1,
 		+ h2,
@@ -30,7 +51,7 @@
 		+ h4,
 		+ h5,
 		+ p {
-			@include text-wrapper-top($text-wrapper-large-diff);
+			margin-top: $margin-large;
 		}
 
 		+ .image {

@@ -5,19 +5,27 @@
 
 .hero {
 	$self: &;
-
 	position: relative;
+
+	// Props
+	// =========================================================================
+
+	.container {
+		z-index: 9;
+	}
 
 	// Background
 	// =========================================================================
 
 	&-background {
 		position: absolute;
+		display: block;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
-		z-index: -1;
+		max-width: 100vw;
+		z-index: -2;
 
 		img,
 		source {
@@ -37,12 +45,23 @@
 		width: 100%;
 	}
 
+	// Simple
+	// =========================================================================
+
+	&-simple {
+		padding-top: $header-height + 30px;
+
+		&-padding-bottom {
+			padding-bottom: $section-padding;
+		}
+	}
+
 	// Full Height
 	// =========================================================================
 
 	&-full-height {
-		height: 100%;
-		min-height: 100vh;
+		height: 100vh;
+		min-height: 600px;
 	}
 
 	// Half Height
@@ -52,6 +71,21 @@
 		padding-top: $header-height;
 		height: 70vh;
 		min-height: 500px;
+	}
+
+	// Space Around (With Logos)
+	// =========================================================================
+
+	&-space-around {
+		display: flex;
+
+		#{$self}-container {
+			display: flex;
+			flex-direction: column;
+			height: 90%;
+			justify-content: space-around;
+			align-self: flex-end;
+		}
 	}
 
 	// Text
@@ -65,16 +99,92 @@
 		}
 	}
 
-	// Arrow
+	// Lead
 	// =========================================================================
 
-	&-arrow {
-		position: relative;
-		display: inline-block;
-		width: clamp(30px, 12.5%,  70px);
+	&-lead {
+		margin-bottom: 0;
+		color: $white;
+	}
+
+	// Align Bottom
+	// =========================================================================
+
+	&-align-bottom {
+		align-items: flex-end;
+		padding-bottom: 10vh;
+	}
+
+	// A Symbol
+	// =========================================================================
+
+	&-a-symbol {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		min-height: 360px;
+		height: 50vw;
+		aspect-ratio: 1.1 / 1;
+
+		&-left {
+			left: 0;
+			right: auto;
+		}
+
+		&-right {
+			right: 0;
+			left: auto;
+		}
 
 		svg {
+			width: auto;
+			height: 100%;
+		}
+	}
+
+	// Logos
+	// =========================================================================
+
+	&-logos {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-column-gap: 2rem;
+		margin-bottom: -1.2rem;
+
+		figure {
+			display: inline-grid;
+			align-items: center;
+			justify-content: flex-start;
 			width: 100%;
+			max-height: 50px;
+			margin-bottom: 1.2rem;
+
+			img {
+				width: 100%;
+				max-width: 160px;
+			}
+		}
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-mob {
+		&-logos {
+			display: flex;
+			flex-wrap: wrap;
+			grid-column-gap: 0;
+			grid-row-gap: 0;
+			max-width: 720px;
+
+			figure {
+				width: auto;
+				margin-right: 1.8rem;
+
+				img {
+					max-width: 260px;
+				}
+			}
 		}
 	}
 
@@ -82,17 +192,29 @@
 	// =========================================================================
 
 	@include media-tab {
+		&-simple {
+			padding-top: $section-padding;
+		}
 	}
 
 	// Desktop
 	// =========================================================================
 
 	@include media-desk {
-
 		&-arrow {
 			transition: all 100ms;
 			transform-style: preserve-3d;
 			transform-origin: 50% 50%;
+		}
+
+		&-a-symbol svg g {
+			opacity: 1;
+			mix-blend-mode: normal !important;
+		}
+
+		&-logos {
+			transform: scale(1.1);
+			transform-origin: left;
 		}
 	}
 }

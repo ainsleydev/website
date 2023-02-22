@@ -12,9 +12,9 @@
 	max-width: $container-max-width;
 	padding: 0 $container-padding-x;
 
-	@media (min-width: $container-max-width + 50) {
-		padding: 0;
-	}
+	//@media (min-width: $container-max-width + 100) {
+	//	padding: 0;
+	//}
 }
 
 .row {
@@ -30,7 +30,7 @@
 }
 
 .no-gaps > .col,
-.no-gaps > [class*="col-"] {
+.no-gaps > [class*='col-'] {
 	padding-right: 0;
 	padding-left: 0;
 }
@@ -47,6 +47,7 @@
 	.col#{$modifier}-auto {
 		@extend %column-props;
 	}
+
 	@for $i from 1 through $grid-columns {
 		.col#{$modifier}-#{$i} {
 			@extend %column-props;

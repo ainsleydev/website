@@ -20,27 +20,22 @@ body {
 	font-family: $font;
 	font-size: 1rem;
 	line-height: 1.6;
-
+	overflow: auto !important; // Override Typeform
 	font-kerning: normal;
 	-webkit-font-smoothing: antialiased; // sass-lint:disable-line  no-vendor-prefixes
 	-webkit-tap-highlight-color: transparent; // sass-lint:disable-line  no-vendor-prefixes
 }
 
-*,
-*::before,
-*::after {
+* {
 	box-sizing: inherit;
 }
 
 body {
 	background-color: $black;
+}
 
-	&.theme-white {
-		background-color: #{$white};
-		--colour-background: #{$white};
-		--colour-foreground: #{$black};
-		--color-mark: rgba(#{$white}, 0.15)
-	}
+main {
+	flex-grow: 2;
 }
 
 .content-wrapper {
@@ -60,20 +55,31 @@ body {
 // =========================================================================
 
 figure {
+	vertical-align: baseline;
 	margin: 0;
 }
 
-ul {
+image,
+source {
+	vertical-align: top;
+}
+
+ul,
+menu {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
+}
+
+fieldset {
+	border: none;
+	padding: 0;
 }
 
 // No JS
 // =========================================================================
 
 .no-js {
-
 	.js-hide {
 		display: none !important;
 	}
@@ -81,11 +87,4 @@ ul {
 	.lazy {
 		display: none !important;
 	}
-}
-
-// Mods
-// =========================================================================
-
-.js-hide {
-	display: none !important;
 }

@@ -1,0 +1,14 @@
+{
+	"root": true,
+	"extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"project": ["./tsconfig.json"]
+	},
+	"rules": {
+		"@typescript-eslint/ban-ts-ignore": "off",
+		"@typescript-eslint/no-var-requires": "off"
+	},
+	"plugins": ["@typescript-eslint"],
+	"ignorePatterns": ["public/**/.js", "staic/**"]
+}
