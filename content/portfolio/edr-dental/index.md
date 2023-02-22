@@ -4,6 +4,7 @@ description: Discover how ainsley.dev transformed a slow, cumbersome, out of dat
 slug: edr-dental
 draft: false
 weight: 7
+footerNoPadding: true
 company: EDR Dental
 year: 2022
 site:

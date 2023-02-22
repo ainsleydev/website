@@ -2,14 +2,14 @@
 	<!-- =====================
 		Portfolio Single
 		===================== -->
-	<section class="portfolio">
+	<section class="hero hero-simple portfolio">
 		<div class="container">
 			<div class="row">
 				<!-- =====================
 					Meta
 					===================== -->
 				<div class="col-12 col-desk-5">
-					<aside class="portfolio-aside">
+					<aside class="portfolio-aside margin-large mb-mob-0">
 						<!-- Logo -->
 						<figure class="margin">
                             {{ partial "media/image.html" (dict
@@ -44,7 +44,7 @@
                         {{ end }}<!-- /Technologies -->
 						<!-- Website -->
                         {{ with .Params.site }}
-							<div class="margin">
+							<div class="margin margin-none">
 								<h5 class="mb-0">Website</h5>
 								<a href="{{ .link }}" class="type-weight-normal" target="_blank">
 									<p>{{ .pretty }}</p>
@@ -77,15 +77,17 @@
 		Quote
 		===================== -->
 	{{ with .Params.quote -}}
-		{{ partial "sections/quote.html" (dict
-			"text" .text
-			"cite" .person
-		)}}
+		<div class="portfolio-quote">
+            {{ partial "sections/quote.html" (dict
+				"text" .text
+				"cite" .person
+            )}}
+		</div>
 	{{- end }}
 	<!-- =====================
 		Next Project
 		===================== -->
-	{{ with .PrevInSection}}
+	{{ with .PrevInSection }}
 		<section class="portfolio-next">
 		   <!-- Next Image -->
 		   <picture class="portfolio-next-image">
