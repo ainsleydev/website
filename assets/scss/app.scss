@@ -100,9 +100,8 @@
 .test {
 	$self: &;
 
-	&-line {
-		margin-top: 0;
-		width: 20%;
+	&-vertical-line {
+		display: none;
 	}
 
 	@include media-mob {
@@ -115,27 +114,13 @@
 			align-items: center;
 		}
 
-		// Text
-		// =========================================================================
-
-		&-text {
-			//padding-left: 5rem;
-			margin-bottom: 0;
-			//min-height: clamp(320px, 40vh, 500px);
-		}
-
 		// Vertical Line
 		// =========================================================================
 
 		&-vertical-line {
 			display: block;
 			// TODO, change to variable
-			width: 5px;
-			min-width: 5px;
-			height: 100%;
-			margin: 0 2.8rem 0 auto;
-			//vertical-align: middle;
-			background-color: $white;
+			margin: 0 40% 0 auto;
 		}
 	}
 }

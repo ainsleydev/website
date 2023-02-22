@@ -17,18 +17,34 @@
 		min-height: 100vh;
 	}
 
-	@include media-tab {
-	}
-
 	// Content
 	// =========================================================================
 
 	&-content {
 		overflow-x: hidden;
+	}
 
-		picture {
+	// Tablet
+	// =========================================================================
+
+	@include media-mob {
+		&-content picture {
+			display: flex;
+			width: 83.33333333%;
+			margin-left: 16.66666667%;
+			padding: $gap-width 0;
+		}
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-desk {
+		&-content picture {
 			display: flex;
 			width: 50vw;
+			margin-left: 0;
+			padding: 0;
 		}
 	}
 }

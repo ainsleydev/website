@@ -7,23 +7,39 @@ hr,
 .line {
 	$self: &;
 	display: block;
-	border-width: 2px;
+	border-width: $line-size;
 	border-color: colour('foreground');
 	border-style: solid;
 	padding: 0;
 	margin: 2rem 0;
-	opacity: $alpha-standard;
+
+	// Vertical
+	// =========================================================================
+
+	&-vertical {
+		width: auto;
+		border-style: none;
+		border-right-width: $line-size-thick;
+		border-right-style: solid;
+		height: 100%;
+		margin: 0;
+	}
 
 	// Sizes
 	// =========================================================================
 
 	&-medium {
-		border-width: 3px;
-		opacity: 1;
+		border-width: $line-size-medium;
 	}
 
 	&-thick {
-		border-width: 4px;
-		opacity: 1;
+		border-width: $line-size-thick;
+	}
+
+	// Opaque
+	// =========================================================================
+
+	&-opaque {
+		opacity: $alpha-standard;
 	}
 }

@@ -31,7 +31,8 @@ blockquote {
 		content: '';
 		position: relative;
 		display: block;
-		width: 4px;
+		width: $line-size-thick;
+		min-width: $line-size-thick;
 		margin-right: 2rem;
 		background-color: colour('blue');
 	}
