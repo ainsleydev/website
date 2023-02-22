@@ -15,9 +15,6 @@ technologies: [WordPress, WooCommerce, Custom Plugins (PHP)]
 quote:
   person: Declan O’Keffee, Digital Director
   text: I have had the pleasure of working closely with ainsley.dev on the development of my new website. They have such a huge array of skills, not just in web development but across business and eCommerce as a whole, that not only did they help us create a beautiful and modern website, they also helped us with ideas and initiatives for the future. It was a pleasure working with them.
-styles:
-- scss/pages/portfolio.scss
-
 ---
 
 <!-- Intro -->
@@ -38,7 +35,7 @@ online with ease, and more visibility for the company’s brand presence in the 
 {{< /vertical-wrapper >}}
 
 <!-- Video -->
-{{< picture src="images/shop.jpg" alt="Dec's Pets Shop" >}}
+{{< picture src="images/poster.jpg" alt="Dec's Pets Tag Builder" >}}
 
 <!-- Design -->
 {{< vertical-wrapper text="Design" number="02" >}}
@@ -49,10 +46,10 @@ watermark to create a consistent design language.
 {{< /vertical-wrapper >}}
 
 <!-- Mockup -->
-{{< picture src="images/mockup.jpg" alt="Dec's Pets Shop" >}}
+{{< picture src="images/mockup.jpg" alt="Dec's Pets Website on an iPad" >}}
 
 <!-- Development -->
-{{< vertical-wrapper text="Develop " number="03" >}}
+{{< vertical-wrapper text="Develop" number="03" >}}
 Using WooCommerce with WordPress, a custom build was created for the new platform. Back-end services were rewritten in
 PHP, removing the use of any heavy plugins such as MailChimp and Stamped.IO. This drastically decreased page load time.
 A new plugin was also created for Dec’s Pets, [Squidge](https://wordpress.org/plugins/squidge/),, which compressed and

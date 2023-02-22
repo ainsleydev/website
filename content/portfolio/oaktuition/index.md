@@ -12,44 +12,53 @@ site:
 role: Design & Development
 strategies: [Full brand, UI/UX , Multi-page site]
 technologies: [WordPress, GSAP, SVG Masking]
+quote:
+  person: Nafhesa Ali, CEO
+  text: ainsley.dev is fantastic. They make the whole process of web development so easy through their support and expertise. Highly recommend and would definitely work with them again.
 ---
 
-## Client
-
+<!-- Intro -->
+{{< vertical-wrapper >}}
 Established in 2017, Oak Tuition is a tutoring school with highly-qualified, experienced tutors, who utilise hands-on
 mixed method teaching of the National Curriculum, in accordance with exam board requirements.
+{{< /vertical-wrapper >}}
 
-## Brief
+<!-- Before/After -->
+{{< picture src="images/before.jpg" >}}
 
+<!-- Brief -->
+{{< vertical-wrapper text="Brief" number="01" >}}
 ainsley.dev were approached to replace an off-the-peg website, with a professional, sleek, but playful multi-page online
 presence, with a clear branding across their site and social media pages. The website needed to feature enough key
 information to increase traffic and entice prospective clients to make contact.
+{{< /vertical-wrapper >}}
 
-## Design
+<!-- Video -->
+{{< picture src="images/poster.jpg" alt="Oak Tuition Website" >}}
 
+<!-- Design -->
+{{< vertical-wrapper text="Design" number="02" >}}
 Soft pastel colours were utilised throughout the site to invoke a sense of childhood and play. These were contrasted
 with a clear black font for headings, buttons, forms, and calls to action. In order to lighten the tone, the original
 oak tree logo was completely redesigned to include these pastel colours, and made to incorporate an illustration of a
 student sitting on a swing on one of the tree branches.
+{{< /vertical-wrapper >}}
 
-## Development
+<!-- Mockup -->
+{{< picture src="images/mockup.jpg" alt="Oak Tuition Website on an iPad" >}}
 
+<!-- Development -->
+{{< vertical-wrapper text="Develop" number="03" >}}
 WordPress was used for the development of the site, including [ACF](https://www.advancedcustomfields.com/) (Advanced
 Custom Fields), enabling Oak Tuition to freely change and edit the content of their new
 site. [GSAP](https://greensock.com/gsap/) was used to create a wide variety of animations for the homepage, including
 layer masks, so that the tree appeared to grow out of the ground, and a girl swinging on the branch, which made the site
 more playful and interactive.
+{{< /vertical-wrapper >}}
 
 ## Results
 
 - 92% increase in traffic
 - 22% decrease in bounce rate
 - 56% increase in PSI
-
-## Testimonial
-
-Ainsley is fantastic. Makes the whole process of web development so easy through his support and expertise. Highly
-recommend and would definitely work with Ainsley again.
-
-Nafhesa Ali, CEO
 
