@@ -5,6 +5,11 @@ setup: # Setup dependencies
 	go install github.com/deepmap/oapi-codegen/cmd/oapi-codegen@latest
 	go generate ./...
 
+setup-vercel: # Temp setup for Vercel
+	npm install
+	npm -g install svgo
+.PHONY: setup-vercel
+
 serve: # Serve the application
 	npm run serve
 .PHONY: serve
