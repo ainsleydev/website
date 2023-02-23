@@ -29,8 +29,10 @@
 		<link rel="canonical"
 			  href="{{ with .Params.canonical -}} {{ . }} {{- else -}} {{ .Permalink }} {{- end }}"/>
 		<!-- Base -->
-		<base href="{{ .Site.BaseURL }}">
-		<script>window.BaseURL = {{ .Site.BaseURL }};</script>
+        {{ if ne hugo.Environment "development" -}}
+			<base href="{{ .Site.BaseURL }}">
+			<script>window.BaseURL = {{ .Site.BaseURL }};</script>
+		{{- end }}
         <!-- Open Graph -->
         {{ template "_internal/opengraph.html" . }}
         <!-- Twitter -->
