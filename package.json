@@ -10,7 +10,7 @@
 		"build": "npm run hugo:clean && hugo --environment development",
 		"build:staging": "npm run hugo:clean && hugo --environment staging --minify && npm run image",
 		"build:prod": "npm run hugo:clean && hugo --environment production --minify && npm run image",
-		"build:test": "npm run hugo:clean && hugo --environment production --minify --baseURL http://localhost:3000 && npm run image && python3 -m http.server 3000 -d public",
+		"build:test": "npm run hugo:clean && hugo --environment production --minify && npm run image && python3 -m http.server 3000 -d public",
 		"hugo:clean": "rm -rf public",
 		"image": "./bin/image-optim.sh",
 		"clean": "prettier --write ./**/*.{ts,tsx,scss,json}",
