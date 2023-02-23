@@ -12,6 +12,12 @@
 			"dev": false
 		}
 	},
+	"functions": {
+		"api/entrypoint.go": {
+			"includeFiles": "api/**",
+			"memory": 256
+		}
+	},
 	"redirects": [
 		{
 			"source": "/about/",

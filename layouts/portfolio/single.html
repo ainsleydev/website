@@ -3,6 +3,16 @@
 		Portfolio Single
 		===================== -->
 	<section class="hero hero-simple portfolio">
+		<!-- Arrow -->
+		<div class="portfolio-arrow-wrapper">
+			<figure class="portfolio-arrow">
+                {{ partial "svgs/arrow.html" (dict
+                "colour" "white"
+                "rotation" 135
+                )}}
+			</figure><!-- /Arrow -->
+		</div>
+
 		<div class="container">
 			<div class="row">
 				<!-- =====================
@@ -51,6 +61,7 @@
 								</a>
 							</div>
                         {{ end }}<!-- /Website -->
+
 					</aside>
 				</div><!-- /Col -->
 				<!-- =====================

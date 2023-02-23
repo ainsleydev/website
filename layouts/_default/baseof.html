@@ -4,7 +4,8 @@
     ===================== -->
 {{ $css := partial "head/styles.html" (append "scss/app.scss" .Params.styles) }}
 {{ $js := partial "head/scripts.html" (append "js/app.ts" .Params.scripts) }}
-{{ $hash := .GitInfo.AbbreviatedHash }}
+{{/*{{ $hash := .GitInfo.AbbreviatedHash }}*/}}
+{{ $hash := now.Unix }}
 <!-- =====================
     HTML
     ===================== -->

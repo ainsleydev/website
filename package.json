@@ -17,7 +17,6 @@
 		"lint": "npm run lint:scss && npm run lint:js",
 		"lint:scss": "npx stylelint '**/*.scss'",
 		"lint:js": "eslint --config .eslintrc.json --fix 'assets/**/*.{ts,tsx}'",
-		"prepare": "husky install",
 		"precommit": "npx lint-staged --debug"
 	},
 	"dependencies": {
