@@ -40,7 +40,7 @@ needed to be displayed throughout the landing page, with clear calls to action a
 {{< /vertical-wrapper >}}
 
 <!-- Video -->
-{{< picture src="images/guttering.jpg" >}}
+{{< picture src="images/guttering.jpg" alt="TODO" >}}
 
 <!-- Design -->
 {{< vertical-wrapper text="Design" number="02" >}}

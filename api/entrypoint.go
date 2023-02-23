@@ -20,7 +20,7 @@ func init() {
 	app = echo.New()
 	handler = &httpservice.Handler{}
 	echo.NotFoundHandler = func(c echo.Context) error {
-		// fmt.Println(c.Request().URL)
+		// TODO
 		return nil
 	}
 	httpservice.RegisterHandlersWithBaseURL(app, handler, "/api")

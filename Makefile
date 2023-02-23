@@ -15,9 +15,13 @@ serve: # Serve the application
 	npm run serve
 .PHONY: serve
 
-deploy-live: # Deploy Live
-	vercel
-.PHONY: deploy-live
+deploy-prod: # Deploy production to Vercel
+	vercel --prod
+.PHONY: deploy-prod
+
+deploy-staging: # Deploy staging to Vercel
+	vercel --name staging
+.PHONY: deploy-staging
 
 post: # Creates a new work post.
 	@[ "${name}" ] || ( echo ">> name is not set"; exit 1 )
@@ -67,6 +71,8 @@ todo: # Show to-do items per file
 		--exclude=Makefile.util \
 		--exclude=TODO.md \
 		--exclude-dir=vendor \
+		--exclude-dir=.vercel \
+		--exclude-dir=.gen \
 		--exclude-dir=.idea \
 		--exclude-dir=public \
 		--exclude-dir=node_modules \

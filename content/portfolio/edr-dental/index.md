@@ -42,7 +42,7 @@ fluid design was needed to bring the company into the modern era, with easy ways
 {{< /vertical-wrapper >}}
 
 <!-- Video -->
-{{< picture src="images/machine.jpg" >}}
+{{< picture src="images/machine.jpg" alt="TODO" >}}
 
 <!-- Design -->
 {{< vertical-wrapper text="Design" number="02" >}}

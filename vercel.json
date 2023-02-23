@@ -13,7 +13,7 @@
 		}
 	},
 	"functions": {
-		"api/entrypoint.go": {
+		"api/**/*.go": {
 			"includeFiles": "api/**",
 			"memory": 256
 		}

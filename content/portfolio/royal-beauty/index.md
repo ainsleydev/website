@@ -53,7 +53,7 @@ which allowed them to book with ease.
 {{< /vertical-wrapper >}}
 
 <!-- Mockup -->
-{{< picture src="images/mockup.jpg" alt="Dec's Pets Website on a Laptop" >}}
+{{< picture src="images/mockup.jpg" alt="TODO" >}}
 
 <!-- Development -->
 {{< vertical-wrapper text="Develop" number="03" >}}
