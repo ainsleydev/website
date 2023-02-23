@@ -13,8 +13,8 @@
 		}
 	},
 	"functions": {
-		"api/**/*.go": {
-			"includeFiles": "api/**",
+		"api/**/*": {
+			"includeFiles": "**/*",
 			"memory": 256
 		}
 	},
