@@ -16,6 +16,13 @@ technologies: [Verbis, barba.js, AOS (Animate on Scroll)]
 quote:
   person: Fantastic web designer, could not recommend highly enough. Very professional service and produced a final product that far exceeded expectations, thank you!
   text: Richard Penny, Administrator
+results:
+  - number: 2.7k
+    text: impressions
+  - number: 97
+    text: point PSI on desktop
+  - number: 8%
+    text: average CTR
 ---
 
 <!-- Intro -->
@@ -57,9 +64,3 @@ attention to detail for accessibility and SEO factors, web.dev/measure lighthous
 high. [barba.js](https://barba.js.org/) was used in tandem with [AOS](https://michalsnik.github.io/aos/) to achieve
 clean, professional page transitions which gave the website an app-like quality.
 {{< /vertical-wrapper >}}
-
-## Results
-
-- 2.7k impressions
-- 97 point PSI on desktop
-- 8% average CTR

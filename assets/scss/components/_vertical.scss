@@ -103,12 +103,12 @@
 		}
 
 		&-fill {
-			//flex-grow: 2;
 			margin-top: 0;
 
 			#{$self}-line {
 				flex-grow: 2;
 				height: 100%;
+				min-height: 0;
 				max-height: 400px;
 			}
 		}

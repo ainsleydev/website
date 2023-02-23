@@ -15,6 +15,13 @@ technologies: [WordPress, GSAP, SVG Masking]
 quote:
   person: Nafhesa Ali, CEO
   text: ainsley.dev is fantastic. They make the whole process of web development so easy through their support and expertise. Highly recommend and would definitely work with them again.
+results:
+  - number: 92%
+    text: increase in traffic
+  - number: 22%
+    text: decrease in bounce rate
+  - number: 56%
+    text: increase in PSI
 ---
 
 <!-- Intro -->
@@ -26,7 +33,7 @@ mixed method teaching of the National Curriculum, in accordance with exam board 
 <!-- Before/After -->
 {{< picture src="images/before.jpg" >}}
 
-<!-- Brief -->
+<!-- Brief -->[index.md](index.md)
 {{< vertical-wrapper text="Brief" number="01" >}}
 ainsley.dev were approached to replace an off-the-peg website, with a professional, sleek, but playful multi-page online
 presence, with a clear branding across their site and social media pages. The website needed to feature enough key
@@ -55,10 +62,3 @@ site. [GSAP](https://greensock.com/gsap/) was used to create a wide variety of a
 layer masks, so that the tree appeared to grow out of the ground, and a girl swinging on the branch, which made the site
 more playful and interactive.
 {{< /vertical-wrapper >}}
-
-## Results
-
-- 92% increase in traffic
-- 22% decrease in bounce rate
-- 56% increase in PSI
-
