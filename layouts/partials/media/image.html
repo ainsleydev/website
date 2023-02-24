@@ -5,15 +5,11 @@
 			"alt" "Alternative text"
 			"lazy" true
 			"class" "class-name"
-			"width" "100px"
-			"height" "100px"
 		)
 		- image:	The image resource. A warning will be thrown without this key.
 		- alt:		The alternative text for the image. A warning will be thrown without this key.
 		- lazy:		If the image should be lazy loaded, defaults to false.
 		- class:	Any class names to be appended to the <picture> element.
-		- width:	Optional width in px for the image (for SVG images).
-		- height:	Optional height in px for the image (for SVG images).
     ===================== -->
 {{ if not .alt -}}
 	{{- warnf "No alt text provided for image: %s" .image.RelPermalink -}}
@@ -21,15 +17,17 @@
 {{ if .image }}
 	<!-- SVG -->
 	{{ if eq .image.MediaType.SubType "svg" }}
-		{{ if or (not .width) (not .height) -}}
+		{{ $width := replaceRE `width="(.*?)"` "$1" (index (findRE `width="(.*?)"` .image.Content) 0) }}
+		{{ $height := replaceRE `height="(.*?)"` "$1" (index (findRE `height="(.*?)"` .image.Content) 0) }}
+		{{ if or (not $width) (not $height) -}}
 			{{- warnf "No width or height provided for image: %s" .image.RelPermalink -}}
 		{{- end }}
 		<img {{ if .lazy }} loading="lazy" {{- end }}
 			src="{{ .image.RelPermalink }}"
 			class="image-svg {{ with .class -}} {{ . }} {{- end }}"
 			{{ with .alt -}} alt="{{ . }}" {{- end }}
-            {{ with .width -}} width="{{ . }}px" {{- end }}
-			{{ with .height -}} height="{{ . }}px" {{- end }}>
+            {{ with $width -}} width="{{ . }}px" {{- end }}
+			{{ with $height -}} height="{{ . }}px" {{- end }}>
 	<!-- JPG/PNG -->
 	{{- else -}}
 		<img {{ if .lazy }} loading="lazy" {{- end }}
