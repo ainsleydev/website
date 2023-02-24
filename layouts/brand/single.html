@@ -47,7 +47,8 @@
 					<!-- Arrow -->
 					<div class="hero-arrow">
                         {{ partial "type/arrow-link.html" (dict
-							"link" (printf "%s#content" .Page.Permalink)
+							"link" (printf "%s#content" .Page.RelPermalink)
+                        	"title" "Scroll down to explore"
                        	 	"rotation" 135
 							"title" (printf "Explore the %s Brand Guidelines" .Title)
 							"down" true

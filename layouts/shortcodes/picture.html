@@ -7,10 +7,10 @@
 	{{ if .Get "margin-large" -}} margin-large {{- end }}
 	{{ with .Get "class" -}} {{ . }} {{- end }}">
 		{{ partial "media/picture.html" (dict
-        	"image" (partial "util/resource.html" (dict "src" (.Get "src") "ctx" .))
+        	"image" (partial "util/_resource.html" (dict "src" (.Get "src") "ctx" .))
         	"alt" (.Get "alt")
-			"mob" (partial "util/resource.html" (dict "src" (.Get "mob") "ctx" .))
-			"tab" (partial "util/resource.html" (dict "src" (.Get "tab") "ctx" .))
+			"mob" (partial "util/_resource.html" (dict "src" (.Get "mob") "ctx" .))
+			"tab" (partial "util/_resource.html" (dict "src" (.Get "tab") "ctx" .))
         	"lazy" (.Get "lazy")
 		)}}
 </picture>
