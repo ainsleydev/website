@@ -62,6 +62,11 @@ outputs:
 security:
     exec:
         allow: [ "^dart-sass-embedded$", "^go$", "npx$", "^postcss$", "^babel$" ]
+    funcs:
+        getenv:
+            - ^HUGO_
+            - ^CI$
+            - ^VERCEL_
 sitemap:
     changefreq: monthly
     filename: sitemap.xml

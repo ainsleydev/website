@@ -9,7 +9,6 @@
 <!-- =====================
     HTML
     ===================== -->
-
 <html class="no-js" lang="en-GB">
     <head>
         <!-- Meta -->
@@ -29,9 +28,9 @@
 		<link rel="canonical"
 			  href="{{ with .Params.canonical -}} {{ . }} {{- else -}} {{ .Permalink }} {{- end }}"/>
 		<!-- Base -->
-        {{ if ne hugo.Environment "development" -}}
-			<base href="{{ .Site.BaseURL }}">
-			<script>window.BaseURL = {{ .Site.BaseURL }};</script>
+        {{ if and (ne hugo.Environment "development") (getenv "VERCEL_URL") (ne getenv "VERCEL_ENV" "preview") -}}
+			<base href="{{ getenv "VERCEL_URL" }}">
+			<script>window.BaseURL = {{ getenv "VERCEL_URL" }};</script>
 		{{- end }}
         <!-- Open Graph -->
         {{ template "_internal/opengraph.html" . }}
