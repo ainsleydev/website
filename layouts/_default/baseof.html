@@ -28,10 +28,10 @@
 		<link rel="canonical"
 			  href="{{ with .Params.canonical -}} {{ . }} {{- else -}} {{ .Permalink }} {{- end }}"/>
 		<!-- Base -->
-        {{ if and (ne hugo.Environment "development") (getenv "VERCEL_URL") (ne getenv "VERCEL_ENV" "preview") -}}
+        {{ if eq (getenv "VERCEL_ENV") "production" -}}
 			<base href="{{ getenv "VERCEL_URL" }}">
-			<script>window.BaseURL = {{ getenv "VERCEL_URL" }};</script>
 		{{- end }}
+		<script>window.BaseURL = {{ getenv "VERCEL_URL" }};</script>
         <!-- Open Graph -->
         {{ template "_internal/opengraph.html" . }}
         <!-- Twitter -->
