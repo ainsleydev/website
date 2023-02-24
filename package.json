@@ -10,14 +10,13 @@
 		"build": "npm run hugo:clean && hugo --environment development",
 		"build:staging": "npm run hugo:clean && hugo --environment staging --minify && npm run image",
 		"build:prod": "npm run hugo:clean && hugo --environment production --minify && npm run image",
-		"build:test": "npm run hugo:clean && hugo --environment production --minify --baseURL http://localhost:3000 && npm run image && python3 -m http.server 3000 -d public",
+		"build:test": "npm run hugo:clean && hugo --environment production --minify && npm run image && go run main.go",
 		"hugo:clean": "rm -rf public",
 		"image": "./bin/image-optim.sh",
 		"clean": "prettier --write ./**/*.{ts,tsx,scss,json}",
 		"lint": "npm run lint:scss && npm run lint:js",
 		"lint:scss": "npx stylelint '**/*.scss'",
 		"lint:js": "eslint --config .eslintrc.json --fix 'assets/**/*.{ts,tsx}'",
-		"prepare": "husky install",
 		"precommit": "npx lint-staged --debug"
 	},
 	"dependencies": {
@@ -88,5 +87,35 @@
 				}
 			}
 		]
+	},
+	"stylelint": {
+		"extends": "stylelint-config-standard-scss",
+		"rules": {
+			"color-hex-length": null,
+			"color-function-notation": "legacy",
+			"comment-empty-line-before": "always",
+			"no-invalid-double-slash-comments": null,
+			"declaration-empty-line-before": "never",
+			"value-keyword-case": [
+				"lower",
+				{
+					"ignoreProperties": [
+						"/^\\$/"
+					]
+				}
+			],
+			"rule-empty-line-before": [
+				"always",
+				{
+					"ignore": [
+						"inside-block-and-after-rule"
+					]
+				}
+			],
+			"property-no-vendor-prefix": null,
+			"selector-no-vendor-prefix": null,
+			"scss/no-global-function-names": null,
+			"scss/double-slash-comment-empty-line-before": null
+		}
 	}
 }

@@ -35,7 +35,7 @@ also needed, to enable people to get in touch easily.
 {{< /vertical-wrapper >}}
 
 <!-- Video -->
-{{< picture src="images/cody.jpg" >}}
+{{< picture src="images/cody.jpg" alt="TODO" >}}
 
 <!-- Design -->
 {{< vertical-wrapper text="Design" number="02" >}}

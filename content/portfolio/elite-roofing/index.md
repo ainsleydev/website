@@ -33,7 +33,7 @@ extensive experience in the industry with an easy way for potential customers to
 {{< /vertical-wrapper >}}
 
 <!-- Video -->
-{{< picture src="images/roof.jpg" >}}
+{{< picture src="images/roof.jpg" alt="TODO" >}}
 
 {{< vertical-wrapper text="Design" number="02" >}}
 As there were no existing brand guidelines for Elite Roofing, a modern and striking colour palette was curated in

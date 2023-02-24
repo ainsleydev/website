@@ -22,7 +22,9 @@
 	   data-cursor-border>
 		<!-- Text -->
 		{{ with .text -}}
-			<h2 class="arrow-link-text">{{ . }}</h2>
+			<div class="arrow-link-text">
+                {{ . | safeHTML }}
+			</div>
 		{{- end }}
 		<!-- Arrow -->
 		<figure class="arrow-link-image">

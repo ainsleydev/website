@@ -10,11 +10,19 @@
 	$self: &;
 	overflow-x: clip;
 
+	// Aside
+	// =========================================================================
+
+	&-aside {
+		position: relative;
+		margin-bottom: $section-padding;
+	}
+
 	// Featured
 	// =========================================================================
 
 	&-featured {
-		display: flex;
+		display: block;
 		height: auto;
 
 		img,
@@ -25,15 +33,41 @@
 		}
 	}
 
+	// Arrow
+	// =========================================================================
+
+	&-arrow {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+		transform: translateY(50%);
+	}
+
+	// Content
+	// =========================================================================
+
+	&-content {
+		picture {
+			display: block;
+		}
+	}
+
 	// Next Project
 	// =========================================================================
 
 	&-next {
 		position: relative;
+		display: flex;
+		flex-direction: column;
+		height: 100vh;
 		background-color: $grey-dark;
 
 		&-image {
+			display: block;
 			width: 100vw;
+			height: 50%;
+			flex-grow: 2;
 
 			img,
 			source {
@@ -44,8 +78,11 @@
 		}
 
 		&-container {
+			display: flex;
+			align-items: center;
 			padding-top: $section-padding;
 			padding-bottom: $section-padding;
+			height: auto;
 		}
 	}
 
@@ -53,16 +90,40 @@
 	// =========================================================================
 
 	@include media-mob {
+		&-content picture:not(#{$self}-featured) {
+			width: 75%;
+			margin-left: 25%;
+		}
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-desk {
 		padding-top: 0;
+
+		&-aside {
+			position: sticky;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			height: 100vh;
+			top: 0;
+			padding-bottom: 0;
+		}
+
+		&-title {
+			@include h2;
+		}
 
 		&-featured {
 			width: 50vw;
 			height: 100vh;
 		}
 
-		&-content picture {
-			width: 75%;
-			margin-left: 25%;
+		&-arrow {
+			bottom: 10vh;
+			transform: none;
 		}
 
 		&-next {
@@ -75,6 +136,7 @@
 			}
 
 			&-container {
+				display: block;
 				position: absolute;
 				top: 50%;
 				left: 50%;
@@ -84,35 +146,25 @@
 				padding-bottom: 0;
 			}
 		}
-	}
-
-	// Desktop
-	// =========================================================================
-
-	@include media-desk {
-		&-aside {
-			position: sticky;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			height: 100vh;
-			top: 0;
-		}
 
 		&-content picture {
-			display: flex;
-			width: 50vw;
-			margin-left: 0;
+			width: 50vw !important; // Override :not for tab
+			margin-left: 0 !important; // Override :not for tab
 			padding: 0;
+		}
+
+		&-results {
+			width: 50vw;
+			margin-left: 50vw;
 		}
 	}
 
 	// 4K
 	// =========================================================================
 
-	@media (min-width: 1920px) {
+	@media (min-width: 2100px) {
 		&-aside {
-			transform: translateX(-6vw);
+			transform: translateX(-5vw);
 		}
 	}
 }

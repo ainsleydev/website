@@ -2,7 +2,7 @@
 	"buildCommand": "./vercel.sh",
 	"cleanUrls": false,
 	"devCommand": "hugo server --buildDrafts --watch --port $PORT",
-	"installCommand": "make setup",
+	"installCommand": "make setup-vercel",
 	"outputDirectory": "public",
 	"public": false,
 	"regions": ["lhr1"],
@@ -10,6 +10,12 @@
 	"git": {
 		"deploymentEnabled": {
 			"dev": false
+		}
+	},
+	"functions": {
+		"api/**/*": {
+			"includeFiles": "**/*",
+			"memory": 256
 		}
 	},
 	"redirects": [
