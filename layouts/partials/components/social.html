@@ -3,7 +3,7 @@
     	partial "components/social.html" (dict "colour" "white")
     	- colour:	The colour of the social handles, defaults to foreground.
     ===================== -->
-{{ $colour := partial "util/get-colour.html" .colour }}
+{{ $colour := partial "util/_get-colour.html" .colour }}
 {{ with site.Params.Social }}
 	<figure class="social">
 		<!-- GitHub -->
