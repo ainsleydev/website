@@ -13,6 +13,7 @@ import { FitText } from './components/fit-text';
 import { Collapse, CollapseOptions } from './components/accordion';
 import { Card } from './components/card';
 import { Navigation } from './components/nav';
+import LocomotiveScroll from 'locomotive-scroll';
 import smoothscroll from 'smoothscroll-polyfill';
 
 /**
@@ -69,3 +70,15 @@ document.querySelectorAll('.lazy-animate').forEach((lazy) => {
 		lazy.classList.add('lazy-loaded');
 	});
 });
+
+/**
+ * Locomotive Scroll - TODO
+ */
+// const scroll = new LocomotiveScroll({
+// 	// el: document.querySelector('[data-scroll-container]'),
+// 	smooth: true,
+// 	// smoothMobile: false,
+// 	// offset: [0, 0],
+// 	lerp: 0.1,
+// 	touchMultiplier: 0,
+// });

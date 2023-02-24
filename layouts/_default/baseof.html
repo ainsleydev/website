@@ -82,18 +82,20 @@
         {{ $colour = .Params.pagecolour }}
     {{ end }}
     <body class="theme-{{ $colour }}">
-        <!-- Header -->
-        {{- partial "header.html" (dict "colour" $colour) -}}
-		<!-- Cursor -->
-		<div class="cursor"></div>
-		<!-- Wrapper -->
-		<div class="content-wrapper">
-			<!-- Main Content -->
-			<main id="main">
-                {{- block "main" . }}{{- end }}
-			</main>
-			<!-- Footer -->
-            {{- partial "footer.html" . -}}
+		<div data-scroll-container>
+			<!-- Header -->
+			{{- partial "header.html" (dict "colour" $colour) -}}
+			<!-- Cursor -->
+			<div class="cursor"></div>
+			<!-- Wrapper -->
+			<div class="content-wrapper">
+				<!-- Main Content -->
+				<main id="main">
+					{{- block "main" . }}{{- end }}
+				</main>
+				<!-- Footer -->
+				{{- partial "footer.html" . -}}
+			</div>
 		</div>
         <!-- Javascript -->
 		{{ range $js -}}

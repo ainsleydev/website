@@ -2,7 +2,7 @@
 	<!-- =====================
 		Portfolio List
 		===================== -->
-	<section class="hero hero-simple hero-simple-padding-bottom">
+	<section class="hero hero-simple hero-simple-padding-bottom" data-scroll-section>
 		<div class="container">
 			<div class="row">
 				<div class="col-12 col-desk-11 offset-desk-1">
@@ -19,7 +19,7 @@
 		Items
 		===================== -->
     {{ if .Pages -}}
-		<section class="section section-padding section-padding-bottom" id="pages">
+		<section class="section section-padding section-padding-bottom" id="pages" data-scroll-section>
 			<div class="container">
 				<div class="row">
                     {{ range $index, $page := .Pages }}
@@ -39,7 +39,10 @@
 	<!-- =====================
 		CTA
 		===================== -->
-    {{ partial "sections/banner.html" (dict
-    	"TODO" "TODO"
-    )}}
+		<div data-scroll-section>
+            {{ partial "sections/banner.html" (dict
+            "TODO" "TODO"
+            )}}
+		</div>
+
 {{ end }}

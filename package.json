@@ -22,6 +22,7 @@
 	"dependencies": {
 		"@barba/core": "^2.9.7",
 		"@googlemaps/js-api-loader": "^1.15.1",
+		"locomotive-scroll": "^4.1.4",
 		"normalize.css": "^8.0.1",
 		"smoothscroll-polyfill": "^0.4.4",
 		"toastify-js": "^1.12.0"
