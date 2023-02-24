@@ -8,10 +8,8 @@
 
 if [[ $VERCEL_GIT_COMMIT_REF == "master"  ]] ; then
   echo "Building production"
-  # npm run build:prod
-  npm run hugo:clean && hugo --environment production --minify
+  npm run build:prod
 else
   echo "Building staging"
-  # npm run build:staging
-  npm run hugo:clean && hugo --environment staging --minify
+  npm run build:staging
 fi

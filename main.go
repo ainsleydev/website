@@ -19,11 +19,8 @@ func main() {
 
 	// Sanity check public folder
 	if _, err := os.Stat("./public"); !os.IsNotExist(err) {
-		//log.Fatalln("Public folder does not exist")
+		log.Fatalln("Public folder does not exist")
 	}
-
-	// Handle API routes (functions)
-	//http.HandleFunc("/api", api.Handler)
 
 	// Handle public folder
 	fs := http.FileServer(http.Dir("./public"))

@@ -56,6 +56,9 @@ markup:
         endLevel: 2
         ordered: false
         startLevel: 2
+outputs:
+    home: ["HTML","RSS", "JSON"]
+    section: ["HTML","RSS", "JSON"]
 security:
     exec:
         allow: [ "^dart-sass-embedded$", "^go$", "npx$", "^postcss$", "^babel$" ]
