@@ -41,7 +41,7 @@
 					</div><!-- /Text -->
 					<!-- Arrow -->
                     {{ partial "type/arrow-link.html" (dict
-						"link" (printf "%s#content" .Page.Permalink)
+						"link" (printf "%s#content" .Page.RelPermalink)
 						"rotation" 135
 						"title" "Explore ainsley.dev Brand Guidelines"
 						"down" true
@@ -60,7 +60,7 @@
                     {{ range $index, $page := .Pages }}
                         {{ $isLeft := eq (mod $index 2) 0 }}
 						<div class="col-12 col-mob-6 col-desk-5 card-col">
-							<div class="row {{ if not $isLeft }} justify-content-end {{- end }}">
+							<div class="row no-gaps {{ if not $isLeft }} justify-content-end {{- end }}">
 								<div class="col-12 col-tab-11 col-desk-12">
 									{{ partial "cards/horizontal.html" (dict
 										"title" .Title

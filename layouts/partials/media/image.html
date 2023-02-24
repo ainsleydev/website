@@ -15,10 +15,15 @@
 		- width:	Optional width in px for the image (for SVG images).
 		- height:	Optional height in px for the image (for SVG images).
     ===================== -->
-{{ if not .alt -}} {{ warnf "No alt text provided for image: %s" .image.RelPermalink }} {{- end }}
+{{ if not .alt -}}
+	{{- warnf "No alt text provided for image: %s" .image.RelPermalink -}}
+{{- end }}
 {{ if .image }}
 	<!-- SVG -->
 	{{ if eq .image.MediaType.SubType "svg" }}
+		{{ if or (not .width) (not .height) -}}
+			{{- warnf "No width or height provided for image: %s" .image.RelPermalink -}}
+		{{- end }}
 		<img {{ if .lazy }} loading="lazy" {{- end }}
 			src="{{ .image.RelPermalink }}"
 			class="image-svg {{ with .class -}} {{ . }} {{- end }}"
