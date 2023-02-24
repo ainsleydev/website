@@ -4,13 +4,15 @@
     ===================== -->
 {{ $css := partial "head/styles.html" (append "scss/app.scss" .Params.styles) }}
 {{ $js := partial "head/scripts.html" (append "js/app.ts" .Params.scripts) }}
-{{ $hash := .GitInfo.AbbreviatedHash }}
+{{/*{{ $hash := .GitInfo.AbbreviatedHash }}*/}}
+{{ $hash := now.Unix }}
 <!-- =====================
     HTML
     ===================== -->
-
 <html class="no-js" lang="en-GB">
     <head>
+		<!--- TODO, removed when finished -->
+		<meta name="robots" content="noindex">
         <!-- Meta -->
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -28,8 +30,10 @@
 		<link rel="canonical"
 			  href="{{ with .Params.canonical -}} {{ . }} {{- else -}} {{ .Permalink }} {{- end }}"/>
 		<!-- Base -->
-		<base href="{{ .Site.BaseURL }}">
-		<script>window.BaseURL = {{ .Site.BaseURL }};</script>
+        {{ if eq (getenv "VERCEL_ENV") "production" -}}
+			<base href="{{ getenv "VERCEL_URL" }}">
+		{{- end }}
+		<script>window.BaseURL = {{ getenv "VERCEL_URL" }};</script>
         <!-- Open Graph -->
         {{ template "_internal/opengraph.html" . }}
         <!-- Twitter -->

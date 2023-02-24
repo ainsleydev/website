@@ -8,7 +8,7 @@ disableKinds: [ "taxonomy", "taxonomyTerm" ]
 ignoreErrors: [ "error-disable-taxonomy" ]
 copyright: "ainsley.dev LTD is a registered company in England and Wales. Company Number 12478393. ©2022 ainsley.dev LTD. All rights reserved."
 disableHugoGeneratorInject: true
-enableGitInfo: true
+enableGitInfo: false
 enableEmoji: true
 enableInlineShortcodes: true
 enableRobotsTXT: true
@@ -56,9 +56,17 @@ markup:
         endLevel: 2
         ordered: false
         startLevel: 2
+outputs:
+    home: ["HTML","RSS", "JSON"]
+    section: ["HTML","RSS", "JSON"]
 security:
     exec:
         allow: [ "^dart-sass-embedded$", "^go$", "npx$", "^postcss$", "^babel$" ]
+    funcs:
+        getenv:
+            - ^HUGO_
+            - ^CI$
+            - ^VERCEL_
 sitemap:
     changefreq: monthly
     filename: sitemap.xml

@@ -15,6 +15,13 @@ technologies: [Flat HTML, CSS & JS, Contact form (PHP), AOS]
 quote:
   person: Kathy Urresto, CEO
   text: Amazing web designer and developer. They made a tailored website for me within a short time, and with great ideas. They listened to all my needs, were very responsive and super professional. Highly recommend. Thanks Ainsley!!
+results:
+  - number: 96%
+    text: PSI on mobile
+  - number: 135%
+    text: over ROI
+  - number: 200%
+    text: rise in social engagement
 ---
 
 <!-- Intro -->
@@ -46,7 +53,7 @@ which allowed them to book with ease.
 {{< /vertical-wrapper >}}
 
 <!-- Mockup -->
-{{< picture src="images/mockup.jpg" alt="Dec's Pets Website on a Laptop" >}}
+{{< picture src="images/mockup.jpg" alt="TODO" >}}
 
 <!-- Development -->
 {{< vertical-wrapper text="Develop" number="03" >}}
@@ -56,13 +63,3 @@ lazy loaded, resulting in a page speed
 of [96 on mobile](https://pagespeed.web.dev/report?url=https%3A%2F%2Fkatherinebodycare.co.uk%2F). This really helped
 grow their audience, as most of their organic traffic was coming from mobile devices.
 {{< /vertical-wrapper >}}
-
-## Results
-
-- 96% PSI on mobile
-- 135% over ROI
-- 200% rise in social engagement
-
-
-
-

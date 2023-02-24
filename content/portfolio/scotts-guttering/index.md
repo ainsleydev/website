@@ -15,6 +15,11 @@ technologies: [Flat HTML, CSS & JS, Contact form (PHP), AOS]
 quote:
   person: Can’t recommend ainsley.dev highly enough. My first website was completed quickly and without any problems. All my comments and preferences were taken on board, creating an end product I’m very, very happy with. ⭐⭐⭐⭐⭐
   text: Scott Berry, CEO
+results:
+  - number: 97
+    text: point PSI on mobile
+  - number: 15
+    text: rank for [guttering kent]
 ---
 
 <!-- Intro -->
@@ -35,7 +40,7 @@ needed to be displayed throughout the landing page, with clear calls to action a
 {{< /vertical-wrapper >}}
 
 <!-- Video -->
-{{< picture src="images/guttering.jpg" >}}
+{{< picture src="images/guttering.jpg" alt="TODO" >}}
 
 <!-- Design -->
 {{< vertical-wrapper text="Design" number="02" >}}
@@ -56,8 +61,3 @@ easy way for users to get in touch.
 A [PSI of 93 on mobile and 100 on desktop](https://pagespeed.web.dev/report?url=https%3A%2F%2Fscottsguttering.co.uk%2F)
 were achieved by lazy loading, minification and image optimisation, which made for an extremely rapid landing page.
 {{< /vertical-wrapper >}}
-
-## Results
-
-- 97 point PSI on mobile
-- 15 rank for [guttering kent]

@@ -12,6 +12,12 @@
 			"dev": false
 		}
 	},
+	"functions": {
+		"api/**/*": {
+			"includeFiles": "**/*",
+			"memory": 256
+		}
+	},
 	"redirects": [
 		{
 			"source": "/about/",

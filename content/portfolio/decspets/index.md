@@ -15,6 +15,13 @@ technologies: [WordPress, WooCommerce, Custom Plugins (PHP)]
 quote:
   person: Declan O’Keffee, Digital Director
   text: I have had the pleasure of working closely with ainsley.dev on the development of my new website. They have such a huge array of skills, not just in web development but across business and eCommerce as a whole, that not only did they help us create a beautiful and modern website, they also helped us with ideas and initiatives for the future. It was a pleasure working with them.
+results:
+  - number: 60%
+    text: growth in overall traffic
+  - number: 40
+    text: point increase in PSI
+  - number: 150%
+    text: increase in ROI
 ---
 
 <!-- Intro -->
@@ -56,9 +63,3 @@ A new plugin was also created for Dec’s Pets, [Squidge](https://wordpress.org/
 converted images to `AVIF` and `WebP` formats. Used in conjunction with lazy loading images, this made for an extremely
 quick platform.
 {{< /vertical-wrapper >}}
-
-## Results
-
-- 60% growth in overall traffic
-- 40 point increase in PSI
-- 150% increase in ROI

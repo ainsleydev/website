@@ -2,14 +2,14 @@
 	<!-- =====================
 		Portfolio Single
 		===================== -->
-	<section class="hero hero-simple portfolio">
+	<section class="portfolio hero hero-simple">
 		<div class="container">
 			<div class="row">
 				<!-- =====================
 					Meta
 					===================== -->
 				<div class="col-12 col-desk-5">
-					<aside class="portfolio-aside margin-large mb-mob-0">
+					<aside class="portfolio-aside">
 						<!-- Logo -->
 						<figure class="margin">
                             {{ partial "media/image.html" (dict
@@ -19,7 +19,7 @@
 						</figure><!-- /Log -->
 						<!-- Title -->
 						<div class="margin-large">
-							<h1 class="heading-2 mb-0">{{ .Title }}</h1>
+							<h1 class="portfolio-title mb-0">{{ .Title }}</h1>
 						</div><!-- /Title -->
 						<!-- Year -->
                         {{ with .Params.year }}
@@ -51,6 +51,13 @@
 								</a>
 							</div>
                         {{ end }}<!-- /Website -->
+						<!-- Mobile Arrow -->
+						<figure class="portfolio-arrow">
+                            {{ partial "type/arrow-link.html" (dict
+                            "link" "#content"
+                            "rotation" 135
+                            )}}
+						</figure><!-- /Arrow -->
 					</aside>
 				</div><!-- /Col -->
 				<!-- =====================
@@ -59,61 +66,106 @@
 				<div class="col-12 col-desk-6 offset-desk-1">
 					<article class="portfolio-content">
 						<!-- Featured Image -->
-						<pictute class="portfolio-featured">
+						<picture class="portfolio-featured">
                             {{ partial "media/picture.html" (dict
-								"image" (.Resources.GetMatch "images/featured.jpg")
-								"alt" (printf "ainsley.dev %s Mockup" .Params.company)
-								"lazy" false
+                            	"image" (.Resources.GetMatch "images/featured.jpg")
+                            	"alt" (printf "ainsley.dev %s Mockup" .Params.company)
+                            	"lazy" false
                             )}}
-						</pictute>
+						</picture>
 						<!-- Render -->
-						{{ .Content }}
+						<section id="content">
+                            {{ .Content }}
+						</section>
 					</article>
 				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
 	</section>
 	<!-- =====================
+		Results
+		===================== -->
+	{{ with .Params.results -}}
+        {{ $length := len . }}
+		<section class="section section-padding portfolio-results bg-grey-dark">
+			<div class="container">
+				<div class="row no-gaps">
+					<!-- Vertica Text -->
+					<div class="col-12 col-mob-3 col-desk-3">
+						{{ partial "type/vertical.html" (dict
+							"text" "Results"
+							"number" "04"
+							"line" true
+							"fill" true
+						)}}
+					</div><!-- /Col -->
+					<!-- Results -->
+					<div class="col-12 col-mob-7 col-desk-4 offset-desk-1">
+						{{ range $index, $result := . }}
+							{{- $isLast := eq (sub $length 1) $index -}}
+							<!-- Result -->
+							<div class="{{ if not $isLast -}} margin-large {{- end }}">
+                                {{ with .number }}
+									<span class="number">
+										{{ . }}
+									</span>
+                                {{- end }}
+								<!-- Result Text -->
+                                {{ with .text -}}
+									<p class="lead mb-0">
+                                        {{ . }}
+									</p>
+                                {{- end }}
+							</div><!-- /Result -->
+						{{- end }}
+					</div><!-- /Col -->
+				</div><!-- /Row -->
+			</div><!-- /Container -->
+		</section>
+	{{- end }}
+	<!-- =====================
 		Quote
 		===================== -->
-	{{ with .Params.quote -}}
+    {{ with .Params.quote -}}
 		<div class="portfolio-quote">
             {{ partial "sections/quote.html" (dict
-				"text" .text
-				"cite" .person
+            "text" .text
+            "cite" .person
             )}}
 		</div>
-	{{- end }}
+    {{- end }}
 	<!-- =====================
 		Next Project
 		===================== -->
-	{{ with .PrevInSection }}
+    {{ with .PrevInSection }}
 		<section class="portfolio-next">
-		   <!-- Next Image -->
-		   <picture class="portfolio-next-image">
-               {{ partial "media/picture.html" (dict
-				   "image" (.Resources.GetMatch "images/horizontal.jpg")
-				   "alt" (printf "ainsley.dev %s Mockup" .Params.company)
-				   "lazy" false
-               )}}
-		   </picture>
+			<!-- Next Image -->
+			<figure class="portfolio-next-image">
+                {{ partial "media/image.html" (dict
+                	"image" (.Resources.GetMatch "images/horizontal.jpg")
+					"alt" (printf "ainsley.dev %s Mockup" .Params.company)
+					"lazy" true
+                )}}
+			</figure>
 			<!-- Link -->
-		   <div class="container portfolio-next-container">
-			   <div class="row">
-				   <div class="col-12 col-desk-3 offset-desk-9">
+			<div class="container portfolio-next-container">
+				<div class="row">
+					<div class="col-12 col-desk-5 offset-desk-7 offset-hd-8">
 						<!-- Company -->
-						{{ with .Params.company }}
-							<h6 class="margin">{{ . }}</h6>
-						{{- end }}
-					   {{ partial "type/arrow-link.html" (dict
+                        {{ with .Params.company }}
+							<h6 class="margin">
+								{{ . }}
+							</h6>
+                        {{- end }}
+                        {{ partial "type/arrow-link.html" (dict
 							"link" .Permalink
-							"text" "Next project"
+							"text" "<h2>Next project</h2>"
 							"title" (printf "Next page in %s" .Section)
 							"rotation" 45
-					   )}}
-				   </div><!-- /Col -->
-			   </div><!-- /Row -->
-		   </div><!-- /Container -->
-	   </section>
-	{{- end }}
+                        )}}
+					</div><!-- /Col -->
+				</div><!-- /Row -->
+			</div><!-- /Container -->
+		</section>
+    {{- end }}
 {{ end }}
