@@ -63,9 +63,11 @@ figure {
 	margin: 0;
 }
 
-image,
+img,
 source {
 	vertical-align: top;
+	border: none;
+	outline: none;
 }
 
 ul,
