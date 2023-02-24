@@ -55,27 +55,33 @@
 						<!-- AVIF -->
 						<source media="(max-width: {{ $container.size }}px)"
 							srcset="{{ $noExtension }}.avif"
-							class="{{ with .class -}} {{ . }} {{- end }}"
-							type="image/avif"
-							width="{{ $src.Width }}"
-							height="{{ $src.Height }}"/>
+							{{ with .class -}} class="{{ . }}" {{- end }}
+							type="image/avif"/>
 						<!-- WebP -->
 						<source media="(max-width: {{ $container.size }}px)"
 							srcset="{{ $noExtension }}.webp"
-							class="{{ with .class -}} {{ . }} {{- end }}"
-							type="image/webp"
-							width="{{ $src.Width }}"
-							height="{{ $src.Height }}"/>
+                            {{ with .class -}} class="{{ . }}" {{- end }}
+							type="image/webp"/>
 					{{- end }}
 					<!-- Original -->
 					<source media="(max-width: {{ $container.size }}px)"
 						srcset="{{ $src.RelPermalink }}"
-						class="{{ with .class -}} {{ . }} {{- end }}"
-						width="{{ $src.Width }}"
-						height="{{ $src.Height }}"/>
+						class="{{ with .class -}} {{ . }} {{- end }}"/>
 				{{- end }}
 			 {{ end }}
 		{{- end }}
+		<!-- Original - AVIF/WebP -->
+        {{ if site.Params.config.webpAvif -}}
+            {{ $noExtension := strings.TrimSuffix (path.Ext .image.RelPermalink) .image.RelPermalink }}
+			<!-- AVIF -->
+			<source src="{{ $noExtension }}.avif"
+                {{ with .class -}} class="{{ . }}" {{- end }}
+				type="image/avif"/>
+			<!-- WebP -->
+			<source src="{{ $noExtension }}.webp"
+                {{ with .class -}} class="{{ . }}" {{- end }}
+				type="image/webp"/>
+        {{- end }}
 		<!-- Original -->
         {{ partial "partials/media/image.html" (dict
 			"image" .image
