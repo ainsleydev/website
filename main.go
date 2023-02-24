@@ -8,7 +8,6 @@ import (
 	"flag"
 	"log"
 	"net/http"
-	"os"
 )
 
 func main() {
@@ -16,11 +15,6 @@ func main() {
 	var port string
 	flag.StringVar(&port, "port", "3000", "Server listen address")
 	flag.Parse()
-
-	// Sanity check public folder
-	if _, err := os.Stat("./public"); !os.IsNotExist(err) {
-		log.Fatalln("Public folder does not exist")
-	}
 
 	// Handle public folder
 	fs := http.FileServer(http.Dir("./public"))

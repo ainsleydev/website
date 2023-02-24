@@ -2,9 +2,11 @@
     Image
 		partial "media/image.html" (dict
 			"image" (resources.Get "hello.jpg")
+			"alt" "Alternative text"
 			"lazy" true
 			"class" "class-name"
 			"width" "100px"
+			"height" "100px"
 		)
 		- image:	The image resource. A warning will be thrown without this key.
 		- alt:		The alternative text for the image. A warning will be thrown without this key.
