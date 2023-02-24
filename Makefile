@@ -1,6 +1,7 @@
 setup: # Setup dependencies
 	npm install
 	husky install
+	npm i -g vercel
 	npm -g install svgo
 	go mod tidy
 	go install github.com/deepmap/oapi-codegen/cmd/oapi-codegen@latest
