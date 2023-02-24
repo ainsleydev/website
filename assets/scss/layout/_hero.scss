@@ -60,8 +60,9 @@
 	// =========================================================================
 
 	&-full-height {
-		height: 100vh;
+		height: 100%;
 		min-height: 600px;
+		min-height: -webkit-fill-available;
 	}
 
 	// Half Height

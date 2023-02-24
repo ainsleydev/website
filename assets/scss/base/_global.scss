@@ -24,6 +24,7 @@ body {
 	font-family: $font;
 	font-size: 1rem;
 	line-height: 1.6;
+	overflow: auto;
 	//overflow: auto !important; // Override Typeform
 	font-kerning: normal;
 	-webkit-font-smoothing: antialiased; // sass-lint:disable-line  no-vendor-prefixes
@@ -64,10 +65,13 @@ figure {
 }
 
 img,
-source {
+source,
+picture,
+figure {
 	vertical-align: top;
 	border: none;
 	outline: none;
+	color: transparent;
 }
 
 ul,
