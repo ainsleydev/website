@@ -14,7 +14,13 @@
                         {{ .Title }}<br/>
 					</h1>
 					Reading time: {{ math.Round (div (countwords .Content) 300.0) }} minutes.
-					<button class="btn btn-small btn-tiny">Bookmark</button>
+					{{  partial "components/button.html" (dict
+						"text" "Bookmark"
+						"colour" "black"
+						"size" "small"
+						"title" "Bookmark this page"
+						"attr" "bookmark"
+                    )}}
 					<!-- Content -->
 					<article class="richtext">
                         {{ .Content }}
