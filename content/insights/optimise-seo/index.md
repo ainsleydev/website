@@ -29,7 +29,7 @@ rendering is usually switched off.
 
 Source: https://www.onely.com/blog/googles-two-waves-of-indexing/
 
-**TODO: Add an image**
+![Google Analytics](images/intro.jpg)
 
 I say this loosely, as 9 times out of 10 this is the case, but sometimes they may choose to continue to index the
 rendered version of the page, and visa versa. Ultimately there is
@@ -37,8 +37,6 @@ a [two phased approach](https://www.botify.com/blog/client-side-server-side-rend
 JavaScript content might be missed on the first 'wave' of processing and not included in Google's index. JS can also
 slow search engine bots down, which on large sites can introduce crawl budget issues (evaluating websites can cost a
 large amount of money in resources).
-
-**TODO: Add source**
 
 ## Rendering
 
@@ -333,7 +331,7 @@ There are a tonne of things you can do with the checkbox hack, but let's take an
 clicks on a tab or header and content is expanded and becomes visible. Using the previous example, when the user clicks
 the label (our accordion header), we can expand the hidden content.
 
-**TODO: Insert CODEPEN**
+{{< codepen id="ExoyRZB" >}}
 
 **Note:** There are only certain things we can achieve using CSS. We should only be adding JS to **enhance** the user's
 experience. This should be done at the **very minimum** as a no JS fallback, to help increase usability across the

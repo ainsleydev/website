@@ -29,3 +29,7 @@ imagery:
             size: 767
         -   name: tab
             size: 1023
+codepen:
+    user: ainsleyclark
+    tab: result
+    theme: dark

@@ -12,7 +12,8 @@
 	p,
 	ul,
 	blockquote,
-	.highlight {
+	.highlight,
+	.codepen {
 		+ h1,
 		+ h2,
 		+ h3,
@@ -37,7 +38,8 @@
 		}
 
 		+ .image,
-		+ .highlight {
+		+ .highlight,
+		+ .codepen {
 			margin-top: $margin;
 		}
 	}
@@ -46,26 +48,33 @@
 	// ==========================================================================
 
 	a {
-		word-break: break-all;
+		word-break: break-word;
 	}
 
-	// Images
+	// Temp
 	// ==========================================================================
 
-	.image {
-		/* stylelint-disable-line no-descending-specificity */
-
+	.image,
+	.codepen {
 		+ h1,
 		+ h2,
 		+ h3,
 		+ h4,
 		+ h5,
 		+ p {
-			margin-top: $margin-large;
+			margin-top: $margin;
 		}
+	}
+
+	// Images
+	// ==========================================================================
+
+	.image {
+		margin-text-outline: $margin;
+		/* stylelint-disable-line no-descending-specificity */
 
 		+ .image {
-			margin-bottom: 1.6rem;
+			margin-bottom: $margin;
 		}
 	}
 }
