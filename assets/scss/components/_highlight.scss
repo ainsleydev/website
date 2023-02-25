@@ -7,6 +7,7 @@
 	$self: &;
 	padding-left: $highlight-padding;
 	padding-right: $highlight-padding;
+	margin-bottom: $margin;
 	background-color: $highlight-bg-colour;
 	border-radius: 4px;
 	overflow: hidden;
@@ -27,6 +28,13 @@
 		display: none;
 	}
 
+	pre,
+	code {
+		word-break: normal;
+		word-wrap: normal;
+		white-space: pre;
+	}
+
 	// Pre
 	// =========================================================================
 
@@ -35,18 +43,20 @@
 		padding-top: $highlight-padding;
 		padding-bottom: $highlight-padding;
 		background-color: $highlight-bg-colour;
-		overflow-x: scroll;
 	}
 
 	// Code
 	// =========================================================================
 
 	code {
+		display: block;
+		width: 100%;
 		font-family: $font-code;
 		font-size: 14px;
 		padding: 0;
 		border-radius: 0;
-		white-space: break-spaces;
+		overflow-x: auto;
+		background-color: $white;
 	}
 
 	// Rule

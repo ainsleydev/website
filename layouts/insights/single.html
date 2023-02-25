@@ -1,15 +1,27 @@
 {{ define "main" }}
-	<div class="container">
-		<div class="row">
-			<div class="col-desk-4">
-				<aside>
-                    {{ .TableOfContents }}
-				</aside>
-			</div><!-- /Col -->
-			<div class="col-12 col-desk-8">
-                {{ .Content }}
-			</div><!-- /Col -->
-		</div><!-- /Row -->
-	</div><!-- /Container -->
+	<!-- =====================
+		Terms
+		===================== -->
+	<section class="hero hero-simple hero-simple-padding-bottom">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-12 col-tab-10 col-desk-8 col-desk-large-7">
+					{{ partial "components/breadcrumbs.html" . }}
+
+
+					<!-- Title -->
+					<h1 class="margin-large">
+                        {{ .Title }}<br/>
+					</h1>
+					Reading time: {{ math.Round (div (countwords .Content) 300.0) }} minutes.
+					<button class="btn btn-small btn-tiny">Bookmark</button>
+					<!-- Content -->
+					<article class="richtext">
+                        {{ .Content }}
+					</article>
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
 {{ end }}
 
