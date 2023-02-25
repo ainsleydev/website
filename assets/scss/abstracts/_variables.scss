@@ -155,7 +155,7 @@ $line-size-thick: 4px;
 // Highlight
 // ==========================================================================
 
-$highlight-bg-colour: lighten($white, 0.1);
+$highlight-bg-colour: lighten($off-white, 4.5%);
 $highlight-padding: 10px;
 
 // Table
@@ -185,10 +185,6 @@ $table-padding: 0.6rem 0.9rem;
 	--a-symbol-clip-left: #{$a-symbol-clip-left};
 	--a-symbol-clip-right: #{$a-symbol-clip-right};
 
-	// Code
-	--code-colour: #{$black};
-	--code-background-colour: #{$white};
-
 	// Opacity
 	--alpha-standard: #{$alpha-standard};
 	--alpha-light: #{$alpha-light};
@@ -214,10 +210,6 @@ $table-padding: 0.6rem 0.9rem;
 		--colour-foreground: #{$black};
 		--colour-paragraph: #{$copy-light-bg};
 		--colour-list: #{$copy-light-bg};
-
-		// Code
-		--code-colour: #{$black};
-		--code-background-colour: #e1e1e1;
 
 		// Table
 		--table-border-colour: #dddddd;

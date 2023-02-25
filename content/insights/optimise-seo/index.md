@@ -128,15 +128,19 @@ Using the correct semantic HTML has a huge amount of benefits, not only for SEO,
 A simple example:
 
 ```html
-<p>This is an example to show you the <span style="font-weight: bold;">importance</span> of <span
-	style="font-style: italic">semantics</span></p>
+<p>
+	This is an example to show you the <span style="font-weight: bold;">importance</span> of
+	<span style="font-style: italic">semantics</span>
+</p>
 ```
 
 Here we are using CSS to manipulate the style of an element, instead of using the browsers pre-formatted styles as shown
 below.
 
 ```html
-<p>This is an example to show you the <strong>importance</strong> of <em>semantics</span></p>
+<p>
+	This is an example to show you the <strong>importance</strong> of <em>semantics</span>
+</p>
 ```
 
 Even better, let's see a more detailed example:
@@ -276,7 +280,6 @@ only contain `<link>`, `<style>`, and `<meta>` elements.
 A common example would be:
 
 ```html
-
 <noscript>
 	<h1>Sorry, you need to enable JavaScript to use this page.</h1>
 </noscript>
