@@ -1,30 +1,78 @@
 {{ define "main" }}
 	<!-- =====================
-		Terms
+		Insights - Single
 		===================== -->
 	<section class="hero hero-simple hero-simple-padding-bottom">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-12 col-tab-10 col-desk-8 col-desk-large-7">
-					{{ partial "components/breadcrumbs.html" . }}
-
-
-					<!-- Title -->
-					<h1 class="margin-large">
-                        {{ .Title }}<br/>
+					<!-- =====================
+						Intro
+						===================== -->
+					<header class="insight-intro">
+						<!-- Crumbs -->
+						<div class="insight-intro-crumbs">
+                            {{ partial "components/breadcrumbs.html" . }}
+						</div>
+						<!-- Tags -->
+						{{ with .Params.tags }}
+							<div class="insight-intro-tags">
+								{{ range . -}}
+										<span class="tag">{{ . }}</span>
+								{{- end }}
+							</div>
+						{{- end }}
+					</header><!-- /Intro -->
+					<!-- =====================
+						Title
+						===================== -->
+					<h1>
+                        {{ .Title | safeHTML }}
 					</h1>
-					Reading time: {{ math.Round (div (countwords .Content) 300.0) }} minutes.
-					{{  partial "components/button.html" (dict
-						"text" "Bookmark"
-						"colour" "black"
-						"size" "small"
-						"title" "Bookmark this page"
-						"attr" "bookmark"
-                    )}}
-					<!-- Content -->
+					<!-- =====================
+						Meta
+						TODO: Meta cam be .Render "meta"
+						===================== -->
+					<div class="insight-meta margin-large">
+						<div class="insight-author">
+
+							<figure class="insight-author-photo">
+								<img src="https://www.rd.com/wp-content/uploads/2021/04/GettyImages-988013222-scaled-e1618857975729.jpg" alt="">
+							</figure>
+							{{ .Resources.Get "authors/images/photo.jpg"}}
+							<div class="insight-author-text">
+								<p><strong>Ainsley Clark</strong></p>
+								<small>Reading time: {{ math.Round (div (countwords .Content) 300.0) }} minutes.</small>
+							</div>
+
+						</div>
+
+                        {{  partial "components/button.html" (dict
+							"text" "Bookmark"
+							"colour" "black"
+							"size" "tiny"
+							"title" "Bookmark this page"
+							"attr" "bookmark"
+                        )}}
+					</div>
+					<!-- =====================
+						Content
+						===================== -->
 					<article class="richtext">
                         {{ .Content }}
 					</article>
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+	<!-- =====================
+		Other Reads
+		===================== -->
+	<section class="section section-padding bg-grey-light colour-white">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2>Other reads</h2>
 				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->

@@ -25,4 +25,12 @@
 			color: colour('foreground');
 		}
 	}
+
+	&-white {
+		color: $white;
+
+		* {
+			color: $white;
+		}
+	}
 }

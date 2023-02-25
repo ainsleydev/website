@@ -29,8 +29,7 @@ a.btn {
 	background-color: colour('foreground');
 	color: colour('background');
 	border: none;
-	transition: transform 100ms linear, color 100ms linear,
-		background 100ms linear;
+	transition: transform 100ms linear, color 100ms linear, background 100ms linear;
 	will-change: transform, color, background;
 
 	// Defaults
@@ -132,6 +131,10 @@ a.btn {
 	// =========================================================================
 
 	&-size {
+		&-tiny {
+			padding: $button-padding-tiny;
+		}
+
 		&-small {
 			padding: $button-padding-small;
 		}

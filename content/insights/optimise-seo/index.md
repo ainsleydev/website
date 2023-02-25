@@ -5,14 +5,12 @@ description: TODO
 date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-02-01
-pageColour: white
-keywords: [seo,developer,performance,best-pratices]
-tags:
-  - Development
-  - Go
-  - fast
-  - Blogging
 draft: false
+pageColour: white
+tags:
+  - SEO
+  - Performance
+  - Best Practices
 ---
 
 Go to one of your websites you have developed and turn JavaScript off, does the page still function as it should? Is all
