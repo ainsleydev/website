@@ -269,7 +269,7 @@ detract from it. Progressive enhancement should be considered at the very beginn
 out your markup. I have seen and witnessed a tonne of developers using JavaScript at **every opportunity**, and
 sometimes it's really not necessary.
 
-### The power of `<noscript>`
+### The power of &lt;noscript&gt;
 
 The `<noscript>` tag has magical powers, it only renders the markup inside the element when users have disabled scripts
 in their browsers. It can be used in both `<head>` and `<body>`. When used inside `<head>`, the `<noscript>` element can
