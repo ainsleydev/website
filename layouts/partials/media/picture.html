@@ -79,7 +79,7 @@
         {{ if site.Params.imagery.webpAvif -}}
             {{ $noExtension := strings.TrimSuffix (path.Ext .image.RelPermalink) .image.RelPermalink }}
 			<!-- AVIF -->
-			<img {{ if .lazy }} loading="lazy" {{- end }}
+			<source {{ if .lazy }} loading="lazy" {{- end }}
 				src="{{ $noExtension }}.avif"
 				{{ with .class -}} class="{{ . }}" {{- end }}
 				{{ with .alt -}} alt="{{ . }}" {{- end }}
@@ -87,7 +87,7 @@
 				height="{{ .image.Height }}"
 				type="image/avif"/>
 			<!-- WebP -->
-			<img {{ if .lazy }} loading="lazy" {{- end }}
+			<source {{ if .lazy }} loading="lazy" {{- end }}
 				src="{{ $noExtension }}.webp"
 				{{ with .class -}} class="{{ . }}" {{- end }}
 				{{ with .alt -}} alt="{{ . }}" {{- end }}

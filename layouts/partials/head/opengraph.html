@@ -1,7 +1,7 @@
 <!-- =====================
     Opengraph
     ===================== -->
-{{- $baseURL := partial "util/_base-url.html" -}}
+{{- $baseURL := partial "util/_base-url.html" . -}}
 <!-- Title, Description & Handles -->
 <meta property="og:title" content="{{ .Title }}" />
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />

@@ -6,7 +6,7 @@
 {{- $js := partial "head/scripts.html" (append "js/app.ts" .Params.scripts) -}}
 {{/*{{ $hash := .GitInfo.AbbreviatedHash }}*/}}
 {{- $hash := now.Unix -}}
-{{- $baseURL := partial "util/_base-url.html" -}}
+{{- $baseURL := partial "util/_base-url.html" . -}}
 <!-- =====================
     HTML
     ===================== -->
