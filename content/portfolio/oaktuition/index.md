@@ -31,9 +31,9 @@ mixed method teaching of the National Curriculum, in accordance with exam board 
 {{< /vertical-wrapper >}}
 
 <!-- Before/After -->
-{{< picture src="images/before.jpg" >}}
+{{< before-after before="images/before.jpg" after="images/after.jpg" colour="black" >}}
 
-<!-- Brief -->[index.md](index.md)
+<!-- Brief -->
 {{< vertical-wrapper text="Brief" number="01" >}}
 ainsley.dev were approached to replace an off-the-peg website, with a professional, sleek, but playful multi-page online
 presence, with a clear branding across their site and social media pages. The website needed to feature enough key

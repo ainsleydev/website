@@ -64,15 +64,11 @@ export class Collapse {
 	 * @private
 	 */
 	private attachClickHandler(container: HTMLElement): void {
-		const headers = container.querySelectorAll<HTMLElement>(
-			this.options.item,
-		);
+		const headers = container.querySelectorAll<HTMLElement>(this.options.item);
 		headers.forEach((header) => {
 			header.addEventListener('click', (e) => {
 				e.preventDefault();
-				this.options.accordion
-					? this.accordion(headers, header)
-					: this.toggle(header, false);
+				this.options.accordion ? this.accordion(headers, header) : this.toggle(header, false);
 			});
 		});
 	}
@@ -85,10 +81,7 @@ export class Collapse {
 	 * @param current
 	 * @private
 	 */
-	private accordion(
-		headers: NodeListOf<HTMLElement>,
-		current: HTMLElement,
-	): void {
+	private accordion(headers: NodeListOf<HTMLElement>, current: HTMLElement): void {
 		headers.forEach((el) => this.toggle(el, el !== current));
 	}
 

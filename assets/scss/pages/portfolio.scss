@@ -44,15 +44,6 @@
 		transform: translateY(50%);
 	}
 
-	// Content
-	// =========================================================================
-
-	&-content {
-		picture {
-			display: block;
-		}
-	}
-
 	// Results
 	// =========================================================================
 
@@ -99,7 +90,7 @@
 	// =========================================================================
 
 	@include media-mob {
-		&-content picture:not(#{$self}-featured) {
+		&-content .image:not(#{$self}-featured) {
 			width: 75%;
 			margin-left: 25%;
 		}
@@ -157,10 +148,11 @@
 			}
 		}
 
-		&-content picture {
+		&-content .image {
 			width: 50vw !important; // Override :not for tab
 			margin-left: 0 !important; // Override :not for tab
 			padding: 0;
+			right: 15px;
 		}
 
 		&-results {
