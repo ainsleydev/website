@@ -1,6 +1,3 @@
 imagery:
     webp: false
     avif: false
-videos:
-    av1: false
-    webm: false

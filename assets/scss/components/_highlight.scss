@@ -36,6 +36,8 @@
 	// =========================================================================
 
 	pre {
+		max-width: 100%;
+		overflow: scroll;
 		margin: 0;
 		padding-top: $highlight-padding;
 		padding-bottom: $highlight-padding;

@@ -30,9 +30,6 @@ imagery:
             size: 767
         -   name: tab
             size: 1023
-videos:
-    av1: false
-    webm: false
 codepen:
     user: ainsleyclark
     tab: result

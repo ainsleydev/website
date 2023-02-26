@@ -436,7 +436,6 @@ Instead of writing this out every time you need an image, you can simply make a 
 markup that takes in the image path, sizes and any additional attributes.
 
 ```html
-
 <picture>
 	<source media="(max-width: 767px)" data-srcset="/images/cat-mobile.avif"/>
 	<source media="(max-width: 767px)" data-srcset="/images/cat-mobile.webp"/>

@@ -12,6 +12,7 @@
 	outline: none;
 	// Poster
 	object-fit: cover;
+	cursor: pointer;
 
 	// Container
 	// =========================================================================
@@ -23,7 +24,7 @@
 	// Play Button
 	// =========================================================================
 
-	&-play {
+	&-button {
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -31,19 +32,18 @@
 		width: 0;
 		height: 0;
 		border-style: solid;
-		border-width: 2rem 0 2rem 3rem;
+		border-width: 2vw 0 2vw 3vw;
 		border-color: transparent transparent transparent rgba($black, 0.6);
 		cursor: pointer;
 		transition: opacity 300ms ease;
 		will-change: opacity;
+		pointer-events: none;
 	}
 
 	// Playing
 	// =========================================================================
 
-	&-playing {
-		#{$self}-play {
-			opacity: 0;
-		}
+	&-playing + #{$self}-button {
+		opacity: 0;
 	}
 }
