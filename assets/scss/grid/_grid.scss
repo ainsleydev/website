@@ -3,6 +3,9 @@
 // Main grid system, containers, rows & columns.
 // -----------------------------------------------------------------------------
 
+// Container
+// =========================================================================
+
 .container {
 	position: relative;
 	display: block;
@@ -17,25 +20,45 @@
 	//}
 }
 
+// Row
+// =========================================================================
+
 .row {
 	display: flex;
 	flex-wrap: wrap;
 	margin-left: -$gap-width;
 	margin-right: -$gap-width;
+
+	@include media-mob-down {
+		&-small-gap-mob > [class*='col-'] {
+			&:nth-child(odd) {
+				padding-right: $gap-width / 2;
+			}
+
+			&:nth-child(even) {
+				padding-left: $gap-width / 2;
+			}
+		}
+	}
 }
+
+// No Gaps
+// =========================================================================
 
 .no-gaps {
 	margin-right: 0;
 	margin-left: 0;
+
+	> .col,
+	> [class*='col-'] {
+		padding-right: 0;
+		padding-left: 0;
+	}
 }
 
-.no-gaps > .col,
-.no-gaps > [class*='col-'] {
-	padding-right: 0;
-	padding-left: 0;
-}
+// Props
+// =========================================================================
 
-// Common Column Properties
 %column-props {
 	position: relative;
 	width: 100%;

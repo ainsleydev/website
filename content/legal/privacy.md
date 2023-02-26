@@ -309,5 +309,5 @@ when they are posted on this page.
 If you have any questions about this Privacy Policy, You can contact us:
 
 - By email: [{{< param "contact.email" >}}](mailto:{{< param "contact.email" >}})
-- By visiting this page on our website: [https://ainsley.dev/contact/](https://ainsley.dev/contact/)
+- By visiting this page on our website: [ainsley.dev/contact](https://ainsley.dev/contact/)
 - By phone number: [{{< param "contact.phone.pretty" >}}](tel:{{< param "contact.phone.link" >}})

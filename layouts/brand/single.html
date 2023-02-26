@@ -88,8 +88,52 @@
 				</div><!-- /Col -->
 				<!-- Content -->
 				<div class="col-12 col-desk-8 offset-desk-1">
-                    {{ .Content | safeHTML }}
-				</div>
+					<article class="margin-large">
+                        {{ .Content | safeHTML }}
+					</article>
+				</div><!-- /Col -->
+				<!-- Previous / Next -->
+				<div class="col-12 col-desk-8 offset-desk-4">
+					<div class="row row-small-gap-mob justify-content-center">
+						<div class="col-6 d-flex justify-content-end">
+                            {{ if .PrevPage }}
+                                {{  partial "components/button.html" (dict
+									"link"  .NextPage.PrevPage
+									"text" "Previous page"
+									"class" "btn-block btn-max-width"
+									"colour" "white"
+									"title" "Go to the previous brand page"
+									"attr" "rel=prev"
+                                )}}
+                            {{ end }}
+						</div>
+						<div class="col-6">
+                            {{ if .NextPage }}
+                                {{  partial "components/button.html" (dict
+									"link"  .NextPage.Permalink
+									"text" "Next page"
+									"class" "btn-block btn-max-width"
+									"colour" "white"
+									"title" "Go to the next brand page"
+									"attr" "rel=next"
+                                )}}
+                            {{ end }}
+						</div>
+					</div>
+
+					<div class="btn-container">
+						<!-- Previous -->
+						<div class="btn-container-previous">
+
+
+						</div><!-- /Previous -->
+						<!-- Next -->
+						<div class="btn-container-next">
+
+
+						</div><!-- /Next -->
+					</div>
+				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
 	</section>

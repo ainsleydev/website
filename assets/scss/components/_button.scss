@@ -57,6 +57,7 @@ a.btn {
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
+		width: 100%;
 		height: auto;
 	}
 
@@ -68,6 +69,7 @@ a.btn {
 		font-size: 1rem;
 		font-weight: bold;
 		line-height: 1;
+		white-space: nowrap;
 	}
 
 	// Colours
@@ -138,6 +140,20 @@ a.btn {
 		&-small {
 			padding: $button-padding-small;
 		}
+	}
+
+	// Block
+	// =========================================================================
+
+	&-block {
+		width: 100%;
+	}
+
+	// Max Width
+	// =========================================================================
+
+	&-max-width {
+		max-width: 220px;
 	}
 
 	// Arrow
