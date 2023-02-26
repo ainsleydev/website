@@ -16,7 +16,19 @@
 	&-wrapper {
 		position: relative;
 		width: 100%;
-		height: $before-after-height;
+		padding-top: 62.5%; /* 8:5 Aspect Ratio */
+		overflow: hidden;
+	}
+
+	// Aspect (Preserves Ratio)
+	// =========================================================================
+
+	&-aspect {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
 	}
 
 	// Images
@@ -25,7 +37,6 @@
 	&-foreground,
 	&-background {
 		width: 100%;
-		height: $before-after-height !important; // Override page (Portfolio Single)
 		z-index: 2;
 
 		img,
@@ -84,7 +95,7 @@
 
 		&::-webkit-slider-thumb {
 			width: $before-after-border-width;
-			height: $before-after-height;
+			height: 100vh;
 			background: $black;
 			-webkit-appearance: none;
 			appearance: none;
@@ -94,7 +105,7 @@
 		&::-moz-range-thumb {
 			width: $before-after-border-width;
 			height: $before-after-height;
-			background: $black;
+			background: 100vh;
 			cursor: pointer;
 		}
 	}
@@ -119,7 +130,6 @@
 		&:before,
 		&:after {
 			content: '';
-			//padding: 0.6rem;
 			padding: 1rem;
 			display: inline-block;
 			border: solid $black;
@@ -153,27 +163,6 @@
 			&:before,
 			&:after {
 				border-color: $white;
-			}
-		}
-	}
-
-	// Tablet Only
-	// =========================================================================
-
-	@media (min-width: $grid-breakpoint-mob * 1px) and (max-width: $grid-breakpoint-desk * 1px - 1px) {
-		&-wrapper,
-		&-foreground,
-		&-background {
-			height: $before-after-height-tab !important; // Override above
-		}
-
-		#{$self}-slider {
-			&::-webkit-slider-thumb {
-				height: $before-after-height-tab;
-			}
-
-			&::-moz-range-thumb {
-				height: $before-after-height-tab;
 			}
 		}
 	}

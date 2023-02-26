@@ -32,7 +32,7 @@ wider audience.
 {{< /vertical-wrapper >}}
 
 <!-- Video -->
-{{< picture src="images/poster.jpg" alt="Dec's Pets Tag Builder" >}}
+{{< video src="images/poster.jpg" poster="" >}}
 
 <!-- Brief -->
 {{< vertical-wrapper text="Brief" number="01" >}}

@@ -31,7 +31,7 @@ mixed method teaching of the National Curriculum, in accordance with exam board 
 {{< /vertical-wrapper >}}
 
 <!-- Before/After -->
-{{< before-after before="images/before.jpg" after="images/after.jpg" colour="black" >}}
+{{< before-after before="images/before.jpg" after="images/after.jpg" text="Before & after picture of Oak Tuition Website" colour="black" >}}
 
 <!-- Brief -->
 {{< vertical-wrapper text="Brief" number="01" >}}
