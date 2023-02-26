@@ -22,21 +22,26 @@
 			controls
 			preload="auto">
             {{- $noExtension := partial "util/_trim-extension.html" .video.RelPermalink -}}
-			<!-- AV1 -->
-            {{ if site.Params.video.av1 -}}
-				<source src="{{ $noExtension }}.av1.webm"
-						type='video/webm; codecs="av01.0.04M.08"; profiles="isom,av01,iso2,mp41"'/>
-            {{- end }}
 			<!-- WebM -->
-            {{ if site.Params.video.av1 -}}
+            {{ if os.FileExists (printf "%s.webm" $noExtension) }}
 				<source src="{{ $noExtension }}.webm"
-						type="video/webm"/>
+					type="video/webm"/>
+			{{- else -}}
+				{{ warnf "No WebM video found: %s" .video }}
+            {{- end }}
+			<!-- Compressed -->
+            {{ if os.FileExists (printf "%s-compressed.mp4" $noExtension) -}}
+				<source src="{{ $noExtension }}-compressed.mp4"
+					type="video/mp4"/>
+			{{- else -}}
+				{{ warnf "No compressed MP4 video found: %s" .video }}
             {{- end }}
 			<!-- Original -->
-			<source src="{{ .video.RelPermalink }}">
+			<source src="{{ $noExtension }}.mp4"
+				type="video/mp4"/>
 		</video>
 		<!-- Play Button -->
-		<div class="video-play"></div>
+		<div class="video-button"></div>
 	</div><!-- /Container -->
 {{- else -}}
 	{{ warnf "Video not found: %v" . }}

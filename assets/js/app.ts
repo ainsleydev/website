@@ -73,6 +73,15 @@ document.querySelectorAll('.lazy-animate').forEach((lazy) => {
 });
 
 /**
+ * Videos
+ */
+document.querySelectorAll('video').forEach((vid) => {
+	vid.addEventListener('play', () => {
+		vid.classList.add('video-playing');
+	});
+});
+
+/**
  * Before / After
  */
 document.querySelectorAll('.before-after').forEach((el) => {
