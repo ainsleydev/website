@@ -69,6 +69,13 @@ cover: test # Run all the tests and opens the coverage report
 	go tool cover -html=coverage.out
 .PHONY: cover
 
+install-ffmpeg:
+	sudo su -
+	cd /usr/local/bin
+	mkdir ffmpeg && cd ffmpeg
+	wget https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz
+	tar -xzf ffmpeg-git-amd64-static.tar.xz
+
 todo: # Show to-do items per file
 	$(Q) grep \
 		--exclude=Makefile.util \

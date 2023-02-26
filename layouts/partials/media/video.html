@@ -1,6 +1,15 @@
 <!-- =====================
     Video
-    TODO: Vars & Usage.
+		partial "media/video.html" (dict
+			"video" (resources.Get "video.mp4")
+			"poster" (resources.Get "poster.jpg")
+			"class" "class-name"
+			"attr" data-something
+		)
+		- video:	The video resource. A warning will be thrown without this key.
+		- poster:	The poster image for the video
+		- class:	Any class names to be appended to the <video> element.
+		- attr:		Any additional attributes to appear.
     ===================== -->
 {{ if .video }}
 	<!-- Container -->
@@ -9,17 +18,22 @@
 		<video
 			class="video"
 			{{ with .poster }} poster="{{ . }}" {{ end }}
-			{{ with .attributes -}} {{ . | safeHTMLAttr}} {{- end }}
+			{{ with .attr -}} {{ . | safeHTMLAttr -}} {{- end }}
 			controls
 			preload="auto">
-
+            {{- $noExtension := partial "util/_trim-extension.html" .video.RelPermalink -}}
+			<!-- AV1 -->
+            {{ if site.Params.video.av1 -}}
+				<source src="{{ $noExtension }}.av1.webm"
+						type='video/webm; codecs="av01.0.04M.08"; profiles="isom,av01,iso2,mp41"'/>
+            {{- end }}
+			<!-- WebM -->
+            {{ if site.Params.video.av1 -}}
+				<source src="{{ $noExtension }}.webm"
+						type="video/webm"/>
+            {{- end }}
+			<!-- Original -->
 			<source src="{{ .video.RelPermalink }}">
-            {{/*		{{ range readDir $postFolder }}*/}}
-            {{/*			{{ if or (eq .Name $resource) (eq .Name $videowebm) (eq .Name $videoogg) }}*/}}
-            {{/*				<!-- TODO, need to change extension -->*/}}
-            {{/*				<source src='/videos/{{ .Name }}' type="video/mp4">*/}}
-            {{/*			{{ end }}*/}}
-            {{/*		{{ end }}*/}}
 		</video>
 		<!-- Play Button -->
 		<div class="video-play"></div>

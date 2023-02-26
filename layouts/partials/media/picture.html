@@ -51,25 +51,24 @@
 					{{- $src = $.image.Resize (printf "%dx" $container.size) -}}
 				{{- end }}
 				{{ if $src }}
-					{{- $noExtension := strings.TrimSuffix (path.Ext $src.RelPermalink) $src.RelPermalink -}}
-						<!-- AVIF -->
-						{{ if site.Params.imagery.avif -}}
-							<source media="(max-width: {{ $container.size }}px)"
-								srcset="{{ $noExtension }}.avif"
-								{{ with .class -}} class="{{ . }}" {{- end }}
-								width="{{ $src.Width }}"
-								height="{{ $src.Height }}"
-								type="image/avif"/>
-						{{- end }}
-						<!-- WebP -->
-						{{ if site.Params.imagery.webp -}}
-							<source media="(max-width: {{ $container.size }}px)"
-								srcset="{{ $noExtension }}.webp"
-								{{ with .class -}} class="{{ . }}" {{- end }}
-								width="{{ $src.Width }}"
-								height="{{ $src.Height }}"
-								type="image/webp"/>
-						{{- end }}
+					{{- $noExtension := partial "util/_trim-extension.html" $src.RelPermalink -}}
+					<!-- AVIF -->
+					{{ if site.Params.imagery.avif -}}
+						<source media="(max-width: {{ $container.size }}px)"
+							srcset="{{ $noExtension }}.avif"
+							{{ with .class -}} class="{{ . }}" {{- end }}
+							width="{{ $src.Width }}"
+							height="{{ $src.Height }}"
+							type="image/avif"/>
+					{{- end }}
+					<!-- WebP -->
+					{{ if site.Params.imagery.webp -}}
+						<source media="(max-width: {{ $container.size }}px)"
+							srcset="{{ $noExtension }}.webp"
+							{{ with .class -}} class="{{ . }}" {{- end }}
+							width="{{ $src.Width }}"
+							height="{{ $src.Height }}"
+							type="image/webp"/>
 					{{- end }}
 					<!-- Original -->
 					<source media="(max-width: {{ $container.size }}px)"
