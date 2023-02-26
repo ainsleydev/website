@@ -3,6 +3,7 @@ setup: # Setup dependencies
 	husky install
 	npm i -g vercel
 	npm -g install svgo
+	brew install ffmpeg
 	go mod tidy
 	go install github.com/deepmap/oapi-codegen/cmd/oapi-codegen@latest
 	go generate ./...

@@ -39,7 +39,10 @@
 							<figure class="insight-author-photo">
 								<img src="https://www.rd.com/wp-content/uploads/2021/04/GettyImages-988013222-scaled-e1618857975729.jpg" alt="">
 							</figure>
-							{{ .Resources.Get "authors/images/photo.jpg"}}
+							{{ partial "media/image.html" (dict
+								"src" "authors/images/photo.jpg"
+								"alt" "TODO"
+							)}}
 							<div class="insight-author-text">
 								<p><strong>Ainsley Clark</strong></p>
 								<small>Reading time: {{ math.Round (div (countwords .Content) 300.0) }} minutes.</small>
