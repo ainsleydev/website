@@ -32,7 +32,7 @@ wider audience.
 {{< /vertical-wrapper >}}
 
 <!-- Video -->
-{{< video src="video/tags.mp4" poster="" >}}
+{{< video src="video/tags.mp4" poster="images/poster.jpg" >}}
 
 <!-- Brief -->
 {{< vertical-wrapper text="Brief" number="01" >}}

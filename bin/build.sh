@@ -6,10 +6,12 @@
 #
 # ainsley.dev - 16/09/2021
 
-if [[ $VERCEL_GIT_COMMIT_REF == "master"  ]] ; then
-  echo "Building production"
-  npm run build:prod
+if [[ $VERCEL_GIT_COMMIT_REF == "master" ]]; then
+	echo "Building production"
+	sh ./bin/os.sh
+	npm run build:prod
 else
-  echo "Building staging"
-  npm run build:staging
+	echo "Building staging"
+	sh ./bin/os.sh
+	npm run build:staging
 fi

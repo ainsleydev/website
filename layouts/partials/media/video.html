@@ -2,19 +2,14 @@
     Video
     TODO: Vars & Usage.
     ===================== -->
-{{/*{{- $resource := .filename -}}*/}}
-<!-- Filetypes -->
-{{/*{{ $videowebm := replace $resource ".mp4" ".webm" }}*/}}
-{{/*{{ $videoogg := replace $resource ".mp4" ".ogv" }}*/}}
-{{/*{{ $postFolder := "CHANGE" }}*/}}
-
-
 {{ if .video }}
+	<!-- Container -->
 	<div class="video-container">
+		<!-- Video -->
 		<video
 			class="video"
-                {{ with .poster }} poster="{{ . }}" {{ end }}
-                {{ with .attributes -}} {{ . | safeHTMLAttr}} {{- end }}
+			{{ with .poster }} poster="{{ . }}" {{ end }}
+			{{ with .attributes -}} {{ . | safeHTMLAttr}} {{- end }}
 			controls
 			preload="auto">
 			<source src="{{ .video.RelPermalink }}">
@@ -27,8 +22,7 @@
 		</video>
 		<!-- Play Button -->
 		<div class="video-play"></div>
-	</div>
-
+	</div><!-- /Container -->
 {{- else -}}
 	{{ warnf "Video not found: %v" . }}
 {{- end }}
