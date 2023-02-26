@@ -8,6 +8,8 @@ setup: # Setup dependencies
 	go generate ./...
 
 setup-vercel: # Temp setup for Vercel
+	sh ./bin/os.sh
+	sudo apt install ffmpeg
 	npm install
 	npm -g install svgo
 .PHONY: setup-vercel

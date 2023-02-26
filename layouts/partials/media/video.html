@@ -12,6 +12,7 @@
 			{{ with .attributes -}} {{ . | safeHTMLAttr}} {{- end }}
 			controls
 			preload="auto">
+
 			<source src="{{ .video.RelPermalink }}">
             {{/*		{{ range readDir $postFolder }}*/}}
             {{/*			{{ if or (eq .Name $resource) (eq .Name $videowebm) (eq .Name $videoogg) }}*/}}

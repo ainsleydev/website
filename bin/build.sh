@@ -8,10 +8,8 @@
 
 if [[ $VERCEL_GIT_COMMIT_REF == "master" ]]; then
 	echo "Building production"
-	sh ./bin/os.sh
 	npm run build:prod
 else
 	echo "Building staging"
-	sh ./bin/os.sh
 	npm run build:staging
 fi

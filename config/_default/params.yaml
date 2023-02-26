@@ -23,7 +23,8 @@ social:
     instagram: "https://www.instagram.com/ainsley.devltd/"
     dribbble: "https://dribbble.com/ainsleyclark/"
 imagery:
-    webpAvif: false
+    webp: false
+    avif: false
     container:
         -   name: mob
             size: 767

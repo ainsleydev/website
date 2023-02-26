@@ -51,22 +51,25 @@
 					{{- $src = $.image.Resize (printf "%dx" $container.size) -}}
 				{{- end }}
 				{{ if $src }}
-					{{ if site.Params.imagery.webpAvif -}}
-						{{- $noExtension := strings.TrimSuffix (path.Ext $src.RelPermalink) $src.RelPermalink -}}
+					{{- $noExtension := strings.TrimSuffix (path.Ext $src.RelPermalink) $src.RelPermalink -}}
 						<!-- AVIF -->
-						<source media="(max-width: {{ $container.size }}px)"
-							srcset="{{ $noExtension }}.avif"
-							{{ with .class -}} class="{{ . }}" {{- end }}
-							width="{{ $src.Width }}"
-							height="{{ $src.Height }}"
-							type="image/avif"/>
+						{{ if site.Params.imagery.avif -}}
+							<source media="(max-width: {{ $container.size }}px)"
+								srcset="{{ $noExtension }}.avif"
+								{{ with .class -}} class="{{ . }}" {{- end }}
+								width="{{ $src.Width }}"
+								height="{{ $src.Height }}"
+								type="image/avif"/>
+						{{- end }}
 						<!-- WebP -->
-						<source media="(max-width: {{ $container.size }}px)"
-							srcset="{{ $noExtension }}.webp"
-                            {{ with .class -}} class="{{ . }}" {{- end }}
-							width="{{ $src.Width }}"
-							height="{{ $src.Height }}"
-							type="image/webp"/>
+						{{ if site.Params.imagery.webp -}}
+							<source media="(max-width: {{ $container.size }}px)"
+								srcset="{{ $noExtension }}.webp"
+								{{ with .class -}} class="{{ . }}" {{- end }}
+								width="{{ $src.Width }}"
+								height="{{ $src.Height }}"
+								type="image/webp"/>
+						{{- end }}
 					{{- end }}
 					<!-- Original -->
 					<source media="(max-width: {{ $container.size }}px)"

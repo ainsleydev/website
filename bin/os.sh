@@ -4,11 +4,6 @@
 #
 # ainsley.dev - 16/09/2021
 
-# Convert to WebP
-echo '--------------------------------------------'
-echo 'System Checks'
-echo '--------------------------------------------'
-
 case "$OSTYPE" in
   solaris*) echo "SOLARIS" ;;
   darwin*)  echo "OSX" ;;
