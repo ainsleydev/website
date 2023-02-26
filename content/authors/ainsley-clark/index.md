@@ -2,6 +2,6 @@
 firstName: Ainsley
 lastName: Clark
 bio: null
-image: images/ainsley.jpg
+photo: images/photo.jpg
 headless: true
 ---

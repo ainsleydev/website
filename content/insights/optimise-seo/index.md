@@ -11,6 +11,7 @@ tags:
   - SEO
   - Performance
   - Best Practices
+author: Ainsley Clark
 ---
 
 Go to one of your websites you have developed and turn JavaScript off, does the page still function as it should? Is all

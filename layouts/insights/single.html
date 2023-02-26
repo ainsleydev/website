@@ -35,16 +35,20 @@
 						===================== -->
 					<div class="insight-meta margin-large">
 						<div class="insight-author">
-
-							<figure class="insight-author-photo">
-								<img src="https://www.rd.com/wp-content/uploads/2021/04/GettyImages-988013222-scaled-e1618857975729.jpg" alt="">
-							</figure>
-							{{ partial "media/image.html" (dict
-								"src" "authors/images/photo.jpg"
-								"alt" "TODO"
-							)}}
+							<!-- Photo -->
+                            {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .Params.author)) }}
+								<figure class="insight-author-photo">
+                                    {{ partial "media/image.html" (dict
+                                    	"image" (.Resources.Get .Params.photo)
+                                    	"alt" "Here"
+                                    )}}
+								</figure>
+							{{ else }}
+								{{ warnf "No author found for post: %s" .Params.author}}
+							{{ end }}
+							<!-- Name & Reading Time -->
 							<div class="insight-author-text">
-								<p><strong>Ainsley Clark</strong></p>
+								<p>{{ .Params.author }}</p>
 								<small>Reading time: {{ math.Round (div (countwords .Content) 300.0) }} minutes.</small>
 							</div>
 						</div>
