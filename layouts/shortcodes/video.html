@@ -2,4 +2,6 @@
     Video
 		< video src="video.mp4" poster="poster.jpg" >
     ===================== -->
-{{ partial "media/video.html" }}
+{{ partial "media/video.html" (dict
+	"video" (partial "util/_resource.html" (dict "src" (.Get "src" ) "ctx" .))
+)}}

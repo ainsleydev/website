@@ -2,18 +2,35 @@
     Video
     TODO: Vars & Usage.
     ===================== -->
-{{- $resource := .filename -}}
+{{/*{{- $resource := .filename -}}*/}}
 <!-- Filetypes -->
-{{ $videowebm := replace $resource ".mp4" ".webm" }}
-{{ $videoogg := replace $resource ".mp4" ".ogv" }}
-{{ $postFolder := "CHANGE" }}
-{{ if fileExists $postFolder }}
-	<video {{ with .class }} class="{{ . }}" {{ end }} {{ with .attributes -}} {{ . | safeHTMLAttr}} {{- end }} {{ with .poster }} poster="{{ . }}" {{ end }} preload="auto">
-		{{ range readDir $postFolder }}
-			{{ if or (eq .Name $resource) (eq .Name $videowebm) (eq .Name $videoogg) }}
-				<!-- TODO, need to change extension -->
-				<source src='/videos/{{ .Name }}' type="video/mp4">
-			{{ end }}
-		{{ end }}
-	</video>
-{{ end }}
+{{/*{{ $videowebm := replace $resource ".mp4" ".webm" }}*/}}
+{{/*{{ $videoogg := replace $resource ".mp4" ".ogv" }}*/}}
+{{/*{{ $postFolder := "CHANGE" }}*/}}
+
+
+{{ if .video }}
+	<div class="video-container">
+		<video
+			class="video"
+                {{ with .poster }} poster="{{ . }}" {{ end }}
+                {{ with .attributes -}} {{ . | safeHTMLAttr}} {{- end }}
+			controls
+			preload="auto">
+			<source src="{{ .video.RelPermalink }}">
+            {{/*		{{ range readDir $postFolder }}*/}}
+            {{/*			{{ if or (eq .Name $resource) (eq .Name $videowebm) (eq .Name $videoogg) }}*/}}
+            {{/*				<!-- TODO, need to change extension -->*/}}
+            {{/*				<source src='/videos/{{ .Name }}' type="video/mp4">*/}}
+            {{/*			{{ end }}*/}}
+            {{/*		{{ end }}*/}}
+		</video>
+		<!-- Play Button -->
+		<div class="video-play"></div>
+	</div>
+
+{{- else -}}
+	{{ warnf "Video not found: %v" . }}
+{{- end }}
+
+

@@ -90,9 +90,12 @@
 	// =========================================================================
 
 	@include media-mob {
-		&-content .image:not(#{$self}-featured) {
-			width: 75%;
-			margin-left: 25%;
+		&-content {
+			.video-container,
+			.image:not(#{$self}-featured) {
+				width: 75%;
+				margin-left: 25%;
+			}
 		}
 	}
 
@@ -148,11 +151,17 @@
 			}
 		}
 
-		&-content .image {
-			width: 50vw !important; // Override :not for tab
-			margin-left: 0 !important; // Override :not for tab
-			padding: 0;
-			right: 15px;
+		&-content {
+			.video-container,
+			.image {
+				width: 50vw !important; // Override :not for tab
+				margin-left: 0 !important; // Override :not for tab
+				right: 15px;
+			}
+
+			.image {
+				padding: 0;
+			}
 		}
 
 		&-results {
