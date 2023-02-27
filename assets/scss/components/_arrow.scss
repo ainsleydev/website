@@ -7,8 +7,8 @@
 	$self: &;
 	position: relative;
 	display: inline-block;
-	width: clamp(40px, 5vw, 65px);
-	height: 4rem;
+	width: 4.2rem;
+	height: 4.2rem;
 	transform-origin: center;
 	transform: rotate(var(--arrow-rotation));
 	margin: 0;

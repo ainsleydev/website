@@ -208,9 +208,9 @@
 			transform-origin: 50% 50%;
 		}
 
-		&-a-symbol svg g {
-			opacity: 1;
-			mix-blend-mode: normal !important;
+		&-a-symbol-container {
+			opacity: 1 !important; // Override inline styles
+			mix-blend-mode: normal !important; // Override inline styles
 		}
 
 		&-logos {

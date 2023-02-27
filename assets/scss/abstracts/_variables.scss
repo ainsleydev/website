@@ -92,6 +92,7 @@ $section-padding-large: clamp(120px, 30vw, 240px);
 // ==========================================================================
 
 $margin: 1.8rem;
+$margin-tiny: 0.6rem;
 $margin-small: 1rem;
 $margin-large: 3rem;
 $spacing-properties: (
@@ -127,8 +128,7 @@ $text-letter-spacing: -1px;
 // ==========================================================================
 
 $accordion-height-transition: 0.5s;
-$accordion-arrow-size: 21px;
-$accordion-hover-colour: colour('orange');
+$accordion-arrow-size: 1.3rem;
 
 // A Symbol
 // ==========================================================================
