@@ -30,9 +30,6 @@
 		<link rel="canonical"
 			  href="{{ with .Params.canonical -}} {{ . }} {{- else -}} {{ printf "%s%s" $baseURL .RelPermalink }} {{- end }}"/>
 		<!-- Base -->
-        {{ if eq (getenv "VERCEL_ENV") "production" -}}
-			<base href="{{ $baseURL }}">
-		{{- end }}
 		<script>window.BaseURL = {{ $baseURL }};</script>
 		<!-- Schema -->
 		 {{ partial "head/schema.html" . }}

@@ -5,12 +5,12 @@
 
 code {
 	$self: &;
-	padding: 0.2em 0.4em;
+	padding: $code-padding;
 	font-family: $font-code;
 	background-color: $highlight-bg-colour;
 	color: $black;
 	margin: 0;
-	font-size: 13px;
+	font-size: $code-font-size;
 	white-space: nowrap;
 	border-radius: 4px;
 	line-height: 1.5;

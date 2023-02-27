@@ -7,11 +7,11 @@
 	$self: &;
 	position: relative;
 	display: inline-flex;
-	margin: 0 4px;
-	padding: 2px 10px;
+	margin: $tag-margin;
+	padding: $tag-padding;
 	background-color: $off-white;
 	color: $grey-light;
-	font-size: 0.9rem;
+	font-size: $tag-font-size;
 	border-radius: 4px;
 	user-select: none;
 	font-weight: 500;
@@ -23,9 +23,5 @@
 	&-black {
 		background-color: $grey-dark;
 		color: $white;
-	}
-
-	&-white {
-		background-color: $white;
 	}
 }

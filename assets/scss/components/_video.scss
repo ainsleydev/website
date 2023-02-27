@@ -10,8 +10,7 @@
 	height: auto;
 	aspect-ratio: 16 / 9;
 	outline: none;
-	// Poster
-	object-fit: cover;
+	object-fit: cover; // Poster
 	cursor: pointer;
 
 	// Container
@@ -43,7 +42,7 @@
 	// Playing
 	// =========================================================================
 
-	&-playing + #{$self}-button {
+	&-playing ~ #{$self}-button {
 		opacity: 0;
 	}
 }
