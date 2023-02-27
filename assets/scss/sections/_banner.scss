@@ -9,7 +9,7 @@
 	display: flex;
 	align-items: center;
 	width: 100%;
-	height: clamp(560px, 40vw, 900px);
+	padding: $section-padding 0;
 	overflow: hidden;
 
 	// Image

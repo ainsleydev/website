@@ -1,12 +1,15 @@
 setup: # Setup dependencies
 	npm install
 	husky install
+	npm i -g vercel
 	npm -g install svgo
+	brew install ffmpeg
 	go mod tidy
 	go install github.com/deepmap/oapi-codegen/cmd/oapi-codegen@latest
 	go generate ./...
 
 setup-vercel: # Temp setup for Vercel
+	sh ./bin/os.sh
 	npm install
 	npm -g install svgo
 .PHONY: setup-vercel

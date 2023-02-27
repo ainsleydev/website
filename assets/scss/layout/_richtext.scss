@@ -10,7 +10,10 @@
 	// ==========================================================================
 
 	p,
-	ul {
+	ul,
+	blockquote,
+	.highlight,
+	.codepen {
 		+ h1,
 		+ h2,
 		+ h3,
@@ -34,7 +37,31 @@
 			margin: 0;
 		}
 
-		& + .image {
+		+ .image,
+		+ .highlight,
+		+ .codepen {
+			margin-top: $margin;
+		}
+	}
+
+	// Links
+	// ==========================================================================
+
+	a {
+		word-break: break-word;
+	}
+
+	// Temp
+	// ==========================================================================
+
+	.image,
+	.codepen {
+		+ h1,
+		+ h2,
+		+ h3,
+		+ h4,
+		+ h5,
+		+ p {
 			margin-top: $margin;
 		}
 	}
@@ -43,19 +70,11 @@
 	// ==========================================================================
 
 	.image {
+		margin-text-outline: $margin;
 		/* stylelint-disable-line no-descending-specificity */
 
-		+ h1,
-		+ h2,
-		+ h3,
-		+ h4,
-		+ h5,
-		+ p {
-			margin-top: $margin-large;
-		}
-
 		+ .image {
-			margin-bottom: 1.6rem;
+			margin-bottom: $margin;
 		}
 	}
 }

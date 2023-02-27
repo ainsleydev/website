@@ -298,7 +298,7 @@ sites or services.
 We may update Our Privacy Policy from time to time. We will notify You of any changes by posting the new Privacy Policy
 on this page.
 
-We will let You know via email and/or a prominent notice on Our Service, prior to the change becoming effective and
+We will let you know via email and/or a prominent notice on Our Service, prior to the change becoming effective and
 update the "Last updated" date at the top of this Privacy Policy.
 
 You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective
@@ -309,5 +309,5 @@ when they are posted on this page.
 If you have any questions about this Privacy Policy, You can contact us:
 
 - By email: [{{< param "contact.email" >}}](mailto:{{< param "contact.email" >}})
-- By visiting this page on our website: [https://ainsley.dev/contact/](https://ainsley.dev/contact/)
+- By visiting this page on our website: [ainsley.dev/contact](https://ainsley.dev/contact/)
 - By phone number: [{{< param "contact.phone.pretty" >}}](tel:{{< param "contact.phone.link" >}})

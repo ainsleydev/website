@@ -1,0 +1,46 @@
+<!-- =====================
+    Before / After
+		< before-after before="before.jpg" after="after.jpg" colour="white" text="Alt text" >
+    ===================== -->
+<div class="image before-after
+	{{ if eq (.Get "colour") "white" -}} before-after-white {{- end }}">
+	<!-- Wrapper -->
+	<div class="before-after-wrapper">
+		<div class="before-after-aspect">
+			<!-- Background -->
+			<picture class="before-after-background" style="width: 50%">
+                {{ partial "media/picture.html" (dict
+                "image" (partial "util/_resource.html" (dict "src" (.Get "before") "ctx" .))
+                "alt" (.Get "text")
+                "lazy" true
+                )}}
+			</picture><!-- /Background -->
+			<!-- Foreground -->
+			<picture class="before-after-foreground">
+                {{ partial "media/picture.html" (dict
+                "image" (partial "util/_resource.html" (dict "src" (.Get "after") "ctx" .))
+                "alt" (.Get "text")
+                "lazy" true
+                )}}
+			</picture><!-- /Foreground -->
+			<!-- Range -->
+			<input type="range"
+				   class="before-after-slider"
+				   min="0"
+				   max="100"
+				   value="50"
+				   name="slider"
+				   id="before-after-thumb">
+			<!-- Thumb -->
+			<label for="before-after-thumb"
+				   class="before-after-thumb">
+			</label>
+		</div>
+
+	</div><!-- /Wrapper -->
+	<!-- Text -->
+	<div class="before-after-text">
+		<h3>Before</h3>
+		<h3>After</h3>
+	</div><!-- /Text -->
+</div><!-- Before / After -->

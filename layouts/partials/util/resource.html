@@ -1,9 +1,0 @@
-<!-- =====================
-   	Resource
-   		Retrieves a resource from the /content or /assets folder.
-    ===================== -->
-{{ $image := .ctx.Page.Resources.Get .src -}}
-{{- if not $image -}}
-    {{- $image = resources.Get .src -}}
-{{- end -}}
-{{- return $image }}

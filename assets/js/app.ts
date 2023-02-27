@@ -13,7 +13,9 @@ import { FitText } from './components/fit-text';
 import { Collapse, CollapseOptions } from './components/accordion';
 import { Card } from './components/card';
 import { Navigation } from './components/nav';
+import LocomotiveScroll from 'locomotive-scroll';
 import smoothscroll from 'smoothscroll-polyfill';
+import { Log } from './util/log';
 
 /**
  * Variables
@@ -69,3 +71,46 @@ document.querySelectorAll('.lazy-animate').forEach((lazy) => {
 		lazy.classList.add('lazy-loaded');
 	});
 });
+
+/**
+ * Videos
+ */
+document.querySelectorAll('video').forEach((vid) => {
+	vid.addEventListener('play', () => {
+		vid.classList.add('video-playing');
+	});
+});
+
+/**
+ * Before / After
+ */
+document.querySelectorAll('.before-after').forEach((el) => {
+	const slider = el.querySelector('.before-after-slider') as HTMLInputElement;
+	if (!slider) {
+		Log.error('No foreground found for before/after element');
+		return;
+	}
+	slider.addEventListener('input', (e) => {
+		const foreground = <HTMLElement>el.querySelector('.before-after-background'),
+			thumb = <HTMLButtonElement>el.querySelector('.before-after-thumb');
+		if (!foreground || !thumb) {
+			Log.error('Element missing from before/after element');
+			return;
+		}
+		const value = (e.target as HTMLInputElement).value;
+		foreground.style.width = `${value}%`;
+		thumb.style.left = `${value}%`;
+	});
+});
+
+/**
+ * Locomotive Scroll - TODO
+ */
+// const scroll = new LocomotiveScroll({
+// 	// el: document.querySelector('[data-scroll-container]'),
+// 	smooth: true,
+// 	// smoothMobile: false,
+// 	// offset: [0, 0],
+// 	lerp: 0.1,
+// 	touchMultiplier: 0,
+// });

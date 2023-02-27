@@ -92,6 +92,7 @@ $section-padding-large: clamp(120px, 30vw, 240px);
 // ==========================================================================
 
 $margin: 1.8rem;
+$margin-tiny: 0.6rem;
 $margin-small: 1rem;
 $margin-large: 3rem;
 $spacing-properties: (
@@ -127,8 +128,7 @@ $text-letter-spacing: -1px;
 // ==========================================================================
 
 $accordion-height-transition: 0.5s;
-$accordion-arrow-size: 21px;
-$accordion-hover-colour: colour('orange');
+$accordion-arrow-size: 1.3rem;
 
 // A Symbol
 // ==========================================================================
@@ -136,10 +136,18 @@ $accordion-hover-colour: colour('orange');
 $a-symbol-clip-left: -22%;
 $a-symbol-clip-right: 22%;
 
+// Before / After
+// ==========================================================================
+
+$before-after-height: clamp(250px, 32vw, 900px);
+$before-after-arrow-size: 0.3rem;
+$before-after-border-width: 6px;
+
 // Button
 // ==========================================================================
 
 $button-padding: 1rem 1.9rem;
+$button-padding-tiny: 0.6rem 1.4rem;
 $button-padding-small: 0.8rem 1.6rem;
 $button-transition-time: 200ms;
 $button-arrow-size: 20px;
@@ -154,7 +162,7 @@ $line-size-thick: 4px;
 // Highlight
 // ==========================================================================
 
-$highlight-bg-colour: lighten($white, 0.1);
+$highlight-bg-colour: lighten($off-white, 4.5%);
 $highlight-padding: 10px;
 
 // Table
@@ -184,10 +192,6 @@ $table-padding: 0.6rem 0.9rem;
 	--a-symbol-clip-left: #{$a-symbol-clip-left};
 	--a-symbol-clip-right: #{$a-symbol-clip-right};
 
-	// Code
-	--code-colour: #{$black};
-	--code-background-colour: #{$white};
-
 	// Opacity
 	--alpha-standard: #{$alpha-standard};
 	--alpha-light: #{$alpha-light};
@@ -213,10 +217,6 @@ $table-padding: 0.6rem 0.9rem;
 		--colour-foreground: #{$black};
 		--colour-paragraph: #{$copy-light-bg};
 		--colour-list: #{$copy-light-bg};
-
-		// Code
-		--code-colour: #{$black};
-		--code-background-colour: #e1e1e1;
 
 		// Table
 		--table-border-colour: #dddddd;

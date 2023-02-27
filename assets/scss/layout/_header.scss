@@ -50,6 +50,7 @@
 
 		&-white {
 			background-color: rgba($white, $header-background-opacity);
+			border-bottom: 1px solid rgba($black, 0.2);
 		}
 	}
 
@@ -67,6 +68,10 @@
 	@include media-desk {
 		padding: 0 $header-padding-x-desk;
 		background-color: transparent;
-		backdrop-filter: none;
+		backdrop-filter: blur(2px);
+
+		&-colour-black {
+			backdrop-filter: none;
+		}
 	}
 }

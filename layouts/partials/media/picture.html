@@ -2,6 +2,7 @@
     Picture
 		partial "media/picture.html" (dict
 			"image" (resources.Get "hello.jpg")
+			"alt" "Alternative text"
 			"lazy" true
 			"mobile" false
 			"class" "class-name"
@@ -50,32 +51,52 @@
 					{{- $src = $.image.Resize (printf "%dx" $container.size) -}}
 				{{- end }}
 				{{ if $src }}
-					{{ if site.Params.imagery.webpAvif -}}
-						{{- $noExtension := strings.TrimSuffix (path.Ext $src.RelPermalink) $src.RelPermalink -}}
-						<!-- AVIF -->
+					{{- $noExtension := partial "util/_trim-extension.html" $src.RelPermalink -}}
+					<!-- AVIF -->
+					{{ if site.Params.imagery.avif -}}
 						<source media="(max-width: {{ $container.size }}px)"
 							srcset="{{ $noExtension }}.avif"
-							class="{{ with .class -}} {{ . }} {{- end }}"
-							type="image/avif"
+							{{ with .class -}} class="{{ . }}" {{- end }}
 							width="{{ $src.Width }}"
-							height="{{ $src.Height }}"/>
-						<!-- WebP -->
+							height="{{ $src.Height }}"
+							type="image/avif"/>
+					{{- end }}
+					<!-- WebP -->
+					{{ if site.Params.imagery.webp -}}
 						<source media="(max-width: {{ $container.size }}px)"
 							srcset="{{ $noExtension }}.webp"
-							class="{{ with .class -}} {{ . }} {{- end }}"
-							type="image/webp"
+							{{ with .class -}} class="{{ . }}" {{- end }}
 							width="{{ $src.Width }}"
-							height="{{ $src.Height }}"/>
+							height="{{ $src.Height }}"
+							type="image/webp"/>
 					{{- end }}
 					<!-- Original -->
 					<source media="(max-width: {{ $container.size }}px)"
 						srcset="{{ $src.RelPermalink }}"
-						class="{{ with .class -}} {{ . }} {{- end }}"
-						width="{{ $src.Width }}"
-						height="{{ $src.Height }}"/>
+						{{ with .class -}} class="{{ . }}" {{- end }}/>
 				{{- end }}
 			 {{ end }}
 		{{- end }}
+		<!-- Original - AVIF/WebP -->
+        {{ if site.Params.imagery.webpAvif -}}
+            {{ $noExtension := strings.TrimSuffix (path.Ext .image.RelPermalink) .image.RelPermalink }}
+			<!-- AVIF -->
+			<source {{ if .lazy }} loading="lazy" {{- end }}
+				src="{{ $noExtension }}.avif"
+				{{ with .class -}} class="{{ . }}" {{- end }}
+				{{ with .alt -}} alt="{{ . }}" {{- end }}
+				width="{{ .image.Width }}"
+				height="{{ .image.Height }}"
+				type="image/avif"/>
+			<!-- WebP -->
+			<source {{ if .lazy }} loading="lazy" {{- end }}
+				src="{{ $noExtension }}.webp"
+				{{ with .class -}} class="{{ . }}" {{- end }}
+				{{ with .alt -}} alt="{{ . }}" {{- end }}
+				width="{{ .image.Width }}"
+				height="{{ .image.Height }}"
+				type="image/webp"/>
+        {{- end }}
 		<!-- Original -->
         {{ partial "partials/media/image.html" (dict
 			"image" .image

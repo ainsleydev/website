@@ -2,10 +2,11 @@
 <!-- =====================
     Variables
     ===================== -->
-{{ $css := partial "head/styles.html" (append "scss/app.scss" .Params.styles) }}
-{{ $js := partial "head/scripts.html" (append "js/app.ts" .Params.scripts) }}
+{{- $css := partial "head/styles.html" (append "scss/app.scss" .Params.styles) -}}
+{{- $js := partial "head/scripts.html" (append "js/app.ts" .Params.scripts) -}}
 {{/*{{ $hash := .GitInfo.AbbreviatedHash }}*/}}
-{{ $hash := now.Unix }}
+{{- $hash := now.Unix -}}
+{{- $baseURL := partial "util/_base-url.html" . -}}
 <!-- =====================
     HTML
     ===================== -->
@@ -14,10 +15,9 @@
 		<!--- TODO, removed when finished -->
 		<meta name="robots" content="noindex">
         <!-- Meta -->
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<meta name="apple-mobile-web-app-capable" content="yes" />
         <title>{{ with .Params.title -}} {{ . }} | {{ end }}{{ .Site.Title }}</title>
 		<!-- Description -->
@@ -28,16 +28,18 @@
 			  content="{{ if .IsHome -}} {{ $.Site.Params.description }} {{- else -}} {{ .Description }} {{- end }}"/>
 		<!-- Canonical -->
 		<link rel="canonical"
-			  href="{{ with .Params.canonical -}} {{ . }} {{- else -}} {{ .Permalink }} {{- end }}"/>
+			  href="{{ with .Params.canonical -}} {{ . }} {{- else -}} {{ printf "%s%s" $baseURL .RelPermalink }} {{- end }}"/>
 		<!-- Base -->
         {{ if eq (getenv "VERCEL_ENV") "production" -}}
-			<base href="{{ getenv "VERCEL_URL" }}">
+			<base href="{{ $baseURL }}">
 		{{- end }}
-		<script>window.BaseURL = {{ getenv "VERCEL_URL" }};</script>
+		<script>window.BaseURL = {{ $baseURL }};</script>
+		<!-- Schema -->
+		 {{ partial "head/schema.html" . }}
         <!-- Open Graph -->
-        {{ template "_internal/opengraph.html" . }}
+        {{ partial "head/opengraph.html" . }}
         <!-- Twitter -->
-        {{ template "_internal/twitter_cards.html" . }}
+        {{ partial "head/twitter.html" . }}
         <!-- CSS -->
         {{ range $css -}}
 			<link rel="stylesheet" href="{{ .RelPermalink }}?{{ $hash }}">
@@ -82,18 +84,20 @@
         {{ $colour = .Params.pagecolour }}
     {{ end }}
     <body class="theme-{{ $colour }}">
-        <!-- Header -->
-        {{- partial "header.html" (dict "colour" $colour) -}}
-		<!-- Cursor -->
-		<div class="cursor"></div>
-		<!-- Wrapper -->
-		<div class="content-wrapper">
-			<!-- Main Content -->
-			<main id="main">
-                {{- block "main" . }}{{- end }}
-			</main>
-			<!-- Footer -->
-            {{- partial "footer.html" . -}}
+		<div data-scroll-container>
+			<!-- Header -->
+			{{- partial "header.html" (dict "colour" $colour) -}}
+			<!-- Cursor -->
+			<div class="cursor"></div>
+			<!-- Wrapper -->
+			<div class="content-wrapper">
+				<!-- Main Content -->
+				<main id="main">
+					{{- block "main" . }}{{- end }}
+				</main>
+				<!-- Footer -->
+				{{- partial "footer.html" . -}}
+			</div>
 		</div>
         <!-- Javascript -->
 		{{ range $js -}}

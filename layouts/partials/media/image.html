@@ -2,50 +2,39 @@
     Image
 		partial "media/image.html" (dict
 			"image" (resources.Get "hello.jpg")
+			"alt" "Alternative text"
 			"lazy" true
 			"class" "class-name"
-			"width" "100px"
+			"resize" "400x"
 		)
 		- image:	The image resource. A warning will be thrown without this key.
 		- alt:		The alternative text for the image. A warning will be thrown without this key.
 		- lazy:		If the image should be lazy loaded, defaults to false.
 		- class:	Any class names to be appended to the <picture> element.
-		- width:	Optional width in px for the image (for SVG images).
-		- height:	Optional height in px for the image (for SVG images).
+		- resize: 	Resize an image to the specified width and/or height.
     ===================== -->
-{{ if not .alt -}} {{ warnf "No alt text provided for image: %s" .image.RelPermalink }} {{- end }}
+{{ if not .alt -}}
+	{{- warnf "No alt text provided for image: %s" .image.RelPermalink -}}
+{{- end }}
 {{ if .image }}
 	<!-- SVG -->
 	{{ if eq .image.MediaType.SubType "svg" }}
+		{{ $width := replaceRE `width="(.*?)"` "$1" (index (findRE `width="(.*?)"` .image.Content) 0) }}
+		{{ $height := replaceRE `height="(.*?)"` "$1" (index (findRE `height="(.*?)"` .image.Content) 0) }}
+		{{ if or (not $width) (not $height) -}}
+			{{- warnf "No width or height provided for image: %s" .image.RelPermalink -}}
+		{{- end }}
 		<img {{ if .lazy }} loading="lazy" {{- end }}
 			src="{{ .image.RelPermalink }}"
 			class="image-svg {{ with .class -}} {{ . }} {{- end }}"
 			{{ with .alt -}} alt="{{ . }}" {{- end }}
-            {{ with .width -}} width="{{ . }}px" {{- end }}
-			{{ with .height -}} height="{{ . }}px" {{- end }}>
+            {{ with $width -}} width="{{ . }}px" {{- end }}
+			{{ with $height -}} height="{{ . }}px" {{- end }}>
 	<!-- JPG/PNG -->
 	{{- else -}}
-		<!-- Original - AVIF/WebP -->
-        {{ if site.Params.config.webpAvif -}}
-            {{ $noExtension := strings.TrimSuffix (path.Ext .image.RelPermalink) .image.RelPermalink }}
-			<!-- AVIF -->
-			<img {{ if .lazy }} loading="lazy" {{- end }}
-				src="{{ $noExtension }}.avif"
-				class="{{ with .class -}} {{ . }} {{- end }}"
-				alt="{{ with .alt -}} {{ . }} {{- end }}"
-				type="image/avif"
-				width="{{ .image.Width }}"
-				height="{{ .image.Height }}"/>
-			<!-- WebP -->
-			<img {{ if .lazy }} loading="lazy" {{- end }}
-				src="{{ $noExtension }}.webp"
-				{{ with .class -}} class="{{ . }}" {{- end }}
-				alt="{{ with .alt -}} {{ . }} {{- end }}"
-				type="image/webp"
-				width="{{ .image.Width }}"
-				height="{{ .image.Height }}"/>
-        {{- end }}
-		<!-- Original - Image -->
+		{{ if .resize -}}
+			{{- .image.Resize .resize -}}
+		{{- end }}
 		<img {{ if .lazy }} loading="lazy" {{- end }}
 			src="{{ .image.RelPermalink }}"
 			class="{{ with .class -}} {{ . }} {{- end }}"

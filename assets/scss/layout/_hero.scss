@@ -49,7 +49,7 @@
 	// =========================================================================
 
 	&-simple {
-		padding-top: $header-height + 30px;
+		padding-top: $header-height + 28px;
 
 		&-padding-bottom {
 			padding-bottom: $section-padding;
@@ -61,7 +61,8 @@
 
 	&-full-height {
 		height: 100vh;
-		min-height: 600px;
+		min-height: 100vh !important;
+		min-height: -webkit-fill-available !important;
 	}
 
 	// Half Height
@@ -207,9 +208,9 @@
 			transform-origin: 50% 50%;
 		}
 
-		&-a-symbol svg g {
-			opacity: 1;
-			mix-blend-mode: normal !important;
+		&-a-symbol-container {
+			opacity: 1 !important; // Override inline styles
+			mix-blend-mode: normal !important; // Override inline styles
 		}
 
 		&-logos {

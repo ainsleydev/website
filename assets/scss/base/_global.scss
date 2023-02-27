@@ -24,7 +24,8 @@ body {
 	font-family: $font;
 	font-size: 1rem;
 	line-height: 1.6;
-	overflow: auto !important; // Override Typeform
+	overflow: auto;
+	//overflow: auto !important; // Override Typeform
 	font-kerning: normal;
 	-webkit-font-smoothing: antialiased; // sass-lint:disable-line  no-vendor-prefixes
 	-webkit-tap-highlight-color: transparent; // sass-lint:disable-line  no-vendor-prefixes
@@ -46,7 +47,7 @@ main {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	min-height: 100%;
+	min-height: 100vh;
 }
 
 *,
@@ -63,9 +64,14 @@ figure {
 	margin: 0;
 }
 
-image,
-source {
+img,
+source,
+picture,
+figure {
 	vertical-align: top;
+	border: none;
+	outline: none;
+	color: transparent;
 }
 
 ul,

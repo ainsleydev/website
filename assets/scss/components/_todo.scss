@@ -11,6 +11,7 @@ input[type='checkbox']:disabled {
 	background-color: colour('foreground');
 	width: 24px;
 	height: 24px;
+	border-radius: 0;
 	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M22,2V22H2V2Zm2-2H0V24H24Z' /%3E%3C/svg%3E");
 	-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M22,2V22H2V2Zm2-2H0V24H24Z' /%3E%3C/svg%3E");
 

@@ -29,8 +29,7 @@ a.btn {
 	background-color: colour('foreground');
 	color: colour('background');
 	border: none;
-	transition: transform 100ms linear, color 100ms linear,
-		background 100ms linear;
+	transition: transform 100ms linear, color 100ms linear, background 100ms linear;
 	will-change: transform, color, background;
 
 	// Defaults
@@ -58,6 +57,7 @@ a.btn {
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
+		width: 100%;
 		height: auto;
 	}
 
@@ -69,6 +69,7 @@ a.btn {
 		font-size: 1rem;
 		font-weight: bold;
 		line-height: 1;
+		white-space: nowrap;
 	}
 
 	// Colours
@@ -132,9 +133,27 @@ a.btn {
 	// =========================================================================
 
 	&-size {
+		&-tiny {
+			padding: $button-padding-tiny;
+		}
+
 		&-small {
 			padding: $button-padding-small;
 		}
+	}
+
+	// Block
+	// =========================================================================
+
+	&-block {
+		width: 100%;
+	}
+
+	// Max Width
+	// =========================================================================
+
+	&-max-width {
+		max-width: 220px;
 	}
 
 	// Arrow

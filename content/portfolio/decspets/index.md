@@ -31,8 +31,8 @@ client base in Ireland, their aim was to establish an e-commerce presence in ord
 wider audience.
 {{< /vertical-wrapper >}}
 
-<!-- Shop -->
-{{< picture src="images/shop.jpg" alt="Dec's Pets Shop" >}}
+<!-- Video -->
+{{< video src="video/tags.mp4" poster="images/poster.jpg" >}}
 
 <!-- Brief -->
 {{< vertical-wrapper text="Brief" number="01" >}}
@@ -41,8 +41,8 @@ off-the-shelf web package to an entirely bespoke site. Their main goal was for u
 online with ease, and more visibility for the company’s brand presence in the e-commerce market as a whole was needed.
 {{< /vertical-wrapper >}}
 
-<!-- Video -->
-{{< picture src="images/poster.jpg" alt="Dec's Pets Tag Builder" >}}
+<!-- Shop -->
+{{< picture src="images/shop.jpg" alt="Dec's Pets Shop" >}}
 
 <!-- Design -->
 {{< vertical-wrapper text="Design" number="02" >}}

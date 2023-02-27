@@ -1,10 +1,11 @@
 <!-- =====================
     Quote
-		< quote cite="ainsley.dev" >
+		< quote cite="ainsley.dev" class="bg-grey-dark >
 			Hello
 		< /quote >
     ===================== -->
 {{ partial "sections/quote.html" (dict
 	"text" .Inner
 	"cite" (.Get "cite")
+	"class" (.Get "class")
 )}}

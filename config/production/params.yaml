@@ -1,2 +1,3 @@
 imagery:
-    webpAvif: true
+    webp: true
+    avif: true

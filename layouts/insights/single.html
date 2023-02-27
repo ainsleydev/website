@@ -1,15 +1,86 @@
 {{ define "main" }}
-	<div class="container">
-		<div class="row">
-			<div class="col-desk-4">
-				<aside>
-                    {{ .TableOfContents }}
-				</aside>
-			</div><!-- /Col -->
-			<div class="col-12 col-desk-8">
-                {{ .Content }}
-			</div><!-- /Col -->
-		</div><!-- /Row -->
-	</div><!-- /Container -->
+	<!-- =====================
+		Insights - Single
+		===================== -->
+	<section class="hero hero-simple hero-simple-padding-bottom">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-12 col-tab-10 col-desk-8 col-desk-large-7">
+					<!-- =====================
+						Intro
+						===================== -->
+					<header class="insight-intro">
+						<!-- Crumbs -->
+						<div class="insight-intro-crumbs">
+                            {{ partial "components/breadcrumbs.html" . }}
+						</div>
+						<!-- Tags -->
+						{{ with .Params.tags }}
+							<div class="insight-intro-tags">
+								{{ range . -}}
+										<span class="tag">{{ . }}</span>
+								{{- end }}
+							</div>
+						{{- end }}
+					</header><!-- /Intro -->
+					<!-- =====================
+						Title
+						===================== -->
+					<h1>
+                        {{ .Title | safeHTML }}
+					</h1>
+					<!-- =====================
+						Meta
+						TODO: Meta cam be .Render "meta"
+						===================== -->
+					<div class="insight-meta margin-large">
+						<div class="insight-author">
+							<!-- Photo -->
+                            {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .Params.author)) }}
+								<figure class="insight-author-photo">
+                                    {{ partial "media/image.html" (dict
+                                    	"image" (.Resources.Get .Params.photo)
+                                    	"alt" "Here"
+                                    )}}
+								</figure>
+							{{ else }}
+								{{ warnf "No author found for post: %s" .Params.author}}
+							{{ end }}
+							<!-- Name & Reading Time -->
+							<div class="insight-author-text">
+								<p>{{ .Params.author }}</p>
+								<small>Reading time: {{ math.Round (div (countwords .Content) 300.0) }} minutes.</small>
+							</div>
+						</div>
+                        {{  partial "components/button.html" (dict
+							"text" "Bookmark"
+							"colour" "black"
+							"size" "tiny"
+							"title" "Bookmark this page"
+							"attr" "bookmark"
+                        )}}
+					</div>
+					<!-- =====================
+						Content
+						===================== -->
+					<article class="richtext">
+                        {{ .Content }}
+					</article>
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+	<!-- =====================
+		Other Reads
+		===================== -->
+	<section class="section section-padding bg-grey-light colour-white">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2>Other reads</h2>
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
 {{ end }}
 

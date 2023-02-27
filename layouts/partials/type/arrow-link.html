@@ -17,7 +17,11 @@
 	<a href="{{ .link }}"
 	   class="arrow-link arrow-hover cursor-element {{ with .class -}} {{ . }} {{- end }}
 	   {{ if .down -}} arrow-link-down arrow-hover-down {{- end }}"
-	   {{ with .title -}} title="{{ . }}" aria-label="{{ . }}" {{- end }}
+	   {{ with .title -}}
+			title="{{ . }}" aria-label="{{ . }}"
+	   {{ else -}}
+		   {{- warnf "No title provided to arrow link: %s" .link -}}
+	   {{- end }}
 	   data-rotation="{{ .rotation }}"
 	   data-cursor-border>
 		<!-- Text -->
