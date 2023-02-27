@@ -1,24 +1,26 @@
 <!-- =====================
     Schema - Navigational
-    TODO, figure out descriptions
     ===================== -->
 {{ with .menus -}}
-	{{ $length := len . }}
+	{{- $length := len . -}}
+    {{- $baseURL := partial "util/_base-url.html" . -}}
 	<script type="application/ld+json">
 		{
 			"@context": "http://schema.org",
 			"@type": "ItemList",
 			"itemListElement": [
 				{{ range $index, $item := . -}}
-       	 		{{ $page := $.site.GetPage (strings.TrimPrefix "/" $item.URL) }}
+       	 		{{- $page := $.ctx.GetPage (strings.TrimPrefix "/" $item.Identifier) -}}
 				{
 					"@type": 		"SiteNavigationElement",
-					"position": 	{{ add $index 2 -}},
+					"position": 	{{ add $index 1 -}},
 					"name": 		{{ $item.Name }},
-					{{- with $page.Params.Description  }}
-					"description": 	"{{ . }}",
+					{{ with $page.Params.description -}}
+					"description": 	"{{ $page.Params.description }}",
+					{{- else -}}
+					"description": 	"{{ $.ctx.Site.Params.description }}",
 					{{- end }}
-					"url": 			{{ printf "%s/%s" (strings.TrimSuffix "/" site.BaseURL) (strings.TrimPrefix "/" $item.URL) }}
+					"url": 			{{ printf "%s/%s" (strings.TrimSuffix "/" $baseURL) (strings.TrimPrefix "/" $item.URL) }}
 				}{{ if ne (add $index 1) $length -}} , {{- end }}
 				{{ end }}
 			]

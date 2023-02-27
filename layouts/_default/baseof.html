@@ -71,7 +71,7 @@
 			</script>
 		{{- end }}
 		<!-- Schema - Navigational -->
-		{{ partial "head/schema-navigational.html" (dict "site" . "menus" .Site.Menus.footer) }}
+		{{ partial "head/schema-navigational.html" (dict "ctx" . "menus" .Site.Menus.schema) }}
     </head>
 	<!-- =====================
 		Body

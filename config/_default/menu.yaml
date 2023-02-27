@@ -102,3 +102,28 @@ terms:
         name: Cookies
         url: /cookies/
         weight: 20
+schema:
+    -   identifier: home
+        name: Home
+        url: /
+        weight: 10
+    -   identifier: about
+        name: Who we are
+        url: /who-we-are/
+        weight: 20
+    -   identifier: services
+        name: Services
+        url: /services/
+        weight: 30
+    -   identifier: portfolio
+        name: Portfolio
+        url: /portfolio/
+        weight: 40
+    -   identifier: insights
+        name: Insights
+        url: /insights/
+        weight: 50
+    -   identifier: contact
+        name: Say hello
+        url: /contact/
+        weight: 60
