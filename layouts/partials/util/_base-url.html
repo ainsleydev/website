@@ -10,6 +10,8 @@
 {{- end -}}
 {{ if strings.Contains $baseURL "localhost" -}}
 	{{- $ret = printf "http://%s" $baseURL -}}
+{{- else if eq hugo.Environment "production" -}}
+	{{- $ret = hugo.Environment -}}
 {{- else -}}
     {{- $ret = printf "https://%s" $baseURL -}}
 {{- end -}}
