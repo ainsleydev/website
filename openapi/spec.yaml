@@ -1,61 +1,72 @@
 openapi: 3.0.0
 info:
-  description: 'temp'
-  title: 'temp'
-  version: '0.0.1'
+    version: 1.0.0
+    title: ainsley.de API
+    description: 'temp'
+    termsOfService: https://ainsley.dev/terms/
+    contact:
+        name: ainsley.dev Team
+        email: hello@ainsley.dev
+        url: https://swagger.io
+    license:
+        name: BSD 3-Clause License
+        url: https://github.com/ainsleyclark/ainsley.dev/blob/master/LICENSE
+servers:
+    -   url: https://api.example.com/v1
+        description: "Production"
 
 paths:
-  "/users/":
-    "post":
-      description: Creates a new user.
-      operationId: "UserCreate"
-      requestBody:
-        description: The User to create, all fields are required to pass validation.
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-      responses:
-        200:
-          description: User created.
-        400:
-          description: Bad request. User failed validation.
-        401:
-          description: API Key missing.
-        '5XX':
-          description: Unexpected error.
+    "/users/":
+        "post":
+            description: Creates a new user.
+            operationId: "UserCreate"
+            requestBody:
+                description: The User to create, all fields are required to pass validation.
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/User'
+            responses:
+                200:
+                    description: User created.
+                400:
+                    description: Bad request. User failed validation.
+                401:
+                    description: API Key missing.
+                '5XX':
+                    description: Unexpected error.
 
 components:
-  securitySchemes:
-    ApiKeyAuth:
-      type: apiKey
-      in: header
-      name: X-Flyt-Api-Key
-  schemas:
-    User:
-      type: object
-      description: User schema.
-      required:
-        - first_name
-        - last_name
-        - dob
-        - slack_handle
-      properties:
-        user_id:
-          type: string
-          description: The UUID of the user.
-        first_name:
-          type: string
-          description: The first name of the User.
-        last_name:
-          type: string
-          description: The last name of the User.
-        dob:
-          type: string
-          description: The date of birth of the User (format yyyy-mm-dd)
-        slack_handle:
-          type: string
-          description: The Users slack handle.
+    securitySchemes:
+        ApiKeyAuth:
+            type: apiKey
+            in: header
+            name: X-Flyt-Api-Key
+    schemas:
+        User:
+            type: object
+            description: User schema.
+            required:
+                - first_name
+                - last_name
+                - dob
+                - slack_handle
+            properties:
+                user_id:
+                    type: string
+                    description: The UUID of the user.
+                first_name:
+                    type: string
+                    description: The first name of the User.
+                last_name:
+                    type: string
+                    description: The last name of the User.
+                dob:
+                    type: string
+                    description: The date of birth of the User (format yyyy-mm-dd)
+                slack_handle:
+                    type: string
+                    description: The Users slack handle.
 
 security:
-  - ApiKeyAuth: [ ]
+    -   ApiKeyAuth: [ ]

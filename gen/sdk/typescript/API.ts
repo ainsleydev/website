@@ -14,7 +14,8 @@
 // license that can be found in the LICENSE file.
 
 /**
- * User schema.*/
+ * User schema.
+ */
 export interface User {
 	/** The UUID of the user. */
 	user_id?: string;
@@ -73,7 +74,7 @@ export enum ContentType {
 }
 
 export class HttpClient<SecurityDataType = unknown> {
-	public baseUrl: string = '';
+	public baseUrl: string = 'https://api.example.com/v1';
 	private securityData: SecurityDataType | null = null;
 	private securityWorker?: ApiConfig<SecurityDataType>['securityWorker'];
 	private abortControllers = new Map<CancelToken, AbortController>();
@@ -243,8 +244,12 @@ export class HttpClient<SecurityDataType = unknown> {
 }
 
 /**
- * @title temp
- * @version 0.0.1
+ * @title ainsley.de API
+ * @version 1.0.0
+ * @license BSD 3-Clause License (https://github.com/ainsleyclark/ainsley.dev/blob/master/LICENSE)
+ * @termsOfService https://ainsley.dev/terms/
+ * @baseUrl https://api.example.com/v1
+ * @contact ainsley.dev Team <hello@ainsley.dev> (https://swagger.io)
  *
  * temp
  */
@@ -253,7 +258,8 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
 		/**
 		 * @name UserCreate
 		 * @request POST:/users/
-		 * @secure * @description Creates a new user. */
+		 * @secure * @description Creates a new user.
+		 */
 		userCreate: (data: User, params: RequestParams = {}) =>
 			this.request<void, void>({
 				path: `/users/`,

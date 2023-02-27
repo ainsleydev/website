@@ -39,6 +39,7 @@
 <% if (description.length) { %>
 /**
 <%~ description.map(part => `* ${part}`).join("\n") %>
+
 */
 <% } %>
 export <%~ (dataContractTemplates[contract.typeIdentifier] || dataContractTemplates.type)(contract) %>
