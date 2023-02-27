@@ -20,35 +20,37 @@ const (
 	ApiKeyAuthScopes = "ApiKeyAuth.Scopes"
 )
 
-// User schema.
-type User struct {
-	// The date of birth of the User (format yyyy-mm-dd)
-	Dob string `json:"dob"`
+// Message and attributes from the contact form
+type ContactFormRequest struct {
+	// The message from the user.
+	Honeypot *string `json:"honeypot,omitempty"`
 
-	// The first name of the User.
-	FirstName string `json:"first_name"`
-
-	// The last name of the User.
-	LastName string `json:"last_name"`
-
-	// The Users slack handle.
-	SlackHandle string `json:"slack_handle"`
-
-	// The UUID of the user.
-	UserId *string `json:"user_id,omitempty"`
+	// The message from the user.
+	Message string `json:"message"`
 }
 
-// UserCreateJSONBody defines parameters for UserCreate.
-type UserCreateJSONBody = User
+// The message sent back to the user upon successful submission
+type ContactFormResponse = string
 
-// UserCreateJSONRequestBody defines body for UserCreate for application/json ContentType.
-type UserCreateJSONRequestBody = UserCreateJSONBody
+// HTTPResponse defines model for HTTPResponse.
+type HTTPResponse struct {
+	Data    *map[string]interface{} `json:"data,omitempty"`
+	Error   *bool                   `json:"error,omitempty"`
+	Message *string                 `json:"message,omitempty"`
+	Status  *int                    `json:"status,omitempty"`
+}
+
+// SendContactFormJSONBody defines parameters for SendContactForm.
+type SendContactFormJSONBody = ContactFormRequest
+
+// SendContactFormJSONRequestBody defines body for SendContactForm for application/json ContentType.
+type SendContactFormJSONRequestBody = SendContactFormJSONBody
 
 // ServerInterface represents all server handlers.
 type ServerInterface interface {
 
-	// (POST /users/)
-	UserCreate(ctx echo.Context) error
+	// (POST /forms/contact)
+	SendContactForm(ctx echo.Context) error
 }
 
 // ServerInterfaceWrapper converts echo contexts to parameters.
@@ -56,14 +58,14 @@ type ServerInterfaceWrapper struct {
 	Handler ServerInterface
 }
 
-// UserCreate converts echo context to params.
-func (w *ServerInterfaceWrapper) UserCreate(ctx echo.Context) error {
+// SendContactForm converts echo context to params.
+func (w *ServerInterfaceWrapper) SendContactForm(ctx echo.Context) error {
 	var err error
 
 	ctx.Set(ApiKeyAuthScopes, []string{""})
 
 	// Invoke the callback with all the unmarshalled arguments
-	err = w.Handler.UserCreate(ctx)
+	err = w.Handler.SendContactForm(ctx)
 	return err
 }
 
@@ -95,25 +97,26 @@ func RegisterHandlersWithBaseURL(router EchoRouter, si ServerInterface, baseURL 
 		Handler: si,
 	}
 
-	router.POST(baseURL+"/users/", wrapper.UserCreate)
+	router.POST(baseURL+"/forms/contact", wrapper.SendContactForm)
 
 }
 
 // Base64 encoded, gzipped, json marshaled Swagger object
 var swaggerSpec = []string{
 
-	"H4sIAAAAAAAC/4yU3U7jOhDHX8Wacy7OkdKkLOxNrrZ8rFSBdpEKEhKq0NSeNAbH9tpOIUJ995WdFtJS",
-	"VntV1zPzy9/z9QrcNNZo0sFD+Qqe19RgOt56cvFXkOdO2iCNhjLdst4rhwysM5ZckJRChFl8jLipiQkM",
-	"xEzFFtKFOh5CTSyh/quMazCwruu6UdOMhPgfMgidJSjBByf1EtYZVNL58KCxocMfSHYW7UN6fgil8I+k",
-	"aP47kFfInx5q1EJ9woqhniU/1vsdBLWe3IMUnzBup+dbKe1hKesMHP1qpSMB5f0wV8PXZqk8e7LnbzCz",
-	"eCQeEswTb50M3SyWua/sxMpL6iZtqOM/GcXVhIIcZNDnEu5G31UXRhMrR5fUvavEFArrSJa6MhHAjQ7I",
-	"QzxSg1IlnFLmG0rtFXW5oNU7eXDJbggbyKB1KSYE68ui8M+4XJLLpYnp3M1hoMbGPEhO2qc6bains3N2",
-	"PDpT2HpiVxvzPnkpQ90ucm6aYqOCK3RPxUBSsVBmUTToA7nianp28WN2EWUEco3/Wc3IrSSnAXMYm5yK",
-	"mCwZ1O5b2eR6ChmsyPn+JUf5OB9HsrGk0Uoo4ThdZWAx1KlORWwRX8SjNT58bKkzRxjIM2Sant8aKg4x",
-	"Ro+p2Mx47wd9Z5EPp0Z028qRTmC0VkmewopHH+nb/RFP/zqqoIR/ivcFU2y2S5FWS2qIwzPDgmE8CcgY",
-	"KsUqSUp4ho7YttGji0Xv2QqVFElEDmkQvDXa9137ZTz+ZIP1dJFCTg55naJgm6fnvaYKpSKx/72T8dHH",
-	"4Mn1lF1SxxrpvdTL5Pj17u6AFk0vlnggwcg54/KYleEIQnm/O3z38/U8ml3si2TdJV47I1qe/uz3MlqZ",
-	"0ws2VlFq6NURrOfr3wEAAP//hsYK0wIGAAA=",
+	"H4sIAAAAAAAC/7RUTW/jNhD9KwTbo2I53Z50ajbdokG2m6BOgQJBDiNqZHGXIrmckbdCoP9eDC0ncuJ+",
+	"odiTZZLz5s3Mm/eoTehj8OiZdPWoyXTYQ/68DJ7B8E8h9b/i5wGJ5bRBMslGtsHrSv+CRLBFBb5RwJxs",
+	"PTCSalPoFXeozB5DtSH1utAxhYiJLeYEXfA4xnAC9q5D1c/QT1gDYVrpQvMYUVeaOFm/1VOh55f/D2Yq",
+	"dMLPg03Y6Or+CfPh6WGoP6JhyXfUGIrB0z/kJvSsajCfFIcnDmqIwSsajEGidnCKhrq3RBJ+osif7+5u",
+	"l9mOW9kAg/y+4oophbS4qUNwCP5F2/AP6KOT+9+EmUwLmLF53b2L26tT7IiBB1rksZ5xi0lPk3SW0AzJ",
+	"8rgRde0ZX0R7jePFwJ38s9KyDqHBpAvtoReM388ubq/OrnF8zgg5SmdQ69sgsbPGch09WJeRnAs/gPXk",
+	"cFw1uHsGXRyqOwRR5ZByDHOkqizpC2y3mFY2SGHHQ2Xsoy60swbnMcyobzc/qjdnlw4GQvV+vn6JvLXc",
+	"DfXKhL6cWRgH6VO5oFTWLtRlD8SYyvdXl+8+bN4JDcbU0027wbSzBheYy9j8qJRmWXbHtc5z22GifSXn",
+	"q/VqLcghoododaXf5KNCR+Auj6gUHVC56G8Mp0zgNhCTAuXxS5bOQskinCSqPxhBhC3K9ol4QeKvGl3p",
+	"DfpmsVV6v4tI/DY042HG6HNuiNFZk2PLjyQEDq4lX98mbHWlvymfba2cPa08YWhZSK8XN2+BsE4IjIUC",
+	"51Rr0TWkIKE6GIU8iUCkduBskymtdDaS/Z7mLn63Xv+nCsC5m1ZX939fy5EdTMVf+cG/bscBaZoeTvTk",
+	"5lqdqY242LNfuVFK/X59/tWrO8XoQ2Al5hGSJWyyzSx8JidYOsz9w/Qg10k2IN++kHAKzWB4773HWwvR",
+	"rmZ/zKu7OxdGfwYAAP//K0GVXzgHAAA=",
 }
 
 // GetSwagger returns the content of the embedded swagger specification file
