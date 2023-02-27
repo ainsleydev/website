@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
     version: 1.0.0
-    title: ainsley.de API
-    description: 'temp'
+    title: ainsley.dev API
+    description: API Spec for the backend of ainsley.dev
     termsOfService: https://ainsley.dev/terms/
     contact:
         name: ainsley.dev Team
