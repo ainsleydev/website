@@ -9,8 +9,9 @@
 			"@context": "http://schema.org",
 			"@type": "ItemList",
 			"itemListElement": [
-				{{ range $index, $item := . -}}
+				{{- range $index, $item := . -}}
        	 		{{- $page := $.ctx.GetPage (strings.TrimPrefix "/" $item.Identifier) -}}
+       	 		{{- if $index }}, {{ end }}
 				{
 					"@type": 		"SiteNavigationElement",
 					"position": 	{{ add $index 1 -}},
@@ -21,7 +22,7 @@
 					"description": 	"{{ $.ctx.Site.Params.description }}",
 					{{- end }}
 					"url": 			{{ printf "%s/%s" (strings.TrimSuffix "/" $baseURL) (strings.TrimPrefix "/" $item.URL) }}
-				}{{ if ne (add $index 1) $length -}} , {{- end }}
+				}
 				{{ end }}
 			]
 		}

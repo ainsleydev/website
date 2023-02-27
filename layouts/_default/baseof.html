@@ -65,13 +65,16 @@
 		<meta name="msapplication-TileColor" content="#0a0a0a">
 		<meta name="theme-color" content="#0a0a0a">
 		<!-- Schema - Organisation -->
-		{{ with .Site.Data.schema.organisation -}}
-			<script type="application/ld+json">
-				{{ . }}
-			</script>
-		{{- end }}
+        {{ partial "schema/organisation.html" . }}
 		<!-- Schema - Navigational -->
-		{{ partial "head/schema-navigational.html" (dict "ctx" . "menus" .Site.Menus.schema) }}
+		{{ partial "schema/navigational.html" (dict
+			"ctx" .
+			"menus" .Site.Menus.schema
+		)}}
+		<!-- Schema - Articles -->
+        {{ if eq .Section "insights" -}}
+        	{{ .Render "schema" }}
+		{{- end }}
     </head>
 	<!-- =====================
 		Body
