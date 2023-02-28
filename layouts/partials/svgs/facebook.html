@@ -1,0 +1,13 @@
+<!-- =====================
+    Facebook
+		partial "svgs/facebook.html" (dict "colour" "white")
+		- colour:	The colour of the social handle, defaults to foreground.
+    ===================== -->
+{{ $colour := partial "util/_get-colour.html" .colour }}
+<svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="12.306" height="22.989"
+	 viewBox="0 0 12.306 22.989">
+	<path
+		d="M11.5,12.927l.638-4.153H8.148v-2.7a2.08,2.08,0,0,1,2.344-2.247h1.814V.287A22.12,22.12,0,0,0,9.087.005,5.076,5.076,0,0,0,3.653,5.6v3.17H0v4.153H3.653V22.979H8.148V12.927Z"
+		transform="translate(0 0.01)"
+		fill="{{ $colour }}"/>
+</svg>
