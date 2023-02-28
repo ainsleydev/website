@@ -15,4 +15,5 @@
 {{- else -}}
     {{- $ret = printf "https://%s" $baseURL -}}
 {{- end -}}
+{{ $ret = strings.TrimSuffix "/" $ret }}
 {{ return $ret }}

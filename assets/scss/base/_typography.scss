@@ -148,7 +148,7 @@ p {
 	font-size: $text-paragraph-size;
 	margin-bottom: 1rem;
 	line-height: 1.8;
-	letter-spacing: 0;
+	letter-spacing: 0.1px;
 
 	&.lead {
 		font-size: $text-lead-size;

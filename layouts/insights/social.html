@@ -1,0 +1,51 @@
+<!-- =====================
+	Social
+	===================== -->
+<div class="insight-social">
+    {{ $permalink := printf "%s/%s" (partial "util/_base-url.html" .) .RelPermalink -}}
+	{{ $title := printf "%s - %s" .Site.Params.name .Title -}}
+	<!-- LinkedIn -->
+	<a href="https://www.linkedin.com/sharing/share-offsite/?url={{ $permalink }}"
+	   class="insight-social-item"
+	   target="_blank"
+	   aria-label="Share this page on LinkedIn">
+        {{ partial "svgs/linkedin.html" }}
+	</a><!-- /LinkedIn -->
+	<!-- Twitter -->
+	<a href="http://twitter.com/share?url={{ $permalink }}&text={{ $title }}"
+	   class="insight-social-item"
+	   target="_blank"
+	   aria-label="Share this page on Twitter">
+        {{ partial "svgs/twitter.html" }}
+	</a><!-- /Twitter -->
+	<!-- Reddit -->
+	<a href="https://reddit.com/submit?url={{ $permalink }}&title={{ $title }}"
+	   class="insight-social-item"
+	   target="_blank"
+	   aria-label="Share this page on Reddit">
+        {{ partial "svgs/reddit.html" }}
+	</a><!-- /Reddit -->
+	<!-- Facebook -->
+	<a href="https://www.facebook.com/sharer/sharer.php?u=#{{ $permalink }}"
+	   class="insight-social-item"
+	   target="_blank"
+	   aria-label="Share this page on Facebook">
+        {{ partial "svgs/facebook.html" }}
+	</a><!-- /Facebook -->
+	<!--- Link TODO - Add share link -->
+	<a href=""
+	   class="insight-social-item"
+	   target="_blank"
+	   aria-label="Share this page on Facebook">
+        {{ partial "svgs/link.html" }}
+	</a><!--- /Link -->
+	<!-- Bookmark TODO - Add JS -->
+    {{  partial "components/button.html" (dict
+		"text" "Bookmark"
+		"colour" "black"
+		"size" "tiny"
+		"class" "insight-social-item"
+		"title" "Bookmark this page"
+		"attr" "bookmark"
+    )}}<!-- /Bookmark -->
+</div><!-- /Insights Social -->

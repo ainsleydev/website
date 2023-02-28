@@ -12,13 +12,16 @@ tags:
   - Performance
   - Best Practices
 author: Ainsley Clark
+
 ---
 
+{{< lead >}}
 Go to one of your websites you have developed and turn JavaScript off, does the page still function as it should? Is all
 the content rendered? Do images and layouts appear correctly on the page? If the answer is no, it may be time to
 consider refactoring your code base to allow for a more SEO friendly website. As developers, it may be easier to use a
 particular framework or library or even add functionality via JavaScript, but consider the technical debt before you do.
 Here are some tricks and tips in order to boost your page rankings from a technical viewpoint.
+{{< /lead >}}
 
 ## How does Google Crawl?
 

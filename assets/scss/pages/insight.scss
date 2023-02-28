@@ -83,6 +83,27 @@
 		width: 100%;
 	}
 
+	// Social
+	// =========================================================================
+
+	&-social {
+		display: flex;
+		align-items: center;
+
+		&-item {
+			display: flex;
+			margin-bottom: 0;
+
+			svg {
+				min-height: 30px;
+			}
+
+			&:not(:first-child) {
+				margin-left: 1.4rem;
+			}
+		}
+	}
+
 	// Tablet
 	// =========================================================================
 
@@ -110,6 +131,7 @@
 			}
 
 			&-tags {
+				justify-content: flex-end;
 				margin-left: 1rem;
 				transform: none;
 			}

@@ -31,40 +31,16 @@
 					</h1>
 					<!-- =====================
 						Meta
-						TODO: Meta cam be .Render "meta"
 						===================== -->
 					<div class="insight-meta margin-large">
-						<div class="insight-author">
-							<!-- Photo -->
-                            {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .Params.author)) }}
-								<figure class="insight-author-photo">
-                                    {{ partial "media/image.html" (dict
-                                    	"image" (.Resources.Get .Params.photo)
-                                    	"alt" "Here"
-                                    )}}
-								</figure>
-							{{ else }}
-								{{ warnf "No author found for post: %s" .Params.author}}
-							{{ end }}
-							<!-- Name & Reading Time -->
-							<div class="insight-author-text">
-								<p>{{ .Params.author }}</p>
-								<small>Reading time: {{ math.Round (div (countwords .Content) 300.0) }} minutes.</small>
-							</div>
-						</div>
-                        {{  partial "components/button.html" (dict
-							"text" "Bookmark"
-							"colour" "black"
-							"size" "tiny"
-							"title" "Bookmark this page"
-							"attr" "bookmark"
-                        )}}
+						{{ .Render "author" }}
+						{{ .Render "social" }}
 					</div>
 					<!-- =====================
 						Content
 						===================== -->
 					<article class="richtext">
-                        {{ .Content }}
+                        {{ .Content | safeHTML }}
 					</article>
 				</div><!-- /Col -->
 			</div><!-- /Row -->
