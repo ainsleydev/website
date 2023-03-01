@@ -1,9 +1,9 @@
 ---
-title: "From bedroom to agency: How to get your first front-end development job"
-description: Getting your first development job is hard―really hard. Where do you start? In this blog post we’ll cover CV writing, portfolio building and tech busting to help you land that first dream job.
-slug: bedroom-to-agency
-publishdate: 2017-02-06
-lastmod: 2017-02-01
+title: Effective error handling in GoLang; how to Error()
+description: Failure is your domain. Effective error handling in any GoLang package or application is crucial to understand how and where errors are formulated. Errors used in combination with effective logging can save hours of debugging time.
+slug: golang-how-to-err
+publishdate: 2022-08-14
+lastmod:
 draft: false
 tags:
   - Startup

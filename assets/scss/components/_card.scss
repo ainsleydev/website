@@ -14,9 +14,9 @@
 	// Props
 	// =========================================================================
 
-	* {
-		font-weight: inherit;
-	}
+	//* {
+	//	font-weight: inherit;
+	//}
 
 	// Col
 	// =========================================================================
@@ -30,6 +30,11 @@
 
 		&:first-child #{$self}-basic {
 			padding-top: 0;
+		}
+
+		&:last-child #{$self}-basic {
+			padding-bottom: 0;
+			border: none;
 		}
 	}
 
@@ -93,6 +98,7 @@
 
 		#{$self}-tags {
 			margin-top: $margin;
+			margin-right: 10px;
 		}
 
 		#{$self}-col {

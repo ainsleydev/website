@@ -79,10 +79,7 @@
 	<!-- =====================
 		Body
 		===================== -->
-    {{ $colour := "black" }}
-    {{ if eq .Params.pagecolour "white"}}
-        {{ $colour = .Params.pagecolour }}
-    {{ end }}
+	{{ $colour := partial "util/_theme-colour.html" . }}
     <body class="theme-{{ $colour }}">
 		<div data-scroll-container>
 			<!-- Header -->

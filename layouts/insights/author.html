@@ -16,6 +16,8 @@
 	<!-- Name & Reading Time -->
 	<div class="insight-author-text">
 		<p>{{ .Params.author }}</p>
-		<small>Reading time: {{ math.Round (div (countwords .Content) 300.0) }} minutes.</small>
+		<small>
+			{{ .Date.Format "Jan 2, 2006" }} - {{ partial "util/_reading-time.html" . }} min read.
+		</small>
 	</div>
 </div><!-- /Insights Author -->

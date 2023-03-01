@@ -9,13 +9,20 @@
 .insight {
 	$self: &;
 
+	// Title
+	// =========================================================================
+
+	&-title {
+		margin-bottom: $section-padding-small;
+	}
+
 	// Intro
 	// =========================================================================
 
 	&-intro {
 		display: flex;
 		flex-direction: column;
-		margin-bottom: 1rem;
+		margin-bottom: $margin;
 
 		&-crumbs {
 			margin-bottom: 8px;
@@ -26,10 +33,6 @@
 			align-items: center;
 			flex-grow: 2;
 			transform: translateX(-2px);
-
-			span:first-child {
-				margin-left: 0;
-			}
 		}
 	}
 
@@ -40,7 +43,7 @@
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		margin-bottom: 1rem;
+		margin-top: $margin;
 
 		&-photo {
 			width: 60px;
@@ -137,6 +140,14 @@
 				margin-left: 1rem;
 				transform: none;
 			}
+		}
+
+		&-author {
+			margin-top: 0;
+		}
+
+		&-meta {
+			flex-direction: row-reverse;
 		}
 	}
 }

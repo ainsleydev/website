@@ -3,31 +3,45 @@
     ===================== -->
 <a href="{{ .RelPermalink }}"
    class="card card-basic"
-   title="{{ .Title }} Page Link"
+   title="Visit the {{ .Title }} page"
    aria-label="Navigate to the {{ .Title }} page">
 	<div class="row no-gaps">
 		<!-- Date -->
 		<div class="col-12 col-desk-2">
 			<h6 class="card-text-sub margin mb-desk-0">
-				{{ .PublishDate.Format "2006/01/02" }}
+				{{ with .PublishDate -}}
+					{{ .Format "02/01/2006" }}
+				{{- else -}}
+					{{ warnf "No publish date defined on page: %s" .Title }}
+				{{- end }}
 			</h6>
 		</div><!-- /Col -->
 		<!-- Content -->
 		<div class="col-12 col-desk-10">
 			<!-- Title -->
-			<h3 class="card-text-title">{{ .Title }}</h3>
+			{{ with .Title -}}
+				<h3 class="card-text-title">
+					{{ . }}
+				</h3>
+            {{- else -}}
+                {{ warnf "No title attached to page "}}
+			{{- end }}
 			<!-- Description -->
             {{ with .Params.description -}}
-				<p class="card-text-lead">{{ . }}</p>
+				<p class="card-text-lead">
+					{{ . | strings.TrimSuffix "." }}...
+				</p>
             {{- end }}
-			<!-- Tags -->
-			{{ with .Params.tags -}}
-				<div class="card-tags">
-                    {{ range . }}
-						<div class="tag">{{ . }}</div>
-                    {{- end }}
-				</div>
-			{{- end }}
+			<!-- Tags & Reading Time -->
+			<div class="card-tags">
+				{{ range .Params.tags -}}
+                    {{ partial "components/tag.html" (dict "text" .) }}
+				{{- end }}
+				<small class="type-weight-normal">
+                    {{ partial "util/_reading-time.html" . }} min read
+				</small>
+
+			</div>
 		</div><!-- /Col -->
 	</div><!-- /Row -->
 </a><!-- /Card -->

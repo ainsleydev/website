@@ -59,16 +59,16 @@ footerNoPadding: true
 	<div class="row">
 		<div class="col-12 col-tab-6 margin mb-tab-0">
 			<div class="placeholder">
-				<span class="tag">SEO</span>
-				<span class="tag">Javascript</span>
-				<span class="tag">Front-end</span>
+				{{< partial template="components/tag.html" text="SEO" >}}
+				{{< partial template="components/tag.html" text="Javascript" >}}
+                {{< partial template="components/tag.html" text="Front-end" >}}
 			</div>
 		</div><!-- /Col -->
 		<div class="col-12 col-tab-6">
 			<div class="placeholder placeholder-white">
-				<span class="tag tag-black">SEO</span>
-				<span class="tag tag-black">Javascript</span>
-				<span class="tag tag-black">Front-end</span>
+				{{< partial template="components/tag.html" text="SEO" colour="black" >}}
+				{{< partial template="components/tag.html" text="Javascript" colour="black" >}}
+				{{< partial template="components/tag.html" text="Front-end" colour="black" >}}
 			</div>
 		</div><!-- /Col -->
 	</div><!-- /Row -->

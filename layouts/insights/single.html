@@ -26,18 +26,16 @@
 					<!-- =====================
 						Title
 						===================== -->
-					<h1>
+					<h1 class="margin">
                         {{ .Title | safeHTML }}
 					</h1>
 					<!-- =====================
 						Meta
 						===================== -->
 					<div class="insight-meta margin-large">
-						{{ .Render "author" }}
 						{{ .Render "social" }}
+                        {{ .Render "author" }}
 					</div>
-					<h5>Date: {{ .Date }}</h5>
-					<h5>Last Mod: {{ .Lastmod }}</h5>
 					<!-- =====================
 						Content
 						===================== -->

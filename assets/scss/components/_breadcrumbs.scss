@@ -32,7 +32,7 @@
 	&-item {
 		display: flex;
 		align-items: center;
-		padding: 10px 0;
+		padding: 6px 0;
 
 		&:not(:first-child)::before {
 			content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11.483' height='10.022' viewBox='0 0 11.483 10.022'%3E%3Cpath d='M0,11.483,4.182,0H5.832l4.19,11.483H8.278L5.019,1.7l-3.3,9.779Z' transform='translate(11.483) rotate(90)' fill='%23595959' opacity='0.6'/%3E%3C/svg%3E%0A");

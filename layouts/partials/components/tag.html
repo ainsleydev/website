@@ -1,12 +1,14 @@
 <!-- =====================
     Tag
     	partial "components/tag.html" (dict
-    		"rotation" 45
+    		"text" "Tag Text"
     		"colour" "white"
     	)
     	- text: 	The text to appear within side the button.
     	- colour: 	The colour of the button, defaults to foreground.
     ===================== -->
 {{ with .text -}}
-	<span class="tag {{ with $.colour -}} {{ . }} {{- end }}">{{ . }}</span>
+	<span class="tag {{ with $.colour -}} tag-{{ . }} {{- end }}">
+		{{ . }}
+	</span>
 {{- end }}

@@ -8,8 +8,7 @@
 				<div class="col-12 col-desk-10">
 					<!-- Title -->
                     {{ with .Params.htmlTitle }}
-						<h5>Order Posts by Date</h5>
-						<h1 class="margin-large">
+						<h1 class="insight-title">
 							{{ . | safeHTML }}
 						</h1>
                     {{- else -}}
@@ -26,17 +25,10 @@
 		<section class="section section-padding section-padding-bottom" id="pages">
 			<div class="container">
 				<div class="row justify-content-center">
-                    {{ range .Pages -}}
+                    {{ range .Pages.ByDate.Reverse -}}
 						<div class="col-12 col-desk-10 card-col">
                             {{ .Render "card" }}
 						</div><!-- /Col -->
-
-{{/*                        {{ partial "cards/horizontal.html" (dict*/}}
-{{/*							"title" .Title*/}}
-{{/*							"permalink" .RelPermalink*/}}
-{{/*							"image" (.Resources.GetMatch .Params.featuredImage)*/}}
-{{/*							"animate" true*/}}
-{{/*                        )}}*/}}
                     {{- end }}
 				</div><!-- /Row -->
 			</div><!-- /Container -->
