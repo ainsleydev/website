@@ -2,7 +2,7 @@
 	Social
 	===================== -->
 <div class="insight-social">
-    {{ $permalink := printf "%s/%s" (partial "util/_base-url.html" .) .RelPermalink -}}
+    {{ $permalink := printf "%s%s" (partial "util/_base-url.html" .) .RelPermalink -}}
 	{{ $title := printf "%s - %s" .Site.Params.name .Title -}}
 	<!-- LinkedIn -->
 	<a href="https://www.linkedin.com/sharing/share-offsite/?url={{ $permalink }}"
@@ -32,20 +32,21 @@
 	   aria-label="Share this page on Facebook">
         {{ partial "svgs/facebook.html" }}
 	</a><!-- /Facebook -->
-	<!--- Link TODO - Add share link -->
-	<a href=""
-	   class="insight-social-item"
-	   target="_blank"
-	   aria-label="Share this page on Facebook">
+	<!--- Share (Copy to clipboard) -->
+	<div data-clipboard
+		data-clipboard-text="{{ $permalink }}"
+		data-clipboard-message="Copied URL to clipboard"
+		class="insight-social-item"
+		aria-label="Share this page on Facebook">
         {{ partial "svgs/link.html" }}
-	</a><!--- /Link -->
-	<!-- Bookmark TODO - Add JS -->
-    {{  partial "components/button.html" (dict
+	</div><!--- /Link -->
+	<!-- Bookmark -->
+	{{  partial "components/button.html" (dict
 		"text" "Bookmark"
 		"colour" "black"
 		"size" "tiny"
 		"class" "insight-social-item"
 		"title" "Bookmark this page"
-		"attr" "bookmark"
-    )}}<!-- /Bookmark -->
+		"attr" "data-bookmark"
+	)}}<!-- /Bookmark -->
 </div><!-- /Insights Social -->
