@@ -1,10 +1,10 @@
 <!-- =====================
-    Vertical Wrapper
-		< margin > / < margin large >
+    Vertical Section
+		< vertical-section text="Brief" number="01" >
     ===================== -->
 <section class="section section-padding">
-	<div class="test
-		{{ if not (.Get "text") -}} test-no-line {{- end }}">
+	<div class="vertical-section
+		{{ if not (.Get "text") -}} vertical-section-no-line {{- end }}">
 		<!-- Vertical & Line -->
         {{ if .Get "text" -}}
 			<div class="row justify-content-between margin no-gaps">
@@ -27,7 +27,7 @@
 			<!-- Vertical Line -->
             {{ if .Get "text" -}}
 				<div class="col-12 col-mob-3">
-					<hr class="line line-vertical test-vertical-line"/>
+					<hr class="line line-vertical vertical-section-vertical-line"/>
 				</div><!-- /Col -->
             {{- end }}
 			<!-- Text -->
@@ -39,5 +39,5 @@
 				</div>
 			</div><!-- /Col -->
 		</div><!-- /Row -->
-	</div>
+	</div><!-- /Vertical -->
 </section>

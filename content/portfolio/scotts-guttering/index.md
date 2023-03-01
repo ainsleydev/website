@@ -23,41 +23,41 @@ results:
 ---
 
 <!-- Intro -->
-{{< vertical-wrapper >}}
+{{< vertical-section >}}
 Established in 2019, Scott’s Guttering are experts in gutter clearance, maintenance and repair on residential and
 commercial properties across the South East, in addition to fascia, soffit and conservatory washes, and bird pest
 control solutions.
-{{< /vertical-wrapper >}}
+{{< /vertical-section >}}
 
 <!-- Guttering -->
 {{< picture src="images/guttering.jpg" alt="Picture of guttering on a roof" >}}
 
 <!-- Brief -->
-{{< vertical-wrapper text="Brief" number="01" >}}
+{{< vertical-section text="Brief" number="01" >}}
 ainsley.dev were approached to design and develop an industry-leading guttering website, with the primary purpose being
 a hard sell, advertising to and attracting potential customers in Kent and the South East. Clear and concise information
 needed to be displayed throughout the landing page, with clear calls to action and a streamlined UI/UX.
-{{< /vertical-wrapper >}}
+{{< /vertical-section >}}
 
 <!-- Video -->
 {{< picture src="images/guttering.jpg" alt="TODO" >}}
 
 <!-- Design -->
-{{< vertical-wrapper text="Design" number="02" >}}
+{{< vertical-section text="Design" number="02" >}}
 A bright orange/red colour contrasted with a dark navy was chosen in order to capture the user’s attention as soon as
 they land on the page. Gradients were used to create a depth of field on buttons, imagery and iconography, whilst
 maintaining a simple layout throughout. Reviews were added in the hero section to facilitate trust in the brand, and
 simple calls to action were designed as an easy way for customers to get in touch.
-{{< /vertical-wrapper >}}
+{{< /vertical-section >}}
 
 <!-- Mockup -->
 {{< picture src="images/mockup.jpg" alt="Dec's Pets Website on an iPhone" >}}
 
 <!-- Development -->
-{{< vertical-wrapper text="Develop" number="03" >}}
+{{< vertical-section text="Develop" number="03" >}}
 Micro animations were created from scratch for the buttons and iconography using pure CSS, making for sleek transitions
 between the interface states and improving the UX of the site. A simple and intuitive contact form was curated as an
 easy way for users to get in touch.
 A [PSI of 93 on mobile and 100 on desktop](https://pagespeed.web.dev/report?url=https%3A%2F%2Fscottsguttering.co.uk%2F)
 were achieved by lazy loading, minification and image optimisation, which made for an extremely rapid landing page.
-{{< /vertical-wrapper >}}
+{{< /vertical-section >}}
