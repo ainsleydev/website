@@ -3,12 +3,18 @@
     	partial "components/tag.html" (dict
     		"text" "Tag Text"
     		"colour" "white"
+    		"class" "something"
     	)
     	- text: 	The text to appear within side the button.
     	- colour: 	The colour of the button, defaults to foreground.
+    	- class:	Any additional clas names to appear.
     ===================== -->
 {{ with .text -}}
-	<span class="tag {{ with $.colour -}} tag-{{ . }} {{- end }}">
+	<span class="tag
+		{{ with $.colour -}} tag-{{ . }} {{- end }}
+		{{ with $.class -}} {{ . }} {{- end }}">
 		{{ . }}
 	</span>
+{{- else -}}
+	{{ warnf "No text provided to tag element" }}
 {{- end }}

@@ -2,9 +2,13 @@
     Insights Card
     ===================== -->
 <a href="{{ .RelPermalink }}"
-   class="card card-basic"
-   title="Visit the {{ .Title }} page"
-   aria-label="Navigate to the {{ .Title }} page">
+	class="card card-basic cursor-element skew"
+	title="Visit the {{ .Title }} page"
+	aria-label="Navigate to the {{ .Title }} page"
+	data-cursor-invert data-cursor-white
+	data-skew-transform-x="0.15" data-skew-transform-y="0"
+	data-skew-rotate-x="-0.1" data-skew-rotate-y="0"
+	data-skew-rotate>
 	<div class="row no-gaps">
 		<!-- Date -->
 		<div class="col-12 col-desk-2">
@@ -35,12 +39,14 @@
 			<!-- Tags & Reading Time -->
 			<div class="card-tags">
 				{{ range .Params.tags -}}
-                    {{ partial "components/tag.html" (dict "text" .) }}
+                    {{ partial "components/tag.html" (dict
+						"text" .
+						"class" "card-tags-item"
+					)}}
 				{{- end }}
-				<small class="type-weight-normal">
+				<small class="card-tags-reading-time">
                     {{ partial "util/_reading-time.html" . }} min read
 				</small>
-
 			</div>
 		</div><!-- /Col -->
 	</div><!-- /Row -->
