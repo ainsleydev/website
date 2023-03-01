@@ -1,0 +1,33 @@
+<!-- =====================
+    Insights Card
+    ===================== -->
+<a href="{{ .RelPermalink }}"
+   class="card card-basic"
+   title="{{ .Title }} Page Link"
+   aria-label="Navigate to the {{ .Title }} page">
+	<div class="row no-gaps">
+		<!-- Date -->
+		<div class="col-12 col-desk-2">
+			<h6 class="card-text-sub margin mb-desk-0">
+				{{ .PublishDate.Format "2006/01/02" }}
+			</h6>
+		</div><!-- /Col -->
+		<!-- Content -->
+		<div class="col-12 col-desk-10">
+			<!-- Title -->
+			<h3 class="card-text-title">{{ .Title }}</h3>
+			<!-- Description -->
+            {{ with .Params.description -}}
+				<p class="card-text-lead">{{ . }}</p>
+            {{- end }}
+			<!-- Tags -->
+			{{ with .Params.tags -}}
+				<div class="card-tags">
+                    {{ range . }}
+						<div class="tag">{{ . }}</div>
+                    {{- end }}
+				</div>
+			{{- end }}
+		</div><!-- /Col -->
+	</div><!-- /Row -->
+</a><!-- /Card -->

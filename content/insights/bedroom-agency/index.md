@@ -1,5 +1,6 @@
 ---
 title: From bedroom to agency
+description: Getting your first development job is hard―really hard. Where do you start? In this blog post we’ll cover CV writing, portfolio building and tech busting to help you land that first dream job.
 draft: false
 slug: bedroom-to-agency
 ---

@@ -11,6 +11,13 @@
 	margin-bottom: $card-margin-bottom;
 	user-select: none;
 
+	// Props
+	// =========================================================================
+
+	* {
+		font-weight: inherit;
+	}
+
 	// Col
 	// =========================================================================
 
@@ -19,6 +26,10 @@
 
 		&.col-12:last-child #{$self} {
 			margin-bottom: 0;
+		}
+
+		&:first-child #{$self}-basic {
+			padding-top: 0;
 		}
 	}
 
@@ -53,6 +64,39 @@
 
 		&-title {
 			margin-bottom: 0;
+		}
+
+		&-lead {
+			font-weight: normal;
+			margin-top: 1rem;
+		}
+	}
+
+	// Basic
+	// =========================================================================
+
+	&-basic {
+		margin-bottom: 0;
+		padding-top: $margin-large;
+		padding-bottom: $margin-large;
+		border-bottom: 2px solid rgba($black, $alpha-light);
+
+		#{$self}-text {
+			&-title {
+				margin-top: -14px;
+			}
+
+			&-lead {
+				margin-bottom: 0;
+			}
+		}
+
+		#{$self}-tags {
+			margin-top: $margin;
+		}
+
+		#{$self}-col {
+			background: red;
 		}
 	}
 
