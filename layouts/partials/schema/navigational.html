@@ -3,7 +3,7 @@
     ===================== -->
 {{ with .menus -}}
 	{{- $length := len . -}}
-    {{- $baseURL := partial "util/_base-url.html" . -}}
+    {{- $baseURL := $.ctx.Site.BaseURL -}}
 	<script type="application/ld+json">
 		{
 			"@context": "http://schema.org",
