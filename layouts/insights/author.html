@@ -6,8 +6,8 @@
     {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .Params.author)) }}
 		<figure class="insight-author-photo">
             {{ partial "media/image.html" (dict
-            "image" (.Resources.Get .Params.photo)
-            "alt" "Here"
+				"image" (.Resources.Get .Params.photo)
+				"alt" (printf "%s Photo" .Title)
             )}}
 		</figure>
     {{ else }}
