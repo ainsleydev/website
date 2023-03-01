@@ -22,6 +22,6 @@
     {{ end }}
     {{- $js = append ($file | resources.Fingerprint "sha512") $js -}}
 {{ end }}
-{{ return $js }}
+{{ return $js |  resources.Concat }}
 
 
