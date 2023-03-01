@@ -1,9 +1,7 @@
 ---
 title: Responsibilities as a developer for optimised SEO.
 description: Go to one of your websites you have developed and turn JavaScript off―does the page still function as it should? If the answer is no, it may be time to consider refactoring your code base to allow for a more SEO-friendly website.
-linktitle: TODO
-date: 2017-02-01
-publishdate: 2017-02-01
+publishdate: 2017-02-06
 lastmod: 2017-02-01
 draft: false
 pageColour: white
