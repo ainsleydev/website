@@ -54,6 +54,12 @@
 		&-padding-bottom {
 			padding-bottom: $section-padding;
 		}
+
+		&-title-padding {
+			h1 {
+				margin-bottom: $section-padding-small;
+			}
+		}
 	}
 
 	// Full Height

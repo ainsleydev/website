@@ -2,13 +2,13 @@
 	<!-- =====================
 		Insights List
 		===================== -->
-	<section class="hero hero-simple">
+	<section class="hero hero-simple hero-simple-title-padding">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-12 col-desk-10">
 					<!-- Title -->
                     {{ with .Params.htmlTitle }}
-						<h1 class="insight-title">
+						<h1>
 							{{ . | safeHTML }}
 						</h1>
                     {{- else -}}

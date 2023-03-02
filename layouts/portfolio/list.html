@@ -18,11 +18,20 @@
 	<!-- =====================
 		Items
 		===================== -->
-    {{ if .Pages -}}
+{{/*	{{ $paginator := .Paginator 2 }}*/}}
+
+{{ $paginator := .Paginate (first 2 .Pages.ByWeight) }}
+{{ range $paginator.Pages }}
+	<h2>{{ .Title }}</h2>
+{{ end }}
+<h2>{{ $paginator.HasNext }}</h2>
+<h2>{{ $paginator.HasPrev }}</h2>
+
+    {{ if $paginator.Pages -}}
 		<section class="section section-padding section-padding-bottom" id="pages" data-scroll-section>
 			<div class="container">
 				<div class="row">
-                    {{ range $index, $page := .Pages }}
+                    {{ range $index, $page := $paginator.Pages }}
                         {{ $isLeft := eq (mod $index 2) 0 }}
 						<div class="col-12 col-mob-6 col-desk-5 {{ if not $isLeft }} offset-desk-2 {{- end }} card-col">
 							<div class="row {{ if not $isLeft }} justify-content-end {{- end }}">
@@ -36,13 +45,15 @@
 			</div><!-- /Container -->
 		</section>
     {{- end }}
+
+
 	<!-- =====================
 		CTA
 		===================== -->
-		<div data-scroll-section>
-            {{ partial "sections/banner.html" (dict
-            "TODO" "TODO"
-            )}}
-		</div>
+	<div data-scroll-section>
+		{{ partial "sections/banner.html" (dict
+			"TODO" "TODO"
+		)}}
+	</div>
 
 {{ end }}

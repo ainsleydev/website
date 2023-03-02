@@ -37,13 +37,13 @@
 		mix-blend-mode: difference;
 		cursor: none;
 
-		//&-black {
-		//	background: $black;
-		//}
-		//
-		//&-white {
-		//	background: $white;
-		//}
+		&-black {
+			background: $black;
+		}
+
+		&-white {
+			background: $white;
+		}
 	}
 
 	// Colours
@@ -51,11 +51,11 @@
 
 	&-theme {
 		&-black {
-			background-color: $white;
+			//background-color: $white;
 		}
 
 		&-white {
-			background-color: $black;
+			//background-color: $black;
 		}
 	}
 
