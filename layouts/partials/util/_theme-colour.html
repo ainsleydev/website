@@ -1,0 +1,10 @@
+<!-- =====================
+	Theme Colour
+	===================== -->
+{{ $colour := "black" -}}
+{{ if and (eq .Kind "page") (eq "insights" .Section) -}}
+    {{- $colour = "white" -}}
+{{- else if eq .Params.pagecolour "white" -}}
+    {{- $colour = .Params.pagecolour -}}
+{{ end }}
+{{ return $colour }}

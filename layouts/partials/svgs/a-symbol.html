@@ -6,49 +6,54 @@
     		"opacity" 1
     		"greyscale" true
     		"clip" "left"
+    		"class" "hero-a-symbol"
     	)
     	- opacity:		A decimal number defining the opacity of the symbol from 0 to 100.
     	- greyscale: 	Determines if it should be black & white.
     	- clip:			If the image should be clipped, possible values: "left" / "right".
+    	- class:		Any class names to be appended to the arrow element.
     ===================== -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-	 width="316.223"
-	 height="285.449"
-	 viewBox="0 0 316.223 285.449"
-	 class="a-symbol
-	{{ with .clip -}} a-symbol-clip a-symbol-clip-{{ . }} {{- end }}">
-	<!-- Gradient -->
-	<defs>
-		<linearGradient id="a-symbol-linear-gradient"
-				x1="0.954" y1="0.14" x2="0.398" y2="0.601"
-				gradientUnits="objectBoundingBox">
-			<stop offset="0"/>
-			<stop offset="0.09" stop-opacity="0.91"/>
-			<stop offset="1" stop-opacity="0"/>
-		</linearGradient>
-	</defs>
-	<!-- Group -->
-	<g class="a-symbol-group"
-	   		{{ with .clip -}} style="transform: translateX(var(--a-symbol-clip-{{ . }}))" {{- end }}>
-		<g transform="translate(-4.8 -4)"
-                {{ with .opacity -}} opacity="{{ . }}" {{- end }}
-                {{ if .greyscale -}} style="mix-blend-mode: luminosity;" {{- end }}>
-			<!-- Left (Orange) -->
-			<g class="a-symbol-left" transform="translate(4.8 4)">
-				<path d="M192.84,4H132.982L4.8,289.449H72.125Z"
-					  transform="translate(-4.8 -4)"
-					  fill="var(--colour-orange)"/>
-				<path d="M192.84,4H132.982L4.8,289.449H72.125Z"
-					  transform="translate(-4.8 -4)"
-					  opacity="0.57"
-					  fill="url(#a-symbol-linear-gradient)"/>
+<div class="a-symbol a-symbol-wrapper {{ with .class -}} {{ . }} {{- end }}" style="width: 100%; height: 100%;
+	{{ with .opacity -}} opacity:{{ . }}; {{- end }}
+	{{ if .greyscale -}} mix-blend-mode: luminosity; background-color: var(--colour-black); {{- end }}">
+	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+		 width="316.223"
+		 height="285.449"
+		 viewBox="0 0 316.223 285.449"
+		 style="vertical-align: bottom;"
+		 class="a-symbol
+		{{ with .clip -}} a-symbol-clip a-symbol-clip-{{ . }} {{- end }}">
+		<!-- Gradient -->
+		<defs>
+			<linearGradient id="a-symbol-linear-gradient"
+							x1="0.954" y1="0.14" x2="0.398" y2="0.601"
+							gradientUnits="objectBoundingBox">
+				<stop offset="0"/>
+				<stop offset="0.09" stop-opacity="0.91"/>
+				<stop offset="1" stop-opacity="0"/>
+			</linearGradient>
+		</defs>
+		<!-- Group -->
+		<g class="a-symbol-group"
+                {{ with .clip -}} style="transform: translateX(var(--a-symbol-clip-{{ . }}))" {{- end }}>
+			<g transform="translate(-4.8 -4)">
+				<!-- Left (Orange) -->
+				<g class="a-symbol-left" transform="translate(4.8 4)">
+					<path d="M192.84,4H132.982L4.8,289.449H72.125Z"
+						  transform="translate(-4.8 -4)"
+						  fill="var(--colour-orange)"/>
+					<path d="M192.84,4H132.982L4.8,289.449H72.125Z"
+						  transform="translate(-4.8 -4)"
+						  opacity="0.57"
+						  fill="url(#a-symbol-linear-gradient)"/>
+				</g>
+				<!-- Right (Blue) -->
+				<g class="a-symbol-right" transform="translate(132.982 4)">
+					<path d="M543.8,4h59.858L731.841,289.449H664.515Z"
+						  transform="translate(-543.8 -4)"
+						  fill="var(--colour-blue)"/>
+				</g>
 			</g>
-			<!-- Right (Blue) -->
-			<g class="a-symbol-right" transform="translate(132.982 4)">
-				<path d="M543.8,4h59.858L731.841,289.449H664.515Z"
-					  transform="translate(-543.8 -4)"
-					  fill="var(--colour-blue)"/>
-			</g>
-		</g>
-	</g><!-- /Group -->
-</svg>
+		</g><!-- /Group -->
+	</svg>
+</div>

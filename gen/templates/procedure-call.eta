@@ -81,6 +81,7 @@ const describeReturnType = () => {
 /**
 <%~ routeDocs.lines %>
 <%~ routeDocs.description %>
+
  */
 <%~ route.routeName.usage %><%~ route.namespace ? ': ' : ' = ' %>(<%~ wrapperArgs %>)<%~ config.toJS ? `: ${describeReturnType()}` : "" %> =>
     <%~ config.singleHttpClient ? 'this.http.request' : 'this.request' %><<%~ type %>, <%~ errorType %>>({

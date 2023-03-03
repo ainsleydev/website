@@ -173,14 +173,8 @@
 
 			@media screen and (min-width: $min-vw) {
 				font-size: calc(
-					#{$min-font-size} + #{strip-unit(
-							$max-font-size - $min-font-size
-						)} *
-						(
-							(100vw - #{$min-vw}) / #{strip-unit(
-									$max-vw - $min-vw
-								)}
-						)
+					#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+						((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
 				);
 			}
 
@@ -212,8 +206,7 @@
 
 // IE11 and Edge
 @mixin ie11andedge {
-	@media screen and (-webkit-min-device-pixel-ratio: 0) and (-ms-high-contrast: none),
-		(-ms-high-contrast: active) {
+	@media screen and (-webkit-min-device-pixel-ratio: 0) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
 		/* stylelint-disable media-feature-name-no-vendor-prefix */
 		@content;
 	}
@@ -284,4 +277,14 @@
 			}
 		}
 	}
+}
+
+// Ellipsis
+// ==========================================================================
+
+@mixin ellipsis($lines) {
+	display: -webkit-box;
+	-webkit-line-clamp: $lines;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }

@@ -1,5 +1,5 @@
 {
-	"buildCommand": "./vercel.sh",
+	"buildCommand": "./bin/build.sh",
 	"cleanUrls": false,
 	"devCommand": "hugo server --buildDrafts --watch --port $PORT",
 	"installCommand": "make setup-vercel",

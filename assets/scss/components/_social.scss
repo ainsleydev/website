@@ -43,7 +43,7 @@
 
 	@include media-desk {
 		&-link {
-			margin-right: 2rem;
+			margin-right: $margin;
 		}
 	}
 }

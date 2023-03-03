@@ -17,7 +17,7 @@ fi
 
 # Convert to WebP
 echo '--------------------------------------------'
-echo 'Processing files and converting to webp'
+echo 'Processing files and converting to WebP'
 echo '--------------------------------------------'
 sharp --input "${PUBLIC_PATH}"'/**/*.{jpg,jpeg,png}' --output '{dir}/{name}.webp' --quality=${QUALITY} --format=webp
 

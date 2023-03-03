@@ -25,41 +25,41 @@ results:
 ---
 
 <!-- Intro -->
-{{< vertical-wrapper >}}
+{{< vertical-section >}}
 Katherine at Royal Beauty is a beauty salon specialising in massage and beauty treatments. They pride themselves on
 creating a warm and friendly atmosphere, where clients can destress and go away feeling refreshed and revitalised.
-{{< /vertical-wrapper >}}
+{{< /vertical-section >}}
 
 <!-- Kathy -->
 {{< picture src="images/kathy.jpg" alt="Kathy Urresto Massages" >}}
 
 <!-- Brief -->
-{{< vertical-wrapper text="Brief" number="01" >}}
+{{< vertical-section text="Brief" number="01" >}}
 With no existing website, Katherine at Royal Beauty obtained all of their traffic
 via [Treatwell](https://katherineroyalbeauty.mytreatwell.co.uk/). ainsley.dev were tasked with creating a brand-new,
 comprehensive, one-page website with an easy, streamlined way for potential customers to get in touch to book massages
 and treatments, whilst encapsulating the welcoming ambiance intrinsic to the salon.
-{{< /vertical-wrapper >}}
+{{< /vertical-section >}}
 
 <!-- Video -->
 {{< picture src="images/kathy.jpg" alt="Kathy Urresto Massages" >}}
 
 <!-- Design -->
-{{< vertical-wrapper text="Design" number="02" >}}
+{{< vertical-section text="Design" number="02" >}}
 Having a massage is a relaxing experience, so we wanted the new site to convey a sense of calm and tranquillity. A soft
 colour palette consisting of blues and greens was used, with complementary iconography and gentle animated transitions.
 We implemented booking and payment facilities utilising Treatwell as a tool, a familiar format to existing clientele
 which allowed them to book with ease.
-{{< /vertical-wrapper >}}
+{{< /vertical-section >}}
 
 <!-- Mockup -->
 {{< picture src="images/mockup.jpg" alt="TODO" >}}
 
 <!-- Development -->
-{{< vertical-wrapper text="Develop" number="03" >}}
+{{< vertical-section text="Develop" number="03" >}}
 SVG circles were used throughout the landing page, which were animated using [AOS](https://michalsnik.github.io/aos/) (
 animate on scroll), adding a depth of field to the design and keeping the user interested. Images were compressed and
 lazy loaded, resulting in a page speed
 of [96 on mobile](https://pagespeed.web.dev/report?url=https%3A%2F%2Fkatherinebodycare.co.uk%2F). This really helped
 grow their audience, as most of their organic traffic was coming from mobile devices.
-{{< /vertical-wrapper >}}
+{{< /vertical-section >}}

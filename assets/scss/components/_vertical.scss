@@ -3,6 +3,9 @@
 // This file contains all styles related to the vertical heading component.
 // -----------------------------------------------------------------------------
 
+// Standard Text
+// =========================================================================
+
 .vertical {
 	$self: &;
 	position: relative;
@@ -111,6 +114,55 @@
 				min-height: 0;
 				max-height: 400px;
 			}
+		}
+	}
+}
+
+// Section
+// =========================================================================
+
+.vertical-section {
+	$self: &;
+
+	// Line
+	// =========================================================================
+
+	&-vertical-line {
+		display: none;
+	}
+
+	&-horizontal-line {
+		margin-bottom: 0;
+	}
+
+	// Mobile Only
+	// =========================================================================
+
+	@include media-mob-only {
+		.vertical-number {
+			margin-left: 0 !important;
+		}
+	}
+
+	// Mobile
+	// =========================================================================
+
+	@include media-mob {
+		// Content
+		// =========================================================================
+
+		&-content {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		// Vertical Line
+		// =========================================================================
+
+		&-vertical-line {
+			display: block;
+			margin: 0 0 0 calc(80px);
 		}
 	}
 }

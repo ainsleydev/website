@@ -7,17 +7,14 @@
 	$self: &;
 	padding-left: $highlight-padding;
 	padding-right: $highlight-padding;
+	margin-bottom: $margin;
 	background-color: $highlight-bg-colour;
 	border-radius: 4px;
 	overflow: hidden;
-	border: 1px solid rgba($black, 0.1);
+	border: $highlight-border;
 
 	// Props
 	// =========================================================================
-
-	* {
-		color: $black;
-	}
 
 	&:last-of-type {
 		margin-bottom: 0;
@@ -27,26 +24,37 @@
 		display: none;
 	}
 
+	pre,
+	code {
+		word-break: normal;
+		word-wrap: normal;
+		white-space: pre;
+		background-color: $highlight-bg-colour;
+	}
+
 	// Pre
 	// =========================================================================
 
 	pre {
+		max-width: 100%;
+		overflow: scroll;
 		margin: 0;
 		padding-top: $highlight-padding;
 		padding-bottom: $highlight-padding;
-		background-color: $highlight-bg-colour;
-		overflow-x: scroll;
+		tab-size: 4;
 	}
 
 	// Code
 	// =========================================================================
 
 	code {
+		display: block;
+		width: 100%;
 		font-family: $font-code;
 		font-size: 14px;
 		padding: 0;
 		border-radius: 0;
-		white-space: break-spaces;
+		overflow-x: auto;
 	}
 
 	// Rule

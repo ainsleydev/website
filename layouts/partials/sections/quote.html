@@ -3,11 +3,14 @@
     	partial "sections/quote.html" (dict
     		"text" "Text"
     		"cite" "Cite"
+    		"class" "bg-grey-dark"
     	)}}
 		- text:		The content of the quote.
 		- cite:		The author of the quote.
+		- class:	Any additional class names to be appended to the quote section.
     ===================== -->
-<section class="section section-padding quote-section">
+<section class="section section-padding quote-section
+	{{ with .class -}} {{ . }} {{- end }}">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">

@@ -74,12 +74,8 @@
 				&::after {
 					content: '|';
 					color: colour('copy-dark');
-					margin: 0 6px;
+					margin: 0 8px;
 				}
-			}
-
-			&-item:not(:last-child) {
-				margin-right: 6px;
 			}
 
 			&-item:last-child &-link::after {

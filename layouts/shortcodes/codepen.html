@@ -1,0 +1,17 @@
+<!-- =====================
+    Codepen
+		< image id="xxxxxx" user="ainsleyclark" height-500 tab="html,scss,js"  >
+    ===================== -->
+{{ $defaults := .Site.Params.codepen -}}
+<div class="codepen" style="border-radius: 4px; overflow: hidden;">
+	<script
+		data-slug-hash="{{ .Get "id" }}"
+		data-user="{{ or (.Get "user") $defaults.user }}"
+		data-height="{{ or (.Get "height") 500 }}"
+		data-default-tab="{{ or (.Get "tab") $defaults.tab }}"
+		data-theme-id="{{ $defaults.theme }}"
+		class='codepen'
+		async
+		src="//codepen.io/assets/embed/ei.js">
+	</script>
+</div>

@@ -9,6 +9,7 @@
 html,
 body {
 	font-size: 90%;
+	font-weight: normal;
 
 	@include media-small-phones {
 		font-size: 85%;
@@ -74,6 +75,10 @@ h5 {
 h1,
 .heading-1 {
 	@include h1;
+
+	&-small {
+		@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 40px, 60px);
+	}
 }
 
 @mixin h2 {
@@ -126,7 +131,7 @@ h5,
 
 @mixin h6 {
 	display: block;
-	color: colour('copy-dark');
+	color: colour('paragraph');
 	font-size: 0.84rem;
 	text-transform: uppercase;
 	letter-spacing: 2px;
@@ -148,7 +153,6 @@ p {
 	font-size: $text-paragraph-size;
 	margin-bottom: 1rem;
 	line-height: 1.8;
-	letter-spacing: 0;
 
 	&.lead {
 		font-size: $text-lead-size;

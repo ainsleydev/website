@@ -1,0 +1,146 @@
+// -----------------------------------------------------------------------------
+// _insight.scss
+// This file contains all styles related to the insight single page.
+// -----------------------------------------------------------------------------
+
+@import '../abstracts/mixins';
+@import '../abstracts/variables';
+
+.insight {
+	$self: &;
+
+	// Intro
+	// =========================================================================
+
+	&-intro {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: $margin;
+
+		&-crumbs {
+			margin-bottom: 8px;
+		}
+
+		&-tags {
+			display: flex;
+			align-items: center;
+			flex-grow: 2;
+			transform: translateX(-2px);
+		}
+	}
+
+	// Author
+	// =========================================================================
+
+	&-author {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin-top: $margin;
+
+		&-photo {
+			width: 60px;
+			height: 60px;
+			margin-right: 1rem;
+			border-radius: 100%;
+			overflow: hidden;
+			background: $blue;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		&-text {
+			display: flex;
+			flex-direction: column;
+
+			* {
+				line-height: 1;
+				color: colour('paragraph');
+			}
+
+			p {
+				margin-bottom: 4px;
+				font-weight: 500;
+			}
+		}
+	}
+
+	// Meta
+	// =========================================================================
+
+	&-meta {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	// Social
+	// =========================================================================
+
+	&-social {
+		display: flex;
+		align-items: center;
+
+		&-item {
+			display: flex;
+			margin-bottom: 0;
+			cursor: pointer;
+
+			svg {
+				min-height: 30px;
+			}
+
+			&:not(:first-child) {
+				margin-left: 1.4rem;
+			}
+		}
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-tab {
+		&-author {
+			margin-bottom: 0;
+		}
+
+		&-meta {
+			flex-direction: row;
+			align-items: center;
+		}
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-desk {
+		&-intro {
+			flex-direction: row;
+			align-items: center;
+
+			&-crumbs {
+				margin-bottom: 0;
+			}
+
+			&-tags {
+				justify-content: flex-end;
+				margin-left: 1rem;
+				transform: none;
+			}
+		}
+
+		&-author {
+			margin-top: 0;
+		}
+
+		&-meta {
+			flex-direction: row-reverse;
+		}
+	}
+}

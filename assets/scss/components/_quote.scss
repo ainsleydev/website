@@ -3,9 +3,6 @@
 // This file contains all styles related to the quote component.
 // -----------------------------------------------------------------------------
 
-// Standard Blockquote
-// =========================================================================
-
 blockquote {
 	position: relative;
 	display: flex;
@@ -33,7 +30,7 @@ blockquote {
 		display: block;
 		width: $line-size-thick;
 		min-width: $line-size-thick;
-		margin-right: 2rem;
+		margin-right: $margin;
 		background-color: colour('blue');
 	}
 }

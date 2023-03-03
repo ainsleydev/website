@@ -1,0 +1,21 @@
+<!-- =====================
+    LinkedIn
+		partial "svgs/linkedin.html" (dict "colour" "white")
+		- colour:	The colour of the social handle, defaults to foreground.
+    ===================== -->
+{{ $colour := partial "util/_get-colour.html" .colour }}
+<svg class="social-icon" xmlns="http://www.w3.org/2000/svg"
+	 width="22.592"
+	 height="22.558"
+	 viewBox="0 0 22.592 22.558">
+	<path
+		d="M23.062,23.013h.006V14.742c0-4.047-.871-7.165-5.6-7.165a4.912,4.912,0,0,0-4.424,2.432h-.066V7.952H8.489V23.013H13.16V15.555c0-1.963.376-3.862,2.8-3.862,2.4,0,2.432,2.241,2.432,3.988v7.332Z"
+		transform="translate(-0.476 -0.455)"
+		fill="{{ $colour }}"/>
+	<path d="M.4,7.977H5.073v15.06H.4Z"
+		  transform="translate(0.01 -0.479)"
+		  fill="{{ $colour }}"/>
+	<path d="M2.707,0A2.726,2.726,0,1,0,5.415,2.709,2.726,2.726,0,0,0,2.707,0Z"
+		  transform="translate(0.036 0)"
+		  fill="{{ $colour }}"/>
+</svg>

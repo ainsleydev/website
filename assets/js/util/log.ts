@@ -41,6 +41,6 @@ export class Log {
 	 * @param message
 	 */
 	static info(message: unknown) {
-		console.error(`${this.prefix} Info: ${message}`);
+		console.info(`${this.prefix} Info: ${message}`);
 	}
 }

@@ -7,9 +7,10 @@
 <details class="accordion-item" open>
 	<!-- Title -->
 	<summary class="accordion-header cursor-element"
-		data-cursor-border data-cursor-border-white>
+		data-cursor-border data-cursor-border-white
+		itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
         {{ with .Get "title" -}}
-			<h4 class="accordion-title">
+			<h4 class="accordion-title" itemprop="name">
 				{{ . | safeHTML }}
 			</h4>
 		{{- else -}}
@@ -17,9 +18,10 @@
 		{{- end }}
 	</summary><!-- /Title -->
 	<!-- Content -->
-	<div class="accordion-content">
+	<div class="accordion-content"
+		itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
 		{{ with .Inner -}}
-			<p class="lead">
+			<p class="lead" itemprop="text">
 				{{ . | safeHTML }}
 			</p>
         {{- else -}}

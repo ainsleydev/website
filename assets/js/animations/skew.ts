@@ -73,13 +73,11 @@ export class Skew {
 	 * @private
 	 */
 	private attachHandlers() {
-		document
-			.querySelectorAll<HTMLButtonElement>(this.selector)
-			.forEach((el) => {
-				const cfg = this.getOptions(el);
-				this.mouseMove(el, cfg);
-				this.mouseOut(el);
-			});
+		document.querySelectorAll<HTMLButtonElement>(this.selector).forEach((el) => {
+			const cfg = this.getOptions(el);
+			this.mouseMove(el, cfg);
+			this.mouseOut(el);
+		});
 	}
 
 	/**
@@ -93,19 +91,10 @@ export class Skew {
 	private mouseMove(el: HTMLElement, config: SkewOptions): void {
 		el.addEventListener('mousemove', (e) => {
 			const pos = this.getPos(el, e);
-			el.style.transform =
-				'translate(' +
-				pos.x * config.transform.x +
-				'px, ' +
-				pos.y * 0.3 +
-				'px)';
+			el.style.transform = 'translate(' + pos.x * config.transform.x + 'px, ' + pos.y * 0.3 + 'px)';
 			if (config.shouldRotate && config.rotate) {
 				el.style.transform +=
-					'rotate3d(' +
-					pos.x * config.rotate.x +
-					', ' +
-					pos.y * config.rotate.y +
-					', 0, 12deg)';
+					'rotate3d(' + pos.x * config.rotate.x + ', ' + pos.y * config.rotate.y + ', 0, 12deg)';
 			}
 		});
 	}
@@ -131,10 +120,7 @@ export class Skew {
 	 * @param event
 	 * @private
 	 */
-	private getPos(
-		el: HTMLElement,
-		event: MouseEvent,
-	): { x: number; y: number } {
+	private getPos(el: HTMLElement, event: MouseEvent): { x: number; y: number } {
 		const pos = el.getBoundingClientRect();
 		return {
 			x: event.clientX - pos.left - pos.width / 2,
@@ -153,20 +139,12 @@ export class Skew {
 		return {
 			shouldRotate: el.hasAttribute('data-skew-rotate'),
 			transform: {
-				x:
-					this.getAttribute(el, 'data-skew-transform-x') ??
-					this.defaultOptions.transform.x,
-				y:
-					this.getAttribute(el, 'data-skew-transform-y') ??
-					this.defaultOptions.transform.y,
+				x: this.getAttribute(el, 'data-skew-transform-x') ?? this.defaultOptions.transform.x,
+				y: this.getAttribute(el, 'data-skew-transform-y') ?? this.defaultOptions.transform.y,
 			},
 			rotate: {
-				x:
-					this.getAttribute(el, 'data-skew-rotate-x') ??
-					this.defaultOptions.transform.x,
-				y:
-					this.getAttribute(el, 'data-skew-rotate-y') ??
-					this.defaultOptions.transform.y,
+				x: this.getAttribute(el, 'data-skew-rotate-x') ?? this.defaultOptions.transform.x,
+				y: this.getAttribute(el, 'data-skew-rotate-y') ?? this.defaultOptions.transform.y,
 			},
 		};
 	}

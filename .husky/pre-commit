@@ -5,3 +5,4 @@ make clean
 npx lint-staged
 make test
 make lint
+bin/video-optim.sh

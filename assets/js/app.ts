@@ -13,20 +13,18 @@ import { FitText } from './components/fit-text';
 import { Collapse, CollapseOptions } from './components/accordion';
 import { Card } from './components/card';
 import { Navigation } from './components/nav';
+import LocomotiveScroll from 'locomotive-scroll';
 import smoothscroll from 'smoothscroll-polyfill';
-
-/**
- * Variables
- *
- */
-const html = document.querySelector('html');
+import { Log } from './util/log';
+import { cli } from 'swagger-typescript-api/cli';
+import { Toast } from './animations/toast';
 
 /*
  * Remove No JS Body Class
  *
  */
-html.classList.remove('no-js');
-html.classList.add('js');
+document.documentElement.classList.remove('no-js');
+document.documentElement.classList.add('js');
 
 /**
  * Initialise components & types.
@@ -52,6 +50,35 @@ document.addEventListener('DOMContentLoaded', () => {
 smoothscroll.polyfill();
 
 /**
+ * Scroll
+ */
+window.addEventListener(
+	'scroll',
+	(e) => {
+		console.log(',', e);
+	},
+	false,
+);
+
+/**
+ * Lazy Images
+ */
+document.querySelectorAll('.lazy-animate').forEach((lazy) => {
+	lazy.addEventListener('load', () => {
+		lazy.classList.add('lazy-loaded');
+	});
+});
+
+/**
+ * Videos
+ */
+document.querySelectorAll('video').forEach((vid) => {
+	vid.addEventListener('play', () => {
+		vid.classList.add('video-playing');
+	});
+});
+
+/**
  * Button - Go Back
  */
 document.querySelectorAll('[data-go-back]').forEach((btn) => {
@@ -62,10 +89,68 @@ document.querySelectorAll('[data-go-back]').forEach((btn) => {
 });
 
 /**
- * Lazy Images
+ * Copy to Clipboard
  */
-document.querySelectorAll('.lazy-animate').forEach((lazy) => {
-	lazy.addEventListener('load', () => {
-		lazy.classList.add('lazy-loaded');
+document.querySelectorAll('[data-clipboard]').forEach((clip) => {
+	const text = clip.getAttribute('data-clipboard-text');
+	if (!text || text === '') {
+		Log.error('Clipboard text is empty [data-clipboard-text] for el: ' + clip);
+		return;
+	}
+	clip.addEventListener('click', () => {
+		navigator.clipboard
+			.writeText(text)
+			.then(() => {
+				Log.info('Copied text to clipboard');
+				const message = clip.getAttribute('data-clipboard-message') ?? 'Copied text to clipboard';
+				Toast(message);
+			})
+			.catch((err) => {
+				Log.error('Failed to copy to clipboard: ' + err);
+			});
 	});
 });
+
+/**
+ * Bookmark
+ */
+document.querySelectorAll('[data-bookmark]').forEach((bookmark) => {
+	bookmark.addEventListener('click', () => {
+		const userAgent = navigator.userAgent.toLowerCase();
+		Toast('Press ' + (userAgent.indexOf('mac') != -1 ? 'Cmd' : 'Ctrl') + '+D to bookmark this page.');
+	});
+});
+
+/**
+ * Before / After
+ */
+document.querySelectorAll('.before-after').forEach((el) => {
+	const slider = el.querySelector('.before-after-slider') as HTMLInputElement;
+	if (!slider) {
+		Log.error('No foreground found for before/after element');
+		return;
+	}
+	slider.addEventListener('input', (e) => {
+		const foreground = <HTMLElement>el.querySelector('.before-after-background'),
+			thumb = <HTMLButtonElement>el.querySelector('.before-after-thumb');
+		if (!foreground || !thumb) {
+			Log.error('Element missing from before/after element');
+			return;
+		}
+		const value = (e.target as HTMLInputElement).value;
+		foreground.style.width = `${value}%`;
+		thumb.style.left = `${value}%`;
+	});
+});
+
+/**
+ * Locomotive Scroll - TODO
+ */
+// const scroll = new LocomotiveScroll({
+// 	// el: document.querySelector('[data-scroll-container]'),
+// 	smooth: true,
+// 	// smoothMobile: false,
+// 	// offset: [0, 0],
+// 	lerp: 0.1,
+// 	touchMultiplier: 0,
+// });

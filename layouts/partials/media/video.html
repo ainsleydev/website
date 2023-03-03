@@ -1,19 +1,50 @@
 <!-- =====================
     Video
-    TODO: Vars & Usage.
+		partial "media/video.html" (dict
+			"video" (resources.Get "video.mp4")
+			"poster" (resources.Get "poster.jpg")
+			"class" "class-name"
+			"attr" data-something
+		)
+		- video:	The video resource. A warning will be thrown without this key.
+		- poster:	The poster image for the video
+		- class:	Any class names to be appended to the <video> element.
+		- attr:		Any additional attributes to appear.
     ===================== -->
-{{- $resource := .filename -}}
-<!-- Filetypes -->
-{{ $videowebm := replace $resource ".mp4" ".webm" }}
-{{ $videoogg := replace $resource ".mp4" ".ogv" }}
-{{ $postFolder := "CHANGE" }}
-{{ if fileExists $postFolder }}
-	<video {{ with .class }} class="{{ . }}" {{ end }} {{ with .attributes -}} {{ . | safeHTMLAttr}} {{- end }} {{ with .poster }} poster="{{ . }}" {{ end }} preload="auto">
-		{{ range readDir $postFolder }}
-			{{ if or (eq .Name $resource) (eq .Name $videowebm) (eq .Name $videoogg) }}
-				<!-- TODO, need to change extension -->
-				<source src='/videos/{{ .Name }}' type="video/mp4">
-			{{ end }}
-		{{ end }}
-	</video>
-{{ end }}
+{{ if .video }}
+	<!-- Container -->
+	<div class="video-container">
+		<!-- Video -->
+		<video
+			class="video"
+			{{ with .poster }} poster="{{ . }}" {{ end }}
+			{{ with .attr -}} {{ . | safeHTMLAttr -}} {{- end }}
+			controls
+			preload="auto">
+            {{- $noExtension := partial "util/_trim-extension.html" .video.RelPermalink -}}
+			<!-- WebM -->
+            {{ if os.FileExists (printf "%s.webm" $noExtension) }}
+				<source src="{{ $noExtension }}.webm"
+					type="video/webm"/>
+			{{- else -}}
+				{{ warnf "No WebM video found: %s" .video }}
+            {{- end }}
+			<!-- Compressed -->
+            {{ if os.FileExists (printf "%s-compressed.mp4" $noExtension) -}}
+				<source src="{{ $noExtension }}-compressed.mp4"
+					type="video/mp4"/>
+			{{- else -}}
+				{{ warnf "No compressed MP4 video found: %s" .video }}
+            {{- end }}
+			<!-- Original -->
+			<source src="{{ $noExtension }}.mp4"
+				type="video/mp4"/>
+		</video>
+		<!-- Play Button -->
+		<div class="video-button"></div>
+	</div><!-- /Container -->
+{{- else -}}
+	{{ warnf "Video not found: %v" . }}
+{{- end }}
+
+

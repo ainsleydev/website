@@ -17,6 +17,10 @@
 		margin-bottom: 0 !important;
 	}
 
+	&-tiny {
+		margin-bottom: $margin-tiny;
+	}
+
 	&-small {
 		margin-bottom: $margin-small;
 	}

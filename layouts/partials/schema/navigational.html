@@ -1,0 +1,30 @@
+<!-- =====================
+    Schema - Navigational
+    ===================== -->
+{{ with .menus -}}
+	{{- $length := len . -}}
+    {{- $baseURL := $.ctx.Site.BaseURL -}}
+	<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "ItemList",
+			"itemListElement": [
+				{{- range $index, $item := . -}}
+       	 		{{- $page := $.ctx.GetPage (strings.TrimPrefix "/" $item.Identifier) -}}
+       	 		{{- if $index }}, {{ end }}
+				{
+					"@type": 		"SiteNavigationElement",
+					"position": 	{{ add $index 1 -}},
+					"name": 		{{ $item.Name }},
+					{{ with $page.Params.description -}}
+					"description": 	"{{ $page.Params.description }}",
+					{{- else -}}
+					"description": 	"{{ $.ctx.Site.Params.description }}",
+					{{- end }}
+					"url": 			{{ printf "%s/%s" (strings.TrimSuffix "/" $baseURL) (strings.TrimPrefix "/" $item.URL) }}
+				}
+				{{ end }}
+			]
+		}
+	</script>
+{{- end }}

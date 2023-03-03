@@ -1,15 +1,79 @@
 {{ define "main" }}
-	<div class="container">
-		<div class="row">
-			<div class="col-desk-4">
-				<aside>
-                    {{ .TableOfContents }}
-				</aside>
-			</div><!-- /Col -->
-			<div class="col-12 col-desk-8">
-                {{ .Content }}
-			</div><!-- /Col -->
-		</div><!-- /Row -->
-	</div><!-- /Container -->
+	<!-- =====================
+		Insights Single
+		===================== -->
+	<section class="hero hero-simple hero-simple-padding-bottom">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-12 col-tab-10 col-desk-8 col-desk-large-7">
+					<!-- =====================
+						Intro
+						===================== -->
+					<header class="insight-intro">
+						<!-- Crumbs -->
+						<div class="insight-intro-crumbs">
+                            {{ partial "components/breadcrumbs.html" . }}
+						</div>
+						<!-- Tags -->
+						{{ with .Params.tags }}
+							<div class="insight-intro-tags">
+								{{ range . -}}
+										<span class="tag">{{ . }}</span>
+								{{- end }}
+							</div>
+						{{- end }}
+					</header><!-- /Intro -->
+					<!-- =====================
+						Title
+						===================== -->
+					<h1 class="heading-1 heading-1-small margin">
+                        {{ .Title | safeHTML }}
+					</h1>
+					<!-- =====================
+						Meta
+						===================== -->
+					<div class="insight-meta margin-large">
+						{{ .Render "social" }}
+                        {{ .Render "author" }}
+					</div>
+					<!-- =====================
+						Content
+						===================== -->
+					<article class="richtext">
+                        {{ .Content | safeHTML }}
+					</article>
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+	<!-- =====================
+		Other Reads
+		===================== -->
+	<section class="section section-padding bg-off-white">
+		<div class="container">
+			<div class="row justify-content-center section-padding section-padding-bottom section-padding-small">
+				<div class="col-12 col-desk-10">
+					<div class="d-desk-flex justify-content-between align-items-center">
+						<!-- Title -->
+						<h2 class="mb-0">Other reads</h2>
+					</div><!-- /Row -->
+				</div><!-- /Col -->
+                {{ range (where .Site.RegularPages "Type" "insights").Related . | first 4 }}
+					<div class="col-12 col-desk-10 card-col">
+                        {{ .Render "card" }}
+					</div><!-- /Col -->
+                {{- end }}
+				<!-- All Insights -->
+				<div class="col-12 order-desk-0">
+                    {{ partial "type/arrow-link.html" (dict
+						"link" "/insights/"
+						"text" "<h3>All insights</h3>"
+						"title" "View all insights"
+						"rotation" 45
+                    )}}
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
 {{ end }}
 

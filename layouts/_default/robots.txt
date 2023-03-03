@@ -1,6 +1,6 @@
-Sitemap: https://{{ getenv "VERCEL_URL" | strings.TrimSuffix "/" }}/sitemap.xml
+Sitemap: https://{{ .Site.BaseURL }}/sitemap.xml
 User-agent: *
-{{ if eq hugo.Environment "production" -}}
+{{ if hugo.IsProduction -}}
 Disallow:
 {{- else -}}
 Disallow: /

@@ -2,10 +2,10 @@
 <!-- =====================
     Variables
     ===================== -->
-{{ $css := partial "head/styles.html" (append "scss/app.scss" .Params.styles) }}
-{{ $js := partial "head/scripts.html" (append "js/app.ts" .Params.scripts) }}
-{{/*{{ $hash := .GitInfo.AbbreviatedHash }}*/}}
-{{ $hash := now.Unix }}
+{{- $css := resources.Concat "css/bundle.css" (partial "head/_styles.html" (append "scss/app.scss" .Params.styles)) -}}
+{{- $js := resources.Concat "js/bundle.js" (partial "head/_scripts.html" (append "js/app.ts" .Params.scripts)) -}}
+{{- $hash := now.Unix -}}
+{{- $baseURL := partial "util/_base-url.html" . -}}
 <!-- =====================
     HTML
     ===================== -->
@@ -14,10 +14,9 @@
 		<!--- TODO, removed when finished -->
 		<meta name="robots" content="noindex">
         <!-- Meta -->
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<meta name="apple-mobile-web-app-capable" content="yes" />
         <title>{{ with .Params.title -}} {{ . }} | {{ end }}{{ .Site.Title }}</title>
 		<!-- Description -->
@@ -28,28 +27,27 @@
 			  content="{{ if .IsHome -}} {{ $.Site.Params.description }} {{- else -}} {{ .Description }} {{- end }}"/>
 		<!-- Canonical -->
 		<link rel="canonical"
-			  href="{{ with .Params.canonical -}} {{ . }} {{- else -}} {{ .Permalink }} {{- end }}"/>
+			  href="{{ with .Params.canonical -}} {{ . }} {{- else -}} {{ printf "%s%s" $baseURL .RelPermalink }} {{- end }}"/>
 		<!-- Base -->
-        {{ if eq (getenv "VERCEL_ENV") "production" -}}
-			<base href="{{ getenv "VERCEL_URL" }}">
-		{{- end }}
-		<script>window.BaseURL = {{ getenv "VERCEL_URL" }};</script>
+		<script>window.BaseURL = {{ $baseURL }};</script>
+		<!-- Schema -->
+		 {{ partial "head/schema.html" . }}
         <!-- Open Graph -->
-        {{ template "_internal/opengraph.html" . }}
+        {{ partial "head/opengraph.html" . }}
         <!-- Twitter -->
-        {{ template "_internal/twitter_cards.html" . }}
+        {{ partial "head/twitter.html" . }}
         <!-- CSS -->
-        {{ range $css -}}
+        {{ with $css -}}
 			<link rel="stylesheet" href="{{ .RelPermalink }}?{{ $hash }}">
         {{- end }}
 		<!-- No JS -->
-        {{ with index (partial "head/styles.html" (slice "scss/no-js.scss")) 0 }}
+        {{ with index (partial "head/_styles.html" (slice "scss/no-js.scss")) 0 }}
 			<noscript>
 				<link rel="stylesheet" href="{{ .RelPermalink }}?{{ $hash }}">
 			</noscript>
 		{{ end }}
 		<!-- Preload JS -->
-		{{ range $js -}}
+		{{ with $js -}}
 			<link rel="preload"
 				href="{{ .RelPermalink }}?{{ $hash }}"
 				{{ if ne hugo.Environment "development" -}}
@@ -66,43 +64,45 @@
 		<meta name="msapplication-TileColor" content="#0a0a0a">
 		<meta name="theme-color" content="#0a0a0a">
 		<!-- Schema - Organisation -->
-		{{ with .Site.Data.schema.organisation -}}
-			<script type="application/ld+json">
-				{{ . }}
-			</script>
-		{{- end }}
+        {{ partial "schema/organisation.html" . }}
 		<!-- Schema - Navigational -->
-		{{ partial "head/schema-navigational.html" (dict "site" . "menus" .Site.Menus.footer) }}
+		{{ partial "schema/navigational.html" (dict
+			"ctx" .
+			"menus" .Site.Menus.schema
+		)}}
+		<!-- Schema - Articles -->
+        {{ if eq .Section "insights" -}}
+        	{{ .Render "schema" }}
+		{{- end }}
     </head>
 	<!-- =====================
 		Body
 		===================== -->
-    {{ $colour := "black" }}
-    {{ if eq .Params.pagecolour "white"}}
-        {{ $colour = .Params.pagecolour }}
-    {{ end }}
+	{{ $colour := partial "util/_theme-colour.html" . }}
     <body class="theme-{{ $colour }}">
-        <!-- Header -->
-        {{- partial "header.html" (dict "colour" $colour) -}}
-		<!-- Cursor -->
-		<div class="cursor"></div>
-		<!-- Wrapper -->
-		<div class="content-wrapper">
-			<!-- Main Content -->
-			<main id="main">
-                {{- block "main" . }}{{- end }}
-			</main>
-			<!-- Footer -->
-            {{- partial "footer.html" . -}}
+		<div data-scroll-container>
+			<!-- Header -->
+			{{- partial "header.html" (dict "colour" $colour) -}}
+			<!-- Cursor -->
+			<div class="cursor cursor-theme-{{ $colour }}"></div>
+			<!-- Wrapper -->
+			<div class="content-wrapper">
+				<!-- Main Content -->
+				<main id="main">
+					{{- block "main" . }}{{- end }}
+				</main>
+				<!-- Footer -->
+				{{- partial "footer.html" . -}}
+			</div>
 		</div>
         <!-- Javascript -->
-		{{ range $js -}}
+		{{ with $js -}}
 			<script src="{{ .RelPermalink }}?{{ $hash }}"
 				{{ if ne hugo.Environment "development" -}}
 					{{ with .Data.Integrity }} integrity="{{ . }}" crossorigin="anonymous" {{- end }}
 				{{ end }}>
 			</script>
-		{{- end }}
+        {{- end }}
         <!-- Google Transition Fix -->
         <script> </script>
     </body>

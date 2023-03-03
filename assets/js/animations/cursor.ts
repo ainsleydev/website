@@ -47,9 +47,7 @@ export class Cursor {
 		}
 		this.el = el as HTMLDivElement;
 		this.attachMouseMove();
-		document
-			.querySelectorAll<HTMLElement>(this.elementSelector)
-			.forEach((el) => this.attachElementHandlers(el));
+		document.querySelectorAll<HTMLElement>(this.elementSelector).forEach((el) => this.attachElementHandlers(el));
 	}
 
 	/**
@@ -72,9 +70,7 @@ export class Cursor {
 	 * @private
 	 */
 	private attachElementHandlers(el: HTMLElement): void {
-		const classes = el
-			.getAttributeNames()
-			.filter((a) => a.startsWith('data-cursor'));
+		const classes = el.getAttributeNames().filter((a) => a.startsWith('data-cursor'));
 
 		el.addEventListener('mousemove', () =>
 			classes.forEach((c) => {
@@ -101,7 +97,8 @@ export class Cursor {
 	 * @private
 	 */
 	private addScale(el: HTMLElement): void {
-		const scale = el.getAttribute('data-cursor-scale') ?? '1.5';
+		const defaultScale = el.getBoundingClientRect().height / 50 + 0.3;
+		const scale = el.getAttribute('data-cursor-scale') ?? defaultScale > 5 ? 4 : defaultScale;
 		this.el.style.transform = `translate(-50%, -50%) scale(${scale})`;
 	}
 

@@ -1,0 +1,53 @@
+<!-- =====================
+    Insights Card
+    ===================== -->
+<a href="{{ .RelPermalink }}"
+	class="card card-basic cursor-element skew"
+	title="Visit the {{ .Title }} page"
+	aria-label="Navigate to the {{ .Title }} page"
+	data-cursor-invert data-cursor-white
+	data-skew-transform-x="0.15" data-skew-transform-y="0"
+	data-skew-rotate-x="-0.1" data-skew-rotate-y="0"
+	data-skew-rotate>
+	<div class="row no-gaps">
+		<!-- Date -->
+		<div class="col-12 col-desk-2">
+			<h6 class="card-text-sub margin mb-desk-0">
+				{{ with .PublishDate -}}
+					{{ .Format "02/01/2006" }}
+				{{- else -}}
+					{{ warnf "No publish date defined on page: %s" .Title }}
+				{{- end }}
+			</h6>
+		</div><!-- /Col -->
+		<!-- Content -->
+		<div class="col-12 col-desk-10">
+			<!-- Title -->
+			{{ with .Title -}}
+				<h3 class="card-text-title">
+					{{ . }}
+				</h3>
+            {{- else -}}
+                {{ warnf "No title attached to page "}}
+			{{- end }}
+			<!-- Description -->
+            {{ with .Params.description -}}
+				<p class="card-text-lead">
+					{{ . | strings.TrimSuffix "." }}...
+				</p>
+            {{- end }}
+			<!-- Tags & Reading Time -->
+			<div class="card-tags">
+				{{ range .Params.tags -}}
+                    {{ partial "components/tag.html" (dict
+						"text" .
+						"class" "card-tags-item"
+					)}}
+				{{- end }}
+				<small class="card-tags-reading-time">
+                    {{ partial "util/_reading-time.html" . }} min read
+				</small>
+			</div>
+		</div><!-- /Col -->
+	</div><!-- /Row -->
+</a><!-- /Card -->

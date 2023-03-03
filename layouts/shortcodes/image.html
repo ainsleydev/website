@@ -7,7 +7,7 @@
 	{{ if .Get "margin-large" -}} margin-large {{- end }}
 	{{ with .Get "class" -}} {{ . }} {{- end }}">
     {{ partial "media/image.html" (dict
-		"image" (partial "util/resource.html" (dict "src" (.Get "src") "ctx" .))
+		"image" (partial "util/_resource.html" (dict "src" (.Get "src") "ctx" .))
 		"alt" (.Get "alt")
 		"width" (.Get "width")
 		"height" (.Get "height")

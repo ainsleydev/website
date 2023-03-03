@@ -1,61 +1,94 @@
 openapi: 3.0.0
 info:
-  description: 'temp'
-  title: 'temp'
-  version: '0.0.1'
-
+    version: 1.0.0
+    title: ainsley.dev API
+    description: API Spec for the backend of ainsley.dev
+    termsOfService: https://ainsley.dev/terms/
+    contact:
+        name: ainsley.dev Team
+        email: hello@ainsley.dev
+        url: https://swagger.io
+    license:
+        name: BSD 3-Clause License
+        url: https://github.com/ainsleyclark/ainsley.dev/blob/master/LICENSE
+servers:
+    -   url: https://ainsley.dev/api
+        description: Production Environment
+    -   url: https://staging.ainsley.dev/api
+        description: Staging Environment
 paths:
-  "/users/":
-    "post":
-      description: Creates a new user.
-      operationId: "UserCreate"
-      requestBody:
-        description: The User to create, all fields are required to pass validation.
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-      responses:
-        200:
-          description: User created.
-        400:
-          description: Bad request. User failed validation.
-        401:
-          description: API Key missing.
-        '5XX':
-          description: Unexpected error.
-
+    "/forms/contact":
+        "post":
+            description: Posts a new form submission fror to contact page.
+            operationId: SendContactForm
+            requestBody:
+                description: The User to create, all fields are required to pass validation.
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/ContactFormRequest'
+            responses:
+                200:
+                    description: OK - Sent successfully
+                    content:
+                        application/json:
+                            schema:
+                                allOf:
+                                    -   $ref: '#/components/schemas/HTTPResponse'
+                                    -   properties:
+                                            data:
+                                                $ref: '#/components/schemas/ContactFormResponse'
+                401:
+                    description:  Not Authorised
+                    content:
+                        application/json:
+                            schema:
+                                allOf:
+                                    -   $ref: '#/components/schemas/HTTPResponse'
 components:
-  securitySchemes:
-    ApiKeyAuth:
-      type: apiKey
-      in: header
-      name: X-Flyt-Api-Key
-  schemas:
-    User:
-      type: object
-      description: User schema.
-      required:
-        - first_name
-        - last_name
-        - dob
-        - slack_handle
-      properties:
-        user_id:
-          type: string
-          description: The UUID of the user.
-        first_name:
-          type: string
-          description: The first name of the User.
-        last_name:
-          type: string
-          description: The last name of the User.
-        dob:
-          type: string
-          description: The date of birth of the User (format yyyy-mm-dd)
-        slack_handle:
-          type: string
-          description: The Users slack handle.
-
+    securitySchemes:
+        ApiKeyAuth:
+            type: apiKey
+            in: header
+            name: X-API-Key
+    schemas:
+        HTTPResponse:
+            properties:
+                data:
+                    type: object
+                error:
+                    type: boolean
+                message:
+                    example: User formatted message from the API
+                    type: string
+                status:
+                    type: integer
+        HTTPError:
+            properties:
+                code:
+                    example: error_code
+                    type: string
+                error:
+                    example: error
+                    type: string
+                operation:
+                    example: Function.Method
+                    type: string
+            type: object
+        ContactFormRequest:
+            type: object
+            description: Message and attributes from the contact form
+            required:
+                - message
+            properties:
+                message:
+                    type: string
+                    description: The message from the user.
+                honeypot:
+                    type: string
+                    description: The message from the user.
+        ContactFormResponse:
+            type: string
+            description: The message sent back to the user upon successful submission
 security:
-  - ApiKeyAuth: [ ]
+    -   ApiKeyAuth: [ ]

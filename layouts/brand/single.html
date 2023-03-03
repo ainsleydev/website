@@ -47,7 +47,8 @@
 					<!-- Arrow -->
 					<div class="hero-arrow">
                         {{ partial "type/arrow-link.html" (dict
-							"link" (printf "%s#content" .Page.Permalink)
+							"link" (printf "%s#content" .Page.RelPermalink)
+                        	"title" "Scroll down to explore"
                        	 	"rotation" 135
 							"title" (printf "Explore the %s Brand Guidelines" .Title)
 							"down" true
@@ -87,8 +88,17 @@
 				</div><!-- /Col -->
 				<!-- Content -->
 				<div class="col-12 col-desk-8 offset-desk-1">
-                    {{ .Content | safeHTML }}
-				</div>
+					<article class="margin-large">
+                        {{ .Content | safeHTML }}
+					</article>
+				</div><!-- /Col -->
+				<!-- Previous / Next -->
+				<div class="col-12 col-desk-8 offset-desk-4">
+                    {{ partial "components/next-prev.html" (dict
+						"prev" .PrevInSection
+						"next" .NextInSection
+                    )}}
+				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
 	</section>
