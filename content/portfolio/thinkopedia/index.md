@@ -15,6 +15,11 @@ technologies: [Laravel, barba.js, Locomotive scroll, Custom Medium API]
 quote:
   person: Cody Dumbarton, CEO
   text: This was my first experience creating a website, and ainsley.dev really helped me every step of the way. The level of detail they delivered on was incredible. The end result was 10 times better than I could have ever imagined. Highly recommend, will be in contact again! Thank you!
+results:
+  - number: 1000s
+  - text: of impressions
+  - number: 24%
+  - text: bounce rate
 ---
 
 <!-- Intro -->
@@ -55,8 +60,3 @@ was stored in a MySQL database. This meant all of the content was server side re
 content easily. [barba.js](https://barba.js.org/) with GSAP was used to create smooth transitions between each page.
 This gave the website an app-like quality, with small but effective UI transitions and micro animations.
 {{< /vertical-section >}}
-
-## Results
-
-- 1000s of impressions
-- 24% bounce rate
