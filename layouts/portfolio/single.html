@@ -128,12 +128,10 @@
 		Quote
 		===================== -->
     {{ with .Params.quote -}}
-		<div class="portfolio-quote">
-            {{ partial "sections/quote.html" (dict
-            "text" .text
-            "cite" .person
-            )}}
-		</div>
+		{{ partial "sections/quote.html" (dict
+			"text" .text
+			"cite" .person
+		)}}
     {{- end }}
 	<!-- =====================
 		Next Project

@@ -49,7 +49,7 @@
 
 	&-results {
 		left: -#{$container-padding-x};
-		padding: $container-padding-x;
+		padding: $section-padding $container-padding-x;
 		width: 100vw;
 	}
 

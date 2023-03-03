@@ -50,14 +50,15 @@ document.addEventListener('DOMContentLoaded', () => {
 smoothscroll.polyfill();
 
 /**
- * Button - Go Back
+ * Scroll
  */
-document.querySelectorAll('[data-go-back]').forEach((btn) => {
-	btn.addEventListener('click', (e) => {
-		e.preventDefault();
-		history.back();
-	});
-});
+window.addEventListener(
+	'scroll',
+	(e) => {
+		console.log(',', e);
+	},
+	false,
+);
 
 /**
  * Lazy Images
@@ -74,6 +75,16 @@ document.querySelectorAll('.lazy-animate').forEach((lazy) => {
 document.querySelectorAll('video').forEach((vid) => {
 	vid.addEventListener('play', () => {
 		vid.classList.add('video-playing');
+	});
+});
+
+/**
+ * Button - Go Back
+ */
+document.querySelectorAll('[data-go-back]').forEach((btn) => {
+	btn.addEventListener('click', (e) => {
+		e.preventDefault();
+		history.back();
 	});
 });
 
