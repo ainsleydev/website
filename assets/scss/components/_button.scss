@@ -193,19 +193,21 @@ a.btn {
 			margin-left: 10px;
 		}
 
-		&:hover {
-			#{$self}-text {
-				transform: translateX(30px);
-				color: inherit;
-			}
+		@media (hover: hover) {
+			&:hover {
+				#{$self}-text {
+					transform: translateX(30px);
+					color: inherit;
+				}
 
-			#{$self}-arrow-right {
-				opacity: 0;
-			}
+				#{$self}-arrow-right {
+					opacity: 0;
+				}
 
-			#{$self}-arrow-left {
-				opacity: 1;
-				transform: translate(0, -50%) rotate(90deg);
+				#{$self}-arrow-left {
+					opacity: 1;
+					transform: translate(0, -50%) rotate(90deg);
+				}
 			}
 		}
 	}
