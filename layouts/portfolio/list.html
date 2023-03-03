@@ -18,18 +18,11 @@
 	<!-- =====================
 		Items
 		===================== -->
-{{/*	{{ $paginator := .Paginator 2 }}*/}}
-
-{{ $paginator := .Paginate (first 2 .Pages.ByWeight) }}
-{{ range $paginator.Pages }}
-	<h2>{{ .Title }}</h2>
-{{ end }}
-<h2>{{ $paginator.HasNext }}</h2>
-<h2>{{ $paginator.HasPrev }}</h2>
-
+	{{ $paginator := .Paginate .Pages.ByWeight 10 -}}
     {{ if $paginator.Pages -}}
 		<section class="section section-padding section-padding-bottom" id="pages" data-scroll-section>
 			<div class="container">
+				<!-- Cards -->
 				<div class="row">
                     {{ range $index, $page := $paginator.Pages }}
                         {{ $isLeft := eq (mod $index 2) 0 }}
@@ -42,11 +35,19 @@
 						</div><!--- /Col -->
                     {{- end }}
 				</div><!-- /Row -->
+				<!-- Previous / Next -->
+				<div class="row">
+					<div class="col-12">
+                        {{ partial "components/next-prev.html" (dict
+							"prev" $paginator.Prev
+							"next" $paginator.Next
+							"class" "section-padding section-padding-small section-padding-top"
+                        )}}
+					</div><!-- /Col -->
+				</div><!-- /Row -->
 			</div><!-- /Container -->
 		</section>
     {{- end }}
-
-
 	<!-- =====================
 		CTA
 		===================== -->
@@ -55,5 +56,4 @@
 			"TODO" "TODO"
 		)}}
 	</div>
-
 {{ end }}
