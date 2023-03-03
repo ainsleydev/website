@@ -61,6 +61,17 @@ markup:
 outputs:
     home: ["HTML","RSS", "JSON"]
     section: ["HTML","RSS", "JSON"]
+related:
+    threshold: 0
+    includeNewer: false
+    toLower: true
+    indices:
+        - name: tags
+          weight: 80
+        - name: keywords
+          weight: 60
+        - name: date
+          weight: 50
 security:
     exec:
         allow: [ "^dart-sass-embedded$", "^go$", "npx$", "^postcss$", "^babel$" ]

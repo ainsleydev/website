@@ -49,12 +49,29 @@
 	<!-- =====================
 		Other Reads
 		===================== -->
-	<section class="section section-padding bg-grey-light colour-white">
+	<section class="section section-padding bg-off-white">
 		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<h2>Other reads</h2>
+			<div class="row justify-content-center section-padding section-padding-bottom section-padding-small">
+				<div class="col-12 col-desk-10">
+					<div class="d-desk-flex justify-content-between align-items-center">
+						<!-- Title -->
+						<h2>Other reads</h2>
+						<!-- All Insights -->
+                        {{ partial "type/arrow-link.html" (dict
+							"link" "/insights/"
+							"text" "<h3>All insights</h3>"
+							"title" "View all insights"
+							"rotation" 45
+                        )}}
+					</div><!-- /Row -->
 				</div><!-- /Col -->
+			</div><!-- /Row -->
+			<div class="row justify-content-center">
+                {{ range (where .Site.RegularPages "Type" "insights").Related . | first 4 }}
+					<div class="col-12 col-desk-10 card-col">
+                        {{ .Render "card" }}
+					</div><!-- /Col -->
+                {{- end }}
 			</div><!-- /Row -->
 		</div><!-- /Container -->
 	</section>
