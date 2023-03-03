@@ -1,0 +1,29 @@
+<!-- =====================
+    Schema - Organisation
+    ===================== -->
+<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Organization",
+		"@id": "{{ .Site.Params.url }}",
+		"legalName": "{{ .Site.Params.company.name }}",
+		"description": "{{ .Site.Params.descritpion }}",
+		"logo": "{{ .Site.Params.logo }}",
+		"sameAs": [
+			"{{ .Site.Params.social.gov }}",
+			"{{ .Site.Params.social.github }}",
+			"{{ .Site.Params.social.linkedin }}",
+			"{{ .Site.Params.social.twitter }}",
+			"{{ .Site.Params.social.facebook }}",
+			"{{ .Site.Params.social.instagram }}",
+			"{{ .Site.Params.social.dribbble }}"
+		],
+		"address": {
+			"@type": "PostalAddress",
+			"addressLocality": "{{ .Site.Params.company.locality }}",
+			"addressCountry": "{{ .Site.Params.company.country }}",
+			"postalCode": "{{ .Site.Params.company.postalCode }}",
+			"streetAddress": "{{ .Site.Params.company.address }}"
+		}
+	}
+</script>

@@ -8,8 +8,15 @@
 	position: relative;
 	display: block;
 	text-decoration: none;
-	margin-bottom: 3.75rem;
+	margin-bottom: $card-margin-bottom;
 	user-select: none;
+
+	// Props
+	// =========================================================================
+
+	//* {
+	//	font-weight: inherit;
+	//}
 
 	// Col
 	// =========================================================================
@@ -19,6 +26,15 @@
 
 		&.col-12:last-child #{$self} {
 			margin-bottom: 0;
+		}
+
+		&:first-child #{$self}-basic {
+			padding-top: 0;
+		}
+
+		&:last-child #{$self}-basic {
+			padding-bottom: 0;
+			border: none;
 		}
 	}
 
@@ -41,11 +57,11 @@
 		}
 	}
 
-	// Image
+	// Text
 	// =========================================================================
 
 	&-text {
-		margin-top: 2rem;
+		margin-top: $margin;
 
 		* {
 			text-decoration: none;
@@ -54,6 +70,50 @@
 		&-title {
 			margin-bottom: 0;
 		}
+
+		&-lead {
+			font-weight: normal;
+			margin-top: 1rem;
+		}
+	}
+
+	// Basic
+	// =========================================================================
+
+	&-basic {
+		margin-bottom: 0;
+		padding-top: $margin-large;
+		padding-bottom: $margin-large;
+		border-bottom: 2px solid rgba($black, $alpha-light);
+
+		#{$self}-text {
+			&-title {
+				margin-top: -14px;
+			}
+
+			&-lead {
+				margin-bottom: 0;
+			}
+		}
+
+		#{$self}-tags {
+			margin-top: $margin;
+			margin-right: 10px;
+
+			&-item:first-child {
+				transform: translateX(-3px);
+			}
+
+			&-reading-time {
+				display: block;
+				font-weight: 500;
+				margin-top: 10px;
+			}
+		}
+
+		#{$self}-col {
+			background: red;
+		}
 	}
 
 	// Vertical
@@ -61,7 +121,7 @@
 
 	&-vertical {
 		#{$self}-image {
-			padding-top: 135%;
+			padding-top: $card-vertical-padding-top;
 		}
 	}
 
@@ -70,22 +130,12 @@
 
 	&-horizontal {
 		#{$self}-image {
-			padding-top: 65%;
+			padding-top: $card-horizontal-padding-top;
 		}
 	}
 
-	// Tablet
+	// Hover
 	// =========================================================================
-
-	@include media-mob {
-		&-col:nth-child(even) #{$self}-half-margin {
-			margin-top: $section-padding-large;
-		}
-
-		&-half-margin {
-			margin-bottom: 0;
-		}
-	}
 
 	&-hover {
 		#{$self}-image {
@@ -105,6 +155,31 @@
 			opacity: 0;
 			z-index: 10;
 			transition: opacity 300ms ease;
+		}
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-mob {
+		&-col:nth-child(even) #{$self}-half-margin {
+			margin-top: $section-padding-large;
+		}
+
+		&-tags {
+			&-item {
+				transform: none;
+			}
+
+			#{$self}-tags-reading-time {
+				display: inline;
+				margin-top: 0;
+				margin-left: 10px;
+			}
+		}
+
+		&-half-margin {
+			margin-bottom: 0;
 		}
 	}
 }

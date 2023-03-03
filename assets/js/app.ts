@@ -16,19 +16,15 @@ import { Navigation } from './components/nav';
 import LocomotiveScroll from 'locomotive-scroll';
 import smoothscroll from 'smoothscroll-polyfill';
 import { Log } from './util/log';
-
-/**
- * Variables
- *
- */
-const html = document.querySelector('html');
+import { cli } from 'swagger-typescript-api/cli';
+import { Toast } from './animations/toast';
 
 /*
  * Remove No JS Body Class
  *
  */
-html.classList.remove('no-js');
-html.classList.add('js');
+document.documentElement.classList.remove('no-js');
+document.documentElement.classList.add('js');
 
 /**
  * Initialise components & types.
@@ -54,14 +50,15 @@ document.addEventListener('DOMContentLoaded', () => {
 smoothscroll.polyfill();
 
 /**
- * Button - Go Back
+ * Scroll
  */
-document.querySelectorAll('[data-go-back]').forEach((btn) => {
-	btn.addEventListener('click', (e) => {
-		e.preventDefault();
-		history.back();
-	});
-});
+window.addEventListener(
+	'scroll',
+	(e) => {
+		console.log(',', e);
+	},
+	false,
+);
 
 /**
  * Lazy Images
@@ -78,6 +75,49 @@ document.querySelectorAll('.lazy-animate').forEach((lazy) => {
 document.querySelectorAll('video').forEach((vid) => {
 	vid.addEventListener('play', () => {
 		vid.classList.add('video-playing');
+	});
+});
+
+/**
+ * Button - Go Back
+ */
+document.querySelectorAll('[data-go-back]').forEach((btn) => {
+	btn.addEventListener('click', (e) => {
+		e.preventDefault();
+		history.back();
+	});
+});
+
+/**
+ * Copy to Clipboard
+ */
+document.querySelectorAll('[data-clipboard]').forEach((clip) => {
+	const text = clip.getAttribute('data-clipboard-text');
+	if (!text || text === '') {
+		Log.error('Clipboard text is empty [data-clipboard-text] for el: ' + clip);
+		return;
+	}
+	clip.addEventListener('click', () => {
+		navigator.clipboard
+			.writeText(text)
+			.then(() => {
+				Log.info('Copied text to clipboard');
+				const message = clip.getAttribute('data-clipboard-message') ?? 'Copied text to clipboard';
+				Toast(message);
+			})
+			.catch((err) => {
+				Log.error('Failed to copy to clipboard: ' + err);
+			});
+	});
+});
+
+/**
+ * Bookmark
+ */
+document.querySelectorAll('[data-bookmark]').forEach((bookmark) => {
+	bookmark.addEventListener('click', () => {
+		const userAgent = navigator.userAgent.toLowerCase();
+		Toast('Press ' + (userAgent.indexOf('mac') != -1 ? 'Cmd' : 'Ctrl') + '+D to bookmark this page.');
 	});
 });
 

@@ -10,7 +10,10 @@
 {{- end -}}
 {{ if strings.Contains $baseURL "localhost" -}}
 	{{- $ret = printf "http://%s" $baseURL -}}
+{{- else if hugo.IsProduction -}}
+	{{- $ret = .Site.Params.url -}}
 {{- else -}}
     {{- $ret = printf "https://%s" $baseURL -}}
 {{- end -}}
+{{ $ret = strings.TrimSuffix "/" $ret }}
 {{ return $ret }}

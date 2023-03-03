@@ -49,7 +49,7 @@
 
 	&-results {
 		left: -#{$container-padding-x};
-		padding: $container-padding-x;
+		padding: $section-padding $container-padding-x;
 		width: 100vw;
 	}
 
@@ -178,42 +178,6 @@
 	@media (min-width: 2100px) {
 		&-aside {
 			transform: translateX(-5vw);
-		}
-	}
-}
-
-// Temp
-// =========================================================================
-
-.test {
-	$self: &;
-
-	&-vertical-line {
-		display: none;
-	}
-
-	@include media-mob-only {
-		.vertical-number {
-			margin-left: 0 !important;
-		}
-	}
-
-	@include media-mob {
-		// Content
-		// =========================================================================
-
-		&-content {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-		}
-
-		// Vertical Line
-		// =========================================================================
-
-		&-vertical-line {
-			display: block;
-			margin: 0 0 0 calc(80px);
 		}
 	}
 }

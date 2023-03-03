@@ -49,10 +49,16 @@
 	// =========================================================================
 
 	&-simple {
-		padding-top: $header-height + 28px;
+		padding-top: $header-height + 40px;
 
 		&-padding-bottom {
 			padding-bottom: $section-padding;
+		}
+
+		&-title-padding {
+			h1 {
+				margin-bottom: $section-padding-small;
+			}
 		}
 	}
 

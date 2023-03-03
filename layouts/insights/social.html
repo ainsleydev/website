@@ -1,0 +1,57 @@
+<!-- =====================
+	Insights Social
+	===================== -->
+<div class="insight-social">
+    {{ $permalink := printf "%s%s" (partial "util/_base-url.html" .) .RelPermalink -}}
+	{{ $title := printf "%s - %s" .Site.Params.name .Title -}}
+	<!-- LinkedIn -->
+	<a href="https://www.linkedin.com/sharing/share-offsite/?url={{ $permalink }}"
+		class="insight-social-item cursor-element"
+		target="_blank"
+		aria-label="Share this page on LinkedIn"
+		data-cursor-invert data-cursor-invert-black>
+        {{ partial "svgs/linkedin.html" }}
+	</a><!-- /LinkedIn -->
+	<!-- Twitter -->
+	<a href="http://twitter.com/share?url={{ $permalink }}&text={{ $title }}"
+		class="insight-social-item cursor-element"
+		target="_blank"
+		aria-label="Share this page on Twitter"
+		data-cursor-invert data-cursor-invert-black>
+        {{ partial "svgs/twitter.html" }}
+	</a><!-- /Twitter -->
+	<!-- Reddit -->
+	<a href="https://reddit.com/submit?url={{ $permalink }}&title={{ $title }}"
+		class="insight-social-item cursor-element"
+		target="_blank"
+		aria-label="Share this page on Reddit"
+		data-cursor-invert data-cursor-invert-black>
+        {{ partial "svgs/reddit.html" }}
+	</a><!-- /Reddit -->
+	<!-- Facebook -->
+	<a href="https://www.facebook.com/sharer/sharer.php?u=#{{ $permalink }}"
+		class="insight-social-item cursor-element"
+		target="_blank"
+		aria-label="Share this page on Facebook"
+		data-cursor-invert data-cursor-invert-black>
+        {{ partial "svgs/facebook.html" }}
+	</a><!-- /Facebook -->
+	<!--- Share (Copy to clipboard) -->
+	<div data-clipboard
+		data-clipboard-text="{{ $permalink }}"
+		data-clipboard-message="Copied URL to clipboard"
+		class="insight-social-item cursor-element"
+		aria-label="Share this page on Facebook"
+		data-cursor-invert data-cursor-invert-black>
+        {{ partial "svgs/link.html" }}
+	</div><!--- /Link -->
+	<!-- Bookmark -->
+	{{  partial "components/button.html" (dict
+		"text" "Bookmark"
+		"colour" "black"
+		"size" "tiny"
+		"class" "insight-social-item cursor-element"
+		"title" "Bookmark this page"
+		"attr" "data-bookmark data-cursor-invert data-cursor-invert-black"
+	)}}<!-- /Bookmark -->
+</div><!-- /Insights Social -->

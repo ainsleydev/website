@@ -128,12 +128,10 @@
 		Quote
 		===================== -->
     {{ with .Params.quote -}}
-		<div class="portfolio-quote">
-            {{ partial "sections/quote.html" (dict
-            "text" .text
-            "cite" .person
-            )}}
-		</div>
+		{{ partial "sections/quote.html" (dict
+			"text" .text
+			"cite" .person
+		)}}
     {{- end }}
 	<!-- =====================
 		Next Project
@@ -141,13 +139,14 @@
     {{ with .PrevInSection }}
 		<section class="portfolio-next">
 			<!-- Next Image -->
-			<figure class="portfolio-next-image">
-                {{ partial "media/image.html" (dict
+			<picture class="portfolio-next-image">
+                {{ partial "media/picture.html" (dict
                 	"image" (.Resources.GetMatch "images/horizontal.jpg")
+                	"mob" (.Resources.GetMatch "images/card**")
 					"alt" (printf "ainsley.dev %s Mockup" .Params.company)
 					"lazy" true
                 )}}
-			</figure>
+			</picture>
 			<!-- Link -->
 			<div class="container portfolio-next-container">
 				<div class="row">

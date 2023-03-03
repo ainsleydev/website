@@ -37,7 +37,7 @@ export class Card {
 		document.querySelectorAll<HTMLButtonElement>(this.selector).forEach((card) => {
 			const image = card.querySelector('.card-image-clip') as HTMLElement;
 			if (!image) {
-				Log.error('No card image found for card: ' + card);
+				//Log.error('No card image found for card: ' + card);
 				return;
 			}
 

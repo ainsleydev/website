@@ -1,0 +1,50 @@
+<!-- =====================
+    Schema - Article
+    TODO: Need to add featured image (opengraph one)
+    ===================== -->
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org",
+		"@type": "BlogPosting",
+		"url" : "{{ .Permalink }}",
+		"headline": "{{ .Title }}",
+		"alternativeHeadline": "{{ .Params.lead }}",
+		"description": "{{ .Params.description }}",
+		"dateCreated": "{{ .Date.Format "2006-01-02T15:04:05.00Z" | safeHTML }}",
+		"datePublished": "{{ .PublishDate.Format "2006-01-02T15:04:05.00Z" | safeHTML }}",
+		"dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05.00Z" | safeHTML }}",
+		"wordCount" : "{{ .WordCount }}",
+		"keywords": [{{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}],
+		"inLanguage": {{ .Site.LanguageCode | default "en-gb" }},
+    	"isFamilyFriendly": "true",
+		{{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .Params.author)) }}
+		"author": {
+			"@type": "Person",
+			"name": "{{ .Title }}"
+		},
+		"creator" : {
+			"@type": "Person",
+			"name": "{{ .Title }}"
+		},
+		"accountablePerson" : {
+			"@type": "Person",
+			"name": "{{ .Title }}"
+		},
+		{{- end }}
+		"mainEntityOfPage": {
+			"@type": "WebPage",
+			"@id": "{{ .Site.Params.url }}"
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "{{ .Site.Params.name }}",
+			"url": "{{ .Site.Params.url }}",
+			"logo": {
+			  "@type": "ImageObject",
+			  "url": "{{ .Site.Params.logo }}"
+			}
+		},
+		"copyrightHolder" : "{{ .Site.Params.company.name }}",
+		"copyrightYear" : "{{ .Date.Format "2006" }}"
+	}
+</script>

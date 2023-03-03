@@ -12,7 +12,7 @@
 		{{ $resource := resources.Get $path }}
 		{{ if $resource }}
 			{{ $target := printf "%s.js" (strings.TrimSuffix (path.Ext $path) $path) }}
-			{{ $file = $resource | babel | js.Build (dict "targetPath" $target) }}
+			{{ $file = $resource | js.Build (dict "targetPath" $target) }}
 		{{ else }}
 			{{ errorf "Typescript file: %s, not found" $path }}
 		{{ end }}

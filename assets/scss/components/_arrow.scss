@@ -7,8 +7,8 @@
 	$self: &;
 	position: relative;
 	display: inline-block;
-	width: 4.2rem;
-	height: 4.2rem;
+	width: clamp(50px, 5vw, 66px);
+	height: clamp(50px, 5vw, 66px);
 	transform-origin: center;
 	transform: rotate(var(--arrow-rotation));
 	margin: 0;
@@ -24,6 +24,11 @@
 
 		* {
 			margin-bottom: 0;
+		}
+
+		&-with-text #{$self} {
+			width: 3rem;
+			height: 3rem;
 		}
 
 		&-text {

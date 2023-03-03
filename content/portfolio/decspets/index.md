@@ -25,41 +25,41 @@ results:
 ---
 
 <!-- Intro -->
-{{< vertical-wrapper >}}
+{{< vertical-section >}}
 Launched in 2018, Dec’s Pets is a family-run retailer specialising in a vast array of pet care. With an established
 client base in Ireland, their aim was to establish an e-commerce presence in order to expand geographically and reach a
 wider audience.
-{{< /vertical-wrapper >}}
+{{< /vertical-section >}}
 
 <!-- Video -->
 {{< video src="video/tags.mp4" poster="images/poster.jpg" >}}
 
 <!-- Brief -->
-{{< vertical-wrapper text="Brief" number="01" >}}
+{{< vertical-section text="Brief" number="01" >}}
 ainsley.dev were tasked with modernising the existing website using a fun, family-friendly design; a transition from an
 off-the-shelf web package to an entirely bespoke site. Their main goal was for users to view and buy their products
 online with ease, and more visibility for the company’s brand presence in the e-commerce market as a whole was needed.
-{{< /vertical-wrapper >}}
+{{< /vertical-section >}}
 
 <!-- Shop -->
 {{< picture src="images/shop.jpg" alt="Dec's Pets Shop" >}}
 
 <!-- Design -->
-{{< vertical-wrapper text="Design" number="02" >}}
+{{< vertical-section text="Design" number="02" >}}
 A design strategy was formulated to reinforce the Dec’s Pets brand. A light blue and striking pink colour scheme was
 implemented to invoke trust, but still reflect the playfulness of the pet marketplace. The use of modern visuals and a
 clear font increased the legibility of the new brand. The Dec’s Pets “Paw” illustration was designed and used as a
 watermark to create a consistent design language.
-{{< /vertical-wrapper >}}
+{{< /vertical-section >}}
 
 <!-- Mockup -->
 {{< picture src="images/mockup.jpg" alt="Dec's Pets Website on an iPad" >}}
 
 <!-- Development -->
-{{< vertical-wrapper text="Develop" number="03" >}}
+{{< vertical-section text="Develop" number="03" >}}
 Using WooCommerce with WordPress, a custom build was created for the new platform. Back-end services were rewritten in
 PHP, removing the use of any heavy plugins such as MailChimp and Stamped.IO. This drastically decreased page load time.
 A new plugin was also created for Dec’s Pets, [Squidge](https://wordpress.org/plugins/squidge/),, which compressed and
 converted images to `AVIF` and `WebP` formats. Used in conjunction with lazy loading images, this made for an extremely
 quick platform.
-{{< /vertical-wrapper >}}
+{{< /vertical-section >}}

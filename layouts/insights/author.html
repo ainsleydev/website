@@ -1,0 +1,23 @@
+<!-- =====================
+	Insights Author
+	===================== -->
+<div class="insight-author">
+	<!-- Photo -->
+    {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .Params.author)) }}
+		<figure class="insight-author-photo">
+            {{ partial "media/image.html" (dict
+				"image" (.Resources.Get .Params.photo)
+				"alt" (printf "%s Photo" .Title)
+            )}}
+		</figure>
+    {{ else }}
+        {{ warnf "No author found for post: %s" .Params.author}}
+    {{ end }}
+	<!-- Name & Reading Time -->
+	<div class="insight-author-text">
+		<p>{{ .Params.author }}</p>
+		<small>
+			{{ .Date.Format "Jan 2, 2006" }} - {{ partial "util/_reading-time.html" . }} min read.
+		</small>
+	</div>
+</div><!-- /Insights Author -->

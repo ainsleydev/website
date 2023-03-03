@@ -1,7 +1,7 @@
 <!-- =====================
     Twitter
     ===================== -->
-{{- $baseURL := partial "util/_base-url.html" . -}}
+{{- $baseURL := .Site.BaseURL -}}
 {{- with $.Params.images -}}
 	<meta name="twitter:card" content="summary_large_image"/>
 	<meta name="twitter:image" content="{{ index . 0 | absURL }}"/>

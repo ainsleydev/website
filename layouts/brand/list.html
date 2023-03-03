@@ -30,14 +30,17 @@
                             {{- end }}
 						</div>
 						<!-- Button -->
-                        {{ partial "components/button.html" (dict
-							"text" "Download Pack"
-							"link" (.Resources.GetMatch "brand-pack.zip").RelPermalink
-                        	"colour" "white"
-							"size" "small"
-							"arrow" true
-                        	"title" "Download Brand Pack"
-						)}}
+						{{ with .Resources.GetMatch "brand-pack.zip" -}}
+							{{ partial "components/button.html" (dict
+								"text" "Download Pack"
+								"link" .RelPermalink
+								"colour" "white"
+								"size" "small"
+								"arrow" true
+								"title" "Download Brand Pack"
+								"attr" "download=ainsley.dev-Brand-Pack.zip"
+							)}}
+						{{- end }}
 					</div><!-- /Text -->
 					<!-- Arrow -->
                     {{ partial "type/arrow-link.html" (dict

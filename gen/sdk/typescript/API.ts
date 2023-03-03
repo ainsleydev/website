@@ -13,20 +13,37 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-/**
- * User schema.*/
-export interface User {
-	/** The UUID of the user. */
-	user_id?: string;
-	/** The first name of the User. */
-	first_name: string;
-	/** The last name of the User. */
-	last_name: string;
-	/** The date of birth of the User (format yyyy-mm-dd) */
-	dob: string;
-	/** The Users slack handle. */
-	slack_handle: string;
+export interface HTTPResponse {
+	data?: object;
+	error?: boolean;
+	/** @example "User formatted message from the API" */
+	message?: string;
+	status?: number;
 }
+
+export interface HTTPError {
+	/** @example "error_code" */
+	code?: string;
+	/** @example "error" */
+	error?: string;
+	/** @example "Function.Method" */
+	operation?: string;
+}
+
+/**
+ * Message and attributes from the contact form
+ */
+export interface ContactFormRequest {
+	/** The message from the user. */
+	message: string;
+	/** The message from the user. */
+	honeypot?: string;
+}
+
+/**
+ * The message sent back to the user upon successful submission
+ */
+export type ContactFormResponse = string;
 
 export type QueryParamsType = Record<string | number, any>;
 export type ResponseFormat = keyof Omit<Body, 'body' | 'bodyUsed'>;
@@ -73,7 +90,7 @@ export enum ContentType {
 }
 
 export class HttpClient<SecurityDataType = unknown> {
-	public baseUrl: string = '';
+	public baseUrl: string = 'https://api.example.com/v1';
 	private securityData: SecurityDataType | null = null;
 	private securityWorker?: ApiConfig<SecurityDataType>['securityWorker'];
 	private abortControllers = new Map<CancelToken, AbortController>();
@@ -243,24 +260,36 @@ export class HttpClient<SecurityDataType = unknown> {
 }
 
 /**
- * @title temp
- * @version 0.0.1
+ * @title ainsley.de API
+ * @version 1.0.0
+ * @license BSD 3-Clause License (https://github.com/ainsleyclark/ainsley.dev/blob/master/LICENSE)
+ * @termsOfService https://ainsley.dev/terms/
+ * @baseUrl https://api.example.com/v1
+ * @contact ainsley.dev Team <hello@ainsley.dev> (https://swagger.io)
  *
  * temp
  */
 export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType> {
-	users = {
+	forms = {
 		/**
-		 * @name UserCreate
-		 * @request POST:/users/
-		 * @secure * @description Creates a new user. */
-		userCreate: (data: User, params: RequestParams = {}) =>
-			this.request<void, void>({
-				path: `/users/`,
+		 * @name SendContactForm
+		 * @request POST:/forms/contact
+		 * @secure * @description Posts a new form submission fror to contact page.
+		 */
+		sendContactForm: (data: ContactFormRequest, params: RequestParams = {}) =>
+			this.request<
+				HTTPResponse & {
+					/** The message sent back to the user upon successful submission */
+					data?: ContactFormResponse;
+				},
+				HTTPResponse
+			>({
+				path: `/forms/contact`,
 				method: 'POST',
 				body: data,
 				secure: true,
 				type: ContentType.Json,
+				format: 'json',
 				...params,
 			}),
 	};

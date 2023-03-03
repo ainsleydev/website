@@ -1,6 +1,6 @@
 {{ define "main" }}
 	<!-- =====================
-		Insights - Single
+		Insights Single
 		===================== -->
 	<section class="hero hero-simple hero-simple-padding-bottom">
 		<div class="container">
@@ -26,45 +26,21 @@
 					<!-- =====================
 						Title
 						===================== -->
-					<h1>
+					<h1 class="heading-1 heading-1-small margin">
                         {{ .Title | safeHTML }}
 					</h1>
 					<!-- =====================
 						Meta
-						TODO: Meta cam be .Render "meta"
 						===================== -->
 					<div class="insight-meta margin-large">
-						<div class="insight-author">
-							<!-- Photo -->
-                            {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .Params.author)) }}
-								<figure class="insight-author-photo">
-                                    {{ partial "media/image.html" (dict
-                                    	"image" (.Resources.Get .Params.photo)
-                                    	"alt" "Here"
-                                    )}}
-								</figure>
-							{{ else }}
-								{{ warnf "No author found for post: %s" .Params.author}}
-							{{ end }}
-							<!-- Name & Reading Time -->
-							<div class="insight-author-text">
-								<p>{{ .Params.author }}</p>
-								<small>Reading time: {{ math.Round (div (countwords .Content) 300.0) }} minutes.</small>
-							</div>
-						</div>
-                        {{  partial "components/button.html" (dict
-							"text" "Bookmark"
-							"colour" "black"
-							"size" "tiny"
-							"title" "Bookmark this page"
-							"attr" "bookmark"
-                        )}}
+						{{ .Render "social" }}
+                        {{ .Render "author" }}
 					</div>
 					<!-- =====================
 						Content
 						===================== -->
 					<article class="richtext">
-                        {{ .Content }}
+                        {{ .Content | safeHTML }}
 					</article>
 				</div><!-- /Col -->
 			</div><!-- /Row -->
@@ -73,11 +49,28 @@
 	<!-- =====================
 		Other Reads
 		===================== -->
-	<section class="section section-padding bg-grey-light colour-white">
+	<section class="section section-padding bg-off-white">
 		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<h2>Other reads</h2>
+			<div class="row justify-content-center section-padding section-padding-bottom section-padding-small">
+				<div class="col-12 col-desk-10">
+					<div class="d-desk-flex justify-content-between align-items-center">
+						<!-- Title -->
+						<h2 class="mb-0">Other reads</h2>
+					</div><!-- /Row -->
+				</div><!-- /Col -->
+                {{ range (where .Site.RegularPages "Type" "insights").Related . | first 4 }}
+					<div class="col-12 col-desk-10 card-col">
+                        {{ .Render "card" }}
+					</div><!-- /Col -->
+                {{- end }}
+				<!-- All Insights -->
+				<div class="col-12 order-desk-0">
+                    {{ partial "type/arrow-link.html" (dict
+						"link" "/insights/"
+						"text" "<h3>All insights</h3>"
+						"title" "View all insights"
+						"rotation" 45
+                    )}}
 				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->

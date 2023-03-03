@@ -4,12 +4,19 @@
 {{ $url := .RelPermalink -}}
 {{ $.Scratch.Add "path" "/" -}}
 <nav class="breadcrumbs" aria-label="breadcrumb">
-	<ul class="breadcrumbs-list">
+	<ul class="breadcrumbs-list"
+		itemscope itemtype="https://schema.org/BreadcrumbList">
 		<!-- Home -->
-		<li class="breadcrumbs-item">
-			<a class="breadcrumbs-link" href="/">
-				Home
-			</a>
+		<li class="breadcrumbs-item"
+			itemprop="itemListElement" itemscope
+			itemtype="https://schema.org/ListItem">
+			<!-- Link -->
+			<a class="breadcrumbs-link" href="/" itemprop="item">
+				<span itemprop="name">
+					Home
+				</span>
+				<meta itemprop="position" content="1" />
+			</a><!-- /Link -->
 		</li>
 		<!-- Path -->
         {{ range $index, $element := split $url "/" -}}
@@ -20,11 +27,16 @@
 					{{- $isCurrent := (eq $path $.RelPermalink) -}}
 					<!-- Item -->
 					<li class="breadcrumbs-item {{ if $isCurrent }} breadcrumbs-active {{- end }}"
+						itemprop="itemListElement" itemscope
+						itemtype="https://schema.org/ListItem"
 						{{ if $isCurrent }} aria-current="page" {{ end }}>
 						<!-- Link -->
-						<a class="breadcrumbs-link" href="{{ $path }}">
-                            {{ .Title | humanize }}
-						</a>
+						<a class="breadcrumbs-link" href="{{ $path }}" itemprop="item">
+							<span itemprop="name">
+								 {{ .Title | humanize }}
+							</span>
+							<meta itemprop="position" content="{{ add $index 1 }}" />
+						</a><!-- /Link -->
 					</li><!-- /Item -->
                 {{- end }}
                 {{- $.Scratch.Add "path" "/" -}}

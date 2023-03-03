@@ -5,6 +5,9 @@
 
 .skew {
 	$self: &;
-	transition: transform 100ms linear;
-	will-change: transform;
+
+	@media (hover: hover) {
+		transition: transform 100ms linear;
+		will-change: transform;
+	}
 }
