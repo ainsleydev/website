@@ -16,6 +16,7 @@
 {{ if .link }}
 	<a href="{{ .link }}"
 	   class="arrow-link arrow-hover cursor-element {{ with .class -}} {{ . }} {{- end }}
+	   {{ if .text }} arrow-link-with-text {{- end }}
 	   {{ if .down -}} arrow-link-down arrow-hover-down {{- end }}"
 	   {{ with .title -}}
 			title="{{ . }}" aria-label="{{ . }}"

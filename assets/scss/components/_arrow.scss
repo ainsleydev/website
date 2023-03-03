@@ -26,6 +26,11 @@
 			margin-bottom: 0;
 		}
 
+		&-with-text #{$self} {
+			width: 3rem;
+			height: 3rem;
+		}
+
 		&-text {
 			display: inline-block;
 			margin-bottom: 0;
