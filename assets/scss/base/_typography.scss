@@ -75,6 +75,10 @@ h5 {
 h1,
 .heading-1 {
 	@include h1;
+
+	&-small {
+		@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 40px, 60px);
+	}
 }
 
 @mixin h2 {
