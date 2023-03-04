@@ -81,12 +81,31 @@
         {{ if eq .Section "insights" -}}
         	{{ .Render "schema" }}
 		{{- end }}
+		<!-- Google Tag Manager -->
+        {{ if hugo.IsProduction -}}
+			<script>
+				(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+						new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+					j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+					'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+				})(window,document,'script','dataLayer','GTM-KZFMRNJ');
+			</script>
+		{{- end }}
+		<!-- /End Google Tag Manager -->
     </head>
 	<!-- =====================
 		Body
 		===================== -->
 	{{ $colour := partial "util/_theme-colour.html" . }}
     <body class="theme-{{ $colour }}">
+		<!-- Google Tag Manager (noscript) -->
+		{{ if hugo.IsProduction -}}
+			<noscript>
+				<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZFMRNJ"
+					height="0" width="0" style="display:none; visibility:hidden">
+				</iframe>
+			</noscript><!-- /End Google Tag Manager (noscript) -->
+		{{- end }}
 		<div data-scroll-container>
 			<!-- Header -->
 			{{- partial "header.html" (dict "colour" $colour) -}}

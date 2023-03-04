@@ -46,7 +46,7 @@ makes for smaller functions and having no throws flags shortens method signature
 ### What is an error?
 
 An error is anything that implements the singular method interface `error` in the standard library interface. An
-error **_type _**must implement a method that returns a string.
+error **_type _** must implement a method that returns a string.
 
 ```go
 // The error built-in interface type is the conventional interface for
