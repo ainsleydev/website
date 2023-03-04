@@ -105,9 +105,8 @@
 			}
 
 			&-reading-time {
-				display: block;
+				display: none;
 				font-weight: 500;
-				margin-top: 10px;
 			}
 		}
 
@@ -158,7 +157,7 @@
 		}
 	}
 
-	// Tablet
+	// Mobile
 	// =========================================================================
 
 	@include media-mob {
@@ -180,6 +179,15 @@
 
 		&-half-margin {
 			margin-bottom: 0;
+		}
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-tab {
+		&-tags-reading-time {
+			display: inline-block;
 		}
 	}
 }

@@ -6,6 +6,10 @@
 .skew {
 	$self: &;
 
+	@media not all and (hover: none) {
+		transform: none !important; // Override JS
+	}
+
 	@media (hover: hover) {
 		transition: transform 100ms linear;
 		will-change: transform;

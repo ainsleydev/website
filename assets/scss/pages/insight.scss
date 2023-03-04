@@ -102,16 +102,17 @@
 		}
 	}
 
-	// Tablet
+	// Mobile
 	// =========================================================================
 
 	@include media-tab {
 		&-author {
+			margin-top: 0;
 			margin-bottom: 0;
 		}
 
 		&-meta {
-			flex-direction: row;
+			flex-direction: row-reverse;
 			align-items: center;
 		}
 	}
@@ -133,14 +134,6 @@
 				margin-left: 1rem;
 				transform: none;
 			}
-		}
-
-		&-author {
-			margin-top: 0;
-		}
-
-		&-meta {
-			flex-direction: row-reverse;
 		}
 	}
 }
