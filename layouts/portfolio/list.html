@@ -7,7 +7,9 @@
 			<div class="row">
 				<div class="col-12 col-desk-11 offset-desk-1">
 					{{ with .Params.htmlTitle }}
-						<h1>{{ . | safeHTML }}</h1>
+						<h1 class="mb-0">
+							{{ . | safeHTML }}
+						</h1>
 					{{- else -}}
 						{{ warnf "No HTML title provided in Params for Portfolio index page" }}
 					{{- end }}
@@ -38,10 +40,9 @@
 				<!-- Previous / Next -->
 				<div class="row">
 					<div class="col-12">
-                        {{ partial "components/next-prev.html" (dict
+                        {{ partial "components/pagination.html" (dict
 							"prev" $paginator.Prev
 							"next" $paginator.Next
-							"class" "section-padding section-padding-small section-padding-top"
                         )}}
 					</div><!-- /Col -->
 				</div><!-- /Row -->

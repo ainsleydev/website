@@ -54,11 +54,17 @@
 		&-padding-bottom {
 			padding-bottom: $section-padding;
 		}
+	}
 
-		&-title-padding {
-			h1 {
-				margin-bottom: $section-padding-small;
-			}
+	// Title Padding
+	// =========================================================================
+
+	&-title-padding {
+		margin-bottom: $hero-title-padding;
+
+		h1 {
+			margin-top: 0;
+			margin-bottom: 0;
 		}
 	}
 
