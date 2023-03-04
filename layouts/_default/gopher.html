@@ -7,7 +7,7 @@
 			<div class="row align-items-center justify-content-center justify-content-desk-start">
 				<!-- Gopher -->
 				<div class="col-12 col-tab-8 col-desk-5 offset-desk-1 offset-desk-large-2 order-desk-last">
-					<div class="margin mb-desk-0">
+					<div class="margin-large mb-desk-0">
 						{{ $gopher := resources.Get "images/gopher.gif" -}}
 						{{ with $gopher -}}
 							<figure class="image">
@@ -21,18 +21,17 @@
 				<!-- Content -->
 				<div class="col-12 col-desk-6 col-desk-large-5">
 					<!-- Heading -->
-					<div class="margin-large">
-						{{ with .Params.htmlTitle -}}
-							<h1>
-								{{ . | safeHTML }}
-							</h1>
-						{{- end }}
-						{{ with .Params.lead -}}
-							<p class="lead lead-max-width">
-								{{ . }}
-							</p>
-						{{- end }}
-					</div>
+					{{ with .Params.htmlTitle -}}
+						<h1>
+							{{ . | safeHTML }}
+						</h1>
+					{{- end }}
+					<!-- Lead -->
+					{{ with .Params.lead -}}
+						<p class="lead lead-max-width mb-0">
+							{{ . }}
+						</p>
+					{{- end }}
 					<!-- Go Back -->
 					{{ with .Params.goback -}}
 						{{ partial "components/button.html" (dict

@@ -96,6 +96,7 @@ $margin: 1.8rem;
 $margin-tiny: 0.6rem;
 $margin-small: 1rem;
 $margin-large: 3rem;
+$margin-title: clamp(50px, 20vw, 100px);
 $spacing-properties: (
 	0: 0,
 );
@@ -112,8 +113,6 @@ $header-z-index: 99999;
 
 // Hero
 // =========================================================================
-
-$hero-title-padding: clamp(50px, 7.5vw, 140px);
 
 // Nav
 // =========================================================================

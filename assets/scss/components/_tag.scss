@@ -36,3 +36,10 @@
 		color: $white;
 	}
 }
+
+// Overrides
+// =========================================================================
+
+.bg-off-white .tag {
+	background-color: $white;
+}
