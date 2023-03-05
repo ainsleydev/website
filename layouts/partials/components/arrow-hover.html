@@ -1,0 +1,42 @@
+<!-- =====================
+    Arrow Hover
+    	partial "type/arrow-link.html" (dict
+			"rotation" 45
+			"colour" "white"
+			"stroke" 2
+    	)
+    	- rotation:	The degree of rotation of the arrow
+    	- colour:	The colour of the arrow, defaults to white.
+    	- stroke:	The amount of stroke width to apply.
+    ===================== -->
+{{ if .link -}}
+	<a href="{{ .link }}"
+{{- else -}}
+	<div
+{{- end }}
+	class="arrow-hover"
+	data-arrow-rotation="{{ .rotation }}">
+	<!-- Arrow -->
+	<figure class="arrow-link-image">
+		<!-- Visible -->
+		<div class="arrow-hover-visible">
+			{{ partial "svgs/arrow.html" (dict
+				"rotation" .rotation
+				"colour" .colour
+				"stroke" 2
+			)}}
+		</div><!-- /Visible -->
+		<!-- Hidden -->
+		<div class="arrow-hover-hidden">
+			{{ partial "svgs/arrow.html" (dict
+				"rotation" .rotation
+				"colour" .colour
+				"stroke" 2
+			)}}
+		</div><!-- /Hidden -->
+	</figure><!-- /Arrow -->
+{{ if .link -}}
+	</a>
+{{- else -}}
+	</div>
+{{- end }}

@@ -60,7 +60,17 @@
 	// Hover
 	// =========================================================================
 
+	&-text {
+		* {
+			margin-bottom: 0;
+		}
+	}
+
+	// Hover
+	// =========================================================================
+
 	&-hover {
+		display: inline-block;
 		text-decoration: none;
 		transition: all 300ms;
 
@@ -74,28 +84,7 @@
 			position: absolute;
 			top: 0;
 			left: 0;
-			opacity: 0;
-			transform: translate(-100%, 100%);
-		}
-
-		&-down &-hidden {
-			transform: translate(-100%, -100%);
-		}
-
-		&:hover {
-			#{$self}-hover-hidden {
-				transform: translate(0);
-				opacity: 1;
-			}
-
-			#{$self}-hover-visible {
-				transform: translate(100%, -100%);
-				opacity: 0;
-			}
-
-			&#{$self}-hover-down #{$self}-hover-visible {
-				transform: translate(100%, 100%);
-			}
+			opacity: 1;
 		}
 	}
 

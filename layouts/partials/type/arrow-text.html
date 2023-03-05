@@ -1,0 +1,42 @@
+<!-- =====================
+    Arrow Text
+    	partial "type/arrow-link.html" (dict
+			"rotation" 45
+			"colour" "white"x
+			"down" true
+			"stroke" 2
+			"title" "Navigate to..."
+    	)
+    	- rotation:	The degree of rotation of the arrow
+    	- colour:	The colour of the arrow, defaults to white.
+    	- down: 	If the arrow should be going downwards.
+		- class:	Any additional class names to be appended to appear.
+		- title:	The title & aria label of the link.
+    ===================== -->
+{{ if .link -}}
+	<a href="{{ .link }}"
+{{- else -}}
+	<div
+{{- end }}
+	class="arrow-text">
+	<!-- Text -->
+	{{ with .text -}}
+		<div class="arrow-text-content">
+			{{ . | safeHTML }}
+		</div>
+	{{- end }}
+	<!--- Arrow -->
+
+
+
+{{/*	{{ partial "svgs/arrow.html" (dict "colour" "black" "rotation" "90" "stroke" 3 "class" "btn-arrow-image btn-arrow-right") }}*/}}
+{{/*		<figure class="arrow-link-image">*/}}
+{{/*			<div class="arrow-hover-visible">*/}}
+{{/*                {{ partial "svgs/arrow.html" (dict "colour" "black" "rotation" "90" "stroke" 3 "class" "btn-arrow-image btn-arrow-left") }}*/}}
+{{/*			</div>*/}}
+{{/*		</figure>*/}}
+{{ if .link -}}
+	</a>
+{{- else -}}
+	</div>
+{{- end }}

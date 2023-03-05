@@ -13,11 +13,11 @@ import { FitText } from './components/fit-text';
 import { Collapse, CollapseOptions } from './components/accordion';
 import { Card } from './components/card';
 import { Navigation } from './components/nav';
+import { Log } from './util/log';
+import { Toast } from './animations/toast';
+import { Arrow } from './animations/arrow';
 import LocomotiveScroll from 'locomotive-scroll';
 import smoothscroll from 'smoothscroll-polyfill';
-import { Log } from './util/log';
-import { cli } from 'swagger-typescript-api/cli';
-import { Toast } from './animations/toast';
 
 /*
  * Remove No JS Body Class
@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	new Skew();
 	new FitText();
 	new Card();
+	new Arrow();
 	new Collapse({
 		accordion: true,
 		container: '.accordion',

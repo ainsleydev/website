@@ -2,7 +2,7 @@
 	<!-- =====================
 		Portfolio Single
 		===================== -->
-	<section class="portfolio hero hero-simple">
+	<section class="portfolio hero hero-simple d-none">
 		<div class="container">
 			<div class="row">
 				<!-- =====================
@@ -127,6 +127,9 @@
 	<!-- =====================
 		Quote
 		===================== -->
+
+		<section class="section-padding" style="padding-left: 100px;">{{ partial "components/arrow-hover.html" (dict "rotation" 78) }}</section>
+
     {{ with .Params.quote -}}
 		{{ partial "sections/quote.html" (dict
 			"text" .text
@@ -137,14 +140,17 @@
 		Next Project
 		===================== -->
     {{ with .PrevInSection }}
-		<section class="portfolio-next">
+		<a href="{{ .RelPermalink }}" class="portfolio-next zoom"
+			title="{{ printf "Next page in %s" .Section }}"
+			aria-label="{{ printf "Next page in %s" .Section }}">
 			<!-- Next Image -->
-			<picture class="portfolio-next-image">
+			<picture class="portfolio-next-image zoom-overflow">
                 {{ partial "media/picture.html" (dict
                 	"image" (.Resources.GetMatch "images/horizontal.jpg")
                 	"mob" (.Resources.GetMatch "images/card**")
 					"alt" (printf "ainsley.dev %s Mockup" .Params.company)
 					"lazy" true
+					"class" "zoom-element"
                 )}}
 			</picture>
 			<!-- Link -->
@@ -157,15 +163,14 @@
 								{{ . }}
 							</h6>
                         {{- end }}
-                        {{ partial "type/arrow-link.html" (dict
-							"link" .Permalink
+						<!-- Arrow Text -->
+                        {{ partial "type/arrow-text.html" (dict
 							"text" "<h2>Next project</h2>"
-							"title" (printf "Next page in %s" .Section)
 							"rotation" 45
                         )}}
 					</div><!-- /Col -->
 				</div><!-- /Row -->
 			</div><!-- /Container -->
-		</section>
+		</a>
     {{- end }}
 {{ end }}
