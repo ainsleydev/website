@@ -2,7 +2,7 @@
 	<!-- =====================
 		Portfolio Single
 		===================== -->
-	<section class="portfolio hero hero-simple d-none">
+	<section class="portfolio hero hero-simple">
 		<div class="container">
 			<div class="row">
 				<!-- =====================
@@ -51,9 +51,9 @@
 								</a>
 							</div>
                         {{ end }}<!-- /Website -->
-						<!-- Mobile Arrow -->
+						<!-- Arrow -->
 						<figure class="portfolio-arrow">
-                            {{ partial "type/arrow-link.html" (dict
+                            {{ partial "components/arrow-hover.html" (dict
                             	"link" "#content"
                             	"title" "Scroll down to explore"
                             	"rotation" 135
@@ -127,9 +127,6 @@
 	<!-- =====================
 		Quote
 		===================== -->
-
-		<section class="section-padding" style="padding-left: 100px;">{{ partial "components/arrow-hover.html" (dict "rotation" 78) }}</section>
-
     {{ with .Params.quote -}}
 		{{ partial "sections/quote.html" (dict
 			"text" .text

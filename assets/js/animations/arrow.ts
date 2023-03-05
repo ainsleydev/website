@@ -51,7 +51,7 @@ export class Arrow {
 		}
 
 		const angles = this.calculateAngles(parseInt(rotation));
-		this.transform(hidden, angles, 1);
+		this.transform(hidden, angles, 0);
 		this.addEventListeners(arrow, visible, hidden, angles);
 	}
 
