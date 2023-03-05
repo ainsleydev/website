@@ -17,7 +17,6 @@
 	<a href="{{ .link }}"
 	{{ with .title -}}
 		title="{{ . }}" aria-label="{{ . }}"
-
 	{{ else -}}
 		{{- warnf "No title provided to arrow link: %s" .link -}}
 	{{- end }}

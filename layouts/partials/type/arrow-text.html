@@ -24,17 +24,13 @@
 		<div class="arrow-text-content">
 			{{ . | safeHTML }}
 		</div>
-	{{- end }}
+	{{- end }}<!-- /Text -->
 	<!--- Arrow -->
-
-
-
-{{/*	{{ partial "svgs/arrow.html" (dict "colour" "black" "rotation" "90" "stroke" 3 "class" "btn-arrow-image btn-arrow-right") }}*/}}
-{{/*		<figure class="arrow-link-image">*/}}
-{{/*			<div class="arrow-hover-visible">*/}}
-{{/*                {{ partial "svgs/arrow.html" (dict "colour" "black" "rotation" "90" "stroke" 3 "class" "btn-arrow-image btn-arrow-left") }}*/}}
-{{/*			</div>*/}}
-{{/*		</figure>*/}}
+	<div class="arrow-text-image">
+		{{ partial "components/arrow-hover.html" (dict
+			"rotation" 45
+		)}}
+	</div><!-- /Arrow -->
 {{ if .link -}}
 	</a>
 {{- else -}}

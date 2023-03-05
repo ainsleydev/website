@@ -2,7 +2,7 @@
 	<!-- =====================
 		Portfolio Single
 		===================== -->
-	<section class="portfolio hero hero-simple">
+	<section class="portfolio hero hero-simple d-none">
 		<div class="container">
 			<div class="row">
 				<!-- =====================
@@ -137,17 +137,18 @@
 		Next Project
 		===================== -->
     {{ with .PrevInSection }}
-		<a href="{{ .RelPermalink }}" class="portfolio-next zoom"
-			title="{{ printf "Next page in %s" .Section }}"
-			aria-label="{{ printf "Next page in %s" .Section }}">
+		<a href="{{ .RelPermalink }}" class="portfolio-next arrow-hover zoom cursor-element"
+		   title="{{ printf "Next page in %s" .Section }}"
+		   aria-label="{{ printf "Next page in %s" .Section }}"
+		   data-cursor-invert data-cursor-invert-black>
 			<!-- Next Image -->
 			<picture class="portfolio-next-image zoom-overflow">
                 {{ partial "media/picture.html" (dict
-                	"image" (.Resources.GetMatch "images/horizontal.jpg")
-                	"mob" (.Resources.GetMatch "images/card**")
-					"alt" (printf "ainsley.dev %s Mockup" .Params.company)
-					"lazy" true
-					"class" "zoom-element"
+                "image" (.Resources.GetMatch "images/horizontal.jpg")
+                "mob" (.Resources.GetMatch "images/card**")
+                "alt" (printf "ainsley.dev %s Mockup" .Params.company)
+                "lazy" true
+                "class" "zoom-element"
                 )}}
 			</picture>
 			<!-- Link -->
@@ -157,13 +158,13 @@
 						<!-- Company -->
                         {{ with .Params.company }}
 							<h6 class="margin">
-								{{ . }}
+                                {{ . }}
 							</h6>
                         {{- end }}
 						<!-- Arrow Text -->
                         {{ partial "type/arrow-text.html" (dict
-							"text" "<h2>Next project</h2>"
-							"rotation" 45
+                        "text" "<h2>Next project</h2>"
+                        "rotation" 45
                         )}}
 					</div><!-- /Col -->
 				</div><!-- /Row -->

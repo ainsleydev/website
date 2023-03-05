@@ -38,7 +38,7 @@ export class Arrow {
 	 * @void
 	 */
 	private initArrow(arrow: HTMLElement): void {
-		const rotation = arrow.getAttribute('data-arrow-rotation') ?? '',
+		const rotation = arrow.getAttribute('data-arrow-rotation') ?? '45',
 			visible = arrow.querySelector('.arrow-hover-visible') as HTMLElement,
 			hidden = arrow.querySelector('.arrow-hover-hidden') as HTMLElement;
 
