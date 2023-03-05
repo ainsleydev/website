@@ -13,6 +13,34 @@
 	transform: rotate(var(--arrow-rotation));
 	margin: 0;
 
+	//path {
+	//	stroke-dasharray: 1000;
+	//	stroke-dashoffset: 1000;
+	//	stroke: rgba($white, 0.2);
+	//	stroke-width: 1;
+	//	stroke-linejoin: round;
+	//	stroke-linecap: round;
+	//	paint-order: stroke;
+	//
+	//	animation: draw 5s linear forwards infinite alternate;
+	//	fill: transparent;
+	//}
+	//
+	//@keyframes draw {
+	//	0% {
+	//		fill: $white;
+	//	}
+	//	40% {
+	//		stroke-dashoffset: 1000;
+	//		fill: transparent;
+	//	}
+	//	100% {
+	//		stroke-dashoffset: 0;
+	//		fill: none;
+	//		background: transparent;
+	//	}
+	//}
+
 	// Link
 	// =========================================================================
 

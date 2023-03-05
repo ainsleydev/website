@@ -19,12 +19,17 @@ import { Arrow } from './animations/arrow';
 import LocomotiveScroll from 'locomotive-scroll';
 import smoothscroll from 'smoothscroll-polyfill';
 
+/**
+ * Vars
+ */
+const html = document.documentElement,
+	body = document.body;
+
 /*
  * Remove No JS Body Class
- *
  */
-document.documentElement.classList.remove('no-js');
-document.documentElement.classList.add('js');
+html.classList.remove('no-js');
+html.classList.add('js');
 
 /**
  * Initialise components & types.
@@ -53,13 +58,17 @@ smoothscroll.polyfill();
 /**
  * Scroll
  */
-window.addEventListener(
-	'scroll',
-	(e) => {
-		console.log(',', e);
-	},
-	false,
-);
+const scrollAmount = 500;
+body.addEventListener('scroll', () => {
+	const y = body.scrollTop;
+	html.style.setProperty('--scroll-y', y.toString());
+	if (y > scrollAmount) {
+		Log.info('Scrolled passed point');
+		html.classList.add('scrolled');
+		return;
+	}
+	html.classList.remove('scrolled');
+});
 
 /**
  * Lazy Images
