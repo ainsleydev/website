@@ -18,18 +18,30 @@
 {{- else -}}
 	<div
 {{- end }}
-	class="arrow-text">
+	class="arrow-text arrow-text-small">
 	<!-- Text -->
 	{{ with .text -}}
-		<div class="arrow-text-content">
-			{{ . | safeHTML }}
-		</div>
+        {{ . | safeHTML }}
 	{{- end }}<!-- /Text -->
 	<!--- Arrow -->
-	<div class="arrow-text-image">
-		{{ partial "components/arrow-hover.html" (dict
-			"rotation" 45
-		)}}
+	<div class="arrow-text-image arrow-hover">
+		<!-- Arrow -->
+		<figure class="arrow-link-image">
+			<div class="arrow-hover-visible">
+                {{ partial "svgs/arrow.html" (dict
+                "rotation" .rotation
+                "colour" .colour
+                "stroke" 2
+                )}}
+			</div>
+			<div class="arrow-hover-hidden">
+                {{ partial "svgs/arrow.html" (dict
+                "rotation" .rotation
+                "colour" .colour
+                "stroke" 2
+                )}}
+			</div>
+		</figure>
 	</div><!-- /Arrow -->
 {{ if .link -}}
 	</a>

@@ -57,14 +57,17 @@
 	&-text {
 		position: relative;
 		display: flex;
+		align-items: center;
 
 		&-image {
 			position: relative;
+			transform: translateY(-20%);
+			margin-left: 1.6rem;
 		}
 
-		#{$self} {
-			margin-left: 1.6rem;
-			bottom: 1.6rem;
+		&-small &-image {
+			transform: scale(0.7) translateY(-20%);
+			margin-left: 0;
 		}
 
 		* {
