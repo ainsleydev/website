@@ -5,6 +5,7 @@
 
 .highlight {
 	$self: &;
+	position: relative;
 	padding-left: $highlight-padding;
 	padding-right: $highlight-padding;
 	margin-bottom: $margin;

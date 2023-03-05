@@ -5,6 +5,9 @@
 
 code {
 	$self: &;
+	display: inline-flex;
+	max-width: 100%;
+	overflow-x: auto;
 	padding: $code-padding;
 	font-family: $font-code;
 	background-color: $off-white;

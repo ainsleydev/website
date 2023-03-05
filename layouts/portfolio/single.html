@@ -51,9 +51,9 @@
 								</a>
 							</div>
                         {{ end }}<!-- /Website -->
-						<!-- Mobile Arrow -->
-						<figure class="portfolio-arrow">
-                            {{ partial "type/arrow-link.html" (dict
+						<!-- Arrow -->
+						<figure class="portfolio-arrow scroll">
+                            {{ partial "arrow/hover.html" (dict
                             	"link" "#content"
                             	"title" "Scroll down to explore"
                             	"rotation" 135
@@ -137,14 +137,18 @@
 		Next Project
 		===================== -->
     {{ with .PrevInSection }}
-		<section class="portfolio-next">
+		<a href="{{ .RelPermalink }}" class="portfolio-next arrow-hover zoom cursor-element"
+		   title="{{ printf "Next page in %s" .Section }}"
+		   aria-label="{{ printf "Next page in %s" .Section }}"
+		   data-cursor-invert data-cursor-invert-black>
 			<!-- Next Image -->
-			<picture class="portfolio-next-image">
+			<picture class="portfolio-next-image zoom-overflow">
                 {{ partial "media/picture.html" (dict
-                	"image" (.Resources.GetMatch "images/horizontal.jpg")
-                	"mob" (.Resources.GetMatch "images/card**")
-					"alt" (printf "ainsley.dev %s Mockup" .Params.company)
-					"lazy" true
+                "image" (.Resources.GetMatch "images/horizontal.jpg")
+                "mob" (.Resources.GetMatch "images/card**")
+                "alt" (printf "ainsley.dev %s Mockup" .Params.company)
+                "lazy" true
+                "class" "zoom-element"
                 )}}
 			</picture>
 			<!-- Link -->
@@ -154,18 +158,17 @@
 						<!-- Company -->
                         {{ with .Params.company }}
 							<h6 class="margin">
-								{{ . }}
+                                {{ . }}
 							</h6>
                         {{- end }}
-                        {{ partial "type/arrow-link.html" (dict
-							"link" .Permalink
-							"text" "<h2>Next project</h2>"
-							"title" (printf "Next page in %s" .Section)
-							"rotation" 45
+						<!-- Arrow Text -->
+                        {{ partial "arrow/text.html" (dict
+                        	"text" "<h2>Next project</h2>"
+                        	"rotation" 45
                         )}}
 					</div><!-- /Col -->
 				</div><!-- /Row -->
 			</div><!-- /Container -->
-		</section>
+		</a>
     {{- end }}
 {{ end }}

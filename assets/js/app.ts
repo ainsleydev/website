@@ -13,18 +13,23 @@ import { FitText } from './components/fit-text';
 import { Collapse, CollapseOptions } from './components/accordion';
 import { Card } from './components/card';
 import { Navigation } from './components/nav';
+import { Log } from './util/log';
+import { Toast } from './animations/toast';
+import { Arrow } from './animations/arrow';
 import LocomotiveScroll from 'locomotive-scroll';
 import smoothscroll from 'smoothscroll-polyfill';
-import { Log } from './util/log';
-import { cli } from 'swagger-typescript-api/cli';
-import { Toast } from './animations/toast';
+
+/**
+ * Vars
+ */
+const html = document.documentElement,
+	body = document.body;
 
 /*
  * Remove No JS Body Class
- *
  */
-document.documentElement.classList.remove('no-js');
-document.documentElement.classList.add('js');
+html.classList.remove('no-js');
+html.classList.add('js');
 
 /**
  * Initialise components & types.
@@ -35,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	new Skew();
 	new FitText();
 	new Card();
+	new Arrow();
 	new Collapse({
 		accordion: true,
 		container: '.accordion',
@@ -52,13 +58,17 @@ smoothscroll.polyfill();
 /**
  * Scroll
  */
-window.addEventListener(
-	'scroll',
-	(e) => {
-		console.log(',', e);
-	},
-	false,
-);
+const scrollAmount = 500;
+body.addEventListener('scroll', () => {
+	const y = body.scrollTop;
+	html.style.setProperty('--scroll-y', y.toString());
+	if (y > scrollAmount) {
+		Log.info('Scrolled passed point');
+		html.classList.add('scrolled');
+		return;
+	}
+	html.classList.remove('scrolled');
+});
 
 /**
  * Lazy Images

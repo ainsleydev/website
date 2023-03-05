@@ -2,10 +2,10 @@
 	<!-- =====================
 		Insights Single
 		===================== -->
-	<section class="hero hero-simple hero-simple-padding-bottom">
+	<section class="hero hero-simple hero-simple-padding-bottom" data-cursor-white>
 		<div class="container">
 			<div class="row justify-content-center">
-				<div class="col-12 col-tab-10 col-desk-8 col-desk-large-7">
+				<div class="col-12 col-tab-10 col-desk-8 col-desk-large-7 d-flex flex-column order-desk-first">
 					<!-- =====================
 						Intro
 						===================== -->
@@ -32,7 +32,7 @@
 					<!-- =====================
 						Meta
 						===================== -->
-					<div class="insight-meta margin-large">
+					<div class="insight-meta">
 						{{ .Render "social" }}
                         {{ .Render "author" }}
 					</div>
@@ -49,31 +49,6 @@
 	<!-- =====================
 		Other Reads
 		===================== -->
-	<section class="section section-padding bg-off-white">
-		<div class="container">
-			<div class="row justify-content-center section-padding section-padding-bottom section-padding-small">
-				<div class="col-12 col-desk-10">
-					<div class="d-desk-flex justify-content-between align-items-center">
-						<!-- Title -->
-						<h2 class="mb-0">Other reads</h2>
-					</div><!-- /Row -->
-				</div><!-- /Col -->
-                {{ range (where .Site.RegularPages "Type" "insights").Related . | first 4 }}
-					<div class="col-12 col-desk-10 card-col">
-                        {{ .Render "card" }}
-					</div><!-- /Col -->
-                {{- end }}
-				<!-- All Insights -->
-				<div class="col-12 order-desk-0">
-                    {{ partial "type/arrow-link.html" (dict
-						"link" "/insights/"
-						"text" "<h3>All insights</h3>"
-						"title" "View all insights"
-						"rotation" 45
-                    )}}
-				</div><!-- /Col -->
-			</div><!-- /Row -->
-		</div><!-- /Container -->
-	</section>
+	{{ .Render "related"}}
 {{ end }}
 

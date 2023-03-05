@@ -1,0 +1,17 @@
+// -----------------------------------------------------------------------------
+// _scroll.scss
+// This file contains scroll animations.
+// -----------------------------------------------------------------------------
+
+.scroll {
+	$self: &;
+	transition: opacity 300ms ease;
+	will-change: opacity;
+}
+
+// HTML Scrolled
+// =========================================================================
+
+html.scrolled .scroll {
+	opacity: 0;
+}

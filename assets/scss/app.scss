@@ -32,8 +32,10 @@
     ==================== */
 @import 'animations/cursor';
 @import 'animations/lazy';
+@import 'animations/scroll';
 @import 'animations/skew';
 @import 'animations/toast';
+@import 'animations/zoom';
 
 /* ====================
     Grid
@@ -64,6 +66,7 @@
 @import 'components/highlight';
 @import 'components/image';
 @import 'components/list';
+@import 'components/pagination';
 @import 'components/placeholder';
 @import 'components/quote';
 @import 'components/social';

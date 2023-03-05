@@ -54,12 +54,6 @@
 		&-padding-bottom {
 			padding-bottom: $section-padding;
 		}
-
-		&-title-padding {
-			h1 {
-				margin-bottom: $section-padding-small;
-			}
-		}
 	}
 
 	// Full Height
@@ -157,6 +151,11 @@
 		grid-template-columns: repeat(2, 1fr);
 		grid-column-gap: 2rem;
 		margin-bottom: -1.2rem;
+
+		a {
+			display: flex;
+			align-items: center;
+		}
 
 		figure {
 			display: inline-grid;

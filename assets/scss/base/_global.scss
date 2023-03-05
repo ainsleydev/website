@@ -86,6 +86,10 @@ fieldset {
 	padding: 0;
 }
 
+details summary::-webkit-details-marker {
+	display: none !important;
+}
+
 // No JS
 // =========================================================================
 

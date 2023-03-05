@@ -2,24 +2,14 @@
     Twitter
     ===================== -->
 {{- $baseURL := .Site.BaseURL -}}
-{{- with $.Params.images -}}
-	<meta name="twitter:card" content="summary_large_image"/>
-	<meta name="twitter:image" content="{{ index . 0 | absURL }}"/>
-{{ else -}}
-    {{- $images := $.Resources.ByType "image" -}}
-    {{- $featured := $images.GetMatch "*feature*" -}}
-    {{- with $featured -}}
-		<meta name="twitter:card" content="summary_large_image"/>
-		<meta name="twitter:image" content="{{ $featured.Permalink }}"/>
-    {{- else -}}
-        {{- with $.Site.Params.images -}}
-			<meta name="twitter:card" content="summary_large_image"/>
-			<meta name="twitter:image" content="{{ index . 0 | absURL }}"/>
-        {{ else -}}
-			<meta name="twitter:card" content="summary"/>
-        {{- end -}}
-    {{- end -}}
-{{- end }}
+<!-- Image -->
+<meta name="twitter:card" content="summary_large_image"/>
+{{ $image := . }}
+{{- with .Page.Resources.Get "images/og.jpg" -}}
+	<meta property="og:image" content="{{ .Permalink }}"/>
+{{- else -}}
+	<meta property="og:image" content="{{ $baseURL }}/opengraph.jpg" />
+{{- end -}}
 <!-- Title, Description & Handles -->
 <meta name="twitter:title" content="{{ .Title }}"/>
 <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}"/>

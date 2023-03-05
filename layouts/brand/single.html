@@ -46,7 +46,7 @@
 					</div>
 					<!-- Arrow -->
 					<div class="hero-arrow">
-                        {{ partial "type/arrow-link.html" (dict
+                        {{ partial "arrow/hover.html" (dict
 							"link" (printf "%s#content" .Page.RelPermalink)
                         	"title" "Scroll down to explore"
                        	 	"rotation" 135
@@ -94,7 +94,7 @@
 				</div><!-- /Col -->
 				<!-- Previous / Next -->
 				<div class="col-12 col-desk-8 offset-desk-4">
-                    {{ partial "components/next-prev.html" (dict
+                    {{ partial "components/pagination.html" (dict
 						"prev" .PrevInSection
 						"next" .NextInSection
                     )}}
