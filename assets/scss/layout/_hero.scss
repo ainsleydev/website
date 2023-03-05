@@ -152,6 +152,11 @@
 		grid-column-gap: 2rem;
 		margin-bottom: -1.2rem;
 
+		a {
+			display: flex;
+			align-items: center;
+		}
+
 		figure {
 			display: inline-grid;
 			align-items: center;
