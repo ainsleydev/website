@@ -221,6 +221,9 @@ $tag-font-size: 0.9rem;
 	--a-symbol-clip-left: #{$a-symbol-clip-left};
 	--a-symbol-clip-right: #{$a-symbol-clip-right};
 
+	// Card
+	--card-border: 2px solid #{rgba($white, $alpha-standard)};
+
 	// Opacity
 	--alpha-standard: #{$alpha-standard};
 	--alpha-light: #{$alpha-light};
@@ -246,6 +249,9 @@ $tag-font-size: 0.9rem;
 		--colour-foreground: #{$black};
 		--colour-paragraph: #{$copy-light-bg};
 		--colour-list: #{$copy-light-bg};
+
+		// Card
+		--card-border: 2px solid #{rgba($black, $alpha-standard)};
 
 		// Table
 		--table-border-colour: #dddddd;

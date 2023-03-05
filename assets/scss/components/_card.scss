@@ -77,7 +77,7 @@
 		margin-bottom: 0;
 		padding-top: $margin-large;
 		padding-bottom: $margin-large;
-		border-bottom: 2px solid rgba($black, $alpha-light);
+		border-bottom: var(--card-border);
 
 		#{$self}-text {
 			&-title {
