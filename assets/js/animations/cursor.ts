@@ -84,7 +84,9 @@ export class Cursor {
 			classes.forEach((c) => {
 				this.removeScale();
 				this.el.classList.remove('cursor-active');
-				this.el.classList.remove(c.replace('data-', ''));
+				setTimeout(() => {
+					this.el.classList.remove(c.replace('data-', ''));
+				}, 300);
 			}),
 		);
 	}

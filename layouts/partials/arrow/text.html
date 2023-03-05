@@ -21,7 +21,7 @@
 	{{ with .title -}}
 		title="{{ . }}" aria-label="{{ . }}"
 	{{ else -}}
-		{{- warnf "No title provided to arrow link: %s" .link -}}
+		{{- warnf "No title provided to arrow text: %s" .link -}}
 	{{- end }}
 	data-rotation="{{ .rotation }}"
 	data-cursor-border>
@@ -50,5 +50,5 @@
 		</figure>
 	</a>
 {{- else -}}
-    {{- warnf "No text  provided to arrow link" -}}
+    {{- warnf "No text provided to arrow text" -}}
 {{- end }}

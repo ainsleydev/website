@@ -10,11 +10,12 @@
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
-	background-color: transparent;
 	pointer-events: none;
-	transform: translate(-50%, -50%) scale(1);
+	transform: translate(-50%, -50%) scale(0);
 	border: 1px solid transparent;
-	transition: transform 300ms ease, background-color 300ms ease, border-color 300ms ease;
+	background-color: transparent;
+	transition: transform 250ms linear, background-color 300ms ease, border-color 300ms ease;
+	will-change: transform, background-color, border-color;
 
 	// Active
 	// =========================================================================
@@ -38,29 +39,12 @@
 		cursor: none;
 
 		&-black {
-			background: $black;
+			background-color: $white;
 		}
 
 		&-white {
-			background: $white;
+			background-color: $white;
 		}
-	}
-
-	// Colours
-	// =========================================================================
-
-	&-theme {
-		&-black {
-			//background-color: $white;
-		}
-
-		&-white {
-			//background-color: $black;
-		}
-	}
-
-	&-white {
-		background-color: $white;
 	}
 
 	// Border
