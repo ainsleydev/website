@@ -1,8 +1,8 @@
 <!-- =====================
-    Arrow Text
-    	partial "type/arrow-link.html" (dict
+    Arrow Link
+    	partial "arrow/text.html" (dict
 			"rotation" 45
-			"colour" "white"x
+			"colour" "white"
 			"down" true
 			"stroke" 2
 			"title" "Navigate to..."
@@ -13,20 +13,26 @@
 		- class:	Any additional class names to be appended to appear.
 		- title:	The title & aria label of the link.
     ===================== -->
-{{ if .link -}}
+{{ if .link }}
 	<a href="{{ .link }}"
-{{- else -}}
-	<div
-{{- end }}
-	class="arrow-text arrow-text-small">
-	<!-- Text -->
-	{{ with .text -}}
-        {{ . | safeHTML }}
-	{{- end }}<!-- /Text -->
-	<!--- Arrow -->
-	<div class="arrow-text-image arrow-hover">
+	class="arrow-text arrow-hover cursor-element
+	{{ if .small -}} arrow-text-small {{- end }}
+	{{ with .class -}} {{ . }} {{- end }}"
+	{{ with .title -}}
+		title="{{ . }}" aria-label="{{ . }}"
+	{{ else -}}
+		{{- warnf "No title provided to arrow link: %s" .link -}}
+	{{- end }}
+	data-rotation="{{ .rotation }}"
+	data-cursor-border>
+		<!-- Text -->
+        {{ with .text -}}
+			<div class="arrow-text-content">
+                {{ . | safeHTML }}
+			</div>
+        {{- end }}
 		<!-- Arrow -->
-		<figure class="arrow-link-image">
+		<figure class="arrow-text-image">
 			<div class="arrow-hover-visible">
                 {{ partial "svgs/arrow.html" (dict
                 "rotation" .rotation
@@ -42,9 +48,7 @@
                 )}}
 			</div>
 		</figure>
-	</div><!-- /Arrow -->
-{{ if .link -}}
 	</a>
 {{- else -}}
-	</div>
+    {{- warnf "No text  provided to arrow link" -}}
 {{- end }}

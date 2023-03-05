@@ -53,7 +53,7 @@
                         {{ end }}<!-- /Website -->
 						<!-- Arrow -->
 						<figure class="portfolio-arrow scroll">
-                            {{ partial "components/arrow-hover.html" (dict
+                            {{ partial "arrow/hover.html" (dict
                             	"link" "#content"
                             	"title" "Scroll down to explore"
                             	"rotation" 135
@@ -162,9 +162,9 @@
 							</h6>
                         {{- end }}
 						<!-- Arrow Text -->
-                        {{ partial "type/arrow-text.html" (dict
-                        "text" "<h2>Next project</h2>"
-                        "rotation" 45
+                        {{ partial "arrow/text.html" (dict
+                        	"text" "<h2>Next project</h2>"
+                        	"rotation" 45
                         )}}
 					</div><!-- /Col -->
 				</div><!-- /Row -->

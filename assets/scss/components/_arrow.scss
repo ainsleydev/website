@@ -41,40 +41,6 @@
 	//	}
 	//}
 
-	// Link
-	// =========================================================================
-
-	&-link {
-		position: relative;
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
-	}
-
-	// Text
-	// =========================================================================
-
-	&-text {
-		position: relative;
-		display: flex;
-		align-items: center;
-
-		&-image {
-			position: relative;
-			transform: translateY(-20%);
-			margin-left: 1.6rem;
-		}
-
-		&-small &-image {
-			transform: scale(0.7) translateY(-20%);
-			margin-left: 0;
-		}
-
-		* {
-			margin-bottom: 0;
-		}
-	}
-
 	// Hover
 	// =========================================================================
 
@@ -97,13 +63,28 @@
 		}
 	}
 
-	// Desktop
+	// Text
 	// =========================================================================
 
-	@include media-desk {
-		&-link-text {
-			@include h3;
+	&-text {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: flex-start;
+
+		* {
 			margin-bottom: 0;
+		}
+
+		&-image {
+			position: relative;
+			transform: translateY(-20%);
+			margin-left: 1.6rem;
+		}
+
+		&-small &-image {
+			transform: scale(0.7) translateY(-20%);
+			margin-left: 0;
 		}
 	}
 }
