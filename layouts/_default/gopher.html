@@ -34,13 +34,15 @@
 					{{- end }}
 					<!-- Go Back -->
 					{{ with .Params.goback -}}
-						{{ partial "components/button.html" (dict
-							"text" "Go back"
-							"colour" "white"
-							"arrow" true
-							"title" "Go back"
-							"attr" "data-go-back"
-						)}}
+						<div class="margin-top">
+                            {{ partial "components/button.html" (dict
+								"text" "Go back"
+								"colour" "white"
+								"arrow" true
+								"title" "Go back"
+								"attr" "data-go-back"
+                            )}}
+						</div>
 					{{- end }}
 				</div><!-- /Col -->
 			</div><!-- /Row -->

@@ -46,8 +46,18 @@
             {{- end }}
 			<!-- Arrow -->
             {{ if .arrow -}}
-                {{ partial "svgs/arrow.html" (dict "colour" "black" "rotation" "90" "stroke" 3 "class" "btn-arrow-image btn-arrow-left") }}
-                {{ partial "svgs/arrow.html" (dict "colour" "black" "rotation" "90" "stroke" 3 "class" "btn-arrow-image btn-arrow-right") }}
+                {{ partial "svgs/arrow.html" (dict
+					"colour" "black"
+					"rotation" "90"
+					"stroke" 3
+					"class" "btn-arrow-image btn-arrow-left"
+				)}}
+                {{ partial "svgs/arrow.html" (dict
+					"colour" "black"
+					"rotation" "90"
+					"stroke" 3
+					"class" "btn-arrow-image btn-arrow-right"
+				)}}
             {{- end }}
 		</div><!-- /Wrapper -->
 {{ if .link -}}
