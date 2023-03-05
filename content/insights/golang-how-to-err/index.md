@@ -15,7 +15,9 @@ author: Ainsley Clark
 {{< lead >}}
 Failure is your domain. Effective error handling in any GoLang package or application is crucial to understand how and
 where errors are formulated. Errors used in combination with effective logging, can save hours of debugging time.
+{{< /lead >}}
 
+{{< lead >}}
 See the supporting repository - [github.com/ainsleyclark/errors](https://github.com/ainsleyclark/errors)
 {{< /lead >}}
 
