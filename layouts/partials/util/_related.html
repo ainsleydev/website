@@ -1,0 +1,17 @@
+<!-- =====================
+    Related Articles
+    ===================== -->
+{{- $related := (where .Site.RegularPages "Type" "insights").Related .  -}}
+{{- $other :=  (where .Site.RegularPages "Type" "insights").ByWeight.ByDate -}}
+{{ $out := slice }}
+{{- $data := newScratch -}}
+{{ with append $other $related -}}
+    {{ range $index, $card := . }}
+        {{ if and (lt $index 5) (not ($data.Get $card.Title)) (not (eq $card.Title $.Title)) }}
+			{{ $out = append $card $out }}
+        {{ end }}
+        {{ $data.Set $card.Title true }}
+    {{- end }}
+{{- end }}
+{{ return $out }}
+

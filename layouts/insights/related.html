@@ -1,8 +1,7 @@
 <!-- =====================
     Insights Related
     ===================== -->
-{{/*	{{ $related := (where .Site.RegularPages "Type" "insights").Related . | first 4  -}}*/}}
-{{ $related := (where .Site.RegularPages "Type" "insights") | first 4  -}}
+{{- $related := (partial "util/_related.html" .) -}}
 {{ with $related -}}
 	<section class="section section-padding bg-off-white">
 		<div class="container d-flex flex-column">
@@ -24,7 +23,7 @@
 				</div><!-- /Col -->
 			</div><!-- /Row -->
 			<div class="row justify-content-center">
-				{{ range $index, $card := . }}
+				{{ range  . }}
 					<div class="col-12 col-desk-10 card-col">
 						{{ .Render "card" }}
 					</div><!-- /Col -->
