@@ -15,7 +15,9 @@ author: Ainsley Clark
 {{< lead >}}
 Failure is your domain. Effective error handling in any GoLang package or application is crucial to understand how and
 where errors are formulated. Errors used in combination with effective logging, can save hours of debugging time.
+{{< /lead >}}
 
+{{< lead >}}
 See the supporting repository - [github.com/ainsleyclark/errors](https://github.com/ainsleyclark/errors)
 {{< /lead >}}
 
@@ -46,7 +48,7 @@ makes for smaller functions and having no throws flags shortens method signature
 ### What is an error?
 
 An error is anything that implements the singular method interface `error` in the standard library interface. An
-error **_type _**must implement a method that returns a string.
+error **_type _** must implement a method that returns a string.
 
 ```go
 // The error built-in interface type is the conventional interface for

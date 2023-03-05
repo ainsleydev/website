@@ -1,27 +1,19 @@
 <!-- =====================
     Opengraph
     ===================== -->
-{{- $baseURL := .Site.BaseURL -}}
+{{- $baseURL := .Site.BaseURL | strings.TrimSuffix "/" -}}
 <!-- Title, Description & Handles -->
 <meta property="og:title" content="{{ .Title }}" />
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
 <meta property="og:url" content="{{ $baseURL }}" />
-<!--
-	Images
-	TODO: Need to translate this into dynamic
--->
-{{- with $.Params.images -}}
-    {{- range first 6 . }}<meta property="og:image" content="{{ . | absURL }}" />{{ end -}}
+<!-- Image -->
+<!-- TODO, Account for generated images -->
+{{ $image := . }}
+{{- with .Page.Resources.Get "images/jjog.jpg" -}}
+	<meta property="og:image" content="{{ .Permalink }}"/>
 {{- else -}}
-    {{- $images := $.Resources.ByType "image" -}}
-    {{- $featured := $images.GetMatch "*feature*" -}}
-    {{- if not $featured }}{{ $featured = $images.GetMatch "{*cover*,*thumbnail*}" }}{{ end -}}
-    {{- with $featured -}}
-		<meta property="og:image" content="{{ printf "%s%s" $baseURL $featured.Permalink }}"/>
-    {{- else -}}
-        {{- with $.Site.Params.images }}<meta property="og:image" content="{{ index . 0 | absURL }}"/>{{ end -}}
-    {{- end -}}
+	<meta property="og:image" content="{{ $baseURL }}/opengraph.jpg" />
 {{- end -}}
 <!-- Articles -->
 {{- if .IsPage }}

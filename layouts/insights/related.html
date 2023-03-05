@@ -1,0 +1,34 @@
+<!-- =====================
+    Insights Related
+    ===================== -->
+{{- $related := (partial "util/_related.html" .) -}}
+{{ with $related -}}
+	<section class="section section-padding bg-off-white">
+		<div class="container d-flex flex-column">
+			<div class="row justify-content-center margin-title">
+				<div class="col-12 col-desk-10">
+					<div class="d-desk-flex justify-content-between align-items-center">
+						<!-- Title -->
+						<h2 class="mb-0">Other reads</h2>
+						<!-- All Insights -->
+						{{ partial "arrow/text.html" (dict
+							"link" "/insights/"
+							"text" "<h3>All insights</h3>"
+							"title" "View all insights"
+							"small" true
+							"rotation" 45
+							"class" "d-none d-desk-flex"
+						)}}
+					</div><!-- /Row -->
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+			<div class="row justify-content-center">
+				{{ range  . }}
+					<div class="col-12 col-desk-10 card-col">
+						{{ .Render "card" }}
+					</div><!-- /Col -->
+				{{- end }}
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+{{- end }}

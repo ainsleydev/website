@@ -2,13 +2,13 @@
 	<!-- =====================
 		Insights List
 		===================== -->
-	<section class="hero hero-simple hero-simple-title-padding">
+	<section class="hero hero-simple margin-title">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-12 col-desk-10">
 					<!-- Title -->
                     {{ with .Params.htmlTitle }}
-						<h1>
+						<h1 class="mb-0">
 							{{ . | safeHTML }}
 						</h1>
                     {{- else -}}
@@ -21,7 +21,7 @@
 	<!-- =====================
 		Items
 		===================== -->
-	{{ $paginator := .Paginate .Pages.ByDate.Reverse 12 -}}
+	{{ $paginator := .Paginate .Pages.ByDate.Reverse 14 -}}
 	{{ if $paginator.Pages -}}
 		<section class="section section-padding section-padding-bottom" id="pages">
 			<div class="container">
@@ -36,10 +36,9 @@
 				<!-- Previous / Next -->
 				<div class="row justify-content-center">
 					<div class="col-12 col-desk-10">
-                        {{ partial "components/next-prev.html" (dict
+                        {{ partial "components/pagination.html" (dict
 							"prev" $paginator.Prev
 							"next" $paginator.Next
-                       		"class" "section-padding section-padding-small section-padding-top"
                         )}}
 					</div><!-- /Col -->
 				</div><!-- /Row -->

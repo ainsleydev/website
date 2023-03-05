@@ -6,6 +6,14 @@
 .skew {
 	$self: &;
 
+	@include media-desk-down {
+		transform: none !important; // Override JS
+	}
+
+	//@media not all and (hover: none) {
+	//
+	//}
+
 	@media (hover: hover) {
 		transition: transform 100ms linear;
 		will-change: transform;

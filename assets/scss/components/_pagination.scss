@@ -1,0 +1,9 @@
+// -----------------------------------------------------------------------------
+// _code.scss
+// This file contains all styles related to the pagination component.
+// -----------------------------------------------------------------------------
+
+.pagination {
+	$self: &;
+	padding-top: $margin-title;
+}

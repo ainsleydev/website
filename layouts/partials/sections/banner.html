@@ -1,16 +1,32 @@
 <!-- =====================
     Banner
-		< sections/quote sub="Get in touch" cite="ainsley.dev" >
-		- text:		TODO
+		partial "sections/banner.html" (dict
+    		"text" "Text"
+    		"sub" "Sub heading"
+    		"image" (resources.Get "hello.jpg")
+    		"brightness" 80
+    	)}}
+		- text:			The content of the banner.
+		- sub:			The sub heading for the banner.
+		- image:		The image resource for the banner.
+		- brightness:	How bright the image should be from 0 to 100.
     ===================== -->
-<a href="/temp" class="banner cursor-element"
+<a href="/contact/" class="banner arrow-hover zoom cursor-element"
+	title="Get in touch with ainsley.dev"
+	aria-label="Navigate to the contact page"
 	data-cursor-border data-cursor-border-white data-cursor-scale="3">
 	<!-- Image -->
-	<picture class="banner-image brightness-80">
+	<picture class="banner-image zoom-overflow
+		{{ with .brightness -}} brightness-{{ . }} {{ else }} brightness-50 {{- end }}">
+		{{ $image := resources.Get "images/banners/desk.jpg" -}}
+		{{- if .image }}
+			{{- $image = .image -}}
+		{{- end }}
 		{{ partial "media/picture.html" (dict
-			"image" (resources.Get "images/banners/desk.jpg")
+			"image" $image
 			"lazy" true
 			"alt" "ainsley.dev Office"
+			"class" "zoom-element"
 		)}}
 	</picture><!-- /Image -->
 	<!-- Content -->
@@ -21,14 +37,26 @@
 				<div class="banner-content">
 					<!-- Sub -->
 					<h6 class="banner-sub margin">
-						Get in touch
+                        {{ with .sub }}
+                            {{ . | safeHTML}}
+                        {{- else -}}
+							Get in touch
+                        {{- end }}
 					</h6>
 					<!-- Title -->
 					<span class="banner-title heading-1">
-						Say <br/><span class="type-serif">hello*</span>
+					  {{ with .text }}
+                          {{ . | safeHTML }}
+						{{- else -}}
+							Say <br/><span class="type-serif">hello*</span>
+						{{- end }}
 					</span>
 					<!-- Arrow Link -->
-                    {{ partial "svgs/arrow.html" (dict "rotation" 45 "colour" .colour "stroke" 1) }}
+                    {{ partial "arrow/hover.html" (dict
+						"rotation" 45
+						"colour" .colour
+						"stroke" 1
+					)}}
 				</div><!-- /Content -->
 			</div><!-- /Col -->
 		</div><!-- /Row -->

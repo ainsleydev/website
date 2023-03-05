@@ -15,10 +15,12 @@
 	&-intro {
 		display: flex;
 		flex-direction: column;
-		margin-bottom: $margin;
+		margin-top: $margin;
+		order: 999;
 
 		&-crumbs {
 			margin-bottom: 8px;
+			display: none;
 		}
 
 		&-tags {
@@ -77,6 +79,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+		margin-bottom: $margin;
 		width: 100%;
 	}
 
@@ -102,16 +105,17 @@
 		}
 	}
 
-	// Tablet
+	// Mobile
 	// =========================================================================
 
 	@include media-tab {
 		&-author {
+			margin-top: 0;
 			margin-bottom: 0;
 		}
 
 		&-meta {
-			flex-direction: row;
+			flex-direction: row-reverse;
 			align-items: center;
 		}
 	}
@@ -123,8 +127,12 @@
 		&-intro {
 			flex-direction: row;
 			align-items: center;
+			order: -1;
+			margin-top: 0;
+			margin-bottom: $margin;
 
 			&-crumbs {
+				display: flex;
 				margin-bottom: 0;
 			}
 
@@ -135,12 +143,8 @@
 			}
 		}
 
-		&-author {
-			margin-top: 0;
-		}
-
 		&-meta {
-			flex-direction: row-reverse;
+			margin-bottom: $margin-large;
 		}
 	}
 }

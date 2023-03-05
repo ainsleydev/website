@@ -257,4 +257,13 @@ a.btn {
 			box-shadow: none;
 		}
 	}
+
+	// Desktop
+	// =========================================================================
+
+	@media (hover: none) {
+		&[data-bookmark] {
+			display: none;
+		}
+	}
 }

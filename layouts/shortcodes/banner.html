@@ -1,7 +1,10 @@
 <!-- =====================
     Banner
-		TODO
+		< banner sub="Get in touch" text="Say <br/><span class="type-serif">hello*</span> "image" "images/banners/desk.jpg" brightness=80 >
     ===================== -->
 {{ partial "sections/banner.html" (dict
-	"TODO" .Inner
+	"text" (.Get "text")
+	"sub" (.Get "sub")
+	"image" (partial "util/_resource.html" (dict "src" (.Get "image") "ctx" .))
+	"brightness" (.Get "brightness")
 )}}

@@ -151,8 +151,8 @@ does your application need? What does it do? How is it going to behave? We can t
 all-magical `domain` package.
 
 Our domain package describes types (structs) and behaviours (interfaces) that our services will later implement. It can
-be called whatever you like – `domain`, `types`, `definitions` or **even the name of the package you are creating; **but
-the main takeaway is that it should not import **anything from other parts of your project. **It should be a reference
+be called whatever you like – `domain`, `types`, `definitions` or **even the name of the package you are creating;** but
+the main takeaway is that it should not import **anything from other parts of your project.** It should be a reference
 point for types across the whole application, which eliminates cyclomatic dependencies.
 
 Say we have a file upload system we need to implement:

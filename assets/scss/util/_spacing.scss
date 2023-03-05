@@ -7,6 +7,7 @@
 // ==========================================================================
 
 .margin {
+	$self: &;
 	margin-bottom: $margin;
 
 	p:last-of-type {
@@ -27,6 +28,30 @@
 
 	&-large {
 		margin-bottom: $margin-large;
+	}
+
+	&-title {
+		margin-bottom: $margin-title;
+	}
+
+	&-top {
+		margin-top: $margin;
+
+		#{$self}-tiny {
+			margin-top: $margin-tiny;
+		}
+
+		#{$self}-small {
+			margin-top: $margin-small;
+		}
+
+		#{$self}-large {
+			margin-top: $margin-large;
+		}
+
+		#{$self}-title {
+			margin-top: $margin-title;
+		}
 	}
 }
 

@@ -1,0 +1,51 @@
+<!-- =====================
+    Arrow Hover
+    	partial "arrow/hover.html" (dict
+			"rotation" 45
+			"colour" "white"
+			"stroke" 2
+			"class" "class-name"
+			"title" "Link text, navigate to..."
+    	)
+    	- rotation:	The degree of rotation of the arrow
+    	- colour:	The colour of the arrow, defaults to white.
+    	- stroke:	The amount of stroke width to apply.
+    	- class:	Any additional class names to be appended to appear.
+		- title:	The title & aria label of the link.
+    ===================== -->
+{{ if .link -}}
+	<a href="{{ .link }}"
+	{{ with .title -}}
+		title="{{ . }}" aria-label="{{ . }}"
+	{{ else -}}
+		{{- warnf "No title provided to arrow hover: %s" .link -}}
+	{{- end }}
+{{- else -}}
+<div
+{{- end }}
+	class="arrow-hover cursor-element {{ with .class -}} {{ . }} {{- end }}"
+	data-arrow-rotation="{{ .rotation }}">
+	<!-- Arrow -->
+	<figure class="arrow-hover-image">
+		<!-- Visible -->
+		<div class="arrow-hover-visible">
+            {{ partial "svgs/arrow.html" (dict
+				"rotation" .rotation
+				"colour" .colour
+				"stroke" 2
+            )}}
+		</div><!-- /Visible -->
+		<!-- Hidden -->
+		<div class="arrow-hover-hidden">
+            {{ partial "svgs/arrow.html" (dict
+				"rotation" .rotation
+				"colour" .colour
+				"stroke" 2
+            )}}
+		</div><!-- /Hidden -->
+	</figure><!-- /Arrow -->
+{{ if .link -}}
+</a>
+{{- else -}}
+</div>
+{{- end }}

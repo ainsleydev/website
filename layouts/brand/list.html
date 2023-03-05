@@ -43,12 +43,11 @@
 						{{- end }}
 					</div><!-- /Text -->
 					<!-- Arrow -->
-                    {{ partial "type/arrow-link.html" (dict
+                    {{ partial "arrow/hover.html" (dict
 						"link" (printf "%s#content" .Page.RelPermalink)
 						"title" "Scroll down to explore"
 						"rotation" 135
 						"title" "Explore ainsley.dev Brand Guidelines"
-						"down" true
                     )}}<!-- /Arrow -->
 				</div><!-- /Col -->
 			</div><!-- /Row -->
@@ -58,7 +57,7 @@
 		Items
 		===================== -->
     {{ if .Pages -}}
-		<section class="section section-padding section-padding-bottom" id="pages">
+		<section class="section section-padding section-padding-bottom" id="content">
 			<div class="container">
 				<div class="row justify-content-between">
                     {{ range $index, $page := .Pages }}

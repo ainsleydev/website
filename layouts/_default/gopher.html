@@ -1,0 +1,51 @@
+{{ define "main" }}
+	<!-- =====================
+		404
+		===================== -->
+	<section class="hero hero-simple hero-simple-padding-bottom">
+		<div class="container">
+			<div class="row align-items-center justify-content-center justify-content-desk-start">
+				<!-- Gopher -->
+				<div class="col-12 col-tab-8 col-desk-5 offset-desk-1 offset-desk-large-2 order-desk-last">
+					<div class="margin-large mb-desk-0">
+						{{ $gopher := resources.Get "images/gopher.gif" -}}
+						{{ with $gopher -}}
+							<figure class="image">
+								<img src="{{ .RelPermalink }}" alt="Dancing Gopher">
+							</figure>
+                        {{ else -}}
+							{{- warnf "Gopher gif not found :(" -}}
+						{{- end }}
+					</div>
+				</div>
+				<!-- Content -->
+				<div class="col-12 col-desk-6 col-desk-large-5">
+					<!-- Heading -->
+					{{ with .Params.htmlTitle -}}
+						<h1>
+							{{ . | safeHTML }}
+						</h1>
+					{{- end }}
+					<!-- Lead -->
+					{{ with .Params.lead -}}
+						<p class="lead lead-max-width mb-0">
+							{{ . }}
+						</p>
+					{{- end }}
+					<!-- Go Back -->
+					{{ with .Params.goback -}}
+						<div class="margin-top">
+                            {{ partial "components/button.html" (dict
+								"text" "Go back"
+								"colour" "white"
+								"arrow" true
+								"title" "Go back"
+								"attr" "data-go-back"
+                            )}}
+						</div>
+					{{- end }}
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+{{ end }}
