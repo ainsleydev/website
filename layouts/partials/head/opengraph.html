@@ -9,8 +9,7 @@
 <meta property="og:url" content="{{ $baseURL }}" />
 <!-- Image -->
 <!-- TODO, Account for generated images -->
-{{ $image := . }}
-{{- with .Page.Resources.Get "images/jjog.jpg" -}}
+{{- with .Page.Resources.Get "images/og.jpg" -}}
 	<meta property="og:image" content="{{ .Permalink }}"/>
 {{- else -}}
 	<meta property="og:image" content="{{ $baseURL }}/opengraph.jpg" />
