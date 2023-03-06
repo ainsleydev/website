@@ -17,7 +17,8 @@ servers:
     -   url: https://staging.ainsley.dev/api
         description: Staging Environment
 paths:
-    "/forms/contact":
+    # Note, you must add the trailing slash.
+    "/forms/contact/":
         "post":
             description: Posts a new form submission from to contact page.
             operationId: SendContactForm
@@ -42,7 +43,7 @@ paths:
                                 $ref: '#/components/schemas/HTTPError'
 components:
     securitySchemes:
-        ApiKeyAuth:
+        Authentication:
             type: apiKey
             in: header
             name: X-API-Key
@@ -62,6 +63,9 @@ components:
         HTTPError:
             type: object
             properties:
+                message:
+                    example: Error, unable to authenticate
+                    type: string
                 code:
                     example: error_code
                     type: string
@@ -72,6 +76,7 @@ components:
                     example: Function.Method
                     type: string
             required:
+                - message
                 - code
                 - error
                 - operation
@@ -92,4 +97,4 @@ components:
             type: string
             description: The message sent back to the user upon successful submission.
 security:
-    -   ApiKeyAuth: [ ]
+    - Authentication: []

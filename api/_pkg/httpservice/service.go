@@ -14,20 +14,15 @@ import (
 func (h Handler) SendContactForm(ctx echo.Context) error {
 	const op = "Handler.SendContactForm"
 
-	err := api.Authenticate(ctx)
-	if err != nil {
-		return api.InternalError(ctx, errors.NewInvalid(err, "Error, unable to authenticate", op))
-	}
-
 	request := sdk.ContactFormRequest{}
-	err = ctx.Bind(&request)
+	err := ctx.Bind(&request)
 	if err != nil {
 		return api.BadRequest(ctx, errors.NewInvalid(err, "Error, malformed payload", op))
 	}
 
 	if request.Honeypot != "" {
-		return api.OK(ctx, nil, "Successfully sent contact form")
+		return api.OK(ctx, nil, "Successfully sent contact form.")
 	}
 
-	return nil
+	return api.OK(ctx, nil, "Successfully sent contact form,")
 }

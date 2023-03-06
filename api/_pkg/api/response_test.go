@@ -59,6 +59,7 @@ func UtilErrorCode(t *testing.T, status int, fn func(ctx echo.Context) error) {
 	err := json.NewDecoder(rec.Body).Decode(&response)
 	assert.NoError(t, err)
 	assert.Equal(t, status, rec.Code)
+	assert.Equal(t, TestError.Message, response.Message)
 	assert.Equal(t, TestError.Operation, response.Operation)
 	assert.Equal(t, TestError.Err.Error(), response.Error)
 	assert.Equal(t, TestError.Code, response.Code)

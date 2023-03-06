@@ -5,12 +5,13 @@
 package api
 
 import (
-	api "github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
-	"github.com/labstack/echo/v4/middleware"
-	"net/http"
-
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/api"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/httpservice"
+	sdk "github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
+	"log"
+	"net/http"
 )
 
 var (
@@ -21,17 +22,16 @@ var (
 func init() {
 	app = echo.New()
 	handler = &httpservice.Handler{}
-	echo.NotFoundHandler = func(c echo.Context) error {
-		// TODO
-		return nil
-	}
-	app.Use(middleware.GzipWithConfig(middleware.GzipConfig{
-		Level: 5,
-	}))
-	api.RegisterHandlersWithBaseURL(app, handler, "/api")
+	echo.NotFoundHandler = api.NotFoundHandler
+	app.Use(api.Auth())
+	app.Use(api.EmptyBody)
+	app.Use(middleware.GzipWithConfig(middleware.GzipConfig{Level: 5}))
+	app.Pre(middleware.AddTrailingSlash())
+	sdk.RegisterHandlersWithBaseURL(app, handler, "/api")
 }
 
 // Handler is the entrypoint TODO
 func Handler(w http.ResponseWriter, r *http.Request) {
+	log.Println(r.URL)
 	app.ServeHTTP(w, r)
 }

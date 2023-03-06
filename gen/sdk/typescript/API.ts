@@ -20,6 +20,8 @@ export interface HTTPResponse {
 }
 
 export interface HTTPError {
+	/** @example "Error, unable to authenticate" */
+	message: string;
 	/** @example "error_code" */
 	code: string;
 	/** @example "error" */

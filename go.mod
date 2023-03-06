@@ -3,6 +3,7 @@ module github.com/ainsleyclark/ainsley.dev
 go 1.19
 
 require (
+	github.com/ainsleyclark/errors v0.0.4
 	github.com/getkin/kin-openapi v0.114.0
 	github.com/labstack/echo/v4 v4.10.2
 	github.com/pkg/errors v0.9.1
@@ -11,8 +12,6 @@ require (
 )
 
 require (
-	github.com/ainsleyclark/errors v0.0.4 // indirect
-	github.com/ainsleyclark/go-mail v1.1.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/go-openapi/jsonpointer v0.19.5 // indirect
 	github.com/go-openapi/swag v0.19.5 // indirect

@@ -18,6 +18,7 @@ func ErrorCode(ctx echo.Context, err error, status ...int) error {
 	var (
 		e    = errors.ToError(err)
 		data = sdk.HTTPError{
+			Message:   e.Message,
 			Code:      e.Code,
 			Operation: e.Operation,
 			Error:     e.Err.Error(), // Want to panic if the error is nil to signify the wrong type has been passed.
