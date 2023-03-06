@@ -5,6 +5,8 @@
 package api
 
 import (
+	api "github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
+	"github.com/labstack/echo/v4/middleware"
 	"net/http"
 
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/httpservice"
@@ -23,7 +25,10 @@ func init() {
 		// TODO
 		return nil
 	}
-	httpservice.RegisterHandlersWithBaseURL(app, handler, "/api")
+	app.Use(middleware.GzipWithConfig(middleware.GzipConfig{
+		Level: 5,
+	}))
+	api.RegisterHandlersWithBaseURL(app, handler, "/api")
 }
 
 // Handler is the entrypoint TODO

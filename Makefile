@@ -37,6 +37,8 @@ work: # Creates a new work post.
 .PHONY: work
 
 sdk: # Generates the Go & Typescript API SDKs
+#	rm gen/sdk/go/api.gen.go
+#	rm gen/sdk/typescript/API.ts
 	oapi-codegen --package=sdk openapi/spec.yaml > gen/sdk/go/api.gen.go
 	swagger-typescript-api --path openapi/spec.yaml --output gen/sdk/typescript --templates gen/templates --name API --clean-output --module-name-first-tag
 .PHONY: sdk
