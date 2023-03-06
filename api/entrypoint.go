@@ -5,11 +5,12 @@
 package api
 
 import (
+	"log"
+	"net/http"
+
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/slack"
-	"log"
-	"net/http"
 
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/api"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/httpservice"
