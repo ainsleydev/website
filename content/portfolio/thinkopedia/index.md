@@ -17,9 +17,9 @@ quote:
   text: This was my first experience creating a website, and ainsley.dev really helped me every step of the way. The level of detail they delivered on was incredible. The end result was 10 times better than I could have ever imagined. Highly recommend, will be in contact again! Thank you!
 results:
   - number: 1000s
-  - text: of impressions
+    text: of impressions
   - number: 24%
-  - text: bounce rate
+    text: bounce rate
 ---
 
 <!-- Intro -->

@@ -4,12 +4,13 @@
 <div class="insight-author">
 	<!-- Photo -->
     {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .Params.author)) }}
-		<picture class="insight-author-photo">
-            {{ partial "media/picture.html" (dict
+		<figure class="insight-author-photo">
+            {{ partial "media/image.html" (dict
 				"image" (.Resources.Get .Params.photo)
 				"alt" (printf "%s Photo" .Title)
+				"resize" "100x"
             )}}
-		</picture>
+		</figure>
     {{ else }}
         {{ warnf "No author found for post: %s" .Params.author}}
     {{ end }}

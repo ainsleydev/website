@@ -13,8 +13,11 @@
 		- class:	Any additional class names to be appended to appear.
 		- title:	The title & aria label of the link.
     ===================== -->
-{{ if .link }}
+{{ if .link -}}
 	<a href="{{ .link }}"
+{{- else -}}
+	<div
+{{- end }}
 	class="arrow-text arrow-hover cursor-element
 	{{ if .small -}} arrow-text-small {{- end }}
 	{{ with .class -}} {{ . }} {{- end }}"
@@ -48,7 +51,8 @@
                 )}}
 			</div>
 		</figure>
+{{ if .link -}}
 	</a>
 {{- else -}}
-    {{- warnf "No text provided to arrow text" -}}
+	</div>
 {{- end }}
