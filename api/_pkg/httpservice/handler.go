@@ -4,9 +4,13 @@
 
 package httpservice
 
-import "github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/slack"
+import (
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/slack"
+)
 
 // Handler - TODO
 type Handler struct {
-	Slack slack.Client
+	Slack  *slack.Client
+	Mailer mail.Mailer
 }

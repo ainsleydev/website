@@ -14,8 +14,7 @@ import (
 )
 
 func TestNew(t *testing.T) {
-	got := New("token", "channel")
-	assert.NotNil(t, got.channelID)
+	got := New("token")
 	assert.NotNil(t, got.slackSendFunc)
 }
 
@@ -26,7 +25,7 @@ func TestSlack_Send(t *testing.T) {
 				return "", "", nil
 			},
 		}
-		got := s.Send(context.TODO(), "subject", "message")
+		got := s.Send(context.TODO(), "channel", "subject", "message")
 		assert.NoError(t, got)
 	})
 
@@ -36,7 +35,7 @@ func TestSlack_Send(t *testing.T) {
 				return "id", "timestamp", errors.New("error")
 			},
 		}
-		got := s.Send(context.TODO(), "subject", "message")
+		got := s.Send(context.TODO(), "channel", "subject", "message")
 		want := "failed to send message to Slack channel 'id' at time 'timestamp': error"
 		assert.ErrorContains(t, got, want)
 	})

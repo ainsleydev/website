@@ -4,14 +4,16 @@ go 1.19
 
 require (
 	github.com/ainsleyclark/errors v0.0.4
+	github.com/caarlos0/env/v7 v7.0.0
 	github.com/getkin/kin-openapi v0.114.0
 	github.com/labstack/echo/v4 v4.10.2
 	github.com/pkg/errors v0.9.1
 	github.com/slack-go/slack v0.12.1
-	github.com/stretchr/testify v1.8.1
+	github.com/stretchr/testify v1.8.2
 )
 
 require (
+	github.com/ainsleyclark/go-mail v1.1.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/go-openapi/jsonpointer v0.19.5 // indirect
 	github.com/go-openapi/swag v0.19.5 // indirect
@@ -26,6 +28,7 @@ require (
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
 	github.com/perimeterx/marshmallow v1.1.4 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/stretchr/objx v0.5.0 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.2 // indirect
 	golang.org/x/crypto v0.6.0 // indirect
