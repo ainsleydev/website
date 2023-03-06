@@ -1,0 +1,27 @@
+// -----------------------------------------------------------------------------
+// _all-articles.scss
+// This file contains all styles related to the all articles component.
+// -----------------------------------------------------------------------------
+
+.all-articles {
+	$self: &;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	// Props
+	// =========================================================================
+
+	* {
+		margin: 0;
+	}
+
+	// Border
+	// =========================================================================
+
+	&-border {
+		padding-bottom: $margin-large;
+		margin-bottom: $margin-large;
+		border-bottom: var(--card-border);
+	}
+}
