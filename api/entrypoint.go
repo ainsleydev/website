@@ -44,8 +44,10 @@ func init() {
 		Mailer: mailer,
 	}
 	echo.NotFoundHandler = api.NotFoundHandler
-	app.Use(api.Auth())
-	app.Use(api.EmptyBody)
+	app.HTTPErrorHandler = api.ErrorHandler
+	app.Use(api.Auth(config))
+	app.Use(api.CORS(config))
+	app.Use(api.RequestID())
 	app.Use(middleware.GzipWithConfig(middleware.GzipConfig{Level: 5}))
 	app.Pre(middleware.AddTrailingSlash())
 	sdk.RegisterHandlersWithBaseURL(app, handler, "/api")
