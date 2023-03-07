@@ -25,6 +25,8 @@ const (
 func (h Handler) SendContactForm(ctx echo.Context) error {
 	const op = "Handler.SendContactForm"
 
+	return nil
+
 	request := sdk.ContactFormRequest{}
 	err := ctx.Bind(&request)
 	if err != nil {

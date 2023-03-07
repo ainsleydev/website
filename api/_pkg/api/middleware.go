@@ -7,12 +7,15 @@ package api
 import (
 	"fmt"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
 	sdk "github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
 	"github.com/ainsleyclark/errors"
 	"github.com/google/uuid"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	"github.com/sirupsen/logrus"
 	"net/http"
+	"time"
 )
 
 // AuthHeader is the header used for authentication.
@@ -89,4 +92,46 @@ func NotFoundHandler(ctx echo.Context) error {
 		fmt.Sprintf("Error, the endpoint: %s does not exist", ctx.Request().URL),
 		"API.Middleware",
 	)
+}
+
+func Logger() echo.MiddlewareFunc {
+	return func(next echo.HandlerFunc) echo.HandlerFunc {
+		return func(ctx echo.Context) error {
+			req := ctx.Request()
+			res := ctx.Response()
+			start := time.Now()
+
+			//id := req.Header.Get(RequestIDHeader)
+			//if id == "" {
+			//	id = ctx.Get(RequestIDContextKey)
+			//}
+
+			var err error
+			if err = next(ctx); err != nil {
+				ctx.Error(err)
+			}
+			stop := time.Now()
+
+			fields := logrus.Fields{
+				"url":         req.RequestURI,
+				"host":        req.Host,
+				"method":      req.Method,
+				"status":      res.Status,
+				"ip":          ctx.RealIP(),
+				"remote_addr": req.RemoteAddr,
+				"latency":     stop.Sub(start).String(),
+				"request_id":  ctx.Get(RequestIDContextKey),
+				"referer":     req.Referer(),
+				"user_agent":  req.UserAgent(),
+			}
+
+			if res.Status >= 200 && res.Status < 400 {
+				logger.WithFields(fields).Info("Request succeeded")
+			} else {
+				logger.WithFields(fields).Error("Request failed")
+			}
+
+			return err
+		}
+	}
 }

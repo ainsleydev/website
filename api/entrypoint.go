@@ -5,6 +5,8 @@
 package api
 
 import (
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
+	"github.com/sirupsen/logrus"
 	"log"
 	"net/http"
 
@@ -48,8 +50,15 @@ func init() {
 	app.Use(api.Auth(config))
 	app.Use(api.CORS(config))
 	app.Use(api.RequestID())
+	app.Use(api.Logger())
 	app.Use(middleware.GzipWithConfig(middleware.GzipConfig{Level: 5}))
 	app.Pre(middleware.AddTrailingSlash())
+
+	// TODO, move to log package and don't export formatter
+	logger.DefaultLogger.SetFormatter(&logrus.TextFormatter{
+		ForceColors:   true,
+		FullTimestamp: true,
+	})
 	sdk.RegisterHandlersWithBaseURL(app, handler, "/api")
 }
 
@@ -57,6 +66,5 @@ func init() {
 // Vercel detects this http.HandlerFunc signature to use
 // within serverless functions.
 func Handler(w http.ResponseWriter, r *http.Request) {
-	log.Println(r.URL)
 	app.ServeHTTP(w, r)
 }
