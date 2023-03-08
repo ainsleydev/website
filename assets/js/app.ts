@@ -18,6 +18,7 @@ import { Toast } from './animations/toast';
 import { Arrow } from './animations/arrow';
 import LocomotiveScroll from 'locomotive-scroll';
 import smoothscroll from 'smoothscroll-polyfill';
+require('./animations/text');
 
 /**
  * Vars

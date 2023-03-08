@@ -5,9 +5,10 @@
 package api
 
 import (
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/app"
 	"log"
 	"net/http"
+
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/app"
 
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
