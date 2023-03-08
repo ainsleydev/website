@@ -10,6 +10,6 @@ import (
 )
 
 func main() {
-	logger.DefaultLogger.SetFormatter(&logger.LocalFormatter{})
-	logger.WithFields(logrus.Fields{"1": 2}).Error("Hello")
+	logger.Bootstrap()
+	logger.WithFields(logrus.Fields{"key": "value"}).Error("Hello")
 }
