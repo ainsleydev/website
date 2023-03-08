@@ -108,7 +108,7 @@
 
 h1 {
 	position: relative;
-	opacity: 0;
+	//opacity: 0;
 	//overflow: hidden;
 
 	u {
@@ -118,9 +118,9 @@ h1 {
 	.underline {
 		position: absolute;
 		left: 0;
-		bottom: 7px;
+		bottom: 2%;
 		margin: auto;
-		height: 6px;
+		height: 4px;
 		width: 100%;
 		background-color: $white;
 		transform-origin: left;
