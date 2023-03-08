@@ -43,7 +43,16 @@ func (f *LocalFormatter) Format(entry *logrus.Entry) ([]byte, error) {
 	time := entry.Time.Format("2006-01-02 15:04:05.000")
 	msg := entry.Message
 
-	o := fmt.Sprintf("%s\t[%s]\t%s\n", time, lvlOut, msg)
+	fields := ""
+	if len(entry.Data) > 0 {
+		fields += ": Fields"
+		for k, v := range entry.Data {
+			fmt.Println(k, v)
+			fields += fmt.Sprintf(" | %s: %s ", k, v)
+		}
+	}
+
+	o := fmt.Sprintf("%s\t[%s]\t%s%s\n", time, lvlOut, msg, fields)
 
 	return []byte(o), nil
 }

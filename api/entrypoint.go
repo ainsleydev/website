@@ -5,10 +5,11 @@
 package api
 
 import (
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
-	"github.com/sirupsen/logrus"
 	"log"
 	"net/http"
+
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
+	"github.com/sirupsen/logrus"
 
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
