@@ -106,20 +106,18 @@
 				</iframe>
 			</noscript><!-- /End Google Tag Manager (noscript) -->
 		{{- end }}
-		<div data-scroll-container>
-			<!-- Header -->
-			{{- partial "header.html" (dict "colour" $colour) -}}
-			<!-- Cursor -->
-			<div class="cursor cursor-theme-{{ $colour }}"></div>
-			<!-- Wrapper -->
-			<div class="content-wrapper">
-				<!-- Main Content -->
-				<main id="main">
-					{{- block "main" . -}} {{- end }}
-				</main>
-				<!-- Footer -->
-				{{- partial "footer.html" . -}}
-			</div>
+		<!-- Header -->
+		{{- partial "header.html" (dict "colour" $colour) -}}
+		<!-- Cursor -->
+		<div class="cursor cursor-theme-{{ $colour }}"></div>
+		<!-- Wrapper -->
+		<div class="content-wrapper" data-scroll-container>
+			<!-- Main Content -->
+			<main id="main">
+				{{- block "main" . -}} {{- end }}
+			</main>
+			<!-- Footer -->
+			{{- partial "footer.html" . -}}
 		</div>
 		<!-- Javascript -->
         {{ range $js -}}

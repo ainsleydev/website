@@ -21,10 +21,12 @@
 			margin-bottom: 0;
 		}
 
+		&-first #{$self}-basic,
 		&:first-child #{$self}-basic {
 			padding-top: 0;
 		}
 
+		&-last #{$self}-basic,
 		&:last-child #{$self}-basic {
 			padding-bottom: 0;
 			border: none !important;

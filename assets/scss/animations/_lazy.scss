@@ -6,21 +6,21 @@
 .lazy {
 	$self: &;
 
-	// Animate
-	// =========================================================================
-
-	&-animate {
-		opacity: 0;
-		transition: opacity 300ms ease-in;
-		transform: translateY(20%);
-		will-change: opacity;
-	}
-
-	// Loaded
-	// =========================================================================
-
-	&-loaded {
-		opacity: 1;
-		transform: none;
-	}
+	//// Animate
+	//// =========================================================================
+	//
+	//&-animate {
+	//	opacity: 0;
+	//	transition: opacity 300ms ease-in;
+	//	transform: translateY(20%);
+	//	will-change: opacity;
+	//}
+	//
+	//// Loaded
+	//// =========================================================================
+	//
+	//&-loaded {
+	//	opacity: 1;
+	//	transform: none;
+	//}
 }

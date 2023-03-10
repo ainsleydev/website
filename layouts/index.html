@@ -33,11 +33,19 @@
 	<!-- =====================
 		Home
 		===================== -->
-	<section class="section section-padding section-padding-top">
+	<section class="section section-padding section-padding-top" id="content">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<h2>Showreel</h2>
+					<!-- Heading -->
+					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
+                        {{ partial "type/vertical.html" (dict
+							"text" "Showreel"
+							"number" "02"
+							"line" true
+							"fill" false
+                        )}}
+					</div><!-- /Col -->
 				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
@@ -45,7 +53,7 @@
 	<!-- =====================
 		Solutions
 		===================== -->
-	<section class="section section-padding section-padding-top" id="content">
+	<section class="section section-padding section-padding-top">
 		<div class="container">
 			<div class="row justify-content-between">
 				<!-- Heading -->
@@ -170,11 +178,11 @@
 										Latest Articles
 									</h6>
                                     {{ partial "arrow/text.html" (dict
-                                    "link" "/insights/"
-                                    "text" "<h2>All work</h3>"
-                                    "title" "View all work"
-                                    "small" true
-                                    "rotation" 45
+										"link" "/insights/"
+										"text" "<h2>All work</h3>"
+										"title" "View all work"
+										"small" true
+										"rotation" 45
                                     )}}
 								</div><!-- /Wrapper -->
 							</div><!-- /Col -->
@@ -243,8 +251,8 @@
 								</div><!-- /Wrapper -->
 							</div><!-- /Col -->
 							<!-- Cards -->
-                            {{ range . }}
-								<div class="col-12 card-col">
+                            {{ range $index, $page := . }}
+								<div class="col-12 card-col {{ if eq $index 0 }} card-col-first {{- end }}">
                                     {{ .Render "card" }}
 								</div><!-- /Col -->
                             {{- end }}
