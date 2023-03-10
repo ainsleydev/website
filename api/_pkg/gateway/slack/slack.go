@@ -12,6 +12,14 @@ import (
 )
 
 type (
+	// Sender defines the method to send messages via the Slack API.
+	Sender interface {
+		// Send takes a message subject and a message body and sends to the set channel.
+		// A Client app with the chat:write.public and chat:write permissions must
+		// be installed to the workspace.
+		// See: https://api.slack.com/
+		Send(ctx context.Context, channelID, subject, message string) error
+	}
 	// Client implements the notifier interface to send Client.
 	// messages with a given message.
 	Client struct {
@@ -42,10 +50,6 @@ func New(token string) *Client {
 	}
 }
 
-// Send takes a message subject and a message body and sends to the set channel.
-// A Client app with the chat:write.public and chat:write permissions must
-// be installed to the workspace.
-// See: https://api.slack.com/
 func (c *Client) Send(ctx context.Context, channelID, subject, message string) error {
 	// Create the Client attachment that we will send to the channel.
 	attachment := slack.Attachment{

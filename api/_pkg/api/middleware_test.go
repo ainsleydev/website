@@ -56,7 +56,6 @@ func TestAuth(t *testing.T) {
 }
 
 func TestCORS(t *testing.T) {
-	t.Skipf("Not working")
 	tt := map[string]struct {
 		input  func(r *http.Request)
 		config environment.Config
@@ -64,7 +63,7 @@ func TestCORS(t *testing.T) {
 	}{
 		"Unauthorized": {
 			input: func(r *http.Request) {
-				r.Header.Set(echo.HeaderOrigin, "url")
+				r.Header.Set(echo.HeaderOrigin, "https://ainsley.dev")
 			},
 			config: environment.Config{},
 			want:   http.StatusUnauthorized,
@@ -74,7 +73,7 @@ func TestCORS(t *testing.T) {
 	e := echo.New()
 	for name, test := range tt {
 		t.Run(name, func(t *testing.T) {
-			req := httptest.NewRequest(http.MethodOptions, "/", nil)
+			req := httptest.NewRequest(http.MethodPost, "/", nil)
 			rec := httptest.NewRecorder()
 			ctx := e.NewContext(req, rec)
 			test.input(req)

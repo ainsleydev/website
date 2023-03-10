@@ -11,6 +11,6 @@ import (
 
 // Handler - TODO
 type Handler struct {
-	Slack  *slack.Client
+	Slack  slack.Sender
 	Mailer mail.Mailer
 }

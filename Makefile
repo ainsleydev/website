@@ -62,6 +62,11 @@ test: # Test uses race and coverage
 	go clean -testcache && go test -race $$(go list ./... | $(excluded)) -coverprofile=coverage.out -covermode=atomic
 .PHONY: test
 
+mock: # Make mocks keeping directory tree
+	rm -rf gen/mocks \
+	&& mockery --dir=api/_pkg --all --exported=true --output=./gen/mocks
+.PHONY: mock
+
 all: # Make format, lint and test
 	$(MAKE) format
 	$(MAKE) lint
