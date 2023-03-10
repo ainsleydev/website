@@ -81,39 +81,27 @@ AOS.init({
 	anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 });
 
+import Ukiyo from 'ukiyojs';
+// CSS selector
+new Ukiyo('.para', {
+	scale: 1, // 1~2 is recommended
+	speed: 2, // 1~2 is recommended
+	willChange: true, // This may not be valid in all cases
+	wrapperClass: 'para-wrapper',
+	externalRAF: false,
+});
+
 /**
  * Locomotive Scroll
  */
-const scroll = new LocomotiveScroll({
-	el: document.querySelector('[data-scroll-container]'),
-	smooth: true,
-	smoothMobile: false,
-	offset: [0, 0],
-	lerp: 0.1,
-	touchMultiplier: 0,
-});
-
-scroll.on('scroll', (e) => {
-	console.log('eh');
-	AOS.refresh();
-});
-
-scroll.on('call', (func) => {
-	console.log('hey');
-	// Using modularJS
-	this.call(...func);
-});
-
-const observer = new IntersectionObserver((entries, observer) => {
-	entries.forEach((entry) => {
-		if (entry.isIntersecting) {
-			AOS.refresh();
-		}
-	});
-});
-document.querySelectorAll('[data-aos]').forEach((aosElem) => {
-	observer.observe(aosElem);
-});
+// const scroll = new LocomotiveScroll({
+// 	el: document.querySelector('[data-scroll-container]'),
+// 	smooth: true,
+// 	smoothMobile: false,
+// 	offset: [0, 0],
+// 	lerp: 0.1,
+// 	touchMultiplier: 0,
+// });
 
 /**
  * Scroll
