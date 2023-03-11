@@ -6,6 +6,7 @@ package slack
 
 import (
 	"context"
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"testing"
 
 	"github.com/pkg/errors"
@@ -14,13 +15,15 @@ import (
 )
 
 func TestNew(t *testing.T) {
-	got := New("token")
+	got := New(&environment.Config{SlackToken: "token"})
+	assert.Equal(t, "token", got.config.SlackToken)
 	assert.NotNil(t, got.slackSendFunc)
 }
 
 func TestSlack_Send(t *testing.T) {
 	t.Run("Success", func(t *testing.T) {
 		s := Client{
+			config: &environment.Config{},
 			slackSendFunc: func(ctx context.Context, channelID string, options ...slack.MsgOption) (string, string, error) {
 				return "", "", nil
 			},
@@ -31,6 +34,7 @@ func TestSlack_Send(t *testing.T) {
 
 	t.Run("Error", func(t *testing.T) {
 		s := Client{
+			config: &environment.Config{},
 			slackSendFunc: func(ctx context.Context, channelID string, options ...slack.MsgOption) (string, string, error) {
 				return "id", "timestamp", errors.New("error")
 			},

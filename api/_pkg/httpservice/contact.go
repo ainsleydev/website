@@ -25,9 +25,6 @@ type ContactSubmission struct {
 	Time  time.Time
 }
 
-// submissionSendSubject is the subject header to send to gateways.
-const submissionSendSubject = "ainsley.dev - New contact form submission"
-
 // SendContactForm sends a contact form submission to Slack as well as via email.
 // If a honeypot is sent with the request, the handler will return a
 // http.StatusOK to avoid bot requests.
@@ -65,6 +62,9 @@ func (h Handler) SendContactForm(ctx echo.Context) error {
 		Time:               time.Now(),
 	}
 
+	// The subject header to send to gateways.
+	submissionSendSubject := h.Config.BrandName + " - New contact form submission"
+
 	// First send the notification to the Slack thread.
 	err = h.Slack.Send(ctx.Request().Context(),
 		slack.Channels.Contact,
@@ -77,7 +77,7 @@ func (h Handler) SendContactForm(ctx echo.Context) error {
 
 	// Then send an email.
 	_, err = h.Mailer.Send(&mail.Transmission{
-		Recipients: []string{"hello@ainsley.dev"},
+		Recipients: h.Config.MailRecipients,
 		Subject:    submissionSendSubject,
 		HTML:       submission.HTML(),
 		PlainText:  submission.Text(),
@@ -122,7 +122,7 @@ func (c ContactSubmission) Fields() []slack.Field {
 // HTML returns the HTML formatted string of a contact form submission.
 func (c ContactSubmission) HTML() string {
 	return fmt.Sprintf(
-		"<p><strong>Email :</strong> %s</p><p><strong>Message:</strong> %s</p><p><strong>Time:</strong> %s</p>",
+		"<p><strong>Email:</strong> %s</p><p><strong>Message:</strong> %s</p><p><strong>Time:</strong> %s</p>",
 		c.Email,
 		c.Message,
 		c.Time.Format(time.RFC850),

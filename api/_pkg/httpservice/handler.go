@@ -5,12 +5,14 @@
 package httpservice
 
 import (
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/slack"
 )
 
-// Handler - TODO
+// Handler defines the type that implements the OpenAPI spec.
 type Handler struct {
+	Config *environment.Config
 	Slack  slack.Sender
 	Mailer mail.Mailer
 }

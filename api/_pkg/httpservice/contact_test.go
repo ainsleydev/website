@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/slack"
 	"github.com/ainsleyclark/ainsley.dev/gen/mocks"
 	sdk "github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
 	"github.com/ainsleyclark/errors"
@@ -16,6 +17,7 @@ import (
 	"net/http/httptest"
 	"strings"
 	"testing"
+	"time"
 )
 
 func TestHandler_SendContactForm(t *testing.T) {
@@ -40,7 +42,7 @@ func TestHandler_SendContactForm(t *testing.T) {
 		},
 		"Slack Failure": {
 			payload: sdk.ContactFormRequest{
-				Message: "Hello hello@ainsley.dev!",
+				Message: "Hello test@hello.com",
 			},
 			mock: func(slack *mocks.Sender, mailer *mocks.Mailer) {
 				slack.On("Send", context.TODO(), mock.Anything, mock.Anything, mock.Anything).
@@ -50,7 +52,7 @@ func TestHandler_SendContactForm(t *testing.T) {
 		},
 		"Mail Failure": {
 			payload: sdk.ContactFormRequest{
-				Message: "Hello hello@ainsley.dev!",
+				Message: "Hello test@hello.com",
 			},
 			mock: func(slack *mocks.Sender, mailer *mocks.Mailer) {
 				slack.On("Send", context.TODO(), mock.Anything, mock.Anything, mock.Anything).
@@ -62,7 +64,7 @@ func TestHandler_SendContactForm(t *testing.T) {
 		},
 		"OK": {
 			payload: sdk.ContactFormRequest{
-				Message: "Hello hello@ainsley.dev!",
+				Message: "Hello test@hello.com",
 			},
 			mock: func(slack *mocks.Sender, mailer *mocks.Mailer) {
 				slack.On("Send", context.TODO(), mock.Anything, mock.Anything, mock.Anything).
@@ -111,23 +113,28 @@ var submission = ContactSubmission{
 	ContactFormRequest: sdk.ContactFormRequest{
 		Message: "message",
 	},
-	Email: "hello@ainsley.dev",
+	Email: "test@hello.com",
+	Time:  time.Now(),
 }
 
 func TestContactSubmission_Text(t *testing.T) {
-	want := fmt.Sprintf("Email: hello@ainsley.dev\n\nMessage: message")
+	want := fmt.Sprintf("Email: test@hello.com\n\nMessage: message")
 	got := submission.Text()
 	assert.Contains(t, got, want)
 }
 
 func TestContactSubmission_Markdown(t *testing.T) {
-	want := fmt.Sprintf("**Email**: hello@ainsley.dev\n\n**Message**: message")
-	got := submission.Markdown()
-	assert.Contains(t, got, want)
+	want := []slack.Field{
+		{Title: "Email", Value: submission.Email},
+		{Title: "Message", Value: submission.Message},
+		{Title: "Time", Value: submission.Time.Format(time.RFC850)},
+	}
+	got := submission.Fields()
+	assert.Equal(t, want, got)
 }
 
 func TestContactSubmission_HTML(t *testing.T) {
-	want := fmt.Sprintf("<p><strong>Email :</strong> hello@ainsley.dev</p><p><strong>Message:</strong> message</p>p><strong>Time:</strong>")
+	want := fmt.Sprintf("<p><strong>Email:</strong> test@hello.com</p><p><strong>Message:</strong> message</p><p><strong>Time:</strong>")
 	got := submission.HTML()
 	assert.Contains(t, got, want)
 }

@@ -5,6 +5,7 @@
 package api
 
 import (
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
 	"log"
 	"net/http"
 
@@ -13,8 +14,6 @@ import (
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/slack"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
-
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/httpservice"
 	sdk "github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
 	"github.com/labstack/echo/v4"
@@ -31,19 +30,21 @@ var (
 // and registering the API routes along with middleware and
 // any configuration.
 func init() {
-	logger.Bootstrap()
 	config, err := environment.New()
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
+	logger.Bootstrap(config)
 	e = echo.New()
 	app.Bootstrap(e, config)
 	mailer, err := mail.New(config)
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
+	logger.Debug("Listening")
 	handler = &httpservice.Handler{
-		Slack:  slack.New(config.SlackToken),
+		Config: config,
+		Slack:  slack.New(config),
 		Mailer: mailer,
 	}
 	sdk.RegisterHandlersWithBaseURL(e, handler, "/api")

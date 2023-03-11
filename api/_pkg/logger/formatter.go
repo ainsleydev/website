@@ -12,18 +12,27 @@ import (
 	"strings"
 )
 
+// localFormatter is the type that implements the Format()
+// interface in Logrus for local development.
 type localFormatter struct {
 	logrus.TextFormatter
 	Prefix string
 }
 
+// Format is used to implement a custom Formatter. It takes an `Entry`.
+// It exposes all the fields, including the default ones:
+//
+// * `entry.Data["msg"]`. The message passed from Info, Warn, Error ..
+// * `entry.Data["time"]`. The timestamp.
+// * `entry.Data["level"]. The level the entry was logged at.
+//
+// Any additional fields added with `WithField` or `WithFields` are also in
+// `entry.Data`. Format is expected to return an array of bytes which are then
+// logged to `logger.Out`.
 func (f *localFormatter) Format(entry *logrus.Entry) ([]byte, error) {
 	lvl := strings.ToUpper(entry.Level.String())
-	if len(lvl) > 5 {
-		lvl = lvl[:5]
-	}
-
 	var lvlOut aurora.Value
+
 	switch entry.Level {
 	case logrus.DebugLevel, logrus.TraceLevel:
 		lvlOut = aurora.Blue(lvl)

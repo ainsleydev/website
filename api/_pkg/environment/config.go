@@ -12,14 +12,17 @@ import (
 // Config represents the environment variables set in build
 // used a system configuration for the application.
 type Config struct {
-	VercelEnv       string `env:"VERCEL_ENV"`
-	VercelURL       string `env:"VERCEL_URL"`
-	VercelRegion    string `env:"VERCEL_REGION"`
-	APIKey          string `env:"A_DEV_API_KEY,required"`
-	SlackToken      string `env:"A_DEV_SLACK_TOKEN,required"`
-	MailAPIKey      string `env:"A_DEV_MAIL_API_KEY,required"`
-	MailFromAddress string `env:"A_DEV_MAIL_FROM_ADDRESS,required"`
-	MailFromName    string `env:"A_DEV_MAIL_FROM_NAME,required"`
+	VercelEnv       string   `env:"VERCEL_ENV"`
+	VercelURL       string   `env:"VERCEL_URL"`
+	VercelRegion    string   `env:"VERCEL_REGION"`
+	APIKey          string   `env:"API_KEY,required"`
+	BrandName       string   `env:"BRAND_NAME,required"`
+	BrandColour     string   `env:"BRAND_COLOUR"`
+	SlackToken      string   `env:"SLACK_TOKEN,required"`
+	MailAPIKey      string   `env:"MAIL_API_KEY,required"`
+	MailFromAddress string   `env:"MAIL_FROM_ADDRESS,required"`
+	MailFromName    string   `env:"MAIL_FROM_NAME,required"`
+	MailRecipients  []string `env:"MAIL_RECIPIENTS,required" envSeparator:":"`
 }
 
 // New populates environment, loads, and validates the

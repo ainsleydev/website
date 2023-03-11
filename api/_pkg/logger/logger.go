@@ -5,6 +5,7 @@
 package logger
 
 import (
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/sirupsen/logrus"
 	"io"
 )
@@ -14,10 +15,12 @@ var (
 	DefaultLogger = logrus.New()
 )
 
-func Bootstrap() {
+// Bootstrap creates a new Logger.
+func Bootstrap(config *environment.Config) {
 	DefaultLogger.SetFormatter(&localFormatter{
-		Prefix: "ainsley.dev",
+		Prefix: config.BrandName,
 	})
+	DefaultLogger.SetLevel(logrus.TraceLevel)
 }
 
 // WithField logs with field, sets a new map containing
@@ -88,4 +91,29 @@ func Fatal(args ...any) {
 // Panic logs a panic message with args.
 func Panic(args ...any) {
 	DefaultLogger.Panic(args...)
+}
+
+// Tracef logs a trace message with a format and args.
+func Tracef(format string, args ...any) {
+	DefaultLogger.Tracef(format, args...)
+}
+
+// Debugf logs a debug message with a format and args.
+func Debugf(format string, args ...any) {
+	DefaultLogger.Debugf(format, args...)
+}
+
+// Infof logs ab info message with a format and args.
+func Infof(format string, args ...any) {
+	DefaultLogger.Infof(format, args...)
+}
+
+// Warnf logs a warn message with a format and args.
+func Warnf(format string, args ...any) {
+	DefaultLogger.Warnf(format, args...)
+}
+
+// Errorf logs an error message with a format and args.
+func Errorf(format string, args ...any) {
+	DefaultLogger.Errorf(format, args...)
 }
