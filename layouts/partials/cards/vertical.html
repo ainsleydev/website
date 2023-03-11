@@ -16,10 +16,14 @@
 	title="{{ .title }} Page Link"
 	aria-label="Navigate to the {{ .title }} page">
 	<!-- Featured Image -->
-	{{ with .image -}}
-		<figure class="card-image margin" data-scroll data-scroll-speed="0.3">
-			<img loading="lazy" class="lazy-animate" src="{{ .RelPermalink }}" alt="{{ $.title }}">
-		</figure>
+	{{ if .image -}}
+		<picture class="card-image margin" data-scroll data-scroll-speed="0.3">
+            {{ partial "media/picture.html" (dict
+				"image" .image
+				"alt" .text
+				"lazy" true
+            )}}
+		</picture>
 	{{- end }}
 	<!-- Text -->
 	<div class="card-text">

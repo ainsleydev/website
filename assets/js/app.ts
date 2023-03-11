@@ -35,21 +35,19 @@ html.classList.add('js');
 /**
  * Initialise components & types.
  */
-document.addEventListener('DOMContentLoaded', () => {
-	new Navigation();
-	new Cursor();
-	new Skew();
-	new FitText();
-	new Card();
-	new Arrow();
-	new Collapse({
-		accordion: true,
-		container: '.accordion',
-		item: '.accordion-item',
-		inner: '.accordion-content',
-		activeClass: 'accordion-item-active',
-	} as CollapseOptions);
-});
+new Navigation();
+new Cursor();
+new Skew();
+new FitText();
+new Card();
+new Arrow();
+new Collapse({
+	accordion: true,
+	container: '.accordion',
+	item: '.accordion-item',
+	inner: '.accordion-content',
+	activeClass: 'accordion-item-active',
+} as CollapseOptions);
 
 /**
  * Animate on Scroll
@@ -77,23 +75,27 @@ AOS.init({
 /**
  * Locomotive Scroll
  */
-const scroll = new LoconativeScroll({
-	duration: 1.5,
-	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
-	direction: 'vertical', // vertical, horizontal
-	gestureDirection: 'vertical', // vertical, horizontal, both
-	smooth: true,
-	mouseMultiplier: 1,
-	touchMultiplier: 2,
-	infinite: false,
-	smartphone: {
-		smooth: false,
-	},
-	tablet: {
-		smooth: false,
-		breakpoint: 1024,
-	},
-});
+
+if (!body.hasAttribute('data-scroll-disable')) {
+	Log.info('Booting Loconative Scroll');
+	const scroll = new LoconativeScroll({
+		duration: 1.5,
+		easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+		direction: 'vertical', // vertical, horizontal
+		gestureDirection: 'vertical', // vertical, horizontal, both
+		smooth: true,
+		mouseMultiplier: 1,
+		touchMultiplier: 2,
+		infinite: false,
+		smartphone: {
+			smooth: false,
+		},
+		tablet: {
+			smooth: false,
+			breakpoint: 1024,
+		},
+	});
+}
 
 /**
  * Scroll

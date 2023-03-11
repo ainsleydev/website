@@ -97,9 +97,9 @@
 		Body
 		===================== -->
 	{{ $colour := partial "util/_theme-colour.html" . }}
-    <body class="theme-{{ $colour }}">
-		<!-- Google Tag Manager (noscript) -->
+    <body class="theme-{{ $colour }}" {{ if and (eq .Section "insights") .IsPage -}} data-scroll-disable {{- end }}>
 		{{ if hugo.IsProduction -}}
+			<!-- Google Tag Manager (noscript) -->
 			<noscript>
 				<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZFMRNJ"
 					height="0" width="0" style="display:none; visibility:hidden">
@@ -111,7 +111,7 @@
 		<!-- Cursor -->
 		<div class="cursor cursor-theme-{{ $colour }}"></div>
 		<!-- Wrapper -->
-		<div class="content-wrapper" data-scroll-container>
+		<div class="content-wrapper">
 			<!-- Main Content -->
 			<main id="main">
 				{{- block "main" . -}} {{- end }}
@@ -129,10 +129,5 @@
         {{- end }}
         <!-- Google Transition Fix -->
         <script> </script>
-{{/*		<script src="/temp.js"></script>*/}}
-
-{{/*		<script>*/}}
-{{/*			var scroll = new LoconativeScroll();*/}}
-{{/*		</script>*/}}
     </body>
 </html>

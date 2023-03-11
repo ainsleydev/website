@@ -25,6 +25,11 @@ body {
 	opacity: 0;
 }
 
+[data-scroll-disable] {
+	opacity: 1 !important;
+	scroll-behavior: smooth;
+}
+
 .has-scroll-init body {
 	opacity: 1;
 }
