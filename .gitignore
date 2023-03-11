@@ -43,6 +43,9 @@ Thumbs.db
 *.exe
 *.war
 
+# Credentials
+.env
+
 # Blobs
 .vercel
 
