@@ -21,13 +21,15 @@
 			margin-bottom: 0;
 		}
 
+		&-first #{$self}-basic,
 		&:first-child #{$self}-basic {
 			padding-top: 0;
 		}
 
+		&-last #{$self}-basic,
 		&:last-child #{$self}-basic {
 			padding-bottom: 0;
-			border: none;
+			border: none !important;
 		}
 	}
 
@@ -93,10 +95,6 @@
 			margin-top: $margin;
 			margin-right: 10px;
 
-			&-item:first-child {
-				transform: translateX(-3px);
-			}
-
 			&-reading-time {
 				display: none;
 				font-weight: 500;
@@ -150,6 +148,15 @@
 		}
 	}
 
+	// Mods
+	// =========================================================================
+
+	@media (min-width: $grid-breakpoint-mob * 1px) and (max-width: $grid-breakpoint-desk * 1px) {
+		&-col-mob-no-margin #{$self} {
+			margin-top: 0 !important; // Override below
+		}
+	}
+
 	// Mobile
 	// =========================================================================
 
@@ -181,6 +188,21 @@
 	@include media-tab {
 		&-tags-reading-time {
 			display: inline-block;
+		}
+	}
+
+	// Desk
+	// =========================================================================
+
+	@include media-desk {
+		&-col-padding {
+			&#{$self}-col-left {
+				padding-right: $margin-large;
+			}
+
+			&#{$self}-col-right {
+				padding-left: $margin-large;
+			}
 		}
 	}
 }

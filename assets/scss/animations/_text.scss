@@ -1,0 +1,51 @@
+// -----------------------------------------------------------------------------
+// _text.scss
+// This file contains native text animations such as the H1 bend.
+// -----------------------------------------------------------------------------
+
+.text-animate {
+	$self: &;
+	position: relative;
+
+	// Props
+	// =========================================================================
+
+	&-letter,
+	&-mark {
+		display: inline-block;
+		opacity: 1;
+		transform: none;
+	}
+
+	// Underline
+	// =========================================================================
+
+	u {
+		position: relative;
+	}
+
+	&-underline {
+		position: absolute;
+		display: inline-block;
+		left: 0;
+		bottom: 2%;
+		margin: auto;
+		height: $line-size-thick;
+		width: 100%;
+		background-color: $white;
+		transform-origin: left;
+	}
+
+	// Letter
+	// =========================================================================
+
+	&-letter {
+	}
+
+	// Mark
+	// =========================================================================
+
+	&-mark {
+		transform-origin: 60% 35%;
+	}
+}

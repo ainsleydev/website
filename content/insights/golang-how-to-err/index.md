@@ -30,7 +30,7 @@ wrong, they can save hours of debugging time when used effectively.
 Coupled with consistent and effective use of a logging package, we are able to tell if something goes wrong, where it
 went wrong and how it went wrong.
 
-## Go Errors
+## Go errors
 
 I think we are blessed with the nature of Go’s simplistic style of error handling, it’s certainly caught the attention
 of users of other programming languages. All we have to do is check if the error is not nil, and that’s it.
@@ -362,7 +362,7 @@ debugging time and searching through hundreds of files and lines.
 
 The following format is preferred:
 
-“ServiceName.FunctionName”
+*ServiceName.FunctionName*
 
 Where the service name is the name of the struct or type that's implementing a function, or package. And the function
 name is the name of the function that produced the error.
@@ -428,7 +428,7 @@ Not only does proper and effective error handling save time for a developer, it 
 understand for your end users. By using them consistently and correctly, you are able to speed up workflow and make
 things easier to reason about.
 
-## Useful Links
+## Useful links
 
 * [ainsleyclark/errors - Error handling in Go made easy with codes, messages and more.](https://github.com/ainsleyclark/errors)
 * [Errors package in the standard library](https://pkg.go.dev/errors)

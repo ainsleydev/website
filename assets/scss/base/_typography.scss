@@ -235,6 +235,16 @@ strong {
 	text-transform: lowercase;
 }
 
+.type-heading {
+	color: colour('paragraph');
+	font-weight: normal;
+	margin-bottom: $margin;
+
+	@include media-desk {
+		margin-bottom: $margin-large;
+	}
+}
+
 // Selection Color
 // =========================================================================
 

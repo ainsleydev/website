@@ -22,13 +22,18 @@
 	"dependencies": {
 		"@barba/core": "^2.9.7",
 		"@googlemaps/js-api-loader": "^1.15.1",
-		"locomotive-scroll": "^4.1.4",
+		"animejs": "^3.2.1",
+		"aos": "^3.0.0-beta.6",
+		"loconative-scroll": "github:quentinhocde/loconative-scroll",
 		"normalize.css": "^8.0.1",
-		"smoothscroll-polyfill": "^0.4.4",
 		"toastify-js": "^1.12.0"
 	},
 	"devDependencies": {
+		"@types/animejs": "^3.1.7",
+		"@types/aos": "^3.0.4",
 		"@types/google.maps": "^3.51.0",
+		"@types/grecaptcha": "^3.0.4",
+		"@types/locomotive-scroll": "^4.1.0",
 		"@types/node": "^18.11.18",
 		"@types/toastify-js": "^1.11.1",
 		"@typescript-eslint/eslint-plugin": "^5.52.0",

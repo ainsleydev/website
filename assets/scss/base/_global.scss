@@ -12,20 +12,19 @@ html {
 
 *,
 html {
-	scroll-behavior: smooth;
+	scroll-behavior: initial;
 }
 
 html,
 body {
-	height: 100%;
-	width: 100%;
-	margin: 0;
-	padding: 0;
+	//width: 100%;
+	//height: auto;
+	//min-height: 100%;
+	//margin: 0;
+	//padding: 0;
 	font-family: $font;
 	font-size: 1rem;
 	line-height: 1.6;
-	overflow: auto;
-	//overflow: auto !important; // Override Typeform
 	font-kerning: normal;
 	-webkit-font-smoothing: antialiased; // sass-lint:disable-line  no-vendor-prefixes
 	-webkit-tap-highlight-color: transparent; // sass-lint:disable-line  no-vendor-prefixes

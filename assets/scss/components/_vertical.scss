@@ -49,7 +49,7 @@
 		height: 3px;
 		width: 100%;
 		margin-top: $margin;
-		margin-bottom: $margin;
+		margin-bottom: $margin-large;
 		background-color: colour('foreground');
 	}
 
@@ -148,21 +148,24 @@
 	// =========================================================================
 
 	@include media-mob {
-		// Content
-		// =========================================================================
-
 		&-content {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 		}
 
-		// Vertical Line
-		// =========================================================================
-
 		&-vertical-line {
 			display: block;
-			margin: 0 0 0 calc(80px);
+			margin: 0 0 0 clamp(56px, 7vw, 80px);
+		}
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-desk {
+		&-vertical-line {
+			margin: 0 0 0 clamp(68px, 5vw, 80px);
 		}
 	}
 }

@@ -1,7 +1,55 @@
 {{ define "main" }}
-    {{ .Content }}
-
-
+	<!-- =====================
+		Home
+		===================== -->
+	<section class="hero hero-full-height">
+		<div class="container">
+			<div class="row justify-content-between">
+				<div class="col-12">
+					<!-- Text -->
+					<div class="hero-text">
+						<!-- Heading -->
+						<div class="margin-large">
+							<h1>Digital <span class="type-serif">craftmanship*</span><br/>sculpting you as an<br/> industry <u>leader</u>.</h1>
+						</div>
+						<!-- Content -->
+						<p class="lead lead-max-width mb-0">
+							Coupling state-of-the-art technology with beautiful, memorable designs, we create memorable
+							digital transformations and well-crafted software for everyone from startups to established
+							brands.
+						</p>
+					</div><!-- /Text -->
+					<!-- Arrow -->
+                    {{ partial "arrow/hover.html" (dict
+						"link" (printf "%s#content" .Page.RelPermalink)
+						"title" "Scroll down to explore"
+						"rotation" 135
+						"title" "Explore ainsley.dev"
+                    )}}<!-- /Arrow -->
+				</div><!--- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+	<!-- =====================
+		Home
+		===================== -->
+	<section class="section section-padding section-padding-top" id="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<!-- Heading -->
+					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
+                        {{ partial "type/vertical.html" (dict
+							"text" "Showreel"
+							"number" "02"
+							"line" true
+							"fill" false
+                        )}}
+					</div><!-- /Col -->
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
 	<!-- =====================
 		Solutions
 		===================== -->
@@ -11,29 +59,31 @@
 				<!-- Heading -->
 				<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
                     {{ partial "type/vertical.html" (dict
-						"text" "Creative<br/>Solutions"
-						"number" "02"
+						"text" "Solutions"
+						"number" "01"
 						"line" true
 						"fill" true
                     )}}
 				</div><!-- /Col -->
 				<!-- Content -->
-				<div class="col-12 col-desk-6">
-					<h3>Increase your visibility</h3>
-					<p>
-						Every application made by ainsley.dev is curated to launch your business into the digital world
-						by sculpting your online presence to increase your online visibility.
-					</p>
-					<h3>Discover bespoke solutions</h3>
-					<p>
-						We take the time to get to know you and the challenges you face with your existing strategies,
-						and create bespoke products by treating your business as if it were our own.
-					</p>
-					<h3>Driven by simplicity</h3>
-					<p>
-						We are driven by simplicity and the shared goal of producing visionary designs, coupled with
-						best-in-class in-house software, APIs, designs and websites.
-					</p>
+				<div class="col-12 col-mob-9 col-desk-6">
+					<div class="margin margin-none">
+						<h3>Increase your visibility</h3>
+						<p>
+							Every application made by ainsley.dev is curated to launch your business into the digital world
+							by sculpting your online presence to increase your online visibility.
+						</p>
+						<h3>Discover bespoke solutions</h3>
+						<p>
+							We take the time to get to know you and the challenges you face with your existing strategies,
+							and create bespoke products by treating your business as if it were our own.
+						</p>
+						<h3>Driven by simplicity</h3>
+						<p>
+							We are driven by simplicity and the shared goal of producing visionary designs, coupled with
+							best-in-class in-house software, APIs, designs and websites.
+						</p>
+					</div>
 				</div><!--- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
@@ -50,29 +100,41 @@
 						"text" "Services"
 						"number" "02"
 						"line" true
-						"fill" true
+						"fill" false
                     )}}
 				</div><!-- /Col -->
 				<!-- Content -->
-				<div class="col-12 col-desk-6">
+				<div class="col-12 col-mob-9 col-desk-6">
 					<div class="row">
 						<div class="col-12 col-desk-6">
-							<div class="margin">
-								<h3>Brand strategy</h3>
-							</div>
-							<div class="margin">
-								<h3>Digital experience</h3>
-							</div>
-							<h3>Bespoke UI/UX</h3>
-							<h3>Development</h3>
-						</div>
+							<h3 class="type-heading">
+								Brand strategy
+							</h3>
+							<h3 class="type-heading">
+								Digital experience
+							</h3>
+							<h3 class="type-heading">
+								Bespoke UI/UX
+							</h3>
+							<h3 class="type-heading mb-desk-0">
+								Development
+							</h3>
+						</div><!--- /Col -->
 						<div class="col-12 col-desk-6">
-							<h3>Software</h3>
-							<h3>SEO</h3>
-							<h3>Copywriting</h3>
-							<h3>Illustration</h3>
-						</div>
-					</div>
+							<h3 class="type-heading">
+								Software
+							</h3>
+							<h3 class="type-heading">
+								SEO
+							</h3>
+							<h3 class="type-heading">
+								Copywriting
+							</h3>
+							<h3 class="type-heading mb-0">
+								Illustration
+							</h3>
+						</div><!--- /Col -->
+					</div><!-- /Row -->
 				</div><!--- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
@@ -84,23 +146,51 @@
     {{ with $portfolio }}
 		<section class="section section-padding section-padding-top">
 			<div class="container">
-				<div class="row">
+				<div class="row justify-content-between">
 					<!-- Heading -->
 					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
                         {{ partial "type/vertical.html" (dict
-                        "text" "Portfolio"
-                        "number" "03"
-                        "line" true
-                        "fill" true
+							"text" "Portfolio"
+							"number" "03"
+							"line" true
+							"fill" false
                         )}}
 					</div><!-- /Col -->
 					<!-- Content -->
-					<div class="col-12 col-desk-10">
-						<div class="row">
+					<div class="col-12 col-mob-9">
+						<div class="row no-gaps">
+							<!-- All Articles - Large -->
+							<div class="col-12 all-articles all-articles-large margin-large">
+								<div class="all-articles-wrapper all-articles-wrapper-end">
+                                    {{ partial "arrow/text.html" (dict
+										"link" "/insights/"
+										"text" "<h3>All work</h3>"
+										"title" "View all work"
+										"small" true
+										"rotation" 45
+                                    )}}
+								</div><!-- /Wrapper -->
+							</div><!-- /Col -->
+							<!-- All Articles - Small -->
+							<div class="col-12 all-articles all-articles-small">
+								<div class="all-articles-wrapper">
+									<h6 class="all-articles-sub">
+										Latest Articles
+									</h6>
+                                    {{ partial "arrow/text.html" (dict
+										"link" "/insights/"
+										"text" "<h2>All work</h3>"
+										"title" "View all work"
+										"small" true
+										"rotation" 45
+                                    )}}
+								</div><!-- /Wrapper -->
+							</div><!-- /Col -->
+							<!-- Cards -->
                             {{ range $index, $page := . }}
                                 {{ $isLeft := eq (mod $index 2) 0 }}
-								<div
-									class="col-12 col-mob-11 col-desk-6 {{ if not $isLeft }} offset-desk-0 {{- end }} card-col">
+								<div class="col-12 col-desk-6 card-col-padding card-col-mob-no-margin
+								{{ if $isLeft }} card-col-left {{- else -}} card-col-right {{- end }} card-col">
                                     {{ .Render "card" }}
 								</div><!-- /Col -->
                             {{- end }}
@@ -117,23 +207,25 @@
     {{ with $insights }}
 		<section class="section section-padding">
 			<div class="container">
-				<div class="row">
+				<div class="row justify-content-between">
 					<!-- Heading -->
 					<div class="col-12 col-mob-2">
                         {{ partial "type/vertical.html" (dict
-							"text" "Portfolio"
+							"text" "Insights"
 							"number" "04"
 							"line" true
-							"fill" true
+							"fill" false
                         )}}
 					</div><!-- /Col -->
 					<!-- Content -->
-					<div class="col-12 col-desk-9">
-						<!-- Into -->
-						<div class="row">
-							<div class="col-12 ">
-								<div class="d-flex justify-content-between align-items-center margin-large">
-									<h6 class="mn-0">Latest Articles</h6>
+					<div class="col-12 col-mob-9">
+						<div class="row no-gaps">
+							<!-- All Articles - Large -->
+							<div class="col-12 all-articles all-articles-border all-articles-large">
+								<div class="all-articles-wrapper">
+									<h6 class="all-articles-sub">
+										Latest Articles
+									</h6>
                                     {{ partial "arrow/text.html" (dict
 										"link" "/insights/"
 										"text" "<h3>All insights</h3>"
@@ -141,13 +233,26 @@
 										"small" true
 										"rotation" 45
                                     )}}
-								</div>
-							</div>
-						</div><!-- /Row -->
-						<div class="row">
+								</div><!-- /Wrapper -->
+							</div><!-- /Col -->
+							<!-- All Articles - Small -->
+							<div class="col-12 all-articles all-articles-border all-articles-small">
+								<div class="all-articles-wrapper">
+									<h6 class="all-articles-sub">
+										Latest Articles
+									</h6>
+                                    {{ partial "arrow/text.html" (dict
+										"link" "/insights/"
+										"text" "<h2>All insights</h3>"
+										"title" "View all insights"
+										"small" true
+										"rotation" 45
+                                    )}}
+								</div><!-- /Wrapper -->
+							</div><!-- /Col -->
+							<!-- Cards -->
                             {{ range $index, $page := . }}
-                                {{ $isLeft := eq (mod $index 2) 0 }}
-								<div class="col-12 card-col">
+								<div class="col-12 card-col {{ if eq $index 0 }} card-col-first {{- end }}">
                                     {{ .Render "card" }}
 								</div><!-- /Col -->
                             {{- end }}

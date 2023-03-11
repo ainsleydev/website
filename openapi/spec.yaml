@@ -17,9 +17,10 @@ servers:
     -   url: https://staging.ainsley.dev/api
         description: Staging Environment
 paths:
-    "/forms/contact":
+    # Note, you must add the trailing slash.
+    "/forms/contact/":
         "post":
-            description: Posts a new form submission fror to contact page.
+            description: Posts a new form submission from to contact page.
             operationId: SendContactForm
             requestBody:
                 description: The User to create, all fields are required to pass validation.
@@ -33,38 +34,38 @@ paths:
                     content:
                         application/json:
                             schema:
-                                allOf:
-                                    -   $ref: '#/components/schemas/HTTPResponse'
-                                    -   properties:
-                                            data:
-                                                $ref: '#/components/schemas/ContactFormResponse'
-                401:
-                    description:  Not Authorised
+                                $ref: '#/components/schemas/HTTPResponse'
+                default:
+                    description: Unexpected error
                     content:
                         application/json:
                             schema:
-                                allOf:
-                                    -   $ref: '#/components/schemas/HTTPResponse'
+                                $ref: '#/components/schemas/HTTPError'
 components:
     securitySchemes:
-        ApiKeyAuth:
+        Authentication:
             type: apiKey
             in: header
             name: X-API-Key
     schemas:
         HTTPResponse:
+            type: object
             properties:
                 data:
-                    type: object
-                error:
-                    type: boolean
+                    AnyValue: {}
                 message:
                     example: User formatted message from the API
                     type: string
-                status:
-                    type: integer
+            required:
+                - data
+                - error
+                - message
         HTTPError:
+            type: object
             properties:
+                message:
+                    example: Error, unable to authenticate
+                    type: string
                 code:
                     example: error_code
                     type: string
@@ -74,12 +75,14 @@ components:
                 operation:
                     example: Function.Method
                     type: string
-            type: object
-        ContactFormRequest:
-            type: object
-            description: Message and attributes from the contact form
             required:
                 - message
+                - code
+                - error
+                - operation
+        ContactFormRequest:
+            type: object
+            description: Message and attributes from the contact form.
             properties:
                 message:
                     type: string
@@ -87,8 +90,11 @@ components:
                 honeypot:
                     type: string
                     description: The message from the user.
+            required:
+                - message
+                - honeypot
         ContactFormResponse:
             type: string
-            description: The message sent back to the user upon successful submission
+            description: The message sent back to the user upon successful submission.
 security:
-    -   ApiKeyAuth: [ ]
+    - Authentication: []

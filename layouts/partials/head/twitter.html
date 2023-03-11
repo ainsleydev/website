@@ -4,7 +4,6 @@
 {{- $baseURL := .Site.BaseURL -}}
 <!-- Image -->
 <meta name="twitter:card" content="summary_large_image"/>
-{{ $image := . }}
 {{- with .Page.Resources.Get "images/og.jpg" -}}
 	<meta property="og:image" content="{{ .Permalink }}"/>
 {{- else -}}

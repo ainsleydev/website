@@ -4,31 +4,44 @@
 {{- $related := (partial "util/_related.html" .) -}}
 {{ with $related -}}
 	<section class="section section-padding bg-off-white">
-		<div class="container d-flex flex-column">
-			<div class="row justify-content-center margin-title">
-				<div class="col-12 col-desk-10">
-					<div class="d-desk-flex justify-content-between align-items-center">
-						<!-- Title -->
-						<h2 class="mb-0">Other reads</h2>
-						<!-- All Insights -->
+		<div class="container">
+			<div class="row justify-content-center">
+				<!-- All Articles - Large -->
+				<div class="col-12 col-tab-10 all-articles all-articles-large">
+					<div class="all-articles-wrapper">
+						<h3>
+							Latest insights
+						</h3>
 						{{ partial "arrow/text.html" (dict
 							"link" "/insights/"
 							"text" "<h3>All insights</h3>"
 							"title" "View all insights"
 							"small" true
 							"rotation" 45
-							"class" "d-none d-desk-flex"
 						)}}
-					</div><!-- /Row -->
+					</div><!-- /Wrapper -->
 				</div><!-- /Col -->
-			</div><!-- /Row -->
-			<div class="row justify-content-center">
+				<!-- All Articles - Small -->
+				<div class="col-12 all-articles all-articles-small">
+					<div class="all-articles-wrapper">
+						<h6 class="all-articles-sub">
+							Latest Articles
+						</h6>
+                        {{ partial "arrow/text.html" (dict
+							"link" "/insights/"
+							"text" "<h2>All insights</h3>"
+							"title" "View all insights"
+							"small" true
+							"rotation" 45
+                        )}}
+					</div><!-- /Wrapper -->
+				</div><!-- /Col -->
 				{{ range  . }}
-					<div class="col-12 col-desk-10 card-col">
+					<div class="col-12 col-tab-10 card-col">
 						{{ .Render "card" }}
 					</div><!-- /Col -->
 				{{- end }}
-			</div><!-- /Row -->
+				</div><!-- /Row -->
 		</div><!-- /Container -->
 	</section>
 {{- end }}

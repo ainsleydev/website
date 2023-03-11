@@ -12,6 +12,8 @@
 // HTML Scrolled
 // =========================================================================
 
-html.scrolled .scroll {
-	opacity: 0;
+@include media-desk {
+	html.scrolled .scroll {
+		opacity: 0;
+	}
 }
