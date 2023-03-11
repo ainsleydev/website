@@ -2,7 +2,8 @@
 	<!-- =====================
 		Portfolio List
 		===================== -->
-	<section class="hero hero-simple hero-simple-padding-bottom" data-scroll-section>
+	<section class="hero hero-simple hero-simple-padding-bottom"
+			 data-scroll data-scroll-speed="1">
 		<div class="container">
 			<div class="row">
 				<div class="col-12 col-desk-11 offset-desk-1">
@@ -29,10 +30,7 @@
                     {{ range $index, $page := $paginator.Pages }}
                         {{ $isLeft := eq (mod $index 2) 0 }}
 						<div class="col-12 col-mob-6 col-desk-5 {{ if not $isLeft }} offset-desk-2 {{- end }} card-col"
-                                	data-aos="fade-up"
-{{/*							 data-scroll data-scroll-speed="{{ if $isLeft}} 2 {{- else -}} 4 {{ end }}"*/}}
-							 data-scroll
-						>
+                            data-aos="fade-up">
 							<div class="row {{ if not $isLeft }} justify-content-end {{- end }}">
 								<div class="col-12 col-mob-11 col-desk-12">
 									{{ .Render "card" }}

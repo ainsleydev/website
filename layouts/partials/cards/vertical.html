@@ -17,12 +17,12 @@
 	aria-label="Navigate to the {{ .title }} page">
 	<!-- Featured Image -->
 	{{ with .image -}}
-		<figure class="card-image margin">
+		<figure class="card-image margin" data-scroll data-scroll-speed="0.3">
 			<img loading="lazy" class="lazy-animate" src="{{ .RelPermalink }}" alt="{{ $.title }}">
 		</figure>
 	{{- end }}
 	<!-- Text -->
-	<div class="card-text para">
+	<div class="card-text">
 		<!-- Sub -->
 		{{ with .sub -}}
 			<h6>{{ . }}</h6>
