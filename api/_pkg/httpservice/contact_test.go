@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/slack"
 	"github.com/ainsleyclark/ainsley.dev/gen/mocks"
@@ -87,6 +88,7 @@ func TestHandler_SendContactForm(t *testing.T) {
 				test.mock(slack, mail)
 			}
 			h := Handler{
+				Config: &environment.Config{},
 				Slack:  slack,
 				Mailer: mail,
 			}
