@@ -5,12 +5,13 @@
 package api
 
 import (
+	"log"
+	"net/http"
+
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/slack"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/middleware"
 	echomiddleware "github.com/labstack/echo/v4/middleware"
-	"log"
-	"net/http"
 
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
 
