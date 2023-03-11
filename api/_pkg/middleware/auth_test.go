@@ -5,10 +5,10 @@
 package middleware
 
 import (
-	"fmt"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -47,8 +47,8 @@ func TestAuth(t *testing.T) {
 			h := Auth(&test.config)(func(ctx echo.Context) error {
 				return ctx.NoContent(http.StatusOK)
 			})
-			_ = h(ctx)
-			fmt.Println(rec.Code)
+			err := h(ctx)
+			require.NoError(t, err)
 			assert.Equal(t, test.want, rec.Code)
 		})
 	}

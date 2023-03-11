@@ -12,9 +12,9 @@ import (
 // Config represents the environment variables set in build
 // used a system configuration for the application.
 type Config struct {
-	VercelEnv       string   `env:"VERCEL_ENV"`
-	VercelURL       string   `env:"VERCEL_URL"`
-	VercelRegion    string   `env:"VERCEL_REGION"`
+	Env             string   `env:"VERCEL_ENV"`
+	URL             string   `env:"VERCEL_URL"`
+	Region          string   `env:"VERCEL_REGION"`
 	APIKey          string   `env:"API_KEY,required"`
 	BrandName       string   `env:"BRAND_NAME,required"`
 	BrandColour     string   `env:"BRAND_COLOUR"`

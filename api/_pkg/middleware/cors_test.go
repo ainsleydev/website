@@ -5,9 +5,9 @@
 package middleware
 
 import (
-	"fmt"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/labstack/echo/v4"
+	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"net/http"
 	"net/http/httptest"
@@ -15,34 +15,18 @@ import (
 )
 
 func TestCORS(t *testing.T) {
-	tt := map[string]struct {
-		input  func(r *http.Request)
-		config environment.Config
-		want   int
-	}{
-		"Unauthorized": {
-			input: func(r *http.Request) {
-				r.Header.Set(echo.HeaderOrigin, "https://ainsley.dev")
-			},
-			config: environment.Config{},
-			want:   http.StatusUnauthorized,
-		},
+	cfg := environment.Config{
+		URL: "http://test.com",
 	}
-
 	e := echo.New()
-	for name, test := range tt {
-		t.Run(name, func(t *testing.T) {
-			req := httptest.NewRequest(http.MethodPost, "/", nil)
-			rec := httptest.NewRecorder()
-			ctx := e.NewContext(req, rec)
-			test.input(req)
-			h := CORS(&test.config)(func(ctx echo.Context) error {
-				return nil
-			})
-			err := h(ctx)
-			require.NoError(t, err)
-			fmt.Println(rec.Header())
-			fmt.Println(rec.Code)
-		})
-	}
+	req := httptest.NewRequest(http.MethodPost, "/", nil)
+	rec := httptest.NewRecorder()
+	ctx := e.NewContext(req, rec)
+	req.Header.Set(echo.HeaderOrigin, cfg.URL)
+	h := CORS(&cfg)(func(ctx echo.Context) error {
+		return nil
+	})
+	err := h(ctx)
+	require.NoError(t, err)
+	assert.Equal(t, cfg.URL, rec.Header().Get(echo.HeaderAccessControlAllowOrigin))
 }
