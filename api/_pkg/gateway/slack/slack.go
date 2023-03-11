@@ -18,13 +18,15 @@ type (
 		// A Client app with the chat:write.public and chat:write permissions must
 		// be installed to the workspace.
 		// See: https://api.slack.com/
-		Send(ctx context.Context, channelID, subject, message string) error
+		Send(ctx context.Context, channelID, subject string, fields []Field) error
 	}
 	// Client implements the notifier interface to send Client.
 	// messages with a given message.
 	Client struct {
 		slackSendFunc slackSendFn
 	}
+	// Field are an alias of an attachment field to attach to the message.
+	Field = slack.AttachmentField
 	// sendSlackFunc is the function used for sending to
 	// a Client channel, it's stubbed for testing.
 	slackSendFn func(ctx context.Context, channelID string, options ...slack.MsgOption) (string, string, error)
@@ -50,11 +52,12 @@ func New(token string) *Client {
 	}
 }
 
-func (c *Client) Send(ctx context.Context, channelID, subject, message string) error {
+func (c *Client) Send(ctx context.Context, channelID, subject string, fields []Field) error {
 	// Create the Client attachment that we will send to the channel.
 	attachment := slack.Attachment{
 		Pretext: subject,
-		Text:    message,
+		Color:   "#ff5043",
+		Fields:  fields,
 	}
 	id, timestamp, err := c.slackSendFunc(ctx, channelID, slack.MsgOptionAttachments(attachment))
 	if err != nil {

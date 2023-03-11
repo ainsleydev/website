@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"github.com/logrusorgru/aurora"
 	"github.com/sirupsen/logrus"
+	"sort"
 	"strings"
 )
 
@@ -41,8 +42,13 @@ func (f *localFormatter) Format(entry *logrus.Entry) ([]byte, error) {
 	fields, ok := entry.Data["fields"].(logrus.Fields)
 	if ok {
 		data += " "
-		for k, v := range fields {
-			data += fmt.Sprintf("%s=%v ", aurora.Gray(15, k).Bold(), v)
+		keys := make([]string, 0, len(fields))
+		for k := range fields {
+			keys = append(keys, k)
+		}
+		sort.Strings(keys)
+		for _, k := range keys {
+			data += fmt.Sprintf("%s=%v ", aurora.Gray(15, k).Bold(), fields[k])
 		}
 	}
 

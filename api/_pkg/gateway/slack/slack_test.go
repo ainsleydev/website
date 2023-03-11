@@ -25,7 +25,7 @@ func TestSlack_Send(t *testing.T) {
 				return "", "", nil
 			},
 		}
-		got := s.Send(context.TODO(), "channel", "subject", "message")
+		got := s.Send(context.TODO(), "channel", "subject", nil)
 		assert.NoError(t, got)
 	})
 
@@ -35,7 +35,7 @@ func TestSlack_Send(t *testing.T) {
 				return "id", "timestamp", errors.New("error")
 			},
 		}
-		got := s.Send(context.TODO(), "channel", "subject", "message")
+		got := s.Send(context.TODO(), "channel", "subject", nil)
 		want := "failed to send message to Slack channel 'id' at time 'timestamp': error"
 		assert.ErrorContains(t, got, want)
 	})

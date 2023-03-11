@@ -101,15 +101,7 @@ func Logger() echo.MiddlewareFunc {
 			res := ctx.Response()
 			start := time.Now()
 
-			//id := req.Header.Get(RequestIDHeader)
-			//if id == "" {
-			//	id = ctx.Get(RequestIDContextKey)
-			//}
-
-			var err error
-			if err = next(ctx); err != nil {
-				ctx.Error(err)
-			}
+			err := next(ctx)
 			stop := time.Now()
 
 			fields := logrus.Fields{
@@ -117,18 +109,28 @@ func Logger() echo.MiddlewareFunc {
 				"host":        req.Host,
 				"method":      req.Method,
 				"status":      res.Status,
-				"ip":          ctx.RealIP(),
 				"remote_addr": req.RemoteAddr,
 				"latency":     stop.Sub(start).String(),
 				"request_id":  ctx.Get(RequestIDContextKey),
-				"referer":     req.Referer(),
 				"user_agent":  req.UserAgent(),
 			}
 
-			if res.Status >= 200 && res.Status < 400 {
+			errMsg := "Request failed"
+			if err != nil {
+				e, ok := err.(*errors.Error)
+				if ok {
+					fields["code"] = e.Code
+					fields["error"] = e.Err
+					errMsg = e.Message
+				} else {
+					fields["error"] = err.Error()
+				}
+			}
+
+			if err == nil {
 				logger.WithFields(fields).Info("Request succeeded")
 			} else {
-				logger.WithFields(fields).Error("Request failed")
+				logger.WithFields(fields).Error(errMsg)
 			}
 
 			return err

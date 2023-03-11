@@ -115,19 +115,19 @@ var submission = ContactSubmission{
 }
 
 func TestContactSubmission_Text(t *testing.T) {
-	want := fmt.Sprintf("New contact form submission\nEmail: hello@ainsley.dev\nMessage: message")
+	want := fmt.Sprintf("Email: hello@ainsley.dev\n\nMessage: message")
 	got := submission.Text()
 	assert.Contains(t, got, want)
 }
 
-func TestContactSubmission_HTML(t *testing.T) {
-	want := fmt.Sprintf("<h2>New contact form submission/h2><p><strong>Email :</strong> hello@ainsley.dev</p><p><strong>Message:</strong> message</p>p><strong>Time:</strong>")
-	got := submission.HTML()
+func TestContactSubmission_Markdown(t *testing.T) {
+	want := fmt.Sprintf("**Email**: hello@ainsley.dev\n\n**Message**: message")
+	got := submission.Markdown()
 	assert.Contains(t, got, want)
 }
 
-func TestContactSubmission_Subject(t *testing.T) {
-	want := "ainsley.dev - New contact form submission"
-	got := submission.Subject()
-	assert.Equal(t, want, got)
+func TestContactSubmission_HTML(t *testing.T) {
+	want := fmt.Sprintf("<p><strong>Email :</strong> hello@ainsley.dev</p><p><strong>Message:</strong> message</p>p><strong>Time:</strong>")
+	got := submission.HTML()
+	assert.Contains(t, got, want)
 }

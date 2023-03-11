@@ -20,41 +20,6 @@ func Bootstrap() {
 	})
 }
 
-// Trace logs a trace message with args.
-func Trace(args ...any) {
-	DefaultLogger.Trace(args...)
-}
-
-// Debug logs a debug message with args.
-func Debug(args ...any) {
-	DefaultLogger.Debug(args...)
-}
-
-// Info logs ab info message with args.
-func Info(args ...any) {
-	DefaultLogger.Info(args...)
-}
-
-// Warn logs a warn message with args.
-func Warn(args ...any) {
-	DefaultLogger.Warn(args...)
-}
-
-// Error logs an error message with args.
-func Error(args ...any) {
-	DefaultLogger.Error(args...)
-}
-
-// Fatal logs a fatal message with args.
-func Fatal(args ...any) {
-	DefaultLogger.Fatal(args...)
-}
-
-// Panic logs a panic message with args.
-func Panic(args ...any) {
-	DefaultLogger.Panic(args...)
-}
-
 // WithField logs with field, sets a new map containing
 // "fields".
 func WithField(key string, value interface{}) *logrus.Entry {
@@ -88,4 +53,39 @@ func SetLevel(level logrus.Level) {
 // SetLogger sets the application DefaultLogger.
 func SetLogger(l *logrus.Logger) {
 	DefaultLogger = l
+}
+
+// Trace logs a trace message with args.
+func Trace(args ...any) {
+	DefaultLogger.Trace(args...)
+}
+
+// Debug logs a debug message with args.
+func Debug(args ...any) {
+	DefaultLogger.Debug(args...)
+}
+
+// Info logs ab info message with args.
+func Info(args ...any) {
+	DefaultLogger.Info(args...)
+}
+
+// Warn logs a warn message with args.
+func Warn(args ...any) {
+	DefaultLogger.Warn(args...)
+}
+
+// Error logs an error message with args.
+func Error(args ...any) {
+	DefaultLogger.Error(args...)
+}
+
+// Fatal logs a fatal message with args.
+func Fatal(args ...any) {
+	DefaultLogger.Fatal(args...)
+}
+
+// Panic logs a panic message with args.
+func Panic(args ...any) {
+	DefaultLogger.Panic(args...)
 }
