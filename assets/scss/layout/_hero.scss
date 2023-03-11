@@ -199,7 +199,7 @@
 
 	@include media-tab {
 		&-simple {
-			padding-top: $section-padding;
+			padding-top: clamp(100px, 20vw, 170px);
 		}
 	}
 

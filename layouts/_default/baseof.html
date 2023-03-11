@@ -83,7 +83,7 @@
 		{{- end }}
 		<!-- Google Tag Manager -->
         {{ if hugo.IsProduction -}}
-			<script>
+			<script defer>
 				(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 						new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 					j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -106,24 +106,22 @@
 				</iframe>
 			</noscript><!-- /End Google Tag Manager (noscript) -->
 		{{- end }}
-		<div data-scroll-container>
-			<!-- Header -->
-			{{- partial "header.html" (dict "colour" $colour) -}}
-			<!-- Cursor -->
-			<div class="cursor cursor-theme-{{ $colour }}"></div>
-			<!-- Wrapper -->
-			<div class="content-wrapper">
-				<!-- Main Content -->
-				<main id="main">
-					{{- block "main" . }}{{- end }}
-				</main>
-				<!-- Footer -->
-				{{- partial "footer.html" . -}}
-			</div>
+		<!-- Header -->
+		{{- partial "header.html" (dict "colour" $colour) -}}
+		<!-- Cursor -->
+		<div class="cursor cursor-theme-{{ $colour }}"></div>
+		<!-- Wrapper -->
+		<div class="content-wrapper" data-scroll-container>
+			<!-- Main Content -->
+			<main id="main">
+				{{- block "main" . -}} {{- end }}
+			</main>
+			<!-- Footer -->
+			{{- partial "footer.html" . -}}
 		</div>
 		<!-- Javascript -->
         {{ range $js -}}
-			<script src="{{ .RelPermalink }}?{{ $hash }}"
+			<script defer async src="{{ .RelPermalink }}?{{ $hash }}"
                     {{ if ne hugo.Environment "development" -}}
                 {{ with .Data.Integrity }} integrity="{{ . }}" crossorigin="anonymous" {{- end }}
                     {{ end }}>
@@ -131,5 +129,10 @@
         {{- end }}
         <!-- Google Transition Fix -->
         <script> </script>
+{{/*		<script src="/temp.js"></script>*/}}
+
+{{/*		<script>*/}}
+{{/*			var scroll = new LoconativeScroll();*/}}
+{{/*		</script>*/}}
     </body>
 </html>

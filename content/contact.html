@@ -4,7 +4,8 @@ description: Get in touch with ainsley.dev to capture your vision and values, so
 draft: false
 pageColour: white
 scripts:
-- js/pages/contact.ts
+  - js/pages/contact.ts
+  - https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit
 ---
 
 <!-- =====================
@@ -13,11 +14,8 @@ scripts:
 <section class="hero hero-simple margin-title">
 	<div class="container">
 		<div class="row">
-			<div class="col-12 col-desk-7">
-				<h1 class="mb-0">
-					Let’s capture <span class="type-serif">your vision*</span> and values, so we can help you <u>build a
-						vibrant</u> brand identity
-				</h1>
+			<div class="col-12">
+				<h1 class="mb-0">Let’s capture <span class="type-serif">your <br class="d-none d-tab-inline" />vision*</span> and values, so we<br class="d-none d-tab-inline" /> can help you build a<br class="d-none d-tab-inline" /><u>vibrant</u> brand identity</h1>
 			</div><!-- /Col -->
 		</div><!-- /Row -->
 	</div><!-- /Container -->
@@ -56,7 +54,7 @@ scripts:
 						<h6>Email us</h6>
 						<a href="mailto:{{< param "contact.email" >}}"
 							title="Email ainsley.dev" aria-label="Email ainsley.dev">
-						<h5>{{< param "contact.email" >}}</h5>
+							<h5>{{< param "contact.email" >}}</h5>
 						</a>
 					</div>
 					<!-- Phone -->
@@ -64,7 +62,7 @@ scripts:
 						<h6>Chat with us</h6>
 						<a href="tel:{{< param "contact.phone.link" >}}"
 							title="Phone ainsley.dev" aria-label="Phone ainsley.dev">
-						<h5>{{< param "contact.phone.pretty" >}}</h5>
+							<h5>{{< param "contact.phone.pretty" >}}</h5>
 						</a>
 					</div>
 					<!-- Social -->

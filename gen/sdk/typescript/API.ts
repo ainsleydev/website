@@ -14,34 +14,34 @@
 // license that can be found in the LICENSE file.
 
 export interface HTTPResponse {
-	data?: object;
-	error?: boolean;
+	data: any;
 	/** @example "User formatted message from the API" */
-	message?: string;
-	status?: number;
+	message: string;
 }
 
 export interface HTTPError {
+	/** @example "Error, unable to authenticate" */
+	message: string;
 	/** @example "error_code" */
-	code?: string;
+	code: string;
 	/** @example "error" */
-	error?: string;
+	error: string;
 	/** @example "Function.Method" */
-	operation?: string;
+	operation: string;
 }
 
 /**
- * Message and attributes from the contact form
+ * Message and attributes from the contact form.
  */
 export interface ContactFormRequest {
 	/** The message from the user. */
 	message: string;
 	/** The message from the user. */
-	honeypot?: string;
+	honeypot: string;
 }
 
 /**
- * The message sent back to the user upon successful submission
+ * The message sent back to the user upon successful submission.
  */
 export type ContactFormResponse = string;
 
@@ -90,7 +90,7 @@ export enum ContentType {
 }
 
 export class HttpClient<SecurityDataType = unknown> {
-	public baseUrl: string = 'https://api.example.com/v1';
+	public baseUrl: string = 'https://ainsley.dev/api';
 	private securityData: SecurityDataType | null = null;
 	private securityWorker?: ApiConfig<SecurityDataType>['securityWorker'];
 	private abortControllers = new Map<CancelToken, AbortController>();
@@ -260,30 +260,24 @@ export class HttpClient<SecurityDataType = unknown> {
 }
 
 /**
- * @title ainsley.de API
+ * @title ainsley.dev API
  * @version 1.0.0
  * @license BSD 3-Clause License (https://github.com/ainsleyclark/ainsley.dev/blob/master/LICENSE)
  * @termsOfService https://ainsley.dev/terms/
- * @baseUrl https://api.example.com/v1
+ * @baseUrl https://ainsley.dev/api
  * @contact ainsley.dev Team <hello@ainsley.dev> (https://swagger.io)
  *
- * temp
+ * API Spec for the backend of ainsley.dev
  */
 export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType> {
 	forms = {
 		/**
 		 * @name SendContactForm
 		 * @request POST:/forms/contact
-		 * @secure * @description Posts a new form submission fror to contact page.
+		 * @secure * @description Posts a new form submission from to contact page.
 		 */
 		sendContactForm: (data: ContactFormRequest, params: RequestParams = {}) =>
-			this.request<
-				HTTPResponse & {
-					/** The message sent back to the user upon successful submission */
-					data?: ContactFormResponse;
-				},
-				HTTPResponse
-			>({
+			this.request<HTTPResponse, HTTPError>({
 				path: `/forms/contact`,
 				method: 'POST',
 				body: data,

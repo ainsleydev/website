@@ -36,3 +36,20 @@ export class ContactForm extends Form {
 			});
 	}
 }
+
+/**
+ * Recaptcha
+ */
+(<any>window).onloadCallback = () => {
+	grecaptcha.render('ac-contact', {
+		sitekey: 'YOUR_RECAPTCHA_SITEKEY_HERE',
+		badge: 'inline',
+		type: 'image',
+		size: 'invisible',
+		callback: submit,
+	});
+};
+
+const submit = () => {
+	console.log('hello');
+};

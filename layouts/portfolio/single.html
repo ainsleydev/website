@@ -104,8 +104,8 @@
 											<div class="{{ if not $isLast -}} margin-large {{- end }}">
 												{{ with .number }}
 													<span class="number">
-													{{ . }}
-												</span>
+														{{ . }}
+													</span>
 												{{- end }}
 												<!-- Result Text -->
 												{{ with .text -}}
@@ -144,11 +144,12 @@
 			<!-- Next Image -->
 			<picture class="portfolio-next-image zoom-overflow">
                 {{ partial "media/picture.html" (dict
-                "image" (.Resources.GetMatch "images/horizontal.jpg")
-                "mob" (.Resources.GetMatch "images/card**")
-                "alt" (printf "ainsley.dev %s Mockup" .Params.company)
-                "lazy" true
-                "class" "zoom-element"
+					"image" (.Resources.GetMatch "images/horizontal.jpg")
+					"mob" (.Resources.GetMatch "images/card**")
+					"tab" (.Resources.GetMatch "images/card**")
+					"alt" (printf "ainsley.dev %s Mockup" .Params.company)
+					"lazy" true
+					"class" "zoom-element"
                 )}}
 			</picture>
 			<!-- Link -->

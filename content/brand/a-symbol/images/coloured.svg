@@ -1,30 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="930" height="544" viewBox="0 0 930 544">
-  <defs>
-    <linearGradient id="linear-gradient" x1="0.954" y1="0.14" x2="0.398" y2="0.601" gradientUnits="objectBoundingBox">
-      <stop offset="0"/>
-      <stop offset="0.09" stop-opacity="0.91"/>
-      <stop offset="1" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
-  <g id="Symbol" transform="translate(-731 -3602)">
-    <g id="Logo" transform="translate(0 3288)">
-      <g id="Group_1323" data-name="Group 1323" transform="translate(731 314)">
-        <g id="Rectangle_2206" data-name="Rectangle 2206" fill="#0a0a0a" stroke="rgba(255,255,255,0.1)" stroke-width="2">
-          <rect width="930" height="544" stroke="none"/>
-          <rect x="1" y="1" width="928" height="542" fill="none"/>
-        </g>
-      </g>
-    </g>
-    <g id="Logo-2" data-name="Logo" transform="translate(934 3672.655)">
-      <g id="ORANGE_STROKE" transform="translate(0 0)">
-        <g id="Group_1" data-name="Group 1">
-          <path id="Path_1" data-name="Path 1" d="M316.617,4H217.358L4.8,477.345H116.442Z" transform="translate(-4.8 -4)" fill="#ff5043"/>
-          <path id="Path_2" data-name="Path 2" d="M316.617,4H217.358L4.8,477.345H116.442Z" transform="translate(-4.8 -4)" opacity="0.57" fill="url(#linear-gradient)"/>
-        </g>
-      </g>
-      <g id="BLUESTROKE" transform="translate(212.558)">
-        <path id="Path_3" data-name="Path 3" d="M543.8,4h99.26L855.618,477.345H743.976Z" transform="translate(-543.8 -4)" fill="#70cbce"/>
-      </g>
-    </g>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="450" height="263" viewBox="0 0 450 263">
+	<defs>
+		<linearGradient id="linear-gradient" x1="0.954" y1="0.14" x2="0.398" y2="0.601" gradientUnits="objectBoundingBox">
+			<stop offset="0"/>
+			<stop offset="0.09" stop-opacity="0.91"/>
+			<stop offset="1" stop-opacity="0"/>
+		</linearGradient>
+	</defs>
+	<g id="Coloured" transform="translate(-731 -314)">
+		<g id="Group_1323" data-name="Group 1323">
+			<g id="Rectangle_2206" data-name="Rectangle 2206" transform="translate(731 314)" fill="#0a0a0a" stroke="rgba(255,255,255,0.2)" stroke-width="2">
+				<rect width="450" height="263" stroke="none"/>
+				<rect x="1" y="1" width="448" height="261" fill="none"/>
+			</g>
+		</g>
+		<g id="Logo" transform="translate(830.001 349)">
+			<g id="ORANGE_STROKE" transform="translate(0 0)">
+				<g id="Group_1" data-name="Group 1">
+					<path id="Path_1" data-name="Path 1" d="M154.966,4h-47.8L4.8,231.955H58.565Z" transform="translate(-4.8 -4)" fill="#ff5043"/>
+					<path id="Path_2" data-name="Path 2" d="M154.966,4h-47.8L4.8,231.955H58.565Z" transform="translate(-4.8 -4)" opacity="0.57" fill="url(#linear-gradient)"/>
+				</g>
+			</g>
+			<g id="BLUESTROKE" transform="translate(102.364)">
+				<path id="Path_3" data-name="Path 3" d="M543.8,4h47.8L693.966,231.955H640.2Z" transform="translate(-543.8 -4)" fill="#70cbce"/>
+			</g>
+		</g>
+	</g>
 </svg>

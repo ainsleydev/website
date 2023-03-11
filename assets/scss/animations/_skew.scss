@@ -5,17 +5,10 @@
 
 .skew {
 	$self: &;
+	transition: transform 100ms linear;
+	will-change: transform;
 
-	@include media-desk-down {
-		transform: none !important; // Override JS
-	}
-
-	//@media not all and (hover: none) {
-	//
+	//@media (hover: none) and (pointer: coarse) {
+	//	transform: none !important; // Override JS
 	//}
-
-	@media (hover: hover) {
-		transition: transform 100ms linear;
-		will-change: transform;
-	}
 }

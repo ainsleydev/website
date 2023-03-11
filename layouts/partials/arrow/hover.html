@@ -14,7 +14,7 @@
 		- title:	The title & aria label of the link.
     ===================== -->
 {{ if .link -}}
-	<a href="{{ .link }}"
+	<a href="{{ .link }}" data-scroll-to
 	{{ with .title -}}
 		title="{{ . }}" aria-label="{{ . }}"
 	{{ else -}}

@@ -609,7 +609,7 @@ We’ve touched on a few bases on how to create well-crafted packages for GoLang
 and tips above will help your packages become more maintainable, readable and easier to use. Remember to look at other
 people’s work! It always helps to see how other people and companies are using Go idioms to their advantage.
 
-## Useful Links
+## Useful links
 
 * [Writing Beautiful Packages in Go by Mat Ryer](https://www.youtube.com/watch?v=cmkKxNN7cs4)
 * [Domain Driven Development (DDD) in GoLang](https://programmingpercy.tech/blog/how-to-domain-driven-design-ddd-golang/)

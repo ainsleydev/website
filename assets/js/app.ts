@@ -16,8 +16,9 @@ import { Navigation } from './components/nav';
 import { Log } from './util/log';
 import { Toast } from './animations/toast';
 import { Arrow } from './animations/arrow';
-import LocomotiveScroll from 'locomotive-scroll';
-import smoothscroll from 'smoothscroll-polyfill';
+import AOS from 'aos';
+import LoconativeScroll from 'loconative-scroll';
+require('./animations/text');
 
 /**
  * Vars
@@ -51,9 +52,48 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * Kick off Smooth Scroll Polyfill
+ * Animate on Scroll
  */
-smoothscroll.polyfill();
+AOS.init({
+	// Global settings:
+	disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+	startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+	initClassName: 'aos-init', // class applied after initialization
+	animatedClassName: 'aos-animate', // class applied on animation
+	useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+	disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+	debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+	throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+	// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+	offset: 200, // offset (in px) from the original trigger point
+	delay: 0, // values from 0 to 3000, with step 50ms
+	duration: 800, // values from 0 to 3000, with step 50ms
+	easing: 'ease', // default easing for AOS animations
+	once: false, // whether animation should happen only once - while scrolling down
+	mirror: false, // whether elements should animate out while scrolling past them
+	anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+});
+
+/**
+ * Locomotive Scroll
+ */
+const scroll = new LoconativeScroll({
+	duration: 1.5,
+	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+	direction: 'vertical', // vertical, horizontal
+	gestureDirection: 'vertical', // vertical, horizontal, both
+	smooth: true,
+	mouseMultiplier: 1,
+	touchMultiplier: 2,
+	infinite: false,
+	smartphone: {
+		smooth: false,
+	},
+	tablet: {
+		smooth: false,
+		breakpoint: 1024,
+	},
+});
 
 /**
  * Scroll
@@ -75,6 +115,7 @@ body.addEventListener('scroll', () => {
  */
 document.querySelectorAll('.lazy-animate').forEach((lazy) => {
 	lazy.addEventListener('load', () => {
+		AOS.refresh();
 		lazy.classList.add('lazy-loaded');
 	});
 });
@@ -152,15 +193,3 @@ document.querySelectorAll('.before-after').forEach((el) => {
 		thumb.style.left = `${value}%`;
 	});
 });
-
-/**
- * Locomotive Scroll - TODO
- */
-// const scroll = new LocomotiveScroll({
-// 	// el: document.querySelector('[data-scroll-container]'),
-// 	smooth: true,
-// 	// smoothMobile: false,
-// 	// offset: [0, 0],
-// 	lerp: 0.1,
-// 	touchMultiplier: 0,
-// });

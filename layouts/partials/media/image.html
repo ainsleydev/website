@@ -32,15 +32,16 @@
 			{{ with $height -}} height="{{ . }}px" {{- end }}>
 	<!-- JPG/PNG -->
 	{{- else -}}
+		{{ $image := .image }}
 		{{ if .resize -}}
-			{{- .image.Resize .resize -}}
+			{{- $image = .image.Resize .resize -}}
 		{{- end }}
 		<img {{ if .lazy }} loading="lazy" {{- end }}
-			src="{{ .image.RelPermalink }}"
+			src="{{ $image.RelPermalink }}"
 			class="{{ with .class -}} {{ . }} {{- end }}"
             {{ with .alt -}} alt="{{ . }}" {{- end }}
-			width="{{ .image.Width }}"
-			height="{{ .image.Height }}"/>
+			width="{{ $image.Width }}"
+			height="{{ $image.Height }}"/>
 	{{- end }}
 {{- else -}}
     {{ warnf "Image not found: %v" . }}

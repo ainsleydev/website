@@ -44,3 +44,30 @@ func TestEmailIsInString(t *testing.T) {
 		})
 	}
 }
+
+func TestEmailFromString(t *testing.T) {
+	tt := map[string]struct {
+		input string
+		want  string
+	}{
+		"Blank": {
+			"none",
+			"",
+		},
+		"Email": {
+			"hello@ainsley.dev",
+			"hello@ainsley.dev",
+		},
+		"In Message": {
+			"Hey ainsley.dev, my email is hello@ainsley.dev",
+			"hello@ainsley.dev",
+		},
+	}
+
+	for name, test := range tt {
+		t.Run(name, func(t *testing.T) {
+			got := EmailFromString(test.input)
+			assert.Equal(t, test.want, got)
+		})
+	}
+}
