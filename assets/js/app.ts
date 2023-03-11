@@ -17,8 +17,7 @@ import { Log } from './util/log';
 import { Toast } from './animations/toast';
 import { Arrow } from './animations/arrow';
 import AOS from 'aos';
-import smoothscroll from 'smoothscroll-polyfill';
-
+import LoconativeScroll from 'loconative-scroll';
 require('./animations/text');
 
 /**
@@ -53,11 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * Kick off Smooth Scroll Polyfill
- */
-smoothscroll.polyfill();
-
-/**
  * Animate on Scroll
  */
 AOS.init({
@@ -83,6 +77,23 @@ AOS.init({
 /**
  * Locomotive Scroll
  */
+const scroll = new LoconativeScroll({
+	duration: 1.5,
+	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+	direction: 'vertical', // vertical, horizontal
+	gestureDirection: 'vertical', // vertical, horizontal, both
+	smooth: true,
+	mouseMultiplier: 1,
+	touchMultiplier: 2,
+	infinite: false,
+	smartphone: {
+		smooth: false,
+	},
+	tablet: {
+		smooth: false,
+		breakpoint: 1024,
+	},
+});
 
 /**
  * Scroll
