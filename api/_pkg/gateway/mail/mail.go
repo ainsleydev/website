@@ -7,8 +7,6 @@ package mail
 import (
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/ainsleyclark/errors"
-	"log"
-
 	"github.com/ainsleyclark/go-mail/drivers"
 	"github.com/ainsleyclark/go-mail/mail"
 )
@@ -64,6 +62,5 @@ func (c *Client) Send(tx *Transmission) (Response, error) {
 	if err != nil {
 		return Response{}, errors.NewInternal(err, "Error sending email", op)
 	}
-	log.Println("TODO: Result" + result.ID)
 	return result, nil
 }

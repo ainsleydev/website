@@ -5,6 +5,7 @@
 package middleware
 
 import (
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
 	"github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
 	"github.com/ainsleyclark/errors"
 	"github.com/labstack/echo/v4"
@@ -29,9 +30,8 @@ func ErrorHandler(err error, ctx echo.Context) {
 			Operation: e.Operation,
 		}
 	}
-	//ctx.Logger().Error(err)
 	err = ctx.JSON(code, resp)
 	if err != nil {
-		//ctx.Logger().Error(err)
+		logger.WithError(err).Error("Error sending payload")
 	}
 }

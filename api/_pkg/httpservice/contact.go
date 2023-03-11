@@ -33,17 +33,12 @@ type ContactSubmission struct {
 func (h Handler) SendContactForm(ctx echo.Context) error {
 	const op = "Handler.SendContactForm"
 
+	logger.Trace("Received contact form request")
+
 	request := sdk.ContactFormRequest{}
 	err := ctx.Bind(&request)
 	if err != nil {
 		return errors.NewInvalid(err, "Error, malformed payload", op)
-	}
-
-	if request.Honeypot != "" {
-		logger.Info("")
-		return ctx.JSON(http.StatusOK, sdk.HTTPResponse{
-			Message: "Sent successfully",
-		})
 	}
 
 	// Check if the message contains an email address and
@@ -62,10 +57,22 @@ func (h Handler) SendContactForm(ctx echo.Context) error {
 		Time:               time.Now(),
 	}
 
+	// Bail if the honeypot is set.
+	if request.Honeypot != "" {
+		logger.Infof("Received a contact form submission with a Honeypot: %s, Message: ",
+			request.Honeypot,
+			request.Message,
+		)
+		return ctx.JSON(http.StatusOK, sdk.HTTPResponse{
+			Message: "Sent successfully",
+		})
+	}
+
 	// The subject header to send to gateways.
 	submissionSendSubject := h.Config.BrandName + " - New contact form submission"
 
 	// First send the notification to the Slack thread.
+	logger.Debugf("Sending Slack message to channel: %s", slack.Channels.Contact)
 	err = h.Slack.Send(ctx.Request().Context(),
 		slack.Channels.Contact,
 		submissionSendSubject,
@@ -76,16 +83,19 @@ func (h Handler) SendContactForm(ctx echo.Context) error {
 	}
 
 	// Then send an email.
-	_, err = h.Mailer.Send(&mail.Transmission{
+	logger.Debugf("Sending Email to: %v", h.Config.MailRecipients)
+	result, err := h.Mailer.Send(&mail.Transmission{
 		Recipients: h.Config.MailRecipients,
 		Subject:    submissionSendSubject,
 		HTML:       submission.HTML(),
 		PlainText:  submission.Text(),
 	})
+	logger.Debugf("Received result from mailer, ID: %s, Message: %s", result.ID, result.Message)
 	if err != nil {
 		return errors.NewInvalid(err, "Error sending contact form", op)
 	}
 
+	logger.Debugf("Finished sending contact form with email address %s", submission.Email)
 	return ctx.JSON(http.StatusOK, sdk.HTTPResponse{
 		Message: "Sent successfully",
 	})

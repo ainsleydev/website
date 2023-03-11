@@ -5,15 +5,13 @@
 package api
 
 import (
-	"log"
-	"net/http"
-
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/slack"
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/middleware"
 	echomiddleware "github.com/labstack/echo/v4/middleware"
-
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
+	"log"
+	"net/http"
 
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/httpservice"
@@ -56,7 +54,7 @@ func Bootstrap() {
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
-	logger.Debug("Listening")
+	logger.Infof("Booted API, listening on URL: %s, Region: %s", config.URL, config.Region)
 	handler = &httpservice.Handler{
 		Config: config,
 		Slack:  slack.New(config),
