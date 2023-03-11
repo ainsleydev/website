@@ -25,8 +25,6 @@ if (textWrapper) {
 		underline.innerHTML += `<span class="text-animate-underline">`;
 	}
 
-	console.log('here');
-
 	anime.set('h1', { opacity: 1 });
 
 	const els = textWrapper.querySelectorAll('.text-animate-mark, .text-animate-letter, .text-animate-underline');

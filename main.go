@@ -5,18 +5,25 @@
 package main
 
 import (
-	"github.com/labstack/echo/v4"
-	"github.com/labstack/echo/v4/middleware"
+	"flag"
+	"log"
 	"net/http"
 )
 
 func main() {
-	e := echo.New()
-	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
-		AllowOrigins: []string{"test"},
-	}))
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, World!")
-	})
-	e.Logger.Fatal(e.Start(":1323"))
+	// Pass server port
+	var port string
+	flag.StringVar(&port, "port", "3000", "Server listen address")
+	flag.Parse()
+
+	// Handle public folder
+	fs := http.FileServer(http.Dir("./public"))
+	http.Handle("/", http.StripPrefix("/", fs))
+
+	// Start server
+	log.Println("Listening on port: " + port)
+	err := http.ListenAndServe(":"+port, nil)
+	if err != nil {
+		log.Fatalln(err.Error())
+	}
 }
