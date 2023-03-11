@@ -5,19 +5,19 @@
 package app
 
 import (
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/api"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/middleware"
 	"github.com/labstack/echo/v4"
-	"github.com/labstack/echo/v4/middleware"
+	echomiddleware "github.com/labstack/echo/v4/middleware"
 )
 
 func Bootstrap(e *echo.Echo, config *environment.Config) {
-	echo.NotFoundHandler = api.NotFoundHandler
-	e.HTTPErrorHandler = api.ErrorHandler
-	e.Use(api.Auth(config))
-	e.Use(api.CORS(config))
-	e.Use(api.RequestID())
-	e.Use(api.Logger())
-	e.Use(middleware.GzipWithConfig(middleware.GzipConfig{Level: 5}))
-	e.Pre(middleware.AddTrailingSlash())
+	echo.NotFoundHandler = middleware.NotFoundHandler
+	e.HTTPErrorHandler = middleware.ErrorHandler
+	e.Use(middleware.Auth(config))
+	e.Use(middleware.CORS(config))
+	e.Use(middleware.RequestID())
+	e.Use(middleware.Logger())
+	e.Use(echomiddleware.GzipWithConfig(echomiddleware.GzipConfig{Level: 5}))
+	e.Pre(echomiddleware.AddTrailingSlash())
 }
