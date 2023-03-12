@@ -5,13 +5,15 @@
  * @author URL:   https://ainsley.dev
  * @author Email: hello@ainsley.dev
  */
-import { ApiConfig, SDK } from './SDK';
+import { ApiConfig, HTTPError, HTTPResponse, HttpResponse, SDK } from './SDK';
 import { Params } from '../params';
+import { Log } from '../util/log';
+import { Toast } from '../animations/toast';
 
 // Construct a configuration for the API which details
 // the base URL.
 const config = {
-	baseUrl: '/api/v1',
+	baseUrl: '/api/',
 	baseApiParams: {
 		headers: {
 			token: Params.apiKey,
@@ -24,7 +26,20 @@ const API = new SDK(config);
 
 // Set headers after the API has been created.
 API.setHeaders({
-	token: Params.apiKey,
+	'X-API-KEY': Params.apiKey,
 });
 
-export default API;
+/**
+ * Handles an API error response by logging the result
+ * and displaying a message to the user.
+ *
+ * @param response
+ * @constructor
+ */
+const HandleAPIError = (response: HttpResponse<HTTPError>): void => {
+	const err = response.error as HTTPError;
+	Log.error(`${err.error}, Message: ${err.message}, Code: ${err.code}, Operation: ${err.operation}`);
+	Toast(err.message);
+};
+
+export { API, HandleAPIError };

@@ -6,6 +6,7 @@ package slack
 
 import (
 	"context"
+	"fmt"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/pkg/errors"
 	"github.com/slack-go/slack"
@@ -57,7 +58,8 @@ func New(config *environment.Config) *Client {
 func (c *Client) Send(ctx context.Context, channelID, subject string, fields []Field) error {
 	// Create the Client attachment that we will send to the channel.
 	attachment := slack.Attachment{
-		Pretext: subject,
+		Title:   subject,
+		Pretext: fmt.Sprintf("%s - API Message", c.config.BrandName),
 		Color:   c.config.BrandColour,
 		Fields:  fields,
 	}

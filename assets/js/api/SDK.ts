@@ -274,7 +274,8 @@ export class SDK<SecurityDataType extends unknown> extends HttpClient<SecurityDa
 		/**
 		 * @name SendContactForm
 		 * @request POST:/forms/contact/
-		 * @secure * @description Posts a new form submission from to contact page.
+		 * @secure
+		 * @description Posts a new form submission from to contact page.
 		 */
 		sendContactForm: (data: ContactFormRequest, params: RequestParams = {}) =>
 			this.request<HTTPResponse, HTTPError>({

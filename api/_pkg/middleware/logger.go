@@ -36,7 +36,6 @@ func Logger() echo.MiddlewareFunc {
 				"remote_addr": req.RemoteAddr,
 				"latency":     stop.Sub(start).String(),
 				"request_id":  ctx.Get(RequestIDContextKey),
-				"user_agent":  req.UserAgent(),
 			}
 
 			errMsg := "Request failed"

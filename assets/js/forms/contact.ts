@@ -7,10 +7,9 @@
  */
 
 import { Form } from './form';
-import { Toast } from '../animations/toast';
-import { Log } from '../util/log';
 import { ContactFormRequest } from '../api/SDK';
-import API from '../api/api';
+import { API, HandleAPIError } from '../api/api';
+import { Log } from '../util/log';
 
 const CONTACT_BUTTON_ID = '#ac-contact';
 
@@ -19,7 +18,7 @@ export class ContactForm extends Form {
 	 * Create a new Contact form.
 	 */
 	constructor() {
-		super(CONTACT_BUTTON_ID, '/api/contact/');
+		super(CONTACT_BUTTON_ID);
 	}
 
 	/**
@@ -27,24 +26,16 @@ export class ContactForm extends Form {
 	 */
 	send(): void {
 		const request = {
-			message: '',
-			honeypot: '',
+			message: this.getValue('message'),
+			honeypot: this.getValue('first-name'),
 		} as ContactFormRequest;
-
 		API.forms
 			.sendContactForm(request)
-			.then((r) => console.log(r))
-			.catch((err) => console.log(err));
-
-		// super
-		// 	.fetch(super.getValues(), null, 'Contact Form')
-		// 	.then(() => {
-		// 		this.form.classList.add('form-success');
-		// 		Toast('Successfully sent email');
-		// 	})
-		// 	.catch((err) => {
-		// 		Log.error(err);
-		// 		Toast(err.message);
-		// 	});
+			.then(() => {
+				Log.info('Successfully sent contact form');
+			})
+			.catch((err) => {
+				HandleAPIError(err);
+			});
 	}
 }

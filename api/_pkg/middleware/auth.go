@@ -29,7 +29,7 @@ func Auth(cfg *environment.Config) echo.MiddlewareFunc {
 			return ctx.JSON(http.StatusUnauthorized, sdk.HTTPError{
 				Code:      "<unauthorized>",
 				Error:     err.Error(),
-				Message:   "API Key mismatch",
+				Message:   "Not authorised",
 				Operation: "API.Auth",
 			})
 		},
