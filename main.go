@@ -7,6 +7,7 @@ package main
 import (
 	"flag"
 	"github.com/ainsleyclark/ainsley.dev/api"
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/httpservice"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
 	sdk "github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
 	"github.com/joho/godotenv"
@@ -35,7 +36,7 @@ func main() {
 		HTML5:  true,
 	}))
 	handler := api.Bootstrap(e)
-	sdk.RegisterHandlers(e.Group("/api"), handler)
+	sdk.RegisterHandlers(e.Group(httpservice.BasePath), handler)
 
 	// Start server
 	logger.Fatal(e.Start(":" + port))

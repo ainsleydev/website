@@ -5,9 +5,10 @@
 package api
 
 import (
-	sdk "github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
 	"log"
 	"net/http"
+
+	sdk "github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
 
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
@@ -33,7 +34,7 @@ var (
 func Handler(w http.ResponseWriter, r *http.Request) {
 	e = echo.New()
 	handler = Bootstrap(e)
-	sdk.RegisterHandlersWithBaseURL(e, handler, "/api")
+	sdk.RegisterHandlersWithBaseURL(e, handler, httpservice.BasePath)
 	e.ServeHTTP(w, r)
 }
 

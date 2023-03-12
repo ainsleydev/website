@@ -16,3 +16,6 @@ type Handler struct {
 	Slack  slack.Sender
 	Mailer mail.Mailer
 }
+
+// BasePath is the base API path for routing.
+const BasePath = "/api"
