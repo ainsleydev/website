@@ -22,6 +22,7 @@ results:
     text: decrease in bounce rate
   - number: 56%
     text: increase in PSI
+logoWeight: 10
 ---
 
 <!-- Intro -->

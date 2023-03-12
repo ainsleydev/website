@@ -23,6 +23,7 @@ results:
     text: point PSI on desktop
   - number: 8%
     text: average CTR
+logoWeight: 50
 ---
 
 <!-- Intro -->

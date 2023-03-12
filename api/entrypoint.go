@@ -5,18 +5,16 @@
 package api
 
 import (
+	sdk "github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
 	"log"
 	"net/http"
 
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/slack"
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/httpservice"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/middleware"
-	echomiddleware "github.com/labstack/echo/v4/middleware"
-
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/httpservice"
-	sdk "github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
 	"github.com/labstack/echo/v4"
 )
 
@@ -27,18 +25,15 @@ var (
 	handler *httpservice.Handler
 )
 
-// init bootstraps the main application by creating a new Echo instance
-// and registering the API routes.
-func init() {
-	e = echo.New()
-	handler = Bootstrap(e)
-	sdk.RegisterHandlersWithBaseURL(e, handler, "/api")
-}
-
 // Handler is the main entrypoint to the application.
 // Vercel detects this http.HandlerFunc signature to use
 // within serverless functions.
+// It bootstraps the main application by creating a new Echo instance
+// and registering the API routes.
 func Handler(w http.ResponseWriter, r *http.Request) {
+	e = echo.New()
+	handler = Bootstrap(e)
+	sdk.RegisterHandlersWithBaseURL(e, handler, "/api")
 	e.ServeHTTP(w, r)
 }
 
@@ -50,7 +45,7 @@ func Bootstrap(server *echo.Echo) *httpservice.Handler {
 		log.Fatalln(err.Error())
 	}
 	logger.Bootstrap(config)
-	InitMiddleware(server, config)
+	middleware.Load(server, config)
 	mailer, err := mail.New(config)
 	if err != nil {
 		log.Fatalln(err.Error())
@@ -61,15 +56,4 @@ func Bootstrap(server *echo.Echo) *httpservice.Handler {
 		Slack:  slack.New(config),
 		Mailer: mailer,
 	}
-}
-
-func InitMiddleware(server *echo.Echo, config *environment.Config) {
-	echo.NotFoundHandler = middleware.NotFoundHandler
-	server.HTTPErrorHandler = middleware.ErrorHandler
-	server.Use(middleware.Auth(config))
-	server.Use(middleware.CORS(config))
-	server.Use(middleware.RequestID())
-	server.Use(middleware.Logger())
-	server.Use(echomiddleware.GzipWithConfig(echomiddleware.GzipConfig{Level: 5}))
-	server.Pre(echomiddleware.AddTrailingSlash())
 }

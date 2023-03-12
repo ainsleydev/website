@@ -12,6 +12,7 @@ site:
 role: Design & Development
 strategies: [Full brand, UI/UX, Website branding]
 technologies: [Verbis, Spline, Image Sequencing]
+logoWeight: 60
 ---
 
 <!-- Intro -->

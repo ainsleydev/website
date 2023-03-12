@@ -22,6 +22,7 @@ results:
     text: point increase in PSI
   - number: 150%
     text: increase in ROI
+logoWeight: 0
 ---
 
 <!-- Intro -->
@@ -59,7 +60,7 @@ watermark to create a consistent design language.
 {{< vertical-section text="Develop" number="03" >}}
 Using WooCommerce with WordPress, a custom build was created for the new platform. Back-end services were rewritten in
 PHP, removing the use of any heavy plugins such as MailChimp and Stamped.IO. This drastically decreased page load time.
-A new plugin was also created for Dec’s Pets, [Squidge](https://wordpress.org/plugins/squidge/),, which compressed and
+A new plugin was also created for Dec’s Pets, [Squidge](https://wordpress.org/plugins/squidge/), which compressed and
 converted images to `AVIF` and `WebP` formats. Used in conjunction with lazy loading images, this made for an extremely
 quick platform.
 {{< /vertical-section >}}

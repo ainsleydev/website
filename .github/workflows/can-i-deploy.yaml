@@ -25,6 +25,6 @@ jobs:
                 with:
                     go-version: ${{ matrix.go-version }}
 
-            # Step 4 - Build
+            # Step 3 - Build
             -   name: Build
-                run: make setup
+                run: go build main.go

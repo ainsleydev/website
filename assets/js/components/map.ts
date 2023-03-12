@@ -8,12 +8,13 @@
  */
 
 import { Loader } from '@googlemaps/js-api-loader';
+import { Params } from '../params';
 
 /**
  * Load the Google map with the API key.
  */
 const loader = new Loader({
-	apiKey: 'AIzaSyChJnTW-pCWmAQ3Jzzh3-xfve4JOsuMqMo',
+	apiKey: Params.googleMapsAPIKey,
 	version: 'weekly',
 });
 
@@ -36,18 +37,15 @@ const LoadMap = () => {
 			} as google.maps.LatLngLiteral;
 		}
 
-		const map = new google.maps.Map(
-			document.querySelector('.map') as HTMLElement,
-			{
-				backgroundColor: '#ffffff',
-				center: center,
-				zoom: 16,
-				styles: style,
-				streetViewControl: false,
-				mapTypeControl: false,
-				draggable: true,
-			},
-		);
+		const map = new google.maps.Map(document.querySelector('.map') as HTMLElement, {
+			backgroundColor: '#ffffff',
+			center: center,
+			zoom: 16,
+			styles: style,
+			streetViewControl: false,
+			mapTypeControl: false,
+			draggable: true,
+		});
 
 		map.addListener('click', (e) => {
 			console.log(e.latLng.toJSON());

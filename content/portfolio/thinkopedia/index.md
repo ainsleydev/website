@@ -20,6 +20,7 @@ results:
     text: of impressions
   - number: 24%
     text: bounce rate
+logoWeight: 20
 ---
 
 <!-- Intro -->

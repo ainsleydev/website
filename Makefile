@@ -56,7 +56,7 @@ format: # Run gofmt
 	go fmt ./...
 .PHONY: format
 
-excluded := grep -v /res/ | grep -v /mocks/
+excluded := grep -v /gen/ | grep -v /mocks/ | github.com/ainsleyclark/ainsley.dev
 
 test: # Test uses race and coverage
 	go clean -testcache && go test -race $$(go list ./... | $(excluded)) -coverprofile=coverage.out -covermode=atomic
