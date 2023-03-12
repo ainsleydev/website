@@ -5,8 +5,10 @@
 package middleware
 
 import (
+	"bytes"
 	"encoding/json"
-	sdk "github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
+	"github.com/ainsleyclark/ainsley.dev/api/_sdk"
 	"github.com/ainsleyclark/errors"
 	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"
@@ -59,4 +61,22 @@ func TestErrorHandler(t *testing.T) {
 			assert.Equal(t, test.want, response)
 		})
 	}
+
+	t.Run("JSON Error", func(t *testing.T) {
+		buf := &bytes.Buffer{}
+		logger.SetOutput(buf)
+		orig := errorGetter
+		defer func() {
+			errorGetter = orig
+		}()
+		errorGetter = func(err error) any {
+			return make(chan int)
+		}
+		e := echo.New()
+		req := httptest.NewRequest(http.MethodPost, "/", nil)
+		rec := httptest.NewRecorder()
+		ctx := e.NewContext(req, rec)
+		ErrorHandler(errors.New("error"), ctx)
+		assert.Contains(t, buf.String(), "unsupported type")
+	})
 }

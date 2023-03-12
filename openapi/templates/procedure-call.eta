@@ -80,6 +80,7 @@ const describeReturnType = () => {
 %>
 /**
 <%~ routeDocs.lines %>
+
 <%~ routeDocs.description %>
 
  */

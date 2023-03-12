@@ -52,7 +52,7 @@ type SendContactFormJSONRequestBody = SendContactFormJSONBody
 // ServerInterface represents all server handlers.
 type ServerInterface interface {
 
-	// (POST /forms/contact)
+	// (POST /forms/contact/)
 	SendContactForm(ctx echo.Context) error
 }
 
@@ -116,11 +116,11 @@ var swaggerSpec = []string{
 	"y6uXuJ/4gNfp/0MC1rZ1g3Xy2uQpe9AmIxnjfgNtyeC+bHA3gc4OxR1CLwsZQ77D7KmuKvoE2y2GUruk",
 	"+9MVWayWYu1RJf2yWBtQH9A2wrXiaTejFY5PNTZ+vv5dPLu6MRAJxavx59PmW81d3JTK9dWIpwyED9UM",
 	"vNoYt6l6IMZQvVre3P65vk1MGUNPb9o1hp1WOMOc381FVdJTszmVY3j5HQYapv2lvC6vR+tb8FrW8lk+",
-	"KqQH7vJTVslJVM3ewLtL2bdyxCRAWPyUzScobnpNqdNoPfeYfx62WM43YtnIWq7RNrOUlYMjkfi5a/ZH",
-	"H6DNvcF7M7qrek+DxYawTl8/B2xlLX+qpjSvxiivLuR4Ntt5VOY9SqwDAmMhwBjRajQNCQgojuuSSjwQ",
-	"iR0Y3WRKpczrNCxzVvHX6+sfNsGTpLjA/c1LcSXWaFlQVAqJ2mjMfvB6C9HwD2UyxP0FGu8sfvaoUgTh",
-	"sWYeF7K+Pw+K+4fDQyoJyaS54sRlwTUxx7G4tTsdnO3TFKdbNt+I5OtDcQq0Zthqu/1PFBpqyjO0h8O/",
-	"AQAA//8P28TGKQgAAA==",
+	"KqQH7vJTVslJVI1vUGVrukvht3LEJEBY/JTdJyhuek2p1eg99xiAHrZYzldi2chartE2s5iVgyWR+Llr",
+	"9kcjoM29wXsz2qt6T4PHhrROXz8HbGUtf6qmOK/GLK8uBHl223lW5kVKrAMCYyHAGNFqNA0JCCiO+5JK",
+	"PBCJHRjdZEqlzPs0bHOW8dfr6x82wZOouMD9zUtxJdZoWVBUConaaMx+MHsL0fAPZTLk/QUa7yx+9qhS",
+	"BuGxZp4Xsr4/T4r7h8NDKgnJpbnixGXBNTHnsbi1Ox2c7dMUp2s2X4lk7ENxCrRm2Gq7/U8UGmrKM7SH",
+	"w78BAAD//04jhjcqCAAA",
 }
 
 // GetSwagger returns the content of the embedded swagger specification file

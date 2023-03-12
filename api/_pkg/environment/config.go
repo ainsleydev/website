@@ -13,7 +13,7 @@ import (
 // used a system configuration for the application.
 type Config struct {
 	Env             string   `env:"VERCEL_ENV"`
-	URL             string   `env:"VERCEL_URL"`
+	URL             string   `env:"VERCEL_URL" envDefault:"http://localhost:3000"`
 	Region          string   `env:"VERCEL_REGION"`
 	APIKey          string   `env:"API_KEY,required"`
 	BrandName       string   `env:"BRAND_NAME,required"`

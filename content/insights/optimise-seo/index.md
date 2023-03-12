@@ -537,3 +537,5 @@ fi
 It's clear that with just a little extra time and effort as a developer you can help increase the PSI and your chances
 of ranking highly. A lot of responsibility falls on a developer to ensure a website is SEO friendly, but using just some
 of the tips and tricks above will ensure that you or your client's website won't be left behind in the SERPs.
+
+If you require services for SEO consultancy or SEO friendly websites, visit ainsley.dev [services](/services/).

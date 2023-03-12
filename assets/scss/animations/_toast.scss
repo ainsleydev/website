@@ -7,9 +7,10 @@
 	position: fixed;
 	display: inline-flex;
 	align-items: center;
+	max-width: 80vw;
 	padding: 12px 30px;
-	background-color: $black;
-	color: $white;
+	background-color: colour('foreground');
+	color: colour('background');
 	border-radius: 4px;
 	opacity: 0;
 	transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -28,10 +29,9 @@
 		justify-content: center;
 		opacity: 1;
 		margin-left: 10px;
-		color: $white;
+		color: colour('background');
 		font-size: 1.6rem;
 		line-height: 0;
-		border: 1px solid $grey-light;
 		transform: translateY(-3px);
 	}
 
@@ -60,5 +60,12 @@
 
 	&-bottom {
 		bottom: -150px;
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-desk {
+		max-width: 450px;
 	}
 }

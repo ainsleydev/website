@@ -22,6 +22,7 @@ results:
     text: over ROI
   - number: 200%
     text: rise in social engagement
+logoWeight: 30
 ---
 
 <!-- Intro -->

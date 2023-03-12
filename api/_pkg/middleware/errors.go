@@ -6,7 +6,7 @@ package middleware
 
 import (
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
-	"github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
+	"github.com/ainsleyclark/ainsley.dev/api/_sdk"
 	"github.com/ainsleyclark/errors"
 	"github.com/labstack/echo/v4"
 	"net/http"
@@ -17,9 +17,7 @@ import (
 // for correct formatting.
 func ErrorHandler(err error, ctx echo.Context) {
 	code := http.StatusInternalServerError
-	resp := sdk.HTTPError{
-		Message: err.Error(),
-	}
+	resp := errorGetter(err)
 	e, ok := err.(*errors.Error)
 	if ok {
 		code = e.HTTPStatusCode()
@@ -33,5 +31,15 @@ func ErrorHandler(err error, ctx echo.Context) {
 	err = ctx.JSON(code, resp)
 	if err != nil {
 		logger.WithError(err).Error("Error sending payload")
+	}
+}
+
+// errorGetter is a stub for testing.
+var errorGetter = getHTTPError
+
+// getHTTPError returns an SDK error with the error attached.
+func getHTTPError(err error) any {
+	return sdk.HTTPError{
+		Message: err.Error(),
 	}
 }

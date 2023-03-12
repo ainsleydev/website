@@ -20,6 +20,7 @@ results:
     text: point PSI on mobile
   - number: 15
     text: rank for [guttering kent]
+logoWeight: 40
 ---
 
 <!-- Intro -->

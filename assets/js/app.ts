@@ -77,7 +77,6 @@ AOS.init({
  */
 
 if (!body.hasAttribute('data-scroll-disable')) {
-	Log.info('Booting Loconative Scroll');
 	const scroll = new LoconativeScroll({
 		duration: 1.5,
 		easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou

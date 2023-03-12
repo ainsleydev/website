@@ -10,7 +10,7 @@ import (
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/slack"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/stringutil"
-	"github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
+	"github.com/ainsleyclark/ainsley.dev/api/_sdk"
 	"github.com/ainsleyclark/errors"
 	"github.com/labstack/echo/v4"
 	"net/http"
@@ -59,7 +59,7 @@ func (h Handler) SendContactForm(ctx echo.Context) error {
 
 	// Bail if the honeypot is set.
 	if request.Honeypot != "" {
-		logger.Infof("Received a contact form submission with a Honeypot: %s, Message: ",
+		logger.Infof("Received a contact form submission with a Honeypot: %s, Message: %s",
 			request.Honeypot,
 			request.Message,
 		)

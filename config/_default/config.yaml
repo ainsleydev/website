@@ -2,7 +2,7 @@ languageCode: en-gb
 title: ainsley.dev® - Digital Craftsmanship Sculpting You As An Industry Leader.
 baseUrl: "http://localhost:3000"
 build:
-    noJSConfigInAssets: true
+    noJSConfigInAssets: false
     writeStats: true
 disableKinds: [ "taxonomy", "taxonomyTerm" ]
 ignoreErrors: [ "error-disable-taxonomy" ]
@@ -77,6 +77,7 @@ security:
         allow: [ "^dart-sass-embedded$", "^go$", "npx$", "^postcss$", "^babel$" ]
     funcs:
         getenv:
+            - ^ # Allow all
             - ^HUGO_
             - ^CI$
             - ^VERCEL_
