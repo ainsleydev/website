@@ -31,7 +31,7 @@ var (
 // and registering the API routes.
 func init() {
 	e = echo.New()
-	Bootstrap()
+	handler = Bootstrap(e)
 	sdk.RegisterHandlersWithBaseURL(e, handler, "/api")
 }
 
@@ -44,32 +44,32 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 // Bootstrap the main application by initialising packages, logging
 // middleware and creating the main handler.
-func Bootstrap() {
+func Bootstrap(server *echo.Echo) *httpservice.Handler {
 	config, err := environment.New()
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
 	logger.Bootstrap(config)
-	InitMiddleware(config)
+	InitMiddleware(server, config)
 	mailer, err := mail.New(config)
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
 	logger.Infof("Booted API, listening on URL: %s, Region: %s", config.URL, config.Region)
-	handler = &httpservice.Handler{
+	return &httpservice.Handler{
 		Config: config,
 		Slack:  slack.New(config),
 		Mailer: mailer,
 	}
 }
 
-func InitMiddleware(config *environment.Config) {
+func InitMiddleware(server *echo.Echo, config *environment.Config) {
 	echo.NotFoundHandler = middleware.NotFoundHandler
-	e.HTTPErrorHandler = middleware.ErrorHandler
-	e.Use(middleware.Auth(config))
-	e.Use(middleware.CORS(config))
-	e.Use(middleware.RequestID())
-	e.Use(middleware.Logger())
-	e.Use(echomiddleware.GzipWithConfig(echomiddleware.GzipConfig{Level: 5}))
-	e.Pre(echomiddleware.AddTrailingSlash())
+	server.HTTPErrorHandler = middleware.ErrorHandler
+	server.Use(middleware.Auth(config))
+	server.Use(middleware.CORS(config))
+	server.Use(middleware.RequestID())
+	server.Use(middleware.Logger())
+	server.Use(echomiddleware.GzipWithConfig(echomiddleware.GzipConfig{Level: 5}))
+	server.Pre(echomiddleware.AddTrailingSlash())
 }
