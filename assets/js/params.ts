@@ -12,6 +12,7 @@ import * as params from '@params';
  * Type of parameters passed in from Hugo.
  */
 export interface ParamsType {
+	apiKey: string;
 	googleMapsAPIKey: string;
 }
 
@@ -20,5 +21,6 @@ export interface ParamsType {
  * @see layouts/partials/head/_js-params.html
  */
 export const Params = {
+	apiKey: params.apiKey,
 	googleMapsAPIKey: params.googleMapsAPIKey,
 } as ParamsType;

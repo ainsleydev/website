@@ -269,16 +269,16 @@ export class HttpClient<SecurityDataType = unknown> {
  *
  * API Spec for the backend of ainsley.dev
  */
-export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType> {
+export class SDK<SecurityDataType extends unknown> extends HttpClient<SecurityDataType> {
 	forms = {
 		/**
 		 * @name SendContactForm
-		 * @request POST:/forms/contact
+		 * @request POST:/forms/contact/
 		 * @secure * @description Posts a new form submission from to contact page.
 		 */
 		sendContactForm: (data: ContactFormRequest, params: RequestParams = {}) =>
 			this.request<HTTPResponse, HTTPError>({
-				path: `/forms/contact`,
+				path: `/forms/contact/`,
 				method: 'POST',
 				body: data,
 				secure: true,

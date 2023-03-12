@@ -4,11 +4,11 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/ainsleyclark/ainsley.dev/api/_mocks"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/slack"
-	"github.com/ainsleyclark/ainsley.dev/gen/mocks"
-	sdk "github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
+	"github.com/ainsleyclark/ainsley.dev/api/_sdk"
 	"github.com/ainsleyclark/errors"
 	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"
@@ -31,15 +31,16 @@ func TestHandler_SendContactForm(t *testing.T) {
 			payload: "wrong",
 			want:    "Error, malformed payload",
 		},
-		"Honey Pot": {
-			payload: sdk.ContactFormRequest{
-				Honeypot: "bad bot",
-			},
-			want: "Sent successfully",
-		},
 		"No Email": {
 			payload: sdk.ContactFormRequest{},
 			want:    "Please provide an email address in the message",
+		},
+		"Honey Pot": {
+			payload: sdk.ContactFormRequest{
+				Honeypot: "bad bot",
+				Message:  "Hello test@hello.com",
+			},
+			want: "Sent successfully",
 		},
 		"Slack Failure": {
 			payload: sdk.ContactFormRequest{

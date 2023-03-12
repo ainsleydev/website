@@ -5,24 +5,26 @@
  * @author URL:   https://ainsley.dev
  * @author Email: hello@ainsley.dev
  */
-
-import { Api, ApiConfig } from '../../../gen/sdk/API';
+import { ApiConfig, SDK } from './SDK';
+import { Params } from '../params';
 
 // Construct a configuration for the API which details
 // the base URL.
 const config = {
-	baseUrl: 'http://localhost:5000/api/v1',
+	baseUrl: '/api/v1',
 	baseApiParams: {
 		headers: {
-			token: 'my-token',
+			token: Params.apiKey,
 		},
 	},
 } as ApiConfig;
 
 // Create an API SDK.
-const api = new Api(config);
+const API = new SDK(config);
 
 // Set headers after the API has been created.
-api.setHeaders({
-	token: 'my-token',
+API.setHeaders({
+	token: Params.apiKey,
 });
+
+export default API;

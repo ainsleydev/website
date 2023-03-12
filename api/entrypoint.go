@@ -8,7 +8,7 @@ import (
 	"log"
 	"net/http"
 
-	sdk "github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
+	"github.com/ainsleyclark/ainsley.dev/api/_sdk"
 
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"

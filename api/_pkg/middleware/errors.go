@@ -6,7 +6,7 @@ package middleware
 
 import (
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
-	"github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
+	"github.com/ainsleyclark/ainsley.dev/api/_sdk"
 	"github.com/ainsleyclark/errors"
 	"github.com/labstack/echo/v4"
 	"net/http"

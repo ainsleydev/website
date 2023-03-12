@@ -37,10 +37,8 @@ work: # Creates a new work post.
 .PHONY: work
 
 sdk: # Generates the Go & Typescript API SDKs
-#	rm gen/sdk/go/api.gen.go
-#	rm gen/sdk/typescript/API.ts
-	oapi-codegen --package=sdk openapi/spec.yaml > gen/sdk/go/api.gen.go
-	swagger-typescript-api --path openapi/spec.yaml --output gen/sdk/typescript --templates gen/templates --name API --clean-output --module-name-first-tag
+	oapi-codegen --package=sdk openapi/spec.yaml > api/_sdk/api.gen.go
+	swagger-typescript-api --path openapi/spec.yaml --output assets/js/api --templates openapi/templates --name SDK --module-name-first-tag
 .PHONY: sdk
 
 clean: # Remove unused entries, dependencies and cache
@@ -59,12 +57,12 @@ format: # Run gofmt
 excluded := grep -v /gen/ | grep -v /mocks/ | github.com/ainsleyclark/ainsley.dev
 
 test: # Test uses race and coverage
-	go clean -testcache && go test -race $$(go list ./... | $(excluded)) -coverprofile=coverage.out -covermode=atomic
+	cd ./api/_pkg && go test ./... -race $$(go list ./... | $(excluded)) -coverprofile=../../coverage.out -covermode=atomic
 .PHONY: test
 
 mock: # Make mocks keeping directory tree
 	rm -rf gen/mocks \
-	&& mockery --dir=api/_pkg --all --exported=true --output=./gen/mocks
+	&& mockery --dir=api/_pkg --all --exported=true --output=./api/_mocks
 .PHONY: mock
 
 all: # Make format, lint and test

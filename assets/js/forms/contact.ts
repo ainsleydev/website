@@ -9,6 +9,8 @@
 import { Form } from './form';
 import { Toast } from '../animations/toast';
 import { Log } from '../util/log';
+import { ContactFormRequest } from '../api/SDK';
+import API from '../api/api';
 
 const CONTACT_BUTTON_ID = '#ac-contact';
 
@@ -24,32 +26,25 @@ export class ContactForm extends Form {
 	 * Send
 	 */
 	send(): void {
-		super
-			.fetch(super.getValues(), null, 'Contact Form')
-			.then(() => {
-				this.form.classList.add('form-success');
-				Toast('Successfully sent email');
-			})
-			.catch((err) => {
-				Log.error(err);
-				Toast(err.message);
-			});
+		const request = {
+			message: '',
+			honeypot: '',
+		} as ContactFormRequest;
+
+		API.forms
+			.sendContactForm(request)
+			.then((r) => console.log(r))
+			.catch((err) => console.log(err));
+
+		// super
+		// 	.fetch(super.getValues(), null, 'Contact Form')
+		// 	.then(() => {
+		// 		this.form.classList.add('form-success');
+		// 		Toast('Successfully sent email');
+		// 	})
+		// 	.catch((err) => {
+		// 		Log.error(err);
+		// 		Toast(err.message);
+		// 	});
 	}
 }
-
-/**
- * Recaptcha
- */
-(<any>window).onloadCallback = () => {
-	grecaptcha.render('ac-contact', {
-		sitekey: 'YOUR_RECAPTCHA_SITEKEY_HERE',
-		badge: 'inline',
-		type: 'image',
-		size: 'invisible',
-		callback: submit,
-	});
-};
-
-const submit = () => {
-	console.log('hello');
-};

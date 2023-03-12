@@ -6,7 +6,7 @@ package middleware
 
 import (
 	"encoding/json"
-	sdk "github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
+	"github.com/ainsleyclark/ainsley.dev/api/_sdk"
 	"github.com/ainsleyclark/errors"
 	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"

@@ -9,7 +9,7 @@ import (
 	"github.com/ainsleyclark/ainsley.dev/api"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/httpservice"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
-	sdk "github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
+	"github.com/ainsleyclark/ainsley.dev/api/_sdk"
 	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
