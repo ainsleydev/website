@@ -57,7 +57,7 @@ format: # Run gofmt
 excluded := grep -v /gen/ | grep -v /mocks/ | github.com/ainsleyclark/ainsley.dev
 
 test: # Test uses race and coverage
-	cd ./api/_pkg && go test ./... -race $$(go list ./... | $(excluded)) -coverprofile=../../coverage.out -covermode=atomic
+	cd ./api/_pkg && go test ./... -race $$(go list ./... | $(excluded)) -coverprofile=../../coverage.out -covermode=atomic && cd ../../
 .PHONY: test
 
 mock: # Make mocks keeping directory tree

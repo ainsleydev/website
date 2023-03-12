@@ -7,6 +7,7 @@ on:
 
 jobs:
     test:
+        name: Test
         runs-on: ubuntu-latest
         strategy:
             matrix:
@@ -29,11 +30,11 @@ jobs:
                 run: make test
 
             # Step 4 - Upload to Codecov
-            -   name: Upload coverage to Codecov
-                uses: codecov/codecov-action@v2.1.0
-                with:
-                    token: ${{ secrets.CODECOV_TOKEN }}
-                    file: ./coverage.out
+#            -   name: Upload coverage to Codecov
+#                uses: codecov/codecov-action@v2.1.0
+#                with:
+#                    token: ${{ secrets.CODECOV_TOKEN }}
+#                    file: ./coverage.out
 
             # Step 5 - Run git diff
             -   name: Diff

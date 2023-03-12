@@ -93,8 +93,8 @@ export class Skew {
 			const pos = this.getPos(el, e);
 			el.style.transform = 'translate(' + pos.x * config.transform.x + 'px, ' + pos.y * 0.3 + 'px)';
 			if (config.shouldRotate && config.rotate) {
-				el.style.transform +=
-					'rotate3d(' + pos.x * config.rotate.x + ', ' + pos.y * config.rotate.y + ', 0, 12deg)';
+				// el.style.transform +=
+				// 	'rotate3d(' + pos.x * config.rotate.x + ', ' + pos.y * config.rotate.y + ', 0, 12deg)';
 			}
 		});
 	}

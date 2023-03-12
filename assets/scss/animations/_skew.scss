@@ -7,6 +7,9 @@
 	$self: &;
 	transition: transform 100ms linear;
 	will-change: transform;
+	// Bug fix,
+	// See: https://stackoverflow.com/questions/43075089/safari-css-transform-3d-rotation-glitch
+	z-index: 1;
 
 	//@media (hover: none) and (pointer: coarse) {
 	//	transform: none !important; // Override JS
