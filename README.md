@@ -1,5 +1,7 @@
-# ainsley.dev
-Digital craftsmanship  to get your business  off the ground - Website &amp; Theme for ainsley.dev
+<img width="100%" src="res/logo.svg" alt="Errors Logo" />
+
+## Digital craftsmanship to get your business off the ground
+Website &amp; Theme for ainsley.dev
 
 
 [![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=website&style=plastic)](https://ainsley.dev)
