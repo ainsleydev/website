@@ -8,26 +8,32 @@
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
 <meta property="og:url" content="{{ $baseURL }}" />
 <!-- Image -->
-<!-- TODO, Account for generated images -->
-{{- with .Page.Resources.Get "images/og.jpg" -}}
-	<meta property="og:image" content="{{ .Permalink }}"/>
-{{- else -}}
-	<meta property="og:image" content="{{ $baseURL }}/opengraph.jpg" />
-{{- end -}}
+<meta property="og:image" content="{{ partial "opengraph/_get-featured-image.html" . }}"/>
 <!-- Articles -->
 {{- if .IsPage }}
     {{- $iso8601 := "2006-01-02T15:04:05-07:00" -}}
 	<meta property="article:section" content="{{ .Section }}" />
-    {{ with .PublishDate }}<meta property="article:published_time" {{ .Format $iso8601 | printf "content=%q" | safeHTMLAttr }} />{{ end }}
-    {{ with .Lastmod }}<meta property="article:modified_time" {{ .Format $iso8601 | printf "content=%q" | safeHTMLAttr }} />{{ end }}
+    {{ with .PublishDate -}}
+		<meta property="article:published_time" {{ .Format $iso8601 | printf "content=%q" | safeHTMLAttr }} />
+	{{- end -}}
+    {{ with .Lastmod -}}
+		<meta property="article:modified_time" {{ .Format $iso8601 | printf "content=%q" | safeHTMLAttr }} />
+	{{- end }}
 {{- end -}}
-<!-- Misc -->
-{{- with .Params.audio }}<meta property="og:audio" content="{{ . }}" />{{ end }}
-{{- with .Params.locale }}<meta property="og:locale" content="{{ . }}" />{{ end }}
-{{- with .Site.Params.title }}<meta property="og:site_name" content="{{ . }}" />{{ end }}
-{{- with .Params.videos }}{{- range . }}
-	<meta property="og:video" content="{{ . | absURL }}" />
-{{ end }}{{ end }}
+<!-- Locale -->
+{{- with .Params.locale -}}
+	<meta property="og:locale" content="{{ . }}" />
+{{- end }}
+<!-- Site -->
+{{ with .Site.Params.title -}}
+	<meta property="og:site_name" content="{{ . }}" />
+{{ end -}}
+<!-- Videos -->
+{{- with .Params.videos }}
+	{{ range . -}}
+		<meta property="og:video" content="{{ . | absURL }}" />
+	{{ end }}
+{{- end }}
 <!-- See Also -->
 {{ range $page := (where .Site.Pages "Section" .Section) -}}
 	{{- if ne $page.RelPermalink $.RelPermalink -}}

@@ -4,14 +4,11 @@
 {{- $baseURL := .Site.BaseURL -}}
 <!-- Image -->
 <meta name="twitter:card" content="summary_large_image"/>
-{{- with .Page.Resources.Get "images/og.jpg" -}}
-	<meta property="og:image" content="{{ .Permalink }}"/>
-{{- else -}}
-	<meta property="og:image" content="{{ $baseURL }}/opengraph.jpg" />
-{{- end -}}
-<!-- Title, Description & Handles -->
+<meta property="og:image" content="{{ partial "opengraph/_get-featured-image.html" . }}"/>
+<!-- Title, Description -->
 <meta name="twitter:title" content="{{ .Title }}"/>
 <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}"/>
+<!-- Handle -->
 {{ with .Site.Params.social.twitter -}}
 	<meta name="twitter:site" content="@{{ index (split . "/") (sub (len (split . "/")) 2) }}"/>
 {{ end -}}

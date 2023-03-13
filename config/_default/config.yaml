@@ -16,7 +16,7 @@ enableInlineShortcodes: true
 enableRobotsTXT: true
 imaging:
     hint: photo
-    quality: 75
+    quality: 80
     resampleFilter: Lanczos
 module:
     mounts:

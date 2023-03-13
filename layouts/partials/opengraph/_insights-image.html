@@ -1,0 +1,21 @@
+<!-- =====================
+    Insights Image
+    ===================== -->
+{{ $img := resources.Get "/images/insights-og.png" -}}
+{{- $title := (images.Text .Title (dict
+	"color" "#0A0A0A"
+	"size" 60
+	"linespacing" 1
+	"x" 305
+	"y" 330
+	"font" (resources.Get "/fonts/opengraph/PlusJakartaSans-Bold.ttf")
+))}}
+{{- $author := (images.Text "By Ainsley Clark" (dict
+	"color" "#595959"
+	"size" 40
+	"linespacing" 1
+	"x" 305
+	"y" 490
+	"font" (resources.Get "/fonts/opengraph/PlusJakartaSans-Medium.ttf")
+))}}
+{{- return $img.Filter $title $author -}}
