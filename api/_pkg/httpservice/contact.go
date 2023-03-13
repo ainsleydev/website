@@ -6,6 +6,9 @@ package httpservice
 
 import (
 	"fmt"
+	"net/http"
+	"time"
+
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/slack"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
@@ -13,8 +16,6 @@ import (
 	"github.com/ainsleyclark/ainsley.dev/api/_sdk"
 	"github.com/ainsleyclark/errors"
 	"github.com/labstack/echo/v4"
-	"net/http"
-	"time"
 )
 
 // ContactSubmission is the type that represents the data needed

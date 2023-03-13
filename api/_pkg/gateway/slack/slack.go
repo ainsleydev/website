@@ -7,6 +7,7 @@ package slack
 import (
 	"context"
 	"fmt"
+
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/pkg/errors"
 	"github.com/slack-go/slack"
@@ -34,15 +35,13 @@ type (
 	slackSendFn func(ctx context.Context, channelID string, options ...slack.MsgOption) (string, string, error)
 )
 
-var (
-	// Channels represents the key value pairs of thread
-	// channels for Slack.
-	Channels = struct {
-		Contact string
-	}{
-		Contact: "#website-contact",
-	}
-)
+// Channels represents the key value pairs of thread
+// channels for Slack.
+var Channels = struct {
+	Contact string
+}{
+	Contact: "#website-contact",
+}
 
 // New creates a new Client notifier.
 // For more information about slack API token:

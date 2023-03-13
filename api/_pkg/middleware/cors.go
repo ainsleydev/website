@@ -5,10 +5,11 @@
 package middleware
 
 import (
+	"net/http"
+
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	"net/http"
 )
 
 // CORS returns a Cross-Origin Resource Sharing (CORS) middleware.

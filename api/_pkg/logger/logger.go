@@ -5,15 +5,14 @@
 package logger
 
 import (
+	"io"
+
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/sirupsen/logrus"
-	"io"
 )
 
-var (
-	// DefaultLogger is an alias for the standard logrus Logger.
-	DefaultLogger = logrus.New()
-)
+// DefaultLogger is an alias for the standard logrus Logger.
+var DefaultLogger = logrus.New()
 
 // Bootstrap creates a new Logger.
 func Bootstrap(config *environment.Config) {

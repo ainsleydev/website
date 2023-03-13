@@ -5,11 +5,12 @@
 package middleware
 
 import (
+	"net/http"
+
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
 	"github.com/ainsleyclark/ainsley.dev/api/_sdk"
 	"github.com/ainsleyclark/errors"
 	"github.com/labstack/echo/v4"
-	"net/http"
 )
 
 // ErrorHandler writes the json-encoded error message to the response.

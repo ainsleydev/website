@@ -6,8 +6,9 @@ package slack
 
 import (
 	"context"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"testing"
+
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 
 	"github.com/pkg/errors"
 	"github.com/slack-go/slack"

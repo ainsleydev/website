@@ -47,7 +47,7 @@ clean: # Remove unused entries, dependencies and cache
 .PHONY: clean
 
 lint: # Run linter
-	golangci-lint run --fix ./api/...
+	cd ./api/_pkg && golangci-lint run --fix ./...
 .PHONY: lint
 
 format: # Run gofmt
