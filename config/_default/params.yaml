@@ -1,7 +1,11 @@
 name: ainsley.dev
 description: Digital craftsmanship sculpting you as an industry leader. Coupling state-of-the-art technology with beautiful, memorable designs, we create memorable digital transformations and well-crafted software for everyone from startups to established brands.
 images:
-    - images/site-feature-image.jpg
+    - /images/site/about.jpg
+    - /images/site/contact.jpg
+    - /images/site/insights.jpg
+    - /images/site/portfolio.jpg
+    - /images/site/services.jpg
 url: https://ainsley.dev
 logo: https://ainsley.dev/images/logo.jpg
 company:

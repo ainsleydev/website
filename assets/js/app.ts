@@ -17,7 +17,7 @@ import { Log } from './util/log';
 import { Toast } from './animations/toast';
 import { Arrow } from './animations/arrow';
 import AOS from 'aos';
-import LoconativeScroll from 'loconative-scroll';
+import LoconativeScroll from './vendor/loconative-scroll';
 require('./animations/text');
 
 /**

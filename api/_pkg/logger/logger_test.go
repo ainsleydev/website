@@ -7,11 +7,12 @@ package logger
 import (
 	"bytes"
 	"fmt"
+	"testing"
+
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/ainsleyclark/errors"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func TestBootstrap(t *testing.T) {

@@ -5,11 +5,12 @@
 package middleware
 
 import (
+	"time"
+
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
 	"github.com/ainsleyclark/errors"
 	"github.com/labstack/echo/v4"
 	"github.com/sirupsen/logrus"
-	"time"
 )
 
 // Logger is the handler function for logging system application messages

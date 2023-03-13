@@ -6,6 +6,7 @@ package middleware
 
 import (
 	"fmt"
+
 	"github.com/ainsleyclark/errors"
 	"github.com/labstack/echo/v4"
 )

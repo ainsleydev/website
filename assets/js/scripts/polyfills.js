@@ -6,7 +6,7 @@
  * @author Email: info@ainsleyclark.com
  */
 
- /**
+/**
  * Require * Import
  *
  */
@@ -26,7 +26,7 @@ smoothscroll.polyfill();
  */
 function isInternetExplorer() {
 	let ua = window.navigator.userAgent;
-	let msie = ua.indexOf("MSIE ");
+	let msie = ua.indexOf('MSIE ');
 
 	return msie > 0;
 }
@@ -58,12 +58,11 @@ if ('NodeList' in window && !NodeList.prototype.forEach) {
  *
  */
 if (!Element.prototype.matches) {
-	Element.prototype.matches = Element.prototype.msMatchesSelector ||
-		Element.prototype.webkitMatchesSelector;
+	Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
 }
 
 if (!Element.prototype.closest) {
-	Element.prototype.closest = function(s) {
+	Element.prototype.closest = function (s) {
 		var el = this;
 
 		do {

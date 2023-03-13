@@ -3,7 +3,12 @@ package httpservice
 import (
 	"context"
 	"encoding/json"
-	"fmt"
+	"net/http"
+	"net/http/httptest"
+	"strings"
+	"testing"
+	"time"
+
 	"github.com/ainsleyclark/ainsley.dev/api/_mocks"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
@@ -14,11 +19,6 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
-	"net/http"
-	"net/http/httptest"
-	"strings"
-	"testing"
-	"time"
 )
 
 func TestHandler_SendContactForm(t *testing.T) {
@@ -121,7 +121,7 @@ var submission = ContactSubmission{
 }
 
 func TestContactSubmission_Text(t *testing.T) {
-	want := fmt.Sprintf("Email: test@hello.com\n\nMessage: message")
+	want := "Email: test@hello.com\n\nMessage: message"
 	got := submission.Text()
 	assert.Contains(t, got, want)
 }
@@ -137,7 +137,7 @@ func TestContactSubmission_Markdown(t *testing.T) {
 }
 
 func TestContactSubmission_HTML(t *testing.T) {
-	want := fmt.Sprintf("<p><strong>Email:</strong> test@hello.com</p><p><strong>Message:</strong> message</p><p><strong>Time:</strong>")
+	want := "<p><strong>Email:</strong> test@hello.com</p><p><strong>Message:</strong> message</p><p><strong>Time:</strong>"
 	got := submission.HTML()
 	assert.Contains(t, got, want)
 }

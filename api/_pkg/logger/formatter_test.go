@@ -5,14 +5,15 @@
 package logger
 
 import (
+	"testing"
+
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func TestLocalFormatter_Format(t *testing.T) {
 	const prefix = "prefix"
-	//now := time.Now()
+	// now := time.Now()
 
 	tt := map[string]struct {
 		input logrus.Entry
