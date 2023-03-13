@@ -2,8 +2,8 @@ github.com/ainsleyclark/errors v0.0.4 h1:4GMCpBITvxR03yffZZFQoWVpyo+FojBmocsU7Gq
 github.com/ainsleyclark/errors v0.0.4/go.mod h1:nrPz6nlMilDXNc+hhd0OG1orC0x4eTRpCWu1M+D7i/I=
 github.com/ainsleyclark/go-mail v1.1.1 h1:QbBTwU3RkPfsSI/XnKe3rPf6iQzooC7bm2y2qn84csA=
 github.com/ainsleyclark/go-mail v1.1.1/go.mod h1:oKp7iRT56mupSs3IJxsd4mbuSWVRQyU66vE5hosWiK0=
-github.com/caarlos0/env/v7 v7.0.0 h1:cyczlTd/zREwSr9ch/mwaDl7Hse7kJuUY8hvHfXu5WI=
-github.com/caarlos0/env/v7 v7.0.0/go.mod h1:LPPWniDUq4JaO6Q41vtlyikhMknqymCLBw0eX4dcH1E=
+github.com/caarlos0/env/v7 v7.1.0 h1:9lzTF5amyQeWHZzuZeKlCb5FWSUxpG1js43mhbY8ozg=
+github.com/caarlos0/env/v7 v7.1.0/go.mod h1:LPPWniDUq4JaO6Q41vtlyikhMknqymCLBw0eX4dcH1E=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
