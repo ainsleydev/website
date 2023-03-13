@@ -16,8 +16,10 @@ import { Navigation } from './components/nav';
 import { Log } from './util/log';
 import { Toast } from './animations/toast';
 import { Arrow } from './animations/arrow';
+import { WebVitals } from './analytics/web-vitals';
 import AOS from 'aos';
 import LoconativeScroll from './vendor/loconative-scroll';
+import { Params } from './params';
 require('./animations/text');
 
 /**
@@ -95,6 +97,16 @@ if (!body.hasAttribute('data-scroll-disable')) {
 		},
 	});
 }
+
+/**
+ * Web Vitals
+ */
+
+WebVitals({
+	enable: Params.isProduction,
+	analyticsId: Params.vercelAnalyticsID,
+	debug: true,
+});
 
 /**
  * Scroll
