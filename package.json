@@ -13,7 +13,7 @@
 		"build:test": "npm run hugo:clean && hugo --environment production --minify && npm run image && go run main.go",
 		"hugo:clean": "rm -rf public",
 		"image": "./bin/image-optim.sh",
-		"clean": "prettier --write ./**/*.{ts,tsx,scss,json}",
+		"clean": "prettier --write ./assets/**/*.{ts,scss,js}",
 		"lint": "npm run lint:scss && npm run lint:js",
 		"lint:scss": "npx stylelint '**/*.scss'",
 		"lint:js": "eslint --config .eslintrc.json --fix 'assets/**/*.{ts,tsx}'",
@@ -56,7 +56,7 @@
 		}
 	},
 	"lint-staged": {
-		"*.{ts,tsx,scss,json}": [
+		"*.{ts,scss,js}": [
 			"prettier --write"
 		],
 		"*.ts": [
