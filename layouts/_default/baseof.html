@@ -81,17 +81,21 @@
         {{ if eq .Section "insights" -}}
         	{{ .Render "schema" }}
 		{{- end }}
-		<!-- Google Tag Manager -->
+		<!-- Production Scripts -->
         {{ if hugo.IsProduction -}}
+			<!-- Google Tag Manager -->
 			<script defer>
 				(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 						new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 					j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 					'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 				})(window,document,'script','dataLayer','GTM-KZFMRNJ');
+			</script><!-- /End Google Tag Manager -->
+			<!-- Plausible -->
+			<script defer data-domain="ainsley.dev"
+					src="https://plausible.io/js/script.outband-links.tagged-events.js">
 			</script>
 		{{- end }}
-		<!-- /End Google Tag Manager -->
     </head>
 	<!-- =====================
 		Body
@@ -99,6 +103,7 @@
 	{{ $colour := partial "util/_theme-colour.html" . }}
     <body class="theme-{{ $colour }}" {{ if and (eq .Section "insights") .IsPage -}} data-scroll-disable {{- end }}>
 		{{ if hugo.IsProduction -}}
+
 			<!-- Google Tag Manager (noscript) -->
 			<noscript>
 				<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZFMRNJ"
