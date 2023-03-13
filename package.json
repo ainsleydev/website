@@ -24,7 +24,6 @@
 		"@googlemaps/js-api-loader": "^1.15.1",
 		"animejs": "^3.2.1",
 		"aos": "^3.0.0-beta.6",
-		"loconative-scroll": "github:quentinhocde/loconative-scroll",
 		"normalize.css": "^8.0.1",
 		"toastify-js": "^1.12.0"
 	},
