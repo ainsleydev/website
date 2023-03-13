@@ -78,25 +78,25 @@
 			 {{ end }}
 		{{- end }}
 		<!-- Original - AVIF/WebP -->
-        {{ if site.Params.imagery.webpAvif -}}
-            {{ $noExtension := strings.TrimSuffix (path.Ext .image.RelPermalink) .image.RelPermalink }}
-			<!-- AVIF -->
-			<source {{ if .lazy }} loading="lazy" {{- end }}
-				src="{{ $noExtension }}.avif"
+        {{- $noExtension := strings.TrimSuffix (path.Ext .image.RelPermalink) .image.RelPermalink -}}
+		<!-- AVIF -->
+		{{ if site.Params.imagery.avif -}}
+			<source srcset="{{ $noExtension }}.avif"
 				{{ with .class -}} class="{{ . }}" {{- end }}
 				{{ with .alt -}} alt="{{ . }}" {{- end }}
 				width="{{ .image.Width }}"
 				height="{{ .image.Height }}"
 				type="image/avif"/>
-			<!-- WebP -->
-			<source {{ if .lazy }} loading="lazy" {{- end }}
-				src="{{ $noExtension }}.webp"
-				{{ with .class -}} class="{{ . }}" {{- end }}
-				{{ with .alt -}} alt="{{ . }}" {{- end }}
-				width="{{ .image.Width }}"
-				height="{{ .image.Height }}"
-				type="image/webp"/>
-        {{- end }}
+		{{- end }}
+		{{ if site.Params.imagery.webp -}}
+		<!-- WebP -->
+		<source srcset="{{ $noExtension }}.webp"
+			{{ with .class -}} class="{{ . }}" {{- end }}
+			{{ with .alt -}} alt="{{ . }}" {{- end }}
+			width="{{ .image.Width }}"
+			height="{{ .image.Height }}"
+			type="image/webp"/>
+		{{- end }}
 		<!-- Original -->
         {{ partial "partials/media/image.html" (dict
 			"image" .image
