@@ -1,4 +1,6 @@
 {{ return (dict
+	"isProduction" (hugo.IsProduction)
 	"apiKey" (os.Getenv "API_KEY")
 	"googleMapsAPIKey" (os.Getenv "GOOGLE_MAPS_API_KEY")
+	"vercelAnalyticsID" (os.Getenv "VERCEL_ANALYTICS_ID")
 )}}

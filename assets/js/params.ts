@@ -12,8 +12,10 @@ import * as params from '@params';
  * Type of parameters passed in from Hugo.
  */
 export interface ParamsType {
+	isProduction: boolean;
 	apiKey: string;
 	googleMapsAPIKey: string;
+	vercelAnalyticsID: string;
 }
 
 /**
@@ -21,6 +23,8 @@ export interface ParamsType {
  * @see layouts/partials/head/_js-params.html
  */
 export const Params = {
+	isProduction: params.isProduction,
 	apiKey: params.apiKey,
 	googleMapsAPIKey: params.googleMapsAPIKey,
+	vercelAnalyticsID: params.vercelAnalyticsID,
 } as ParamsType;
