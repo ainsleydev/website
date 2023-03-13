@@ -24,6 +24,7 @@
 	// =========================================================================
 
 	&-button {
+		display: none;
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -44,5 +45,13 @@
 
 	&-playing ~ #{$self}-button {
 		opacity: 0;
+	}
+
+	// Desktop
+	// =========================================================================
+	@include media-desk {
+		&-button {
+			display: block;
+		}
 	}
 }
