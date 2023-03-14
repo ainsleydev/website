@@ -24,6 +24,7 @@ export class Card {
 	 * Instantiates a new button type.
 	 */
 	constructor() {
+		Log.debug('Card - Initialising');
 		this.attachHandlers();
 	}
 

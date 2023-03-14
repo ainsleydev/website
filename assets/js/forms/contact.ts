@@ -32,7 +32,7 @@ export class ContactForm extends Form {
 		API.forms
 			.sendContactForm(request)
 			.then(() => {
-				Log.info('Successfully sent contact form');
+				Log.info('Contact - Successfully sent contact form');
 			})
 			.catch((err) => {
 				HandleAPIError(err);

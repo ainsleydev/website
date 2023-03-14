@@ -6,6 +6,7 @@
  * @author Email: hello@ainsley.dev
  */
 
+// @ts-ignore
 import * as params from '@params';
 
 /**

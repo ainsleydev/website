@@ -5,6 +5,7 @@
  * @author URL:   https://ainsley.dev
  * @author Email: hello@ainsley.dev
  */
+
 import { Log } from '../util/log';
 
 // The Angles interface defines the shape of an array containing two
@@ -27,6 +28,7 @@ export class Arrow {
 	 * @constructor
 	 */
 	constructor() {
+		Log.debug('Arrow - Initialising');
 		document.querySelectorAll('.arrow-hover').forEach((arrow) => {
 			this.initArrow(arrow as HTMLElement);
 		});
@@ -43,7 +45,7 @@ export class Arrow {
 			hidden = arrow.querySelector('.arrow-hover-hidden') as HTMLElement;
 
 		if (!visible || !hidden) {
-			Log.error('No visible or hidden element in arrow hover element.');
+			Log.error('Arrow - No visible or hidden element in arrow hover element.');
 			return;
 		}
 		if (!rotation) {

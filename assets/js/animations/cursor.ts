@@ -40,10 +40,10 @@ export class Cursor {
 	 * @constructor
 	 */
 	constructor() {
-		Log.info('Initialising cursor component');
+		Log.debug('Cursor - Initialising');
 		const el = document.querySelector(this.selector);
 		if (!el) {
-			Log.error(`No ${this.selector} element found in the DOM`);
+			Log.error(`Cursor - No ${this.selector} element found in the DOM`);
 			return;
 		}
 		this.el = el as HTMLDivElement;

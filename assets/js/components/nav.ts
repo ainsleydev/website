@@ -25,6 +25,7 @@ export class Navigation {
 	 * @constructor
 	 */
 	constructor() {
+		Log.debug('Nav - Initialising');
 		this.checkbox = <HTMLFormElement>(
 			document.querySelector('.nav .nav-checkbox')
 		);

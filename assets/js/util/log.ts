@@ -43,4 +43,13 @@ export class Log {
 	static info(message: unknown) {
 		console.info(`${this.prefix} Info: ${message}`);
 	}
+
+	/**
+	 * Log a console debug message with a prefix.
+	 *
+	 * @param message
+	 */
+	static debug(message: unknown) {
+		console.info(`${this.prefix} Debug: ${message}`);
+	}
 }

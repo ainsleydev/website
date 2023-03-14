@@ -116,7 +116,7 @@ body.addEventListener('scroll', () => {
 	const y = body.scrollTop;
 	html.style.setProperty('--scroll-y', y.toString());
 	if (y > scrollAmount) {
-		Log.info('Scrolled passed point');
+		Log.debug('Scroll - Scrolled passed point'+scrollAmount);
 		html.classList.add('scrolled');
 		return;
 	}
@@ -158,19 +158,19 @@ document.querySelectorAll('[data-go-back]').forEach((btn) => {
 document.querySelectorAll('[data-clipboard]').forEach((clip) => {
 	const text = clip.getAttribute('data-clipboard-text');
 	if (!text || text === '') {
-		Log.error('Clipboard text is empty [data-clipboard-text] for el: ' + clip);
+		Log.error('Clipboard - Text is empty [data-clipboard-text] for el: ' + clip);
 		return;
 	}
 	clip.addEventListener('click', () => {
 		navigator.clipboard
 			.writeText(text)
 			.then(() => {
-				Log.info('Copied text to clipboard');
+				Log.info('Clipboard - Copied text to clipboard');
 				const message = clip.getAttribute('data-clipboard-message') ?? 'Copied text to clipboard';
 				Toast(message);
 			})
 			.catch((err) => {
-				Log.error('Failed to copy to clipboard: ' + err);
+				Log.error('Clipboard - Failed to copy to clipboard: ' + err);
 			});
 	});
 });
@@ -191,14 +191,14 @@ document.querySelectorAll('[data-bookmark]').forEach((bookmark) => {
 document.querySelectorAll('.before-after').forEach((el) => {
 	const slider = el.querySelector('.before-after-slider') as HTMLInputElement;
 	if (!slider) {
-		Log.error('No foreground found for before/after element');
+		Log.error('Before/After - No foreground found for before/after element');
 		return;
 	}
 	slider.addEventListener('input', (e) => {
 		const foreground = <HTMLElement>el.querySelector('.before-after-background'),
 			thumb = <HTMLButtonElement>el.querySelector('.before-after-thumb');
 		if (!foreground || !thumb) {
-			Log.error('Element missing from before/after element');
+			Log.error('Before/After - Element missing from before/after element');
 			return;
 		}
 		const value = (e.target as HTMLInputElement).value;

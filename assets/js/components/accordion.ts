@@ -97,7 +97,7 @@ export class Collapse {
 		const active = this.options.activeClass;
 		const inner = item.querySelector(this.options.inner) as HTMLElement;
 		if (!inner) {
-			Log.error('No inner item found for accordion item: ' + item);
+			Log.error('Accordion - No inner item found for accordion item: ' + item);
 			return;
 		}
 

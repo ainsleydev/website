@@ -23,7 +23,7 @@ function getConnectionSpeed() {
  */
 function sendToAnalytics(metric, options) {
 	if (!metric) {
-		Log.error('Metric not found');
+		Log.error('Vitals - Metric not found');
 		return;
 	}
 
