@@ -52,7 +52,7 @@ const splitLine = (el: Element): void => {
 		.join(' ');
 };
 
-const test = document.querySelector("#test");
+const test = document.querySelector('#test');
 if (test) {
 	splitLine(test);
 	//
@@ -122,10 +122,9 @@ if (textWrapper) {
 		.play();
 }
 
-
 // Basic
 
-document.querySelectorAll(".animate-fade").forEach(fade => {
+document.querySelectorAll('.animate-fade').forEach((fade) => {
 	anime.timeline().add({
 		targets: fade,
 		opacity: [0, 1],
@@ -134,76 +133,40 @@ document.querySelectorAll(".animate-fade").forEach(fade => {
 	});
 });
 
-function scrollTrigger(selector, options = {}) {
-	let els = document.querySelectorAll(selector)
-	els = Array.from(els)
-	els.forEach(el => {
-		addObserver(el, options)
-	})
-}
-function addObserver(el, options) {
-	// Check if `IntersectionObserver` is supported
-	if(!('IntersectionObserver' in window)) {
-		// Simple fallback
-		// The animation/callback will be called immediately so
-		// the scroll animation doesn't happen on unsupported browsers
-		if(options.cb){
-			options.cb(el)
-		} else{
-			entry.target.classList.add('active')
-		}
-		// We don't need to execute the rest of the code
-		return
-	}
-	let observer = new IntersectionObserver((entries, observer) => {
-		entries.forEach(entry => {
-			if(entry.isIntersecting) {
-				if(options.cb) {
-					options.cb(el)
-				} else{
-					entry.target.classList.add('active')
-				}
-				observer.unobserve(entry.target)
-			}
-		})
-	}, options)
-	observer.observe(el)
-}
-
-
-scrollTrigger("#test", {
-	rootMargin: '-100px',
-	cb: (el) => {
-		anime.timeline()
-			.add({
-				targets: el.querySelectorAll(".text-animate-line"),
-				translateY: [100, 0],
-				opacity: [0, 1],
-				easing: 'easeOutExpo',
-				duration: 2000,
-				delay: (el, i) => 300 + 100 * i,
-			})
-			.add({
-				targets: document.querySelector("#test2"),
-				translateY: [100, 0],
-				opacity: [0, 1],
-				easing: 'easeOutExpo',
-				duration: 2000,
-			}, '-=1600')
-	}
-})
-
-scrollTrigger("#test3", {
-	cb: (el) => {
-		anime.timeline()
-			.add({
-				targets: el,
-				opacity: [0, 1],
-				easing: 'easeOutExpo',
-				duration: 1300,
-			})
-	}
-})
+// scrollTrigger("#test", {
+// 	rootMargin: '-100px',
+// 	threshold: 0.2,
+// 	cb: (el) => {
+// 		anime.timeline()
+// 			.add({
+// 				targets: el.querySelectorAll(".text-animate-line"),
+// 				translateY: [100, 0],
+// 				opacity: [0, 1],
+// 				easing: 'easeOutExpo',
+// 				duration: 2000,
+// 				delay: (el, i) => 300 + 100 * i,
+// 			})
+// 			.add({
+// 				targets: document.querySelector("#test2"),
+// 				translateY: [100, 0],
+// 				opacity: [0, 1],
+// 				easing: 'easeOutExpo',
+// 				duration: 2000,
+// 			}, '-=1600')
+// 	}
+// })
+//
+// scrollTrigger("#test3", {
+// 	cb: (el) => {
+// 		anime.timeline()
+// 			.add({
+// 				targets: el,
+// 				opacity: [0, 1],
+// 				easing: 'easeOutExpo',
+// 				duration: 1300,
+// 			})
+// 	}
+// })
 
 // Example usages:
 // scrollTrigger('.intro-text')

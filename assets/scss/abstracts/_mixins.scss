@@ -157,7 +157,7 @@
 
 @mixin full-height {
 	height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
-	height: calc(var(--vh, 1vh) * 100);
+	height: 100dvh;
 }
 
 // Fluid Type
@@ -295,4 +295,19 @@
 	-webkit-line-clamp: $lines;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
+}
+
+// Touch/Non touch
+// ==========================================================================
+
+@mixin touch {
+	html.touchevents {
+		@content;
+	}
+}
+
+@mixin no-touch {
+	html.no-touchevents {
+		@content;
+	}
 }

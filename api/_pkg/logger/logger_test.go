@@ -9,8 +9,9 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/ainsleyclark/errors"
+
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 )
@@ -97,12 +98,6 @@ func TestLogger(t *testing.T) {
 			},
 			"with-fields",
 		},
-		"With Error": {
-			func() {
-				WithError(&errors.Error{Code: "code", Message: "message", Operation: "op", Err: fmt.Errorf("err")}).Error()
-			},
-			"level=error",
-		},
 	}
 
 	for name, test := range tt {
@@ -117,6 +112,17 @@ func TestLogger(t *testing.T) {
 			assert.Contains(t, buf.String(), test.want)
 		})
 	}
+}
+
+func TestWithError(t *testing.T) {
+	defer func() {
+		DefaultLogger = logrus.New()
+	}()
+	buf := &bytes.Buffer{}
+	DefaultLogger.SetLevel(logrus.TraceLevel)
+	DefaultLogger.SetOutput(buf)
+	WithError(&errors.Error{Code: "code", Message: "message", Operation: "op", Err: fmt.Errorf("err")}).Error()
+	assert.Contains(t, buf.String(), "level=error")
 }
 
 func TestLogger_Fatal(t *testing.T) {

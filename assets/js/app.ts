@@ -21,6 +21,7 @@ import AOS from 'aos';
 import LoconativeScroll from './vendor/loconative-scroll';
 import { Params } from './params';
 require('./animations/text');
+require('./vendor/modernizr');
 
 /**
  * Boot

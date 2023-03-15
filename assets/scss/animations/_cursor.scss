@@ -61,11 +61,13 @@
 			border-color: $white;
 		}
 	}
+}
 
-	// Non - Touch Screen
-	// =========================================================================
+// Non - Touch Screen
+// =========================================================================
 
-	@media (hover: hover) {
+@include no-touch {
+	.cursor {
 		display: block;
 	}
 }
