@@ -85,8 +85,13 @@ export class Cursor {
 			classes.forEach((c) => {
 				this.removeScale();
 				this.el.classList.remove('cursor-active');
+
 				setTimeout(() => {
-					this.el.classList.remove(c.replace('data-', ''));
+					// This was causing an issue with flickering between insights cards, so
+					// a check is needed to see if the cursor is still animating.
+					if (!this.el.classList.contains('cursor-active')) {
+						this.el.classList.remove(c.replace('data-', ''));
+					}
 				}, 300);
 			}),
 		);

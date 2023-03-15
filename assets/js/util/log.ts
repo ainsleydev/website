@@ -23,38 +23,42 @@ export class Log {
 	 * Log a console error with a prefix.
 	 *
 	 * @param message
+	 * @param args
 	 */
-	static error(message: unknown) {
-		console.error(`${this.prefix} Error: ${message}`);
+	static error(message: unknown, ...args: unknown[]) {
+		console.error(`${this.prefix} Error: ${message}`, args);
 	}
 
 	/**
 	 * Log a console warning with a prefix.
 	 *
 	 * @param message
+	 * @param args
 	 */
-	static warn(message: unknown) {
-		console.error(`${this.prefix} Warning: ${message}`);
+	static warn(message: unknown, ...args: unknown[]) {
+		console.error(`${this.prefix} Warning: ${message}`, args);
 	}
 
 	/**
 	 * Log a console info message with a prefix.
 	 *
 	 * @param message
+	 * @param args
 	 */
-	static info(message: unknown) {
-		console.info(`${this.prefix} Info: ${message}`);
+	static info(message: unknown, ...args: unknown[]) {
+		console.info(`${this.prefix} Info: ${message}`, args);
 	}
 
 	/**
 	 * Log a console debug message with a prefix.
 	 *
 	 * @param message
+	 * @param args
 	 */
-	static debug(message: unknown) {
+	static debug(message: unknown, ...args: unknown[]) {
 		if (!Params.appDebug) {
 			return;
 		}
-		console.info(`${this.prefix} Debug: ${message}`);
+		console.info(`${this.prefix} Debug: ${message}`, args);
 	}
 }

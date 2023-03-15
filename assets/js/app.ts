@@ -26,7 +26,7 @@ require('./animations/text');
  * Boot
  */
 Log.debug('Booting ainsley.dev JS');
-Log.debug('Params: ' + Params);
+Log.debug('JS Params', Params);
 
 /**
  * Vars
