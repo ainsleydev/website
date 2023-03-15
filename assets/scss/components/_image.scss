@@ -42,7 +42,6 @@
 
 		&-section {
 			margin-bottom: $section-padding;
-			overflow: hidden;
 			z-index: 10;
 		}
 	}
@@ -60,6 +59,7 @@
 			&-section {
 				display: flex;
 				align-items: center;
+				overflow: hidden;
 			}
 
 			&-container {

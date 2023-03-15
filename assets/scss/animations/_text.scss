@@ -3,9 +3,28 @@
 // This file contains native text animations such as the H1 bend.
 // -----------------------------------------------------------------------------
 
-.text-animate {
-	$self: &;
+.animate-hero {
 	position: relative;
+
+	u,
+	h1 {
+		position: relative;
+	}
+}
+
+.text {
+	$self: &;
+
+	// Props
+	// =========================================================================
+
+	&-animate {
+		position: relative;
+
+		u {
+			position: relative;
+		}
+	}
 
 	// Props
 	// =========================================================================
@@ -28,10 +47,6 @@
 
 	// Underline
 	// =========================================================================
-
-	u {
-		position: relative;
-	}
 
 	&-underline {
 		position: absolute;
