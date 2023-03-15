@@ -13,7 +13,7 @@
 	top: 0;
 	left: 0;
 	width: 100vw;
-	height: 100vh;
+	@include full-height;
 	background-color: $black;
 	opacity: 0;
 	visibility: hidden;
@@ -287,8 +287,7 @@
 					left: 0;
 					transform: translate(-100%, -50%);
 					opacity: 0;
-					transition: transform $arrow-transition,
-						opacity $arrow-transition;
+					transition: transform $arrow-transition, opacity $arrow-transition;
 					will-change: transform, opacity;
 				}
 

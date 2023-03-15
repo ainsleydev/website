@@ -95,7 +95,7 @@
 
 		&::-webkit-slider-thumb {
 			width: $before-after-border-width;
-			height: 100vh;
+			@include full-height;
 			background: $black;
 			-webkit-appearance: none;
 			appearance: none;

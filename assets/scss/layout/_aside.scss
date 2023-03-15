@@ -114,7 +114,7 @@
 		top: 0;
 		left: 0;
 		width: 100vw;
-		height: 100vh;
+		@include full-height;
 		background-color: rgba($black, 0.6);
 		z-index: -1;
 		opacity: 0;

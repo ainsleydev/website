@@ -101,11 +101,21 @@ if (!body.hasAttribute('data-scroll-disable')) {
 /**
  * Web Vitals
  */
-
 WebVitals({
 	enable: Params.isProduction,
 	analyticsId: Params.vercelAnalyticsID,
 	debug: true,
+});
+
+/**
+ * Window Height
+ * Bug fix for address bar.
+ */
+const vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+window.addEventListener('resize', () => {
+	const vh = window.innerHeight * 0.01;
+	document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
 
 /**
@@ -116,7 +126,7 @@ body.addEventListener('scroll', () => {
 	const y = body.scrollTop;
 	html.style.setProperty('--scroll-y', y.toString());
 	if (y > scrollAmount) {
-		Log.debug('Scroll - Scrolled passed point'+scrollAmount);
+		Log.debug('Scroll - Scrolled passed point' + scrollAmount);
 		html.classList.add('scrolled');
 		return;
 	}
