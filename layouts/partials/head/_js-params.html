@@ -1,4 +1,6 @@
 {{ return (dict
+	"appEnv" (os.Getenv "VERCEL_ENV")
+	"appDebug" (os.Getenv "APP_DEBUG")
 	"isProduction" (hugo.IsProduction)
 	"apiKey" (os.Getenv "API_KEY")
 	"googleMapsAPIKey" (os.Getenv "GOOGLE_MAPS_API_KEY")

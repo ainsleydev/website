@@ -3,7 +3,7 @@
 	===================== -->
 <div class="insight-social">
     {{ $permalink := printf "%s%s" (partial "util/_base-url.html" .) .RelPermalink -}}
-	{{ $title := printf "%s - %s" .Site.Params.name .Title -}}
+	{{ $title := printf "%s - %s" .Site.Params.niceName .Title -}}
 	<!-- LinkedIn -->
 	<a href="https://www.linkedin.com/sharing/share-offsite/?url={{ $permalink }}"
 		class="insight-social-item cursor-element"

@@ -13,6 +13,8 @@ import * as params from '@params';
  * Type of parameters passed in from Hugo.
  */
 export interface ParamsType {
+	appEnv: string;
+	appDebug: string;
 	isProduction: boolean;
 	apiKey: string;
 	googleMapsAPIKey: string;
@@ -24,6 +26,8 @@ export interface ParamsType {
  * @see layouts/partials/head/_js-params.html
  */
 export const Params = {
+	appEnv: params.appEnv,
+	appDebug: params.appDebug,
 	isProduction: params.isProduction,
 	apiKey: params.apiKey,
 	googleMapsAPIKey: params.googleMapsAPIKey,

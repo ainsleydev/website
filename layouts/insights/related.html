@@ -6,11 +6,17 @@
 	<section class="section section-padding bg-off-white">
 		<div class="container">
 			<div class="row justify-content-center">
+				<!-- Mobile Header -->
+				<div class="col-12 d-tab-none">
+					<h2 class="mb-0">
+						Related insights
+					</h2>
+				</div><!-- /Col -->
 				<!-- All Articles - Large -->
 				<div class="col-12 col-tab-10 all-articles all-articles-large">
 					<div class="all-articles-wrapper">
 						<h3>
-							Latest insights
+							Related insights
 						</h3>
 						{{ partial "arrow/text.html" (dict
 							"link" "/insights/"
@@ -36,7 +42,7 @@
                         )}}
 					</div><!-- /Wrapper -->
 				</div><!-- /Col -->
-				{{ range  . }}
+				{{ range  . -}}
 					<div class="col-12 col-tab-10 card-col">
 						{{ .Render "card" }}
 					</div><!-- /Col -->

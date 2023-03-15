@@ -6,6 +6,8 @@
  * @author Email: hello@ainsley.dev
  */
 
+import { Params } from '../params';
+
 /**
  * Log is responsible for logging to the stdout
  * within the website.
@@ -50,6 +52,9 @@ export class Log {
 	 * @param message
 	 */
 	static debug(message: unknown) {
+		if (!Params.appDebug) {
+			return;
+		}
 		console.info(`${this.prefix} Debug: ${message}`);
 	}
 }
