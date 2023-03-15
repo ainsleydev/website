@@ -173,6 +173,7 @@ function addObserver(el, options) {
 
 scrollTrigger("#test", {
 	rootMargin: '-100px',
+	threshold: 0.2,
 	cb: (el) => {
 		anime.timeline()
 			.add({
