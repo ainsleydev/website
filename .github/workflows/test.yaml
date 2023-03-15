@@ -1,4 +1,4 @@
-name: Can I Deploy
+name: Test
 
 on:
     workflow_dispatch:
@@ -6,8 +6,8 @@ on:
         branches: [ master ]
 
 jobs:
-    build_check:
-        name: Can I Deploy
+    test:
+        name: Test
         runs-on: ubuntu-latest
         strategy:
             matrix:
@@ -25,6 +25,17 @@ jobs:
                 with:
                     go-version: ${{ matrix.go-version }}
 
-            # Step 3 - Build
-            -   name: Build
-                run: go build main.go
+            # Step 3 - Test
+            -   name: Test
+                run: make test
+
+            # Step 4 - Upload to Codecov
+#            -   name: Upload coverage to Codecov
+#                uses: codecov/codecov-action@v2.1.0
+#                with:
+#                    token: ${{ secrets.CODECOV_TOKEN }}
+#                    file: ./coverage.out
+
+            # Step 5 - Run git diff
+            -   name: Diff
+                run: git diff

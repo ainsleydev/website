@@ -23,6 +23,12 @@ import { Params } from './params';
 require('./animations/text');
 
 /**
+ * Boot
+ */
+Log.debug('Booting ainsley.dev JS');
+Log.debug('JS Params', Params);
+
+/**
  * Vars
  */
 const html = document.documentElement,
@@ -77,9 +83,9 @@ AOS.init({
 /**
  * Locomotive Scroll
  */
-
 if (!body.hasAttribute('data-scroll-disable')) {
-	const scroll = new LoconativeScroll({
+	// @ts-ignore
+	new LoconativeScroll({
 		duration: 1.5,
 		easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
 		direction: 'vertical', // vertical, horizontal
@@ -101,11 +107,21 @@ if (!body.hasAttribute('data-scroll-disable')) {
 /**
  * Web Vitals
  */
-
 WebVitals({
 	enable: Params.isProduction,
 	analyticsId: Params.vercelAnalyticsID,
 	debug: true,
+});
+
+/**
+ * Window Height
+ * Bug fix for address bar.
+ */
+const vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+window.addEventListener('resize', () => {
+	const vh = window.innerHeight * 0.01;
+	document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
 
 /**
@@ -116,7 +132,7 @@ body.addEventListener('scroll', () => {
 	const y = body.scrollTop;
 	html.style.setProperty('--scroll-y', y.toString());
 	if (y > scrollAmount) {
-		Log.info('Scrolled passed point');
+		Log.debug('Scroll - Scrolled passed point' + scrollAmount);
 		html.classList.add('scrolled');
 		return;
 	}
@@ -158,19 +174,19 @@ document.querySelectorAll('[data-go-back]').forEach((btn) => {
 document.querySelectorAll('[data-clipboard]').forEach((clip) => {
 	const text = clip.getAttribute('data-clipboard-text');
 	if (!text || text === '') {
-		Log.error('Clipboard text is empty [data-clipboard-text] for el: ' + clip);
+		Log.error('Clipboard - Text is empty [data-clipboard-text] for el: ' + clip);
 		return;
 	}
 	clip.addEventListener('click', () => {
 		navigator.clipboard
 			.writeText(text)
 			.then(() => {
-				Log.info('Copied text to clipboard');
+				Log.info('Clipboard - Copied text to clipboard');
 				const message = clip.getAttribute('data-clipboard-message') ?? 'Copied text to clipboard';
 				Toast(message);
 			})
 			.catch((err) => {
-				Log.error('Failed to copy to clipboard: ' + err);
+				Log.error('Clipboard - Failed to copy to clipboard: ' + err);
 			});
 	});
 });
@@ -191,14 +207,14 @@ document.querySelectorAll('[data-bookmark]').forEach((bookmark) => {
 document.querySelectorAll('.before-after').forEach((el) => {
 	const slider = el.querySelector('.before-after-slider') as HTMLInputElement;
 	if (!slider) {
-		Log.error('No foreground found for before/after element');
+		Log.error('Before/After - No foreground found for before/after element');
 		return;
 	}
 	slider.addEventListener('input', (e) => {
 		const foreground = <HTMLElement>el.querySelector('.before-after-background'),
 			thumb = <HTMLButtonElement>el.querySelector('.before-after-thumb');
 		if (!foreground || !thumb) {
-			Log.error('Element missing from before/after element');
+			Log.error('Before/After - Element missing from before/after element');
 			return;
 		}
 		const value = (e.target as HTMLInputElement).value;

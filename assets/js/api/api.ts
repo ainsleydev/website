@@ -5,7 +5,8 @@
  * @author URL:   https://ainsley.dev
  * @author Email: hello@ainsley.dev
  */
-import { ApiConfig, HTTPError, HTTPResponse, HttpResponse, SDK } from './SDK';
+
+import { ApiConfig, HTTPError, HttpResponse, SDK } from './SDK';
 import { Params } from '../params';
 import { Log } from '../util/log';
 import { Toast } from '../animations/toast';
@@ -38,7 +39,7 @@ API.setHeaders({
  */
 const HandleAPIError = (response: HttpResponse<HTTPError>): void => {
 	const err = response.error as HTTPError;
-	Log.error(`${err.error}, Message: ${err.message}, Code: ${err.code}, Operation: ${err.operation}`);
+	Log.error(`API - ${err.error}, Message: ${err.message}, Code: ${err.code}, Operation: ${err.operation}`);
 	Toast(err.message);
 };
 

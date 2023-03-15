@@ -55,7 +55,7 @@ export abstract class Form {
 		// Find the closest form.
 		const form = btn.closest('form');
 		if (!form) {
-			Log.error(`Button missing from: ${buttonSelector}`);
+			Log.error(`Form - Button missing from: ${buttonSelector}`);
 			return;
 		}
 
@@ -81,7 +81,7 @@ export abstract class Form {
 	getValue(name: string): unknown {
 		const el = this.form.querySelector(`[name=${name}]`) as HTMLFormElement;
 		if (!el) {
-			Log.error('No form value found with the name: ' + name);
+			Log.error('Form - No form value found with the name: ' + name);
 			return;
 		}
 		return el.value;

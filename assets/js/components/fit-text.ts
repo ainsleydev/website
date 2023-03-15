@@ -51,7 +51,7 @@ export class FitText {
 	 * @constructor
 	 */
 	constructor() {
-		document.querySelectorAll<HTMLElement>('.fit-text').forEach((el) => {
+		document.querySelectorAll<HTMLElement>(this.selector).forEach((el) => {
 			this.change(el, this.getOptions(el));
 		});
 	}
@@ -121,7 +121,7 @@ export class FitText {
 		}
 		const num = Number(contents);
 		if (isNaN(num)) {
-			Log.error('Attribute is NaN: ' + attr);
+			Log.error('Fit Text - Attribute is NaN: ' + attr);
 			return null;
 		}
 		return num;

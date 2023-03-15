@@ -63,6 +63,7 @@ export class Skew {
 	 * @constructor
 	 */
 	constructor() {
+		Log.debug('Skew - Initialising');
 		this.attachHandlers();
 	}
 
@@ -164,7 +165,7 @@ export class Skew {
 		}
 		const num = Number(contents);
 		if (isNaN(num)) {
-			Log.error('Attribute is NaN: ' + attr);
+			Log.error('Skew - Attribute is NaN: ' + attr);
 			return null;
 		}
 		return num;

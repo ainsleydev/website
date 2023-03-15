@@ -9,6 +9,7 @@
 
 import { Loader } from '@googlemaps/js-api-loader';
 import { Params } from '../params';
+import { Log } from '../util/log';
 
 /**
  * Load the Google map with the API key.
@@ -24,6 +25,8 @@ const loader = new Loader({
  */
 const LoadMap = () => {
 	loader.load().then(() => {
+		Log.debug('Google Map - Initialising');
+
 		const position = {
 			lat: 51.5155705754434,
 			lng: -0.12367415060938884,
@@ -56,7 +59,9 @@ const LoadMap = () => {
 			map: map,
 			icon: '/images/icons/marker.svg',
 		});
-	});
+	}).catch(err => {
+		Log.error("Google Map - " + err);
+	})
 };
 
 export default LoadMap;
