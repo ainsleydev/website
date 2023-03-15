@@ -8,10 +8,12 @@
 
 import anime from 'animejs/lib/anime.es';
 
-const textWrapper = document.querySelector('.text-animate');
-if (textWrapper) {
-	// TODO, strings.Trim whitespace around text.
-	textWrapper.innerHTML = textWrapper.innerHTML.replace(/(?![^<]*>)[^<]/g, (c) => {
+/**
+ *
+ * @param el
+ */
+const splitLetter = (el: Element): void => {
+	el.innerHTML = el.innerHTML.trim().replace(/(?![^<]*>)[^<]/g, (c) => {
 		if (c == ' ') {
 			return c;
 		}
@@ -20,6 +22,25 @@ if (textWrapper) {
 		}
 		return `<span class="text-animate-letter">${c}</span>`;
 	});
+};
+
+/**
+ *
+ * @param el
+ */
+const splitWord = (el: Element): void => {
+	el.innerHTML = el.innerHTML
+		.trim()
+		.split(' ')
+		.map((word) => {
+			return `<span class=text-animate-word">${word}</span>`;
+		})
+		.join(' ');
+};
+
+const textWrapper = document.querySelector('.text-animate');
+if (textWrapper) {
+	splitLetter(textWrapper);
 	const underline = textWrapper.querySelector('u');
 	if (underline) {
 		underline.innerHTML += `<span class="text-animate-underline">`;
