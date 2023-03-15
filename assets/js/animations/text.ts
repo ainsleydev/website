@@ -8,10 +8,12 @@
 
 import anime from 'animejs/lib/anime.es';
 
-const textWrapper = document.querySelector('.text-animate');
-if (textWrapper) {
-	// TODO, strings.Trim whitespace around text.
-	textWrapper.innerHTML = textWrapper.innerHTML.replace(/(?![^<]*>)[^<]/g, (c) => {
+/**
+ *
+ * @param el
+ */
+const splitLetter = (el: Element): void => {
+	el.innerHTML = el.innerHTML.trim().replace(/(?![^<]*>)[^<]/g, (c) => {
 		if (c == ' ') {
 			return c;
 		}
@@ -20,6 +22,48 @@ if (textWrapper) {
 		}
 		return `<span class="text-animate-letter">${c}</span>`;
 	});
+};
+
+/**
+ *
+ * @param el
+ */
+const splitWord = (el: Element): void => {
+	el.innerHTML = el.innerHTML
+		.trim()
+		.split(' ')
+		.map((word) => {
+			return `<span class="text-animate-word">${word}</span>`;
+		})
+		.join(' ');
+};
+
+/**
+ *
+ * @param el
+ */
+const splitLine = (el: Element): void => {
+	el.innerHTML = el.innerHTML
+		.trim()
+		.split('\n')
+		.map((word) => {
+			return `<span class="text-animate-line">${word}</span>`;
+		})
+		.join(' ');
+};
+
+const test = document.querySelector("#test");
+if (test) {
+	splitLine(test);
+	//
+	// test.querySelectorAll(".text-animate-line").forEach(line => {
+	// 	splitWord(line);
+	// });
+}
+
+const textWrapper = document.querySelector('.text-animate');
+if (textWrapper) {
+	splitLetter(textWrapper);
 	const underline = textWrapper.querySelector('u');
 	if (underline) {
 		underline.innerHTML += `<span class="text-animate-underline">`;
@@ -77,3 +121,101 @@ if (textWrapper) {
 		)
 		.play();
 }
+
+
+// Basic
+
+document.querySelectorAll(".animate-fade").forEach(fade => {
+	anime.timeline().add({
+		targets: fade,
+		opacity: [0, 1],
+		duration: 2400,
+		easing: 'easeOutSine',
+	});
+});
+
+function scrollTrigger(selector, options = {}) {
+	let els = document.querySelectorAll(selector)
+	els = Array.from(els)
+	els.forEach(el => {
+		addObserver(el, options)
+	})
+}
+function addObserver(el, options) {
+	// Check if `IntersectionObserver` is supported
+	if(!('IntersectionObserver' in window)) {
+		// Simple fallback
+		// The animation/callback will be called immediately so
+		// the scroll animation doesn't happen on unsupported browsers
+		if(options.cb){
+			options.cb(el)
+		} else{
+			entry.target.classList.add('active')
+		}
+		// We don't need to execute the rest of the code
+		return
+	}
+	let observer = new IntersectionObserver((entries, observer) => {
+		entries.forEach(entry => {
+			if(entry.isIntersecting) {
+				if(options.cb) {
+					options.cb(el)
+				} else{
+					entry.target.classList.add('active')
+				}
+				observer.unobserve(entry.target)
+			}
+		})
+	}, options)
+	observer.observe(el)
+}
+
+
+scrollTrigger("#test", {
+	rootMargin: '-100px',
+	cb: (el) => {
+		anime.timeline()
+			.add({
+				targets: el.querySelectorAll(".text-animate-line"),
+				translateY: [100, 0],
+				opacity: [0, 1],
+				easing: 'easeOutExpo',
+				duration: 2000,
+				delay: (el, i) => 300 + 100 * i,
+			})
+			.add({
+				targets: document.querySelector("#test2"),
+				translateY: [100, 0],
+				opacity: [0, 1],
+				easing: 'easeOutExpo',
+				duration: 2000,
+			}, '-=1600')
+	}
+})
+
+scrollTrigger("#test3", {
+	cb: (el) => {
+		anime.timeline()
+			.add({
+				targets: el,
+				opacity: [0, 1],
+				easing: 'easeOutExpo',
+				duration: 1300,
+			})
+	}
+})
+
+// Example usages:
+// scrollTrigger('.intro-text')
+// scrollTrigger('.scroll-reveal', {
+// 	rootMargin: '-200px',
+// })
+// scrollTrigger('.loader', {
+// 	rootMargin: '-200px',
+// 	cb: function(el){
+// 		el.innerText = 'Loading...'
+// 		setTimeout(() => {
+// 			el.innerText = 'Task Complete!'
+// 		}, 1000)
+// 	}
+// })

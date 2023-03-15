@@ -43,6 +43,7 @@
 		&-section {
 			margin-bottom: $section-padding;
 			overflow: hidden;
+			z-index: 10;
 		}
 	}
 

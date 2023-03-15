@@ -110,7 +110,7 @@ if (!body.hasAttribute('data-scroll-disable')) {
 WebVitals({
 	enable: Params.isProduction,
 	analyticsId: Params.vercelAnalyticsID,
-	debug: true,
+	debug: Params.appDebug,
 });
 
 /**

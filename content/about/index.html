@@ -8,14 +8,13 @@ url: /who-we-are
 <!-- =====================
 	Who We Are
     ===================== -->
-<section class="hero hero-full-height hero-align-bottom gradient gradient-height-70">
+<section class="hero hero-full-height hero-align-bottom gradient gradient-height-70" data-scroll-section>
 	<!-- Background -->
-	{{< picture src="images/hero.jpg" mob="images/hero-mob.jpg" tab="images/hero-tab.jpg" alt="ainsley.dev Office" class="hero-background brightness-60" >}}
+	{{< picture src="images/hero.jpg" mob="images/hero-mob.jpg" tab="images/hero-tab.jpg" alt="ainsley.dev Office" class="hero-background brightness-60 animate-fade" >}}
 	<!-- Content -->
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-12">
-
 				<!-- Heading -->
 				<h1 class="text-animate">
 					Who <u>we</u> <span class="type-serif">are*</span>
@@ -32,22 +31,26 @@ url: /who-we-are
 <!-- =====================
 	Bespoke
     ===================== -->
-<section class="section image-split-section">
+<section class="section image-split-section" data-scroll-section>
 	<!-- Image -->
-	{{< picture src="images/signpost.jpg" alt="Signpost" class="image-split image-split-left" lazy=true >}}
+	<div class="image-split image-split-left" data-scroll data-scroll-speed="2" id='test3'>
+		{{< picture src="images/signpost.jpg" alt="Signpost" lazy=true >}}
+	</div>
 	<!-- Content -->
 	<div class="container image-split-container">
 		<div class="row align-items-center">
 			<div class="col-12 col-desk-6 col-hd-5 offset-desk-6 pl-desk-0">
 				<!-- Heading -->
 				<div class="margin">
-					<h3>
-						We believe bespoke is better than boilerplate, creating digital experiences that your users will
+					<h3 id="test">
+						We believe bespoke is better than
+						boilerplate, creating digital
+						experiences that your users will
 						fall in love with.
 					</h3>
 				</div>
 				<!-- Content -->
-				<p class="lead mb-0">
+				<p class="lead mb-0" id='test2'>
 					Every application made by ainsley.dev is curated to launch your business into the digital world by
 					sculpting your online presence to increase your online visibility.
 				</p>
@@ -58,9 +61,11 @@ url: /who-we-are
 <!-- =====================
 	Deep Dive
     ===================== -->
-<section class="section image-split-section">
+<section class="section image-split-section" data-scroll-section>
 	<!-- Image -->
-	{{< picture src="images/ipad.jpg" mob="images/ipad-mob.jpg" tab="images/ipad-tab.jpg" alt="iPad showing Web Design" class="image-split image-split-right" lazy=true >}}
+	<div class="image-split image-split-right" data-scroll data-scroll-speed="2">
+		{{< picture src="images/ipad.jpg" mob="images/ipad-mob.jpg" tab="images/ipad-tab.jpg" alt="iPad showing Web Design" lazy=true >}}
+	</div>
 	<!-- Content -->
 	<div class="container image-split-container">
 		<div class="row">
@@ -85,9 +90,11 @@ url: /who-we-are
 <!-- =====================
 	Creative Solutions
     ===================== -->
-<section class="section image-split-section">
+<section class="section image-split-section" data-scroll-section>
 	<!-- Image -->
-	{{< picture src="images/iphone.jpg" mob="images/iphone-mob.jpg" tab="images/iphone-tab.jpg" alt="iPhone showing Web Design" class="image-split image-split-left" lazy=true >}}
+	<div class="image-split image-split-left" data-scroll data-scroll-speed="1">
+		{{< picture src="images/iphone.jpg" mob="images/iphone-mob.jpg" tab="images/iphone-tab.jpg" alt="iPhone showing Web Design" lazy=true >}}
+	</div>
 	<!-- Content -->
 	<div class="container image-split-container">
 		<div class="row">
