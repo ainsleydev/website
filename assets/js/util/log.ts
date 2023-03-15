@@ -8,6 +8,16 @@
 
 import { Params } from '../params';
 
+enum LogLevel {
+	Trace = 'TRACE',
+	Debug = 'DEBUG',
+	Info = 'INFO',
+	Warn = 'WARN',
+	Error = 'ERROR',
+}
+
+// TODO: Need to flesh this out, see: https://adrianhall.github.io/cloud/2019/06/30/building-an-efficient-logger-in-typescript/
+
 /**
  * Log is responsible for logging to the stdout
  * within the website.
@@ -27,10 +37,10 @@ export class Log {
 	 */
 	static error(message: unknown, ...args: unknown[]) {
 		if (!args.length) {
-			console.info(`${this.prefix} [ERROR]: ${message}`);
+			console.info(`${this.prefix} [${LogLevel.Error}]: ${message}`);
 			return;
 		}
-		console.info(`${this.prefix} [ERROR]: ${message}`, args);
+		console.info(`${this.prefix} [${LogLevel.Error}]: ${message}`, args);
 	}
 
 	/**
@@ -41,10 +51,10 @@ export class Log {
 	 */
 	static warn(message: unknown, ...args: unknown[]) {
 		if (!args.length) {
-			console.info(`${this.prefix} [WARN]: ${message}`);
+			console.info(`${this.prefix} [${LogLevel.Warn}]: ${message}`);
 			return;
 		}
-		console.info(`${this.prefix} [WARN]: ${message}`, args);
+		console.info(`${this.prefix} [${LogLevel.Warn}]: ${message}`, args);
 	}
 
 	/**
@@ -55,9 +65,9 @@ export class Log {
 	 */
 	static info(message: unknown, ...args: unknown[]) {
 		if (!args.length) {
-			console.info(`${this.prefix} [INFO]: ${message}`);
+			console.info(`${this.prefix} [${LogLevel.Info}]: ${message}`);
 		}
-		console.info(`${this.prefix} [INFO]: ${message}`, args);
+		console.info(`${this.prefix} [${LogLevel.Info}]: ${message}`, args);
 	}
 
 	/**
@@ -68,9 +78,9 @@ export class Log {
 	 */
 	static debug(message: unknown, ...args: unknown[]) {
 		if (!args.length) {
-			console.info(`${this.prefix} [DEBUG]: ${message}`);
+			console.info(`${this.prefix} [${LogLevel.Debug}]: ${message}`);
 			return;
 		}
-		console.info(`${this.prefix} [DEBUG]: ${message}`, args);
+		console.info(`${this.prefix} [${LogLevel.Debug}]: ${message}`, args);
 	}
 }
