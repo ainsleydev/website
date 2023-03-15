@@ -183,17 +183,17 @@
 			}
 		}
 	}
+}
 
-	// Non - Touch Screen
-	// =========================================================================
+// Non - Touch Screen
+// =========================================================================
 
-	@media (hover: hover) {
-		&-slider {
-			background-color: rgba($black, 0.5);
+@include no-touch {
+	.before-after-slider {
+		background-color: rgba($black, 0.5);
 
-			&:hover {
-				background: transparent;
-			}
+		&:hover {
+			background: transparent;
 		}
 	}
 }

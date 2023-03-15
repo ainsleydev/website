@@ -66,8 +66,8 @@
 // Non - Touch Screen
 // =========================================================================
 
-html.touchevents {
-}
-@media (hover: hover) {
-	display: block;
+@include no-touch {
+	.cursor {
+		display: block;
+	}
 }

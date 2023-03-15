@@ -296,3 +296,18 @@
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
+
+// Touch/Non touch
+// ==========================================================================
+
+@mixin touch {
+	html.touchevents {
+		@content;
+	}
+}
+
+@mixin no-touch {
+	html.no-touchevents {
+		@content;
+	}
+}
