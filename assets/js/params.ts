@@ -15,6 +15,7 @@ import * as params from '@params';
 export interface ParamsType {
 	appEnv: string;
 	appDebug: string;
+	brandName: string;
 	isProduction: boolean;
 	apiKey: string;
 	googleMapsAPIKey: string;
@@ -28,6 +29,7 @@ export interface ParamsType {
 export const Params = {
 	appEnv: params.appEnv,
 	appDebug: params.appDebug,
+	brandName: params.brandName,
 	isProduction: params.isProduction,
 	apiKey: params.apiKey,
 	googleMapsAPIKey: params.googleMapsAPIKey,
