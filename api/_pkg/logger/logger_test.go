@@ -7,8 +7,9 @@ package logger
 import (
 	"bytes"
 	"fmt"
-	"github.com/ainsleyclark/errors"
 	"testing"
+
+	"github.com/ainsleyclark/errors"
 
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/sirupsen/logrus"
