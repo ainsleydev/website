@@ -15,6 +15,7 @@
     	- animate:		If the skew and cursor animations should run.
     ===================== -->
 <!-- Card -->
+
 <a href="{{ .permalink }}" class="card card-vertical card-half-margin
 	{{ if .clip -}} card-clip {{- end }}"
 	title="{{ .title }} Page Link"
@@ -34,7 +35,7 @@
         {{- end }}
 		<!-- Clipped Image -->
         {{ if .clip -}}
-			<picture class="card-image card-image-clip">
+			<picture class="card-image card-image-clip skew">
 				<img src="https://cdn.shopify.com/s/files/1/0306/4253/6586/products/the-baron-custom-vintage-pet-portrait-324790_650x.jpg?v=1656938221" alt="">
 			</picture>
         {{- end }}

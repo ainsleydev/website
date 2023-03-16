@@ -49,6 +49,7 @@
 		&-wrapper {
 			position: relative;
 			width: 100%;
+			overflow: hidden;
 		}
 
 		img {
@@ -150,8 +151,12 @@
 
 		#{$self}-image-clip {
 			position: absolute;
-			opacity: 0;
+			//opacity: 0;
 			z-index: 10;
+			pointer-events: none;
+			clip-path: circle(0%);
+
+			transform-origin: center;
 		}
 	}
 

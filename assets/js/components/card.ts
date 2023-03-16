@@ -11,19 +11,27 @@ import { IsTouchDevice } from '../util/css';
 import anime from 'animejs/lib/anime.es';
 
 /**
- * Card is responsible for adding micro interactions
- * to card elements.
+ * Card is responsible for adding clip and transform
+ * animations to card elements.
  */
 export class Card {
 	/**
-	 * The DOM selector for the button.
+	 * The DOM selector for the card.
 	 *
 	 * @private
 	 */
 	public selector = '.card';
 
 	/**
-	 * Instantiates a new button type.
+	 * The default clip path percentage of the image
+	 * or video.
+	 *
+	 * @private
+	 */
+	private readonly defaultClipPercentage = "40%"
+
+	/**
+	 * Instantiates a new card type.
 	 */
 	constructor() {
 		Log.debug('Card - Initialising');
@@ -50,7 +58,7 @@ export class Card {
 	}
 
 	/**
-	 * Attaches the event handlers for all button elements
+	 * Attaches the event handlers for all card elements
 	 * on the DOM.
 	 *
 	 * @private
@@ -60,44 +68,88 @@ export class Card {
 			if (!card.classList.contains('card-clip')) {
 				return;
 			}
-			const image = card.querySelector('.card-image-clip') as HTMLElement;
+			const imageClip = card.querySelector('.card-image-clip') as HTMLElement;
+			if (!imageClip) {
+				Log.error('No card image found for card: ' + card);
+				return;
+			}
+
+			const image = card.querySelector('.card-image') as HTMLElement;
 			if (!image) {
 				Log.error('No card image found for card: ' + card);
 				return;
 			}
 
-			anime.set(image, { opacity: 0 });
+			anime.set(imageClip, {scale: 1.1})
+			image.addEventListener('mousemove', ev => this.mouseMove(imageClip, ev));
+			image.addEventListener('mouseenter', ev => this.mouseEnter(imageClip, ev));
+			image.addEventListener('mouseleave', ev => this.mouseLeave(imageClip, ev));
+		});
+	}
 
-			image.addEventListener('mouseenter', (e: MouseEvent) => {
-				anime({
-					targets: image,
-					opacity: [0, 1],
-					duration: 500,
-				});
-			});
+	/**
+	 * Mouse enter handler that fades in the clipped image.
+	 *
+	 * @param image
+	 * @param event
+	 * @private
+	 */
+	private mouseEnter(image: Element, event: MouseEvent): void {
+		anime({
+			targets: image,
+			easing: "easeOutExpo",
+			opacity: [0, 1],
+			duration: 1500,
+			delay: 100,
+		});
+	}
 
-			// image.addEventListener('mousemove', (e: MouseEvent) => {
-			// 	const cord = this.getCoordinates(image, e);
-			// 	anime({
-			// 		targets: image,
-			// 		// keyframes: [
-			// 		// 	{ clipPath: "circle(0)" },
-			// 		// 	{ clipPath: "circle(100%)" },
-			// 		// ],
-			// 		// clipPath: {
-			// 		// 	value: `circle(50% at ${cord.x}px ${cord.y}px)`,
-			// 		// 	duration: 100,
-			// 		// },
-			// 	});
-			// });
+	/**
+	 * Mouse leave handler for the card that transforms the clip
+	 * path back to 0%.
+	 *
+	 * @param image
+	 * @param event
+	 * @private
+	 */
+	private mouseLeave(image: Element, event: MouseEvent): void {
+		const cord = this.getCoordinates(image, event);
+		anime({
+			targets: image,
+			easing: "easeOutExpo",
+			clipPath: `circle(0% at ${cord.x}px ${cord.y}px)`,
+			opacity: [1, 0],
+			duration: 1500,
+		});
+	}
 
-			image.addEventListener('mouseout', (e: MouseEvent) => {
-				anime({
-					targets: image,
-					opacity: [1, 0],
-					duration: 500,
-				});
-			});
+	/**
+	 * Mouse move handler for the card that transforms the
+	 * clip path circle and translates on the Y & X axis.
+	 *
+	 * @param image
+	 * @param event
+	 * @private
+	 */
+	private mouseMove(image: Element, event: MouseEvent): void {
+		const cord = this.getCoordinates(image, event);
+		anime({
+			targets: image,
+			clipPath: {
+				value: `circle(${this.defaultClipPercentage} at ${cord.x}px ${cord.y}px)`,
+				easing: "easeOutExpo",
+				duration:  200,
+			},
+			translateY: {
+				value:  cord.y / 30,
+				easing: "linear",
+				duration: 100,
+			},
+			translateX: {
+				value: cord.x / 30,
+				easing: "linear",
+				duration: 100,
+			},
 		});
 	}
 }
