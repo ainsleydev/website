@@ -8,49 +8,52 @@
 				<!-- =====================
 					Meta
 					===================== -->
-				<div class="col-12 col-desk-5">
-					<aside class="portfolio-aside">
+				<div class="col-12 col-desk-5 col-hd-4 offset-hd-1">
+					<aside class="portfolio-aside animate-line">
 						<!-- Logo -->
-						<figure class="margin">
+						<figure class="margin animate-fade" data-animate-delay="300">
                             {{ partial "media/image.html" (dict
                             	"image" (.Resources.GetMatch "images/logo.svg")
                             	"alt" (printf "%s Logo" .Params.company))
                             }}
 						</figure><!-- /Log -->
 						<!-- Title -->
-						<div class="margin-large">
+						<div class="margin-large animate-line-heading">
 							<h1 class="portfolio-title mb-0">{{ .Title }}</h1>
 						</div><!-- /Title -->
-						<!-- Year -->
-                        {{ with .Params.year }}
-							<div class="margin">
-								<h5 class="mb-0">Year</h5>
-								<p>{{ . }}</p>
-							</div>
-                        {{ end }}<!-- /Year -->
-						<!-- Strategies -->
-                        {{ with .Params.strategies }}
-							<div class="margin">
-								<h5 class="mb-0">Strategy</h5>
-								<p>{{ delimit . ", " }}</p>
-							</div>
-                        {{ end }}<!-- /Strategies -->
-						<!-- Technologies -->
-                        {{ with .Params.technologies }}
-							<div class="margin">
-								<h5 class="mb-0">Technologies</h5>
-								<p>{{ delimit . ", " }}</p>
-							</div>
-                        {{ end }}<!-- /Technologies -->
-						<!-- Website -->
-                        {{ with .Params.site }}
-							<div class="margin margin-none">
-								<h5 class="mb-0">Website</h5>
-								<a href="{{ .link }}" class="type-weight-normal" target="_blank">
-									<p>{{ .pretty }}</p>
-								</a>
-							</div>
-                        {{ end }}<!-- /Website -->
+						<!-- Info -->
+						<div class='animate-line-lead'>
+							<!-- Year -->
+                            {{ with .Params.year }}
+								<div class="margin">
+									<h5 class="mb-0">Year</h5>
+									<p>{{ . }}</p>
+								</div>
+                            {{ end }}<!-- /Year -->
+							<!-- Strategies -->
+                            {{ with .Params.strategies }}
+								<div class="margin">
+									<h5 class="mb-0">Strategy</h5>
+									<p>{{ delimit . ", " }}</p>
+								</div>
+                            {{ end }}<!-- /Strategies -->
+							<!-- Technologies -->
+                            {{ with .Params.technologies }}
+								<div class="margin">
+									<h5 class="mb-0">Technologies</h5>
+									<p>{{ delimit . ", " }}</p>
+								</div>
+                            {{ end }}<!-- /Technologies -->
+							<!-- Website -->
+                            {{ with .Params.site }}
+								<div class="margin margin-none">
+									<h5 class="mb-0">Website</h5>
+									<a href="{{ .link }}" class="type-weight-normal" target="_blank">
+										<p>{{ .pretty }}</p>
+									</a>
+								</div>
+                            {{ end }}<!-- /Website -->
+						</div>
 						<!-- Arrow -->
 						<figure class="portfolio-arrow scroll">
                             {{ partial "arrow/hover.html" (dict
@@ -67,7 +70,7 @@
 				<div class="col-12 col-desk-6 offset-desk-1">
 					<article class="portfolio-content">
 						<!-- Featured Image -->
-						<picture class="portfolio-featured">
+						<picture class="portfolio-featured animate-fade">
                             {{ partial "media/picture.html" (dict
                             	"image" (.Resources.GetMatch "images/featured.jpg")
                             	"alt" (printf "ainsley.dev %s Mockup" .Params.company)

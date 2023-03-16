@@ -31,7 +31,7 @@ control solutions.
 {{< /vertical-section >}}
 
 <!-- Guttering -->
-{{< picture src="images/guttering.jpg" alt="Picture of guttering on a roof" >}}
+{{< picture src="images/guttering.jpg" alt="Picture of guttering on a roof" animate=true >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
@@ -41,7 +41,7 @@ needed to be displayed throughout the landing page, with clear calls to action a
 {{< /vertical-section >}}
 
 <!-- Video -->
-{{< picture src="images/guttering.jpg" alt="TODO" >}}
+{{< picture src="images/guttering.jpg" alt="TODO" animate=true >}}
 
 <!-- Design -->
 {{< vertical-section text="Design" number="02" >}}
@@ -52,7 +52,7 @@ simple calls to action were designed as an easy way for customers to get in touc
 {{< /vertical-section >}}
 
 <!-- Mockup -->
-{{< picture src="images/mockup.jpg" alt="Dec's Pets Website on an iPhone" >}}
+{{< picture src="images/mockup.jpg" alt="Dec's Pets Website on an iPhone" animate=true >}}
 
 <!-- Development -->
 {{< vertical-section text="Develop" number="03" >}}

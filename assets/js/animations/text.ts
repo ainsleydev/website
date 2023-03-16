@@ -109,6 +109,18 @@ const heroAnimation = () => {
 
 heroAnimation();
 
+document.querySelectorAll(".hero-logos figure").forEach((logo, index) => {
+	anime.set(logo, {opacity: 0});
+	anime({
+		targets: logo,
+		translateY: [100, 0],
+		opacity: [0, 1],
+		delay: (el, i) => 60 * index,
+		easing: 'easeOutExpo',
+		duration: 1300,
+	});
+});
+
 /**
  *
  */
@@ -121,7 +133,7 @@ document.querySelectorAll('.animate-line').forEach((an) => {
 		return;
 	}
 
-	if (!heading || !lead) {
+	if (!heading) {
 		Log.error('Animate line does not exist TODO');
 		return;
 	}

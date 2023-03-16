@@ -2,15 +2,15 @@
 	<!-- =====================
 		Portfolio List
 		===================== -->
-	<section class="hero hero-simple hero-simple-padding-bottom"
-			 data-scroll data-scroll-speed="1">
+	<section class="hero hero-simple hero-simple-padding-bottom" data-scroll-section>
 		<div class="container">
 			<div class="row">
 				<div class="col-12 col-desk-11 offset-desk-1">
 					{{ with .Params.htmlTitle }}
 						<!-- Hero Animation -->
-						<div class="hero-animate">
-							<h1 class="mb-0 text-animate">
+						<div class="hero-animate"
+							data-scroll data-scroll-speed="3" data-scroll-position="top">
+							<h1 class="mb-0">
                                 {{ . | safeHTML }}
 							</h1>
 						</div>

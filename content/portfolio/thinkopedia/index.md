@@ -31,7 +31,7 @@ rewrite their story.
 {{< /vertical-section >}}
 
 <!-- Cody Dumbarton -->
-{{< picture src="images/cody.jpg" alt="Cody Dumbarton, CEO of Thinkopedia" >}}
+{{< picture src="images/cody.jpg" alt="Cody Dumbarton, CEO of Thinkopedia" animate=true >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
@@ -41,7 +41,7 @@ also needed, to enable people to get in touch easily.
 {{< /vertical-section >}}
 
 <!-- Video -->
-{{< picture src="images/cody.jpg" alt="TODO" >}}
+{{< picture src="images/cody.jpg" alt="TODO" animate=true >}}
 
 <!-- Design -->
 {{< vertical-section text="Design" number="02" >}}
@@ -52,7 +52,7 @@ capture the user’s attention, which later aided the animation process.
 {{< /vertical-section >}}
 
 <!-- Mockup -->
-{{< picture src="images/mockup.jpg" alt="Thinkopedia Website on an iPad" >}}
+{{< picture src="images/mockup.jpg" alt="Thinkopedia Website on an iPad" animate=true >}}
 
 <!-- Development -->
 {{< vertical-section text="Develop" number="03" >}}
