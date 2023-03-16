@@ -7,6 +7,8 @@
  * @author Email: info@ainsleyclark.com
  */
 
+import anime from 'animejs/lib/anime.es';
+
 require('./vendor/modernizr');
 import { Cursor } from './animations/cursor';
 import { Skew } from './animations/skew';
@@ -18,6 +20,7 @@ import { Log } from './util/log';
 import { Toast } from './animations/toast';
 import { Arrow } from './animations/arrow';
 import { WebVitals } from './analytics/web-vitals';
+import barba, { ITransitionData } from '@barba/core';
 import LoconativeScroll from './vendor/loconative-scroll';
 import { Params } from './params';
 require('./animations/text');
@@ -43,43 +46,106 @@ html.classList.add('js');
 /**
  * Initialise components & types.
  */
-new Navigation();
-new Cursor();
-new Skew();
-new FitText();
-new Card();
-new Arrow();
-new Collapse({
-	accordion: true,
-	container: '.accordion',
-	item: '.accordion-item',
-	inner: '.accordion-content',
-	activeClass: 'accordion-item-active',
-} as CollapseOptions);
+const boot = () => {
+	new Navigation();
+	new Cursor();
+	new Skew();
+	new FitText();
+	new Card();
+	new Arrow();
+	new Collapse({
+		accordion: true,
+		container: '.accordion',
+		item: '.accordion-item',
+		inner: '.accordion-content',
+		activeClass: 'accordion-item-active',
+	} as CollapseOptions);
+}
+
+boot();
+
+
+anime({
+	targets: '.test svg path',
+	strokeDashoffset: [anime.setDashoffset, 0],
+	easing: 'easeInOutSine',
+	duration: 5000,
+	delay: function(el, i) { return i * 250 },
+	direction: 'alternate',
+	loop: true
+});
 
 /**
- * Locomotive Scroll
+ * Loconative Scroll
  */
-if (!body.hasAttribute('data-scroll-disable')) {
-	// @ts-ignore
-	new LoconativeScroll({
-		duration: 1.5,
-		easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
-		direction: 'vertical', // vertical, horizontal
-		gestureDirection: 'vertical', // vertical, horizontal, both
-		smooth: true,
-		mouseMultiplier: 1,
-		touchMultiplier: 2,
-		infinite: false,
-		smartphone: {
-			smooth: false,
-		},
-		tablet: {
-			smooth: false,
-			breakpoint: 1024,
-		},
-	});
+let scroll = null;
+const newLoco = (container: Element) => {
+	if (!body.hasAttribute('data-scroll-disable')) {
+		// @ts-ignore
+		scroll = new LoconativeScroll({
+			el: container.querySelector('[data-scroll-container]'),
+			wrapper: window,
+			smooth: true,
+			duration: 1.5,
+			easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+			direction: 'vertical', // vertical, horizontal
+			gestureDirection: 'vertical', // vertical, horizontal, both
+			mouseMultiplier: 1,
+			touchMultiplier: 2,
+			infinite: false,
+			smartphone: {
+				smooth: false,
+			},
+			tablet: {
+				smooth: false,
+				breakpoint: 1024,
+			},
+		});
+	}
+};
+newLoco(document.documentElement);
+
+
+/**
+ * Barba
+ */
+if ('scrollRestoration' in history) {
+	history.scrollRestoration = 'manual';
 }
+
+barba.init({
+	debug: Params.appDebug,
+	timeout: 5000,
+	transitions: [{
+		name: 'opacity-transition',
+		leave(data: ITransitionData) {
+			return anime({
+				targets: data.current.container,
+				opacity: 0,
+				duration: 500,
+				easing: "linear",
+				complete: () => {
+					scroll.destroy();
+				}
+			}).finished
+		},
+		enter(data: ITransitionData) {
+			anime({
+				targets: data.next.container,
+				opacity: [0, 1],
+				easing: "linear",
+				duration: 500,
+			});
+		}
+	}]
+});
+
+// Reinstate loco
+barba.hooks.after((data: ITransitionData) => {
+	document.body.scrollTop = 0;
+	document.documentElement.scrollTop = 0;
+	newLoco(data.next.container);
+});
 
 /**
  * Web Vitals
@@ -110,7 +176,6 @@ body.addEventListener('scroll', () => {
  */
 document.querySelectorAll('.lazy-animate').forEach((lazy) => {
 	lazy.addEventListener('load', () => {
-		AOS.refresh();
 		lazy.classList.add('lazy-loaded');
 	});
 });

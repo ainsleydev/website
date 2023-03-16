@@ -101,9 +101,8 @@
 		Body
 		===================== -->
 	{{ $colour := partial "util/_theme-colour.html" . }}
-    <body class="theme-{{ $colour }}" {{ if and (eq .Section "insights") .IsPage -}} data-scroll-disable {{- end }}>
+    <body data-barba="wrapper">
 		{{ if hugo.IsProduction -}}
-
 			<!-- Google Tag Manager (noscript) -->
 			<noscript>
 				<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZFMRNJ"
@@ -115,15 +114,19 @@
 		{{- partial "header.html" (dict "colour" $colour) -}}
 		<!-- Cursor -->
 		<div class="cursor cursor-theme-{{ $colour }}"></div>
-		<!-- Wrapper -->
-		<div class="content-wrapper">
-			<!-- Main Content -->
-			<main id="main">
-				{{- block "main" . -}} {{- end }}
-			</main>
-			<!-- Footer -->
-			{{- partial "footer.html" . -}}
+
+
+		<div class="content-wrapper" data-barba="container" data-barba-namespace="{{ .RelPermalink }}">
+			<div data-scroll-container {{ if and (eq .Section "insights") .IsPage -}} data-scroll-disable {{- end }}>
+				<!-- Main Content -->
+				<main id="main" class="theme-{{ $colour }}">
+                    {{- block "main" . -}} {{- end }}
+				</main>
+				<!-- Footer -->
+                {{- partial "footer.html" . -}}
+			</div>
 		</div>
+
 		<!-- Javascript -->
         {{ range $js -}}
 			<script defer async src="{{ .RelPermalink }}?{{ $hash }}"

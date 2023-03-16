@@ -14,7 +14,7 @@ import * as params from '@params';
  */
 export interface ParamsType {
 	appEnv: string;
-	appDebug: string;
+	appDebug: boolean;
 	brandName: string;
 	isProduction: boolean;
 	apiKey: string;
