@@ -47,7 +47,6 @@ const LoadMap = () => {
 			styles: style,
 			streetViewControl: false,
 			mapTypeControl: false,
-			draggable: true,
 		});
 
 		map.addListener('click', (e) => {

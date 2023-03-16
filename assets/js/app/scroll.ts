@@ -8,15 +8,9 @@
 
 import LoconativeScroll from './../vendor/loconative-scroll.js';
 import { Elements } from '../util/els';
+import { Log } from '../util/log';
 
 class Scroll {
-
-	/**
-	 *
-	 * @private
-	 */
-	private shouldBoot = true
-
 	private instance = null
 
 	private options = {
@@ -43,7 +37,7 @@ class Scroll {
 	 * @param container
 	 */
 	constructor(container: Element) {
-		this.init(container)
+		this.init(container);
 	}
 
 	/**
@@ -51,13 +45,16 @@ class Scroll {
 	 * @param container
 	 */
 	public init(container: Element): void {
-		if (!Elements.Body.hasAttribute('data-scroll-disable')) {
-			// @ts-ignore
-			this.instance = new LoconativeScroll({
-				el: container.querySelector('[data-scroll-container]'),
-				...this.options,
-			});
+		const scrollContainer = container.querySelector("[data-scroll-container]"),
+			options = this.options;
+		if (scrollContainer.hasAttribute('data-scroll-disable')) {
+			// options.smooth = false;
 		}
+		this.instance = new LoconativeScroll({
+			el: scrollContainer,
+			...options,
+		});
+		// Elements.Body.style.opacity = "1";
 	}
 
 	public destroy(): void {

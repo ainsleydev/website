@@ -48,11 +48,24 @@ export class Cursor {
 		}
 		this.el = el as HTMLDivElement;
 		this.attachMouseMove();
-		document.querySelectorAll<HTMLElement>(this.elementSelector).forEach((el) => this.attachElementHandlers(el));
+		document.querySelectorAll<HTMLElement>(this.elementSelector)
+			.forEach((el) => this.attachElementHandlers(el));
 	}
 
+	/**
+	 * Destroy removes all active classes and styles
+	 * from the cursor element.
+	 */
 	public destroy(): void {
-		console.log(this.el);
+		this.el.style.transform = '';
+		setTimeout(() => {
+			this.el.classList.forEach(c => {
+				if (c == "cursor") {
+					return;
+				}
+				this.el.classList.remove(c);
+			});
+		}, 200);
 	}
 
 	/**
@@ -96,7 +109,7 @@ export class Cursor {
 					if (!this.el.classList.contains('cursor-active')) {
 						this.el.classList.remove(c.replace('data-', ''));
 					}
-				}, 300);
+				}, 100);
 			}),
 		);
 	}

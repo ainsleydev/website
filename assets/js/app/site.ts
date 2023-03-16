@@ -8,6 +8,8 @@
 
 
 
+import { it } from 'node:test';
+
 require('./../vendor/modernizr');
 import { Navigation } from '../components/nav';
 import { Cursor } from '../animations/cursor';
@@ -35,9 +37,17 @@ import barba, { ITransitionData } from '@barba/core';
  *
  */
 class App {
-
-
+	/**
+	 *
+	 * @private
+	 */
 	private hooksAdded = false;
+
+	/**
+	 *
+	 * @private
+	 */
+	private cursor: Cursor
 
 	/**
 	 *
@@ -52,13 +62,15 @@ class App {
 		// Hooks
 		if (!this.hooksAdded) {
 			Barba.init();
+			this.barbaBefore();
+			this.barbaBeforeEnter();
 			this.barbaAfter();
 			this.hooksAdded = true;
 		}
 
 		// Classes
 		new Navigation();
-		new Cursor();
+		this.cursor = new Cursor();
 		new Skew();
 		new FitText();
 		new Card();
@@ -85,7 +97,6 @@ class App {
 		animationLine();
 		animationUp();
 		animationFade();
-
 
 		// Analytics
 		this.webVitals();
@@ -118,10 +129,48 @@ class App {
 	 */
 	private barbaAfter(): void {
 		barba.hooks.after((data: ITransitionData) => {
+			// this.cursor.destroy();
 			Elements.HTML.scrollTop = 0;
 			Elements.Body.scrollTop = 0;
 			Scroll.init(data.next.container);
 			this.boot();
+		});
+	}
+
+	/**
+	 *
+	 * @private
+	 */
+	private barbaBeforeEnter(): void {
+		barba.hooks.beforeEnter((data: ITransitionData) => {
+			this.reloadJS(data.next.container);
+		});
+	}
+
+	/**
+	 *
+	 * @private
+	 */
+	private barbaBefore(): void {
+		barba.hooks.before((data: ITransitionData) => {
+			this.cursor.destroy();
+		});
+	}
+
+	/**
+	 *
+	 * @param container
+	 * @private
+	 */
+	private reloadJS(container: HTMLElement): void {
+		let js = container.querySelectorAll('script');
+		js.forEach((item: HTMLScriptElement) => {
+			if (item.src.includes("app")) {
+				return;
+			}
+			const script = document.createElement("script")
+			script.src = item.src;
+			container.appendChild(script)
 		});
 	}
 }
