@@ -33,7 +33,10 @@ const addUnderline = (el: Element): void => {
  *
  * @param els
  */
-const addMark = (els: Element[]): void => {
+const addMark = (els: HTMLElement[] | null): void => {
+	if (!els) {
+		return;
+	}
 	els.forEach((el) => {
 		if (el.innerHTML === '*') {
 			el.classList.add('mark');
@@ -45,7 +48,7 @@ const addMark = (els: Element[]): void => {
 /**
  * Hero Animation (H1 & Lead)
  */
-const heroAnimation = () => {
+export const animationHero = () => {
 	const wrapper = document.querySelector('.hero-animate'),
 		heading = document.querySelector('.hero-animate h1');
 	if (!wrapper || !heading) {
@@ -107,102 +110,110 @@ const heroAnimation = () => {
 		);
 };
 
-heroAnimation();
 
-document.querySelectorAll(".hero-logos figure").forEach((logo, index) => {
-	anime.set(logo, {opacity: 0});
-	anime({
-		targets: logo,
-		translateY: [100, 0],
-		opacity: [0, 1],
-		delay: (el, i) => 60 * index,
-		easing: 'easeOutExpo',
-		duration: 1300,
+export const animationHeroLogos = (): void => {
+	document.querySelectorAll(".hero-logos figure").forEach((logo, index) => {
+		anime.set(logo, { opacity: 0 });
+		anime({
+			targets: logo,
+			translateY: [100, 0],
+			opacity: [0, 1],
+			delay: (el, i) => 60 * index,
+			easing: 'easeOutExpo',
+			duration: 1300,
+		});
 	});
-});
+}
 
 /**
  *
  */
-document.querySelectorAll('.animate-line').forEach((an) => {
-	const heading = an.querySelector('.animate-line-heading'),
-		lead = an.querySelector('.animate-line-lead');
+export const animationLine = (): void => {
+	document.querySelectorAll('.animate-line').forEach((an) => {
+		const heading = an.querySelector('.animate-line-heading'),
+			lead = an.querySelector('.animate-line-lead');
 
-	if (IsTouchDevice()) {
-		RemoveBRs(an);
-		return;
-	}
+		if (IsTouchDevice()) {
+			RemoveBRs(an);
+			return;
+		}
 
-	if (!heading) {
-		Log.error('Animate line does not exist TODO');
-		return;
-	}
+		if (!heading) {
+			Log.error('Animate line does not exist TODO');
+			return;
+		}
 
-	const text = new SplitType(heading as HTMLElement, { types: 'lines' });
-	WayPoint(heading, {
-		rootMargin: '-100px',
-		callback: () => {
-			anime
-				.timeline({
-					complete: () => text.revert(),
-				})
-				.add({
-					targets: text.lines,
-					translateY: [100, 0],
-					opacity: [0, 1],
-					easing: 'easeOutExpo',
-					duration: 2000,
-					delay: (el, i) => 300 + 100 * i,
-				})
-				.add(
-					{
-						targets: lead,
+		const text = new SplitType(heading as HTMLElement, { types: 'lines' });
+		WayPoint(heading, {
+			rootMargin: '-100px',
+			callback: () => {
+				anime
+					.timeline({
+						complete: () => text.revert(),
+					})
+					.add({
+						targets: text.lines,
 						translateY: [100, 0],
 						opacity: [0, 1],
 						easing: 'easeOutExpo',
 						duration: 2000,
-					},
-					'-=1600',
-				);
-		},
+						delay: (el, i) => 300 + 100 * i,
+					})
+					.add(
+						{
+							targets: lead,
+							translateY: [100, 0],
+							opacity: [0, 1],
+							easing: 'easeOutExpo',
+							duration: 2000,
+						},
+						'-=1600',
+					);
+			},
+		});
 	});
-});
+}
+
 
 /**
  *
  */
-document.querySelectorAll('.animate-up').forEach((an) => {
-	anime.set(an, { opacity: 0 });
-	WayPoint(an, {
-		rootMargin: window.innerWidth > 1024 ? '-200px' : '-50px',
-		callback: (el: Element) => {
-			anime({
-				targets: el,
-				translateY: [100, 0],
-				opacity: [0, 1],
-				easing: 'easeOutExpo',
-				duration: 1300,
-				delay: el.hasAttribute('data-animate-delay') ? parseInt(el.getAttribute('data-animate-delay')) : 0,
-			});
-		},
+export const animationUp = (): void => {
+	document.querySelectorAll('.animate-up').forEach((an) => {
+		anime.set(an, { opacity: 0 });
+		WayPoint(an, {
+			rootMargin: window.innerWidth > 1024 ? '-200px' : '-50px',
+			callback: (el: Element) => {
+				anime({
+					targets: el,
+					translateY: [100, 0],
+					opacity: [0, 1],
+					easing: 'easeOutExpo',
+					duration: 1300,
+					delay: el.hasAttribute('data-animate-delay') ? parseInt(el.getAttribute('data-animate-delay')) : 0,
+				});
+			},
+		});
 	});
-});
+}
 
 /**
  *
  */
-document.querySelectorAll('.animate-fade').forEach((an) => {
-	anime.set(an, { opacity: 0 });
-	WayPoint(an, {
-		rootMargin: '-100px',
-		callback: (el: Element) => {
-			anime({
-				targets: el,
-				opacity: [0, 1],
-				easing: 'easeOutExpo',
-				duration: 1500,
-				delay: el.hasAttribute('data-animate-delay') ? parseInt(el.getAttribute('data-animate-delay')) : 0,
-			});
-		},
+export const animationFade = (): void => {
+	document.querySelectorAll('.animate-fade').forEach((an) => {
+		anime.set(an, { opacity: 0 });
+		WayPoint(an, {
+			rootMargin: '-100px',
+			callback: (el: Element) => {
+				anime({
+					targets: el,
+					opacity: [0, 1],
+					easing: 'easeOutExpo',
+					duration: 1500,
+					delay: el.hasAttribute('data-animate-delay') ? parseInt(el.getAttribute('data-animate-delay')) : 0,
+				});
+			},
+		});
 	});
-});
+}

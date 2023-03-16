@@ -51,6 +51,10 @@ export class Cursor {
 		document.querySelectorAll<HTMLElement>(this.elementSelector).forEach((el) => this.attachElementHandlers(el));
 	}
 
+	public destroy(): void {
+		console.log(this.el);
+	}
+
 	/**
 	 * Attaches the mouse move to the cursor so the
 	 * element is moved alongside the mouse.
