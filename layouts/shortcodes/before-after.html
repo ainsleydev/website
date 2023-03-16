@@ -3,7 +3,8 @@
 		< before-after before="before.jpg" after="after.jpg" colour="white" text="Alt text" >
     ===================== -->
 <div class="image before-after
-	{{ if eq (.Get "colour") "white" -}} before-after-white {{- end }}">
+	{{ if eq (.Get "colour") "white" -}} before-after-white {{- end }}
+	{{ if .Get "animate" }} animate-up {{- end }}">
 	<!-- Wrapper -->
 	<div class="before-after-wrapper">
 		<div class="before-after-aspect">

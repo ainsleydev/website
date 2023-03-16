@@ -33,7 +33,7 @@ state-of-the-art milling machines to produce a wide variety of products from the
 {{< /vertical-section >}}
 
 <!-- Milling Machine -->
-{{< picture src="images/machine.jpg" alt="Dental Milling Machine" >}}
+{{< picture src="images/machine.jpg" alt="Dental Milling Machine" animate=true >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
@@ -43,7 +43,7 @@ fluid design was needed to bring the company into the modern era, with easy ways
 {{< /vertical-section >}}
 
 <!-- Video -->
-{{< picture src="images/machine.jpg" alt="TODO" >}}
+{{< picture src="images/machine.jpg" alt="TODO" animate=true >}}
 
 <!-- Design -->
 {{< vertical-section text="Design" number="02" >}}
@@ -54,7 +54,7 @@ easy to navigate.
 {{< /vertical-section >}}
 
 <!-- Mockup -->
-{{< picture src="images/mockup.jpg" alt="EDR Dental Website on iPhones" >}}
+{{< picture src="images/mockup.jpg" alt="EDR Dental Website on iPhones" animate=true >}}
 
 <!-- Development -->
 {{< vertical-section text="Develop" number="03" >}}

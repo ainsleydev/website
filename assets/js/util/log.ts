@@ -37,10 +37,10 @@ export class Log {
 	 */
 	static error(message: unknown, ...args: unknown[]) {
 		if (!args.length) {
-			console.info(`${this.prefix} [${LogLevel.Error}]: ${message}`);
+			console.error(`${this.prefix} [${LogLevel.Error}]: ${message}`);
 			return;
 		}
-		console.info(`${this.prefix} [${LogLevel.Error}]: ${message}`, args);
+		console.error(`${this.prefix} [${LogLevel.Error}]: ${message}`, args);
 	}
 
 	/**
@@ -51,10 +51,10 @@ export class Log {
 	 */
 	static warn(message: unknown, ...args: unknown[]) {
 		if (!args.length) {
-			console.info(`${this.prefix} [${LogLevel.Warn}]: ${message}`);
+			console.warn(`${this.prefix} [${LogLevel.Warn}]: ${message}`);
 			return;
 		}
-		console.info(`${this.prefix} [${LogLevel.Warn}]: ${message}`, args);
+		console.warn(`${this.prefix} [${LogLevel.Warn}]: ${message}`, args);
 	}
 
 	/**

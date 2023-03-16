@@ -32,7 +32,7 @@ creating a warm and friendly atmosphere, where clients can destress and go away 
 {{< /vertical-section >}}
 
 <!-- Kathy -->
-{{< picture src="images/kathy.jpg" alt="Kathy Urresto Massages" >}}
+{{< picture src="images/kathy.jpg" alt="Kathy Urresto Massages" animate=true >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
@@ -43,7 +43,7 @@ and treatments, whilst encapsulating the welcoming ambiance intrinsic to the sal
 {{< /vertical-section >}}
 
 <!-- Video -->
-{{< picture src="images/kathy.jpg" alt="Kathy Urresto Massages" >}}
+{{< picture src="images/kathy.jpg" alt="Kathy Urresto Massages" animate=true >}}
 
 <!-- Design -->
 {{< vertical-section text="Design" number="02" >}}
@@ -54,7 +54,7 @@ which allowed them to book with ease.
 {{< /vertical-section >}}
 
 <!-- Mockup -->
-{{< picture src="images/mockup.jpg" alt="TODO" >}}
+{{< picture src="images/mockup.jpg" alt="TODO" animate=true >}}
 
 <!-- Development -->
 {{< vertical-section text="Develop" number="03" >}}

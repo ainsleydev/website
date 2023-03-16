@@ -32,7 +32,7 @@ mixed method teaching of the National Curriculum, in accordance with exam board 
 {{< /vertical-section >}}
 
 <!-- Before/After -->
-{{< before-after before="images/before.jpg" after="images/after.jpg" text="Before & after picture of Oak Tuition Website" colour="black" >}}
+{{< before-after before="images/before.jpg" after="images/after.jpg" text="Before & after picture of Oak Tuition Website" colour="black" animate=true >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
@@ -42,7 +42,7 @@ information to increase traffic and entice prospective clients to make contact.
 {{< /vertical-section >}}
 
 <!-- Video -->
-{{< picture src="images/poster.jpg" alt="Oak Tuition Website" >}}
+{{< picture src="images/poster.jpg" alt="Oak Tuition Website" animate=true >}}
 
 <!-- Design -->
 {{< vertical-section text="Design" number="02" >}}
@@ -53,7 +53,7 @@ student sitting on a swing on one of the tree branches.
 {{< /vertical-section >}}
 
 <!-- Mockup -->
-{{< picture src="images/mockup.jpg" alt="Oak Tuition Website on an iPad" >}}
+{{< picture src="images/mockup.jpg" alt="Oak Tuition Website on an iPad" animate=true >}}
 
 <!-- Development -->
 {{< vertical-section text="Develop" number="03" >}}

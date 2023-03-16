@@ -38,7 +38,7 @@ function sendToAnalytics(metric, options) {
 	};
 
 	if (options.debug) {
-		console.log('[Analytics]', metric.name, JSON.stringify(body, null, 2));
+		Log.debug('[Analytics]', metric.name, JSON.stringify(body, null, 2));
 	}
 
 	const blob = new Blob([new URLSearchParams(body).toString()], {

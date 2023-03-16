@@ -5,6 +5,7 @@
 <picture class="image
 	{{ if .Get "margin" -}} margin {{- end }}
 	{{ if .Get "margin-large" -}} margin-large {{- end }}
+	{{ if .Get "animate" -}} animate-up {{- end }}
 	{{ with .Get "class" -}} {{ . }} {{- end }}">
 		{{ partial "media/picture.html" (dict
         	"image" (partial "util/_resource.html" (dict "src" (.Get "src") "ctx" .))

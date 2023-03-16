@@ -23,7 +23,7 @@ prices.
 {{< /vertical-section >}}
 
 <!-- Roof -->
-{{< picture src="images/roof.jpg" alt="Hammering on Roof" >}}
+{{< picture src="images/roof.jpg" alt="Hammering on Roof" animate=true  >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
@@ -34,7 +34,7 @@ extensive experience in the industry with an easy way for potential customers to
 {{< /vertical-section >}}
 
 <!-- Video -->
-{{< picture src="images/roof.jpg" alt="TODO" >}}
+{{< picture src="images/roof.jpg" alt="TODO" animate=true  >}}
 
 {{< vertical-section text="Design" number="02" >}}
 As there were no existing brand guidelines for Elite Roofing, a modern and striking colour palette was curated in
@@ -44,7 +44,7 @@ captured the attention of potential clientele.
 {{< /vertical-section >}}
 
 <!-- Mockup -->
-{{< picture src="images/mockup.jpg" alt="Elite Roofing Website on a Laptop" >}}
+{{< picture src="images/mockup.jpg" alt="Elite Roofing Website on a Laptop" animate=true >}}
 
 <!-- Development -->
 {{< vertical-section text="Develop" number="03" >}}

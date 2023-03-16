@@ -107,3 +107,26 @@
 @import 'pages/home';
 @import 'pages/insight';
 @import 'pages/portfolio';
+
+.test {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: $black;
+	z-index: $header-z-index + 100;
+
+	&-logo {
+		width: 45vw;
+
+		svg path {
+			fill: none;
+			stroke: $white;
+			stroke-width: 2px;
+		}
+	}
+}

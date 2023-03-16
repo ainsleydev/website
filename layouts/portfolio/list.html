@@ -2,15 +2,18 @@
 	<!-- =====================
 		Portfolio List
 		===================== -->
-	<section class="hero hero-simple hero-simple-padding-bottom"
-			 data-scroll data-scroll-speed="1">
+	<section class="hero hero-simple hero-simple-padding-bottom" data-scroll-section>
 		<div class="container">
 			<div class="row">
 				<div class="col-12 col-desk-11 offset-desk-1">
 					{{ with .Params.htmlTitle }}
-						<h1 class="mb-0 text-animate">
-							{{ . | safeHTML }}
-						</h1>
+						<!-- Hero Animation -->
+						<div class="hero-animate"
+							data-scroll data-scroll-speed="3" data-scroll-position="top">
+							<h1 class="mb-0">
+                                {{ . | safeHTML }}
+							</h1>
+						</div>
 					{{- else -}}
 						{{ warnf "No HTML title provided in Params for Portfolio index page" }}
 					{{- end }}
@@ -29,8 +32,8 @@
 				<div class="row">
                     {{ range $index, $page := $paginator.Pages }}
                         {{ $isLeft := eq (mod $index 2) 0 }}
-						<div class="col-12 col-mob-6 col-desk-5 {{ if not $isLeft }} offset-desk-2 {{- end }} card-col"
-                            data-aos="fade-up">
+						<div class="col-12 col-mob-6 col-desk-5 {{ if not $isLeft }} offset-desk-2 {{- end }} card-col
+							animate-up" {{ if or (eq $index 0) (eq $index 1) -}} data-animate-delay="400" {{- end }}>
 							<div class="row {{ if not $isLeft }} justify-content-end {{- end }}">
 								<div class="col-12 col-mob-11 col-desk-12">
 									{{ .Render "card" }}

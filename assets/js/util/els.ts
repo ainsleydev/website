@@ -12,6 +12,16 @@
  */
 export class Elements {
 	/**
+	 * The base HTML element.
+	 */
+	public static HTML: HTMLHtmlElement = document.documentElement as HTMLHtmlElement
+
+	/**
+	 * The HTML body element.
+	 */
+	public static Body: HTMLBodyElement = document.body as HTMLBodyElement
+
+	/**
 	 * The header element.
 	 */
 	public static Header: HTMLElement;

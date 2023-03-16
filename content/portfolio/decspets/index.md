@@ -33,7 +33,7 @@ wider audience.
 {{< /vertical-section >}}
 
 <!-- Video -->
-{{< video src="video/tags.mp4" poster="images/poster.jpg" >}}
+{{< video src="video/tags.mp4" poster="images/poster.jpg" animate=true >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
@@ -43,7 +43,7 @@ online with ease, and more visibility for the company’s brand presence in the 
 {{< /vertical-section >}}
 
 <!-- Shop -->
-{{< picture src="images/shop.jpg" alt="Dec's Pets Shop" >}}
+{{< picture src="images/shop.jpg" alt="Dec's Pets Shop" animate=true >}}
 
 <!-- Design -->
 {{< vertical-section text="Design" number="02" >}}
@@ -54,7 +54,7 @@ watermark to create a consistent design language.
 {{< /vertical-section >}}
 
 <!-- Mockup -->
-{{< picture src="images/mockup.jpg" alt="Dec's Pets Website on an iPad" >}}
+{{< picture src="images/mockup.jpg" alt="Dec's Pets Website on an iPad" animate=true >}}
 
 <!-- Development -->
 {{< vertical-section text="Develop" number="03" >}}

@@ -3,73 +3,38 @@
 // This file contains native text animations such as the H1 bend.
 // -----------------------------------------------------------------------------
 
-.animate-hero {
-	position: relative;
+// Props
+// =========================================================================
 
-	u,
-	h1 {
-		position: relative;
-	}
+.char,
+.word,
+.line {
+	opacity: 0;
+	transform: none;
 }
 
-.text {
-	$self: &;
+.line {
+	overflow: hidden;
+}
 
-	// Props
-	// =========================================================================
+// Underline
+// =========================================================================
 
-	&-animate {
-		position: relative;
+.underline {
+	position: absolute;
+	display: inline-block;
+	left: 0;
+	bottom: 2%;
+	margin: auto;
+	height: $line-size-thick;
+	width: 100%;
+	background-color: $white;
+	transform-origin: left;
+}
 
-		u {
-			position: relative;
-		}
-	}
+// Mark
+// =========================================================================
 
-	// Props
-	// =========================================================================
-
-	&-letter,
-	&-mark,
-	&-word,
-	&-line {
-		display: inline-block;
-		opacity: 0;
-		transform: none;
-	}
-
-	// Line
-	// =========================================================================
-
-	&-line {
-		display: block;
-	}
-
-	// Underline
-	// =========================================================================
-
-	&-underline {
-		position: absolute;
-		display: inline-block;
-		left: 0;
-		bottom: 2%;
-		margin: auto;
-		height: $line-size-thick;
-		width: 100%;
-		background-color: $white;
-		transform-origin: left;
-	}
-
-	// Letter
-	// =========================================================================
-
-	&-letter {
-	}
-
-	// Mark
-	// =========================================================================
-
-	&-mark {
-		transform-origin: 60% 35%;
-	}
+.mark {
+	transform-origin: 60% 35%;
 }
