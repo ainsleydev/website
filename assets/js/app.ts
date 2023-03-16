@@ -7,6 +7,7 @@
  * @author Email: info@ainsleyclark.com
  */
 
+require('./vendor/modernizr');
 import { Cursor } from './animations/cursor';
 import { Skew } from './animations/skew';
 import { FitText } from './components/fit-text';
@@ -20,7 +21,6 @@ import { WebVitals } from './analytics/web-vitals';
 import LoconativeScroll from './vendor/loconative-scroll';
 import { Params } from './params';
 require('./animations/text');
-require('./vendor/modernizr');
 
 /**
  * Boot
@@ -88,17 +88,6 @@ WebVitals({
 	enable: Params.isProduction,
 	analyticsId: Params.vercelAnalyticsID,
 	debug: Params.appDebug,
-});
-
-/**
- * Window Height
- * Bug fix for address bar.
- */
-const vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty('--vh', `${vh}px`);
-window.addEventListener('resize', () => {
-	const vh = window.innerHeight * 0.01;
-	document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
 
 /**

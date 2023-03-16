@@ -7,6 +7,8 @@
  */
 
 import { Log } from '../util/log';
+import { IsTouchDevice } from '../util/css';
+import anime from 'animejs/lib/anime.es';
 
 /**
  * Card is responsible for adding micro interactions
@@ -25,7 +27,26 @@ export class Card {
 	 */
 	constructor() {
 		Log.debug('Card - Initialising');
-		this.attachHandlers();
+		if (!IsTouchDevice()) {
+			this.attachHandlers();
+		}
+	}
+
+	/**
+	 * Obtains the coordinates relative to the element.
+	 *
+	 * @param el
+	 * @param e
+	 * @private
+	 */
+	private getCoordinates(el: Element, e: MouseEvent): { x: number; y: number } {
+		const offset = el.getBoundingClientRect(),
+			x = e.clientX - offset.left,
+			y = e.clientY - offset.top;
+		return {
+			x: x,
+			y: y,
+		};
 	}
 
 	/**
@@ -36,43 +57,46 @@ export class Card {
 	 */
 	private attachHandlers(): void {
 		document.querySelectorAll<HTMLButtonElement>(this.selector).forEach((card) => {
+			if (!card.classList.contains('card-clip')) {
+				return;
+			}
 			const image = card.querySelector('.card-image-clip') as HTMLElement;
 			if (!image) {
-				//Log.error('No card image found for card: ' + card);
+				Log.error('No card image found for card: ' + card);
 				return;
 			}
 
-			const getCordinates = (e: MouseEvent) => {
-				const offset = image.getBoundingClientRect(),
-					x = e.clientX - offset.left,
-					y = e.clientY - offset.top;
-				return {
-					x: x,
-					y: y,
-				};
-			};
+			anime.set(image, { opacity: 0 });
 
-			// const isAnimating = true;
-
-			card.addEventListener('mousemove', (e) => {
-				// if (!isAnimating) return;
-				const cord = getCordinates(e);
-				card.classList.add('card-active');
-				image.style.clipPath = `circle(50% at ${cord.x}px ${cord.y}px)`;
-				image.style.opacity = '1';
-
-				// setTimeout(() => {
-				// 	image.style.clipPath = `circle(110% at ${cord.x}px ${cord.y}px)`;
-				// 	isAnimating = false;
-				// }, 1000);
+			image.addEventListener('mouseenter', (e: MouseEvent) => {
+				anime({
+					targets: image,
+					opacity: [0, 1],
+					duration: 500,
+				});
 			});
 
-			card.addEventListener('mouseleave', () => {
-				// const cord = getCordinates(e);
-				card.classList.remove('card-active');
-				// image.style.clipPath = `circle(0px at ${cord.x}px ${cord.y}px)`;
-				image.style.opacity = '0';
-				// isAnimating = false;
+			// image.addEventListener('mousemove', (e: MouseEvent) => {
+			// 	const cord = this.getCoordinates(image, e);
+			// 	anime({
+			// 		targets: image,
+			// 		// keyframes: [
+			// 		// 	{ clipPath: "circle(0)" },
+			// 		// 	{ clipPath: "circle(100%)" },
+			// 		// ],
+			// 		// clipPath: {
+			// 		// 	value: `circle(50% at ${cord.x}px ${cord.y}px)`,
+			// 		// 	duration: 100,
+			// 		// },
+			// 	});
+			// });
+
+			image.addEventListener('mouseout', (e: MouseEvent) => {
+				anime({
+					targets: image,
+					opacity: [1, 0],
+					duration: 500,
+				});
 			});
 		});
 	}

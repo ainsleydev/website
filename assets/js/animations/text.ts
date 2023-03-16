@@ -6,31 +6,66 @@
  * @author Email: hello@ainsley.dev
  */
 
-import anime from 'animejs/lib/anime.es';
-import { WayPoint } from './waypoint';
-import { AddUnderline, SplitLetter, SplitLine } from '../type/split';
+import { IsTouchDevice } from '../util/css';
 import { Log } from '../util/log';
+import { WayPoint } from './waypoint';
+import SplitType from 'split-type';
+import anime from 'animejs/lib/anime.es';
+import { RemoveBRs } from '../type/util';
 
 /**
+ * Adds an `underline` span to an element if
+ * the passed argument contains a <u> tag.
  *
+ * @param el
+ * @constructor
+ */
+const addUnderline = (el: Element): void => {
+	const underline = el.querySelector('u');
+	if (underline) {
+		underline.innerHTML += `<span class="underline">`;
+	}
+};
+
+/**
+ * Adds a `mark` class to an asterisk within the
+ * char elements.
+ *
+ * @param els
+ */
+const addMark = (els: Element[]): void => {
+	els.forEach((el) => {
+		if (el.innerHTML === '*') {
+			el.classList.add('mark');
+			el.classList.remove('char');
+		}
+	});
+};
+
+/**
+ * Hero Animation (H1 & Lead)
  */
 const heroAnimation = () => {
-	const wrapper = document.querySelector('.animate-hero'),
-		heading = document.querySelector('.animate-hero h1');
+	const wrapper = document.querySelector('.hero-animate'),
+		heading = document.querySelector('.hero-animate h1');
 	if (!wrapper || !heading) {
 		return;
 	}
-	SplitLetter(heading);
-	AddUnderline(heading);
+	const text = new SplitType(heading as HTMLElement, { types: 'chars' });
 
-	const els = Array.from(heading.querySelectorAll('.text-mark, .text-letter, .text-underline')),
-		markIndex = [...els].indexOf(heading.querySelector('.text-mark')),
-		lineIndex = [...els].indexOf(heading.querySelector('.text-underline'));
+	addUnderline(heading);
+	addMark(text.chars);
+
+	const els = Array.from(heading.querySelectorAll('.char, .mark, .underline')),
+		markIndex = [...els].indexOf(heading.querySelector('.mark')),
+		lineIndex = [...els].indexOf(heading.querySelector('.underline'));
 
 	anime
-		.timeline()
+		.timeline({
+			complete: () => text.revert(),
+		})
 		.add({
-			targets: heading.querySelectorAll('.text-letter'),
+			targets: heading.querySelectorAll('.char'),
 			translateY: [100, 0],
 			translateZ: 0,
 			opacity: [0, 1],
@@ -40,7 +75,7 @@ const heroAnimation = () => {
 		})
 		.add(
 			{
-				targets: heading.querySelectorAll('.text-mark'),
+				targets: heading.querySelectorAll('.mark'),
 				scale: [3.6, 1],
 				opacity: [0, 1],
 				rotateZ: [45, 0],
@@ -51,7 +86,7 @@ const heroAnimation = () => {
 		)
 		.add(
 			{
-				targets: heading.querySelectorAll('.text-underline'),
+				targets: heading.querySelectorAll('.underline'),
 				opacity: [0.5, 1],
 				scaleX: [0, 1],
 				easing: 'easeInOutExpo',
@@ -80,19 +115,27 @@ heroAnimation();
 document.querySelectorAll('.animate-line').forEach((an) => {
 	const heading = an.querySelector('.animate-line-heading'),
 		lead = an.querySelector('.animate-line-lead');
+
+	if (IsTouchDevice()) {
+		RemoveBRs(an);
+		return;
+	}
+
 	if (!heading || !lead) {
 		Log.error('Animate line does not exist TODO');
 		return;
 	}
-	SplitLine(heading);
+
+	const text = new SplitType(heading as HTMLElement, { types: 'lines' });
 	WayPoint(heading, {
 		rootMargin: '-100px',
-		callback: (el) => {
+		callback: () => {
 			anime
-				.timeline()
+				.timeline({
+					complete: () => text.revert(),
+				})
 				.add({
-					// TODO, these classes should be enums.
-					targets: el.querySelectorAll('.text-line'),
+					targets: text.lines,
 					translateY: [100, 0],
 					opacity: [0, 1],
 					easing: 'easeOutExpo',
@@ -119,14 +162,15 @@ document.querySelectorAll('.animate-line').forEach((an) => {
 document.querySelectorAll('.animate-up').forEach((an) => {
 	anime.set(an, { opacity: 0 });
 	WayPoint(an, {
-		rootMargin: window.innerWidth > 1024 ? '-200px' : '0px',
+		rootMargin: window.innerWidth > 1024 ? '-200px' : '-50px',
 		callback: (el: Element) => {
-			anime.timeline().add({
+			anime({
 				targets: el,
 				translateY: [100, 0],
 				opacity: [0, 1],
 				easing: 'easeOutExpo',
 				duration: 1300,
+				delay: el.hasAttribute('data-animate-delay') ? parseInt(el.getAttribute('data-animate-delay')) : 0,
 			});
 		},
 	});
@@ -140,11 +184,12 @@ document.querySelectorAll('.animate-fade').forEach((an) => {
 	WayPoint(an, {
 		rootMargin: '-100px',
 		callback: (el: Element) => {
-			anime.timeline().add({
+			anime({
 				targets: el,
 				opacity: [0, 1],
 				easing: 'easeOutExpo',
 				duration: 1500,
+				delay: el.hasAttribute('data-animate-delay') ? parseInt(el.getAttribute('data-animate-delay')) : 0,
 			});
 		},
 	});

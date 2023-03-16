@@ -5,26 +5,40 @@
     		"sub" "Sub Heading
     		"permalink" .RelPermalink
 			"image" (.Resources.GetMatch .Params.featuredImage)
+			"clip" (.Resources.GetMatch .Params.clipImage)
+			"animate" true
     	)
     	- title:		The title of the card.
     	- sub:			The sub heading that appears beneath the card.
     	- permalink:	The relative permalink that the card will link to.
     	- image:		The featured image as a resource.
+    	- animate:		If the skew and cursor animations should run.
     ===================== -->
 <!-- Card -->
-<a href="{{ .permalink }}" class="card card-vertical card-half-margin"
+<a href="{{ .permalink }}" class="card card-vertical card-half-margin
+	{{ if .clip -}} card-clip {{- end }}"
 	title="{{ .title }} Page Link"
 	aria-label="Navigate to the {{ .title }} page">
-	<!-- Featured Image -->
-	{{ if .image -}}
-		<picture class="card-image margin" data-scroll data-scroll-speed="0.3">
-            {{ partial "media/picture.html" (dict
-				"image" .image
-				"alt" .title
-				"lazy" true
-            )}}
-		</picture>
-	{{- end }}
+	<!--- Wrapper -->
+	<div class="card-image-wrapper"
+		data-scroll data-scroll-speed="0.3">
+		<!-- Featured Image -->
+        {{ if .image -}}
+			<picture class="card-image margin">
+                {{ partial "media/picture.html" (dict
+					"image" .image
+					"alt" .title
+					"lazy" true
+                )}}
+			</picture>
+        {{- end }}
+		<!-- Clipped Image -->
+        {{ if .clip -}}
+			<picture class="card-image card-image-clip">
+				<img src="https://cdn.shopify.com/s/files/1/0306/4253/6586/products/the-baron-custom-vintage-pet-portrait-324790_650x.jpg?v=1656938221" alt="">
+			</picture>
+        {{- end }}
+	</div><!--- /Wrapper -->
 	<!-- Text -->
 	<div class="card-text">
 		<!-- Sub -->

@@ -170,6 +170,22 @@
 		}
 	}
 
+	// Animate
+	// =========================================================================
+
+	&-animate {
+		position: relative;
+
+		u,
+		h1 {
+			position: relative;
+		}
+
+		span {
+			display: inline !important; // Override split-text
+		}
+	}
+
 	// Tablet
 	// =========================================================================
 
