@@ -145,6 +145,7 @@ export const animationLine = (): void => {
 		}
 
 		const text = new SplitType(heading as HTMLElement, { types: 'lines' });
+		anime.set(lead, {opacity: 0})
 		WayPoint(heading, {
 			rootMargin: '-100px',
 			callback: () => {

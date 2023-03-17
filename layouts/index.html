@@ -1,6 +1,4 @@
 {{ define "main" }}
-
-
 {{/*	<div class="test">*/}}
 {{/*		<div class='hello'></div>*/}}
 {{/*		<figure class='test-logo'>*/}}
@@ -15,33 +13,38 @@
 			<div class="row justify-content-between">
 				<div class="col-12">
 					<!-- Text -->
-					<div class="hero-text">
+					<div class="hero-animate hero-text">
 						<!-- Heading -->
 						<div class="margin-large">
-							<h1>Digital <span class="type-serif">craftmanship*</span><br/>sculpting you as an<br/> industry <u>leader</u>.</h1>
+							<h1 data-scroll data-scroll-speed="2" data-scroll-position="top">
+								Digital <span class="type-serif">craftmanship*</span><br/>sculpting you as an<br/> industry <u>leader</u>.
+							</h1>
 						</div>
-						<!-- Content -->
-						<p class="lead lead-max-width mb-0">
-							Coupling state-of-the-art technology with beautiful, memorable designs, we create memorable
-							digital transformations and well-crafted software for everyone from startups to established
-							brands.
-						</p>
+						<!-- Lead -->
+						<div data-scroll data-scroll-speed="1" data-scroll-position="top">
+							<p class="lead lead-max-width mb-0">
+								Coupling state-of-the-art technology with beautiful, memorable designs, we create memorable
+								digital transformations and well-crafted software for everyone from startups to established
+								brands.
+							</p>
+						</div>
 					</div><!-- /Text -->
 					<!-- Arrow -->
-					<div class="all-articles-wrapper all-articles-wrapper-end">
-                    {{ partial "arrow/hover.html" (dict
-						"link" (printf "%s#content" .Page.RelPermalink)
-						"title" "Scroll down to explore"
-						"rotation" 135
-						"title" "Explore ainsley.dev"
-                    )}}<!-- /Arrow -->
+					<div class="all-articles-wrapper all-articles-wrapper-end"
+						data-scroll data-scroll-speed="1" data-scroll-direction="top">
+						{{ partial "arrow/hover.html" (dict
+							"link" "#content"
+							"title" "Scroll down to explore"
+							"rotation" 135
+							"title" "Explore ainsley.dev"
+						)}}<!-- /Arrow -->
 					</div>
 				</div><!--- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
 	</section>
 	<!-- =====================
-		Home
+		Show-reel
 		===================== -->
 	<section class="section section-padding section-padding-top" id="content">
 		<div class="container">
@@ -77,26 +80,41 @@
 				</div><!-- /Col -->
 				<!-- Content -->
 				<div class="col-12 col-mob-9 col-desk-6">
-					<div class="margin-large">
-						<h3>Increase your visibility</h3>
-						<p>
-							Every application made by ainsley.dev is curated to launch your business into the digital world
-							by sculpting your online presence to increase your online visibility.
-						</p>
+					<!-- Visibility -->
+					<div class="animate-line">
+						<div class="margin-large">
+							<h3 class="animate-line-heading">
+								Increase your visibility
+							</h3>
+							<p class="lead animate-line-lead">
+								Every application made by ainsley.dev is curated to launch your business into the digital world
+								by sculpting your online presence to increase your online visibility.
+							</p>
+						</div>
 					</div>
-					<div class="margin-large">
-						<h3>Discover bespoke solutions</h3>
-						<p>
-							We take the time to get to know you and the challenges you face with your existing strategies,
-							and create bespoke products by treating your business as if it were our own.
-						</p>
+					<!-- Solutions -->
+					<div class="animate-line">
+						<div class="animate-line margin-large">
+							<h3 class="animate-line-heading">
+								Discover bespoke solutions
+							</h3>
+							<p class="lead animate-line-lead">
+								We take the time to get to know you and the challenges you face with your existing strategies,
+								and create bespoke products by treating your business as if it were our own.
+							</p>
+						</div>
 					</div>
-					<div class="margin-large margin-none">
-						<h3>Driven by simplicity</h3>
-						<p>
-							We are driven by simplicity and the shared goal of producing visionary designs, coupled with
-							best-in-class in-house software, APIs, designs and websites.
-						</p>
+					<!-- Simplicity -->
+					<div class="animate-line">
+						<div class="margin-large margin-none">
+							<h3 class="animate-line-heading">
+								Driven by simplicity
+							</h3>
+							<p class="lead animate-line-lead">
+								We are driven by simplicity and the shared goal of producing visionary designs, coupled with
+								best-in-class in-house software, APIs, designs and websites.
+							</p>
+						</div>
 					</div>
 				</div><!--- /Col -->
 			</div><!-- /Row -->
@@ -228,7 +246,7 @@
 							<!-- Cards -->
                             {{ range $index, $page := . }}
                                 {{ $isLeft := eq (mod $index 2) 0 }}
-								<div class="col-12 col-desk-6 card-col-padding card-col-mob-no-margin
+								<div class="col-12 col-desk-6 card-col-padding card-col-mob-no-margin animate-up
 								{{ if $isLeft }} card-col-left {{- else -}} card-col-right {{- end }} card-col">
                                     {{ .Render "card" }}
 								</div><!-- /Col -->
@@ -291,7 +309,7 @@
 							</div><!-- /Col -->
 							<!-- Cards -->
                             {{ range $index, $page := . }}
-								<div class="col-12 card-col {{ if eq $index 0 }} card-col-first {{- end }}">
+								<div class="col-12 card-col {{ if eq $index 0 }} card-col-first {{- end }} animate-fade">
                                     {{ .Render "card" }}
 								</div><!-- /Col -->
                             {{- end }}
