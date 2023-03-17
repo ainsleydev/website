@@ -32,6 +32,15 @@ import { ITransitionData } from '@barba/core';
 /**
  *
  */
+declare global {
+	interface Window {
+		plausible: (args: string) => unknown;
+	}
+}
+
+/**
+ *
+ */
 class App {
 	/**
 	 *
@@ -45,6 +54,10 @@ class App {
 	 */
 	private cursor: Cursor
 
+	/**
+	 *
+	 * @private
+	 */
 	private barba: Barba
 
 	/**
@@ -132,6 +145,8 @@ class App {
 			Elements.Body.scrollTop = 0;
 			Scroll.init(data.next.container);
 			this.boot();
+
+
 		});
 	}
 
@@ -173,6 +188,18 @@ class App {
 			script.src = item.src;
 			container.appendChild(script);
 		});
+	}
+
+	/**
+	 * Triggers a page view dynamically with Plausible.
+	 *
+	 * @private
+	 */
+	private triggerPageView(): void {
+		if (typeof window.plausible === "function") {
+			Log.debug("Triggering Plausible page-view")
+			window.plausible('pageview');
+		}
 	}
 }
 
