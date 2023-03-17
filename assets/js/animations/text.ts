@@ -54,7 +54,7 @@ export const animationHero = () => {
 	if (!wrapper || !heading) {
 		return;
 	}
-	const text = new SplitType(heading as HTMLElement, { types: 'chars' });
+	const text = new SplitType(heading as HTMLElement, { types: 'chars, words' });
 
 	addUnderline(heading);
 	addMark(text.chars);
@@ -63,9 +63,10 @@ export const animationHero = () => {
 		markIndex = [...els].indexOf(heading.querySelector('.mark')),
 		lineIndex = [...els].indexOf(heading.querySelector('.underline'));
 
+	anime.set(heading.querySelectorAll(".word"), {opacity: 1})
 	anime
 		.timeline({
-			complete: () => text.revert(),
+			// complete: () => text.revert(),
 		})
 		.add({
 			targets: heading.querySelectorAll('.char'),

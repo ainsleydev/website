@@ -1,12 +1,12 @@
 {{ define "main" }}
 
 
-	<div class="test">
-		<div class='hello'></div>
-		<figure class='test-logo'>
-            {{ partial "svgs/logo.html" }}
-		</figure>
-	</div>
+{{/*	<div class="test">*/}}
+{{/*		<div class='hello'></div>*/}}
+{{/*		<figure class='test-logo'>*/}}
+{{/*            {{ partial "svgs/logo.html" }}*/}}
+{{/*		</figure>*/}}
+{{/*	</div>*/}}
 	<!-- =====================
 		Home
 		===================== -->
@@ -28,12 +28,14 @@
 						</p>
 					</div><!-- /Text -->
 					<!-- Arrow -->
+					<div class="all-articles-wrapper all-articles-wrapper-end">
                     {{ partial "arrow/hover.html" (dict
 						"link" (printf "%s#content" .Page.RelPermalink)
 						"title" "Scroll down to explore"
 						"rotation" 135
 						"title" "Explore ainsley.dev"
                     )}}<!-- /Arrow -->
+					</div>
 				</div><!--- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
@@ -117,7 +119,7 @@
 				</div><!-- /Col -->
 				<!-- Content -->
 				<div class="col-12 col-mob-9 col-desk-6">
-					<div class="row">
+					<div class="row no-gaps">
 						<div class="col-12 col-desk-6">
 							<h3 class="type-heading">
 								Brand strategy
@@ -146,6 +148,31 @@
 								Illustration
 							</h3>
 						</div><!--- /Col -->
+						<!-- All Services - Large -->
+						<div class="col-12 all-articles all-articles-large margin-top margin-large">
+							<div class="all-articles-wrapper all-articles-wrapper-end">
+                                {{ partial "arrow/text.html" (dict
+									"link" "/services/"
+									"text" "<h3>All services</h3>"
+									"title" "View all services"
+									"small" true
+									"rotation" 45
+                                )}}
+							</div><!-- /Wrapper -->
+						</div><!-- /Col -->
+						<!-- All Services - Small -->
+						<div class="col-12 all-articles all-articles-small">
+							<div class="all-articles-wrapper all-articles-wrapper-start">
+                                {{ partial "arrow/text.html" (dict
+									"link" "/services/"
+									"text" "<h2>All services</h3>"
+									"title" "View all services"
+									"small" true
+									"rotation" 45
+                                )}}
+							</div><!-- /Wrapper -->
+						</div><!-- /Col -->
+						<!-- Cards -->
 					</div><!-- /Row -->
 				</div><!--- /Col -->
 			</div><!-- /Row -->
@@ -171,7 +198,7 @@
 					<!-- Content -->
 					<div class="col-12 col-mob-9">
 						<div class="row no-gaps">
-							<!-- All Articles - Large -->
+							<!-- All Work - Large -->
 							<div class="col-12 all-articles all-articles-large margin-large">
 								<div class="all-articles-wrapper all-articles-wrapper-end">
                                     {{ partial "arrow/text.html" (dict
@@ -183,7 +210,7 @@
                                     )}}
 								</div><!-- /Wrapper -->
 							</div><!-- /Col -->
-							<!-- All Articles - Small -->
+							<!-- All Work - Small -->
 							<div class="col-12 all-articles all-articles-small">
 								<div class="all-articles-wrapper">
 									<h6 class="all-articles-sub">

@@ -6,11 +6,8 @@
  * @author Email: hello@ainsley.dev
  */
 
-
-
-import { it } from 'node:test';
-
 require('./../vendor/modernizr');
+import { Params } from '../params';
 import { Navigation } from '../components/nav';
 import { Cursor } from '../animations/cursor';
 import { Skew } from '../animations/skew';
@@ -19,7 +16,6 @@ import { Card } from '../components/card';
 import { Arrow } from '../animations/arrow';
 import { Collapse, CollapseOptions } from '../components/accordion';
 import { Log } from '../util/log';
-import { Params } from '../params';
 import { beforeAfter } from '../components/before-after';
 import { bookmark } from '../components/bookmark';
 import { buttonGoBack } from '../components/button';
@@ -29,9 +25,9 @@ import { video } from '../components/video';
 import { WebVitals } from '../analytics/web-vitals';
 import { animationLine, animationFade, animationHero, animationHeroLogos, animationUp } from '../animations/text';
 import { Elements } from '../util/els';
+import {Barba } from './barba';
 import Scroll from './scroll';
-import Barba from './barba';
-import barba, { ITransitionData } from '@barba/core';
+import { ITransitionData } from '@barba/core';
 
 /**
  *
@@ -49,6 +45,8 @@ class App {
 	 */
 	private cursor: Cursor
 
+	private barba: Barba
+
 	/**
 	 *
 	 */
@@ -61,10 +59,11 @@ class App {
 
 		// Hooks
 		if (!this.hooksAdded) {
-			Barba.init();
-			this.barbaBefore();
-			this.barbaBeforeEnter();
-			this.barbaAfter();
+			this.barba = new Barba();
+			this.barba.init();
+			this.before();
+			this.beforeEnter();
+			this.after();
 			this.hooksAdded = true;
 		}
 
@@ -127,9 +126,8 @@ class App {
 	 *
 	 * @private
 	 */
-	private barbaAfter(): void {
-		barba.hooks.after((data: ITransitionData) => {
-			// this.cursor.destroy();
+	private after(): void {
+		this.barba.hooks.after((data: ITransitionData) => {
 			Elements.HTML.scrollTop = 0;
 			Elements.Body.scrollTop = 0;
 			Scroll.init(data.next.container);
@@ -141,8 +139,8 @@ class App {
 	 *
 	 * @private
 	 */
-	private barbaBeforeEnter(): void {
-		barba.hooks.beforeEnter((data: ITransitionData) => {
+	private beforeEnter(): void {
+		this.barba.hooks.beforeEnter((data: ITransitionData) => {
 			this.reloadJS(data.next.container);
 		});
 	}
@@ -151,26 +149,29 @@ class App {
 	 *
 	 * @private
 	 */
-	private barbaBefore(): void {
-		barba.hooks.before((data: ITransitionData) => {
+	private before(): void {
+		this.barba.hooks.before(() => {
 			this.cursor.destroy();
 		});
 	}
 
 	/**
+	 * Finds all scripts within the next container and
+	 * appends them to ensure JS is loaded after
+	 * a page transition.
 	 *
 	 * @param container
 	 * @private
 	 */
 	private reloadJS(container: HTMLElement): void {
-		let js = container.querySelectorAll('script');
+		const js = container.querySelectorAll('script');
 		js.forEach((item: HTMLScriptElement) => {
 			if (item.src.includes("app")) {
 				return;
 			}
-			const script = document.createElement("script")
+			const script = document.createElement("script");
 			script.src = item.src;
-			container.appendChild(script)
+			container.appendChild(script);
 		});
 	}
 }

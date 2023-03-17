@@ -8,14 +8,21 @@
 
 import Scroll from './scroll';
 import { Params } from '../params';
-import barba, { ITransitionData } from '@barba/core';
+import barba, { HookMethods, ITransitionData } from '@barba/core';
 import anime from 'animejs/lib/anime.es';
 import { Elements } from '../util/els';
 
 /**
  *
  */
-class Barba {
+export class Barba {
+
+
+	public hooks: HookMethods
+
+	constructor() {
+		this.hooks = barba.hooks
+	}
 
 	/**
 	 *
@@ -49,5 +56,3 @@ class Barba {
 		});
 	}
 }
-
-export default new Barba();
