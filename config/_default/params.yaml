@@ -38,6 +38,9 @@ imagery:
             size: 767
         -   name: tab
             size: 1023
+gtag:
+    enable: false
+    tag: KZFMRNJ
 codepen:
     user: ainsleyclark
     tab: result

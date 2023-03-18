@@ -1,0 +1,39 @@
+// -----------------------------------------------------------------------------
+// _scroll.scss
+// This file contains all page transitions.
+// -----------------------------------------------------------------------------
+
+.transition {
+	$self: &;
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: $black;
+	z-index: -10;
+
+	// Logo
+	// =========================================================================
+
+	&-logo {
+		display: none;
+		width: 45vw;
+
+		//svg path {
+		//	fill: none;
+		//	stroke: $white;
+		//	stroke-width: 2px;
+		//}
+	}
+
+	// Active
+	// =========================================================================
+
+	&-active {
+		z-index: $header-z-index + 100;
+	}
+}

@@ -11,17 +11,17 @@
 			<!-- Background -->
 			<picture class="before-after-background" style="width: 50%">
                 {{ partial "media/picture.html" (dict
-                "image" (partial "util/_resource.html" (dict "src" (.Get "before") "ctx" .))
-                "alt" (.Get "text")
-                "lazy" true
+					"image" (partial "util/_resource.html" (dict "src" (.Get "before") "ctx" .))
+					"alt" (.Get "text")
+					"lazy" true
                 )}}
 			</picture><!-- /Background -->
 			<!-- Foreground -->
 			<picture class="before-after-foreground">
                 {{ partial "media/picture.html" (dict
-                "image" (partial "util/_resource.html" (dict "src" (.Get "after") "ctx" .))
-                "alt" (.Get "text")
-                "lazy" true
+					"image" (partial "util/_resource.html" (dict "src" (.Get "after") "ctx" .))
+					"alt" (.Get "text")
+					"lazy" true
                 )}}
 			</picture><!-- /Foreground -->
 			<!-- Range -->

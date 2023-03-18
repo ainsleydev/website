@@ -26,3 +26,45 @@ body {
 .cursor {
 	display: none;
 }
+
+// Header
+// =========================================================================
+
+.header {
+	background-color: $black;
+
+	&-logo path {
+		fill: $white !important; // Override native CSS
+	}
+}
+
+// Nav
+// =========================================================================
+
+.nav {
+	$self: &;
+	visibility: hidden;
+	transition: opacity 700ms, visibility 700ms step-end;
+	opacity: 0;
+
+	// Active
+	// =========================================================================
+
+	&-checkbox:checked ~ #{$self},
+	&-active {
+		opacity: 1 !important; // Override inline
+		visibility: visible;
+		transition: opacity 700ms, visibility 700ms step-start;
+	}
+
+	// Colour
+	// =========================================================================
+
+	&-btn-arrow path {
+		fill: $white !important; // Override inline
+	}
+
+	&-btn-text {
+		color: $white !important; // Override inline
+	}
+}

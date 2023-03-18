@@ -14,8 +14,8 @@
 <a href="/contact/" class="banner arrow-hover zoom cursor-element"
 	title="Get in touch with ainsley.dev"
 	aria-label="Navigate to the contact page"
-   	data-scroll-section
-	data-cursor-border data-cursor-border-white data-cursor-scale="3">
+	data-cursor-invert data-cursor-invert-black
+   	data-scroll-section>
 	<!-- Image -->
 	<picture class="banner-image zoom-overflow
 		{{ with .brightness -}} brightness-{{ . }} {{ else }} brightness-50 {{- end }}">
@@ -31,7 +31,7 @@
 		)}}
 	</picture><!-- /Image -->
 	<!-- Content -->
-	<div class="container">
+	<div class="container" data-scroll data-scroll-speed="2">
 		<div class="row">
 			<div class="col-12 col-mob-9 offset-mob-3">
 				<!-- Content -->

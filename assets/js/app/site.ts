@@ -6,11 +6,8 @@
  * @author Email: hello@ainsley.dev
  */
 
-
-
-import { it } from 'node:test';
-
 require('./../vendor/modernizr');
+import { Params } from '../params';
 import { Navigation } from '../components/nav';
 import { Cursor } from '../animations/cursor';
 import { Skew } from '../animations/skew';
@@ -19,7 +16,6 @@ import { Card } from '../components/card';
 import { Arrow } from '../animations/arrow';
 import { Collapse, CollapseOptions } from '../components/accordion';
 import { Log } from '../util/log';
-import { Params } from '../params';
 import { beforeAfter } from '../components/before-after';
 import { bookmark } from '../components/bookmark';
 import { buttonGoBack } from '../components/button';
@@ -29,9 +25,20 @@ import { video } from '../components/video';
 import { WebVitals } from '../analytics/web-vitals';
 import { animationLine, animationFade, animationHero, animationHeroLogos, animationUp } from '../animations/text';
 import { Elements } from '../util/els';
+import { Barba } from './barba';
 import Scroll from './scroll';
-import Barba from './barba';
-import barba, { ITransitionData } from '@barba/core';
+import { ITransitionData } from '@barba/core';
+
+/**
+ *
+ */
+declare global {
+	interface Window {
+		plausible: (args: string) => unknown;
+	}
+}
+
+type ThemeColour = 'black' | 'white';
 
 /**
  *
@@ -47,7 +54,15 @@ class App {
 	 *
 	 * @private
 	 */
-	private cursor: Cursor
+	private cursor: Cursor;
+
+	/**
+	 *
+	 * @private
+	 */
+	private barba: Barba;
+
+	private nav: Navigation;
 
 	/**
 	 *
@@ -61,15 +76,16 @@ class App {
 
 		// Hooks
 		if (!this.hooksAdded) {
-			Barba.init();
-			this.barbaBefore();
-			this.barbaBeforeEnter();
-			this.barbaAfter();
+			this.barba = new Barba();
+			this.nav = new Navigation();
+			this.barba.init();
+			this.before();
+			this.beforeEnter();
+			this.after();
 			this.hooksAdded = true;
 		}
 
 		// Classes
-		new Navigation();
 		this.cursor = new Cursor();
 		new Skew();
 		new FitText();
@@ -92,23 +108,40 @@ class App {
 		video();
 
 		// Animations
-		animationHero();
-		animationHeroLogos();
-		animationLine();
-		animationUp();
-		animationFade();
+		this.initAnimations();
 
 		// Analytics
 		this.webVitals();
 	}
 
 	/**
+	 * Removes/adds the no Javascript classes from
+	 * the HTML element.
 	 *
 	 * @private
 	 */
 	private removeJSClasses(): void {
 		Elements.HTML.classList.remove('no-js');
 		Elements.HTML.classList.add('js');
+	}
+
+	/**
+	 * Initialises the main pages animations. If the navigational
+	 * element is currently animating, a delay will be applied.
+	 *
+	 * @private
+	 */
+	private initAnimations(): void {
+		setTimeout(
+			() => {
+				animationHero();
+				animationHeroLogos();
+				animationLine();
+				animationUp();
+				animationFade();
+			},
+			this.nav.isAnimating ? 300 : 0,
+		);
 	}
 
 	/**
@@ -127,9 +160,8 @@ class App {
 	 *
 	 * @private
 	 */
-	private barbaAfter(): void {
-		barba.hooks.after((data: ITransitionData) => {
-			// this.cursor.destroy();
+	private after(): void {
+		this.barba.hooks.after((data: ITransitionData) => {
 			Elements.HTML.scrollTop = 0;
 			Elements.Body.scrollTop = 0;
 			Scroll.init(data.next.container);
@@ -141,8 +173,9 @@ class App {
 	 *
 	 * @private
 	 */
-	private barbaBeforeEnter(): void {
-		barba.hooks.beforeEnter((data: ITransitionData) => {
+	private beforeEnter(): void {
+		this.barba.hooks.beforeEnter((data: ITransitionData) => {
+			this.updateHeader(data.next.container);
 			this.reloadJS(data.next.container);
 		});
 	}
@@ -151,9 +184,32 @@ class App {
 	 *
 	 * @private
 	 */
-	private barbaBefore(): void {
-		barba.hooks.before((data: ITransitionData) => {
+	private before(): void {
+		this.barba.hooks.before(() => {
+			if (this.nav.isOpen) {
+				this.nav.play();
+			}
 			this.cursor.destroy();
+		});
+	}
+
+	/**
+	 * Finds all scripts within the next container and
+	 * appends them to ensure JS is loaded after
+	 * a page transition.
+	 *
+	 * @param container
+	 * @private
+	 */
+	private reloadJS(container: HTMLElement): void {
+		const js = container.querySelectorAll('script');
+		js.forEach((item: HTMLScriptElement) => {
+			if (item.src.includes('app')) {
+				return;
+			}
+			const script = document.createElement('script');
+			script.src = item.src;
+			container.appendChild(script);
 		});
 	}
 
@@ -162,16 +218,37 @@ class App {
 	 * @param container
 	 * @private
 	 */
-	private reloadJS(container: HTMLElement): void {
-		let js = container.querySelectorAll('script');
-		js.forEach((item: HTMLScriptElement) => {
-			if (item.src.includes("app")) {
-				return;
+	private updateHeader(container: HTMLElement): void {
+		const header = Elements.Header,
+			colour = this.getThemeColour(container);
+		header.classList.forEach((c) => {
+			if (c.startsWith('header-colour')) {
+				header.classList.remove(c);
 			}
-			const script = document.createElement("script")
-			script.src = item.src;
-			container.appendChild(script)
 		});
+		header.classList.add(`header-colour-${colour}`);
+		Elements.Nav.setAttribute('data-colour', colour);
+	}
+
+	/**
+	 * Triggers a page view dynamically with Plausible.
+	 *
+	 * @private
+	 */
+	private triggerPageView(): void {
+		if (typeof window.plausible === 'function') {
+			Log.debug('Triggering Plausible page-view');
+			window.plausible('pageview');
+		}
+	}
+
+	/**
+	 * Returns the current page theme colour.
+	 *
+	 * @private
+	 */
+	private getThemeColour(container: HTMLElement): string {
+		return <'black' | 'white'>container.querySelector('main').getAttribute('data-theme') ?? 'black';
 	}
 }
 

@@ -166,6 +166,7 @@
 	@media (min-width: $grid-breakpoint-mob * 1px) and (max-width: $grid-breakpoint-desk * 1px) {
 		&-col-mob-no-margin #{$self} {
 			margin-top: 0 !important; // Override below
+			margin-bottom: $card-margin-bottom;
 		}
 	}
 

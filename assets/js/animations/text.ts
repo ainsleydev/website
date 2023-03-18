@@ -14,6 +14,14 @@ import anime from 'animejs/lib/anime.es';
 import { RemoveBRs } from '../type/util';
 
 /**
+ * Retrieves the delay for an animation element.
+ *
+ * @param el
+ */
+const getDelay = (el: Element) =>
+	el.hasAttribute('data-animate-delay') ? parseInt(el.getAttribute('data-animate-delay')) : 0;
+
+/**
  * Adds an `underline` span to an element if
  * the passed argument contains a <u> tag.
  *
@@ -54,7 +62,7 @@ export const animationHero = () => {
 	if (!wrapper || !heading) {
 		return;
 	}
-	const text = new SplitType(heading as HTMLElement, { types: 'chars' });
+	const text = new SplitType(heading as HTMLElement, { types: 'chars, words' });
 
 	addUnderline(heading);
 	addMark(text.chars);
@@ -63,9 +71,10 @@ export const animationHero = () => {
 		markIndex = [...els].indexOf(heading.querySelector('.mark')),
 		lineIndex = [...els].indexOf(heading.querySelector('.underline'));
 
+	anime.set(heading.querySelectorAll('.word'), { opacity: 1 });
 	anime
 		.timeline({
-			complete: () => text.revert(),
+			// complete: () => text.revert(),
 		})
 		.add({
 			targets: heading.querySelectorAll('.char'),
@@ -110,9 +119,8 @@ export const animationHero = () => {
 		);
 };
 
-
 export const animationHeroLogos = (): void => {
-	document.querySelectorAll(".hero-logos figure").forEach((logo, index) => {
+	document.querySelectorAll('.hero-logos figure').forEach((logo, index) => {
 		anime.set(logo, { opacity: 0 });
 		anime({
 			targets: logo,
@@ -123,7 +131,7 @@ export const animationHeroLogos = (): void => {
 			duration: 1300,
 		});
 	});
-}
+};
 
 /**
  *
@@ -144,12 +152,14 @@ export const animationLine = (): void => {
 		}
 
 		const text = new SplitType(heading as HTMLElement, { types: 'lines' });
+		anime.set(lead, { opacity: 0 });
 		WayPoint(heading, {
 			rootMargin: '-100px',
 			callback: () => {
 				anime
 					.timeline({
 						complete: () => text.revert(),
+						delay: getDelay(an),
 					})
 					.add({
 						targets: text.lines,
@@ -172,11 +182,10 @@ export const animationLine = (): void => {
 			},
 		});
 	});
-}
-
+};
 
 /**
- *
+ * A fade up animation with transform.
  */
 export const animationUp = (): void => {
 	document.querySelectorAll('.animate-up').forEach((an) => {
@@ -190,15 +199,15 @@ export const animationUp = (): void => {
 					opacity: [0, 1],
 					easing: 'easeOutExpo',
 					duration: 1300,
-					delay: el.hasAttribute('data-animate-delay') ? parseInt(el.getAttribute('data-animate-delay')) : 0,
+					delay: getDelay(el),
 				});
 			},
 		});
 	});
-}
+};
 
 /**
- *
+ * A simple fade animation .
  */
 export const animationFade = (): void => {
 	document.querySelectorAll('.animate-fade').forEach((an) => {
@@ -211,9 +220,9 @@ export const animationFade = (): void => {
 					opacity: [0, 1],
 					easing: 'easeOutExpo',
 					duration: 1500,
-					delay: el.hasAttribute('data-animate-delay') ? parseInt(el.getAttribute('data-animate-delay')) : 0,
+					delay: getDelay(el),
 				});
 			},
 		});
 	});
-}
+};
