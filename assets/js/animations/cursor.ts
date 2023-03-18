@@ -9,9 +9,9 @@
 import { Log } from '../util/log';
 
 interface Handler {
-	element: Element
-	function: EventListener
-	event: string
+	element: Element;
+	function: EventListener;
+	event: string;
 }
 
 /**
@@ -62,8 +62,7 @@ export class Cursor {
 		}
 		this.el = el as HTMLDivElement;
 		this.attachMouseMove();
-		document.querySelectorAll<HTMLElement>(this.elementSelector)
-			.forEach((el) => this.attachElementHandlers(el));
+		document.querySelectorAll<HTMLElement>(this.elementSelector).forEach((el) => this.attachElementHandlers(el));
 	}
 
 	/**
@@ -71,12 +70,12 @@ export class Cursor {
 	 * from the cursor element.
 	 */
 	public destroy(): void {
-		Log.debug("Cursor - Destroying & removing event handlers")
+		Log.debug('Cursor - Destroying & removing event handlers');
 		this.el.style.transform = '';
 		this.removeHandlers();
 		setTimeout(() => {
-			this.el.classList.forEach(c => {
-				if (c == "cursor") {
+			this.el.classList.forEach((c) => {
+				if (c == 'cursor') {
 					return;
 				}
 				this.el.classList.remove(c);
@@ -111,7 +110,7 @@ export class Cursor {
 		this.handlers.push({
 			element: el,
 			function: mouseMoveHandler,
-			event: 'mousemove'
+			event: 'mousemove',
 		} as Handler);
 
 		const mouseLeaveHandler = this.mouseLeave.bind(this, classes);
@@ -119,7 +118,7 @@ export class Cursor {
 		this.handlers.push({
 			element: el,
 			function: mouseLeaveHandler,
-			event: 'mouseleave'
+			event: 'mouseleave',
 		} as Handler);
 	}
 
@@ -166,9 +165,9 @@ export class Cursor {
 	 * @private
 	 */
 	private removeHandlers(): void {
-		this.handlers.forEach(handler => {
+		this.handlers.forEach((handler) => {
 			handler.element.removeEventListener(handler.event, handler.function);
-		})
+		});
 	}
 
 	/**
@@ -179,9 +178,14 @@ export class Cursor {
 	 * @private
 	 */
 	private addScale(el: HTMLElement): void {
-		const defaultScale = el.getBoundingClientRect().height / 50 + 0.3;
-		const scale = el.getAttribute('data-cursor-scale') ?? defaultScale > 5 ? 4 : defaultScale;
-		this.el.style.transform = `translate(-50%, -50%) scale(${scale})`;
+		const scaleAttr = el.getAttribute('data-cursor-scale');
+		let scale = el.getBoundingClientRect().height / 50 + 0.5;
+		if (scaleAttr) {
+			scale = parseFloat(scaleAttr);
+		} else {
+			scale = scale > 5 ? 4 : scale;
+		}
+		this.el.style.transform = `translate(-50%, -50%) scale(${scale.toString()})`;
 	}
 
 	/**

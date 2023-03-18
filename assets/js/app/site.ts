@@ -25,7 +25,7 @@ import { video } from '../components/video';
 import { WebVitals } from '../analytics/web-vitals';
 import { animationLine, animationFade, animationHero, animationHeroLogos, animationUp } from '../animations/text';
 import { Elements } from '../util/els';
-import {Barba } from './barba';
+import { Barba } from './barba';
 import Scroll from './scroll';
 import { ITransitionData } from '@barba/core';
 
@@ -37,6 +37,8 @@ declare global {
 		plausible: (args: string) => unknown;
 	}
 }
+
+type ThemeColour = 'black' | 'white';
 
 /**
  *
@@ -52,13 +54,15 @@ class App {
 	 *
 	 * @private
 	 */
-	private cursor: Cursor
+	private cursor: Cursor;
 
 	/**
 	 *
 	 * @private
 	 */
-	private barba: Barba
+	private barba: Barba;
+
+	private nav: Navigation;
 
 	/**
 	 *
@@ -73,6 +77,7 @@ class App {
 		// Hooks
 		if (!this.hooksAdded) {
 			this.barba = new Barba();
+			this.nav = new Navigation();
 			this.barba.init();
 			this.before();
 			this.beforeEnter();
@@ -81,7 +86,6 @@ class App {
 		}
 
 		// Classes
-		new Navigation();
 		this.cursor = new Cursor();
 		new Skew();
 		new FitText();
@@ -104,23 +108,40 @@ class App {
 		video();
 
 		// Animations
-		animationHero();
-		animationHeroLogos();
-		animationLine();
-		animationUp();
-		animationFade();
+		this.initAnimations();
 
 		// Analytics
 		this.webVitals();
 	}
 
 	/**
+	 * Removes/adds the no Javascript classes from
+	 * the HTML element.
 	 *
 	 * @private
 	 */
 	private removeJSClasses(): void {
 		Elements.HTML.classList.remove('no-js');
 		Elements.HTML.classList.add('js');
+	}
+
+	/**
+	 * Initialises the main pages animations. If the navigational
+	 * element is currently animating, a delay will be applied.
+	 *
+	 * @private
+	 */
+	private initAnimations(): void {
+		setTimeout(
+			() => {
+				animationHero();
+				animationHeroLogos();
+				animationLine();
+				animationUp();
+				animationFade();
+			},
+			this.nav.isAnimating ? 300 : 0,
+		);
 	}
 
 	/**
@@ -145,8 +166,6 @@ class App {
 			Elements.Body.scrollTop = 0;
 			Scroll.init(data.next.container);
 			this.boot();
-
-
 		});
 	}
 
@@ -156,6 +175,7 @@ class App {
 	 */
 	private beforeEnter(): void {
 		this.barba.hooks.beforeEnter((data: ITransitionData) => {
+			this.updateHeader(data.next.container);
 			this.reloadJS(data.next.container);
 		});
 	}
@@ -166,6 +186,9 @@ class App {
 	 */
 	private before(): void {
 		this.barba.hooks.before(() => {
+			if (this.nav.isOpen) {
+				this.nav.play();
+			}
 			this.cursor.destroy();
 		});
 	}
@@ -181,13 +204,30 @@ class App {
 	private reloadJS(container: HTMLElement): void {
 		const js = container.querySelectorAll('script');
 		js.forEach((item: HTMLScriptElement) => {
-			if (item.src.includes("app")) {
+			if (item.src.includes('app')) {
 				return;
 			}
-			const script = document.createElement("script");
+			const script = document.createElement('script');
 			script.src = item.src;
 			container.appendChild(script);
 		});
+	}
+
+	/**
+	 *
+	 * @param container
+	 * @private
+	 */
+	private updateHeader(container: HTMLElement): void {
+		const header = Elements.Header,
+			colour = this.getThemeColour(container);
+		header.classList.forEach((c) => {
+			if (c.startsWith('header-colour')) {
+				header.classList.remove(c);
+			}
+		});
+		header.classList.add(`header-colour-${colour}`);
+		Elements.Nav.setAttribute('data-colour', colour);
 	}
 
 	/**
@@ -196,10 +236,19 @@ class App {
 	 * @private
 	 */
 	private triggerPageView(): void {
-		if (typeof window.plausible === "function") {
-			Log.debug("Triggering Plausible page-view")
+		if (typeof window.plausible === 'function') {
+			Log.debug('Triggering Plausible page-view');
 			window.plausible('pageview');
 		}
+	}
+
+	/**
+	 * Returns the current page theme colour.
+	 *
+	 * @private
+	 */
+	private getThemeColour(container: HTMLElement): string {
+		return <'black' | 'white'>container.querySelector('main').getAttribute('data-theme') ?? 'black';
 	}
 }
 

@@ -34,7 +34,11 @@
 		<!-- Clipped Image -->
         {{ if .clip -}}
 			<picture class="card-image card-image-clip skew">
-				<img src="https://cdn.shopify.com/s/files/1/0306/4253/6586/products/the-baron-custom-vintage-pet-portrait-324790_650x.jpg?v=1656938221" alt="">
+                {{ partial "media/picture.html" (dict
+					"image" .clip
+					"alt" .title
+					"lazy" true
+                )}}
 			</picture>
         {{- end }}
 	</div><!--- /Wrapper -->

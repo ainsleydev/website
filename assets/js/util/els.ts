@@ -14,12 +14,17 @@ export class Elements {
 	/**
 	 * The base HTML element.
 	 */
-	public static HTML: HTMLHtmlElement = document.documentElement as HTMLHtmlElement
+	public static HTML: HTMLHtmlElement = document.documentElement as HTMLHtmlElement;
 
 	/**
 	 * The HTML body element.
 	 */
-	public static Body: HTMLBodyElement = document.body as HTMLBodyElement
+	public static Body: HTMLBodyElement = document.body as HTMLBodyElement;
+
+	/**
+	 * The main element.
+	 */
+	public static Main: HTMLElement;
 
 	/**
 	 * The header element.
@@ -35,6 +40,7 @@ export class Elements {
 	 * Initialise sets up the Elements.
 	 */
 	public static _initialize() {
+		this.Main = <HTMLElement>document.querySelector('main');
 		this.Header = <HTMLElement>document.querySelector('.header');
 		this.Nav = <HTMLElement>document.querySelector('.nav');
 	}

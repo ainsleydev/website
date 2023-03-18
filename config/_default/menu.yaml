@@ -39,19 +39,6 @@ navMain:
             image:
                 url: /images/nav/contact.jpg
                 alt: ainsley.dev Office Desk
-navSub:
-    -   identifier: brand
-        name: Brand
-        url: /brand/
-        weight: 10
-    -   identifier: questionnaire
-        name: Questionnaire
-        url: /questionnaire/
-        weight: 20
-    -   identifier: feedback
-        name: Feedback
-        url: /feedback/
-        weight: 30
 footer:
     -   identifier: home
         name: Home

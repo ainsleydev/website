@@ -15,73 +15,59 @@
 	width: 100vw;
 	@include full-height;
 	background-color: $black;
-	opacity: 0;
-	visibility: hidden;
-	transition: opacity 700ms, visibility 700ms step-end;
 
-	// Main & Sub Props
+	// With JS
 	// =========================================================================
 
-	&-main,
-	&-sub {
-		position: relative;
-		width: 100%;
-		padding-left: $container-padding-x;
-		padding-right: $container-padding-x;
+	&-js {
+		display: none;
 	}
 
 	// Main
 	// =========================================================================
 
-	&-main {
+	&-container {
+		position: relative;
 		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		justify-content: center;
-		flex-grow: 2;
-		z-index: 10;
-		margin-top: $header-height / 2;
-		box-shadow: 10px 0 30px 0 rgba($black, 0.3);
+		align-items: center;
+		width: 100%;
+		height: 100%;
+	}
 
-		#{$self}-list {
-			margin-bottom: 2.4rem;
+	// Row
+	// =========================================================================
 
-			#{$self}-item:last-child * {
-				margin-bottom: 0;
-			}
+	&-row {
+		width: 100%;
+	}
+
+	// List
+	// =========================================================================
+
+	&-list {
+		&-white #{$self}-link * {
+			color: $black;
+		}
+
+		#{$self}-item:last-child * {
+			margin-bottom: 0;
 		}
 	}
 
-	// Sub
+	// Link
 	// =========================================================================
 
-	&-sub {
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
-		padding-top: 30px;
-		padding-bottom: 30px;
-		background-color: $white;
-		z-index: 1;
+	&-link {
+		position: relative;
+		display: inline-block;
+		text-decoration: none;
+		margin-bottom: $margin;
 
-		#{$self}-list {
-			display: flex;
-			align-items: center;
-		}
-
-		#{$self}-item:not(:last-child) #{$self}-link-text:after {
-			content: '|';
+		&-text {
+			position: relative;
 			display: inline-block;
-			color: colour('black');
-			margin: 0 8px;
-		}
-
-		#{$self}-link-text {
+			@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 40px, 80px);
 			margin-bottom: 0;
-		}
-
-		&-copyright {
-			color: colour('copy-light');
 		}
 	}
 
@@ -89,8 +75,11 @@
 	// =========================================================================
 
 	&-contact {
-		&-section {
-			margin-bottom: 1.6em;
+		display: none;
+		flex-direction: column;
+
+		&-section:not(:last-child) {
+			margin-bottom: $margin-large;
 		}
 	}
 
@@ -127,31 +116,6 @@
 		}
 	}
 
-	// List
-	// =========================================================================
-
-	&-list {
-		margin-bottom: 1rem;
-
-		&-white #{$self}-link * {
-			color: $black;
-		}
-	}
-
-	// Link
-	// =========================================================================
-
-	&-link {
-		position: relative;
-		display: inline-block;
-		text-decoration: none;
-
-		&-text {
-			position: relative;
-			display: inline-block;
-		}
-	}
-
 	// Button
 	// =========================================================================
 
@@ -160,12 +124,27 @@
 		align-items: flex-end;
 		cursor: pointer;
 		z-index: 10;
+		padding: 10px;
+		margin-right: -10px;
 
 		&-text {
-			color: colour('white');
-			margin-right: 6px;
+			@include h6;
+			color: colour('foreground');
+			margin-right: 8px;
 			margin-bottom: 0;
-			font-size: 13px;
+			font-size: 0.9rem;
+			user-select: none;
+
+			&-close {
+				position: absolute;
+				top: 0;
+				left: 10px;
+				transform: scaleY(0);
+			}
+		}
+
+		&-wrapper {
+			position: relative;
 		}
 
 		&-arrow {
@@ -190,16 +169,6 @@
 		left: -9999999px;
 	}
 
-	// Active
-	// =========================================================================
-
-	&-checkbox:checked ~ #{$self},
-	&-active {
-		opacity: 1;
-		visibility: visible;
-		transition: opacity 700ms, visibility 700ms step-start;
-	}
-
 	// Small Phones
 	// =========================================================================
 
@@ -209,124 +178,61 @@
 		}
 	}
 
-	// Tablet
+	// Mobile
 	// =========================================================================
 
-	@include media-tab {
-		// Main
-		// =========================================================================
-
-		&-main {
-			flex-direction: column;
-			justify-content: space-between;
-			padding-top: 4rem;
-			padding-bottom: 4rem;
-
-			&::before {
-				content: '';
-			}
-		}
-
-		// Sub
-		// =========================================================================
-
-		&-sub {
-			justify-content: center;
-			min-height: 200px;
+	@include media-mob {
+		&-btn-text {
+			margin-right: 12px;
 		}
 	}
 
 	// Desktop
 	// =========================================================================
 
-	@include media-desk-large {
-		flex-direction: row;
-		justify-content: space-between;
-
-		// Main & Sub Props
-		// =========================================================================
-
-		&-main,
-		&-sub {
-			padding: $nav-padding-desktop;
+	@include media-desk {
+		&-row {
+			align-items: flex-end;
 		}
 
-		// Contact
-		// =========================================================================
-
-		&-contact-section {
-			margin-bottom: 0;
+		&-list:hover #{$self}-link:not(:hover) {
+			opacity: 0.4;
 		}
 
-		// Main
-		// =========================================================================
+		&-link {
+			$arrow-transition: 500ms ease-in-out;
+			margin-bottom: 2.6rem;
+			transition: opacity 500ms ease;
+			will-change: opacity;
 
-		&-main {
-			height: 100%;
-			width: 60%;
-			margin-top: 0;
-
-			#{$self}-list {
+			&-text {
 				margin-bottom: 0;
+				transition: transform $arrow-transition;
+				will-change: transform;
 			}
 
-			// Hover & Arrow
-			#{$self}-link {
-				$arrow-transition: 250ms ease-in-out;
+			// Arrow
+			&::after {
+				content: url('/images/icons/nav-arrow.svg');
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translate(-100%, -50%);
+				opacity: 0;
+				transition: transform $arrow-transition, opacity $arrow-transition;
+				will-change: transform, opacity;
+			}
 
-				&-text {
-					transition: transform $arrow-transition;
-					will-change: transform;
+			&:hover {
+				#{$self}-link-text {
+					transform: translateX(100px);
 				}
 
 				// Arrow
 				&::after {
-					content: url('/images/icons/nav-arrow.svg');
-					position: absolute;
-					top: 50%;
-					left: 0;
-					transform: translate(-100%, -50%);
-					opacity: 0;
-					transition: transform $arrow-transition, opacity $arrow-transition;
-					will-change: transform, opacity;
+					opacity: 1;
+					transform: translate(0, -50%);
 				}
-
-				&:hover {
-					#{$self}-link-text {
-						transform: translateX(100px);
-					}
-
-					// Arrow
-					&::after {
-						opacity: 1;
-						transform: translate(0, -50%);
-					}
-				}
-			}
-		}
-
-		// Sub
-		// =========================================================================
-
-		&-sub {
-			height: 100%;
-			width: 40%;
-			justify-content: flex-end;
-
-			#{$self}-list {
-				margin-bottom: 4rem;
-				flex-direction: column;
-				align-items: flex-start;
-			}
-
-			#{$self}-item {
-				&:not(:last-child) {
-					margin-bottom: 0.4rem;
-				}
-			}
-
-			#{$self}-link-text::after {
-				display: none !important; // Override nth-child
 			}
 		}
 
@@ -342,11 +248,6 @@
 
 		&-contact {
 			display: flex;
-			flex-direction: row;
-
-			&-section:first-child {
-				margin-right: 3rem;
-			}
 		}
 	}
 }

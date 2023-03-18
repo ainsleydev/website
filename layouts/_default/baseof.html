@@ -113,17 +113,20 @@
 				</iframe>
 			</noscript><!-- /End Google Tag Manager (noscript) -->
 		{{- end }}
-		<!-- Header -->
-		{{- partial "header.html" (dict "colour" $colour) -}}
 		<!-- Transition -->
 		{{ partial "transitions/default.html" . }}
 		<!-- Cursor -->
 		<div class="cursor cursor-theme-{{ $colour }}"></div>
+		<!-- Header -->
+        {{- partial "header.html" (dict
+			"colour" $colour
+			"ctx" .
+        )}}
 		<!-- Content Wrapper -->
 		<div class="content-wrapper" data-barba="container" data-barba-namespace="{{ .RelPermalink }}">
 			<div data-scroll-container {{ if and (eq .Section "insights") .IsPage -}} data-scroll-disable {{- end }}>
 				<!-- Main Content -->
-				<main id="main" class="theme-{{ $colour }}">
+				<main id="main" class="theme-{{ $colour }}" data-theme="{{ $colour }}">
                     {{- block "main" . -}} {{- end }}
 				</main>
 				<!-- Footer -->

@@ -3,55 +3,59 @@
     	partial "components/social.html" (dict "colour" "white")
     	- colour:	The colour of the social handles, defaults to foreground.
     ===================== -->
-{{ $colour := partial "util/_get-colour.html" .colour }}
+{{ $colour := partial "util/_get-colour.html" .colour -}}
+{{- $defaultCursor := "data-cursor-border data-cursor-border-white" -}}
+{{- if .cursor -}}
+	{{ $defaultCursor = .cursor -}}
+{{- end }}
 {{ with site.Params.Social }}
 	<figure class="social">
 		<!-- GitHub -->
         {{ with .github -}}
 			<a href="{{ . }}" class="social-link cursor-element" target="blank" title="GitHub Profile"
-			   aria-label="Go to ainsley.dev's GitHub profile"
-			   data-cursor-border data-cursor-border-white>
+			   aria-label="Go to {{ site.Params.name }}'s GitHub profile"
+			   {{ $defaultCursor | safeHTMLAttr }}>
 				{{ partial "svgs/github.html" $ }}
 			</a>
         {{ end -}}
 		<!-- LinkedIn -->
         {{ with .linkedin -}}
 			<a href="{{ . }}" class="social-link cursor-element" target="blank" title="LinkedIn Profile"
-			   aria-label="Go to ainsley.dev's LinkedIn profile"
-			   data-cursor-border data-cursor-border-white>
-                {{ partial "svgs/linkedin.html" $ }}
+				aria-label="Go to {{ site.Params.name }}'s LinkedIn profile"
+				{{ $defaultCursor | safeHTMLAttr }}>
+				{{ partial "svgs/linkedin.html" $ }}
 			</a>
         {{ end -}}
 		<!-- Twitter -->
         {{ with .twitter -}}
 			<a href="{{ . }}" class="social-link cursor-element" target="blank" title="Twitter Profile"
-			   aria-label="Go to ainsley.dev's Twitter profile"
-			   data-cursor-border data-cursor-border-white>
+				aria-label="Go to {{ site.Params.name }}'s Twitter profile"
+				{{ $defaultCursor | safeHTMLAttr }}>
                 {{ partial "svgs/twitter.html" $ }}
 			</a>
         {{ end -}}
 		<!-- Facebook -->
         {{ with .facebook -}}
 			<a href="{{ . }}" class="social-link cursor-element" target="blank" title="Facebook Profile"
-			   aria-label="Go to ainsley.dev's Facebook profile"
-			   data-cursor-border data-cursor-border-white>
-                {{ partial "svgs/facebook.html" $ }}
+				aria-label="Go to {{ site.Params.name }}'s Facebook profile"
+				{{ $defaultCursor | safeHTMLAttr }}>
+				{{ partial "svgs/facebook.html" $ }}
 			</a>
         {{ end -}}
 		<!-- Instagram -->
         {{ with .instagram -}}
 			<a href="{{ . }}" class="social-link cursor-element" target="blank" title="Instagram Profile"
-			   aria-label="Go to ainsley.dev's Instagram profile"
-			   data-cursor-border data-cursor-border-white>
-                {{ partial "svgs/instagram.html" $ }}
+				aria-label="Go to {{ site.Params.name }}'s Instagram profile"
+				{{ $defaultCursor | safeHTMLAttr }}>
+				{{ partial "svgs/instagram.html" $ }}
 			</a>
         {{ end -}}
 		<!-- Dribbble -->
         {{ with .dribbble -}}
 			<a href="{{ . }}" class="social-link cursor-element" target="blank" title="Dribbble Profile"
-			   aria-label="Go to ainsley.dev's Dribbble profile"
-			   data-cursor-border data-cursor-border-white>
-                {{ partial "svgs/dribbble.html" $ }}
+				aria-label="Go to {{ site.Params.name }}'s Dribbble profile"
+				{{ $defaultCursor | safeHTMLAttr }}>
+				{{ partial "svgs/dribbble.html" $ }}
 			</a>
         {{ end -}}
 	</figure>
