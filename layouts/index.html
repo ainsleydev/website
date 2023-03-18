@@ -48,7 +48,7 @@
 					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
                         {{ partial "type/vertical.html" (dict
 							"text" "Showreel"
-							"number" "02"
+							"number" "00"
 							"line" true
 							"fill" false
                         )}}
@@ -95,15 +95,77 @@
 						</p>
 					</div>
 					<!-- Simplicity -->
-					<div class="animate-up margin-large">
+					<div class="animate-up margin-large margin-none">
 						<h3>
 							Driven by simplicity
 						</h3>
-						<p class="lead">
+						<p class="lead mb-0">
 							We are driven by simplicity and the shared goal of producing visionary designs, coupled with
 							best-in-class in-house software, APIs, designs and websites.
 						</p>
 					</div>
+				</div><!--- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+	<!-- =====================
+		About
+		===================== -->
+	<section class="section section-padding section-padding-top">
+		<div class="container">
+			<div class="row justify-content-between">
+				<!-- Heading -->
+				<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
+                    {{ partial "type/vertical.html" (dict
+						"text" "About"
+						"number" "02"
+						"line" true
+						"fill" true
+                    )}}
+				</div><!-- /Col -->
+				<!-- Content -->
+				<div class="col-12 col-mob-9 col-desk-7 col-hd-6">
+					<div class="row no-gaps">
+						<!-- Get to kno us - Large -->
+						<div class="col-12 all-articles all-articles-large margin-large">
+							<div class="all-articles-wrapper all-articles-wrapper-end">
+								{{ partial "arrow/text.html" (dict
+									"link" "/who-we-are/"
+									"text" "<h3>About</h3>"
+									"title" "Get to know us"
+									"small" true
+									"rotation" 45
+								)}}
+							</div><!-- /Wrapper -->
+						</div><!-- /Col -->
+						<!-- All Work - Small -->
+						<div class="col-12 all-articles all-articles-small">
+							<div class="all-articles-wrapper">
+								{{ partial "arrow/text.html" (dict
+									"link" "/wo-we-are/"
+									"text" "<h2>About</h3>"
+									"title" "Get to know us"
+									"small" true
+									"rotation" 45
+								)}}
+							</div><!-- /Wrapper -->
+						</div><!-- /Col -->
+						<div class="col-12">
+							<picture class="image margin-large" data-scroll data-scroll-speed="1">
+								{{ partial "media/picture.html" (dict
+								"image" (resources.Get "/images/site/home.jpg")
+								"alt" "ainsley.dev"
+								"lazy" true
+								)}}
+							</picture>
+							<div data-animate-up>
+								<h2>Who we are</h2>
+								<p class="lead mb-0">
+									In a commercial world increasingly reliant on digital technology, ainsley.dev is a market-leading software design and development company at the forefront of high-tech advancements and techniques.
+								</p>
+							</div>
+						</div><!--- /Col -->
+					</div><!-- /Row -->
 				</div><!--- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
@@ -118,7 +180,7 @@
 				<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
                     {{ partial "type/vertical.html" (dict
 						"text" "Services"
-						"number" "02"
+						"number" "03"
 						"line" true
 						"fill" false
                     )}}
@@ -168,7 +230,7 @@
 						</div><!-- /Col -->
 						<!-- All Services - Small -->
 						<div class="col-12 all-articles all-articles-small">
-							<div class="all-articles-wrapper all-articles-wrapper-start">
+							<div class="all-articles-wrapper">
                                 {{ partial "arrow/text.html" (dict
 									"link" "/services/"
 									"text" "<h2>All services</h3>"
@@ -196,7 +258,7 @@
 					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
                         {{ partial "type/vertical.html" (dict
 							"text" "Portfolio"
-							"number" "03"
+							"number" "04"
 							"line" true
 							"fill" false
                         )}}
@@ -257,7 +319,7 @@
 					<div class="col-12 col-mob-2">
                         {{ partial "type/vertical.html" (dict
 							"text" "Insights"
-							"number" "04"
+							"number" "05"
 							"line" true
 							"fill" false
                         )}}
