@@ -6,7 +6,7 @@
 {{- $baseURL := getenv "VERCEL_URL" -}}
 {{- if not $baseURL -}}
     {{- warnf "VERCEL_URL environment file not found, use vercel dev. Using .Site.BaseURL" -}}
-	{{ $baseURL = .Site.BaseURL }}
+	{{ $baseURL = .Site.BaseURL | replaceRE "http://" "" | replaceRE "https://" "" }}
 {{- end -}}
 {{ if strings.Contains $baseURL "localhost" -}}
 	{{- $ret = printf "http://%s" $baseURL -}}

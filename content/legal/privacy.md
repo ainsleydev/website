@@ -5,6 +5,8 @@ draft: false
 url: /privacy
 layout: terms
 pageColour: white
+sitemap:
+  priority: 0.1
 ---
 
 Last updated: February 12, 2023

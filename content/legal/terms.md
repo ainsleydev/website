@@ -5,6 +5,8 @@ draft: false
 url: /terms
 layout: terms
 pageColour: white
+sitemap:
+  priority: 0.1
 ---
 
 These terms and conditions apply to the use of this website (the “Website”). Please read these terms and conditions
