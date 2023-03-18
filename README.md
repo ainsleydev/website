@@ -14,4 +14,6 @@ Create a new post
 
 ```
 hugo new --kind post-bundle posts/my-post
+make work name=test
+make post name=test
 ```

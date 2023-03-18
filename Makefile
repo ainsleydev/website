@@ -28,12 +28,12 @@ deploy-staging: # Deploy staging to Vercel
 
 post: # Creates a new work post.
 	@[ "${name}" ] || ( echo ">> name is not set"; exit 1 )
-	hugo new --kind post-bundle posts/$(name)
+	hugo new --kind post-bundle insights/$(name)
 .PHONY: post
 
 work: # Creates a new work post.
 	@[ "${name}" ] || ( echo ">> name is not set"; exit 1 )
-	hugo new --kind work-bundle work/$(name)
+	hugo new --kind portfolio-bundle portfolio/$(name)
 .PHONY: work
 
 sdk: # Generates the Go & Typescript API SDKs
