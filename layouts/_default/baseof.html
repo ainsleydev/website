@@ -11,9 +11,8 @@
     ===================== -->
 <html class="no-js" lang="en-GB">
     <head>
-		<!--- TODO, removed when finished -->
-		<meta name="robots" content="noindex">
-		{{ if .Params.noIndex -}}
+		<!-- No Index - Private -->
+		{{ if .Params.private -}}
 			<meta name="robots" content="noindex">
 		{{- end }}
         <!-- Meta -->

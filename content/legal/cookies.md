@@ -5,6 +5,8 @@ draft: false
 url: /cookies
 layout: terms
 pageColour: white
+sitemap:
+  priority: 0.1
 ---
 
 We consciously refrain from using tracking, marketing, or any other commercial cookies. We call it our “No cookie

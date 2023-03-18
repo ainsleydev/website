@@ -24,12 +24,17 @@
 	position: absolute;
 	display: inline-block;
 	left: 0;
-	bottom: 2%;
+	bottom: -1px;
 	margin: auto;
-	height: $line-size-thick;
+	height: 3px;
 	width: 100%;
 	background-color: $white;
 	transform-origin: left;
+
+	@include media-mob {
+		bottom: 2%;
+		height: $line-size-thick;
+	}
 }
 
 // Mark

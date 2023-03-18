@@ -77,13 +77,11 @@
 
 	&-space-around {
 		display: flex;
+		padding-top: $header-height + 40px;
+		min-height: 100vh;
 
-		#{$self}-container {
-			display: flex;
-			flex-direction: column;
-			height: 90%;
-			justify-content: space-around;
-			align-self: flex-end;
+		#{$self}-row {
+			margin-bottom: $margin-large;
 		}
 	}
 
@@ -218,6 +216,28 @@
 	@include media-tab {
 		&-simple {
 			padding-top: clamp(100px, 20vw, 170px);
+		}
+	}
+
+	// Space Around
+	// =========================================================================
+
+	@media (min-height: 800px) {
+		&-space-around {
+			@include full-height;
+			padding-top: 0;
+
+			#{$self}-container {
+				display: flex;
+				flex-direction: column;
+				height: 90%;
+				justify-content: space-around;
+				align-self: flex-end;
+			}
+
+			#{$self}-row {
+				margin-bottom: 0;
+			}
 		}
 	}
 
