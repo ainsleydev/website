@@ -125,47 +125,19 @@
 				</div><!-- /Col -->
 				<!-- Content -->
 				<div class="col-12 col-mob-9 col-desk-7 col-hd-6">
-					<div class="row no-gaps">
-						<!-- Get to kno us - Large -->
-						<div class="col-12 all-articles all-articles-large margin-large">
-							<div class="all-articles-wrapper all-articles-wrapper-end">
-								{{ partial "arrow/text.html" (dict
-									"link" "/who-we-are/"
-									"text" "<h3>About</h3>"
-									"title" "Get to know us"
-									"small" true
-									"rotation" 45
-								)}}
-							</div><!-- /Wrapper -->
-						</div><!-- /Col -->
-						<!-- All Work - Small -->
-						<div class="col-12 all-articles all-articles-small">
-							<div class="all-articles-wrapper">
-								{{ partial "arrow/text.html" (dict
-									"link" "/wo-we-are/"
-									"text" "<h2>About</h3>"
-									"title" "Get to know us"
-									"small" true
-									"rotation" 45
-								)}}
-							</div><!-- /Wrapper -->
-						</div><!-- /Col -->
-						<div class="col-12">
-							<picture class="image margin-large" data-scroll data-scroll-speed="1">
-								{{ partial "media/picture.html" (dict
-								"image" (resources.Get "/images/site/home.jpg")
-								"alt" "ainsley.dev"
-								"lazy" true
-								)}}
-							</picture>
-							<div data-animate-up>
-								<h2>Who we are</h2>
-								<p class="lead mb-0">
-									In a commercial world increasingly reliant on digital technology, ainsley.dev is a market-leading software design and development company at the forefront of high-tech advancements and techniques.
-								</p>
-							</div>
-						</div><!--- /Col -->
-					</div><!-- /Row -->
+					<picture class="image margin-large" data-scroll data-scroll-speed="1">
+						{{ partial "media/picture.html" (dict
+						"image" (resources.Get "/images/site/home.jpg")
+						"alt" "ainsley.dev"
+						"lazy" true
+						)}}
+					</picture>
+					<div data-animate-up>
+						<h2>Who we are</h2>
+						<p class="lead mb-0">
+							In a commercial world increasingly reliant on digital technology, ainsley.dev is a market-leading software design and development company at the forefront of high-tech advancements and techniques.
+						</p>
+					</div>
 				</div><!--- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
@@ -216,31 +188,6 @@
 								Illustration
 							</h3>
 						</div><!--- /Col -->
-						<!-- All Services - Large -->
-						<div class="col-12 all-articles all-articles-large margin-large">
-							<div class="all-articles-wrapper">
-                                {{ partial "arrow/text.html" (dict
-									"link" "/services/"
-									"text" "<h3>All services</h3>"
-									"title" "View all services"
-									"small" true
-									"rotation" 45
-                                )}}
-							</div><!-- /Wrapper -->
-						</div><!-- /Col -->
-						<!-- All Services - Small -->
-						<div class="col-12 all-articles all-articles-small">
-							<div class="all-articles-wrapper">
-                                {{ partial "arrow/text.html" (dict
-									"link" "/services/"
-									"text" "<h2>All services</h3>"
-									"title" "View all services"
-									"small" true
-									"rotation" 45
-                                )}}
-							</div><!-- /Wrapper -->
-						</div><!-- /Col -->
-						<!-- Cards -->
 					</div><!-- /Row -->
 				</div><!--- /Col -->
 			</div><!-- /Row -->
