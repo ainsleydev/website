@@ -191,6 +191,7 @@ class App {
 	 * Prevents reloading of the page if the link clicked
 	 * is the current link, to avoid the page
 	 * reloading.
+	 * TODO: Check if we can do this in Barba.
 	 *
 	 * @private
 	 */
@@ -198,7 +199,6 @@ class App {
 		document.querySelectorAll<HTMLAnchorElement>('a[href]').forEach((link) => {
 			link.addEventListener('click', (e: Event) => {
 				const link = e.currentTarget as HTMLAnchorElement;
-				console.log(link.href, window.location.href);
 				if (link.href === window.location.href && this.nav.isOpen) {
 					e.preventDefault();
 					e.stopPropagation();
