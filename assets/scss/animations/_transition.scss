@@ -13,27 +13,17 @@
 	left: 0;
 	height: 100%;
 	width: 100%;
-	background-color: $black;
-	z-index: -10;
+	background-color: transparent;
 
 	// Logo
 	// =========================================================================
 
 	&-logo {
-		display: none;
+		display: block;
 		width: 45vw;
-
-		//svg path {
-		//	fill: none;
-		//	stroke: $white;
-		//	stroke-width: 2px;
-		//}
-	}
-
-	// Active
-	// =========================================================================
-
-	&-active {
-		z-index: $header-z-index + 100;
+		min-width: 200px;
+		max-width: 500px;
+		opacity: 0;
+		z-index: 10;
 	}
 }

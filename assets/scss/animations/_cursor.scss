@@ -61,6 +61,33 @@
 			border-color: $white;
 		}
 	}
+
+	// Circle
+	// =========================================================================
+
+	&-circle {
+		display: none;
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100vw;
+		height: 100vh;
+		pointer-events: none;
+		transform-origin: center;
+		background-color: $black;
+		aspect-ratio: 1/1;
+		clip-path: circle(0%);
+
+		&-black {
+			z-index: $header-z-index + 10;
+		}
+
+		&-white {
+			z-index: $header-z-index + 9;
+			background-color: $white;
+			mix-blend-mode: difference;
+		}
+	}
 }
 
 // Non - Touch Screen
