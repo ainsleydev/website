@@ -18,7 +18,7 @@
 {{- else -}}
 	<div
 {{- end }}
-	class="arrow-text arrow-hover cursor-element
+	class="arrow-text arrow-hover
 	{{ if .small -}} arrow-text-small {{- end }}
 	{{ with .class -}} {{ . }} {{- end }}"
 	{{ with .title -}}
@@ -26,8 +26,7 @@
 	{{ else -}}
 		{{- warnf "No title provided to arrow text: %s" .link -}}
 	{{- end }}
-	data-rotation="{{ .rotation }}"
-	data-cursor-border>
+	data-rotation="{{ .rotation }}">
 		<!-- Text -->
         {{ with .text -}}
 			<div class="arrow-text-content">

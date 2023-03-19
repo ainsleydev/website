@@ -115,14 +115,14 @@
 		<!-- Transition -->
 		{{ partial "transitions/default.html" . }}
 		<!-- Cursor -->
-		<div class="cursor cursor-theme-{{ $colour }}"></div>
+		{{ partial "components/cursor.html" $colour }}
 		<!-- Header -->
         {{- partial "header.html" (dict
 			"colour" $colour
 			"ctx" .
         )}}
 		<!-- Content Wrapper -->
-		<div class="content-wrapper" data-barba="container" data-barba-namespace="{{ .RelPermalink }}">
+		<div class="content-wrapper" data-barba="container" data-barba-namespace="{{ partial "util/_namespace.html" . }}">
 			<div data-scroll-container {{ if and (eq .Section "insights") .IsPage -}} data-scroll-disable {{- end }}>
 				<!-- Main Content -->
 				<main id="main" class="theme-{{ $colour }}" data-theme="{{ $colour }}">

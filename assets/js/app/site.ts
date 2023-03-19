@@ -129,10 +129,11 @@ class App {
 	private once(): void {
 		this.barba = new Barba();
 		this.nav = new Navigation();
-		this.barba.init();
+		this.barba.init(this.nav);
 		this.before();
 		this.beforeEnter();
 		this.after();
+		this.mouseMoveHandler();
 		this.hooksAdded = true;
 	}
 
@@ -167,6 +168,7 @@ class App {
 	 */
 	private beforeEnter(): void {
 		this.barba.hooks.beforeEnter((data: ITransitionData) => {
+			Scroll.destroy();
 			this.updateHeader(data.next.container);
 			this.reloadJS(data.next.container);
 		});
@@ -290,8 +292,25 @@ class App {
 	 *
 	 * @private
 	 */
-	private getThemeColour(container: HTMLElement): string {
+	private getThemeColour(container: HTMLElement): ThemeColour {
 		return <'black' | 'white'>container.querySelector('main').getAttribute('data-theme') ?? 'black';
+	}
+
+	/**
+	 * Updates the client mouse positions to the html element.
+	 *
+	 * @private
+	 */
+	private mouseMoveHandler(): void {
+		const html = Elements.HTML;
+		document.addEventListener('mousemove', (e) => {
+			html.setAttribute('client-x', e.clientX.toString());
+			html.setAttribute('client-y', e.clientY.toString());
+			html.setAttribute('x', e.x.toString());
+			html.setAttribute('y', e.y.toString());
+			html.setAttribute('percent-x', ((e.x / window.innerWidth) * 100).toString());
+			html.setAttribute('percent-y', ((e.y / window.innerHeight) * 100).toString());
+		});
 	}
 }
 

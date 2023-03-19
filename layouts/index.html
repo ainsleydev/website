@@ -125,14 +125,15 @@
 				</div><!-- /Col -->
 				<!-- Content -->
 				<div class="col-12 col-mob-9 col-desk-7 col-hd-6">
-					<picture class="image margin-large" data-scroll data-scroll-speed="1">
-						{{ partial "media/picture.html" (dict
-							"image" (resources.Get "/images/site/home.jpg")
-							"alt" "ainsley.dev"
-							"lazy" true
-							"class" "animate-up"
-						)}}
-					</picture>
+					<div class="animate-up" data-animate-no-touch>
+						<picture class="image margin-large" data-scroll data-scroll-speed="1">
+							{{ partial "media/picture.html" (dict
+								"image" (resources.Get "/images/site/home.jpg")
+								"alt" "ainsley.dev"
+								"lazy" true
+							)}}
+						</picture>
+					</div>
 					<div class="animate-up" data-animate-no-touch>
 						<h2>Who we are</h2>
 						<p class="lead mb-0">

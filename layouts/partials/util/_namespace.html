@@ -1,0 +1,8 @@
+<!-- =====================
+   	Namespace
+    ===================== -->
+{{ $namespace := printf "%s-%s" .Kind .Type -}}
+{{- if .IsHome -}}
+	{{- $namespace = "home" -}}
+{{- end -}}
+{{- return $namespace }}
