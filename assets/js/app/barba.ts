@@ -16,10 +16,14 @@ import { Elements } from '../util/els';
  *
  */
 export class Barba {
-
-
+	/**
+	 *
+	 */
 	public hooks: HookMethods;
 
+	/**
+	 *
+	 */
 	constructor() {
 		this.hooks = barba.hooks;
 	}
@@ -32,6 +36,12 @@ export class Barba {
 			debug: Params.appDebug,
 			timeout: 5000,
 			transitions: [
+				{
+					name: 'self',
+					enter() {
+						console.log('self');
+					},
+				},
 				{
 					name: 'opacity-transition',
 					leave(data: ITransitionData) {
@@ -54,23 +64,26 @@ export class Barba {
 						});
 					},
 				},
-				// {
-				// 	name: 'default',
-				// 	leave(data: ITransitionData): Promise<any> | void {
-				// 		return anime({
-				// 			targets: data.current.container,
-				// 			opacity: 0,
-				// 			duration: 500,
-				// 			easing: 'linear',
-				// 			complete: () => {
-				// 				Scroll.destroy();
-				// 			},
-				// 		}).finished;
-				// 	},
-				// 	enter(data: ITransitionData): Promise<void> | void {
-				//
-				// 	}
-				// }
+				{
+					name: 'portfolio-card',
+					to: {
+						namespace: ['/portfolio/decspets/'],
+					},
+					leave(data: ITransitionData): Promise<any> | void {
+						return anime({
+							targets: data.current.container,
+							opacity: 0,
+							duration: 2000,
+							easing: 'linear',
+							complete: () => {
+								Scroll.destroy();
+							},
+						}).finished;
+					},
+					// enter(data: ITransitionData): Promise<void> | void {
+					//
+					// }
+				},
 			],
 		});
 	}

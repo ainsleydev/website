@@ -77,6 +77,9 @@ export class Log {
 	 * @param args
 	 */
 	static debug(message: unknown, ...args: unknown[]) {
+		if (!Params.appDebug) {
+			return;
+		}
 		if (!args.length) {
 			console.info(`${this.prefix} [${LogLevel.Debug}]: ${message}`);
 			return;

@@ -23,7 +23,7 @@ import { copyToClipboard } from '../components/copy';
 import { lazyImages } from '../components/image';
 import { video } from '../components/video';
 import { WebVitals } from '../analytics/web-vitals';
-import { animationLine, animationFade, animationHero, animationHeroLogos, animationUp } from '../animations/text';
+import { Animations } from '../animations/text';
 import { Elements } from '../util/els';
 import { Barba } from './barba';
 import Scroll from './scroll';
@@ -41,31 +41,42 @@ declare global {
 type ThemeColour = 'black' | 'white';
 
 /**
- *
+ * App is the main type for the site which bootstraps the
+ * application and initialises types.
  */
 class App {
 	/**
+	 * Determines if the app has already been booted.
 	 *
 	 * @private
 	 */
 	private hooksAdded = false;
 
 	/**
+	 * The page transition type.
+	 *
+	 * @private
+	 */
+	private barba: Barba;
+
+	/**
+	 * The navigation type used for determining if the nav
+	 * is open and playing animations.
+	 *
+	 * @private
+	 */
+	private nav: Navigation;
+
+	/**
+	 * The cursor type used for destroy and initialising
+	 * cursor animations.
 	 *
 	 * @private
 	 */
 	private cursor: Cursor;
 
 	/**
-	 *
-	 * @private
-	 */
-	private barba: Barba;
-
-	private nav: Navigation;
-
-	/**
-	 *
+	 * Bootstraps the application.
 	 */
 	boot(): void {
 		Log.debug('Booting ainsley.dev JS');
@@ -76,13 +87,7 @@ class App {
 
 		// Hooks
 		if (!this.hooksAdded) {
-			this.barba = new Barba();
-			this.nav = new Navigation();
-			this.barba.init();
-			this.before();
-			this.beforeEnter();
-			this.after();
-			this.hooksAdded = true;
+			this.once();
 		}
 
 		// Classes
@@ -99,6 +104,8 @@ class App {
 			activeClass: 'accordion-item-active',
 		} as CollapseOptions);
 
+		this.preventInternalLinks();
+
 		// Functions
 		beforeAfter();
 		bookmark();
@@ -112,6 +119,21 @@ class App {
 
 		// Analytics
 		this.webVitals();
+	}
+
+	/**
+	 * Initialises types only once (singletons).
+	 *
+	 * @private
+	 */
+	private once(): void {
+		this.barba = new Barba();
+		this.nav = new Navigation();
+		this.barba.init();
+		this.before();
+		this.beforeEnter();
+		this.after();
+		this.hooksAdded = true;
 	}
 
 	/**
@@ -132,16 +154,74 @@ class App {
 	 * @private
 	 */
 	private initAnimations(): void {
-		setTimeout(
-			() => {
-				animationHero();
-				animationHeroLogos();
-				animationLine();
-				animationUp();
-				animationFade();
-			},
-			this.nav.isAnimating ? 300 : 0,
-		);
+		const animations = new Animations(),
+			timeout = this.nav.duration() / 2 - 350;
+		setTimeout(() => animations.play(), this.nav.isAnimating ? timeout : 0);
+	}
+
+	/**
+	 * Before Enter Hook - Before enter transition/view
+	 *
+	 * @private
+	 * @see https://barba.js.org/docs/advanced/hooks/
+	 */
+	private beforeEnter(): void {
+		this.barba.hooks.beforeEnter((data: ITransitionData) => {
+			this.updateHeader(data.next.container);
+			this.reloadJS(data.next.container);
+		});
+	}
+
+	/**
+	 * Before Hook - Before everything
+	 *
+	 * @private
+	 * @see https://barba.js.org/docs/advanced/hooks/
+	 */
+	private before(): void {
+		this.barba.hooks.before(() => {
+			if (this.nav.isOpen) {
+				this.nav.play();
+			}
+			this.cursor.destroy();
+		});
+	}
+
+	/**
+	 * Prevents reloading of the page if the link clicked
+	 * is the current link, to avoid the page
+	 * reloading.
+	 * TODO: Check if we can do this in Barba.
+	 *
+	 * @private
+	 */
+	private preventInternalLinks(): void {
+		document.querySelectorAll<HTMLAnchorElement>('a[href]').forEach((link) => {
+			link.addEventListener('click', (e: Event) => {
+				const link = e.currentTarget as HTMLAnchorElement;
+				if (link.href === window.location.href && this.nav.isOpen) {
+					e.preventDefault();
+					e.stopPropagation();
+					this.nav.play();
+				}
+			});
+		});
+	}
+
+	/**
+	 * After Hook - After everything
+	 *
+	 * @private
+	 * @see https://barba.js.org/docs/advanced/hooks/
+	 */
+	private after(): void {
+		this.barba.hooks.after((data: ITransitionData) => {
+			Elements.HTML.scrollTop = 0;
+			Elements.Body.scrollTop = 0;
+			Scroll.init(data.next.container);
+			this.triggerPageView();
+			this.boot();
+		});
 	}
 
 	/**
@@ -153,43 +233,6 @@ class App {
 			enable: Params.isProduction,
 			analyticsId: Params.vercelAnalyticsID,
 			debug: Params.appDebug,
-		});
-	}
-
-	/**
-	 *
-	 * @private
-	 */
-	private after(): void {
-		this.barba.hooks.after((data: ITransitionData) => {
-			Elements.HTML.scrollTop = 0;
-			Elements.Body.scrollTop = 0;
-			Scroll.init(data.next.container);
-			this.boot();
-		});
-	}
-
-	/**
-	 *
-	 * @private
-	 */
-	private beforeEnter(): void {
-		this.barba.hooks.beforeEnter((data: ITransitionData) => {
-			this.updateHeader(data.next.container);
-			this.reloadJS(data.next.container);
-		});
-	}
-
-	/**
-	 *
-	 * @private
-	 */
-	private before(): void {
-		this.barba.hooks.before(() => {
-			if (this.nav.isOpen) {
-				this.nav.play();
-			}
-			this.cursor.destroy();
 		});
 	}
 

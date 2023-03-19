@@ -13,6 +13,10 @@
 	top: 0;
 	left: 0;
 	width: 100vw;
+	height: 100vh;
+	//min-height: 500px;
+	overflow-y: scroll;
+	overflow-x: hidden;
 	@include full-height;
 	background-color: $black;
 
@@ -169,11 +173,20 @@
 		left: -9999999px;
 	}
 
+	// Small Desktops
+	// =========================================================================
+
+	@media screen and (max-height: 1000px) and (min-width: $grid-breakpoint-tab * 1px) {
+		&-link-text {
+			font-size: 8.5vh;
+		}
+	}
+
 	// Small Phones
 	// =========================================================================
 
 	@include media-small-phones {
-		&-main #{$self}-link-text {
+		&-link-text {
 			font-size: 30px;
 		}
 	}
@@ -248,6 +261,27 @@
 
 		&-contact {
 			display: flex;
+		}
+	}
+
+	// Small Height
+	// =========================================================================
+
+	@media screen and (orientation: landscape) and (max-height: 600px) {
+		&-row {
+			align-items: flex-start;
+		}
+
+		&-list {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(3, 1fr);
+			grid-column-gap: 1rem;
+			grid-row-gap: $margin;
+		}
+
+		&-link {
+			margin-bottom: 0;
 		}
 	}
 }

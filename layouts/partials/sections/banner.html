@@ -17,7 +17,7 @@
 	data-cursor-invert data-cursor-invert-black
    	data-scroll-section>
 	<!-- Image -->
-	<picture class="banner-image zoom-overflow
+	<picture class="banner-image zoom-overflow animate-fade
 		{{ with .brightness -}} brightness-{{ . }} {{ else }} brightness-50 {{- end }}">
 		{{ $image := resources.Get "images/banners/desk.jpg" -}}
 		{{- if .image }}

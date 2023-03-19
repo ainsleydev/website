@@ -12,10 +12,20 @@ import anime from 'animejs/lib/anime.es';
 import { AnimeTimelineInstance } from 'animejs';
 
 /**
- * Log is responsible for logging to the stdout
- * within the website.
+ * Navigation is responsible for adding animations to the
+ * element when it is open and closed.
  */
 export class Navigation {
+	/**
+	 * Determines if the navigation is currently open.
+	 */
+	public isOpen = false;
+
+	/**
+	 * Determines if the navigation is currently animating.
+	 */
+	public isAnimating = false;
+
 	/**
 	 * The navigational HTML element.
 	 */
@@ -25,10 +35,6 @@ export class Navigation {
 	 * The toggle to display the navigation element.
 	 */
 	private readonly button: HTMLElement;
-
-	public isOpen = false;
-
-	public isAnimating = false;
 
 	/**
 	 * The anime JS timeline that animates the navigational
@@ -54,7 +60,6 @@ export class Navigation {
 		this.setTimeline();
 		this.timeline.reverse();
 		this.attachClick();
-		this.pictureHover();
 	}
 
 	/**
@@ -68,6 +73,13 @@ export class Navigation {
 		this.animateButton();
 		this.timeline.reverse();
 		this.timeline.play();
+	}
+
+	/**
+	 * Returns the duration of the navigation timeline.
+	 */
+	public duration(): number {
+		return this.timeline.duration;
 	}
 
 	/**

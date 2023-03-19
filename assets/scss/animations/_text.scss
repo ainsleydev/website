@@ -28,7 +28,7 @@
 	margin: auto;
 	height: 3px;
 	width: 100%;
-	background-color: $white;
+	background-color: colour('foreground');
 	transform-origin: left;
 
 	@include media-mob {

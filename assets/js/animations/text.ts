@@ -9,9 +9,49 @@
 import { IsTouchDevice } from '../util/css';
 import { Log } from '../util/log';
 import { WayPoint } from './waypoint';
+import { RemoveBRs } from '../type/util';
 import SplitType from 'split-type';
 import anime from 'animejs/lib/anime.es';
-import { RemoveBRs } from '../type/util';
+
+/**
+ * Playable is the type that defines the callback to
+ * play an animation.
+ */
+type Playable = () => void;
+
+/**
+ * Animations are responsible for initialising and
+ * playing site wide animations.
+ */
+export class Animations {
+	/**
+	 * Playables defines the array of animatable instances.
+	 */
+	private playables: Playable[] = [];
+
+	/**
+	 * Creates a new Animation instance and sets up the CSS properties.
+	 * E.g. set opacity to 0
+	 */
+	constructor() {
+		this.playables.push(hero());
+		this.playables.push(...heroLogos());
+		this.playables.push(...line());
+		this.playables.push(...up());
+		this.playables.push(...fade());
+	}
+
+	/**
+	 * Plays the animations.
+	 */
+	play(): void {
+		this.playables.forEach((play) => {
+			if (play) {
+				play();
+			}
+		});
+	}
+}
 
 /**
  * Retrieves the delay for an animation element.
@@ -20,6 +60,15 @@ import { RemoveBRs } from '../type/util';
  */
 const getDelay = (el: Element) =>
 	el.hasAttribute('data-animate-delay') ? parseInt(el.getAttribute('data-animate-delay')) : 0;
+
+/**
+ * Determines if the animation should be disabled for touch devices.
+ *
+ * @param el
+ */
+const getDisableTouch = (el: Element) => {
+	return el.hasAttribute('data-animate-no-touch') && IsTouchDevice();
+};
 
 /**
  * Adds an `underline` span to an element if
@@ -56,7 +105,7 @@ const addMark = (els: HTMLElement[] | null): void => {
 /**
  * Hero Animation (H1 & Lead)
  */
-export const animationHero = () => {
+const hero = (): Playable => {
 	const wrapper = document.querySelector('.hero-animate'),
 		heading = document.querySelector('.hero-animate h1');
 	if (!wrapper || !heading) {
@@ -72,9 +121,11 @@ export const animationHero = () => {
 		lineIndex = [...els].indexOf(heading.querySelector('.underline'));
 
 	anime.set(heading.querySelectorAll('.word'), { opacity: 1 });
-	anime
+	anime.set(heading.querySelectorAll('.char'), { opacity: 0 });
+	return anime
 		.timeline({
-			// complete: () => text.revert(),
+			complete: () => text.revert(),
+			autoplay: false,
 		})
 		.add({
 			targets: heading.querySelectorAll('.char'),
@@ -116,32 +167,40 @@ export const animationHero = () => {
 				duration: 1500,
 			},
 			'-=900',
-		);
-};
-
-export const animationHeroLogos = (): void => {
-	document.querySelectorAll('.hero-logos figure').forEach((logo, index) => {
-		anime.set(logo, { opacity: 0 });
-		anime({
-			targets: logo,
-			translateY: [100, 0],
-			opacity: [0, 1],
-			delay: (el, i) => 60 * index,
-			easing: 'easeOutExpo',
-			duration: 1300,
-		});
-	});
+		).play;
 };
 
 /**
- *
+ * Hero logo animation.
  */
-export const animationLine = (): void => {
+const heroLogos = (): Playable[] => {
+	const playables: Playable[] = [];
+	document.querySelectorAll('.hero-logos figure').forEach((logo) => {
+		anime.set(logo, { opacity: 0 });
+		playables.push(() => {
+			anime({
+				targets: logo,
+				translateY: [100, 0],
+				opacity: [0, 1],
+				delay: (el, i) => 60 * i,
+				easing: 'easeOutExpo',
+				duration: 1300,
+			});
+		});
+	});
+	return playables;
+};
+
+/**
+ * Line animation for headings & lead texts.
+ */
+const line = (): Playable[] => {
+	const playables: Playable[] = [];
 	document.querySelectorAll('.animate-line').forEach((an) => {
 		const heading = an.querySelector('.animate-line-heading'),
 			lead = an.querySelector('.animate-line-lead');
 
-		if (IsTouchDevice()) {
+		if (getDisableTouch(an)) {
 			RemoveBRs(an);
 			return;
 		}
@@ -153,76 +212,93 @@ export const animationLine = (): void => {
 
 		const text = new SplitType(heading as HTMLElement, { types: 'lines' });
 		anime.set(lead, { opacity: 0 });
-		WayPoint(heading, {
-			rootMargin: '-100px',
-			callback: () => {
-				anime
-					.timeline({
-						complete: () => text.revert(),
-						delay: getDelay(an),
-					})
-					.add({
-						targets: text.lines,
-						translateY: [100, 0],
-						opacity: [0, 1],
-						easing: 'easeOutExpo',
-						duration: 2000,
-						delay: (el, i) => 300 + 100 * i,
-					})
-					.add(
-						{
-							targets: lead,
+		playables.push(() => {
+			WayPoint(heading, {
+				rootMargin: '-100px',
+				callback: () => {
+					anime
+						.timeline({
+							complete: () => text.revert(),
+							delay: getDelay(an),
+						})
+						.add({
+							targets: text.lines,
 							translateY: [100, 0],
 							opacity: [0, 1],
 							easing: 'easeOutExpo',
 							duration: 2000,
-						},
-						'-=1600',
-					);
-			},
+							delay: (el, i) => 300 + 100 * i,
+						})
+						.add(
+							{
+								targets: lead,
+								translateY: [100, 0],
+								opacity: [0, 1],
+								easing: 'easeOutExpo',
+								duration: 2000,
+							},
+							'-=1600',
+						);
+				},
+			});
 		});
 	});
+	return playables;
 };
 
 /**
  * A fade up animation with transform.
  */
-export const animationUp = (): void => {
+const up = (): Playable[] => {
+	const playables: Playable[] = [];
 	document.querySelectorAll('.animate-up').forEach((an) => {
+		if (getDisableTouch(an)) {
+			return;
+		}
 		anime.set(an, { opacity: 0 });
-		WayPoint(an, {
-			rootMargin: window.innerWidth > 1024 ? '-200px' : '-50px',
-			callback: (el: Element) => {
-				anime({
-					targets: el,
-					translateY: [100, 0],
-					opacity: [0, 1],
-					easing: 'easeOutExpo',
-					duration: 1300,
-					delay: getDelay(el),
-				});
-			},
+		playables.push(() => {
+			WayPoint(an, {
+				rootMargin: window.innerWidth > 1024 ? '-200px' : '-50px',
+				callback: (el: Element) => {
+					anime({
+						targets: el,
+						translateY: [100, 0],
+						opacity: [0, 1],
+						easing: 'easeOutExpo',
+						duration: 1300,
+						delay: getDelay(el),
+					});
+				},
+			});
 		});
 	});
+	return playables;
 };
 
 /**
- * A simple fade animation .
+ * A simple fade animation.
  */
-export const animationFade = (): void => {
+const fade = (): Playable[] => {
+	const playables: Playable[] = [];
 	document.querySelectorAll('.animate-fade').forEach((an) => {
+		if (getDisableTouch(an)) {
+			return;
+		}
 		anime.set(an, { opacity: 0 });
-		WayPoint(an, {
-			rootMargin: '-100px',
-			callback: (el: Element) => {
-				anime({
-					targets: el,
-					opacity: [0, 1],
-					easing: 'easeOutExpo',
-					duration: 1500,
-					delay: getDelay(el),
-				});
-			},
+		playables.push(() => {
+			WayPoint(an, {
+				rootMargin: '-100px',
+				callback: (el: Element) => {
+					anime({
+						targets: el,
+						opacity: [0, 1],
+						easing: 'easeOutExpo',
+						duration: 1500,
+						delay: getDelay(el),
+					});
+				},
+			});
 		});
 	});
+	return playables;
 };
