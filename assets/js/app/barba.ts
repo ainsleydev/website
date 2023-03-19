@@ -16,10 +16,14 @@ import { Elements } from '../util/els';
  *
  */
 export class Barba {
-
-
+	/**
+	 *
+	 */
 	public hooks: HookMethods;
 
+	/**
+	 *
+	 */
 	constructor() {
 		this.hooks = barba.hooks;
 	}

@@ -11,7 +11,7 @@ import { Elements } from '../util/els';
 import { Log } from '../util/log';
 
 class Scroll {
-	private instance = null
+	private instance = null;
 
 	private options = {
 		wrapper: window,
@@ -30,7 +30,7 @@ class Scroll {
 			smooth: false,
 			breakpoint: 1024,
 		},
-	}
+	};
 
 	/**
 	 *
@@ -45,11 +45,12 @@ class Scroll {
 	 * @param container
 	 */
 	public init(container: Element): void {
-		const scrollContainer = container.querySelector("[data-scroll-container]"),
+		const scrollContainer = container.querySelector('[data-scroll-container]'),
 			options = this.options;
 		if (scrollContainer.hasAttribute('data-scroll-disable')) {
-			// options.smooth = false;
+			options.smooth = false;
 		}
+		// @ts-ignore
 		this.instance = new LoconativeScroll({
 			el: scrollContainer,
 			...options,
@@ -73,7 +74,6 @@ class Scroll {
 		// 	}
 		// 	html.classList.remove('scrolled');
 		// });
-
 	}
 }
 

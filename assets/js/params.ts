@@ -28,7 +28,7 @@ export interface ParamsType {
  */
 export const Params = {
 	appEnv: params.appEnv,
-	appDebug: params.appDebug,
+	appDebug: params.appDebug === 'true',
 	brandName: params.brandName,
 	isProduction: params.isProduction,
 	apiKey: params.apiKey,

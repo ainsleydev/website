@@ -7,6 +7,7 @@
  */
 
 import { Log } from '../util/log';
+import { IsTouchDevice } from '../util/css';
 
 /**
  * Before / After - Controls the imagery and thumbs
@@ -21,16 +22,29 @@ export const beforeAfter = (): void => {
 			Log.error('Before/After - No foreground found for before/after element');
 			return;
 		}
-		slider.addEventListener('input', (e) => {
-			const foreground = <HTMLElement>el.querySelector('.before-after-background'),
-				thumb = <HTMLButtonElement>el.querySelector('.before-after-thumb');
-			if (!foreground || !thumb) {
-				Log.error('Before/After - Element missing from before/after element');
-				return;
-			}
-			const value = (e.target as HTMLInputElement).value;
-			foreground.style.width = `${value}%`;
-			thumb.style.left = `${value}%`;
-		});
+		const foreground = <HTMLElement>el.querySelector('.before-after-background'),
+			thumb = <HTMLButtonElement>el.querySelector('.before-after-thumb');
+		if (!foreground || !thumb) {
+			Log.error('Before/After - Element missing from before/after element');
+			return;
+		}
+		const updateValues = (percent: number) => {
+			foreground.style.width = `${percent}%`;
+			thumb.style.left = `${percent}%`;
+		};
+		if (!IsTouchDevice()) {
+			slider.addEventListener('input', (e) => {
+				const value = (e.target as HTMLInputElement).value;
+				console.log(value);
+				updateValues(parseFloat(value));
+			});
+		} else {
+			slider.addEventListener('touchmove', (e: TouchEvent) => {
+				const box = slider.getBoundingClientRect(),
+					position = e.touches[0].clientX - box.left,
+					percent = (position / box.width) * 100;
+				updateValues(percent);
+			});
+		}
 	});
-}
+};

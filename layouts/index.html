@@ -11,7 +11,7 @@
 						<!-- Heading -->
 						<div class="margin-large">
 							<h1 data-scroll data-scroll-speed="2" data-scroll-position="top">
-								Digital <span class="type-serif">craftmanship*</span><br/>sculpting you as an<br/> industry <u>leader</u>.
+								Digital <span class="type-serif">craftmanship*</span><br/> sculpting you as an<br class="d-none d-tab-inline"/> industry <u>leader</u>
 							</h1>
 						</div>
 						<!-- Lead -->
@@ -75,7 +75,7 @@
 				<!-- Content -->
 				<div class="col-12 col-mob-9 col-desk-7 col-hd-6">
 					<!-- Visibility -->
-					<div class="animate-up margin-large">
+					<div class="animate-up margin-large" data-animate-no-touch>
 						<h3>
 							Increase your visibility
 						</h3>
@@ -85,7 +85,7 @@
 						</p>
 					</div>
 					<!-- Solutions -->
-					<div class="animate-up margin-large">
+					<div class="animate-up margin-large" data-animate-no-touch>
 						<h3>
 							Discover bespoke solutions
 						</h3>
@@ -95,7 +95,7 @@
 						</p>
 					</div>
 					<!-- Simplicity -->
-					<div class="animate-up margin-large margin-none">
+					<div class="animate-up margin-large margin-none" data-animate-no-touch>
 						<h3>
 							Driven by simplicity
 						</h3>
@@ -127,12 +127,13 @@
 				<div class="col-12 col-mob-9 col-desk-7 col-hd-6">
 					<picture class="image margin-large" data-scroll data-scroll-speed="1">
 						{{ partial "media/picture.html" (dict
-						"image" (resources.Get "/images/site/home.jpg")
-						"alt" "ainsley.dev"
-						"lazy" true
+							"image" (resources.Get "/images/site/home.jpg")
+							"alt" "ainsley.dev"
+							"lazy" true
+							"class" "animate-up"
 						)}}
 					</picture>
-					<div data-animate-up>
+					<div class="animate-up" data-animate-no-touch>
 						<h2>Who we are</h2>
 						<p class="lead mb-0">
 							In a commercial world increasingly reliant on digital technology, ainsley.dev is a market-leading software design and development company at the forefront of high-tech advancements and techniques.
@@ -161,30 +162,38 @@
 				<div class="col-12 col-mob-9 col-desk-7 col-hd-6">
 					<div class="row no-gaps">
 						<div class="col-12 col-desk-6">
-							<h3 class="type-heading animate-up">
+							<h3 class="type-heading animate-up"
+								data-animate-no-touch>
 								Brand strategy
 							</h3>
-							<h3 class="type-heading animate-up" data-animate-delay="100">
+							<h3 class="type-heading animate-up"
+								data-animate-delay="100" data-animate-no-touch>
 								Digital experience
 							</h3>
-							<h3 class="type-heading animate-up" data-animate-delay="200">
+							<h3 class="type-heading animate-up"
+								data-animate-delay="200" data-animate-no-touch>
 								Bespoke UI/UX
 							</h3>
-							<h3 class="type-heading animate-up mb-desk-0" data-animate-delay="300">
+							<h3 class="type-heading animate-up mb-desk-0"
+								data-animate-delay="300" data-animate-no-touch>
 								Development
 							</h3>
 						</div><!--- /Col -->
 						<div class="col-12 col-desk-6">
-							<h3 class="type-heading animate-up" data-animate-delay="400">
+							<h3 class="type-heading animate-up"
+								data-animate-delay="400" data-animate-no-touch>
 								Software
 							</h3>
-							<h3 class="type-heading animate-up" data-animate-delay="500">
+							<h3 class="type-heading animate-up"
+								data-animate-delay="500" data-animate-no-touch>
 								SEO
 							</h3>
-							<h3 class="type-heading animate-up" data-animate-delay="600">
+							<h3 class="type-heading animate-up"
+								data-animate-delay="600" data-animate-no-touch>
 								Copywriting
 							</h3>
-							<h3 class="type-heading animate-up mb-0" data-animate-delay="700">
+							<h3 class="type-heading animate-up mb-0"
+								data-animate-delay="700" data-animate-no-touch>
 								Illustration
 							</h3>
 						</div><!--- /Col -->
@@ -306,8 +315,9 @@
 							</div><!-- /Col -->
 							<!-- Cards -->
                             {{ range $index, $page := . }}
-								<div class="col-12 card-col {{ if eq $index 0 }} card-col-first {{- end }} animate-fade">
-                                    {{ .Render "card" }}
+								<div class="col-12 card-col {{ if eq $index 0 }} card-col-first {{- end }} animate-fade"
+									 data-animate-no-touch>
+									{{ .Render "card" }}
 								</div><!-- /Col -->
                             {{- end }}
 						</div><!-- /Row -->

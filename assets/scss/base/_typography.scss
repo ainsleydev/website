@@ -96,7 +96,7 @@ h2,
 @mixin h3 {
 	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 23px, 37px);
 	margin-bottom: 1rem;
-	line-height: 1.4;
+	line-height: 1.6;
 	letter-spacing: $text-letter-spacing;
 }
 
