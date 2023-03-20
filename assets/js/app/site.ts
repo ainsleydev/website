@@ -169,6 +169,7 @@ class App {
 	private beforeEnter(): void {
 		this.barba.hooks.beforeEnter((data: ITransitionData) => {
 			Scroll.destroy();
+			this.updatePageColour(data.next.container);
 			this.updateHeader(data.next.container);
 			this.reloadJS(data.next.container);
 		});
@@ -186,27 +187,6 @@ class App {
 				this.nav.play();
 			}
 			this.cursor.destroy();
-		});
-	}
-
-	/**
-	 * Prevents reloading of the page if the link clicked
-	 * is the current link, to avoid the page
-	 * reloading.
-	 * TODO: Check if we can do this in Barba.
-	 *
-	 * @private
-	 */
-	private preventInternalLinks(): void {
-		document.querySelectorAll<HTMLAnchorElement>('a[href]').forEach((link) => {
-			link.addEventListener('click', (e: Event) => {
-				const link = e.currentTarget as HTMLAnchorElement;
-				if (link.href === window.location.href && this.nav.isOpen) {
-					e.preventDefault();
-					e.stopPropagation();
-					this.nav.play();
-				}
-			});
 		});
 	}
 
@@ -235,6 +215,27 @@ class App {
 			enable: Params.isProduction,
 			analyticsId: Params.vercelAnalyticsID,
 			debug: Params.appDebug,
+		});
+	}
+
+	/**
+	 * Prevents reloading of the page if the link clicked
+	 * is the current link, to avoid the page
+	 * reloading.
+	 * TODO: Check if we can do this in Barba.
+	 *
+	 * @private
+	 */
+	private preventInternalLinks(): void {
+		document.querySelectorAll<HTMLAnchorElement>('a[href]').forEach((link) => {
+			link.addEventListener('click', (e: Event) => {
+				const link = e.currentTarget as HTMLAnchorElement;
+				if (link.href === window.location.href && this.nav.isOpen) {
+					e.preventDefault();
+					e.stopPropagation();
+					this.nav.play();
+				}
+			});
 		});
 	}
 
@@ -294,6 +295,20 @@ class App {
 	 */
 	private getThemeColour(container: HTMLElement): ThemeColour {
 		return <'black' | 'white'>container.querySelector('main').getAttribute('data-theme') ?? 'black';
+	}
+
+	/**
+	 * Updates the body colour with the current theme.
+	 *
+	 * @private
+	 */
+	private updatePageColour(container: HTMLElement): void {
+		const theme = this.getThemeColour(container);
+		let colour = "#ffffff";
+		if (theme === "black") {
+			colour = "#0A0A0A";
+		}
+		Elements.Body.style.backgroundColor = colour;
 	}
 
 	/**

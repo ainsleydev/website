@@ -2,10 +2,10 @@
 	<!-- =====================
 		Brand Single
 		===================== -->
-	<section class="hero hero-half-height">
+	<section class="hero hero-half-height" data-scroll-section>
 		<!-- Background -->
         {{ with .Parent.Params.singlehero -}}
-			<picture class="hero-background gradient gradient-height-100">
+			<picture class="hero-background gradient gradient-height-100 animate-fade">
                 {{ partial "media/picture.html" (dict
 					"image" ($.Parent.Resources.Get .default)
 					"mob" ($.Parent.Resources.Get .mobile)
@@ -16,7 +16,7 @@
 			</picture>
         {{- end }}
 		<!-- Content -->
-		<div class="container">
+		<div class="container animate-up">
 			<div class="row">
 				<div class="col-12">
 					<!-- Text -->
@@ -61,7 +61,7 @@
 	<!-- =====================
 		Content
 		===================== -->
-	<section class="section section-padding" id="content">
+	<section class="section section-padding" id="content" data-scroll-section>
 		<div class="container">
 			<div class="row">
 				<!-- Sidebar -->
@@ -88,7 +88,7 @@
 				</div><!-- /Col -->
 				<!-- Content -->
 				<div class="col-12 col-desk-8 offset-desk-1">
-					<article class="margin-large">
+					<article>
                         {{ .Content | safeHTML }}
 					</article>
 				</div><!-- /Col -->

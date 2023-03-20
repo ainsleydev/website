@@ -88,12 +88,9 @@
 	// Text
 	// =========================================================================
 
-	&-text {
+	&-text,
+	&-text-large {
 		margin-bottom: 8vh;
-
-		&-large {
-			margin-bottom: 20vh;
-		}
 	}
 
 	// Lead
@@ -122,6 +119,7 @@
 		min-height: 360px;
 		height: 50vw;
 		aspect-ratio: 1.1 / 1;
+		transform: translateY(-60%);
 
 		&-left {
 			left: 0;
@@ -136,6 +134,7 @@
 		svg {
 			width: auto;
 			height: 100%;
+			opacity: 0.99;
 		}
 	}
 
@@ -168,6 +167,13 @@
 		}
 	}
 
+	// Mods
+	// =========================================================================
+
+	&-min-height {
+		min-height: 720px;
+	}
+
 	// Animate
 	// =========================================================================
 
@@ -190,6 +196,10 @@
 	@include media-mob {
 		&-align-bottom {
 			padding-bottom: 10vh;
+		}
+
+		&-a-symbol {
+			transform: none;
 		}
 
 		&-logos {
@@ -217,6 +227,10 @@
 		&-simple {
 			padding-top: clamp(100px, 20vw, 170px);
 		}
+
+		&-text-large {
+			margin-bottom: 20vh;
+		}
 	}
 
 	// Space Around
@@ -237,6 +251,24 @@
 
 			#{$self}-row {
 				margin-bottom: 0;
+			}
+		}
+	}
+
+	// Mobile Only
+	// =========================================================================
+
+	@include media-mob-down {
+
+		&-space-around {
+			height: auto;
+			padding-top: 0;
+
+			#{$self}-row {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				height: 100vh;
 			}
 		}
 	}

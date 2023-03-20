@@ -16,12 +16,27 @@ interface Angles {
 }
 
 /**
+ * Calculate the angle to rotate.
+ *
+ * @returns The x and y angles.
+ * @param arrow
+ */
+const calculateArrowAngles = (arrow: Element): Angles => {
+	const rotation = arrow.getAttribute('data-arrow-rotation') ?? '45',
+		radians = parseInt(rotation) * (Math.PI / 180);
+	return {
+		x: -Math.round(Math.sin(radians) * 100),
+		y: -Math.round(Math.cos(radians) * -100),
+	};
+}
+
+/**
  * Arrow is responsible for animating an arrow when it is hovered over by the mouse.
  * It calculates the angle of rotation based on data attributes, and uses
  * CSS transforms to display a hidden element when the arrow is
  * hovered over.
  */
-export class Arrow {
+class Arrow {
 	/**
 	 * Initialises the arrow elements.
 	 *
@@ -40,35 +55,17 @@ export class Arrow {
 	 * @void
 	 */
 	private initArrow(arrow: HTMLElement): void {
-		const rotation = arrow.getAttribute('data-arrow-rotation') ?? '45',
-			visible = arrow.querySelector('.arrow-hover-visible') as HTMLElement,
+		const visible = arrow.querySelector('.arrow-hover-visible') as HTMLElement,
 			hidden = arrow.querySelector('.arrow-hover-hidden') as HTMLElement;
 
 		if (!visible || !hidden) {
 			Log.error('Arrow - No visible or hidden element in arrow hover element.');
 			return;
 		}
-		if (!rotation) {
-			return;
-		}
 
-		const angles = this.calculateAngles(parseInt(rotation));
+		const angles = calculateArrowAngles(arrow);
 		this.transform(hidden, angles, 0);
 		this.addEventListeners(arrow, visible, hidden, angles);
-	}
-
-	/**
-	 * Calculate the angle to rotate.
-	 *
-	 * @param angle - The angle to rotate.
-	 * @returns The x and y angles.
-	 */
-	private calculateAngles(angle: number): Angles {
-		const radians = angle * (Math.PI / 180);
-		return {
-			x: -Math.round(Math.sin(radians) * 100),
-			y: -Math.round(Math.cos(radians) * -100),
-		};
 	}
 
 	/**
@@ -102,3 +99,5 @@ export class Arrow {
 		});
 	}
 }
+
+export {Arrow, calculateArrowAngles, Angles}

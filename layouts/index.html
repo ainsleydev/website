@@ -2,7 +2,7 @@
 	<!-- =====================
 		Home
 		===================== -->
-	<section class="hero hero-full-height">
+	<section class="hero hero-full-height hero-min-height">
 		<div class="container">
 			<div class="row justify-content-between">
 				<div class="col-12">
@@ -11,7 +11,7 @@
 						<!-- Heading -->
 						<div class="margin-large">
 							<h1 data-scroll data-scroll-speed="2" data-scroll-position="top">
-								Digital <span class="type-serif">craftmanship*</span><br/> sculpting you as an<br class="d-none d-tab-inline"/> industry <u>leader</u>
+								Digital <span class="type-serif">craftmanship*</span><br/>sculpting you as an<br class="d-none d-tab-inline"/>industry <u>leader</u>
 							</h1>
 						</div>
 						<!-- Lead -->
@@ -206,7 +206,7 @@
 	<!-- =====================
 		Portfolio
 		===================== -->
-    {{- $portfolio :=  (where .Site.RegularPages "Type" "portfolio").ByWeight | first 6 -}}
+    {{- $portfolio :=  (where .Site.RegularPages "Type" "portfolio").ByWeight | first 8 -}}
     {{ with $portfolio }}
 		<section class="section section-padding section-padding-top">
 			<div class="container">
@@ -267,7 +267,7 @@
 	<!-- =====================
 		Insights
 		===================== -->
-    {{- $insights :=  (where .Site.RegularPages "Type" "insights").ByDate.Reverse | first 4 -}}
+    {{- $insights :=  (where .Site.RegularPages "Type" "insights").ByDate.Reverse | first 6 -}}
     {{ with $insights }}
 		<section class="section section-padding">
 			<div class="container">

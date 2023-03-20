@@ -23,19 +23,20 @@ export const beforeAfter = (): void => {
 			return;
 		}
 		const foreground = <HTMLElement>el.querySelector('.before-after-background'),
-			thumb = <HTMLButtonElement>el.querySelector('.before-after-thumb');
-		if (!foreground || !thumb) {
+			thumb = <HTMLButtonElement>el.querySelector('.before-after-thumb'),
+			line = <HTMLElement>el.querySelector(".before-after-line");
+		if (!foreground || !thumb || !line) {
 			Log.error('Before/After - Element missing from before/after element');
 			return;
 		}
 		const updateValues = (percent: number) => {
 			foreground.style.width = `${percent}%`;
 			thumb.style.left = `${percent}%`;
+			line.style.left = `${percent}%`;
 		};
 		if (!IsTouchDevice()) {
 			slider.addEventListener('input', (e) => {
 				const value = (e.target as HTMLInputElement).value;
-				console.log(value);
 				updateValues(parseFloat(value));
 			});
 		} else {

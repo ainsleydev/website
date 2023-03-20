@@ -69,9 +69,6 @@ export class Navigation {
 	public play(): void {
 		this.isAnimating = true;
 		this.isOpen = this.timeline.reversed;
-
-		console.log(this.isOpen);
-
 		this.toggleClasses();
 		this.animateButton();
 		this.timeline.reverse();

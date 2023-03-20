@@ -163,6 +163,12 @@ export class Barba {
 					duration: 600,
 					easing: 'easeOutExpo',
 				});
+				anime({
+					targets: ".header",
+					opacity: [0, 1],
+					duration: 600,
+					easing: 'linear',
+				})
 			},
 			after() {
 				anime.set('.cursor-circle', { display: 'none' });
