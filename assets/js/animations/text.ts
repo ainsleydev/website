@@ -12,6 +12,8 @@ import { WayPoint } from './waypoint';
 import { RemoveBRs } from '../type/util';
 import SplitType from 'split-type';
 import anime from 'animejs/lib/anime.es';
+import { calculateArrowAngles } from './arrow';
+import { AnimeParams, AnimeTimelineInstance } from 'animejs';
 
 /**
  * Playable is the type that defines the callback to
@@ -62,6 +64,14 @@ const getDelay = (el: Element) =>
 	el.hasAttribute('data-animate-delay') ? parseInt(el.getAttribute('data-animate-delay')) : 0;
 
 /**
+ * Retrieves the duration for an animation element.
+ *
+ * @param el
+ */
+const getDuration = (el: Element) =>
+	el.hasAttribute('data-animate-duration') ? parseInt(el.getAttribute('data-animate-duration')) : 1500;
+
+/**
  * Determines if the animation should be disabled for touch devices.
  *
  * @param el
@@ -80,7 +90,7 @@ const getDisableTouch = (el: Element) => {
 const addUnderline = (el: Element): void => {
 	const underline = el.querySelector('u');
 	if (underline) {
-		underline.innerHTML += `<span class="underline">`;
+		underline.innerHTML += `<span class='underline'>`;
 	}
 };
 
@@ -111,6 +121,12 @@ const hero = (): Playable => {
 	if (!wrapper || !heading) {
 		return;
 	}
+
+
+	// Ensure there is a space between the br elements when minified.
+	heading.innerHTML = heading.innerHTML.replace(/<br.*?>/gi, re =>re + `&nbsp;`);
+	heading.innerHTML = heading.innerHTML.replace(/<\/u>/, re =>re + `&nbsp;`);
+
 	const text = new SplitType(heading as HTMLElement, { types: 'chars, words' });
 
 	addUnderline(heading);
@@ -122,9 +138,10 @@ const hero = (): Playable => {
 
 	anime.set(heading.querySelectorAll('.word'), { opacity: 1 });
 	anime.set(heading.querySelectorAll('.char'), { opacity: 0 });
-	return anime
+	anime.set(heading.querySelectorAll('.hero .arrow-hover'), { opacity: 0 });
+	const timeline = anime
 		.timeline({
-			complete: () => text.revert(),
+			// complete: () => text.revert(),
 			autoplay: false,
 		})
 		.add({
@@ -136,38 +153,44 @@ const hero = (): Playable => {
 			duration: 1400,
 			delay: (el, i) => 300 + 50 * i,
 		})
-		.add(
-			{
-				targets: heading.querySelectorAll('.mark'),
-				scale: [3.6, 1],
-				opacity: [0, 1],
-				rotateZ: [45, 0],
-				easing: 'easeInOutExpo',
-				duration: 1000,
-			},
-			300 + 50 * markIndex,
-		)
-		.add(
-			{
-				targets: heading.querySelectorAll('.underline'),
-				opacity: [0.5, 1],
-				scaleX: [0, 1],
-				easing: 'easeInOutExpo',
-				duration: 1000,
-			},
-			300 + 50 * lineIndex,
-		)
-		.add(
-			{
-				targets: wrapper.querySelector('.lead'),
-				translateY: [50, 0],
-				translateZ: 0,
-				easing: 'easeOutExpo',
-				opacity: [0, 1],
-				duration: 1500,
-			},
-			'-=900',
-		).play;
+		.add({
+			targets: heading.querySelectorAll('.mark'),
+			scale: [3.6, 1],
+			opacity: [0, 1],
+			rotateZ: [45, 0],
+			easing: 'easeInOutExpo',
+			duration: 1000,
+		}, 300 + 50 * markIndex)
+		.add({
+			targets: heading.querySelectorAll('.underline'),
+			opacity: [0.5, 1],
+			scaleX: [0, 1],
+			easing: 'easeInOutExpo',
+			duration: 1000,
+		}, 300 + 50 * lineIndex)
+		.add({
+			targets: wrapper.querySelector('.lead'),
+			translateY: [50, 0],
+			translateZ: 0,
+			easing: 'easeOutExpo',
+			opacity: [0, 1],
+			duration: 1500,
+		}, '-=900')
+
+	const arrow = document.querySelector(".hero .arrow-hover");
+	if (arrow) {
+		const angles = calculateArrowAngles(arrow);
+		timeline.add({
+			targets: arrow,
+			opacity: [0, 1],
+			translateX: [angles.x, 0],
+			translateY: [angles.y, 0],
+			easing: 'easeOutExpo',
+			duration: 1500,
+		}, '-=1400')
+	}
+
+	return timeline.play
 };
 
 /**
@@ -256,16 +279,24 @@ const up = (): Playable[] => {
 			return;
 		}
 		anime.set(an, { opacity: 0 });
+		const props = {
+			opacity: [0, 1],
+			translateY: [100, 0],
+		} as AnimeParams;
+
+		if (an.classList.contains("animate-fade-desk") && window.innerWidth > 1024) {
+			delete props.translateY;
+		}
+
 		playables.push(() => {
 			WayPoint(an, {
 				rootMargin: window.innerWidth > 1024 ? '-200px' : '-50px',
 				callback: (el: Element) => {
 					anime({
 						targets: el,
-						translateY: [100, 0],
-						opacity: [0, 1],
+						...props,
 						easing: 'easeOutExpo',
-						duration: 1300,
+						duration: getDuration(el),
 						delay: getDelay(el),
 					});
 				},
@@ -293,7 +324,7 @@ const fade = (): Playable[] => {
 						targets: el,
 						opacity: [0, 1],
 						easing: 'easeOutExpo',
-						duration: 1500,
+						duration: getDuration(el),
 						delay: getDelay(el),
 					});
 				},

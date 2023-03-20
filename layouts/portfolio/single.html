@@ -11,7 +11,7 @@
 				<div class="col-12 col-desk-5 col-hd-4 offset-hd-1">
 					<aside class="portfolio-aside animate-line">
 						<!-- Logo -->
-						<figure class="margin animate-fade" data-animate-delay="800">
+						<figure class="margin animate-fade" data-animate-duration="3000">
                             {{ partial "media/image.html" (dict
                             	"image" (.Resources.GetMatch "images/logo.svg")
                             	"alt" (printf "%s Logo" .Params.company))
@@ -70,7 +70,7 @@
 				<div class="col-12 col-desk-6 offset-desk-1">
 					<article class="portfolio-content">
 						<!-- Featured Image -->
-						<picture class="portfolio-featured animate-fade">
+						<picture class="portfolio-featured animate-up animate-fade-desk">
                             {{ partial "media/picture.html" (dict
                             	"image" (.Resources.GetMatch "images/featured.jpg")
                             	"alt" (printf "ainsley.dev %s Mockup" .Params.company)

@@ -16,6 +16,10 @@ html {
 	scroll-behavior: initial;
 }
 
+html.no-js * {
+	transition: none !important;
+}
+
 html,
 body {
 	width: 100%;
@@ -42,6 +46,8 @@ body {
 main {
 	flex-grow: 2;
 }
+
+
 
 .content-wrapper {
 	display: flex;

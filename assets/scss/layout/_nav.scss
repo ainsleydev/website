@@ -13,11 +13,9 @@
 	top: 0;
 	left: 0;
 	width: 100vw;
-	height: 100vh;
-	//min-height: 500px;
+	@include full-height;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	@include full-height;
 	background-color: $black;
 
 	// With JS
@@ -53,9 +51,16 @@
 			color: $black;
 		}
 
-		#{$self}-item:last-child * {
+		#{$self}-item:last-child {
 			margin-bottom: 0;
 		}
+	}
+
+	// Item
+	// =========================================================================
+
+	&-item {
+		margin-bottom: $margin;
 	}
 
 	// Link
@@ -65,7 +70,6 @@
 		position: relative;
 		display: inline-block;
 		text-decoration: none;
-		margin-bottom: $margin;
 
 		&-text {
 			position: relative;
@@ -208,13 +212,20 @@
 			align-items: flex-end;
 		}
 
+		&-list {
+			display: inline-block;
+		}
+
+		&-item {
+			margin-bottom: 2.6rem;
+		}
+
 		&-list:hover #{$self}-link:not(:hover) {
 			opacity: 0.4;
 		}
 
 		&-link {
 			$arrow-transition: 500ms ease-in-out;
-			margin-bottom: 2.6rem;
 			transition: opacity 500ms ease;
 			will-change: opacity;
 

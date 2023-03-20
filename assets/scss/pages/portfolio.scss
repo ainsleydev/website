@@ -37,6 +37,7 @@
 	// =========================================================================
 
 	&-arrow {
+		display: none;
 		position: absolute;
 		right: 0;
 		bottom: 0;
@@ -60,13 +61,12 @@
 		position: relative;
 		display: flex;
 		flex-direction: column;
-		@include full-height;
-		background-color: $grey-dark;
+		background-color: $grey-light;
 
 		&-image {
 			display: block;
 			width: 100vw;
-			height: 50%;
+			height: 40vh;
 			flex-grow: 2;
 
 			img,
@@ -95,6 +95,23 @@
 			.image:not(#{$self}-featured) {
 				width: 75%;
 				margin-left: 25%;
+			}
+		}
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-tab {
+		&-arrow {
+			display: block;
+		}
+
+		&-next {
+			@include full-height;
+
+			&-image {
+				height: 50%;
 			}
 		}
 	}

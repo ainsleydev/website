@@ -9,7 +9,9 @@
 <!-- =====================
     HTML
     ===================== -->
-<html class="no-js" lang="en-GB">
+<html class="no-js" lang="en-GB"
+	data-vercel-env="{{ os.Getenv "VERCEL_ENV" }}"
+	data-vercel-url="{{ os.Getenv "VERCEL_URL" }}">
     <head>
 		<!-- No Index - Private -->
 		{{ if .Params.private -}}

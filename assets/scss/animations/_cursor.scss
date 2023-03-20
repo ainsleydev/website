@@ -76,7 +76,7 @@
 		transform-origin: center;
 		background-color: $black;
 		aspect-ratio: 1/1;
-		clip-path: circle(0%);
+		clip-path: circle(20%);
 
 		&-black {
 			z-index: $header-z-index + 10;
@@ -86,6 +86,7 @@
 			z-index: $header-z-index + 9;
 			background-color: $white;
 			mix-blend-mode: difference;
+			backdrop-filter: grayscale(100%);
 		}
 	}
 }

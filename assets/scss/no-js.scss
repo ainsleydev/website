@@ -68,3 +68,13 @@ body {
 		color: $white !important; // Override inline
 	}
 }
+
+// Arrow
+// =========================================================================
+
+.arrow {
+
+	&-hover {
+		display: inline-block;
+	}
+}

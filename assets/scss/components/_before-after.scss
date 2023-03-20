@@ -110,6 +110,22 @@
 		}
 	}
 
+	// Line
+	// =========================================================================
+
+	&-line {
+		position: absolute;
+		display: block;
+		top: 0;
+		left: 50%;
+		width: $before-after-border-width;
+		height: 100%;
+		background-color: $black;
+		cursor: pointer;
+		z-index: 10;
+		transform: translateX(-50%);
+	}
+
 	// Thumb
 	// =========================================================================
 
@@ -185,15 +201,32 @@
 	}
 }
 
-// Non - Touch Screen
+// Non Touch Screen
 // =========================================================================
 
 @include no-touch {
-	.before-after-slider {
-		background-color: rgba($black, 0.5);
+	.before-after {
 
-		&:hover {
-			background: transparent;
+		&-slider {
+			background-color: rgba($black, 0.5);
+
+			&:hover {
+				background: transparent;
+			}
+		}
+
+		&-line {
+			display: none;
 		}
 	}
 }
+
+// Touch Screen
+// =========================================================================
+
+@include touch {
+	.before-after-slider {
+		opacity: 0;
+	}
+}
+
