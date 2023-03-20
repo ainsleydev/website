@@ -11,7 +11,7 @@
     ===================== -->
 <html class="no-js" lang="en-GB"
 	data-vercel-env="{{ os.Getenv "VERCEL_ENV" }}"
-	data-vercel-url="{{ os.Getenv "VERCEL_URL" }}">
+	data-vercel-url="{{ os.Getenv "VERCEL_URL" | safeURL }}">
     <head>
 		<!-- No Index - Private -->
 		{{ if .Params.private -}}

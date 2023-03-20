@@ -6,6 +6,7 @@
  * @author Email: info@ainsleyclark.com
  */
 
+import { Elements } from '../util/els';
 import Toastify from 'toastify-js';
 
 /**
@@ -20,7 +21,9 @@ export const Toast = (message: string): void => {
             <div class="toast-message">${message}</div>
             <div class="toastify-close type-serif">x</div>
         `,
-		duration: 3000,
+		// duration: 3000,
+		selector: Elements.Main,
+		duration: 200000,
 		newWindow: true,
 		close: true,
 		className: 'toastify-error',
