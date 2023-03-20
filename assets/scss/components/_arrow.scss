@@ -61,11 +61,26 @@
 	}
 }
 
+// Non Touch Screen
+// =========================================================================
+
+@include no-touch {
+	.arrow-hover {
+		&-hidden,
+		&-visible {
+			transition: none;
+		}
+
+		&-hidden {
+			display: none;
+		}
+	}
+}
+
 // With JS (Prevents Hover)
 // =========================================================================
 
 html.js {
-
 	&-hover {
 		display: inline-block;
 		transition: all 300ms;

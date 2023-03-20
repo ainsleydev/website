@@ -125,14 +125,14 @@ export class Barba {
 					.timeline()
 					.add({
 						targets: '.cursor-circle-white',
-						clipPath: `circle(${100}% at ${cord.x}% ${cord.y}%)`,
+						clipPath: `circle(${110}% at ${cord.x}% ${cord.y}%)`,
 						duration: 1000,
 						easing: 'easeInSine',
 					})
 					.add(
 						{
 							targets: '.cursor-circle-black',
-							clipPath: `circle(${100}% at ${cord.x}% ${cord.y}%)`,
+							clipPath: `circle(${110}% at ${cord.x}% ${cord.y}%)`,
 							duration: 1000,
 							delay: 400,
 							easing: 'easeInSine',
@@ -164,11 +164,11 @@ export class Barba {
 					easing: 'easeOutExpo',
 				});
 				anime({
-					targets: ".header",
+					targets: '.header',
 					opacity: [0, 1],
 					duration: 600,
 					easing: 'linear',
-				})
+				});
 			},
 			after() {
 				anime.set('.cursor-circle', { display: 'none' });

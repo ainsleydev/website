@@ -6,7 +6,7 @@ require (
 	github.com/ainsleyclark/errors v0.0.4
 	github.com/ainsleyclark/go-mail v1.1.1
 	github.com/caarlos0/env/v7 v7.1.0
-	github.com/getkin/kin-openapi v0.114.0
+	github.com/getkin/kin-openapi v0.115.0
 	github.com/google/uuid v1.3.0
 	github.com/joho/godotenv v1.5.1
 	github.com/labstack/echo/v4 v4.10.2

@@ -7,5 +7,5 @@
  */
 
 export const RemoveBRs = (el: Element): void => {
-	el.innerHTML = el.innerHTML.replace(/<br\s*[/]?>/gi, '');
+	el.innerHTML = el.innerHTML.replace(/<br\s*[/]?>/gi, `&nbsp;`);
 };
