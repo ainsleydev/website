@@ -8,11 +8,24 @@
 
 import LoconativeScroll from './../vendor/loconative-scroll.js';
 import { Elements } from '../util/els';
-import { Log } from '../util/log';
 
+/**
+ * Scroll is responsible for adding smooth scroll to
+ * the body. This will be disabled for mobile.
+ */
 class Scroll {
+	/**
+	 * The instance of the scroll.
+	 *
+	 * @private
+	 */
 	private instance = null;
 
+	/**
+	 * The default options for Loconative scroll
+	 *
+	 * @private
+	 */
 	private options = {
 		wrapper: window,
 		smooth: true,
@@ -33,18 +46,28 @@ class Scroll {
 	};
 
 	/**
+	 * Initialises the scroll.
 	 *
 	 * @param container
 	 */
 	constructor(container: Element) {
 		this.init(container);
+		this.addScroll();
+		this.resize();
 	}
 
 	/**
+	 * Initialises the scroll.
+	 * If the window is less than 1024 the scroll instance will
+	 * be destroyed. Otherwise, the scroll will be created
+	 * from the input element.
 	 *
 	 * @param container
 	 */
 	public init(container: Element): void {
+		if (window.innerWidth <= 1024) {
+			this.destroy();
+		}
 		const scrollContainer = container.querySelector('[data-scroll-container]'),
 			options = this.options;
 		if (scrollContainer.hasAttribute('data-scroll-disable')) {
@@ -55,25 +78,64 @@ class Scroll {
 			el: scrollContainer,
 			...options,
 		});
-		// Elements.Body.style.opacity = "1";
 	}
 
+	/**
+	 * Destroys the scroll instance and removes any styles.
+	 */
 	public destroy(): void {
+		if (this.instance === null) {
+			return;
+		}
+		this.instance.stop();
 		this.instance.destroy();
+		this.clearProps();
+		this.instance = null;
+	}
+
+	/**
+	 * Resize handler for initialising or destroying
+	 * the scroll.
+	 *
+	 * @private
+	 */
+	private resize() {
+		window.addEventListener('resize', () => {
+			this.init(Elements.Body);
+		});
+	}
+
+	/**
+	 * Removes any styles associated with the scroll instance.
+	 *
+	 * @private
+	 */
+	private clearProps() {
+		const els = [
+			...Array.from(document.querySelectorAll('[data-scroll-section]')),
+			...Array.from(document.querySelectorAll('[data-scroll]')),
+		];
+		els.forEach((el) => el.setAttribute('style', ''));
 	}
 
 	private addScroll(): void {
-		// const scrollAmount = 500;
-		// body.addEventListener('scroll', () => {
-		// 	const y = body.scrollTop;
-		// 	html.style.setProperty('--scroll-y', y.toString());
-		// 	if (y > scrollAmount) {
-		// 		Log.debug('Scroll - Scrolled passed point' + scrollAmount);
-		// 		html.classList.add('scrolled');
-		// 		return;
-		// 	}
-		// 	html.classList.remove('scrolled');
-		// });
+		const scrollAmount = 500;
+		this.instance.on('scroll', (e) => {
+			this.setScrollTop(e.scroll.y);
+			// TODO, need to do native scroll.
+			// const y = body.scrollTop;
+			//
+			// if (y > scrollAmount) {
+			// 	Log.debug('Scroll - Scrolled passed point' + scrollAmount);
+			// 	html.classList.add('scrolled');
+			// 	return;
+			// }
+			// html.classList.remove('scrolled');
+		});
+	}
+
+	private setScrollTop(y: number) {
+		Elements.HTML.style.setProperty('--scroll-y', y.toString());
 	}
 }
 

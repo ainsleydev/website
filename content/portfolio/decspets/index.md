@@ -1,5 +1,5 @@
 ---
-title: Launching Dec’s Pets into the E-Commerce market
+title: Launching Dec’s Pets into the e-commerce market
 description: Discover how ainsley.dev boosted Dec's Pets sales by over 200% with a fun, family-friendly designed website and e-commerce store.
 slug: decspets
 draft: false
@@ -10,11 +10,11 @@ site:
   link: https://decspets.ie
   pretty: decspets.ie
 role: Design & Development
-strategies: [Full brand, E-Commerce, SEO]
+strategies: [Full brand, E-commerce, SEO]
 technologies: [WordPress, WooCommerce, Custom Plugins (PHP)]
 quote:
   person: Declan O’Keffee, Digital Director
-  text: I have had the pleasure of working closely with ainsley.dev on the development of my new website. They have such a huge array of skills, not just in web development but across business and eCommerce as a whole, that not only did they help us create a beautiful and modern website, they also helped us with ideas and initiatives for the future. It was a pleasure working with them.
+  text: I have had the pleasure of working closely with ainsley.dev on the development of my new website. They have such a huge array of skills, not just in web development but across business and e-commerce as a whole. They helped us create a beautiful and modern website, and gave us ideas and initiatives for the future. It was a pleasure working with them.
 results:
   - number: 60%
     text: growth in overall traffic
@@ -49,7 +49,7 @@ online with ease, and more visibility for the company’s brand presence in the 
 {{< vertical-section text="Design" number="02" >}}
 A design strategy was formulated to reinforce the Dec’s Pets brand. A light blue and striking pink colour scheme was
 implemented to invoke trust, but still reflect the playfulness of the pet marketplace. The use of modern visuals and a
-clear font increased the legibility of the new brand. The Dec’s Pets “Paw” illustration was designed and used as a
+clear font increased the legibility of the new brand. The Dec’s Pets “paw” illustration was designed and used as a
 watermark to create a consistent design language.
 {{< /vertical-section >}}
 

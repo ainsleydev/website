@@ -1,6 +1,6 @@
 ---
-title: Responsibilities as a developer for optimised SEO.
-description: Go to one of your websites you have developed and turn JavaScript off―does the page still function as it should? If the answer is no, it may be time to consider refactoring your code base to allow for a more SEO-friendly website.
+title: Responsibilities as a developer for optimised SEO
+description: Go to one of the websites you have developed and turn JavaScript off―does the page still function as it should? If the answer is no, it may be time to consider refactoring your code base to allow for a more SEO-friendly website.
 slug: optimise-seo
 publishdate: 2021-12-06
 lastmod: 2021-12-06
@@ -13,7 +13,7 @@ author: Ainsley Clark
 ---
 
 {{< lead >}}
-Go to one of your websites you have developed and turn JavaScript off, does the page still function as it should? Is all
+Go to one of the websites you have developed and turn JavaScript off, does the page still function as it should? Is all
 the content rendered? Do images and layouts appear correctly on the page? If the answer is no, it may be time to
 consider refactoring your code base to allow for a more SEO friendly website. As developers, it may be easier to use a
 particular framework or library or even add functionality via JavaScript, but consider the technical debt before you do.
