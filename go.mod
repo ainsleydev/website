@@ -6,7 +6,7 @@ require (
 	github.com/ainsleyclark/errors v0.0.4
 	github.com/ainsleyclark/go-mail v1.1.1
 	github.com/caarlos0/env/v7 v7.1.0
-	github.com/getkin/kin-openapi v0.114.0
+	github.com/getkin/kin-openapi v0.115.0
 	github.com/google/uuid v1.3.0
 	github.com/joho/godotenv v1.5.1
 	github.com/labstack/echo/v4 v4.10.2
@@ -18,7 +18,6 @@ require (
 )
 
 require (
-	github.com/andrerfcsantos/go-plausible v0.3.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/go-openapi/jsonpointer v0.19.6 // indirect
 	github.com/go-openapi/swag v0.22.3 // indirect
@@ -41,6 +40,5 @@ require (
 	golang.org/x/sys v0.6.0 // indirect
 	golang.org/x/text v0.8.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
-	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
