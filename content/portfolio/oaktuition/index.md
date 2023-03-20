@@ -1,5 +1,5 @@
 ---
-title: Driving more than 92% traffic to Oak Tuition
+title: Driving more than 92% of traffic to Oak Tuition
 description: Discover how ainsley.dev increased traffic and replaced an off-the-peg website, with a professional, sleek, but playful multi-page online presence.
 slug: oak-tuition
 draft: false
@@ -27,7 +27,7 @@ logoWeight: 10
 
 <!-- Intro -->
 {{< vertical-section >}}
-Established in 2017, Oak Tuition is a tutoring school with highly-qualified, experienced tutors, who utilise hands-on
+Established in 2017, Oak Tuition is a school with highly-qualified, experienced tutors, who utilise hands-on
 mixed method teaching of the National Curriculum, in accordance with exam board requirements.
 {{< /vertical-section >}}
 
@@ -36,8 +36,8 @@ mixed method teaching of the National Curriculum, in accordance with exam board 
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
-ainsley.dev were approached to replace an off-the-peg website, with a professional, sleek, but playful multi-page online
-presence, with a clear branding across their site and social media pages. The website needed to feature enough key
+ainsley.dev were approached to replace an off-the-peg website with a professional, but playful multi-page online
+presence, together with a clear branding across their site and social media pages. The website needed to feature enough key
 information to increase traffic and entice prospective clients to make contact.
 {{< /vertical-section >}}
 

@@ -38,8 +38,8 @@ extensive experience in the industry with an easy way for potential customers to
 
 {{< vertical-section text="Design" number="02" >}}
 As there were no existing brand guidelines for Elite Roofing, a modern and striking colour palette was curated in
-conjunction with a simple, yet clean font. The electric green against the dark background helped to highlight important
-content. A 3D roof model was created in [Spline](https://spline.design/) which brought the minimalist page to life and
+conjunction with a simple, yet, clean font. The electric red against the dark background helped to highlight important
+content. A 3D roof model was created in [Spline](https://spline.design/), which brought the minimalist page to life and
 captured the attention of potential clientele.
 {{< /vertical-section >}}
 

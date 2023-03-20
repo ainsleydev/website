@@ -45,7 +45,7 @@ needed to be displayed throughout the landing page, with clear calls to action a
 
 <!-- Design -->
 {{< vertical-section text="Design" number="02" >}}
-A bright orange/red colour contrasted with a dark navy was chosen in order to capture the user’s attention as soon as
+A bright orange/red colour contrasting with a dark navy were chosen in order to capture the user’s attention as soon as
 they land on the page. Gradients were used to create a depth of field on buttons, imagery and iconography, whilst
 maintaining a simple layout throughout. Reviews were added in the hero section to facilitate trust in the brand, and
 simple calls to action were designed as an easy way for customers to get in touch.
