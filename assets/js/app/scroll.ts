@@ -65,9 +65,6 @@ class Scroll {
 	 * @param container
 	 */
 	public init(container: Element): void {
-		if (window.innerWidth <= 1024) {
-			this.destroy();
-		}
 		const scrollContainer = container.querySelector('[data-scroll-container]'),
 			options = this.options;
 		if (scrollContainer.hasAttribute('data-scroll-disable')) {
@@ -100,8 +97,12 @@ class Scroll {
 	 * @private
 	 */
 	private resize() {
+		let timeout;
 		window.addEventListener('resize', () => {
-			this.init(Elements.Body);
+			clearTimeout(timeout);
+			timeout = setTimeout(() => {
+				this.init(Elements.Body);
+			}, 100);
 		});
 	}
 
@@ -119,9 +120,13 @@ class Scroll {
 	}
 
 	private addScroll(): void {
+		if (!this.instance) {
+			return;
+		}
 		const scrollAmount = 500;
 		this.instance.on('scroll', (e) => {
 			this.setScrollTop(e.scroll.y);
+
 			// TODO, need to do native scroll.
 			// const y = body.scrollTop;
 			//
