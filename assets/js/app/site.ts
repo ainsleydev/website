@@ -30,7 +30,7 @@ import { Elements } from '../util/els';
 import { Barba } from './barba';
 import Scroll from './scroll';
 import { ITransitionData } from '@barba/core';
-import { OnScrollEvent } from 'locomotive-scroll';
+import anime from 'animejs/lib/anime.es';
 
 /**
  *
@@ -40,8 +40,6 @@ declare global {
 		plausible: (args: string) => unknown;
 	}
 }
-
-type ThemeColour = 'black' | 'white';
 
 /**
  * App is the main type for the site which bootstraps the
@@ -174,7 +172,10 @@ class App {
 			Scroll.destroy();
 			this.reloadJS(data.next.container);
 			if (!this.hasSmoothScroll()) {
-				Elements.HTML.style.scrollBehavior = "smooth";
+				// Prevent reflow when changing page.
+				setTimeout(() => {
+					Elements.HTML.style.scrollBehavior = 'smooth';
+				}, 200);
 			}
 		});
 	}
@@ -191,7 +192,7 @@ class App {
 				this.nav.play();
 			}
 			if (!this.hasSmoothScroll()) {
-				Elements.HTML.style.scrollBehavior = "initial";
+				Elements.HTML.style.scrollBehavior = 'initial';
 			}
 			this.cursor.destroy();
 		});
@@ -205,6 +206,7 @@ class App {
 	 */
 	private after(): void {
 		this.barba.hooks.after((data: ITransitionData) => {
+			this.updateHeader(data.next.container);
 			Elements.HTML.scrollTop = 0;
 			Elements.Body.scrollTop = 0;
 			data.next.container.scrollTop = 0;
@@ -215,6 +217,7 @@ class App {
 	}
 
 	/**
+	 * Triggers Web Vitals report & API call.
 	 *
 	 * @private
 	 */
@@ -230,7 +233,6 @@ class App {
 	 * Prevents reloading of the page if the link clicked
 	 * is the current link, to avoid the page
 	 * reloading.
-	 * TODO: Check if we can do this in Barba.
 	 *
 	 * @private
 	 */
@@ -268,6 +270,22 @@ class App {
 	}
 
 	/**
+	 * Required, updates the header with the theme colour.
+	 *
+	 * @private
+	 */
+	private updateHeader(container: HTMLElement): void {
+		const colour = container.querySelector('main').getAttribute('data-theme'),
+			header = Elements.Header;
+		header.classList.forEach((c) => {
+			if (c.startsWith('header-colour')) {
+				header.classList.remove(c);
+			}
+		});
+		header.classList.add(`header-colour-${colour}`);
+	}
+
+	/**
 	 * Triggers a page view dynamically with Plausible.
 	 *
 	 * @private
@@ -277,15 +295,6 @@ class App {
 			Log.debug('Triggering Plausible page-view');
 			window.plausible('pageview');
 		}
-	}
-
-	/**
-	 * Returns the current page theme colour.
-	 *
-	 * @private
-	 */
-	private getThemeColour(container: HTMLElement): ThemeColour {
-		return <'black' | 'white'>container.querySelector('main').getAttribute('data-theme') ?? 'black';
 	}
 
 	/**
@@ -312,7 +321,6 @@ class App {
 	 */
 	private hasSmoothScroll(): boolean {
 		return !IsTouchDevice();
-		// return Elements.HTML.classList.contains("has-smooth-scroll")
 	}
 }
 

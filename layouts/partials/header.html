@@ -1,9 +1,10 @@
 <!-- =====================
     Header
     ===================== -->
-<header class="header header-colour-{{ .colour }}" data-colour="{{ .colour }}">
-	<!-- Hamburger -->
-	<input class="nav-checkbox" type="checkbox" id="nav-check" aria-hidden="true" />
+<!-- Hamburger -->
+<input class="nav-checkbox" type="checkbox" id="nav-check" aria-hidden="true" />
+<!-- Header -->
+<header class="header header-colour-{{ .colour }}">
 	<!-- Logo -->
 	<a href="/" class="header-logo cursor-element" aria-label="Navigate to the homepage"
 	   data-cursor-invert data-cursor-invert-black data-cursor-scale="1.6">
@@ -27,6 +28,4 @@
 			)}}
 		</figure>
 	</label>
-	<!-- Navigation -->
-    {{- partial "nav.html" .ctx -}}
 </header>

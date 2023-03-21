@@ -36,25 +36,37 @@
 	// Colours
 	// ==========================================================================
 
-	&-colour {
-		&-black {
-			background-color: rgba($black, $header-background-opacity);
-			border-bottom: none;
+	&-colour-black {
+		background-color: rgba($black, $header-background-opacity);
+		border-bottom: none;
+	}
+
+	&-colour-white {
+		background-color: rgba($white, $header-background-opacity);
+		border-bottom: 1px solid rgba($black, 0.2);
+
+		.nav-btn-arrow path,
+		#{$self}-logo path {
+			fill: $black;
 		}
 
-		&-white {
-			background-color: rgba($white, $header-background-opacity);
-			border-bottom: 1px solid rgba($black, 0.2);
-
-			.nav-btn-arrow path,
-			#{$self}-logo path {
-				fill: $black;
-			}
-
-			.nav-btn-text {
-				color: $black;
-			}
+		.nav-btn-text {
+			color: $black;
 		}
+	}
+
+	// Animation Props
+	// ==========================================================================
+
+	.nav-btn-arrow path,
+	&-logo path {
+		transition: fill 1000ms ease;
+		transition-delay: 600ms;
+	}
+
+	.nav-btn-text {
+		transition: color 100ms ease;
+		transition-delay: 600ms;
 	}
 
 	// Nav Active
@@ -64,12 +76,10 @@
 		.nav-btn-arrow path,
 		#{$self}-logo path {
 			fill: $white;
-			transition-delay: 0ms;
 		}
 
 		.nav-btn-text {
 			color: $white;
-			transition-delay: 0ms;
 		}
 	}
 

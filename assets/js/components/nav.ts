@@ -31,6 +31,8 @@ export class Navigation {
 	 */
 	private nav: HTMLElement = Elements.Nav;
 
+	private header: HTMLElement = Elements.Header;
+
 	/**
 	 * The toggle to display the navigation element.
 	 */
@@ -190,11 +192,11 @@ export class Navigation {
 	private toggleClasses(): void {
 		if (this.isOpen) {
 			this.nav.classList.add('nav-active');
-			Elements.Header.classList.add('header-nav-active');
+			this.header.classList.add('header-nav-active');
 			return;
 		}
 		this.nav.classList.remove('nav-active');
-		Elements.Header.classList.remove('header-nav-active');
+		this.header.classList.remove('header-nav-active');
 	}
 
 	/**
