@@ -265,9 +265,9 @@
 			#{$self}-row {
 				display: flex;
 				flex-direction: column;
-				justify-content: space-around;
-				@include full-height;
-				transform: translateY(-$margin-large);
+				justify-content: flex-start;
+				padding-top: $header-height + 40px;
+				min-height: 100svh;
 			}
 		}
 	}
