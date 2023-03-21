@@ -105,7 +105,7 @@
 		Body
 		===================== -->
 	{{ $colour := partial "util/_theme-colour.html" . }}
-    <body data-barba="wrapper" data-colour="{{ $colour }}">
+    <body data-barba="wrapper" data-theme="{{ $colour }}">
 		{{ if .Site.Params.gtag.enable -}}
 			<!-- Google Tag Manager (noscript) -->
 			<noscript>
@@ -114,18 +114,20 @@
 				</iframe>
 			</noscript><!-- /End Google Tag Manager (noscript) -->
 		{{- end }}
+		<!-- Header -->
+        {{- partial "header.html" (dict
+			"colour" $colour
+			"ctx" .
+        )}}
+		<!-- Navigation -->
+        {{- partial "nav.html" . -}}
 		<!-- Transition -->
 		{{ partial "transitions/default.html" . }}
 		<!-- Cursor -->
 		{{ partial "components/cursor.html" $colour }}
 		<!-- Content Wrapper -->
-		<div class="content-wrapper" data-barba="container" data-barba-namespace="{{ partial "util/_namespace.html" . }}">
-			<div data-scroll-container {{ if and (eq .Section "insights") .IsPage -}} data-scroll-disable {{- end }}>
-				<!-- Header -->
-                {{- partial "header.html" (dict
-					"colour" $colour
-					"ctx" .
-                )}}
+		<div data-barba="container" data-barba-namespace="{{ partial "util/_namespace.html" . }}">
+			<div class="content-wrapper" data-scroll-container {{ if and (eq .Section "insights") .IsPage -}} data-scroll-disable {{- end }}>
 				<!-- Main Content -->
 				<main id="main" class="theme-{{ $colour }}" data-theme="{{ $colour }}">
                     {{- block "main" . -}} {{- end }}
