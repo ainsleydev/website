@@ -7,17 +7,12 @@
 // =========================================================================
 
 html {
-	box-sizing: border-box;
-	height: 100%;
-}
-
-*,
-html {
 	scroll-behavior: initial;
+	box-sizing: border-box;
 }
 
-html.no-js * {
-	transition: none !important;
+* {
+	box-sizing: inherit;
 }
 
 html,
@@ -30,13 +25,21 @@ body {
 	font-size: 1rem;
 	line-height: 1.6;
 	font-kerning: normal;
-	overflow: auto !important; // Override typeform.
+	// NOTE: Do not use overflow auto here, it interferes with Sticky.
 	-webkit-font-smoothing: antialiased; // sass-lint:disable-line  no-vendor-prefixes
 	-webkit-tap-highlight-color: transparent; // sass-lint:disable-line  no-vendor-prefixes
 }
 
-* {
-	box-sizing: inherit;
+@include touch {
+	scroll-behavior: smooth;
+
+	* {
+		scroll-behavior: smooth;
+	}
+}
+
+.no-js * {
+	transition: none !important;
 }
 
 body {
@@ -46,8 +49,6 @@ body {
 main {
 	flex-grow: 2;
 }
-
-
 
 .content-wrapper {
 	display: flex;

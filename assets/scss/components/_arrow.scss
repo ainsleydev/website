@@ -59,12 +59,20 @@
 			margin-right: -10px;
 		}
 	}
+
+	// Loading
+	// =========================================================================
+
+	&-loading {
+
+
+	}
 }
 
 // Non Touch Screen
 // =========================================================================
 
-@include no-touch {
+@include touch {
 	.arrow-hover {
 		&-hidden,
 		&-visible {

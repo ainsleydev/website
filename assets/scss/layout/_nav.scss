@@ -6,7 +6,7 @@
 .nav {
 	$self: &;
 	position: fixed;
-	display: flex;
+	display: none;
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: space-between;
@@ -17,6 +17,7 @@
 	overflow-y: scroll;
 	overflow-x: hidden;
 	background-color: $black;
+	z-index: -999;
 
 	// With JS
 	// =========================================================================

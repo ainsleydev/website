@@ -50,7 +50,6 @@ export class Navigation {
 	 * @constructor
 	 */
 	constructor() {
-		Log.debug('Nav - Initialising');
 		this.nav.classList.add('nav-js');
 		this.button = (<HTMLElement>document.querySelector('.nav-btn')) as HTMLElement;
 		if (!this.button) {

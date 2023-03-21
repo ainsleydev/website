@@ -25,8 +25,6 @@ const loader = new Loader({
  */
 const LoadMap = () => {
 	loader.load().then(() => {
-		Log.debug('Google Map - Initialising');
-
 		const position = {
 			lat: 51.5155705754434,
 			lng: -0.12367415060938884,

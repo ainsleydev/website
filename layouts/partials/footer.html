@@ -1,13 +1,17 @@
 <!-- =====================
     Footer
     ===================== -->
-<footer class="footer">
+<footer class="footer" data-scroll-section>
 	<div class="container">
 		<!-- Main -->
 		<div class="row footer-main {{ if .Params.footerNoPadding -}} pt-0 {{- end }}">
 			<!-- Symbol -->
 			<figure class="footer-symbol">
-                {{ partial "svgs/a-symbol.html" (dict "opacity" 0.1 "greyscale" true) }}
+                {{ partial "svgs/a-symbol.html" (dict
+					"opacity" 0.1
+					"greyscale" true
+					"class" "footer-symbol-wrapper"
+				)}}
 			</figure>
 			<div class="col-12 col-desk-6 footer-main-col">
 				<!-- Heading -->

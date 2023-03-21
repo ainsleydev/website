@@ -37,3 +37,18 @@ func New() (*Config, error) {
 	}
 	return &cfg, nil
 }
+
+// IsDevelopment determines if the current environment is development.
+func (c *Config) IsDevelopment() bool {
+	return c.Env == "development"
+}
+
+// IsPreview determines if the current environment is a preview branch.
+func (c *Config) IsPreview() bool {
+	return c.Env == "preview"
+}
+
+// IsProduction determines if the current environment is production.
+func (c *Config) IsProduction() bool {
+	return c.Env == "production"
+}

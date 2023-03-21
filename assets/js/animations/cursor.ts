@@ -54,7 +54,6 @@ export class Cursor {
 	 * @constructor
 	 */
 	constructor() {
-		Log.debug('Cursor - Initialising');
 		const el = document.querySelector(this.selector);
 		if (!el) {
 			Log.error(`Cursor - No ${this.selector} element found in the DOM`);

@@ -57,20 +57,6 @@
 		}
 	}
 
-	// Animation Props
-	// ==========================================================================
-
-	.nav-btn-arrow path,
-	&-logo path {
-		transition: fill 1000ms ease;
-		transition-delay: 1000ms;
-	}
-
-	.nav-btn-text {
-		transition: color 100ms ease;
-		transition-delay: 1000ms;
-	}
-
 	// Nav Active
 	// ==========================================================================
 

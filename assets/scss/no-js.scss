@@ -43,8 +43,8 @@ body {
 
 .nav {
 	$self: &;
+	display: flex;
 	visibility: hidden;
-	transition: opacity 700ms, visibility 700ms step-end;
 	opacity: 0;
 
 	// Active
@@ -52,9 +52,8 @@ body {
 
 	&-checkbox:checked ~ #{$self},
 	&-active {
-		opacity: 1 !important; // Override inline
 		visibility: visible;
-		transition: opacity 700ms, visibility 700ms step-start;
+		opacity: 1 !important; // Override inline
 	}
 
 	// Colour
@@ -67,6 +66,36 @@ body {
 	&-btn-text {
 		color: $white !important; // Override inline
 	}
+
+	// Arrow
+	// =========================================================================
+
+	&-link {
+		&-text {
+			transform: none !important;
+		}
+
+		&::after {
+			display: none;
+		}
+	}
+}
+
+// Accordion
+// =========================================================================
+
+.accordion {
+	&-content {
+		max-height: initial;
+	}
+
+	&-item {
+		pointer-events: none;
+	}
+
+	&-header::after {
+		display: none;
+	}
 }
 
 // Arrow
@@ -78,3 +107,11 @@ body {
 		display: inline-block;
 	}
 }
+
+// Zoom
+// =========================================================================
+
+.zoom-element {
+	transform: none !important;
+}
+
