@@ -118,14 +118,14 @@
 		{{ partial "transitions/default.html" . }}
 		<!-- Cursor -->
 		{{ partial "components/cursor.html" $colour }}
-		<!-- Header -->
-        {{- partial "header.html" (dict
-			"colour" $colour
-			"ctx" .
-        )}}
 		<!-- Content Wrapper -->
 		<div class="content-wrapper" data-barba="container" data-barba-namespace="{{ partial "util/_namespace.html" . }}">
 			<div data-scroll-container {{ if and (eq .Section "insights") .IsPage -}} data-scroll-disable {{- end }}>
+				<!-- Header -->
+                {{- partial "header.html" (dict
+					"colour" $colour
+					"ctx" .
+                )}}
 				<!-- Main Content -->
 				<main id="main" class="theme-{{ $colour }}" data-theme="{{ $colour }}">
                     {{- block "main" . -}} {{- end }}

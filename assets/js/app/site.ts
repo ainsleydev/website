@@ -172,7 +172,6 @@ class App {
 	private beforeEnter(): void {
 		this.barba.hooks.beforeEnter((data: ITransitionData) => {
 			Scroll.destroy();
-			this.updateHeader(data.next.container);
 			this.reloadJS(data.next.container);
 			if (!this.hasSmoothScroll()) {
 				Elements.HTML.style.scrollBehavior = "smooth";
@@ -266,23 +265,6 @@ class App {
 			script.src = item.src;
 			container.appendChild(script);
 		});
-	}
-
-	/**
-	 *
-	 * @param container
-	 * @private
-	 */
-	private updateHeader(container: HTMLElement): void {
-		const header = Elements.Header,
-			colour = this.getThemeColour(container);
-		header.classList.forEach((c) => {
-			if (c.startsWith('header-colour')) {
-				header.classList.remove(c);
-			}
-		});
-		header.classList.add(`header-colour-${colour}`);
-		Elements.Nav.setAttribute('data-colour', colour);
 	}
 
 	/**
