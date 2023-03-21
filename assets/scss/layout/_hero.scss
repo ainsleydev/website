@@ -78,7 +78,6 @@
 	&-space-around {
 		display: flex;
 		padding-top: $header-height + 40px;
-		min-height: 100vh;
 
 		#{$self}-row {
 			margin-bottom: $margin-large;
@@ -259,7 +258,6 @@
 	// =========================================================================
 
 	@include media-mob-down {
-
 		&-space-around {
 			height: auto;
 			padding-top: 0;
@@ -268,7 +266,8 @@
 				display: flex;
 				flex-direction: column;
 				justify-content: space-around;
-				height: 100vh;
+				@include full-height;
+				transform: translateY(-$margin-large);
 			}
 		}
 	}
