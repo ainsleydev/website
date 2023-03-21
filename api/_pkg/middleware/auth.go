@@ -5,7 +5,9 @@
 package middleware
 
 import (
+	"fmt"
 	"net/http"
+	"strings"
 
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/ainsleyclark/ainsley.dev/api/_sdk"
@@ -13,8 +15,14 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 )
 
-// AuthHeader is the header used for authentication.
-const AuthHeader = "X-API-Key"
+const (
+	// AuthHeader is the header used for authentication via an
+	// API Key
+	AuthHeader = "X-API-Key"
+	// RefererURL is the URL of the site to compare against
+	// in production.
+	RefererURL = "https://ainsley.dev"
+)
 
 // Auth validates API authentication and determines if
 // the AuthHeader value is of equal value.
@@ -24,6 +32,13 @@ func Auth(cfg *environment.Config) echo.MiddlewareFunc {
 		KeyLookup:              "header:" + AuthHeader,
 		ContinueOnIgnoredError: false,
 		Validator: func(auth string, ctx echo.Context) (bool, error) {
+			if !cfg.IsProduction() {
+				return auth == cfg.APIKey, nil
+			}
+			referer := ctx.Request().Header.Get("Referer")
+			if !strings.Contains(referer, RefererURL) {
+				return false, fmt.Errorf("bad referer %s", referer)
+			}
 			return auth == cfg.APIKey, nil
 		},
 		ErrorHandler: func(err error, ctx echo.Context) error {

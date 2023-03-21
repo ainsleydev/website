@@ -105,7 +105,7 @@
 		Body
 		===================== -->
 	{{ $colour := partial "util/_theme-colour.html" . }}
-    <body data-barba="wrapper">
+    <body data-barba="wrapper" data-colour="{{ $colour }}">
 		{{ if .Site.Params.gtag.enable -}}
 			<!-- Google Tag Manager (noscript) -->
 			<noscript>

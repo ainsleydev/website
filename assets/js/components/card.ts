@@ -34,7 +34,6 @@ export class Card {
 	 * Instantiates a new card type.
 	 */
 	constructor() {
-		Log.debug('Card - Initialising');
 		if (!IsTouchDevice()) {
 			this.attachHandlers();
 		}

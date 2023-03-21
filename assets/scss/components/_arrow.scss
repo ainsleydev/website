@@ -64,7 +64,7 @@
 // Non Touch Screen
 // =========================================================================
 
-@include no-touch {
+@include touch {
 	.arrow-hover {
 		&-hidden,
 		&-visible {

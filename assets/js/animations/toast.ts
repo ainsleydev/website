@@ -46,3 +46,4 @@ export const Toast = (message: string): void => {
 			toast.hideToast();
 		});
 };
+``

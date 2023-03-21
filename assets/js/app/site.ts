@@ -6,6 +6,8 @@
  * @author Email: hello@ainsley.dev
  */
 
+import { IsTouchDevice } from '../util/css';
+
 require('./../vendor/modernizr');
 import { Params } from '../params';
 import { Navigation } from '../components/nav';
@@ -28,6 +30,7 @@ import { Elements } from '../util/els';
 import { Barba } from './barba';
 import Scroll from './scroll';
 import { ITransitionData } from '@barba/core';
+import { OnScrollEvent } from 'locomotive-scroll';
 
 /**
  *
@@ -169,9 +172,11 @@ class App {
 	private beforeEnter(): void {
 		this.barba.hooks.beforeEnter((data: ITransitionData) => {
 			Scroll.destroy();
-			this.updatePageColour(data.next.container);
 			this.updateHeader(data.next.container);
 			this.reloadJS(data.next.container);
+			if (!this.hasSmoothScroll()) {
+				Elements.HTML.style.scrollBehavior = "smooth";
+			}
 		});
 	}
 
@@ -185,6 +190,9 @@ class App {
 		this.barba.hooks.before(() => {
 			if (this.nav.isOpen) {
 				this.nav.play();
+			}
+			if (!this.hasSmoothScroll()) {
+				Elements.HTML.style.scrollBehavior = "initial";
 			}
 			this.cursor.destroy();
 		});
@@ -200,6 +208,7 @@ class App {
 		this.barba.hooks.after((data: ITransitionData) => {
 			Elements.HTML.scrollTop = 0;
 			Elements.Body.scrollTop = 0;
+			data.next.container.scrollTop = 0;
 			Scroll.init(data.next.container);
 			this.triggerPageView();
 			this.boot();
@@ -298,20 +307,6 @@ class App {
 	}
 
 	/**
-	 * Updates the body colour with the current theme.
-	 *
-	 * @private
-	 */
-	private updatePageColour(container: HTMLElement): void {
-		const theme = this.getThemeColour(container);
-		let colour = "#ffffff";
-		if (theme === "black") {
-			colour = "#0A0A0A";
-		}
-		Elements.Body.style.backgroundColor = colour;
-	}
-
-	/**
 	 * Updates the client mouse positions to the html element.
 	 *
 	 * @private
@@ -326,6 +321,16 @@ class App {
 			html.setAttribute('percent-x', ((e.x / window.innerWidth) * 100).toString());
 			html.setAttribute('percent-y', ((e.y / window.innerHeight) * 100).toString());
 		});
+	}
+
+	/**
+	 * Determines if smooth scroll is enabled.
+	 *
+	 * @private
+	 */
+	private hasSmoothScroll(): boolean {
+		return !IsTouchDevice();
+		// return Elements.HTML.classList.contains("has-smooth-scroll")
 	}
 }
 

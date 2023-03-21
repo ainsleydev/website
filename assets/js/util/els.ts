@@ -37,12 +37,18 @@ export class Elements {
 	public static Nav: HTMLElement;
 
 	/**
+	 * The footer element.
+	 */
+	public static Footer: HTMLElement;
+
+	/**
 	 * Initialise sets up the Elements.
 	 */
 	public static _initialize() {
 		this.Main = <HTMLElement>document.querySelector('main');
 		this.Header = <HTMLElement>document.querySelector('.header');
 		this.Nav = <HTMLElement>document.querySelector('.nav');
+		this.Footer = <HTMLElement>document.querySelector('footer');
 	}
 }
 

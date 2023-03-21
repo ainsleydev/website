@@ -63,7 +63,6 @@ export class Skew {
 	 * @constructor
 	 */
 	constructor() {
-		Log.debug('Skew - Initialising');
 		this.attachHandlers();
 	}
 

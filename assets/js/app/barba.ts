@@ -6,14 +6,12 @@
  * @author Email: hello@ainsley.dev
  */
 
-import Scroll from './scroll';
 import { Params } from '../params';
-import barba, { HookMethods, ITransitionData } from '@barba/core';
-import anime from 'animejs/lib/anime.es';
-import { Elements } from '../util/els';
-import { Transitions } from '@barba/core/dist/core/src/modules/Transitions';
-import { ITransitionPage } from '@barba/core/dist/core/src/defs';
 import { Navigation } from '../components/nav';
+import { Elements } from '../util/els';
+import anime from 'animejs/lib/anime.es';
+import barba, { HookMethods, ITransitionData } from '@barba/core';
+import { ITransitionPage } from '@barba/core/dist/core/src/defs';
 
 /**
  *
@@ -24,10 +22,16 @@ export class Barba {
 	 */
 	public hooks: HookMethods;
 
+	/**
+	 * Navigation used to determine if the navigation
+	 * is currently open.
+	 *
+	 * @private
+	 */
 	private nav: Navigation;
 
 	/**
-	 *
+	 * Initialises the page transitions.
 	 */
 	constructor() {
 		this.hooks = barba.hooks;
@@ -41,7 +45,11 @@ export class Barba {
 		barba.init({
 			debug: Params.appDebug,
 			// timeout: 5000,
-			transitions: [this.defaultTransition(), this.portfolioTransition()],
+			transitions: [
+				this.defaultTransition(),
+				this.insightsTransition(),
+				this.portfolioTransition(),
+			],
 		});
 	}
 
@@ -56,42 +64,91 @@ export class Barba {
 		return {
 			name: 'opacity-transition',
 			leave(data: ITransitionData): Promise<unknown> | void {
-				return anime({
-					targets: data.current.container,
-					opacity: 0,
-					duration: 500,
-					easing: 'linear',
-				}).finished;
-				if (!self.nav.isOpen) {
-					// This is always false as nav gets triggered before.
-					// timeline
-					// 	.add({
-					// 		targets: ".transition-logo",
-					// 		opacity: [0, 1],
-					// 		duration: 300,
-					// 		easing: "linear",
-					// 	})
-					// 	.add({
-					// 		targets: ".transition-logo",
-					// 		translateY: [-200, 200],
-					// 		duration: 1000,
-					// 		easing: "easeOutInCirc",
-					// 	}, "-=300")
-					// 	.add({
-					// 		targets: ".transition-logo",
-					// 		opacity: [1, 0],
-					// 		duration: 300,
-					// 		easing: "linear",
-					// 	}, "-=300")
+				const timeline = anime
+					.timeline()
+					.add({
+						targets: Elements.Body,
+						background: "#0A0A0A",
+						duration: 500,
+						easing: 'linear',
+					})
+					.add({
+						targets: data.current.container,
+						opacity: 0,
+						duration: 500,
+						easing: 'linear',
+					}, 0);
+				if (!self.nav.isAnimating) {
+					timeline
+						.add({
+							targets: ".transition-logo",
+							opacity: [0, 1],
+							duration: 300,
+							easing: "linear",
+						})
+						.add({
+							targets: ".transition-logo",
+							translateY: [-200, 200],
+							duration: 1000,
+							easing: "easeOutInCirc",
+						}, "-=300")
+						.add({
+							targets: ".transition-logo",
+							opacity: [1, 0],
+							duration: 300,
+							easing: "linear",
+						}, "-=300")
 				}
-				// return timeline.finished;
+				return timeline.finished;
 			},
 			enter(data: ITransitionData) {
 				anime({
 					targets: data.next.container,
 					opacity: [0, 1],
 					easing: 'linear',
-					duration: 500,
+					duration: 750,
+				});
+			},
+		};
+	}
+
+	/**
+	 * White insights transition.
+	 *
+	 * @private
+	 */
+	private insightsTransition(): ITransitionPage {
+		return {
+			name: 'insights-transition',
+			to: {
+				namespace: [
+					"page-insights",
+					"section-insights",
+					"page-legal",
+				]
+			},
+			leave(data: ITransitionData): Promise<unknown> | void {
+				return anime
+					.timeline()
+					.add({
+						targets: Elements.Body,
+						background: "#fff",
+						duration: 500,
+						easing: 'linear',
+					})
+					.add({
+						targets: data.current.container,
+						opacity: 0,
+						duration: 500,
+						easing: 'linear',
+					}, 0).finished
+			},
+			enter(data: ITransitionData) {
+				anime({
+					targets: data.next.container,
+					opacity: [0, 1],
+					easing: 'linear',
+					duration: 750,
 				});
 			},
 		};

@@ -6,8 +6,11 @@
  * @author Email: hello@ainsley.dev
  */
 
-import LoconativeScroll from './../vendor/loconative-scroll.js';
 import { Elements } from '../util/els';
+import { IsTouchDevice } from '../util/css';
+import { Log} from '../util/log';
+import LoconativeScroll from './../vendor/loconative-scroll.js';
+import { OnScrollEvent } from 'locomotive-scroll';
 
 /**
  * Scroll is responsible for adding smooth scroll to
@@ -19,7 +22,7 @@ class Scroll {
 	 *
 	 * @private
 	 */
-	private instance = null;
+	public instance = null;
 
 	/**
 	 * The default options for Loconative scroll
@@ -36,6 +39,7 @@ class Scroll {
 		mouseMultiplier: 1,
 		touchMultiplier: 2,
 		infinite: false,
+		reloadOnContextChange: true,
 		smartphone: {
 			smooth: false,
 		},
@@ -52,8 +56,7 @@ class Scroll {
 	 */
 	constructor(container: Element) {
 		this.init(container);
-		this.addScroll();
-		this.resize();
+		this.onScroll((y: number) => this.setScrollTop(y));
 	}
 
 	/**
@@ -68,8 +71,10 @@ class Scroll {
 		const scrollContainer = container.querySelector('[data-scroll-container]'),
 			options = this.options;
 		if (scrollContainer.hasAttribute('data-scroll-disable')) {
-			options.smooth = false;
+			Log.debug("Disabling smooth scroll");
+			// options.smooth = false;
 		}
+		Log.debug("Initialising scroll instance");
 		// @ts-ignore
 		this.instance = new LoconativeScroll({
 			el: scrollContainer,
@@ -81,66 +86,49 @@ class Scroll {
 	 * Destroys the scroll instance and removes any styles.
 	 */
 	public destroy(): void {
+		Log.debug("Destroying scroll instance");
 		if (this.instance === null) {
 			return;
 		}
-		this.instance.stop();
 		this.instance.destroy();
-		this.clearProps();
 		this.instance = null;
 	}
 
 	/**
-	 * Resize handler for initialising or destroying
-	 * the scroll.
+	 * Adds the scroll event listener.
+	 * If it's a touch device, it will use the native scroll event,
+	 * otherwise it will bind to the scroll instance.
 	 *
-	 * @private
+	 * @param callback
 	 */
-	private resize() {
-		let timeout;
-		window.addEventListener('resize', () => {
-			clearTimeout(timeout);
-			timeout = setTimeout(() => {
-				this.init(Elements.Body);
-			}, 100);
+	public onScroll(callback: (y: number) => unknown) {
+		if (IsTouchDevice()) {
+			window.addEventListener("scroll", () => {
+				callback(Elements.HTML.scrollTop);
+			});
+			return;
+		}
+		this.instance.on('scroll', (e: OnScrollEvent) => {
+			callback(e.scroll.y);
 		});
 	}
 
 	/**
-	 * Removes any styles associated with the scroll instance.
+	 * Adds the scroll y position to the HTML element.
+	 * If the y position has passed the scroll amount, a 'scrolled'
+	 * class will be added.
 	 *
+	 * @param y
 	 * @private
 	 */
-	private clearProps() {
-		const els = [
-			...Array.from(document.querySelectorAll('[data-scroll-section]')),
-			...Array.from(document.querySelectorAll('[data-scroll]')),
-		];
-		els.forEach((el) => el.setAttribute('style', ''));
-	}
-
-	private addScroll(): void {
-		if (!this.instance) {
-			return;
-		}
-		const scrollAmount = 500;
-		this.instance.on('scroll', (e) => {
-			this.setScrollTop(e.scroll.y);
-
-			// TODO, need to do native scroll.
-			// const y = body.scrollTop;
-			//
-			// if (y > scrollAmount) {
-			// 	Log.debug('Scroll - Scrolled passed point' + scrollAmount);
-			// 	html.classList.add('scrolled');
-			// 	return;
-			// }
-			// html.classList.remove('scrolled');
-		});
-	}
-
 	private setScrollTop(y: number) {
 		Elements.HTML.style.setProperty('--scroll-y', y.toString());
+		const scrollAmount = 500;
+		if (y > scrollAmount) {
+			Elements.HTML.classList.add("scrolled");
+			return;
+		}
+		Elements.HTML.classList.remove("scrolled");
 	}
 }
 

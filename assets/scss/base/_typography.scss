@@ -69,6 +69,12 @@ h5 {
 
 	.type-serif {
 		@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 50px, 80px);
+
+		&.small-mob {
+			@include media-tab-down {
+				@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 47px, 80px);
+			}
+		}
 	}
 }
 

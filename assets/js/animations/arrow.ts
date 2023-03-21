@@ -43,7 +43,6 @@ class Arrow {
 	 * @constructor
 	 */
 	constructor() {
-		Log.debug('Arrow - Initialising');
 		document.querySelectorAll('.arrow-hover').forEach((arrow) => {
 			this.initArrow(arrow as HTMLElement);
 		});

@@ -16,6 +16,14 @@ html {
 	scroll-behavior: initial;
 }
 
+@include touch {
+	scroll-behavior: smooth;
+
+	* {
+		scroll-behavior: smooth;
+	}
+}
+
 html.no-js * {
 	transition: none !important;
 }
@@ -45,9 +53,8 @@ body {
 
 main {
 	flex-grow: 2;
+	transition: background-color 500ms ease;
 }
-
-
 
 .content-wrapper {
 	display: flex;
