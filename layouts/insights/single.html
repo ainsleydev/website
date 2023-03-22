@@ -41,7 +41,7 @@
 						Content
 						===================== -->
 					<article class="richtext">
-                        {{ .Content | safeHTML }}
+                        {{ .Content | replaceRE "/a>\n" "/a>" | safeHTML  }}
 					</article>
 				</div><!-- /Col -->
 			</div><!-- /Row -->
