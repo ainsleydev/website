@@ -4,5 +4,7 @@
 {{ $namespace := printf "%s-%s" .Kind .Type -}}
 {{- if .IsHome -}}
 	{{- $namespace = "home" -}}
+{{- else if (ne .Params.namespace "") -}}
+	{{ $namespace = .Params.namespace }}
 {{- end -}}
 {{- return $namespace }}

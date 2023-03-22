@@ -29,18 +29,7 @@ import { Animations } from '../animations/text';
 import { Elements } from '../util/els';
 import { Barba } from './barba';
 import Scroll from './scroll';
-import { ITransitionData } from '@barba/core';
-import anime from 'animejs/lib/anime.es';
 import { aside } from '../animations/aside';
-
-/**
- *
- */
-declare global {
-	interface Window {
-		plausible: (args: string) => unknown;
-	}
-}
 
 /**
  * App is the main type for the site which bootstraps the

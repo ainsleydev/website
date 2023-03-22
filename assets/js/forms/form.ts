@@ -20,7 +20,7 @@ export interface Response {
 }
 
 /**
- * AdminAjax
+ * API Form.
  */
 export abstract class Form {
 	/**
@@ -42,7 +42,6 @@ export abstract class Form {
 	 * Creates a new form.
 	 *
 	 * @param buttonSelector
-	 * @param endpoint
 	 * @protected
 	 */
 	protected constructor(buttonSelector: string) {
@@ -78,6 +77,11 @@ export abstract class Form {
 	 */
 	abstract send(): void | Promise<Response>;
 
+	/**
+	 * Retrieves a singular value from the form.
+	 *
+	 * @param name
+	 */
 	getValue(name: string): unknown {
 		const el = this.form.querySelector(`[name=${name}]`) as HTMLFormElement;
 		if (!el) {

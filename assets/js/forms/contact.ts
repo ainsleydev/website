@@ -29,12 +29,15 @@ export class ContactForm extends Form {
 			message: this.getValue('message'),
 			honeypot: this.getValue('first-name'),
 		} as ContactFormRequest;
+		this.addButtonLoading();
 		API.forms
 			.sendContactForm(request)
 			.then(() => {
 				Log.info('Contact - Successfully sent contact form');
+				window.barba.go('/thank-you/');
 			})
 			.catch((err) => {
+				this.removeButtonLoading();
 				HandleAPIError(err);
 			});
 	}
