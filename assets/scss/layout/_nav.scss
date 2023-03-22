@@ -75,7 +75,7 @@
 		&-text {
 			position: relative;
 			display: inline-block;
-			@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 40px, 80px);
+			@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 34px, 80px);
 			margin-bottom: 0;
 		}
 	}
@@ -184,7 +184,7 @@
 
 	@media screen and (max-height: 1000px) and (min-width: $grid-breakpoint-tab * 1px) {
 		&-link-text {
-			font-size: 8.5vh;
+			font-size: 8vh;
 		}
 	}
 

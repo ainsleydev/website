@@ -31,6 +31,7 @@ import { Barba } from './barba';
 import Scroll from './scroll';
 import { ITransitionData } from '@barba/core';
 import anime from 'animejs/lib/anime.es';
+import { aside } from '../animations/aside';
 
 /**
  *
@@ -114,6 +115,7 @@ class App {
 		copyToClipboard();
 		lazyImages();
 		video();
+		aside();
 
 		// Animations
 		this.initAnimations();
