@@ -9,3 +9,28 @@
 .home {
 	$self: &;
 }
+
+
+.svg-scroll {
+	position: fixed;
+	height: 90vh;
+	width: 100vw;
+	bottom: 0;
+	perspective: 2000px;
+	filter: grayscale(100%);
+	opacity: 0.4;
+
+	img,
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.hero-wrapper {
+	height: 2500px;
+
+	.hero {
+		pointer-events: none;
+	}
+}
