@@ -26,7 +26,7 @@ logoWeight: 10
 ---
 
 <!-- Intro -->
-{{< vertical-section >}}
+{{< vertical-section large=true >}}
 Established in 2017, Oak Tuition is a school with highly-qualified, experienced tutors, who utilise hands-on
 mixed method teaching of the National Curriculum, in accordance with exam board requirements.
 {{< /vertical-section >}}

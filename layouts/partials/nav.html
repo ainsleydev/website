@@ -2,6 +2,12 @@
     Navigation
     ===================== -->
 <nav class="nav" aria-label="Main Navigation" style="opacity: 0;">
+	<!-- Header -->
+    {{- partial "header.html" (dict
+		"nav" true
+		"ctx" .
+    )}}
+
 	<!-- Main (Top/Left) -->
 	<div class="container nav-container">
 		<div class="row nav-row">
@@ -65,26 +71,4 @@
 			</div><!-- /Col -->
 		</div>
 	</div>
-{{/*	<h4>{{ .ctx }}</h4>*/}}
-{{/*	<!-- Image Hover -->*/}}
-{{/*    {{ with site.Menus.navMain -}}*/}}
-{{/*		<div class="nav-images">*/}}
-{{/*			<!-- Who We Are -->*/}}
-{{/*            {{ range . -}}*/}}
-{{/*                {{- $name := .Name -}}*/}}
-{{/*                {{ if .Params.image -}}*/}}
-{{/*					<picture class="nav-images-item" id="{{ (printf "nav-picture-%s" .Identifier) }}">*/}}
-{{/*                        {{ partial "media/picture.html" (dict*/}}
-{{/*                        "image" (resources.Get .Params.image.url)*/}}
-{{/*                        "alt" .Params.image.alt*/}}
-{{/*                        "mob" false*/}}
-{{/*                        "tab" false)*/}}
-{{/*                        }}*/}}
-{{/*					</picture>*/}}
-{{/*                {{- else -}}*/}}
-{{/*                    {{ errorf "No image attached to menu item: %s" .Name }}*/}}
-{{/*                {{- end }}*/}}
-{{/*            {{- end }}*/}}
-{{/*		</div><!-- /Image Hover -->*/}}
-{{/*    {{- end }}*/}}
 </nav>

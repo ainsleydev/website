@@ -7,6 +7,7 @@
  */
 
 import { Log } from '../util/log';
+import { IsTouchDevice } from '../util/css';
 
 // The Angles interface defines the shape of an array containing two
 // numbers representing the X and Y angles of a 2D point.
@@ -28,7 +29,7 @@ const calculateArrowAngles = (arrow: Element): Angles => {
 		x: -Math.round(Math.sin(radians) * 100),
 		y: -Math.round(Math.cos(radians) * -100),
 	};
-}
+};
 
 /**
  * Arrow is responsible for animating an arrow when it is hovered over by the mouse.
@@ -59,6 +60,10 @@ class Arrow {
 
 		if (!visible || !hidden) {
 			Log.error('Arrow - No visible or hidden element in arrow hover element.');
+			return;
+		}
+
+		if (IsTouchDevice()) {
 			return;
 		}
 
@@ -99,4 +104,4 @@ class Arrow {
 	}
 }
 
-export {Arrow, calculateArrowAngles, Angles}
+export { Arrow, calculateArrowAngles, Angles };

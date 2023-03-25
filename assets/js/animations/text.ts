@@ -306,7 +306,7 @@ const up = (): Playable[] => {
 
 		playables.push(() => {
 			WayPoint(an, {
-				rootMargin: window.innerWidth > 1024 ? '-200px' : '-50px',
+				rootMargin: window.innerWidth > 1024 ? '-200px' : '-150px',
 				callback: (el: Element) => {
 					anime({
 						targets: el,

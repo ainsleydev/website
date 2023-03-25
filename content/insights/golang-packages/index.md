@@ -538,7 +538,7 @@ godoc -http=:6060
 For more detailed tips and tricks for using godoc, see Elliot
 Chance’s [post](https://elliotchance.medium.com/godoc-tips-tricks-cda6571549b) on Medium.
 
-### Readme.md
+### README.md
 
 When writing a readme, ensure to include a catchline that will lure your users in. 80% of repositories will also get
 used more if you have a logo or mascot (for open source projects).

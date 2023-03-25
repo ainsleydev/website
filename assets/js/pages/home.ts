@@ -51,26 +51,18 @@ export const homeAnimation = () => {
 			{
 				targets: '.home-show-reel-image img',
 				rotateY: [-90, 0],
-				duration: 10000,
+				duration: 9000,
 				easing: 'easeInOutExpo',
 			},
-			2500,
+			2000,
 		)
 		.add(
 			{
 				targets: '.home-show-reel-image',
 				scale: [0, 1],
-				duration: 10000,
+				duration: 6000,
 			},
-			3000,
-		)
-		.add(
-			{
-				targets: '.home-show-reel-text',
-				opacity: [0, 1],
-				duration: 2500,
-			},
-			'-=3500',
+			2000,
 		);
 
 	Scroll.onScroll((y: number) => {

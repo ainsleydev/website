@@ -57,33 +57,13 @@
 		}
 	}
 
-	// Animation Props
+	// Nav Header
 	// ==========================================================================
 
-	.nav-btn-arrow path,
-	&-logo path {
-		transition: fill 1000ms ease;
-		transition-delay: 600ms;
-	}
+	&-nav {
+		position: absolute;
 
-	.nav-btn-text {
-		transition: color 100ms ease;
-		transition-delay: 600ms;
-	}
-
-	// Nav Active
-	// ==========================================================================
-
-	&-nav-active {
-		background-color: transparent;
-		transition-delay: 0ms;
-
-		.nav-btn-arrow path,
-		#{$self}-logo path {
-			fill: $white;
-		}
-
-		.nav-btn-text {
+		* {
 			color: $white;
 		}
 	}

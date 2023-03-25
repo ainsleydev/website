@@ -14,7 +14,8 @@ import barba, { HookMethods, ITransitionData, RequestErrorOrResponse } from '@ba
 import { ITransitionPage } from '@barba/core/dist/core/src/defs';
 
 /**
- *
+ * Barba is responsible for mounting the LocoNative scroll
+ * client for the site.
  */
 export class Barba {
 	/**

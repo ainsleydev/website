@@ -26,7 +26,7 @@ logoWeight: 30
 ---
 
 <!-- Intro -->
-{{< vertical-section >}}
+{{< vertical-section large=true >}}
 Katherine at Royal Beauty is a beauty salon specialising in massage and beauty treatments. They pride themselves on
 creating a warm and friendly atmosphere, where clients can destress and go away feeling refreshed and revitalised.
 {{< /vertical-section >}}

@@ -17,7 +17,7 @@
 	overflow-y: scroll;
 	overflow-x: clip;
 	background-color: $black;
-	z-index: $header-z-index - 10;
+	z-index: $header-z-index + 10;
 
 	// With JS
 	// =========================================================================
@@ -92,39 +92,6 @@
 		}
 	}
 
-	// Images
-	// =========================================================================
-
-	&-images {
-		display: none;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: 0;
-
-		&-item {
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			opacity: 0;
-			transition: opacity 200ms ease-in-out;
-
-			img,
-			source {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-			}
-
-			&-active {
-				z-index: 100;
-				opacity: 1;
-			}
-		}
-	}
-
 	// Button
 	// =========================================================================
 
@@ -144,13 +111,6 @@
 			margin-bottom: 0;
 			font-size: 0.9rem;
 			user-select: none;
-
-			&-close {
-				position: absolute;
-				top: 0;
-				left: 0;
-				transform: scaleY(0);
-			}
 		}
 
 		&-wrapper {

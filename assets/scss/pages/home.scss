@@ -26,8 +26,16 @@ $homeShowReelHeight: 300vh;
 		&-text {
 			display: flex;
 			flex-direction: column;
-			justify-content: space-around;
+			justify-content: space-between;
 			@include full-height;
+		}
+
+		&-heading {
+			padding-top: 12.5vh;
+		}
+
+		&-lead {
+			padding-bottom: 5vh;
 		}
 
 		&-heading {
@@ -38,6 +46,9 @@ $homeShowReelHeight: 300vh;
 			}
 		}
 	}
+
+	// First Section
+	// =========================================================================
 
 	&-first-section {
 		position: relative;
