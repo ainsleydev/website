@@ -126,7 +126,7 @@
 		<!-- Cursor -->
 		{{ partial "components/cursor.html" $colour }}
 		<!-- Content Wrapper -->
-		<div data-barba="container" data-barba-namespace="{{ partial "util/_namespace.html" . }}">
+		<div class="barba-container" data-barba="container" data-barba-namespace="{{ partial "util/_namespace.html" . }}">
 			<div class="content-wrapper" data-scroll-container {{ if and (eq .Section "insights") .IsPage -}} data-scroll-disable {{- end }}>
 				<!-- Main Content -->
 				<main id="main" class="theme-{{ $colour }}" data-theme="{{ $colour }}">

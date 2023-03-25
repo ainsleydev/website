@@ -61,8 +61,12 @@ h5 {
 	font-weight: bold;
 }
 
+.type-serif {
+	line-height: 1;
+}
+
 @mixin h1 {
-	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 40px, 68px);
+	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 36px, 68px);
 	margin-bottom: 1.8rem;
 	line-height: 1.03;
 	letter-spacing: $text-letter-spacing;
