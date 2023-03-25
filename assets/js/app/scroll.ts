@@ -8,7 +8,7 @@
 
 import { Elements } from '../util/els';
 import { IsTouchDevice } from '../util/css';
-import { Log} from '../util/log';
+import { Log } from '../util/log';
 import LoconativeScroll from './../vendor/loconative-scroll.js';
 import { OnScrollEvent } from 'locomotive-scroll';
 
@@ -71,10 +71,10 @@ class Scroll {
 		const scrollContainer = container.querySelector('[data-scroll-container]'),
 			options = this.options;
 		if (scrollContainer.hasAttribute('data-scroll-disable')) {
-			Log.debug("Disabling smooth scroll");
+			Log.debug('Disabling smooth scroll');
 			// options.smooth = false;
 		}
-		Log.debug("Initialising scroll instance");
+		Log.debug('Initialising scroll instance');
 		// @ts-ignore
 		this.instance = new LoconativeScroll({
 			el: scrollContainer,
@@ -86,7 +86,7 @@ class Scroll {
 	 * Destroys the scroll instance and removes any styles.
 	 */
 	public destroy(): void {
-		Log.debug("Destroying scroll instance");
+		Log.debug('Destroying scroll instance');
 		if (this.instance === null) {
 			return;
 		}
@@ -102,15 +102,7 @@ class Scroll {
 	 * @param callback
 	 */
 	public onScroll(callback: (y: number) => unknown) {
-		if (IsTouchDevice()) {
-			window.addEventListener("scroll", () => {
-				callback(Elements.HTML.scrollTop);
-			});
-			return;
-		}
-		this.instance.on('scroll', (e: OnScrollEvent) => {
-			callback(e.scroll.y);
-		});
+		this.instance.on('scroll', (e: OnScrollEvent) => callback(e.scroll.y));
 	}
 
 	/**
@@ -125,10 +117,10 @@ class Scroll {
 		Elements.HTML.style.setProperty('--scroll-y', y.toString());
 		const scrollAmount = 500;
 		if (y > scrollAmount) {
-			Elements.HTML.classList.add("scrolled");
+			Elements.HTML.classList.add('scrolled');
 			return;
 		}
-		Elements.HTML.classList.remove("scrolled");
+		Elements.HTML.classList.remove('scrolled');
 	}
 }
 

@@ -30,6 +30,7 @@ import { Elements } from '../util/els';
 import { Barba } from './barba';
 import Scroll from './scroll';
 import { aside } from '../animations/aside';
+import { homeAnimation } from '../pages/home';
 
 /**
  * App is the main type for the site which bootstraps the
@@ -105,6 +106,7 @@ class App {
 		lazyImages();
 		video();
 		aside();
+		homeAnimation();
 
 		// Animations
 		this.initAnimations();
