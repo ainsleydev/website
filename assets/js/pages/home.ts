@@ -30,13 +30,12 @@ export const homeAnimation = () => {
 			targets: svg,
 			translateZ: [0, 2700],
 			duration: 10000,
-			easing: 'easeInSine',
 		})
 		.add(
 			{
 				targets: wrapper,
 				filter: ['grayscale(100%)', 'grayscale(0%)'],
-				duration: 3000,
+				duration: 5000,
 			},
 			0,
 		)
@@ -44,24 +43,34 @@ export const homeAnimation = () => {
 			{
 				targets: wrapper,
 				opacity: [0.4, 1],
-				duration: 3000,
+				duration: 2500,
 			},
 			0,
-		);
-
-	const newTL = anime
-		.timeline({
-			autoplay: false,
-		})
+		)
 		.add(
 			{
-				targets: '.home-show-reel img',
+				targets: '.home-show-reel-image img',
 				rotateY: [-90, 0],
+				duration: 10000,
+				easing: 'easeInOutExpo',
+			},
+			2500,
+		)
+		.add(
+			{
+				targets: '.home-show-reel-image',
 				scale: [0, 1],
-				easing: 'linear',
 				duration: 10000,
 			},
-			'-=10000',
+			3000,
+		)
+		.add(
+			{
+				targets: '.home-show-reel-text',
+				opacity: [0, 1],
+				duration: 2500,
+			},
+			'-=3500',
 		);
 
 	Scroll.onScroll((y: number) => {
