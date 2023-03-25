@@ -72,7 +72,7 @@ h5 {
 	letter-spacing: $text-letter-spacing;
 
 	.type-serif {
-		@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 50px, 80px);
+		@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 44px, 80px);
 
 		&.small-mob {
 			@include media-tab-down {
