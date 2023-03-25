@@ -102,6 +102,7 @@ export class Navigation {
 				begin: (anim) => {
 					if (anim.direction === 'normal') {
 						anime.set(this.nav, { display: 'flex' });
+						anime.set('.header-nav', { opacity: 1 });
 						return;
 					}
 				},

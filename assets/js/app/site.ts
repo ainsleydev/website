@@ -32,6 +32,7 @@ import Scroll from './scroll';
 import { aside } from '../animations/aside';
 import { homeAnimation } from '../pages/home';
 import { ITransitionData } from '@barba/core';
+import anime from 'animejs/lib/anime.es';
 
 /**
  * App is the main type for the site which bootstraps the
@@ -195,6 +196,12 @@ class App {
 			if (!this.hasSmoothScroll()) {
 				Elements.HTML.style.scrollBehavior = 'initial';
 			}
+			anime({
+				targets: ['.header'],
+				opacity: [1, 0],
+				duration: 500,
+				easing: 'linear',
+			});
 			this.cursor.destroy();
 		});
 	}
@@ -214,6 +221,13 @@ class App {
 			Scroll.init(data.next.container);
 			this.triggerPageView();
 			this.boot();
+			anime({
+				targets: ['.header'],
+				opacity: [0, 1],
+				duration: 1000,
+				delay: 500,
+				easing: 'linear',
+			});
 		});
 	}
 

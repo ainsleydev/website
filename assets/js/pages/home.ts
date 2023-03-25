@@ -63,6 +63,14 @@ export const homeAnimation = () => {
 				duration: 6000,
 			},
 			2000,
+		)
+		.add(
+			{
+				targets: '.home-show-reel-text',
+				opacity: [0, 1],
+				duration: 2000,
+			},
+			'-=4000',
 		);
 
 	Scroll.onScroll((y: number) => {
