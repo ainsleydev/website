@@ -46,7 +46,7 @@ export class Elements {
 	 */
 	public static _initialize() {
 		this.Main = <HTMLElement>document.querySelector('main');
-		this.Header = <HTMLElement>document.querySelector('.header');
+		this.Header = <HTMLElement>document.querySelector('.header-default');
 		this.Nav = <HTMLElement>document.querySelector('.nav');
 		this.Footer = <HTMLElement>document.querySelector('footer');
 	}
