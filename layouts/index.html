@@ -2,61 +2,70 @@
 	<!-- =====================
 		Home
 		===================== -->
-	<section class="hero hero-full-height hero-min-height">
-		<div class="container">
-			<div class="row justify-content-between">
-				<div class="col-12">
-					<!-- Text -->
-					<div class="hero-animate hero-text">
+	<div class="home-hero-wrapper">
+		<div class="home-three-d">
+			{{ partial "svgs/a-symbol-3d.html" . }}
+		</div>
+		<section class="hero home-hero">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-12">
+						<!-- Text -->
+						<div class="hero-animate hero-text home-hero-text">
+							<!-- Heading -->
+							<div class="home-hero-heading">
+								<h1 data-scroll data-scroll-speed="2" data-scroll-position="top">
+									Digital <span class="type-serif">craftmanship*</span><br/>sculpting you as an<br class="d-none d-tab-inline"/>industry <u>leader</u>
+								</h1>
+							</div>
+							<!-- Lead -->
+							<div data-scroll data-scroll-speed="1" data-scroll-position="top">
+								<p class="lead lead-max-width mb-0">
+									Coupling state-of-the-art technology with stunning designs, we create memorable
+									digital transformations and well-crafted software for everyone from startups to established
+									brands.
+								</p>
+							</div>
+						</div><!-- /Text -->
+						<!-- Arrow -->
+						<div class="all-articles-wrapper all-articles-wrapper-end d-none d-tab-block"
+							 data-scroll data-scroll-speed="1" data-scroll-direction="top">
+							{{ partial "arrow/hover.html" (dict
+								"link" "#content"
+								"title" "Scroll down to explore"
+								"rotation" 135
+								"title" "Explore ainsley.dev"
+							)}}<!-- /Arrow -->
+						</div>
+					</div><!--- /Col -->
+				</div><!-- /Row -->
+			</div><!-- /Container -->
+		</section>
+		<!-- =====================
+	Show-reel
+	===================== -->
+		<section class="section section-padding section-padding-top d-none" id="content">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<figure class="home-show-reel image">
+							<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbMVIdYheocpVXNvqbB633BXd7lTOgbi27OlX4s2aQ&s" alt="">
+						</figure>
 						<!-- Heading -->
-						<div class="margin-large">
-							<h1 data-scroll data-scroll-speed="2" data-scroll-position="top">
-								Digital <span class="type-serif">craftmanship*</span><br/>sculpting you as an<br class="d-none d-tab-inline"/>industry <u>leader</u>
-							</h1>
-						</div>
-						<!-- Lead -->
-						<div data-scroll data-scroll-speed="1" data-scroll-position="top">
-							<p class="lead lead-max-width mb-0">
-								Coupling state-of-the-art technology with stunning designs, we create memorable
-								digital transformations and well-crafted software for everyone from startups to established
-								brands.
-							</p>
-						</div>
-					</div><!-- /Text -->
-					<!-- Arrow -->
-					<div class="all-articles-wrapper all-articles-wrapper-end d-none d-tab-block"
-						data-scroll data-scroll-speed="1" data-scroll-direction="top">
-						{{ partial "arrow/hover.html" (dict
-							"link" "#content"
-							"title" "Scroll down to explore"
-							"rotation" 135
-							"title" "Explore ainsley.dev"
-						)}}<!-- /Arrow -->
-					</div>
-				</div><!--- /Col -->
-			</div><!-- /Row -->
-		</div><!-- /Container -->
-	</section>
-	<!-- =====================
-		Show-reel (Display None for the Time Being)
-		===================== -->
-	<section class="section section-padding section-padding-top d-none" id="content">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<!-- Heading -->
-					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
-                        {{ partial "type/vertical.html" (dict
-							"text" "Showreel"
-							"number" "00"
-							"line" true
-							"fill" false
-                        )}}
+						<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
+{{/*                            {{ partial "type/vertical.html" (dict*/}}
+{{/*                            "text" "Showreel"*/}}
+{{/*                            "number" "00"*/}}
+{{/*                            "line" true*/}}
+{{/*                            "fill" false*/}}
+{{/*                            )}}*/}}
+						</div><!-- /Col -->
 					</div><!-- /Col -->
-				</div><!-- /Col -->
-			</div><!-- /Row -->
-		</div><!-- /Container -->
-	</section>
+				</div><!-- /Row -->
+			</div><!-- /Container -->
+		</section>
+	</div>
+
 	<!-- =====================
 		Solutions
 		===================== -->

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1678" height="1515" viewBox="0 0 1678 1515">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.954" y1="0.14" x2="0.398" y2="0.601" gradientUnits="objectBoundingBox">
+      <stop offset="0"/>
+      <stop offset="0.09" stop-opacity="0.91"/>
+      <stop offset="1" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="clip-Logo_Symbol_-_White">
+      <rect width="1678" height="1515"/>
+    </clipPath>
+  </defs>
+  <g id="Logo_Symbol_-_White" data-name="Logo Symbol - White" clip-path="url(#clip-Logo_Symbol_-_White)">
+    <rect width="1678" height="1515" fill="#0a0a0a"/>
+    <g id="Logo" transform="translate(0 0)" opacity="0.15" style="mix-blend-mode: luminosity;isolation: isolate">
+      <g id="ORANGE_STROKE" transform="translate(0 0)">
+        <g id="Group_1" data-name="Group 1">
+          <path id="Path_1" data-name="Path 1" d="M1002.613,4H684.983L4.8,1518.7H362.054Z" transform="translate(-4.8 -4)" fill="#ff5043"/>
+          <path id="Path_2" data-name="Path 2" d="M1002.613,4H684.983L4.8,1518.7H362.054Z" transform="translate(-4.8 -4)" opacity="0.57" fill="url(#linear-gradient)"/>
+        </g>
+      </g>
+      <g id="BLUESTROKE" transform="translate(680.183)">
+        <path id="Path_3" data-name="Path 3" d="M543.8,4H861.431l680.186,1514.7H1184.362Z" transform="translate(-543.8 -4)" fill="#70cbce"/>
+      </g>
+    </g>
+  </g>
+</svg>

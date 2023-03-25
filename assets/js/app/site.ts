@@ -29,17 +29,9 @@ import { Animations } from '../animations/text';
 import { Elements } from '../util/els';
 import { Barba } from './barba';
 import Scroll from './scroll';
+import { aside } from '../animations/aside';
+import { homeAnimation } from '../pages/home';
 import { ITransitionData } from '@barba/core';
-import anime from 'animejs/lib/anime.es';
-
-/**
- *
- */
-declare global {
-	interface Window {
-		plausible: (args: string) => unknown;
-	}
-}
 
 /**
  * App is the main type for the site which bootstraps the
@@ -114,12 +106,17 @@ class App {
 		copyToClipboard();
 		lazyImages();
 		video();
+		aside();
 
 		// Animations
 		this.initAnimations();
 
 		// Analytics
 		this.webVitals();
+	}
+
+	public nameSpace(): string {
+		return document.querySelector('.barba-container').getAttribute('data-barba-namespace');
 	}
 
 	/**
@@ -159,6 +156,10 @@ class App {
 		const animations = new Animations(),
 			timeout = this.nav.duration() / 2 - 350;
 		setTimeout(() => animations.play(), this.nav.isAnimating ? timeout : 0);
+
+		if (this.nameSpace() === 'home') {
+			homeAnimation();
+		}
 	}
 
 	/**

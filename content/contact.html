@@ -3,6 +3,7 @@ title: Get in touch
 description: Get in touch with ainsley.dev to capture your vision and values, so we can help you build a vibrant brand identity.
 draft: false
 pageColour: white
+namespace: contact
 scripts:
   - js/pages/contact.ts
 ---
@@ -49,9 +50,9 @@ scripts:
 						<span class="tag tag-black form-message">Include your email in the message</span>
 					</div>
 					<!-- Submit -->
-					<button class="form-submit" type="submit" id="ac-contact">
-						{{< partial template="arrow/text.html" text="<h2>Let's go</h2>" title="Submit form" colour="black" rotation=45 >}}
-					</button>
+					<div class="form-submit">
+						{{< partial template="components/button.html" colour="black" size="large" text="Let's go" attr="type=submit id=ac-contact" arrow=true >}}
+					</div>
 				</form>
 			</div><!-- /Col -->
 			<!-- Contact -->

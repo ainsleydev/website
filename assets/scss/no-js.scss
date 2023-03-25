@@ -102,9 +102,17 @@ body {
 // =========================================================================
 
 .arrow {
-
 	&-hover {
 		display: inline-block;
+	}
+}
+
+// Aside
+// =========================================================================
+
+.aside-checkbox:checked {
+	+ .aside {
+		transform: translateX(0);
 	}
 }
 
@@ -114,4 +122,3 @@ body {
 .zoom-element {
 	transform: none !important;
 }
-

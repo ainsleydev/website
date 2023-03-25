@@ -8,4 +8,108 @@
 
 .home {
 	$self: &;
+
+	// Hero
+	// =========================================================================
+
+	&-hero {
+		overflow-x: hidden;
+		pointer-events: none;
+
+		&-wrapper {
+			height: 3000px;
+		}
+
+		&-text {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			@include full-height;
+		}
+
+		&-heading {
+			margin-bottom: 0;
+
+			h1 {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	// Show-reel
+	// =========================================================================
+
+	&-show-reel {
+		perspective: 100vw;
+		transform-style: preserve-3d;
+
+		img {
+			width: 100%;
+			//animation: sqrA 4s infinite linear;
+		}
+
+		@keyframes sqrA {
+			from {
+				transform: rotateY(0deg);
+			}
+			to {
+				transform: rotateY(360deg);
+			}
+		}
+
+		.squareB {
+			-webkit-animation: sqrB 4s infinite linear;
+			animation: sqrB 4s infinite linear;
+		}
+	}
+
+	// 3D
+	// =========================================================================
+
+	&-three-d {
+		position: fixed;
+		height: 90%;
+		width: 90%;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 0;
+		perspective: 2000px;
+		filter: grayscale(100%);
+		opacity: 0.4;
+
+		img,
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-tab {
+		&-hero {
+			@include full-height;
+			display: flex;
+			align-items: center;
+
+			&-text {
+				display: block;
+				height: auto;
+			}
+
+			&-heading {
+				margin-bottom: $margin-large;
+			}
+		}
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-desk {
+		&-three-d {
+			width: 100%;
+		}
+	}
 }

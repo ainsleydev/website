@@ -75,7 +75,7 @@
 		&-text {
 			position: relative;
 			display: inline-block;
-			@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 40px, 80px);
+			@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 34px, 80px);
 			margin-bottom: 0;
 		}
 	}
@@ -135,6 +135,7 @@
 		z-index: 10;
 		padding: 10px;
 		margin-right: -10px;
+		margin-top: -10px;
 
 		&-text {
 			@include h6;
@@ -147,7 +148,7 @@
 			&-close {
 				position: absolute;
 				top: 0;
-				left: 10px;
+				left: 0;
 				transform: scaleY(0);
 			}
 		}
@@ -183,7 +184,7 @@
 
 	@media screen and (max-height: 1000px) and (min-width: $grid-breakpoint-tab * 1px) {
 		&-link-text {
-			font-size: 8.5vh;
+			font-size: 8vh;
 		}
 	}
 

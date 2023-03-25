@@ -10,7 +10,7 @@ import { Params } from '../params';
 import { Navigation } from '../components/nav';
 import { Elements } from '../util/els';
 import anime from 'animejs/lib/anime.es';
-import barba, { HookMethods, ITransitionData } from '@barba/core';
+import barba, { HookMethods, ITransitionData, RequestErrorOrResponse } from '@barba/core';
 import { ITransitionPage } from '@barba/core/dist/core/src/defs';
 
 /**
@@ -44,13 +44,19 @@ export class Barba {
 		this.nav = nav;
 		barba.init({
 			debug: Params.appDebug,
-			// timeout: 5000,
-			transitions: [
-				this.defaultTransition(),
-				this.insightsTransition(),
-				this.portfolioTransition(),
-			],
+			timeout: 5000,
+			requestError: (trigger, action, url, response: RequestErrorOrResponse) => {
+				// Go to a custom 404 page if the user click on a link that return a 404 response status
+				if (action === 'click' && 'status' in response && response.status && response.status === 404) {
+					// barba.go('/404/');
+				}
+				// Prevent Barba from redirecting the user to the requested URL
+				// this is equivalent to e.preventDefault() in this context
+				return false;
+			},
+			transitions: [this.defaultTransition(), this.insightsTransition(), this.portfolioTransition()],
 		});
+		window.barba = barba;
 	}
 
 	/**
@@ -68,36 +74,45 @@ export class Barba {
 					.timeline()
 					.add({
 						targets: Elements.Body,
-						background: "#0A0A0A",
+						background: '#0A0A0A',
 						duration: 500,
 						easing: 'linear',
 					})
-					.add({
-						targets: data.current.container,
-						opacity: 0,
-						duration: 500,
-						easing: 'linear',
-					}, 0);
+					.add(
+						{
+							targets: data.current.container,
+							opacity: 0,
+							duration: 500,
+							easing: 'linear',
+						},
+						0,
+					);
 				if (!self.nav.isAnimating) {
 					timeline
 						.add({
-							targets: ".transition-logo",
+							targets: '.transition-logo',
 							opacity: [0, 1],
 							duration: 300,
-							easing: "linear",
+							easing: 'linear',
 						})
-						.add({
-							targets: ".transition-logo",
-							translateY: [-200, 200],
-							duration: 1000,
-							easing: "easeOutInCirc",
-						}, "-=300")
-						.add({
-							targets: ".transition-logo",
-							opacity: [1, 0],
-							duration: 300,
-							easing: "linear",
-						}, "-=300")
+						.add(
+							{
+								targets: '.transition-logo',
+								translateY: [-200, 200],
+								duration: 1000,
+								easing: 'easeOutInCirc',
+							},
+							'-=300',
+						)
+						.add(
+							{
+								targets: '.transition-logo',
+								opacity: [1, 0],
+								duration: 300,
+								easing: 'linear',
+							},
+							'-=300',
+						);
 				}
 				return timeline.finished;
 			},
@@ -121,27 +136,26 @@ export class Barba {
 		return {
 			name: 'insights-transition',
 			to: {
-				namespace: [
-					"page-insights",
-					"section-insights",
-					"page-legal",
-				]
+				namespace: ['page-insights', 'section-insights', 'page-legal'],
 			},
 			leave(data: ITransitionData): Promise<unknown> | void {
 				return anime
 					.timeline()
 					.add({
 						targets: Elements.Body,
-						background: "#fff",
+						background: '#fff',
 						duration: 500,
 						easing: 'linear',
 					})
-					.add({
-						targets: data.current.container,
-						opacity: 0,
-						duration: 500,
-						easing: 'linear',
-					}, 0).finished
+					.add(
+						{
+							targets: data.current.container,
+							opacity: 0,
+							duration: 500,
+							easing: 'linear',
+						},
+						0,
+					).finished;
 			},
 			enter(data: ITransitionData) {
 				anime({
@@ -163,10 +177,10 @@ export class Barba {
 		return {
 			name: 'portfolio-card',
 			from: {
-				namespace: ['home', 'section-portfolio'],
+				namespace: ['home', 'section-portfolio', 'contact'],
 			},
 			to: {
-				namespace: ['page-portfolio'],
+				namespace: ['page-portfolio', 'thankyou'],
 			},
 			leave(data: ITransitionData): Promise<unknown> | void {
 				const cord = {

@@ -7,10 +7,10 @@
 		<div class="row footer-main {{ if .Params.footerNoPadding -}} pt-0 {{- end }}">
 			<!-- Symbol -->
 			<figure class="footer-symbol">
-                {{ partial "svgs/a-symbol.html" (dict
-					"opacity" 0.1
-					"greyscale" true
-					"class" "footer-symbol-wrapper"
+				{{ partial "media/image.html" (dict
+					"image" (resources.Get "/images/footer-logo.svg")
+					"alt" "ainsley.dev Symbol"
+					"lazy" true
 				)}}
 			</figure>
 			<div class="col-12 col-desk-6 footer-main-col">
