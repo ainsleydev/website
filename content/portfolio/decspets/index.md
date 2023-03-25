@@ -26,7 +26,7 @@ logoWeight: 0
 ---
 
 <!-- Intro -->
-{{< vertical-section >}}
+{{< vertical-section large=true >}}
 Launched in 2018, Dec’s Pets is a family-run retailer specialising in a vast array of pet care. With an established
 client base in Ireland, their aim was to establish an e-commerce presence in order to expand geographically and reach a
 wider audience.

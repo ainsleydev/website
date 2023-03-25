@@ -27,7 +27,7 @@ logoWeight: 50
 ---
 
 <!-- Intro -->
-{{< vertical-section >}}
+{{< vertical-section large=true >}}
 EDR Dental is a leading provider of dental restorations for clinicians and their patients across the U.K. They use
 state-of-the-art milling machines to produce a wide variety of products from the very best materials.
 {{< /vertical-section >}}

@@ -19,7 +19,7 @@
 								</h1>
 							</div>
 							<!-- Lead -->
-							<div data-scroll data-scroll-speed="1" data-scroll-position="top">
+							<div class="home-hero-lead" data-scroll data-scroll-speed="1" data-scroll-position="top">
 								<p class="lead lead-max-width mb-0">
 									Coupling state-of-the-art technology with stunning designs, we create memorable
 									digital transformations and well-crafted software for everyone from startups to established
@@ -50,16 +50,13 @@
 			<div class="home-show-reel-content">
 				<!-- Text -->
 				<div class="home-show-reel-text margin-large">
-{{/*                    {{ partial "type/vertical.html" (dict*/}}
-{{/*						"text" "Showreel"*/}}
-{{/*						"number" "00"*/}}
-{{/*						"line" true*/}}
-{{/*						"fill" true*/}}
-{{/*                    )}}*/}}
+					<h2 class="heading-1">Showreel</h2>
 				</div>
 				<!-- Image -->
 				<figure class="home-show-reel-image">
-					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbMVIdYheocpVXNvqbB633BXd7lTOgbi27OlX4s2aQ&s" alt="">
+					{{ partial "media/image.html" (dict
+						"image" (resources.Get "/images/showreel-temp.jpg")
+					)}}
 				</figure>
 			</div><!-- /Content -->
 		</div><!-- /Container -->
@@ -234,8 +231,8 @@
 							<div class="col-12 all-articles all-articles-large margin-large">
 								<div class="all-articles-wrapper all-articles-wrapper-end">
                                     {{ partial "arrow/text.html" (dict
-										"link" "/insights/"
-										"text" "<h3>All work</h3>"
+										"link" "/portfolio/"
+										"text" "<h2>All work</h3>"
 										"title" "View all work"
 										"small" true
 										"rotation" 45
@@ -249,7 +246,7 @@
 										Latest Articles
 									</h6>
                                     {{ partial "arrow/text.html" (dict
-										"link" "/insights/"
+										"link" "/portfolio/"
 										"text" "<h2>All work</h3>"
 										"title" "View all work"
 										"small" true

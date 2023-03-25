@@ -16,7 +16,7 @@ logoWeight: 60
 ---
 
 <!-- Intro -->
-{{< vertical-section >}}
+{{< vertical-section large=true >}}
 Elite Roofing Services is a family run business that undertakes all aspects of domestic and industrial roofing from
 changing a single tile to a full re-roof. They pride themselves on providing the best quality workmanship at competitive
 prices.

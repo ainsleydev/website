@@ -31,12 +31,10 @@ export class Navigation {
 	 */
 	private nav: HTMLElement = Elements.Nav;
 
-	private header: HTMLElement = Elements.Header;
-
 	/**
 	 * The toggle to display the navigation element.
 	 */
-	private readonly button: HTMLElement;
+	private readonly buttons: NodeList;
 
 	/**
 	 * The anime JS timeline that animates the navigational
@@ -53,11 +51,7 @@ export class Navigation {
 	 */
 	constructor() {
 		this.nav.classList.add('nav-js');
-		this.button = (<HTMLElement>document.querySelector('.nav-btn')) as HTMLElement;
-		if (!this.button) {
-			Log.error('Nav - No navigation button found, .nav-btn');
-			return;
-		}
+		this.buttons = document.querySelectorAll('.nav-btn');
 		this.setTimeline();
 		this.timeline.reverse();
 		this.attachClick();
@@ -70,7 +64,6 @@ export class Navigation {
 	public play(): void {
 		this.isAnimating = true;
 		this.isOpen = this.timeline.reversed;
-		this.toggleClasses();
 		this.animateButton();
 		this.timeline.reverse();
 		this.timeline.play();
@@ -89,9 +82,11 @@ export class Navigation {
 	 * @private
 	 */
 	private attachClick(): void {
-		this.button.addEventListener('click', (e) => {
-			e.preventDefault();
-			this.play();
+		this.buttons.forEach((btn) => {
+			btn.addEventListener('click', (e) => {
+				e.preventDefault();
+				this.play();
+			});
 		});
 	}
 
@@ -156,7 +151,7 @@ export class Navigation {
 				direction: this.isOpen ? 'normal' : 'reverse',
 			})
 			.add({
-				targets: Elements.Header.querySelector('.nav-btn-arrow'),
+				targets: '.nav-btn-arrow',
 				translateY: [0, '-100%'],
 				translateX: [0, '100%'],
 				opacity: [1, 0],
@@ -165,71 +160,18 @@ export class Navigation {
 			})
 			.add(
 				{
-					targets: Elements.Header.querySelector('.nav-btn-text-menu'),
+					targets: '.nav-btn-text-menu',
 					scaleY: [1, 0],
 					duration: 400,
 					easing: 'easeOutExpo',
 				},
 				0,
 			)
-			.add(
-				{
-					targets: Elements.Header.querySelector('.nav-btn-text-close'),
-					scaleY: [0, 1],
-					duration: 400,
-					easing: 'easeOutExpo',
-				},
-				'-=300',
-			);
-	}
-
-	/**
-	 * Adds active classes to the Navigation & Header elements when
-	 * the nav button is clicked.
-	 *
-	 * @private
-	 */
-	private toggleClasses(): void {
-		if (this.isOpen) {
-			this.nav.classList.add('nav-active');
-			this.header.classList.add('header-nav-active');
-			return;
-		}
-		this.nav.classList.remove('nav-active');
-		this.header.classList.remove('header-nav-active');
-	}
-
-	/**
-	 * Picture Hover
-	 * Adds the active class to the navigation
-	 * pictures when the user hovers over them.
-	 *
-	 * @private
-	 */
-	private pictureHover(): void {
-		const links = this.nav.querySelectorAll('[data-nav-image]');
-		links.forEach((link) => {
-			// Mouse over handler.
-			link.addEventListener('mouseover', () => {
-				const selector = link.getAttribute('data-nav-image');
-				if (!selector) {
-					Log.warn('Nav - No data-nav-image attribute found for link: ' + link);
-					return;
-				}
-				const image = document.querySelector(selector.toString());
-				if (!image) {
-					Log.warn('Nav - No image found with the attribute: ' + selector.toString());
-					return;
-				}
-				image.classList.add('nav-images-item-active');
+			.add({
+				targets: Elements.Header.querySelector('.nav-btn-text-close'),
+				scaleY: [0, 1],
+				duration: 400,
+				easing: 'easeOutExpo',
 			});
-
-			// Mouse out handler.
-			link.addEventListener('mouseout', () => {
-				document.querySelectorAll('.nav-images-item-active').forEach((image) => {
-					image.classList.remove('nav-images-item-active');
-				});
-			});
-		});
 	}
 }

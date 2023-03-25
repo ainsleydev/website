@@ -7,7 +7,7 @@
 @import '../abstracts/variables';
 
 $homeWrapperHeight: 250vh;
-$homeShowReelHeight: 350vh;
+$homeShowReelHeight: 300vh;
 
 .home {
 	$self: &;
@@ -26,8 +26,16 @@ $homeShowReelHeight: 350vh;
 		&-text {
 			display: flex;
 			flex-direction: column;
-			justify-content: space-around;
+			justify-content: space-between;
 			@include full-height;
+		}
+
+		&-heading {
+			padding-top: 12.5vh;
+		}
+
+		&-lead {
+			padding-bottom: 5vh;
 		}
 
 		&-heading {
@@ -38,6 +46,9 @@ $homeShowReelHeight: 350vh;
 			}
 		}
 	}
+
+	// First Section
+	// =========================================================================
 
 	&-first-section {
 		position: relative;

@@ -36,7 +36,7 @@
 			<!-- Text -->
 			<div class="col-12 col-mob-9">
 				<div class="margin margin-none">
-					<p class="lead">
+					<p class="lead {{ if eq (.Get "large") true -}} lead-large {{- end }}">
                         {{ .Inner | markdownify  }}
 					</p>
 				</div>

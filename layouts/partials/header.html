@@ -1,10 +1,8 @@
 <!-- =====================
     Header
     ===================== -->
-<!-- Hamburger -->
-<input class="nav-checkbox" type="checkbox" id="nav-check" aria-hidden="true" />
 <!-- Header -->
-<header class="header header-colour-{{ .colour }}">
+<header class="header header-colour-{{ .colour }} {{ if .nav -}} header-nav {{- else -}} {{- end }}">
 	<!-- Logo -->
 	<a href="/" class="header-logo cursor-element" aria-label="Navigate to the homepage"
 	   data-cursor-invert data-cursor-invert-black data-cursor-scale="1.6">
@@ -14,12 +12,15 @@
 	<label class="nav-btn cursor-element" for="nav-check"
 		data-cursor-invert data-cursor-invert-black data-cursor-scale="1.2">
 		<span class="nav-btn-wrapper">
-			<span class="nav-btn-text nav-btn-text-menu">
-				Menu
-			</span>
-			<span class="nav-btn-text nav-btn-text-close">
-				Close
-			</span>
+			{{ if not .nav }}
+				<span class="nav-btn-text nav-btn-text-menu">
+					Menu
+				</span>
+			{{ else }}
+				<span class="nav-btn-text nav-btn-text-close">
+					Close
+				</span>
+			{{- end }}
 		</span>
 		<figure class="nav-btn-arrow">
             {{ partial "svgs/arrow.html" (dict

@@ -22,7 +22,7 @@ logoWeight: 0
 ---
 
 <!-- Intro -->
-{{< vertical-section >}}
+{{< vertical-section large=true >}}
 Intro - TODO
 {{< /vertical-section >}}
 

@@ -59,13 +59,15 @@
 			margin-right: -10px;
 		}
 	}
+}
 
-	// Loading
-	// =========================================================================
+// With JS (Prevents Hover)
+// =========================================================================
 
-	&-loading {
-
-
+html.js {
+	&-hover {
+		display: inline-block;
+		transition: all 300ms;
 	}
 }
 
@@ -77,20 +79,12 @@
 		&-hidden,
 		&-visible {
 			transition: none;
+
+			opacity: 1 !important; // Override above
 		}
 
 		&-hidden {
 			display: none;
 		}
-	}
-}
-
-// With JS (Prevents Hover)
-// =========================================================================
-
-html.js {
-	&-hover {
-		display: inline-block;
-		transition: all 300ms;
 	}
 }

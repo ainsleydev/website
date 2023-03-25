@@ -24,7 +24,7 @@ logoWeight: 40
 ---
 
 <!-- Intro -->
-{{< vertical-section >}}
+{{< vertical-section large=true >}}
 Established in 2019, Scott’s Guttering are experts in gutter clearance, maintenance and repair on residential and
 commercial properties across the South East, in addition to fascia, soffit and conservatory washes, and bird pest
 control solutions.

@@ -24,7 +24,7 @@ logoWeight: 20
 ---
 
 <!-- Intro -->
-{{< vertical-section >}}
+{{< vertical-section large=true >}}
 Thinkopedia is a non-profit mental health support platform, promoting methods for self-help and guidance for those
 struggling to cope, and a way of sharing experiences through an online community platform, empowering people as they
 rewrite their story.
