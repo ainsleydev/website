@@ -78,13 +78,14 @@ cover: test # Run all the tests and opens the coverage report
 todo: # Show to-do items per file
 	$(Q) grep \
 		--exclude=Makefile.util \
-		--exclude=TODO.md \
 		--exclude-dir=vendor \
 		--exclude-dir=.vercel \
 		--exclude-dir=.gen \
 		--exclude-dir=.idea \
 		--exclude-dir=public \
 		--exclude-dir=node_modules \
+		--exclude-dir=archetypes \
+		--exclude-dir=.git \
 		--text \
 		--color \
 		-nRo \

@@ -245,7 +245,7 @@ const line = (): Playable[] => {
 		}
 
 		if (!heading) {
-			Log.error('Animate line does not exist TODO');
+			Log.error('Animate line does not not have a .animate-line-heading');
 			return;
 		}
 
