@@ -189,7 +189,8 @@ class App {
 	 * @see https://barba.js.org/docs/advanced/hooks/
 	 */
 	private before(): void {
-		this.barba.hooks.before(() => {
+		this.barba.hooks.before((data: ITransitionData) => {
+			this.updateHeader(data.next.container);
 			if (this.nav.isOpen) {
 				this.nav.play();
 			}
@@ -214,7 +215,6 @@ class App {
 	 */
 	private after(): void {
 		this.barba.hooks.after((data: ITransitionData) => {
-			this.updateHeader(data.next.container);
 			Elements.HTML.scrollTop = 0;
 			Elements.Body.scrollTop = 0;
 			data.next.container.scrollTop = 0;

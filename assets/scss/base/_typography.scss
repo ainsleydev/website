@@ -178,6 +178,7 @@ p {
 
 		&-large {
 			font-size: $text-lead-large-size;
+			line-height: 1.7;
 		}
 	}
 }
@@ -189,7 +190,11 @@ a {
 	font-size: $text-paragraph-size;
 	color: colour('foreground');
 	font-weight: bold;
-	text-decoration: none;
+	text-decoration: underline;
+
+	&.no-line {
+		text-decoration: none;
+	}
 }
 
 // Small
