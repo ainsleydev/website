@@ -7,7 +7,6 @@
  */
 
 import { Log } from '../util/log';
-import { Toast } from '../animations/toast';
 
 /**
  * Result of a response from the backend.

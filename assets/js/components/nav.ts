@@ -7,9 +7,10 @@
  */
 
 import { Elements } from '../util/els';
-import { Log } from '../util/log';
-import anime from 'animejs/lib/anime.es';
 import { AnimeTimelineInstance } from 'animejs';
+import anime from 'animejs/lib/anime.es';
+
+// TODO: Add Logging
 
 /**
  * Navigation is responsible for adding animations to the

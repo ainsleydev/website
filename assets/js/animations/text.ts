@@ -13,7 +13,7 @@ import { RemoveBRs } from '../type/util';
 import SplitType from 'split-type';
 import anime from 'animejs/lib/anime.es';
 import { calculateArrowAngles } from './arrow';
-import { AnimeParams, AnimeTimelineInstance } from 'animejs';
+import { AnimeParams } from 'animejs';
 
 /**
  * Playable is the type that defines the callback to

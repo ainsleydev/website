@@ -7,7 +7,6 @@
  */
 
 import { Elements } from '../util/els';
-import { IsTouchDevice } from '../util/css';
 import { Log } from '../util/log';
 import LoconativeScroll from './../vendor/loconative-scroll.js';
 import { OnScrollEvent } from 'locomotive-scroll';

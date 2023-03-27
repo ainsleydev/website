@@ -31,7 +31,6 @@
     Animations
     ==================== */
 @import 'animations/cursor';
-@import 'animations/lazy';
 @import 'animations/locomotive';
 @import 'animations/scroll';
 @import 'animations/skew';
@@ -60,6 +59,7 @@
     Components
     ==================== */
 @import 'components/accordion';
+@import 'components/alert';
 @import 'components/all-articles';
 @import 'components/arrow';
 @import 'components/before-after';

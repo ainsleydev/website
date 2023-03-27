@@ -28,7 +28,7 @@ export class Card {
 	 *
 	 * @private
 	 */
-	private readonly defaultClipPercentage = "40%"
+	private readonly defaultClipPercentage = '40%';
 
 	/**
 	 * Instantiates a new card type.
@@ -79,10 +79,10 @@ export class Card {
 				return;
 			}
 
-			anime.set(imageClip, {scale: 1.1})
-			image.addEventListener('mousemove', ev => this.mouseMove(imageClip, ev));
-			image.addEventListener('mouseenter', ev => this.mouseEnter(imageClip, ev));
-			image.addEventListener('mouseleave', ev => this.mouseLeave(imageClip, ev));
+			anime.set(imageClip, { scale: 1.1 });
+			image.addEventListener('mousemove', (ev) => this.mouseMove(imageClip, ev));
+			image.addEventListener('mouseenter', () => this.mouseEnter(imageClip));
+			image.addEventListener('mouseleave', (ev) => this.mouseLeave(imageClip, ev));
 		});
 	}
 
@@ -93,10 +93,10 @@ export class Card {
 	 * @param event
 	 * @private
 	 */
-	private mouseEnter(image: Element, event: MouseEvent): void {
+	private mouseEnter(image: Element): void {
 		anime({
 			targets: image,
-			easing: "easeOutExpo",
+			easing: 'easeOutExpo',
 			opacity: [0, 1],
 			duration: 1500,
 			delay: 100,
@@ -115,7 +115,7 @@ export class Card {
 		const cord = this.getCoordinates(image, event);
 		anime({
 			targets: image,
-			easing: "easeOutExpo",
+			easing: 'easeOutExpo',
 			clipPath: `circle(0% at ${cord.x}px ${cord.y}px)`,
 			opacity: [1, 0],
 			duration: 1500,
@@ -136,17 +136,17 @@ export class Card {
 			targets: image,
 			clipPath: {
 				value: `circle(${this.defaultClipPercentage} at ${cord.x}px ${cord.y}px)`,
-				easing: "easeOutExpo",
-				duration:  200,
+				easing: 'easeOutExpo',
+				duration: 200,
 			},
 			translateY: {
-				value:  cord.y / 30,
-				easing: "linear",
+				value: cord.y / 30,
+				easing: 'linear',
 				duration: 100,
 			},
 			translateX: {
 				value: cord.x / 30,
-				easing: "linear",
+				easing: 'linear',
 				duration: 100,
 			},
 		});
