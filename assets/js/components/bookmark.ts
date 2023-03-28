@@ -13,7 +13,6 @@ import { Toast } from '../animations/toast';
  * a bookmark button.
  *
  * @constructor
- * @returns void
  */
 export const bookmark = (): void => {
 	document.querySelectorAll('[data-bookmark]').forEach((bookmark) => {

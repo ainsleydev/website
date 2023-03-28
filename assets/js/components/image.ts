@@ -10,7 +10,6 @@
  * Lazy - Adds lazy-loaded class to lazy images once loaded.
  *
  * @constructor
- * @returns void
  */
 export const lazyImages = (): void => {
 	document.querySelectorAll('.lazy-animate').forEach((lazy) => {

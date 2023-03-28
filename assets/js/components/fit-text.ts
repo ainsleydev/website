@@ -62,7 +62,6 @@ export class FitText {
 	 *
 	 * @param el
 	 * @param options
-	 * @returns void
 	 * @private
 	 */
 	private change(el: HTMLElement, options: FitTextOptions): void {
@@ -89,7 +88,6 @@ export class FitText {
 	 *
 	 * @private
 	 * @param el
-	 * @returns void
 	 */
 	private getOptions(el: HTMLElement): FitTextOptions {
 		return {
@@ -105,7 +103,6 @@ export class FitText {
 	 *
 	 * @param el
 	 * @param attr
-	 * @returns void
 	 * @private
 	 */
 	private getAttribute(el: HTMLElement, attr: string): number | null {

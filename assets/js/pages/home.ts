@@ -11,9 +11,7 @@ import anime from 'animejs/lib/anime.es';
 import { Elements } from '../util/els';
 
 /**
- * Home hero animation for 3D asset and showreel.
- *
- * @returns void
+ * Home hero animation for 3D asset and show-reel.
  */
 export const homeAnimation = (): void => {
 	const hero = <HTMLElement>document.querySelector('.home-hero-wrapper'),

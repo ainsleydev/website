@@ -11,7 +11,6 @@
  * clicks the play button on the video Element.
  *
  * @constructor
- * @returns void
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play_event|play_event}
  */
 export const video = (): void => {

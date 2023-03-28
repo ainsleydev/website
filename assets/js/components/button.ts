@@ -11,7 +11,6 @@
  * when a go back button is pressed.
  *
  * @constructor
- * @returns void
  */
 export const buttonGoBack = (): void => {
 	document.querySelectorAll('[data-go-back]').forEach((btn) => {

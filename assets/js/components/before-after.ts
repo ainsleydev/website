@@ -14,7 +14,6 @@ import { IsTouchDevice } from '../util/css';
  * of a before & after image.
  *
  * @constructor
- * @returns void
  */
 export const beforeAfter = (): void => {
 	document.querySelectorAll('.before-after').forEach((el) => {

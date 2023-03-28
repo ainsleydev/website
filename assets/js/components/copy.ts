@@ -14,7 +14,6 @@ import { Toast } from '../animations/toast';
  * and displays a message to the user.
  *
  * @constructor
- * @returns void
  */
 export const copyToClipboard = (): void => {
 	document.querySelectorAll('[data-clipboard]').forEach((clip) => {
