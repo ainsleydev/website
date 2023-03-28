@@ -1,9 +1,13 @@
 /**
- * scroll.ts
+ * waypoint.ts
  *
  * @author Ainsley Clark
  * @author URL:   https://ainsley.dev
  * @author Email: hello@ainsley.dev
+ *
+ * @remarks
+ * This module defines a WayPoint interface and a function to trigger
+ * a scroll event using the IntersectionObserver.
  */
 
 /**
@@ -26,9 +30,8 @@ interface WayPointOptions {
 /**
  * Triggers a scroll event using the IntersectionObserver.
  *
- * @param selector
- * @param options
- * @constructor
+ * @param selector The selector for the elements to attach the IntersectionObserver to.
+ * @param options The options to use for the IntersectionObserver.
  */
 export function WayPoint(selector: string | Element | Element[], options: WayPointOptions = {}) {
 	if (typeof selector === 'string') {
@@ -45,8 +48,8 @@ export function WayPoint(selector: string | Element | Element[], options: WayPoi
 /**
  * Adds the observer to the element.
  *
- * @param el
- * @param options
+ * @param el The element to observe.
+ * @param options The options to use for the IntersectionObserver.
  */
 function addObserver(el: Element, options: WayPointOptions) {
 	// Check if `IntersectionObserver` is supported
@@ -59,6 +62,9 @@ function addObserver(el: Element, options: WayPointOptions) {
 		}
 		return;
 	}
+
+	// Create an observer that executes the callback when the
+	// element becomes visible.
 	const observer = new IntersectionObserver((entries, observer) => {
 		entries.forEach((entry) => {
 			if (entry.isIntersecting) {
@@ -71,5 +77,7 @@ function addObserver(el: Element, options: WayPointOptions) {
 			}
 		});
 	}, options);
+
+	// Start observing the element.
 	observer.observe(el);
 }

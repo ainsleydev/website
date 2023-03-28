@@ -1,22 +1,26 @@
 /**
  * toast.ts
  *
+ * @remarks
+ * This module exports a single function, Toast, which displays a toast message.
+ * It uses the Toastify library to create and display the toast.
+ *
  * @author Ainsley Clark
  * @author URL:   https://www.ainsleyclark.com
  * @author Email: info@ainsleyclark.com
  */
 
 import { Elements } from '../util/els';
-import Toastify from 'toastify-js';
+import Toastify, { Options } from 'toastify-js';
 
 /**
  * Display a toast message.
  *
- * @param message
- * @constructor
+ * @param message The message to display in the toast.
  */
 export const Toast = (message: string): void => {
-	const options = {
+	// Define the options for the toast.
+	const options: Options = {
 		text: `
             <div class="toast-message">${message}</div>
             <div class="toastify-close type-serif">x</div>
@@ -34,16 +38,16 @@ export const Toast = (message: string): void => {
 			y: '3vw',
 			x: '3vw',
 		},
-	} as Toastify.Options;
+	};
 
+	// Create the toast with the given options.
 	const toast = Toastify(options);
 
+	// Show the toast.
 	toast.showToast();
 
-	toast.toastElement
-		.querySelector('.toastify-close')
-		.addEventListener('click', () => {
-			toast.hideToast();
-		});
+	// Add an event listener to the close button, so that clicking it hides the toast.
+	toast.toastElement.querySelector('.toastify-close').addEventListener('click', () => {
+		toast.hideToast();
+	});
 };
-``

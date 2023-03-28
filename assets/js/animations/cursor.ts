@@ -8,6 +8,8 @@
 
 import { Log } from '../util/log';
 
+// Handler defines a singular event added by the cursor.
+// It's used for destroying mouse events.
 interface Handler {
 	element: Element;
 	function: EventListener;
@@ -15,23 +17,22 @@ interface Handler {
 }
 
 /**
- * Cursor is responsible for adding and removing
- * classes when an event has been triggered.
+ * Cursor adds animations to the mouse cursor.
  */
 export class Cursor {
-	/**
-	 * The DOM selector for the element.
-	 *
-	 * @public
-	 */
-	public readonly selector = '.cursor';
-
 	/**
 	 * The DOM selector for the cursor.
 	 *
 	 * @public
 	 */
 	public readonly elementSelector = '.cursor-element';
+
+	/**
+	 * The DOM selector for the element.
+	 *
+	 * @public
+	 */
+	public readonly selector = '.cursor';
 
 	/**
 	 * Handlers is the member array that contains function
@@ -98,7 +99,7 @@ export class Cursor {
 	/**
 	 * Attaches the elements to be animated.
 	 *
-	 * @param el
+	 * @param el The DOM element to attach handlers to.
 	 * @private
 	 */
 	private attachElementHandlers(el: HTMLElement): void {

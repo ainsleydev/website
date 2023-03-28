@@ -4,6 +4,9 @@
  * @author Ainsley Clark
  * @author URL:   https://ainsley.dev
  * @author Email: hello@ainsley.dev
+ *
+ * @remarks
+ * Adds an Anime.js animation to the aside label.
  */
 
 import anime from 'animejs/lib/anime.es';
