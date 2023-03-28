@@ -24,8 +24,8 @@ const (
 	RefererURL = "https://ainsley.dev"
 )
 
-// Auth validates API authentication and determines if
-// the AuthHeader value is of equal value.
+// Auth validates API request and determines if the AuthHeader value is of equal
+// to the header send in the request.
 // Returns errors.INVALID if there is a mismatch.
 func Auth(cfg *environment.Config) echo.MiddlewareFunc {
 	return middleware.KeyAuthWithConfig(middleware.KeyAuthConfig{
@@ -36,7 +36,7 @@ func Auth(cfg *environment.Config) echo.MiddlewareFunc {
 				return auth == cfg.APIKey, nil
 			}
 			referer := ctx.Request().Header.Get("Referer")
-			if !strings.Contains(referer, RefererURL) {
+			if !strings.Contains(referer, cfg.URL) || referer == "" {
 				return false, fmt.Errorf("bad referer %s", referer)
 			}
 			return auth == cfg.APIKey, nil

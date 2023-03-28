@@ -34,10 +34,11 @@ func TestAuth(t *testing.T) {
 			},
 			config: environment.Config{
 				Env: "production",
+				URL: "wrong",
 			},
 			want: http.StatusUnauthorized,
 		},
-		"OK - Development": {
+		"OK Development": {
 			input: func(r *http.Request) {
 				t.Setenv(AuthHeader, "key")
 				r.Header.Set(AuthHeader, "key")
@@ -48,7 +49,7 @@ func TestAuth(t *testing.T) {
 			},
 			want: http.StatusOK,
 		},
-		"OK - Production": {
+		"OK Production": {
 			input: func(r *http.Request) {
 				t.Setenv(AuthHeader, "key")
 				r.Header.Set(AuthHeader, "key")

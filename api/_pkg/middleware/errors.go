@@ -13,9 +13,7 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-// ErrorHandler writes the json-encoded error message to the response.
-// If the error is of the validationErrors, it will be marshalled
-// for correct formatting.
+// ErrorHandler writes a json-encoded error message to the response.
 func ErrorHandler(err error, ctx echo.Context) {
 	code := http.StatusInternalServerError
 	resp := errorGetter(err)
