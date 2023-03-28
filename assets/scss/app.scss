@@ -19,6 +19,7 @@
     ==================== */
 @import 'node_modules/normalize.css/normalize';
 @import './vendor/syntax';
+@import './vendor/locomotive';
 
 /* ====================
     Base
@@ -31,7 +32,6 @@
     Animations
     ==================== */
 @import 'animations/cursor';
-@import 'animations/locomotive';
 @import 'animations/scroll';
 @import 'animations/skew';
 @import 'animations/text';

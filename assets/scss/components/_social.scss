@@ -26,7 +26,7 @@
 	// =========================================================================
 
 	&-icon {
-		height: 25px;
+		height: $social-icon-height;
 	}
 
 	// Small Phones
@@ -34,7 +34,7 @@
 
 	@include media-small-phones {
 		&-icon {
-			height: 20px;
+			height: $social-icon-height-mob;
 		}
 	}
 

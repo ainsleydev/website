@@ -53,11 +53,12 @@
 					<h2 class="heading-1">Showreel</h2>
 				</div>
 				<!-- Image -->
-				<figure class="home-show-reel-image">
-					{{ partial "media/image.html" (dict
+				<picture class="home-show-reel-image">
+					{{ partial "media/picture.html" (dict
 						"image" (resources.Get "/images/showreel-temp.jpg")
+						"alt" "TODO"
 					)}}
-				</figure>
+				</picture>
 			</div><!-- /Content -->
 		</div><!-- /Container -->
 	</section>

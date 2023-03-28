@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// _lazy.scss
+// _zoom.scss
 // This file contains zoom animations for images.
 // -----------------------------------------------------------------------------
 
@@ -22,10 +22,10 @@
 		overflow: clip;
 	}
 
-	// Animate
+	// Touch Screens
 	// =========================================================================
 
-	@media (hover: hover) {
+	@include touch {
 		&:hover #{$self}-element {
 			transform: scale(1.1);
 		}
