@@ -11,14 +11,16 @@ import { ContactFormRequest } from '../api/SDK';
 import { API, HandleAPIError } from '../api/api';
 import { Log } from '../util/log';
 
-const CONTACT_BUTTON_ID = '#ac-contact';
-
+/**
+ * ContactForm sends the payload of the message on /contact
+ * to the API.
+ */
 export class ContactForm extends Form {
 	/**
 	 * Create a new Contact form.
 	 */
 	constructor() {
-		super(CONTACT_BUTTON_ID);
+		super('#ac-contact');
 	}
 
 	/**

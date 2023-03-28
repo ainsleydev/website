@@ -21,7 +21,7 @@ declare global {
 	}
 
 	/**
-	 * Type of parameters passed in from Hugo.
+	 * Environment variables passed in from Hugo.
 	 */
 	interface ParamTypes {
 		appEnv: string;

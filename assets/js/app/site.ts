@@ -6,8 +6,6 @@
  * @author Email: hello@ainsley.dev
  */
 
-import { IsTouchDevice } from '../util/css';
-
 require('./../vendor/modernizr');
 import { Params } from '../params';
 import { Navigation } from '../components/nav';
@@ -16,8 +14,9 @@ import { Skew } from '../animations/skew';
 import { FitText } from '../components/fit-text';
 import { Card } from '../components/card';
 import { Arrow } from '../animations/arrow';
-import { Collapse, CollapseOptions } from '../components/accordion';
+import { Collapse, CollapseOptions } from '../components/collapse';
 import { Log } from '../util/log';
+import { IsTouchDevice } from '../util/css';
 import { beforeAfter } from '../components/before-after';
 import { bookmark } from '../components/bookmark';
 import { buttonGoBack } from '../components/button';
@@ -44,7 +43,7 @@ class App {
 	 *
 	 * @private
 	 */
-	private hooksAdded = false;
+	private booted = false;
 
 	/**
 	 * The page transition type.
@@ -80,7 +79,7 @@ class App {
 		this.removeJSClasses();
 
 		// Hooks
-		if (!this.hooksAdded) {
+		if (!this.booted) {
 			this.once();
 		}
 
@@ -98,6 +97,7 @@ class App {
 			activeClass: 'accordion-item-active',
 		} as CollapseOptions);
 
+		// Prevent the page from refreshing if it's the same URL.
 		this.preventInternalLinks();
 
 		// Functions
@@ -116,6 +116,9 @@ class App {
 		this.webVitals();
 	}
 
+	/**
+	 * Obtains the Barba namespace.
+	 */
 	public nameSpace(): string {
 		return document.querySelector('.barba-container').getAttribute('data-barba-namespace');
 	}
@@ -133,7 +136,7 @@ class App {
 		this.beforeEnter();
 		this.after();
 		this.mouseMoveHandler();
-		this.hooksAdded = true;
+		this.booted = true;
 	}
 
 	/**
@@ -148,7 +151,7 @@ class App {
 	}
 
 	/**
-	 * Initialises the main pages animations. If the navigational
+	 * Initialises the global animations. If the navigational
 	 * element is currently animating, a delay will be applied.
 	 *
 	 * @private
@@ -208,7 +211,7 @@ class App {
 	}
 
 	/**
-	 * After Hook - After everything
+	 * After Hook - After everything.
 	 *
 	 * @private
 	 * @see https://barba.js.org/docs/advanced/hooks/
@@ -246,7 +249,7 @@ class App {
 
 	/**
 	 * Prevents reloading of the page if the link clicked
-	 * is the current link, to avoid the page
+	 * is the current URL, to avoid the page
 	 * reloading.
 	 *
 	 * @private
@@ -339,4 +342,5 @@ class App {
 	}
 }
 
+// Exports a new singleton scroll instance, only one instance should be created.
 export default new App();

@@ -9,10 +9,11 @@
 import { Toast } from '../animations/toast';
 
 /**
- * Bookmark - Displays a Toast when a user presses
- * the bookmark button.
+ * Bookmark - Displays a message when a user presses
+ * a bookmark button.
  *
  * @constructor
+ * @returns void
  */
 export const bookmark = (): void => {
 	document.querySelectorAll('[data-bookmark]').forEach((bookmark) => {
@@ -21,4 +22,4 @@ export const bookmark = (): void => {
 			Toast('Press ' + (userAgent.indexOf('mac') != -1 ? 'Cmd' : 'Ctrl') + '+D to bookmark this page.');
 		});
 	});
-}
+};

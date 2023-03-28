@@ -49,7 +49,7 @@ class Scroll {
 	};
 
 	/**
-	 * Initialises the scroll.
+	 * Creates a new scroll instance.
 	 *
 	 * @param container
 	 */
@@ -71,6 +71,7 @@ class Scroll {
 			options = this.options;
 		if (scrollContainer.hasAttribute('data-scroll-disable')) {
 			Log.debug('Disabling smooth scroll');
+			// TODO - Figure out why this isn't working.
 			// options.smooth = false;
 		}
 		Log.debug('Initialising scroll instance');
@@ -82,7 +83,7 @@ class Scroll {
 	}
 
 	/**
-	 * Destroys the scroll instance and removes any styles.
+	 * Destroys the scroll instance.
 	 */
 	public destroy(): void {
 		Log.debug('Destroying scroll instance');
@@ -123,4 +124,5 @@ class Scroll {
 	}
 }
 
+// Exports a new singleton scroll instance, only one instance should be created.
 export default new Scroll(Elements.HTML);

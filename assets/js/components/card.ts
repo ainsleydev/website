@@ -67,6 +67,7 @@ export class Card {
 			if (!card.classList.contains('card-clip')) {
 				return;
 			}
+
 			const imageClip = card.querySelector('.card-image-clip') as HTMLElement;
 			if (!imageClip) {
 				Log.error('No card image found for card: ' + card);

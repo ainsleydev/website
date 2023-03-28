@@ -7,17 +7,15 @@
  */
 
 /**
- * Video - Adds the video playing class to any
- * videos on the document.
+ * Video - Adds the video playing class when a user
+ * clicks the play button on the video Element.
  *
  * @constructor
+ * @returns void
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play_event|play_event}
  */
 export const video = (): void => {
 	document.querySelectorAll('video').forEach((vid) => {
-		vid.addEventListener('play', () => {
-			vid.classList.add('video-playing');
-		});
+		vid.addEventListener('play', () => vid.classList.add('video-playing'));
 	});
-}
-
-
+};

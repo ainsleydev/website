@@ -11,6 +11,7 @@ import * as params from '@params';
 
 /**
  * Dictionary of key value pares from Hugo.
+ *
  * @see layouts/partials/head/_js-params.html
  */
 export const Params = {

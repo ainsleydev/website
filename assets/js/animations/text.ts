@@ -9,7 +9,7 @@
 import { IsTouchDevice } from '../util/css';
 import { Log } from '../util/log';
 import { WayPoint } from './waypoint';
-import { RemoveBRs } from '../type/util';
+import { RemoveBRs } from '../util/type';
 import { calculateArrowAngles } from './arrow';
 import SplitType from 'split-type';
 import anime from 'animejs/lib/anime.es';

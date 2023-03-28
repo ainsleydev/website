@@ -22,7 +22,8 @@ export interface CollapseOptions {
 
 /**
  * Collapse is responsible for creating collapsible
- * animations from multiple containers.
+ * animations from multiple containers using
+ * the <detail> element.
  */
 export class Collapse {
 	/**
@@ -118,13 +119,14 @@ export class Collapse {
 	 *
 	 * @param el
 	 * @private
+	 * @returns number
 	 */
 	private calculateHeight(el: HTMLElement): number {
-		const children = el.children;
+		const children = Array.from(el.children);
 		let height = 0;
-		for (let i = 0; i < children.length; i++) {
-			height += children[i].clientHeight;
-		}
+		children.forEach((child) => {
+			height += child.clientHeight;
+		});
 		return height;
 	}
 }
