@@ -7,9 +7,10 @@
  */
 
 import { Elements } from '../util/els';
-import { Log } from '../util/log';
 import anime from 'animejs/lib/anime.es';
 import { AnimeTimelineInstance } from 'animejs';
+
+// TODO: Add Logging
 
 /**
  * Navigation is responsible for adding animations to the
@@ -45,7 +46,7 @@ export class Navigation {
 	private timeline: AnimeTimelineInstance;
 
 	/**
-	 * Initialises the cursor element.
+	 * Initialises the navigation element.
 	 *
 	 * @constructor
 	 */
@@ -91,7 +92,7 @@ export class Navigation {
 	}
 
 	/**
-	 * Instantiates the navigational timeline.
+	 * Instantiates the anime timeline.
 	 *
 	 * @private
 	 */
@@ -142,7 +143,7 @@ export class Navigation {
 	}
 
 	/**
-	 * Animates the hamburger.
+	 * Animates the open and close buttons.
 	 *
 	 * @private
 	 */

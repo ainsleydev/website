@@ -1,6 +1,6 @@
 ---
 title: Insights
-description: TODO
+description: Discover insights and recent news by ainsley.dev
 draft: false
 htmlTitle: Insights
 pageColour: white

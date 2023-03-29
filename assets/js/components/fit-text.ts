@@ -23,7 +23,7 @@ interface FitTextOptions {
  * or responsive layout to achieve scalable headlines that
  * fill the width with a parent element.
  *
- *  @see https://github.com/adactio/FitText.js
+ * @see https://github.com/adactio/FitText.js
  */
 export class FitText {
 	/**
@@ -35,7 +35,7 @@ export class FitText {
 
 	/**
 	 * The default configuration for fitting elements,
-	 * when properties are not defined.
+	 * when some or all properties are not defined.
 	 *
 	 * @readonly
 	 */
@@ -64,14 +64,11 @@ export class FitText {
 	 * @param options
 	 * @private
 	 */
-	private change(el: HTMLElement, options: FitTextOptions) {
+	private change(el: HTMLElement, options: FitTextOptions): void {
 		const resizer = () => {
 			const fontSize =
 				Math.max(
-					Math.min(
-						el.clientWidth / (options.compressor * 10),
-						options.maxFontSize,
-					),
+					Math.min(el.clientWidth / (options.compressor * 10), options.maxFontSize),
 					options.minFontSize,
 				) + 'px';
 			el.style.fontSize = fontSize;
@@ -94,15 +91,9 @@ export class FitText {
 	 */
 	private getOptions(el: HTMLElement): FitTextOptions {
 		return {
-			compressor:
-				this.getAttribute(el, 'data-fit-text-compressor') ??
-				this.defaultOptions.compressor,
-			minFontSize:
-				this.getAttribute(el, 'data-fit-text-min-font-size') ??
-				this.defaultOptions.minFontSize,
-			maxFontSize:
-				this.getAttribute(el, 'data-fit-text-max-font-size') ??
-				this.defaultOptions.maxFontSize,
+			compressor: this.getAttribute(el, 'data-fit-text-compressor') ?? this.defaultOptions.compressor,
+			minFontSize: this.getAttribute(el, 'data-fit-text-min-font-size') ?? this.defaultOptions.minFontSize,
+			maxFontSize: this.getAttribute(el, 'data-fit-text-max-font-size') ?? this.defaultOptions.maxFontSize,
 		} as FitTextOptions;
 	}
 

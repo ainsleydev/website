@@ -16,7 +16,7 @@
 		"clean": "prettier --write ./assets/**/*.{ts,scss,js}",
 		"lint": "npm run lint:scss && npm run lint:js",
 		"lint:scss": "npx stylelint '**/*.scss'",
-		"lint:js": "eslint --config .eslintrc.json --fix 'assets/**/*.{ts,tsx}'",
+		"lint:js": "eslint --fix 'assets/**/*.{ts,tsx}'",
 		"precommit": "npx lint-staged --debug"
 	},
 	"dependencies": {
@@ -67,6 +67,20 @@
 			"gofmt -w"
 		]
 	},
+	"eslintConfig": {
+		"root": true,
+		"extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
+		"parser": "@typescript-eslint/parser",
+		"parserOptions": {
+			"project": ["./tsconfig.json"]
+		},
+		"rules": {
+			"@typescript-eslint/ban-ts-comment": "off",
+			"@typescript-eslint/no-var-requires": "off"
+		},
+		"plugins": ["@typescript-eslint"],
+		"ignorePatterns": ["public/**/.js", "staic/**"]
+	},
 	"babel": {
 		"presets": [
 			"@babel/preset-typescript",
@@ -98,6 +112,7 @@
 			"comment-empty-line-before": "always",
 			"no-invalid-double-slash-comments": null,
 			"declaration-empty-line-before": "never",
+			"at-rule-empty-line-before": null,
 			"value-keyword-case": [
 				"lower",
 				{

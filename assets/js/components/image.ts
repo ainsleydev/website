@@ -17,4 +17,4 @@ export const lazyImages = (): void => {
 			lazy.classList.add('lazy-loaded');
 		});
 	});
-}
+};

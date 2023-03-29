@@ -75,9 +75,9 @@ class Arrow {
 	/**
 	 * Transforms the element based of the angels and opacity.
 	 *
-	 * @param element
-	 * @param angles
-	 * @param opacity
+	 * @param element - The element to transform.
+	 * @param angles - The x and y angles.
+	 * @param opacity - The opacity of the element.
 	 */
 	private transform(element: HTMLElement, angles: Angles, opacity: number): void {
 		element.style.transform = `translate(${angles.x}%, ${angles.y}%)`;
@@ -85,7 +85,7 @@ class Arrow {
 	}
 
 	/**
-	 * Add event listeners to the arrow element.
+	 * Add mouse event listeners to the arrow element.
 	 *
 	 * @param arrow - The arrow element to add event listeners to.
 	 * @param visible - The visible element.

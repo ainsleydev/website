@@ -19,4 +19,4 @@ export const buttonGoBack = (): void => {
 			history.back();
 		});
 	});
-}
+};

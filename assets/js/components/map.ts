@@ -7,9 +7,9 @@
  * @see https://developers.google.com/maps/documentation/javascript/overview
  */
 
-import { Loader } from '@googlemaps/js-api-loader';
 import { Params } from '../params';
 import { Log } from '../util/log';
+import { Loader } from '@googlemaps/js-api-loader';
 
 /**
  * Load the Google map with the API key.
@@ -24,41 +24,44 @@ const loader = new Loader({
  * set the zoom, lat and long and the custom marker.
  */
 const LoadMap = () => {
-	loader.load().then(() => {
-		const position = {
-			lat: 51.5155705754434,
-			lng: -0.12367415060938884,
-		} as google.maps.LatLngLiteral;
-
-		let center = position;
-		if (window.innerWidth >= 768 && window.innerWidth < 1024) {
-			center = {
-				lat: 51.517570791793474,
-				lng: -0.12637781729639475,
+	loader
+		.load()
+		.then(() => {
+			const position = {
+				lat: 51.5155705754434,
+				lng: -0.12367415060938884,
 			} as google.maps.LatLngLiteral;
-		}
 
-		const map = new google.maps.Map(document.querySelector('.map') as HTMLElement, {
-			backgroundColor: '#ffffff',
-			center: center,
-			zoom: 16,
-			styles: style,
-			streetViewControl: false,
-			mapTypeControl: false,
-		});
+			let center = position;
+			if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+				center = {
+					lat: 51.517570791793474,
+					lng: -0.12637781729639475,
+				} as google.maps.LatLngLiteral;
+			}
 
-		map.addListener('click', (e) => {
-			console.log(e.latLng.toJSON());
-		});
+			const map = new google.maps.Map(document.querySelector('.map') as HTMLElement, {
+				backgroundColor: '#ffffff',
+				center: center,
+				zoom: 16,
+				styles: style,
+				streetViewControl: false,
+				mapTypeControl: false,
+			});
 
-		new google.maps.Marker({
-			position: position,
-			map: map,
-			icon: '/images/icons/marker.svg',
+			map.addListener('click', (e) => {
+				console.log(e.latLng.toJSON());
+			});
+
+			new google.maps.Marker({
+				position: position,
+				map: map,
+				icon: '/images/icons/marker.svg',
+			});
+		})
+		.catch((err) => {
+			Log.error('Google Map - ' + err);
 		});
-	}).catch(err => {
-		Log.error("Google Map - " + err);
-	})
 };
 
 export default LoadMap;

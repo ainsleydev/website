@@ -18,7 +18,7 @@ import (
 //
 // If there was an error or message set, it will be retrieved from the
 // context. Status codes between 200 and 400 will be logged as info,
-// otherwise an error will be logged.
+// otherwise the error level will be logged.
 func Logger() echo.MiddlewareFunc {
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(ctx echo.Context) error {

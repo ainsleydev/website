@@ -6,8 +6,8 @@
 @import '../abstracts/mixins';
 @import '../abstracts/variables';
 
-$homeWrapperHeight: 250vh;
-$homeShowReelHeight: 300vh;
+$home-wrapper-height: 250vh;
+$home-show-reel-height: 300vh;
 
 .home {
 	$self: &;
@@ -20,7 +20,7 @@ $homeShowReelHeight: 300vh;
 		pointer-events: none;
 
 		&-wrapper {
-			height: $homeWrapperHeight;
+			height: $home-wrapper-height;
 		}
 
 		&-text {
@@ -53,7 +53,7 @@ $homeShowReelHeight: 300vh;
 	&-first-section {
 		position: relative;
 		padding-top: 0;
-		margin-top: $homeShowReelHeight - $homeWrapperHeight;
+		margin-top: $home-show-reel-height - $home-wrapper-height;
 	}
 
 	// Show-reel
@@ -64,7 +64,7 @@ $homeShowReelHeight: 300vh;
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: $homeShowReelHeight;
+		height: $home-show-reel-height;
 
 		&-wrapper {
 			position: sticky;

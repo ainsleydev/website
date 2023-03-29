@@ -111,9 +111,6 @@ $header-logo-size: 115px;
 $header-background-opacity: 0.6;
 $header-z-index: 99999;
 
-// Hero
-// =========================================================================
-
 // Nav
 // =========================================================================
 
@@ -127,6 +124,7 @@ $text-fluid-end-size: $container-max-width;
 $text-paragraph-size: 1.1rem;
 $text-lead-size: 1.2rem;
 $text-lead-large-size: 1.4rem;
+$text-lead-line-height: 1.8;
 $text-letter-spacing: -1px;
 
 // Accordion
@@ -134,6 +132,11 @@ $text-letter-spacing: -1px;
 
 $accordion-height-transition: 0.5s;
 $accordion-arrow-size: 1.3rem;
+
+// Arrow
+// ==========================================================================
+
+$arrow-size: clamp(50px, 5vw, 66px);
 
 // A Symbol
 // ==========================================================================
@@ -148,13 +151,23 @@ $before-after-height: clamp(250px, 32vw, 900px);
 $before-after-arrow-size: 0.3rem;
 $before-after-border-width: 6px;
 
+// Breadcrumbs
+// ==========================================================================
+
+$breadcrumbs-link-font-size: 0.9rem;
+$breadcrumbs-max-width: 250px;
+
 // Button
 // ==========================================================================
 
 $button-padding: 1rem 1.9rem;
-$button-padding-tiny: 0.6rem 1.4rem;
-$button-padding-small: 0.8rem 1.6rem;
-$button-padding-large: 1.2rem 3.2rem;
+$button-font-size: 1rem;
+$button-tiny-padding: 0.6rem 1.4rem;
+$button-tiny-font-size: 0.8rem;
+$button-small-padding: 0.8rem 1.6rem;
+$button-large-padding: 1.2rem 3.2rem;
+$button-large-font-size: 1.2rem;
+$button-border-radius: 4px;
 $button-transition-time: 200ms;
 $button-arrow-size: 20px;
 
@@ -199,6 +212,19 @@ $table-padding: 0.6rem 0.9rem;
 $tag-margin: 0 4px;
 $tag-padding: 2px 10px;
 $tag-font-size: 0.9rem;
+$tag-border-radius: 4px;
+
+// Toast
+// ==========================================================================
+
+$toast-padding: 12px 30px;
+$toast-border-radius: 4px;
+
+// Social
+// ==========================================================================
+
+$social-icon-height: 25px;
+$social-icon-height-mob: 20px;
 
 // Root
 // ==========================================================================

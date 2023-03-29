@@ -11,34 +11,11 @@
  * the website.
  */
 export class Elements {
-	/**
-	 * The base HTML element.
-	 */
 	public static HTML: HTMLHtmlElement = document.documentElement as HTMLHtmlElement;
-
-	/**
-	 * The HTML body element.
-	 */
 	public static Body: HTMLBodyElement = document.body as HTMLBodyElement;
-
-	/**
-	 * The main element.
-	 */
 	public static Main: HTMLElement;
-
-	/**
-	 * The header element.
-	 */
 	public static Header: HTMLElement;
-
-	/**
-	 * The navigation element.
-	 */
 	public static Nav: HTMLElement;
-
-	/**
-	 * The footer element.
-	 */
 	public static Footer: HTMLElement;
 
 	/**

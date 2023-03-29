@@ -9,7 +9,7 @@
 
 button,
 a.btn {
-	border-radius: 4px;
+	border-radius: $button-border-radius;
 	cursor: pointer;
 	outline: none;
 	user-select: none;
@@ -79,7 +79,7 @@ a.btn {
 
 	&-text {
 		display: inline-block;
-		font-size: 1rem;
+		font-size: $button-font-size;
 		font-weight: bold;
 		line-height: 1;
 		white-space: nowrap;
@@ -152,23 +152,23 @@ a.btn {
 
 	&-size {
 		&-tiny {
-			padding: $button-padding-tiny;
-			font-size: 0.8rem;
+			padding: $button-tiny-padding;
+			font-size: $button-tiny-font-size;
 
 			* {
-				font-size: 0.8rem;
+				font-size: $button-tiny-font-size;
 			}
 		}
 
 		&-small {
-			padding: $button-padding-small;
+			padding: $button-small-padding;
 		}
 
 		&-large {
-			padding: $button-padding-large;
+			padding: $button-large-padding;
 
 			#{$self}-text {
-				font-size: 1.2rem;
+				font-size: $button-large-font-size;
 			}
 		}
 	}

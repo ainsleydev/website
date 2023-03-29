@@ -24,28 +24,35 @@ export const beforeAfter = (): void => {
 		}
 		const foreground = <HTMLElement>el.querySelector('.before-after-background'),
 			thumb = <HTMLButtonElement>el.querySelector('.before-after-thumb'),
-			line = <HTMLElement>el.querySelector(".before-after-line");
+			line = <HTMLElement>el.querySelector('.before-after-line');
+
 		if (!foreground || !thumb || !line) {
 			Log.error('Before/After - Element missing from before/after element');
 			return;
 		}
+
+		// Update the width and left styles.
 		const updateValues = (percent: number) => {
 			foreground.style.width = `${percent}%`;
 			thumb.style.left = `${percent}%`;
 			line.style.left = `${percent}%`;
 		};
+
+		// Use the input slider if it's not a touch device.
 		if (!IsTouchDevice()) {
 			slider.addEventListener('input', (e) => {
 				const value = (e.target as HTMLInputElement).value;
 				updateValues(parseFloat(value));
 			});
-		} else {
-			slider.addEventListener('touchmove', (e: TouchEvent) => {
-				const box = slider.getBoundingClientRect(),
-					position = e.touches[0].clientX - box.left,
-					percent = (position / box.width) * 100;
-				updateValues(percent);
-			});
+			return;
 		}
+
+		// Otherwise use the touch move event for smooth interaction.
+		slider.addEventListener('touchmove', (e: TouchEvent) => {
+			const box = slider.getBoundingClientRect(),
+				position = e.touches[0].clientX - box.left,
+				percent = (position / box.width) * 100;
+			updateValues(percent);
+		});
 	});
 };

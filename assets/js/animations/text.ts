@@ -9,11 +9,11 @@
 import { IsTouchDevice } from '../util/css';
 import { Log } from '../util/log';
 import { WayPoint } from './waypoint';
-import { RemoveBRs } from '../type/util';
+import { RemoveBRs } from '../util/type';
+import { calculateArrowAngles } from './arrow';
 import SplitType from 'split-type';
 import anime from 'animejs/lib/anime.es';
-import { calculateArrowAngles } from './arrow';
-import { AnimeParams, AnimeTimelineInstance } from 'animejs';
+import { AnimeParams } from 'animejs';
 
 /**
  * Playable is the type that defines the callback to
@@ -145,7 +145,6 @@ const hero = (): Playable => {
 	anime.set(heading.querySelectorAll('.hero .arrow-hover'), { opacity: 0 });
 	const timeline = anime
 		.timeline({
-			// complete: () => text.revert(),
 			autoplay: false,
 		})
 		.add({
@@ -231,7 +230,7 @@ const heroLogos = (): Playable[] => {
 };
 
 /**
- * Line animation for headings & lead texts.
+ * Line animation for headings & lead paragraphs.
  */
 const line = (): Playable[] => {
 	const playables: Playable[] = [];
@@ -245,7 +244,7 @@ const line = (): Playable[] => {
 		}
 
 		if (!heading) {
-			Log.error('Animate line does not exist TODO');
+			Log.error('Animate line does not not have a .animate-line-heading');
 			return;
 		}
 
@@ -257,7 +256,6 @@ const line = (): Playable[] => {
 				callback: () => {
 					anime
 						.timeline({
-							complete: () => text.revert(),
 							delay: getDelay(an),
 						})
 						.add({
@@ -300,6 +298,8 @@ const up = (): Playable[] => {
 			translateY: [100, 0],
 		} as AnimeParams;
 
+		// Used for the portfolio single pages to display a fade up
+		// on mobile if it's desktop.
 		if (an.classList.contains('animate-fade-desk') && window.innerWidth > 1024) {
 			delete props.translateY;
 		}

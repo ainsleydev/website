@@ -11,7 +11,7 @@ import { Toast } from '../animations/toast';
 
 /**
  * CopyToClipboard - Writes text to the navigators clipboard
- * and displays a Toast to the user.
+ * and displays a message to the user.
  *
  * @constructor
  */
@@ -35,6 +35,4 @@ export const copyToClipboard = (): void => {
 				});
 		});
 	});
-}
-
-
+};

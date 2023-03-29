@@ -1,5 +1,5 @@
 languageCode: en-gb
-title: ainsley.dev® - Digital Craftsmanship Sculpting You As An Industry Leader.
+title: ainsley.dev - Digital Craftsmanship Sculpting You As An Industry Leader.
 baseUrl: "http://localhost:3000"
 build:
     noJSConfigInAssets: false

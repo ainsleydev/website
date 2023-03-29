@@ -7,8 +7,8 @@
 	$self: &;
 	position: relative;
 	display: inline-block;
-	width: clamp(50px, 5vw, 66px);
-	height: clamp(50px, 5vw, 66px);
+	width: $arrow-size;
+	height: $arrow-size;
 	transform-origin: center;
 	transform: rotate(var(--arrow-rotation));
 	margin: 0;
@@ -71,7 +71,7 @@ html.js {
 	}
 }
 
-// Non Touch Screen
+// Touch Screen
 // =========================================================================
 
 @include touch {
@@ -79,7 +79,6 @@ html.js {
 		&-hidden,
 		&-visible {
 			transition: none;
-
 			opacity: 1 !important; // Override above
 		}
 

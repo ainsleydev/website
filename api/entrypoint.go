@@ -21,7 +21,7 @@ import (
 
 var (
 	// app is the main Echo application handler.
-	e *echo.Echo
+	app *echo.Echo
 	// handler is the service to handle the incoming routes.
 	handler *httpservice.Handler
 )
@@ -32,10 +32,10 @@ var (
 // It bootstraps the main application by creating a new Echo instance
 // and registering the API routes.
 func Handler(w http.ResponseWriter, r *http.Request) {
-	e = echo.New()
-	handler = Bootstrap(e)
-	sdk.RegisterHandlersWithBaseURL(e, handler, httpservice.BasePath)
-	e.ServeHTTP(w, r)
+	app = echo.New()
+	handler = Bootstrap(app)
+	sdk.RegisterHandlersWithBaseURL(app, handler, httpservice.BasePath)
+	app.ServeHTTP(w, r)
 }
 
 // Bootstrap the main application by initialising packages, logging

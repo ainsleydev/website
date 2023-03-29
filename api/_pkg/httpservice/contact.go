@@ -18,8 +18,8 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-// ContactSubmission is the type that represents the data needed
-// in order to send to Slack and via the Mailer.
+// ContactSubmission is the contact form data used
+// to send to Slack and via Email.
 type ContactSubmission struct {
 	sdk.ContactFormRequest
 	Email string
@@ -29,7 +29,8 @@ type ContactSubmission struct {
 // SendContactForm sends a contact form submission to Slack as well as via email.
 // If a honeypot is sent with the request, the handler will return a
 // http.StatusOK to avoid bot requests.
-// The email is extracted and validated, so the user should not be
+//
+// The email address is extracted and validated, so the user should not be
 // able to send a message without an email address within it.
 func (h Handler) SendContactForm(ctx echo.Context) error {
 	const op = "Handler.SendContactForm"

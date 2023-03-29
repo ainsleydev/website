@@ -51,7 +51,7 @@
 
 	&-link {
 		white-space: nowrap;
-		font-size: 0.9rem;
+		font-size: $breadcrumbs-link-font-size;
 		font-weight: 500;
 		color: colour('paragraph');
 	}
@@ -65,7 +65,7 @@
 		}
 
 		&-link {
-			max-width: 250px;
+			max-width: $breadcrumbs-max-width;
 			overflow: hidden;
 			text-overflow: ellipsis;
 		}

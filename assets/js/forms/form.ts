@@ -7,7 +7,6 @@
  */
 
 import { Log } from '../util/log';
-import { Toast } from '../animations/toast';
 
 /**
  * Result of a response from the backend.
@@ -24,7 +23,7 @@ export interface Response {
  */
 export abstract class Form {
 	/**
-	 * The associated with the class.
+	 * The form element.
 	 */
 	form: HTMLFormElement;
 
@@ -34,7 +33,8 @@ export abstract class Form {
 	button: HTMLButtonElement;
 
 	/**
-	 * The form name associated with the DOM element.
+	 * The form name used to distinguish what form is being
+	 * sent to the API.
 	 */
 	formName: string;
 
@@ -54,7 +54,7 @@ export abstract class Form {
 		// Find the closest form.
 		const form = btn.closest('form');
 		if (!form) {
-			Log.error(`Form - Button missing from: ${buttonSelector}`);
+			Log.error(`Form - No form found from button: ${buttonSelector}`);
 			return;
 		}
 

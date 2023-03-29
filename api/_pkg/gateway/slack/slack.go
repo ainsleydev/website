@@ -16,19 +16,19 @@ import (
 type (
 	// Sender defines the method to send messages via the Slack API.
 	Sender interface {
-		// Send takes a message subject and a message body and sends to the set channel.
+		// Send takes a message subject and a message body and sends to the given channel.
 		// A Client app with the chat:write.public and chat:write permissions must
 		// be installed to the workspace.
+		//
 		// See: https://api.slack.com/
 		Send(ctx context.Context, channelID, subject string, fields []Field) error
 	}
-	// Client implements the notifier interface to send Client.
-	// messages with a given message.
+	// Client implements the notifier interface to send Slack messages.
 	Client struct {
 		config        *environment.Config
 		slackSendFunc slackSendFn
 	}
-	// Field are an alias of an attachment field to attach to the message.
+	// Field is an alias of a Slack attachment field to attach to the message.
 	Field = slack.AttachmentField
 	// sendSlackFunc is the function used for sending to
 	// a Client channel, it's stubbed for testing.

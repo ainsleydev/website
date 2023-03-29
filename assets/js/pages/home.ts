@@ -11,9 +11,9 @@ import anime from 'animejs/lib/anime.es';
 import { Elements } from '../util/els';
 
 /**
- * Home hero animation for 3d asset.
+ * Home hero animation for 3D asset and show-reel.
  */
-export const homeAnimation = () => {
+export const homeAnimation = (): void => {
 	const hero = <HTMLElement>document.querySelector('.home-hero-wrapper'),
 		wrapper = <HTMLElement>document.querySelector('.home-three-d'),
 		svg = <HTMLElement>document.querySelector('.home-three-d svg'),
