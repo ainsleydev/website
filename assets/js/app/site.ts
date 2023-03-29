@@ -6,6 +6,8 @@
  * @author Email: hello@ainsley.dev
  */
 
+import { sentry } from '../analytics/sentry';
+
 require('./../vendor/modernizr');
 import { Params } from '../params';
 import { Navigation } from '../components/nav';
@@ -113,6 +115,7 @@ class App {
 		this.initAnimations();
 
 		// Analytics
+		sentry();
 		this.webVitals();
 	}
 

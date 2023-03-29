@@ -22,6 +22,8 @@
 	"dependencies": {
 		"@barba/core": "^2.9.7",
 		"@googlemaps/js-api-loader": "^1.15.1",
+		"@sentry/browser": "^7.45.0",
+		"@sentry/tracing": "^7.45.0",
 		"@splinetool/loader": "^0.9.269",
 		"animejs": "^3.2.1",
 		"normalize.css": "^8.0.1",
@@ -69,17 +71,28 @@
 	},
 	"eslintConfig": {
 		"root": true,
-		"extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
+		"extends": [
+			"eslint:recommended",
+			"plugin:@typescript-eslint/recommended",
+			"prettier"
+		],
 		"parser": "@typescript-eslint/parser",
 		"parserOptions": {
-			"project": ["./tsconfig.json"]
+			"project": [
+				"./tsconfig.json"
+			]
 		},
 		"rules": {
 			"@typescript-eslint/ban-ts-comment": "off",
 			"@typescript-eslint/no-var-requires": "off"
 		},
-		"plugins": ["@typescript-eslint"],
-		"ignorePatterns": ["public/**/.js", "staic/**"]
+		"plugins": [
+			"@typescript-eslint"
+		],
+		"ignorePatterns": [
+			"public/**/.js",
+			"staic/**"
+		]
 	},
 	"babel": {
 		"presets": [
