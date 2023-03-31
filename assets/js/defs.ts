@@ -31,6 +31,6 @@ declare global {
 		apiKey: string;
 		googleMapsAPIKey: string;
 		vercelAnalyticsID: string;
-		sentryJsURL: string;
+		sentryURL: string;
 	}
 }

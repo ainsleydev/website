@@ -36,7 +36,8 @@ func main() {
 		Browse: false,
 		HTML5:  true,
 	}))
-	handler := api.Bootstrap(e)
+	handler, teardown := api.Bootstrap(e)
+	defer teardown()
 	sdk.RegisterHandlers(e.Group(httpservice.BasePath), handler)
 
 	// Start server
