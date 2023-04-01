@@ -18,8 +18,11 @@ jobs:
                 uses: actions/checkout@v3
                 with:
                     fetch-depth: 0
+
+            # Step 2 - Install dependencies
+            -   name: Lint
                 run: npm install
 
-            # Step 2 - Run ESLint
+            # Step 3 - Run ESLint
             -   name: Lint
                 run: npm run lint:js
