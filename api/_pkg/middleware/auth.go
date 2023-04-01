@@ -36,7 +36,10 @@ func Auth(cfg *environment.Config) echo.MiddlewareFunc {
 				return auth == cfg.APIKey, nil
 			}
 			origin := ctx.Request().Header.Get("Origin")
-			if !strings.Contains(origin, cfg.URL) || origin == "" {
+			// Vercel comes back with a different URL in production for some reason.
+			// So a static variable needs to be used.
+			// TODO: See if there is a more graceful way of doing this.
+			if !strings.Contains(origin, OriginURL) || origin == "" {
 				return false, fmt.Errorf("bad origin: %s, with comparison: %s", origin, cfg.URL)
 			}
 			return auth == cfg.APIKey, nil
