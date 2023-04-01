@@ -35,9 +35,9 @@ func Auth(cfg *environment.Config) echo.MiddlewareFunc {
 			if !cfg.IsProduction() {
 				return auth == cfg.APIKey, nil
 			}
-			referer := ctx.Request().Header.Get("Origin")
-			if !strings.Contains(referer, cfg.URL) || referer == "" {
-				return false, fmt.Errorf("bad referer %s", referer)
+			origin := ctx.Request().Header.Get("Origin")
+			if !strings.Contains(origin, cfg.URL) || origin == "" {
+				return false, fmt.Errorf("bad origin: %s, with comparison: %s", origin, cfg.URL)
 			}
 			return auth == cfg.APIKey, nil
 		},
