@@ -6,7 +6,7 @@ on:
         branches: [ master ]
 
 jobs:
-    test:
+    lint:
         name: Lint Typescript
         runs-on: ubuntu-latest
         strategy:
