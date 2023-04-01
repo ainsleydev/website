@@ -9,9 +9,15 @@
   Digital craftmanship*
 </p>
 
+<div align="center">
+
 [![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=website&style=plastic)](https://ainsley.dev)
-[![Can I Deploy](https://github.com/ainsleyclark/ainsley.dev/actions/workflows/can-i-deploy.yaml/badge.svg)](https://github.com/ainsleyclark/ainsley.dev/actions/workflows/can-i-deploy.yaml)
 [![Unit Test](https://github.com/ainsleyclark/ainsley.dev/actions/workflows/unit-test.yaml/badge.svg)](https://github.com/ainsleyclark/ainsley.dev/actions/workflows/unit-test.yaml)
+[![codecov](https://codecov.io/gh/ainsleyclark/go-mail/branch/main/graph/badge.svg?token=1ZI9R34CHQ)](https://codecov.io/gh/ainsleyclark/go-mail)
+[![Twitter Handle](https://img.shields.io/twitter/follow/ainsleydev)](https://twitter.com/ainsleydev)
+
+</div>
+
 
 ## ainsley.dev
 
@@ -35,7 +41,7 @@ make post name=test
 ainsley.dev permits the use of any HTML, SCSS and Javascript found within the repository for use with external projects.
 As long as it confirms to the copyright disclaimer below.
 
-# Trademark
+## Trademark
 
 ainsley.dev and the ainsley.dev logo are either registered trademarks or trademarks of ainsley.dev LTD in the United
 Kingdom and/or other countries. All other trademarks are the property of their respective owners.
