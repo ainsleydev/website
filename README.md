@@ -12,7 +12,7 @@
 <div align="center">
 
 [![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=website&style=plastic)](https://ainsley.dev)
-[![Test](https://github.com/ainsley.dev/website/actions/workflows/test.yaml/badge.svg?branch=master)](https://github.com/ainsley.dev/website/actions/workflows/test.yaml)
+[![Test](https://github.com/ainsleydev/website/actions/workflows/test.yaml/badge.svg?branch=main)](https://github.com/ainsleydev/website/actions/workflows/test.yaml)
 [![codecov](https://codecov.io/gh/ainsleyclark/go-mail/branch/main/graph/badge.svg?token=1ZI9R34CHQ)](https://codecov.io/gh/ainsleyclark/go-mail)
 [![Twitter Handle](https://img.shields.io/twitter/follow/ainsleydev)](https://twitter.com/ainsleydev)
 
