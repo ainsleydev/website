@@ -6,7 +6,7 @@ on:
         branches: [ master ]
 
 jobs:
-    test:
+    lint:
         name: Lint Go
         runs-on: ubuntu-latest
         strategy:
@@ -26,15 +26,15 @@ jobs:
                     go-version: ${{ matrix.go-version }}
 
             # Step 3 - Lint
-            - name: Lint
-              uses: golangci/golangci-lint-action@v2
-              with:
-                  version: latest
-                  skip-go-installation: true
-                  skip-pkg-cache: true
-                  args: --verbose
-                  working-directory: ./api/_pkg
-                  timeout: 5m
+            -   name: Lint
+                uses: golangci/golangci-lint-action@v2
+                with:
+                    version: latest
+                    skip-go-installation: true
+                    skip-pkg-cache: true
+                    args: --verbose
+                    working-directory: ./api/_pkg
+                    timeout: 5m
 
             # Step 5 - Run git diff
             -   name: Diff
