@@ -12,7 +12,7 @@
 <div align="center">
 
 [![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=website&style=plastic)](https://ainsley.dev)
-[![Test](https://github.com/ainsleyclark/ainsley.dev/actions/workflows/test.yaml/badge.svg?branch=master)](https://github.com/ainsleyclark/ainsley.dev/actions/workflows/test.yaml)
+[![Test](https://github.com/ainsleydev/website/actions/workflows/test.yaml/badge.svg?branch=main)](https://github.com/ainsleydev/website/actions/workflows/test.yaml)
 [![codecov](https://codecov.io/gh/ainsleyclark/go-mail/branch/main/graph/badge.svg?token=1ZI9R34CHQ)](https://codecov.io/gh/ainsleyclark/go-mail)
 [![Twitter Handle](https://img.shields.io/twitter/follow/ainsleydev)](https://twitter.com/ainsleydev)
 
@@ -64,4 +64,6 @@ Any redistribution or reproduction of part or all of the contents in any form is
 ## Licence
 
 Code Copyright 2023 ainsley.dev. Code released under the [BSD-3 Clause](LICENSE).
+
+[//]: # ([![Maintainability]&#40;https://api.codeclimate.com/v1/badges/f5912a1dec11b8003850/maintainability&#41;]&#40;https://codeclimate.com/github/ainsleydev/website/maintainability&#41;)
 
