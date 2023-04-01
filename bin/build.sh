@@ -6,7 +6,7 @@
 #
 # ainsley.dev - 16/09/2021
 
-if [[ $VERCEL_GIT_COMMIT_REF == "master" ]]; then
+if [[ $VERCEL_GIT_COMMIT_REF == "main" ]]; then
 	echo "Building production"
 	npm run build:prod
 else
