@@ -83,14 +83,17 @@ $home-show-reel-height: 300vh;
 
 		&-image {
 			position: relative;
+			display: block;
 			width: 100%;
-			height: auto;
+			max-height: 80vh;
+			margin-top: $header-height / 2;
 			aspect-ratio: 16 / 9;
 
 			img {
 				position: relative;
 				width: 100%;
 				height: 100%;
+				object-fit: cover;
 			}
 		}
 	}
@@ -137,10 +140,20 @@ $home-show-reel-height: 300vh;
 		}
 	}
 
-	// Tablet
+	// Desktop
 	// =========================================================================
 
 	@include media-desk {
+		&-show-reel-content {
+			//width: 65%;
+			//margin-left: auto;
+			//margin-right: auto;
+		}
+
+		&-first-section {
+			padding-top: $section-padding;
+		}
+
 		&-three-d {
 			width: 100%;
 		}

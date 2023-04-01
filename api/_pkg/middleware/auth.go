@@ -19,9 +19,9 @@ const (
 	// AuthHeader is the header used for authentication via an
 	// API Key
 	AuthHeader = "X-API-Key"
-	// RefererURL is the URL of the site to compare against
+	// OriginURL is the URL of the site to compare against
 	// in production.
-	RefererURL = "https://ainsley.dev"
+	OriginURL = "https://ainsley.dev"
 )
 
 // Auth validates API request and determines if the AuthHeader value is of equal
@@ -35,7 +35,7 @@ func Auth(cfg *environment.Config) echo.MiddlewareFunc {
 			if !cfg.IsProduction() {
 				return auth == cfg.APIKey, nil
 			}
-			referer := ctx.Request().Header.Get("Referer")
+			referer := ctx.Request().Header.Get("Origin")
 			if !strings.Contains(referer, cfg.URL) || referer == "" {
 				return false, fmt.Errorf("bad referer %s", referer)
 			}
