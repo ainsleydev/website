@@ -12,12 +12,11 @@
 <div align="center">
 
 [![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=website&style=plastic)](https://ainsley.dev)
-[![Unit Test](https://github.com/ainsleyclark/ainsley.dev/actions/workflows/unit-test.yaml/badge.svg)](https://github.com/ainsleyclark/ainsley.dev/actions/workflows/unit-test.yaml)
+[![Test](https://github.com/ainsleyclark/ainsley.dev/actions/workflows/test.yaml/badge.svg?branch=master)](https://github.com/ainsleyclark/ainsley.dev/actions/workflows/test.yaml)
 [![codecov](https://codecov.io/gh/ainsleyclark/go-mail/branch/main/graph/badge.svg?token=1ZI9R34CHQ)](https://codecov.io/gh/ainsleyclark/go-mail)
 [![Twitter Handle](https://img.shields.io/twitter/follow/ainsleydev)](https://twitter.com/ainsleydev)
 
 </div>
-
 
 ## ainsley.dev
 
@@ -25,6 +24,10 @@ Website and theme source code for [ainsley.dev](https://ainsley.dev).
 
 Coupling state-of-the-art technology with stunning designs, we create memorable digital transformations and well-crafted
 software for everyone from startups to established brands.
+
+## Documentation
+
+Docs for Hugo modules, partials and shortcodes will be featured soon on the website.
 
 ## Notes:
 
