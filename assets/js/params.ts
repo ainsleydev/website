@@ -22,4 +22,5 @@ export const Params = {
 	apiKey: params.apiKey,
 	googleMapsAPIKey: params.googleMapsAPIKey,
 	vercelAnalyticsID: params.vercelAnalyticsID,
+	sentryURL: params.sentryURL,
 } as ParamTypes;

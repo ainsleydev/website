@@ -5,6 +5,7 @@
 package api
 
 import (
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/analytics"
 	"log"
 	"net/http"
 
@@ -33,15 +34,21 @@ var (
 // and registering the API routes.
 func Handler(w http.ResponseWriter, r *http.Request) {
 	app = echo.New()
-	handler = Bootstrap(app)
+	h, teardown := Bootstrap(app)
+	handler = h
+	defer teardown()
 	sdk.RegisterHandlersWithBaseURL(app, handler, httpservice.BasePath)
 	app.ServeHTTP(w, r)
 }
 
 // Bootstrap the main application by initialising packages, logging
 // middleware and creating the main handler.
-func Bootstrap(server *echo.Echo) *httpservice.Handler {
+func Bootstrap(server *echo.Echo) (*httpservice.Handler, func()) {
 	config, err := environment.New()
+	if err != nil {
+		log.Fatalln(err.Error())
+	}
+	teardown, err := analytics.InitSentry()
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
@@ -56,5 +63,5 @@ func Bootstrap(server *echo.Echo) *httpservice.Handler {
 		Config: config,
 		Slack:  slack.New(config),
 		Mailer: mailer,
-	}
+	}, teardown
 }

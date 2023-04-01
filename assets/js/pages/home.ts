@@ -54,7 +54,7 @@ export const homeAnimation = (): void => {
 				duration: 9000,
 				easing: 'easeInOutExpo',
 			},
-			2000,
+			3000,
 		)
 		.add(
 			{
@@ -62,7 +62,7 @@ export const homeAnimation = (): void => {
 				scale: [0, 1],
 				duration: 6000,
 			},
-			2000,
+			3000,
 		)
 		.add(
 			{

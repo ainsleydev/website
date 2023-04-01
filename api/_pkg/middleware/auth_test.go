@@ -53,7 +53,7 @@ func TestAuth(t *testing.T) {
 			input: func(r *http.Request) {
 				t.Setenv(AuthHeader, "key")
 				r.Header.Set(AuthHeader, "key")
-				r.Header.Set("Referer", RefererURL)
+				r.Header.Set("Origin", OriginURL)
 			},
 			config: environment.Config{
 				Env:    "production",
