@@ -1,0 +1,18 @@
+<!-- =====================
+  	Plausible
+    ===================== -->
+{{ if site.Params.plausible.enable -}}
+	{{ with site.Params.plausible.domain }}
+	<script defer data-domain="{{ . }}"
+		src="https://plausible.io/js/script.outbound-links.tagged-events.js">
+	</script>
+	{{- else -}}
+		{{ warnf "No domain attached to plausible param" }}
+	{{- end }}
+	<!-- Define the `plausible` function to manually trigger events -->
+	<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+	<!-- For 404 page -->
+	{{- if eq .Page.Kind "404" }}
+		<script>plausible("404",{ props: { path: document.location.pathname } });</script>
+	{{- end }}
+{{- end }}
