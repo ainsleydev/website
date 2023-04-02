@@ -9,6 +9,14 @@
   Digital craftmanship*
 </p>
 
+<p align="center">
+  <a href="https://ainsley.dev/about/"><strong>About</strong></a> ·
+  <a href="https://ainsley.dev/services/"><strong>Services</strong></a> ·
+  <a href="https://ainsley.dev/portfolio/"><strong>Portfolio</strong></a> ·
+  <a href="https://ainsley.dev/contact/"><strong>Contact</strong></a>
+</p>
+<br/>
+
 <div align="center">
 
 [![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=website&style=plastic)](https://ainsley.dev)
