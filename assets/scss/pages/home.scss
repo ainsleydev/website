@@ -74,27 +74,39 @@ $home-show-reel-height: 300vh;
 			width: 100%;
 			height: 100vh;
 			perspective: 100vw;
+			overflow: hidden;
 			transform-style: preserve-3d;
 		}
 
 		&-content {
 			width: 100%;
 		}
+	}
 
-		&-image {
+	// Video
+	// =========================================================================
+
+	&-video {
+		position: relative;
+		display: block;
+		width: 100%;
+		max-height: 80vh;
+		aspect-ratio: 16 / 9;
+
+		video {
 			position: relative;
-			display: block;
 			width: 100%;
-			max-height: 80vh;
-			margin-top: $header-height / 2;
-			aspect-ratio: 16 / 9;
+			height: 100%;
+			object-fit: cover;
+		}
 
-			img {
-				position: relative;
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-			}
+		&-btn {
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 999;
 		}
 	}
 
@@ -118,6 +130,19 @@ $home-show-reel-height: 300vh;
 			width: 100%;
 			height: 100%;
 		}
+	}
+
+	// Marquee
+	// =========================================================================
+
+	&-marquee {
+		position: absolute;
+		display: block;
+		width: 100vw;
+		height: auto;
+		left: 0;
+		z-index: 10;
+		pointer-events: none;
 	}
 
 	// Tablet
@@ -144,18 +169,17 @@ $home-show-reel-height: 300vh;
 	// =========================================================================
 
 	@include media-desk {
-		&-show-reel-content {
-			//width: 65%;
-			//margin-left: auto;
-			//margin-right: auto;
-		}
-
 		&-first-section {
 			padding-top: $section-padding;
 		}
 
 		&-three-d {
 			width: 100%;
+		}
+
+		&-marquee h2 {
+			@include h1;
+			margin-bottom: 0;
 		}
 	}
 }

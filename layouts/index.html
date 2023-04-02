@@ -46,19 +46,34 @@
 		Show-reel
 		===================== -->
 	<section class="section home-show-reel" id="content">
-		<div class="container home-show-reel-wrapper">
-			<div class="home-show-reel-content">
-{{/*				<!-- Text -->*/}}
-{{/*				<div class="home-show-reel-text margin-large">*/}}
-{{/*					<h2>Showreel</h2>*/}}
-{{/*				</div>*/}}
-				<!-- Image -->
-				<picture class="home-show-reel-image">
-					{{ partial "media/picture.html" (dict
-						"image" (resources.Get "/images/showreel-temp.jpg")
-						"alt" "TODO"
-					)}}
-				</picture>
+		<div class="home-show-reel-wrapper">
+			<!-- Marquee -->
+			<div class="home-marquee">
+				{{ partial "components/marquee.html" (dict
+                	"text" "Showreel"
+                )}}
+			</div><!-- /Marquee -->
+			<div class="container home-show-reel-content">
+				<!-- Button -->
+				<div class="home-video-btn">
+                    {{ partial "components/button.html" (dict
+						"text" "Full video"
+						"colour" "black"
+						"size" "large"
+						"arrow" true
+						"title" "Play the full video"
+                    )}}
+				</div>
+				<!-- Video -->
+				<div class="home-video cursor-element brightness-80"
+					data-cursor-invert data-cursor-invert-white>
+					<!-- Looped Video -->
+					<video class="video" autoplay muted loop preload="auto">
+						<source src="/portfolio/decspets/video/tags.webm" type="video/webm">
+						<source src="/portfolio/decspets/video/tags-compressed.mp4" type="video/mp4">
+						<source src="/portfolio/decspets/video/tags.mp4" type="video/mp4">
+					</video>
+				</div><!-- /Video -->
 			</div><!-- /Content -->
 		</div><!-- /Container -->
 	</section>
