@@ -26,16 +26,6 @@ deploy-staging: # Deploy staging to Vercel
 	vercel --name staging
 .PHONY: deploy-staging
 
-post: # Creates a new work post.
-	@[ "${name}" ] || ( echo ">> name is not set"; exit 1 )
-	hugo new --kind post-bundle insights/$(name)
-.PHONY: post
-
-work: # Creates a new work post.
-	@[ "${name}" ] || ( echo ">> name is not set"; exit 1 )
-	hugo new --kind portfolio-bundle portfolio/$(name)
-.PHONY: work
-
 sdk: # Generates the Go & Typescript API SDKs
 	oapi-codegen --package=sdk openapi/spec.yaml > api/_sdk/api.gen.go
 	swagger-typescript-api --path openapi/spec.yaml --output assets/js/api --templates openapi/templates --name SDK --module-name-first-tag

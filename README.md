@@ -15,7 +15,6 @@
   <a href="https://ainsley.dev/portfolio/"><strong>Portfolio</strong></a> ·
   <a href="https://ainsley.dev/contact/"><strong>Contact</strong></a>
 </p>
-<br/>
 
 <div align="center">
 
@@ -37,14 +36,29 @@ software for everyone from startups to established brands.
 
 Docs for Hugo modules, partials and shortcodes will be featured soon on the website.
 
-## Notes:
+## Setup
 
-Create a new post
-
+```shel
+make setup
 ```
+
+## Deployment
+
+Deployment is managed by `Vercel` and is deployed on push to the `main` branch. Staging environments is available
+at [staging.ainsley.dev](https://staging.ainsley.dev) and is updarted when the `staging` branch is pushed to.
+
+## Archetypes:
+
+**Create a new post**
+
+```shell
 hugo new --kind post-bundle posts/my-post
-make work name=test
-make post name=test
+```
+
+**Create a new portfolio item**
+
+```shell
+hugo new --kind portfolio-bundle portfolio/client-name
 ```
 
 ## Open Source
