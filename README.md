@@ -9,11 +9,19 @@
   Digital craftmanship*
 </p>
 
+<p align="center">
+  <a href="https://ainsley.dev/about/"><strong>About</strong></a> ·
+  <a href="https://ainsley.dev/services/"><strong>Services</strong></a> ·
+  <a href="https://ainsley.dev/portfolio/"><strong>Portfolio</strong></a> ·
+  <a href="https://ainsley.dev/contact/"><strong>Contact</strong></a>
+</p>
+
 <div align="center">
 
 [![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=website&style=plastic)](https://ainsley.dev)
-[![Test](https://github.com/ainsleydev/website/actions/workflows/test.yaml/badge.svg?branch=main)](https://github.com/ainsleydev/website/actions/workflows/test.yaml)
-[![codecov](https://codecov.io/gh/ainsleyclark/go-mail/branch/main/graph/badge.svg?token=1ZI9R34CHQ)](https://codecov.io/gh/ainsleyclark/go-mail)
+[![Test](https://github.com/ainsleydev/website/actions/workflows/test.yaml/badge.svg)](https://github.com/ainsleydev/website/actions/workflows/test.yaml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f5912a1dec11b8003850/maintainability)](https://codeclimate.com/github/ainsleydev/website/maintainability)
+[![Coverage](https://codecov.io/gh/ainsleydev/website/branch/dev/graph/badge.svg?token=Y8crTxn7Ic)](https://codecov.io/gh/ainsleydev/website)
 [![Twitter Handle](https://img.shields.io/twitter/follow/ainsleydev)](https://twitter.com/ainsleydev)
 
 </div>
@@ -29,14 +37,23 @@ software for everyone from startups to established brands.
 
 Docs for Hugo modules, partials and shortcodes will be featured soon on the website.
 
-## Notes:
+## Deployment
 
-Create a new post
+Deployment is managed by `Vercel` and is deployed on push to the `main` branch. Staging environments is available
+at [staging.ainsley.dev](https://staging.ainsley.dev) and is updarted when the `staging` branch is pushed to.
 
-```
+## Archetypes:
+
+**Create a new post**
+
+```shell
 hugo new --kind post-bundle posts/my-post
-make work name=test
-make post name=test
+```
+
+**Create a new portfolio item**
+
+```shell
+hugo new --kind portfolio-bundle portfolio/client-name
 ```
 
 ## Open Source

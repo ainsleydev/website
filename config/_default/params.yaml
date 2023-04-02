@@ -38,6 +38,10 @@ imagery:
             size: 767
         -   name: tab
             size: 1023
+plausible:
+    enable: false
+    local: false
+    domain: ainsley.dev
 gtag:
     enable: false
     tag: KZFMRNJ

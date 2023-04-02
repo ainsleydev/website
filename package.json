@@ -22,9 +22,6 @@
 	"dependencies": {
 		"@barba/core": "^2.9.7",
 		"@googlemaps/js-api-loader": "^1.15.1",
-		"@sentry/browser": "^7.45.0",
-		"@sentry/tracing": "^7.45.0",
-		"@splinetool/loader": "^0.9.269",
 		"animejs": "^3.2.1",
 		"normalize.css": "^8.0.1",
 		"split-type": "^0.3.3",
