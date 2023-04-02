@@ -20,6 +20,7 @@
 
 [![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=website&style=plastic)](https://ainsley.dev)
 [![Test](https://github.com/ainsleydev/website/actions/workflows/test.yaml/badge.svg)](https://github.com/ainsleydev/website/actions/workflows/test.yaml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f5912a1dec11b8003850/maintainability)](https://codeclimate.com/github/ainsleydev/website/maintainability)
 [![Coverage](https://codecov.io/gh/ainsleydev/website/branch/dev/graph/badge.svg?token=Y8crTxn7Ic)](https://codecov.io/gh/ainsleydev/website)
 [![Twitter Handle](https://img.shields.io/twitter/follow/ainsleydev)](https://twitter.com/ainsleydev)
 
