@@ -36,12 +36,6 @@ software for everyone from startups to established brands.
 
 Docs for Hugo modules, partials and shortcodes will be featured soon on the website.
 
-## Setup
-
-```shel
-make setup
-```
-
 ## Deployment
 
 Deployment is managed by `Vercel` and is deployed on push to the `main` branch. Staging environments is available
