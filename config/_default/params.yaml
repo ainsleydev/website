@@ -40,6 +40,7 @@ imagery:
             size: 1023
 plausible:
     enable: true
+    local: true
     domain: ainsley.dev
 gtag:
     enable: false
