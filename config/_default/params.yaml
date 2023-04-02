@@ -39,8 +39,8 @@ imagery:
         -   name: tab
             size: 1023
 plausible:
-    enable: true
-    local: true
+    enable: false
+    local: false
     domain: ainsley.dev
 gtag:
     enable: false
