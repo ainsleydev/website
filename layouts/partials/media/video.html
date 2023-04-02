@@ -20,7 +20,7 @@
 			{{ with .poster }} poster="{{ . }}" {{ end }}
 			{{ with .attr -}} {{ . | safeHTMLAttr -}} {{- end }}
 			controls
-			preload="auto">
+			preload="none">
             {{- $noExtension := partial "util/_trim-extension.html" .video.RelPermalink -}}
 			<!-- WebM -->
             {{ if os.FileExists (printf "%s.webm" $noExtension) }}
@@ -41,7 +41,11 @@
 				type="video/mp4"/>
 		</video>
 		<!-- Play Button -->
-		<div class="video-button"></div>
+		<div class="video-button cursor-element skew"
+			data-cursor-invert data-cursor-invert-white
+			data-skew-transform-x="0.15" data-skew-transform-y="0.15"
+			data-skew-rotate-x="-0.1" data-skew-rotate-y="-0.1"
+			data-skew-rotate>
 	</div><!-- /Container -->
 {{- else -}}
 	{{ warnf "Video not found: %v" . }}
