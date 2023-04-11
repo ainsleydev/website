@@ -48,16 +48,16 @@
 		user-select: none;
 		width: 20%;
 		max-width: 20%;
-		margin-right: 4rem;
+		font-size: 6.5vw !important;
 
 		&:before {
 			content: '';
+			display: none;
 			position: relative;
-			display: inline-block;
 			width: 20%;
 			margin-right: 20px;
 			transform: translateY(4px);
-			height: $line-size-thick;
+			height: 4px;
 			background-color: $white;
 		}
 	}
@@ -74,12 +74,41 @@
 		}
 	}
 
+	// Desktop Down
+	// =========================================================================
+
+	@include media-desk-down {
+		&-text {
+			width: 33.3%;
+			max-width: 33.3%;
+
+			&:nth-last-child(2),
+			&:last-child {
+				display: none;
+			}
+		}
+	}
+
 	// Tablet
 	// =========================================================================
 
 	@include media-tab {
 		&-inner {
 			animation: marquee 15s linear infinite;
+		}
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-desk {
+		&-text {
+			font-size: 3vw !important;
+
+			&:before {
+				margin-left: 20px;
+				display: inline-block;
+			}
 		}
 	}
 }
