@@ -5,11 +5,12 @@
 
 .skew {
 	$self: &;
-	transition: transform 100ms linear;
-	will-change: transform;
 	// Bug fix,
 	// See: https://stackoverflow.com/questions/43075089/safari-css-transform-3d-rotation-glitch
 	z-index: 1;
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+	will-change: transform;
 }
 
 // Touch Screen

@@ -49,7 +49,7 @@ export const homeAnimation = (): void => {
 		)
 		.add(
 			{
-				targets: '.home-show-reel-image img',
+				targets: ['.home-video video', '.home-marquee', '.home-video-btn btn'],
 				rotateY: [-90, 0],
 				duration: 9000,
 				easing: 'easeInOutExpo',
@@ -58,7 +58,25 @@ export const homeAnimation = (): void => {
 		)
 		.add(
 			{
-				targets: '.home-show-reel-image',
+				targets: ['.home-marquee', '.home-video-btn'],
+				opacity: [0, 1],
+				duration: 1000,
+				easing: 'linear',
+			},
+			8000,
+		)
+		.add(
+			{
+				targets: '.home-video-btn',
+				display: ['none', 'block'],
+				duration: 0,
+				easing: 'linear',
+			},
+			8000,
+		)
+		.add(
+			{
+				targets: '.home-video',
 				scale: [0, 1],
 				duration: 6000,
 			},

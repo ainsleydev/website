@@ -1,0 +1,85 @@
+// -----------------------------------------------------------------------------
+// _marquee.scss
+// This file contains all styles related to the arrow component.
+// -----------------------------------------------------------------------------
+
+.marquee {
+	$self: &;
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	overflow: hidden;
+	transform: rotate(-3deg) skew(-5deg);
+	height: 100px;
+
+	// Inner
+	// =========================================================================
+
+	&-inner {
+		display: flex;
+		position: absolute;
+		width: 200%;
+		will-change: left;
+		animation: marquee 10s linear infinite;
+
+		&:hover {
+			animation-play-state: paused;
+		}
+	}
+
+	// Wrapper
+	// =========================================================================
+
+	&-wrapper {
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+		width: 50%;
+	}
+
+	// Wrapper
+	// =========================================================================
+
+	&-text {
+		display: flex;
+		align-items: center;
+		margin-bottom: 0;
+		user-select: none;
+		width: 20%;
+		max-width: 20%;
+		margin-right: 4rem;
+
+		&:before {
+			content: '';
+			position: relative;
+			display: inline-block;
+			width: 20%;
+			margin-right: 20px;
+			transform: translateY(4px);
+			height: $line-size-thick;
+			background-color: $white;
+		}
+	}
+
+	// Animation
+	// =========================================================================
+
+	@keyframes marquee {
+		0% {
+			left: 0;
+		}
+		100% {
+			left: -100%;
+		}
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-tab {
+		&-inner {
+			animation: marquee 15s linear infinite;
+		}
+	}
+}
