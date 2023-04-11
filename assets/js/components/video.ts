@@ -6,6 +6,8 @@
  * @author Email: hello@ainsley.dev
  */
 
+import { WayPoint } from '../animations/waypoint';
+
 /**
  * Video - Adds the video playing class when a user
  * clicks the play button on the video Element.
@@ -36,6 +38,20 @@ export const video = (): void => {
 		button.addEventListener('click', () => {
 			console.log('vid');
 			vid.play();
+		});
+	});
+	/**
+	 * Handle lazy load
+	 */
+	document.querySelectorAll('video').forEach((vid) => {
+		if (!vid.hasAttribute('data-lazy')) {
+			return;
+		}
+		WayPoint(vid, {
+			rootMargin: '-100px',
+			callback: () => {
+				vid.play();
+			},
 		});
 	});
 };

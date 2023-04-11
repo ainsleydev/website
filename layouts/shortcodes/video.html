@@ -5,4 +5,5 @@
 {{ partial "media/video.html" (dict
 	"video" (partial "util/_resource.html" (dict "src" (.Get "src" ) "ctx" .))
 	"poster" (partial "util/_resource.html" (dict "src" (.Get "poster" ) "ctx" .))
+	"lazy" (.Get "lazy")
 )}}

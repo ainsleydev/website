@@ -5,11 +5,13 @@
 			"poster" (resources.Get "poster.jpg")
 			"class" "class-name"
 			"attr" data-something
+			"lazy" true
 		)
 		- video:	The video resource. A warning will be thrown without this key.
 		- poster:	The poster image for the video
 		- class:	Any class names to be appended to the <video> element.
 		- attr:		Any additional attributes to appear.
+		- lazy:		If the video should be lazy loaded, defaults to false.
     ===================== -->
 {{ if .video }}
 	<!-- Container -->
@@ -17,8 +19,9 @@
 		<!-- Video -->
 		<video
 			class="video"
-			{{ with .poster }} poster="{{ . }}" {{ end }}
+			{{ with .poster }} poster="{{ .RelPermalink }}" {{ end }}
 			{{ with .attr -}} {{ . | safeHTMLAttr -}} {{- end }}
+			{{ if .lazy -}} data-lazy {{- end }}
 			controls
 			preload="none">
             {{- $noExtension := partial "util/_trim-extension.html" .video.RelPermalink -}}
