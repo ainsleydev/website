@@ -2,16 +2,5 @@
 	Base URL
 		Retrieves the base URL of the project.
     ===================== -->
-{{- $ret := "" -}}
-{{- $baseURL := getenv "VERCEL_URL" -}}
-{{- if not $baseURL -}}
-    {{- warnf "VERCEL_URL environment file not found, use vercel dev. Using .Site.BaseURL" -}}
-	{{ $baseURL = .Site.BaseURL | replaceRE "http://" "" | replaceRE "https://" "" }}
-{{- end -}}
-{{ if strings.Contains $baseURL "localhost" -}}
-	{{- $ret = printf "http://%s" $baseURL -}}
-{{- else -}}
-    {{- $ret = printf "https://%s" $baseURL -}}
-{{- end -}}
-{{ $ret = strings.TrimSuffix "/" $ret }}
-{{ return $ret }}
+{{ $url := strings.TrimSuffix "/" .Site.BaseURL}}
+{{ return $url }}
