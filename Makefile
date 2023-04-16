@@ -1,4 +1,4 @@
-setup: # Setup dependencies
+`setup: # Setup dependencies
 	npm install
 	husky install
 	npm i -g vercel
