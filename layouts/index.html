@@ -1,8 +1,12 @@
 {{ define "main" }}
+	<video class="video" controls preload="metadata" style='margin-top: 200px;'>
+		<source src="/portfolio/decspets/video/tags.webm" type="video/webm">
+		<source src="/portfolio/decspets/video/tags-compressed.mp4" type="video/mp4">
+	</video>
 	<!-- =====================
 		Home
 		===================== -->
-	<div class="home-hero-wrapper">
+	<div class="home-hero-wrapper" style='display: none'>
 		<div class="home-three-d">
 			{{ partial "svgs/a-symbol-3d.html" . }}
 		</div>
@@ -79,18 +83,16 @@
 			</div><!-- /Content -->
 		</div><!-- /Container -->
 	</section>
-	<div class="video-full" id="home-video">
-		<video class="video" controls preload="metadata">
-			<source src="https://staging.ainsley.dev/portfolio/decspets/video/tags.webm" type="video/webm">
-			<source src="https://staging.ainsley.dev/portfolio/decspets/video/tags-compressed.mp4" type="video/mp4">
-		</video>
+
+{{/*	<div class="video-full" id="home-video">*/}}
+
 {{/*		<div class="video-button cursor-element"*/}}
 {{/*			 data-cursor-invert data-cursor-invert-white>*/}}
 {{/*		</div>*/}}
 {{/*		<div class="video-full-btn tag tag-black">*/}}
 {{/*			Close*/}}
 {{/*		</div>*/}}
-	</div>
+{{/*	</div>*/}}
 
 	<!-- =====================
 		Solutions
