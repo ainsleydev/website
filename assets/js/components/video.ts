@@ -85,7 +85,6 @@ export const video = (): void => {
 		}
 		button.addEventListener("click", () => {
 			video.classList.add("video-full-active");
-			video.play();
 			if (video.requestFullscreen) {
 				video.requestFullscreen();
 			} else if (video.webkitRequestFullscreen) { /* Safari */
@@ -93,6 +92,7 @@ export const video = (): void => {
 			} else if (video.msRequestFullscreen) { /* IE11 */
 				video.msRequestFullscreen();
 			}
+			video.play();
 		});
 	});
 
@@ -101,6 +101,10 @@ export const video = (): void => {
 	 */
 	document.querySelectorAll(".video-full").forEach((video: HTMLVideoElement) => {
 		video.addEventListener("fullscreenchange", () => {
+			if (!video.webkitDisplayingFullscreen) {
+				video.classList.remove("video-full-active");
+				video.pause();
+			}
 			if (!document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
 				video.classList.remove("video-full-active");
 				video.pause();
