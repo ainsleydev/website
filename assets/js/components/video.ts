@@ -82,7 +82,7 @@ export const video = (): void => {
 	 */
 	document.querySelectorAll('.video-full').forEach((video: HTMLVideoElement) => {
 		video.addEventListener("pause", () => {
-			if (video.webkitDisplayingFullscreen) {
+			if (video.webkitDisplayingFullscreen || video.paused) {
 				video.classList.remove('video-full-active');
 				video.pause();
 			}
