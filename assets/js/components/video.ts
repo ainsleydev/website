@@ -88,7 +88,7 @@ export const video = (): void => {
 			}
 		})
 		video.addEventListener('fullscreenchange', () => {
-			if (!document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
+			if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
 				video.classList.remove('video-full-active');
 				video.pause();
 			}
