@@ -24,6 +24,26 @@ const playVideo = (vid: HTMLVideoElement) => {
 }
 
 /**
+ * Handle video full screen and toggle video class.
+ *
+ * @param container
+ */
+const openCloseVideo = (container: HTMLElement) => {
+	const video = container.querySelector("video") as HTMLVideoElement;
+	if (!video) {
+		Log.error("Video not found");
+		return;
+	}
+	if (container.classList.contains("video-full-active")) {
+		container.classList.remove("video-full-active");
+		video.pause();
+		return;
+	}
+	container.classList.add("video-full-active");
+	playVideo(video);
+}
+
+/**
  * Video - Adds the video playing class when a user
  * clicks the play button on the video Element.
  *
@@ -55,35 +75,25 @@ export const video = (): void => {
 	});
 
 	/**
-	 * Handle video full screen and toggle video class.
-	 *
-	 * @param container
+	 * Open full screen.
 	 */
-	const openCloseVideo = (container: HTMLElement) => {
-		const video = container.querySelector("video") as HTMLVideoElement;
-		if (!video) {
-			Log.error("Video not found");
-			return;
-		}
-		if (container.classList.contains("video-full-active")) {
-			container.classList.remove("video-full-active");
-			video.pause();
-			return;
-		}
-		container.classList.add("video-full-active");
-		playVideo(video);
-	}
-
 	document.querySelectorAll("[data-video-fullscreen-btn]").forEach((button) => {
-		const container = document.querySelector(button.getAttribute("data-video-fullscreen-btn"));
+		const video = document.querySelector(button.getAttribute("data-video-fullscreen-btn")) as HTMLVideoElement;
 		if (!video) {
 			Log.error("Video fullscreen not found");
 			return;
 		}
-		button.addEventListener("click", () => openCloseVideo(container as HTMLElement));
-	});
-
-	document.querySelectorAll(".video-full-btn").forEach((btn) => {
-		btn.addEventListener("click", () => openCloseVideo(btn.closest(".video-full") as HTMLElement));
+		button.addEventListener("click", () => {
+			playVideo(video);
+			if (video.requestFullscreen) {
+				video.requestFullscreen();
+			} else if (video.mozRequestFullScreen) {
+				video.mozRequestFullScreen();
+			} else if (video.webkitRequestFullscreen) {
+				video.webkitRequestFullscreen();
+			} else if (video.msRequestFullscreen) {
+				video.msRequestFullscreen();
+			}
+		});
 	});
 };
