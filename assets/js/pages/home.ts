@@ -49,7 +49,7 @@ export const homeAnimation = (): void => {
 		)
 		.add(
 			{
-				targets: ['.home-video video', '.home-marquee', '.home-video-btn btn'],
+				targets: ['.home-video video', '.home-video-btn btn'],
 				rotateY: [-90, 0],
 				duration: 9000,
 				easing: 'easeInOutExpo',
