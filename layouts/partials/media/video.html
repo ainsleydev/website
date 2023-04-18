@@ -21,6 +21,7 @@
 		<!-- Video -->
 		<video
 			class="video"
+				playsinline
                 {{ with .poster }} poster="{{ .RelPermalink }}" {{ end }}
                 {{ with .attr -}} {{ . | safeHTMLAttr -}} {{- end }}
                 {{ if .loop -}} loop {{- end }}

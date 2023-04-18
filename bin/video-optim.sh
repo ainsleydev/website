@@ -20,7 +20,7 @@ echo '--------------------------------------------'
 for i in $(find ${PUBLIC_PATH} -type f -name "*.mp4" -o -name "*.mkv"); do
 	if [[ ${i} != *"compressed"* ]] && [[ ! -e "${i%.*}-compressed.mp4" ]]; then
 		echo "Processing file: $i"
-		ffmpeg -i "$i" -acodec copy -y -vcodec libx265 -crf ${CRF} "${i%.*}-compressed.mp4"
+		ffmpeg -i "$i" -acodec copy -y -vcodec h264 -crf ${CRF} "${i%.*}-compressed.mp4"
 	fi;
 done
 
