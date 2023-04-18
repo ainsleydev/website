@@ -92,10 +92,9 @@ export const video = (): void => {
 		if (container.classList.contains("video-full-active")) {
 			container.classList.remove("video-full-active");
 			video.pause();
-		} else {
-			container.classList.add("video-full-active");
-			playVideo(container.querySelector("video"));
+			return;
 		}
+		container.classList.add("video-full-active");
 	}
 
 	document.querySelectorAll("[data-video-fullscreen-btn]").forEach((button) => {

@@ -44,6 +44,7 @@
 		transition: opacity 300ms ease;
 		z-index: 999;
 		will-change: opacity;
+		pointer-events: none;
 	}
 
 	// Full
@@ -58,6 +59,7 @@
 		height: 100%;
 		z-index: $header-z-index + 999;
 		background-color: $black;
+		cursor: pointer;
 
 		&-active {
 			display: block;
