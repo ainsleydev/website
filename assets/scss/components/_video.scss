@@ -3,100 +3,100 @@
 // This file contains all styles related to the video component.
 // -----------------------------------------------------------------------------
 
-.video {
-	$self: &;
-	position: relative;
-	width: 100%;
-	height: auto;
-	aspect-ratio: 16 / 9;
-	outline: none;
-	object-fit: cover; // Poster
-
-	// Props
-	// =========================================================================
-
-	[controls] {
-		cursor: pointer;
-	}
-
-	// Container
-	// =========================================================================
-
-	&-container {
-		position: relative;
-	}
-
-	// Play Button
-	// =========================================================================
-
-	&-button {
-		display: block;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-width: 10vw 0 10vw 16vw;
-		border-color: transparent transparent transparent rgba($black, 0.6);
-		cursor: pointer;
-		transition: opacity 300ms ease;
-		z-index: 999;
-		will-change: opacity;
-		pointer-events: none;
-	}
-
-	// Full
-	// =========================================================================
-
-	&-full {
-		display: block;
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100%;
-		z-index: $header-z-index + 999;
-		background-color: $black;
-		cursor: pointer;
-
-		&-active {
-			display: block;
-		}
-
-		&-btn {
-			display: block;
-			z-index: 10;
-			position: absolute;
-			top: 2rem;
-			right: 2rem;
-			cursor: pointer;
-			margin: 0;
-
-			* {
-				color: $white;
-			}
-		}
-
-		#{$self} {
-			width: 100%;
-			height: 100%;
-		}
-	}
-
-	// Playing
-	// =========================================================================
-
-	&-playing ~ #{$self}-button {
-		opacity: 0;
-	}
-
-	// Desktop
-	// =========================================================================
-	@include media-desk {
-		&-button {
-			border-width: 4vw 0 4vw 5vw;
-		}
-	}
-}
+//.video {
+//	$self: &;
+//	position: relative;
+//	width: 100%;
+//	height: auto;
+//	aspect-ratio: 16 / 9;
+//	outline: none;
+//	object-fit: cover; // Poster
+//
+//	// Props
+//	// =========================================================================
+//
+//	[controls] {
+//		cursor: pointer;
+//	}
+//
+//	// Container
+//	// =========================================================================
+//
+//	&-container {
+//		position: relative;
+//	}
+//
+//	// Play Button
+//	// =========================================================================
+//
+//	&-button {
+//		display: block;
+//		position: absolute;
+//		top: 50%;
+//		left: 50%;
+//		transform: translate(-50%, -50%);
+//		width: 0;
+//		height: 0;
+//		border-style: solid;
+//		border-width: 10vw 0 10vw 16vw;
+//		border-color: transparent transparent transparent rgba($black, 0.6);
+//		cursor: pointer;
+//		transition: opacity 300ms ease;
+//		z-index: 999;
+//		will-change: opacity;
+//		pointer-events: none;
+//	}
+//
+//	// Full
+//	// =========================================================================
+//
+//	&-full {
+//		display: block;
+//		position: fixed;
+//		top: 0;
+//		left: 0;
+//		width: 100vw;
+//		height: 100%;
+//		z-index: $header-z-index + 999;
+//		background-color: $black;
+//		cursor: pointer;
+//
+//		&-active {
+//			display: block;
+//		}
+//
+//		&-btn {
+//			display: block;
+//			z-index: 10;
+//			position: absolute;
+//			top: 2rem;
+//			right: 2rem;
+//			cursor: pointer;
+//			margin: 0;
+//
+//			* {
+//				color: $white;
+//			}
+//		}
+//
+//		#{$self} {
+//			width: 100%;
+//			height: 100%;
+//		}
+//	}
+//
+//	// Playing
+//	// =========================================================================
+//
+//	&-playing ~ #{$self}-button {
+//		opacity: 0;
+//	}
+//
+//	// Desktop
+//	// =========================================================================
+//	@include media-desk {
+//		&-button {
+//			border-width: 4vw 0 4vw 5vw;
+//		}
+//	}
+//}
