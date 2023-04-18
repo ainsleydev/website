@@ -7,6 +7,21 @@
  */
 
 import { WayPoint } from '../animations/waypoint';
+import { Log } from '../util/log';
+
+/**
+ * playVideo plays a video element.
+ *
+ * @param vid
+ */
+const playVideo = (vid: HTMLVideoElement) => {
+	vid.play()
+		.then(res => {
+			Log.debug("Video playing: ", res)
+		}).catch(err => {
+			Log.error("Failed to play video: ", err)
+		});
+}
 
 /**
  * Video - Adds the video playing class when a user
