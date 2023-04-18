@@ -39,11 +39,16 @@ type (
 	Response = mail.Response
 )
 
+// sparkPostEndpoint is the base URL for SparkPost.
+//
+// See: https://developers.sparkpost.com/api/
+const sparkPostEndpoint = "https://api.eu.sparkpost.com"
+
 // New returns a new Mail Client.
 func New(cfg *environment.Config) (*Client, error) {
 	const op = "Mail.New"
 	mailer, err := drivers.NewSparkPost(mail.Config{
-		URL:         "https://api.eu.sparkpost.com",
+		URL:         sparkPostEndpoint,
 		APIKey:      cfg.MailAPIKey,
 		FromAddress: cfg.MailFromAddress,
 		FromName:    cfg.MailFromName,

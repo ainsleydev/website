@@ -3,49 +3,39 @@
 // This file contains native text animations such as the H1 bend.
 // -----------------------------------------------------------------------------
 
-.text-animate {
-	$self: &;
-	position: relative;
+// Props
+// =========================================================================
 
-	// Props
-	// =========================================================================
+.char,
+.word,
+.line {
+	opacity: 0;
+	transform: none;
+}
 
-	&-letter,
-	&-mark {
-		display: inline-block;
-		opacity: 1;
-		transform: none;
-	}
+// Underline
+// =========================================================================
 
-	// Underline
-	// =========================================================================
+.underline {
+	position: absolute;
+	display: inline-block;
+	left: 0;
+	bottom: -1px;
+	margin: auto;
+	height: 3px;
+	width: 100%;
+	background-color: colour('foreground');
+	transform-origin: left;
 
-	u {
-		position: relative;
-	}
-
-	&-underline {
-		position: absolute;
-		display: inline-block;
-		left: 0;
+	@include media-mob {
 		bottom: 2%;
-		margin: auto;
 		height: $line-size-thick;
-		width: 100%;
-		background-color: $white;
-		transform-origin: left;
 	}
+}
 
-	// Letter
-	// =========================================================================
+// Mark
+// =========================================================================
 
-	&-letter {
-	}
-
-	// Mark
-	// =========================================================================
-
-	&-mark {
-		transform-origin: 60% 35%;
-	}
+.mark {
+	transform-origin: 60% 35%;
 }

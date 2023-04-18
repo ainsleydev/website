@@ -7,31 +7,32 @@
 	position: fixed;
 	display: inline-flex;
 	align-items: center;
-	padding: 12px 30px;
-	background-color: $black;
-	color: $white;
-	border-radius: 4px;
-	opacity: 0;
-	transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+	max-width: 80vw;
+	padding: $toast-padding;
+	background-color: colour('foreground');
+	color: colour('background');
+	border-radius: $toast-border-radius;
+	font-weight: bold;
 	cursor: pointer;
 	text-decoration: none;
 	z-index: $header-z-index + 1000;
-	font-weight: bold;
+	opacity: 0;
+	transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+	will-change: transform, opacity;
 
 	// Close
 	// =========================================================================
 
 	&-close {
 		display: inline-flex;
+		justify-content: center;
 		align-items: center;
 		height: 0;
-		justify-content: center;
 		opacity: 1;
 		margin-left: 10px;
-		color: $white;
+		color: colour('background');
 		font-size: 1.6rem;
 		line-height: 0;
-		border: 1px solid $grey-light;
 		transform: translateY(-3px);
 	}
 
@@ -40,10 +41,6 @@
 
 	&.on {
 		opacity: 1;
-	}
-
-	.toast-close {
-		display: none;
 	}
 
 	&-right {
@@ -60,5 +57,16 @@
 
 	&-bottom {
 		bottom: -150px;
+	}
+
+	.toast-close {
+		display: none;
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-desk {
+		max-width: 450px;
 	}
 }

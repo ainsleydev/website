@@ -3,9 +3,9 @@ title: Get in touch
 description: Get in touch with ainsley.dev to capture your vision and values, so we can help you build a vibrant brand identity.
 draft: false
 pageColour: white
+namespace: contact
 scripts:
   - js/pages/contact.ts
-  - https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit
 ---
 
 <!-- =====================
@@ -15,7 +15,12 @@ scripts:
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<h1 class="mb-0">Let’s capture <span class="type-serif">your <br class="d-none d-tab-inline" />vision*</span> and values, so we<br class="d-none d-tab-inline" /> can help you build a<br class="d-none d-tab-inline" /><u>vibrant</u> brand identity</h1>
+				<!-- Hero Animation -->
+				<div class="hero-animate">
+					<h1 class="mb-0">
+						Let’s capture<span class="type-serif"> your<br class="d-none d-tab-inline" />vision*</span> and values, so we <br class="d-none d-tab-inline" />can help you build a <br class="d-none d-tab-inline" /><u>vibrant</u> brand identity
+					</h1>
+				</div>
 			</div><!-- /Col -->
 		</div><!-- /Row -->
 	</div><!-- /Container -->
@@ -23,27 +28,36 @@ scripts:
 <!-- =====================
 	Form
     ===================== -->
-<section class="section contact section-padding section-padding-bottom">
+<section class="section contact section-padding section-padding-bottom animate-up" data-animate-delay="200">
 	<div class="container">
 		<div class="row">
 			<!-- Form -->
 			<div class="col-12 col-desk-8 order-desk-last">
+				<noscript>
+					<div class="alert">
+						<h4 class="alert-text">We're sorry, this form cannot work on browsers that do not have JavaScript enabled.</h4>
+					</div>
+				</noscript>
 				<form action="" class="form contact-form">
 					<div class="form-wrapper">
+						<!-- Name -->
+						<fieldset class="form-group-bee">
+							<input type="text" name="first-name" autocomplete="off" tabindex="-1">
+						</fieldset>
 						<!-- Message -->
 						<fieldset class="form-group">
 							<label class="form-label">
 								<textarea class="form-input form-textarea" rows="6"
-										  name="message">Hey ainsley.dev...</textarea>
+									name="message">Hey ainsley.dev...</textarea>
 							</label>
 						</fieldset>
 						<!-- Message -->
 						<span class="tag tag-black form-message">Include your email in the message</span>
 					</div>
 					<!-- Submit -->
-					<button class="form-submit" type="submit" id="ac-contact">
-						{{< partial template="arrow/text.html" link="/brand/" text="<h2>Let's go</h2>" title="Submit form" colour="black" rotation=45 >}}
-					</button>
+					<div class="form-submit">
+						{{< partial template="components/button.html" colour="black" size="large" text="Let's go" attr="type=submit id=ac-contact" arrow=true >}}
+					</div>
 				</form>
 			</div><!-- /Col -->
 			<!-- Contact -->
@@ -78,7 +92,7 @@ scripts:
 <!-- =====================
     Map
     ===================== -->
-<section class="section map-wrapper">
+<section class="section map-wrapper animate-fade" data-animate-delay="200" data-animate-no-touch>
 	<!-- Content -->
 	<div class="container map-container">
 		<div class="row">

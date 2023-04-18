@@ -1,8 +1,11 @@
 <!-- =====================
     Video
-		< video src="video.mp4" poster="poster.jpg" >
+		< video src="video.mp4" poster="poster.jpg" lazy=true autoplay=true loop=true >
     ===================== -->
 {{ partial "media/video.html" (dict
 	"video" (partial "util/_resource.html" (dict "src" (.Get "src" ) "ctx" .))
 	"poster" (partial "util/_resource.html" (dict "src" (.Get "poster" ) "ctx" .))
+	"lazy" (.Get "lazy")
+	"autoplay" (.Get "autoplay")
+	"loop" (.Get "loop")
 )}}

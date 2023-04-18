@@ -11,7 +11,13 @@
 	aspect-ratio: 16 / 9;
 	outline: none;
 	object-fit: cover; // Poster
-	cursor: pointer;
+
+	// Props
+	// =========================================================================
+
+	[controls] {
+		cursor: pointer;
+	}
 
 	// Container
 	// =========================================================================
@@ -24,6 +30,7 @@
 	// =========================================================================
 
 	&-button {
+		display: block;
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -31,12 +38,49 @@
 		width: 0;
 		height: 0;
 		border-style: solid;
-		border-width: 2vw 0 2vw 3vw;
+		border-width: 10vw 0 10vw 16vw;
 		border-color: transparent transparent transparent rgba($black, 0.6);
 		cursor: pointer;
 		transition: opacity 300ms ease;
+		z-index: 999;
 		will-change: opacity;
-		pointer-events: none;
+	}
+
+	// Full
+	// =========================================================================
+
+	&-full {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: $header-z-index + 999;
+		background-color: $black;
+
+		&-active {
+			display: block;
+		}
+
+		&-btn {
+			display: block;
+			z-index: 10;
+			position: absolute;
+			top: 2rem;
+			right: 2rem;
+			cursor: pointer;
+			margin: 0;
+
+			* {
+				color: $white;
+			}
+		}
+
+		#{$self} {
+			width: 100%;
+			height: 100%;
+		}
 	}
 
 	// Playing
@@ -44,5 +88,13 @@
 
 	&-playing ~ #{$self}-button {
 		opacity: 0;
+	}
+
+	// Desktop
+	// =========================================================================
+	@include media-desk {
+		&-button {
+			border-width: 4vw 0 4vw 5vw;
+		}
 	}
 }

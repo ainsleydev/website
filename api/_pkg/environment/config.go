@@ -9,11 +9,10 @@ import (
 	"github.com/caarlos0/env/v7"
 )
 
-// Config represents the environment variables set in build
-// used a system configuration for the application.
+// Config defines the environment variables for the application.
 type Config struct {
 	Env             string   `env:"VERCEL_ENV"`
-	URL             string   `env:"VERCEL_URL"`
+	URL             string   `env:"VERCEL_URL" envDefault:"http://localhost:3000"`
 	Region          string   `env:"VERCEL_REGION"`
 	APIKey          string   `env:"API_KEY,required"`
 	BrandName       string   `env:"BRAND_NAME,required"`
@@ -24,6 +23,16 @@ type Config struct {
 	MailFromName    string   `env:"MAIL_FROM_NAME,required"`
 	MailRecipients  []string `env:"MAIL_RECIPIENTS,required" envSeparator:":"`
 }
+
+// See: https://vercel.com/docs/concepts/projects/environment-variables/system-environment-variables
+const (
+	// Development env definition.
+	Development string = "development"
+	// Preview env definition.
+	Preview = "preview"
+	// Production env definition.
+	Production = "production"
+)
 
 // New populates environment, loads, and validates the
 // environment
@@ -36,4 +45,19 @@ func New() (*Config, error) {
 		return nil, errors.NewInternal(err, "Error parsing environment", op)
 	}
 	return &cfg, nil
+}
+
+// IsDevelopment determines if the current environment is development.
+func (c *Config) IsDevelopment() bool {
+	return c.Env == Development
+}
+
+// IsPreview determines if the current environment is a preview branch.
+func (c *Config) IsPreview() bool {
+	return c.Env == Preview
+}
+
+// IsProduction determines if the current environment is production.
+func (c *Config) IsProduction() bool {
+	return c.Env == Production
 }

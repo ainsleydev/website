@@ -5,11 +5,15 @@
 			"poster" (resources.Get "poster.jpg")
 			"class" "class-name"
 			"attr" data-something
+			"lazy" true
 		)
 		- video:	The video resource. A warning will be thrown without this key.
 		- poster:	The poster image for the video
 		- class:	Any class names to be appended to the <video> element.
 		- attr:		Any additional attributes to appear.
+		- loop:		If the video should loop, defaults to false.
+		- autoplay:	If the video should autoplay, defaults to false.
+		- lazy:		If the video should be lazy loaded, defaults to false.
     ===================== -->
 {{ if .video }}
 	<!-- Container -->
@@ -17,34 +21,41 @@
 		<!-- Video -->
 		<video
 			class="video"
-			{{ with .poster }} poster="{{ . }}" {{ end }}
-			{{ with .attr -}} {{ . | safeHTMLAttr -}} {{- end }}
-			controls
-			preload="auto">
+                {{ with .poster }} poster="{{ .RelPermalink }}" {{ end }}
+                {{ with .attr -}} {{ . | safeHTMLAttr -}} {{- end }}
+                {{ if .loop -}} loop {{- end }}
+                {{ if .autoplay -}}
+					autoplay muted
+                {{- else -}}
+					controls
+                {{- end }}
+                {{ if .lazy -}} data-lazy preload="none" {{- end }}>
             {{- $noExtension := partial "util/_trim-extension.html" .video.RelPermalink -}}
 			<!-- WebM -->
             {{ if os.FileExists (printf "%s.webm" $noExtension) }}
 				<source src="{{ $noExtension }}.webm"
-					type="video/webm"/>
-			{{- else -}}
-				{{ warnf "No WebM video found: %s" .video }}
+						type="video/webm"/>
+            {{- else -}}
+                {{ warnf "No WebM video found: %s" .video }}
             {{- end }}
 			<!-- Compressed -->
             {{ if os.FileExists (printf "%s-compressed.mp4" $noExtension) -}}
 				<source src="{{ $noExtension }}-compressed.mp4"
-					type="video/mp4"/>
-			{{- else -}}
-				{{ warnf "No compressed MP4 video found: %s" .video }}
+						type="video/mp4"/>
+            {{- else -}}
+                {{ warnf "No compressed MP4 video found: %s" .video }}
             {{- end }}
 			<!-- Original -->
 			<source src="{{ $noExtension }}.mp4"
-				type="video/mp4"/>
+					type="video/mp4"/>
 		</video>
 		<!-- Play Button -->
-		<div class="video-button"></div>
+        {{ if and (not .lazy) (.not .autoplay) (not .loop) -}}
+			<div class="video-button cursor-element"
+				 data-cursor-invert data-cursor-invert-white>
+			</div>
+        {{- end }}
 	</div><!-- /Container -->
 {{- else -}}
-	{{ warnf "Video not found: %v" . }}
+    {{ warnf "Video not found: %v" . }}
 {{- end }}
-
-

@@ -1,6 +1,5 @@
 <!-- =====================
     Schema - Article
-    TODO: Need to add featured image (opengraph one)
     ===================== -->
 <script type="application/ld+json">
 	{
@@ -8,6 +7,7 @@
 		"@type": "BlogPosting",
 		"url" : "{{ .Permalink }}",
 		"headline": "{{ .Title }}",
+		"image": "{{ (partial "opengraph/_insights-image.html" .).Permalink }}",
 		"alternativeHeadline": "{{ .Params.lead }}",
 		"description": "{{ .Params.description }}",
 		"dateCreated": "{{ .Date.Format "2006-01-02T15:04:05.00Z" | safeHTML }}",

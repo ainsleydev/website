@@ -5,11 +5,12 @@
 package middleware
 
 import (
+	"time"
+
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
 	"github.com/ainsleyclark/errors"
 	"github.com/labstack/echo/v4"
 	"github.com/sirupsen/logrus"
-	"time"
 )
 
 // Logger is the handler function for logging system application messages
@@ -17,7 +18,7 @@ import (
 //
 // If there was an error or message set, it will be retrieved from the
 // context. Status codes between 200 and 400 will be logged as info,
-// otherwise an error will be logged.
+// otherwise the error level will be logged.
 func Logger() echo.MiddlewareFunc {
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(ctx echo.Context) error {
@@ -36,7 +37,6 @@ func Logger() echo.MiddlewareFunc {
 				"remote_addr": req.RemoteAddr,
 				"latency":     stop.Sub(start).String(),
 				"request_id":  ctx.Get(RequestIDContextKey),
-				"user_agent":  req.UserAgent(),
 			}
 
 			errMsg := "Request failed"

@@ -16,7 +16,7 @@ func EmailIsInString(str string) bool {
 }
 
 // EmailFromString returns an email address from the
-// provided given input.
+// provided given string.
 func EmailFromString(str string) string {
 	emailRegex := `[a-zA-Z0-9_+&*-]+(?:\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,24}`
 	return regexp.MustCompile(emailRegex).FindString(str)

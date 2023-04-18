@@ -1,5 +1,5 @@
 ---
-title: Driving more than 92% traffic to Oak Tuition
+title: Driving more than 92% of traffic to Oak Tuition
 description: Discover how ainsley.dev increased traffic and replaced an off-the-peg website, with a professional, sleek, but playful multi-page online presence.
 slug: oak-tuition
 draft: false
@@ -22,26 +22,27 @@ results:
     text: decrease in bounce rate
   - number: 56%
     text: increase in PSI
+logoWeight: 10
 ---
 
 <!-- Intro -->
-{{< vertical-section >}}
-Established in 2017, Oak Tuition is a tutoring school with highly-qualified, experienced tutors, who utilise hands-on
+{{< vertical-section large=true >}}
+Established in 2017, Oak Tuition is a school with highly-qualified, experienced tutors, who utilise hands-on
 mixed method teaching of the National Curriculum, in accordance with exam board requirements.
 {{< /vertical-section >}}
 
 <!-- Before/After -->
-{{< before-after before="images/before.jpg" after="images/after.jpg" text="Before & after picture of Oak Tuition Website" colour="black" >}}
+{{< before-after before="images/before.jpg" after="images/after.jpg" text="Before & after picture of Oak Tuition Website" colour="black" animate=true >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
-ainsley.dev were approached to replace an off-the-peg website, with a professional, sleek, but playful multi-page online
-presence, with a clear branding across their site and social media pages. The website needed to feature enough key
+ainsley.dev were approached to replace an off-the-peg website with a professional, but playful multi-page online
+presence, together with a clear branding across their site and social media pages. The website needed to feature enough key
 information to increase traffic and entice prospective clients to make contact.
 {{< /vertical-section >}}
 
 <!-- Video -->
-{{< picture src="images/poster.jpg" alt="Oak Tuition Website" >}}
+{{< picture src="images/poster.jpg" alt="Oak Tuition Website" animate=true >}}
 
 <!-- Design -->
 {{< vertical-section text="Design" number="02" >}}
@@ -52,7 +53,7 @@ student sitting on a swing on one of the tree branches.
 {{< /vertical-section >}}
 
 <!-- Mockup -->
-{{< picture src="images/mockup.jpg" alt="Oak Tuition Website on an iPad" >}}
+{{< picture src="images/mockup.jpg" alt="Oak Tuition Website on an iPad" animate=true >}}
 
 <!-- Development -->
 {{< vertical-section text="Develop" number="03" >}}

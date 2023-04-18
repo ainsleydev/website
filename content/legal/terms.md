@@ -5,6 +5,8 @@ draft: false
 url: /terms
 layout: terms
 pageColour: white
+sitemap:
+  priority: 0.1
 ---
 
 These terms and conditions apply to the use of this website (the “Website”). Please read these terms and conditions
@@ -135,9 +137,9 @@ signed on the Agreement date.
 - The Cient agrees to notify ainsley.dev LTD if any risks or schedule delays may take place effecting the delivery dates
   and presentation of the completed work as defined in the schedule.
 - ainsley.dev LTD agrees to notify the Client if any risks or schedule delays may take place effecting delivery dates
-  and
-  final presentation of the Deliverables.
+  and final presentation of the Deliverables.
 - Client shall provide ainsley.dev LTD with appropriate space and resources for such presentation to take place.
+- ainsley.dev has the right to outsource any work to freelancers or external companies to aid with projects.
 
 ### Hosting
 
@@ -147,9 +149,8 @@ or website has been developed.
 - Hosting will be on a dedicated platform with a minimum of 99% uptime.
 - Failure of payment will result in any application being temporarily removed from the server until payment is received.
   ainsley.dev LTD will ensure that any databases that are needed outlined in the Proposal are backed up on a regular
-  basis
-  and provided to the Client if they request it.
-  -ainsley.dev LTD will ensure that an SSL certificate if automatically renewed every 3 months.
+  basis and provided to the Client if they request it.
+- ainsley.dev LTD will ensure that an SSL certificate if automatically renewed every 3 months.
 
 ### Pricing
 

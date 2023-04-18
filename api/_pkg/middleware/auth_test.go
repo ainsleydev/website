@@ -5,13 +5,14 @@
 package middleware
 
 import (
+	"net/http"
+	"net/http/httptest"
+	"testing"
+
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"net/http"
-	"net/http/httptest"
-	"testing"
 )
 
 func TestAuth(t *testing.T) {
@@ -20,17 +21,42 @@ func TestAuth(t *testing.T) {
 		config environment.Config
 		want   int
 	}{
-		"Unauthorized": {
+		"Bad API Key": {
 			input:  func(r *http.Request) {},
 			config: environment.Config{},
 			want:   http.StatusUnauthorized,
 		},
-		"OK": {
+		"Bad Referer": {
+			input: func(r *http.Request) {
+				t.Setenv(AuthHeader, "key")
+				r.Header.Set(AuthHeader, "key")
+				r.Header.Set("Referer", "wrong")
+			},
+			config: environment.Config{
+				Env: "production",
+				URL: "wrong",
+			},
+			want: http.StatusUnauthorized,
+		},
+		"OK Development": {
 			input: func(r *http.Request) {
 				t.Setenv(AuthHeader, "key")
 				r.Header.Set(AuthHeader, "key")
 			},
 			config: environment.Config{
+				Env:    "development",
+				APIKey: "key",
+			},
+			want: http.StatusOK,
+		},
+		"OK Production": {
+			input: func(r *http.Request) {
+				t.Setenv(AuthHeader, "key")
+				r.Header.Set(AuthHeader, "key")
+				r.Header.Set("Origin", OriginURL)
+			},
+			config: environment.Config{
+				Env:    "production",
 				APIKey: "key",
 			},
 			want: http.StatusOK,

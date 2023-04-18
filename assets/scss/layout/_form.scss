@@ -23,6 +23,11 @@
 
 	&-group {
 		margin-bottom: 2rem;
+
+		&-bee {
+			opacity: 0;
+			display: none;
+		}
 	}
 
 	// Input

@@ -14,7 +14,7 @@ author: Ainsley Clark
 
 {{< lead >}}
 Failure is your domain. Effective error handling in any GoLang package or application is crucial to understand how and
-where errors are formulated. Errors used in combination with effective logging, can save hours of debugging time.
+where errors are formulated. Errors used in combination with effective logging can save hours of debugging time.
 {{< /lead >}}
 
 {{< lead >}}
@@ -23,16 +23,16 @@ See the supporting repository - [github.com/ainsleyclark/errors](https://github.
 
 ## Why should we err?
 
-Error’s are as important in your domain and application as the entities such as a User or Database. They should be
+Errors are as important in your domain and application as entities such as a User or Database. They should be
 treated as individual types. Not only do they give a clear meaning to the users of the application if something goes
-wrong, they can save hours of debugging time when used effectively.
+wrong, but they can save hours of debugging time when used effectively.
 
 Coupled with consistent and effective use of a logging package, we are able to tell if something goes wrong, where it
 went wrong and how it went wrong.
 
 ## Go errors
 
-I think we are blessed with the nature of Go’s simplistic style of error handling, it’s certainly caught the attention
+I think we are blessed with the nature of Go’s simplistic style of error handling. It's certainly caught the attention
 of users of other programming languages. All we have to do is check if the error is not nil, and that’s it.
 
 ```go
@@ -58,7 +58,7 @@ type error interface {
 }
 ```
 
-Digging deeper into the stdlib library, there is only one implementation of this interface called `errorString`. Which
+Digging deeper into the stdlib library, there is only one implementation of this interface called `errorString`, which
 gets constructed when `errors.New()` is called.
 
 ```go
@@ -68,13 +68,13 @@ type errorString struct {
 }
 ```
 
-Which simply returns `s` when `.Error()` is called. Indeed `fmt.Errorf` also constructs an `errorString` when called
+This simply returns `s` when `.Error()` is called. Indeed `fmt.Errorf` also constructs an `errorString` when called
 with additional formatting.
 
 ### Implementing custom errors
 
 What the authors of Go are saying to you here is that they want you to implement the `error` interface, and by doing so,
-we can transform any type into an error of our own.
+you can transform any type into an error of your own.
 
 ```go
 type CustomError struct {
@@ -103,10 +103,10 @@ func SomethingBroken() error {
 
 ## Digging deeper
 
-This is an ok approach, but we haven’t improved much if any on the standard `errorString`. Taking a look
-at [Ben Johnson’s](https://www.gobeyond.dev/failure-is-your-domain/) approach we can do alot better in terms of being
+This is an ok approach, but we haven’t improved, much if at all on the standard `errorString`. Taking a look
+at [Ben Johnson’s](https://www.gobeyond.dev/failure-is-your-domain/) approach we can do a lot better in terms of being
 more verbose. How can we tell where the error occurred in our application? There is also no formatted message for the
-end user, what do they care about application error messages?
+end user. What do they care about application error messages?
 
 ```go
 // Error defines a standard application error.
@@ -122,8 +122,8 @@ type Error struct {
 }
 ```
 
-Enter our new `Error` type, looking better, here we are explicitly defining the code, message and operation of the
-errors that occur in application.
+Enter our new `Error` type, already looking better. Here we are explicitly defining the code, message and operation of
+the errors that occur in application.
 
 ## Implementing Error()
 
@@ -357,14 +357,14 @@ func Message(err error) string {
 
 ## Operation
 
-Operations define where the error occurred and used effectively in combination with file lines, it can save hours of
+Operations define where the error occurred. When used effectively in combination with file lines, it can save hours of
 debugging time and searching through hundreds of files and lines.
 
 The following format is preferred:
 
 *ServiceName.FunctionName*
 
-Where the service name is the name of the struct or type that's implementing a function, or package. And the function
+The service name is the name of the struct or type that's implementing a function or package. And the function
 name is the name of the function that produced the error.
 
 Below is an example of returning a formatted Error type in a database call for obtaining a singular user. If no rows are
@@ -398,7 +398,7 @@ func (s *UserStore) Find(ctx context.Context, id int64) (core.User, error) {
 execution of an application. They are very effective for debugging as developers can see the steps that led up to an
 error.
 
-In the case of the custom `Error` we can implement a `StackTrace()` method that returns a string slice of the stack by
+In the case of the custom `Error`, we can implement a `StackTrace()` method that returns a string slice of the stack by
 traversing the frame lines.
 
 ```go

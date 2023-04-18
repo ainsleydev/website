@@ -6,12 +6,12 @@ package middleware
 
 import (
 	"fmt"
+
 	"github.com/ainsleyclark/errors"
 	"github.com/labstack/echo/v4"
 )
 
-// NotFoundHandler is the handler when the calling client requests
-// and endpoint that doesn't exist.
+// NotFoundHandler is the handler for dealing with 404's.
 func NotFoundHandler(ctx echo.Context) error {
 	return errors.NewNotFound(
 		errors.New("endpoint not found"),

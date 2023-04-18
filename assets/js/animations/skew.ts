@@ -7,6 +7,8 @@
  */
 
 import { Log } from '../util/log';
+import anime from 'animejs/lib/anime.es';
+import { AnimeParams } from 'animejs';
 
 /**
  * SkewOptions is the configuration of a Skewed singular
@@ -54,7 +56,7 @@ export class Skew {
 			x: 0.1,
 			y: -0.1,
 		},
-		shouldRotate: true,
+		shouldRotate: false,
 	};
 
 	/**
@@ -67,7 +69,7 @@ export class Skew {
 	}
 
 	/**
-	 * Attaches the event handlers for all button elements
+	 * Attaches the event handlers for all skewed elements
 	 * on the DOM.
 	 *
 	 * @private
@@ -82,7 +84,7 @@ export class Skew {
 
 	/**
 	 * Attaches the mouse move event which transforms and skews
-	 * the element based of the configuration.
+	 * the element based of on configuration.
 	 *
 	 * @param el
 	 * @param config
@@ -90,12 +92,19 @@ export class Skew {
 	 */
 	private mouseMove(el: HTMLElement, config: SkewOptions): void {
 		el.addEventListener('mousemove', (e) => {
-			const pos = this.getPos(el, e);
-			el.style.transform = 'translate(' + pos.x * config.transform.x + 'px, ' + pos.y * 0.3 + 'px)';
+			const pos = this.getPos(el, e),
+				transform = {
+					x: pos.x * config.transform.x,
+					y: pos.y * config.transform.y,
+				} as CoordinatesConfig;
+			let rotate = null;
 			if (config.shouldRotate && config.rotate) {
-				el.style.transform +=
-					'rotate3d(' + pos.x * config.rotate.x + ', ' + pos.y * config.rotate.y + ', 0, 12deg)';
+				rotate = {
+					x: pos.x * config.rotate.x,
+					y: pos.y * config.rotate.y,
+				} as CoordinatesConfig;
 			}
+			this.animate(el, transform, rotate);
 		});
 	}
 
@@ -107,9 +116,31 @@ export class Skew {
 	 */
 	private mouseOut(el: HTMLElement): void {
 		el.addEventListener('mouseleave', () => {
-			el.style.transform = 'translate3d(0, 0, 0)';
-			el.style.transform += 'rotate3d(0, 0, 0, 0deg)';
+			this.animate(el, { x: 0, y: 0 }, { x: 0, y: 0 });
 		});
+	}
+
+	/**
+	 * Animates the element on the x and y-axis for transform.
+	 *
+	 * @param el
+	 * @param transform
+	 * @param rotate
+	 * @private
+	 */
+	private animate(el: HTMLElement, transform, rotate?: CoordinatesConfig): void {
+		const params = {
+			targets: el,
+			translateX: transform.x,
+			translateY: transform.y,
+			duration: 100,
+			easing: 'linear',
+		} as AnimeParams;
+		if (rotate) {
+			params.rotateX = rotate.x / 10;
+			params.rotateY = rotate.y / 10;
+		}
+		anime(params);
 	}
 
 	/**
@@ -164,7 +195,7 @@ export class Skew {
 		}
 		const num = Number(contents);
 		if (isNaN(num)) {
-			Log.error('Attribute is NaN: ' + attr);
+			Log.error('Skew - Attribute is NaN: ' + attr);
 			return null;
 		}
 		return num;

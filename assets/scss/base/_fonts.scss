@@ -35,26 +35,3 @@
 	font-style: normal;
 	font-display: swap;
 }
-
-// JetBrains Mono
-// ==========================================================================
-
-@font-face {
-	font-family: 'JetBrains Mono';
-	src: local('JetBrains Mono Regular'), local('JetBrainsMono-Regular'),
-		url('#{$font-path}JetBrainsMono-Regular.woff2') format('woff2'),
-		url('#{$font-path}JetBrainsMono-Regular.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'JetBrains Mono';
-	src: local('JetBrains Mono Bold'), local('JetBrainsMono-Bold'),
-		url('#{$font-path}JetBrainsMono-Bold.woff2') format('woff2'),
-		url('#{$font-path}JetBrainsMono-Bold.woff') format('woff');
-	font-weight: bold;
-	font-style: normal;
-	font-display: swap;
-}

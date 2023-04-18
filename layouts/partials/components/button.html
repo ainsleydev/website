@@ -9,6 +9,7 @@
     		"arrow" true
     		"title" "Navigate to..."
     		"attr" "download"
+    		"animate" "false"
     	)
     	- text: 		The text to appear within side the button.
     	- link: 		If the button should be an <a> tag.
@@ -18,6 +19,7 @@
     	- arrow: 		If an arrow should appear with the button.
     	- title:		The title & aria label of the link.
     	- attr:		 	Any additional or attributes to appear.
+    	- animate:		Disables animation.
     ===================== -->
 {{ if .link -}}
 	<a href="{{ .link }}"
@@ -30,7 +32,7 @@
 		{{ with .size -}} btn-size-{{ . }} {{- end }}
 		{{ if .arrow -}} btn-arrow {{- end }}
 		{{ with .class -}} {{ . }} {{- end }}
-		skew cursor-element"
+		{{ if not .animate }} skew cursor-element {{ end }}"
 		{{ .attr  | safeHTMLAttr }}
 		data-cursor-invert data-cursor-invert-black
 		data-skew-transform-x="0.15" data-skew-transform-y="0.3"

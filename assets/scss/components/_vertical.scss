@@ -3,7 +3,7 @@
 // This file contains all styles related to the vertical heading component.
 // -----------------------------------------------------------------------------
 
-// Standard Text
+// Standard Text (Vertical)
 // =========================================================================
 
 .vertical {
@@ -46,7 +46,7 @@
 		content: '';
 		position: relative;
 		display: block;
-		height: 3px;
+		height: $line-size-medium;
 		width: 100%;
 		margin-top: $margin;
 		margin-bottom: $margin-large;

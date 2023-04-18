@@ -5,8 +5,9 @@
 
 .scroll {
 	$self: &;
-	transition: opacity 300ms ease;
-	will-change: opacity;
+	opacity: 1;
+	transition: transform 300ms ease, opacity 300ms ease;
+	will-change: transform, opacity;
 }
 
 // HTML Scrolled
@@ -15,5 +16,6 @@
 @include media-desk {
 	html.scrolled .scroll {
 		opacity: 0;
+		transform: translateY(-50px);
 	}
 }

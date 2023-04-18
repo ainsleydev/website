@@ -1,0 +1,62 @@
+// -----------------------------------------------------------------------------
+// _locomotive.scss
+// This file contains Locomotive Scroll animations.
+// -----------------------------------------------------------------------------
+
+/*! loconative-scroll v1.0.2 | MIT License | https://github.com/quentinhocde/loconative-scroll */
+html {
+	scroll-behavior: initial;
+}
+
+html.has-scroll-dragging {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+html,
+body {
+	width: 100%;
+	min-height: 100%;
+}
+
+body {
+	opacity: 0;
+}
+
+[data-scroll-disable] {
+	opacity: 1 !important;
+	scroll-behavior: smooth;
+}
+
+.has-scroll-init body {
+	opacity: 1;
+}
+
+[data-scroll-direction='vertical'] [data-scroll-wrapper] {
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+[data-scroll-direction='horizontal'] [data-scroll-wrapper] {
+	width: 100vw;
+	height: 100vh;
+	overflow-x: scroll;
+}
+
+.has-scroll-smooth [data-scroll-container] {
+	min-height: 100vh;
+}
+
+[data-scroll-direction='horizontal'] [data-scroll-container] {
+	height: 100%;
+	display: inline-flex;
+	min-width: var(--scrollContainerWidth);
+}
+
+[data-scroll-direction='horizontal'] [data-scroll-section] {
+	flex-shrink: 0;
+	height: 100vh;
+}

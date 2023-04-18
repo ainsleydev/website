@@ -2,7 +2,8 @@
 	<!-- =====================
 		Insights Single
 		===================== -->
-	<section class="hero hero-simple hero-simple-padding-bottom" data-cursor-white>
+	<section class="hero hero-simple hero-simple-padding-bottom"
+		 data-cursor-white data-scroll-section>
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-12 col-tab-10 col-desk-8 col-desk-large-7 d-flex flex-column order-desk-first">
@@ -18,7 +19,7 @@
 						{{ with .Params.tags }}
 							<div class="insight-intro-tags">
 								{{ range . -}}
-										<span class="tag">{{ . }}</span>
+									<span class="tag">{{ . }}</span>
 								{{- end }}
 							</div>
 						{{- end }}
@@ -40,7 +41,7 @@
 						Content
 						===================== -->
 					<article class="richtext">
-                        {{ .Content | safeHTML }}
+                        {{ .Content | replaceRE "/a>\n" "/a>" | safeHTML  }}
 					</article>
 				</div><!-- /Col -->
 			</div><!-- /Row -->

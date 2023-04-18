@@ -1,3 +1,1 @@
-baseUrl: "https://staging.ainsley.dev"
-imagery:
-    webpAvif: true
+baseURL: "https://staging.ainsley.dev"

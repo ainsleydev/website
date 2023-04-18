@@ -6,19 +6,20 @@ package httpservice
 
 import (
 	"fmt"
+	"net/http"
+	"time"
+
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/slack"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
 	"github.com/ainsleyclark/ainsley.dev/api/_pkg/stringutil"
-	"github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
+	"github.com/ainsleyclark/ainsley.dev/api/_sdk"
 	"github.com/ainsleyclark/errors"
 	"github.com/labstack/echo/v4"
-	"net/http"
-	"time"
 )
 
-// ContactSubmission is the type that represents the data needed
-// in order to send to Slack and via the Mailer.
+// ContactSubmission is the contact form data used
+// to send to Slack and via Email.
 type ContactSubmission struct {
 	sdk.ContactFormRequest
 	Email string
@@ -28,7 +29,8 @@ type ContactSubmission struct {
 // SendContactForm sends a contact form submission to Slack as well as via email.
 // If a honeypot is sent with the request, the handler will return a
 // http.StatusOK to avoid bot requests.
-// The email is extracted and validated, so the user should not be
+//
+// The email address is extracted and validated, so the user should not be
 // able to send a message without an email address within it.
 func (h Handler) SendContactForm(ctx echo.Context) error {
 	const op = "Handler.SendContactForm"
@@ -59,7 +61,7 @@ func (h Handler) SendContactForm(ctx echo.Context) error {
 
 	// Bail if the honeypot is set.
 	if request.Honeypot != "" {
-		logger.Infof("Received a contact form submission with a Honeypot: %s, Message: ",
+		logger.Infof("Received a contact form submission with a Honeypot: %s, Message: %s",
 			request.Honeypot,
 			request.Message,
 		)

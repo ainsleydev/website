@@ -5,8 +5,9 @@
 package environment
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestNew(t *testing.T) {
@@ -27,4 +28,22 @@ func TestNew(t *testing.T) {
 		assert.Equal(t, "key", got.APIKey)
 		assert.Equal(t, "token", got.SlackToken)
 	})
+}
+
+func TestConfig_IsDevelopment(t *testing.T) {
+	c := Config{Env: "development"}
+	got := c.IsDevelopment()
+	assert.True(t, got)
+}
+
+func TestConfig_IsPreview(t *testing.T) {
+	c := Config{Env: "preview"}
+	got := c.IsPreview()
+	assert.True(t, got)
+}
+
+func TestConfig_IsProduction(t *testing.T) {
+	c := Config{Env: "production"}
+	got := c.IsProduction()
+	assert.True(t, got)
 }

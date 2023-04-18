@@ -2,10 +2,10 @@
 	<!-- =====================
 		Brand List
 		===================== -->
-	<section class="hero hero-full-height">
+	<section class="hero hero-full-height" data-scroll-section>
 		<!-- Background -->
         {{ with .Params.listhero -}}
-			<picture class="hero-background gradient gradient-height-30">
+			<picture class="hero-background gradient gradient-height-30 animate-fade">
                 {{ partial "media/picture.html" (dict
 					"image" ($.Resources.Get .default)
 					"mob" ($.Resources.Get .mobile)
@@ -16,7 +16,7 @@
 			</picture>
         {{- end }}
 		<!-- Content -->
-		<div class="container">
+		<div class="container animate-up">
 			<div class="row">
 				<div class="col-12">
 					<!-- Text -->
@@ -44,7 +44,7 @@
 					</div><!-- /Text -->
 					<!-- Arrow -->
                     {{ partial "arrow/hover.html" (dict
-						"link" (printf "%s#content" .Page.RelPermalink)
+						"link" "#content"
 						"title" "Scroll down to explore"
 						"rotation" 135
 						"title" "Explore ainsley.dev Brand Guidelines"

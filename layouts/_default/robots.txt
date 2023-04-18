@@ -1,4 +1,4 @@
-Sitemap: https://{{ .Site.BaseURL }}/sitemap.xml
+Sitemap: {{ partial "util/_base-url.html" . }}/sitemap.xml
 User-agent: *
 {{ if hugo.IsProduction -}}
 Disallow:

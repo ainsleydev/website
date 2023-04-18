@@ -37,17 +37,24 @@
 	// =========================================================================
 
 	&-image {
-		position: relative;
-		display: block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		object-fit: cover;
+
+		&-wrapper {
+			position: relative;
+			width: 100%;
+			overflow: hidden;
+		}
 
 		img {
-			position: absolute;
 			width: 100%;
 			height: 100%;
-			top: 0;
-			bottom: auto;
-			left: 0;
-			right: auto;
 			object-fit: cover;
 		}
 	}
@@ -100,17 +107,13 @@
 				font-weight: 500;
 			}
 		}
-
-		#{$self}-col {
-			background: red;
-		}
 	}
 
 	// Vertical
 	// =========================================================================
 
 	&-vertical {
-		#{$self}-image {
+		#{$self}-image-wrapper {
 			padding-top: $card-vertical-padding-top;
 		}
 	}
@@ -119,32 +122,35 @@
 	// =========================================================================
 
 	&-horizontal {
-		#{$self}-image {
+		#{$self}-image-wrapper {
 			padding-top: $card-horizontal-padding-top;
 		}
 	}
 
-	// Hover
+	// Clip
 	// =========================================================================
 
-	&-hover {
-		#{$self}-image {
+	&-clip {
+		position: relative;
+
+		#{$self}-image,
+		#{$self}-image-clip {
 			display: block;
 
+			source,
 			img {
+				width: 100%;
+				height: 100%;
 				object-fit: cover;
 			}
 		}
 
 		#{$self}-image-clip {
 			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			opacity: 0;
 			z-index: 10;
-			transition: opacity 300ms ease;
+			pointer-events: none;
+			clip-path: circle(0%);
+			transform-origin: center;
 		}
 	}
 
@@ -154,6 +160,7 @@
 	@media (min-width: $grid-breakpoint-mob * 1px) and (max-width: $grid-breakpoint-desk * 1px) {
 		&-col-mob-no-margin #{$self} {
 			margin-top: 0 !important; // Override below
+			margin-bottom: $card-margin-bottom;
 		}
 	}
 

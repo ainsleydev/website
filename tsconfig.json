@@ -10,12 +10,20 @@
 		"noImplicitReturns": false,
 		"strictPropertyInitialization": false,
 		"lib": [
-          "es2016",
-          "dom"
-        ]
-    },
-	"types": [ "node" ],
-	"typeRoots": [ "./node_modules/@types" ],
+			"es2016",
+			"dom",
+			"dom.iterable"
+		]
+	},
+	"types": [
+		"node"
+	],
+	"typeRoots": [
+		"./node_modules/@types"
+	],
+	"paths": {
+		"*": ["types/*.d.ts"]
+	},
 	"$schema": "https://json.schemastore.org/tsconfig",
 	"display": "Recommended"
 }

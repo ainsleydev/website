@@ -20,17 +20,18 @@ results:
     text: of impressions
   - number: 24%
     text: bounce rate
+logoWeight: 20
 ---
 
 <!-- Intro -->
-{{< vertical-section >}}
+{{< vertical-section large=true >}}
 Thinkopedia is a non-profit mental health support platform, promoting methods for self-help and guidance for those
 struggling to cope, and a way of sharing experiences through an online community platform, empowering people as they
 rewrite their story.
 {{< /vertical-section >}}
 
 <!-- Cody Dumbarton -->
-{{< picture src="images/cody.jpg" alt="Cody Dumbarton, CEO of Thinkopedia" >}}
+{{< picture src="images/cody.jpg" alt="Cody Dumbarton, CEO of Thinkopedia" animate=true >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
@@ -40,7 +41,7 @@ also needed, to enable people to get in touch easily.
 {{< /vertical-section >}}
 
 <!-- Video -->
-{{< picture src="images/cody.jpg" alt="TODO" >}}
+{{< picture src="images/cody.jpg" alt="TODO" animate=true >}}
 
 <!-- Design -->
 {{< vertical-section text="Design" number="02" >}}
@@ -51,7 +52,7 @@ capture the user’s attention, which later aided the animation process.
 {{< /vertical-section >}}
 
 <!-- Mockup -->
-{{< picture src="images/mockup.jpg" alt="Thinkopedia Website on an iPad" >}}
+{{< picture src="images/mockup.jpg" alt="Thinkopedia Website on an iPad" animate=true >}}
 
 <!-- Development -->
 {{< vertical-section text="Develop" number="03" >}}

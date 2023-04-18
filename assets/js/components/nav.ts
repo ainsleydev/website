@@ -7,86 +7,173 @@
  */
 
 import { Elements } from '../util/els';
-import { Log } from '../util/log';
+import anime from 'animejs/lib/anime.es';
+import { AnimeTimelineInstance } from 'animejs';
+
+// TODO: Add Logging
 
 /**
- * Log is responsible for logging to the stdout
- * within the website.
+ * Navigation is responsible for adding animations to the
+ * element when it is open and closed.
  */
 export class Navigation {
 	/**
-	 * The toggle to display the navigation element.
+	 * Determines if the navigation is currently open.
 	 */
-	checkbox: HTMLFormElement;
+	public isOpen = false;
 
 	/**
-	 * Initialises the cursor element.
+	 * Determines if the navigation is currently animating.
+	 */
+	public isAnimating = false;
+
+	/**
+	 * The navigational HTML element.
+	 */
+	private nav: HTMLElement = Elements.Nav;
+
+	/**
+	 * The toggle to display the navigation element.
+	 */
+	private readonly buttons: NodeList;
+
+	/**
+	 * The anime JS timeline that animates the navigational
+	 * element.
+	 *
+	 * @private
+	 */
+	private timeline: AnimeTimelineInstance;
+
+	/**
+	 * Initialises the navigation element.
 	 *
 	 * @constructor
 	 */
 	constructor() {
-		this.checkbox = <HTMLFormElement>(
-			document.querySelector('.nav .nav-checkbox')
-		);
-		this.pictureHover();
+		this.nav.classList.add('nav-js');
+		this.buttons = document.querySelectorAll('.nav-btn');
+		this.setTimeline();
+		this.timeline.reverse();
+		this.attachClick();
 	}
 
 	/**
-	 * Nav Click
-	 * Removes classes once a link is clicked.
+	 * Plays the animation. If the nav is open, the timeline
+	 * will be reversed and visa-versa.
+	 */
+	public play(): void {
+		this.isAnimating = true;
+		this.isOpen = this.timeline.reversed;
+		this.animateButton();
+		this.timeline.reverse();
+		this.timeline.play();
+	}
+
+	/**
+	 * Returns the duration of the navigation timeline.
+	 */
+	public duration(): number {
+		return this.timeline.duration;
+	}
+
+	/**
+	 * Attaches the click handler to the nav button.
 	 *
 	 * @private
 	 */
-	private navClick(): void {
-		const links = Elements.Nav.querySelectorAll('.nav-list a');
-		links.forEach((link) => {
-			link.addEventListener('click', () => {
-				//header.classList.remove('header-active');
-				//nav.classList.remove('nav-mobile-active');
-				//document.querySelector('#hamburger-check').checked = '';
+	private attachClick(): void {
+		this.buttons.forEach((btn) => {
+			btn.addEventListener('click', (e) => {
+				e.preventDefault();
+				this.play();
 			});
 		});
 	}
 
 	/**
-	 * Picture Hover
-	 * Adds the active class to the navigation
-	 * pictures when the user hovers over them.
+	 * Instantiates the anime timeline.
 	 *
 	 * @private
 	 */
-	private pictureHover(): void {
-		const links = Elements.Nav.querySelectorAll('[data-nav-image]');
-		links.forEach((link) => {
-			// Mouse over handler.
-			link.addEventListener('mouseover', () => {
-				const selector = link.getAttribute('data-nav-image');
-				if (!selector) {
-					Log.warn(
-						'Nav - No data-nav-image attribute found for link: ' +
-							link,
-					);
-					return;
-				}
-				const image = document.querySelector(selector.toString());
-				if (!image) {
-					Log.warn(
-						'Nav - No image found with the attribute: ' +
-							selector.toString(),
-					);
-					return;
-				}
-				image.classList.add('nav-images-item-active');
-			});
+	private setTimeline(): void {
+		this.timeline = anime
+			.timeline({
+				autoplay: false,
+				begin: (anim) => {
+					if (anim.direction === 'normal') {
+						anime.set(this.nav, { display: 'flex' });
+						anime.set('.header-nav', { opacity: 1 });
+						return;
+					}
+				},
+				complete: (anim) => {
+					this.isAnimating = false;
+					if (anim.direction === 'reverse') {
+						anime.set(this.nav, { display: 'none' });
+					}
+				},
+			})
+			.add({
+				targets: this.nav,
+				opacity: [0, 1],
+				duration: 500,
+				easing: 'linear',
+			})
+			.add(
+				{
+					targets: this.nav.querySelector('.nav-contact'),
+					opacity: [0, 1],
+					easing: 'easeOutExpo',
+					duration: 800,
+				},
+				'-=200',
+			)
+			.add(
+				{
+					targets: this.nav.querySelectorAll('.nav-item'),
+					opacity: [0, 1],
+					translateY: [100, 0],
+					easing: 'easeOutExpo',
+					delay: anime.stagger(150),
+					duration: 800,
+				},
+				'-=800',
+			);
+	}
 
-			// Mouse out handler.
-			link.addEventListener('mouseout', () => {
-				document
-					.querySelectorAll('.nav-images-item-active')
-					.forEach((image) => {
-						image.classList.remove('nav-images-item-active');
-					});
+	/**
+	 * Animates the open and close buttons.
+	 *
+	 * @private
+	 */
+	private animateButton(): void {
+		anime
+			.timeline({
+				direction: this.isOpen ? 'normal' : 'reverse',
+			})
+			.add({
+				targets: '.nav-btn-arrow',
+				translateY: [0, '-100%'],
+				translateX: [0, '100%'],
+				opacity: [1, 0],
+				duration: 600,
+				easing: 'easeOutExpo',
+			})
+			.add(
+				{
+					targets: '.nav-btn-text-menu',
+					scaleY: [1, 0],
+					duration: 400,
+					easing: 'easeOutExpo',
+				},
+				0,
+			)
+			.add({
+				targets: Elements.Header.querySelector('.nav-btn-text-close'),
+				scaleY: [0, 1],
+				duration: 400,
+				easing: 'easeOutExpo',
 			});
-		});
 	}
 }

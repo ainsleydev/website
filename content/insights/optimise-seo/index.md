@@ -1,6 +1,6 @@
 ---
-title: Responsibilities as a developer for optimised SEO.
-description: Go to one of your websites you have developed and turn JavaScript off―does the page still function as it should? If the answer is no, it may be time to consider refactoring your code base to allow for a more SEO-friendly website.
+title: Responsibilities as a developer for optimised SEO
+description: Go to one of the websites you have developed and turn JavaScript off―does the page still function as it should? If the answer is no, it may be time to consider refactoring your code base to allow for a more SEO-friendly website.
 slug: optimise-seo
 publishdate: 2021-12-06
 lastmod: 2021-12-06
@@ -13,7 +13,7 @@ author: Ainsley Clark
 ---
 
 {{< lead >}}
-Go to one of your websites you have developed and turn JavaScript off, does the page still function as it should? Is all
+Go to one of the websites you have developed and turn JavaScript off. Does the page still function as it should? Is all
 the content rendered? Do images and layouts appear correctly on the page? If the answer is no, it may be time to
 consider refactoring your code base to allow for a more SEO friendly website. As developers, it may be easier to use a
 particular framework or library or even add functionality via JavaScript, but consider the technical debt before you do.
@@ -25,14 +25,14 @@ Here are some tricks and tips in order to boost your page rankings from a techni
 When Google crawls a new website, it sends a normal HTTP GET request to the site and retrieves a bare-bones version of
 the page. It then proceeds to render and load JavaScript for that page. It now has two versions, one that has been
 server side rendered and one with JavaScript enabled. It proceeds to make a comparison between these two versions and if
-it sees a difference, they will continue to keep rendering on for the long term. If they don't see any difference,
+it sees a difference, they will continue to keep rendering on for the long term. If it doesn't see any difference,
 rendering is usually switched off.
 
 Source: https://www.onely.com/blog/googles-two-waves-of-indexing/
 
 ![Google Analytics](images/intro.jpg)
 
-I say this loosely, as 9 times out of 10 this is the case, but sometimes they may choose to continue to index the
+I say this loosely, as 9 times out of 10 this is the case, but sometimes it may choose to continue to index the
 rendered version of the page, and visa versa. Ultimately there is
 a [two phased approach](https://www.botify.com/blog/client-side-server-side-rendering-seo) to evaluating a web page, and
 JavaScript content might be missed on the first 'wave' of processing and not included in Google's index. JS can also
@@ -83,9 +83,9 @@ imagery.
 
 ### Takeaways
 
-We know that Google limits the amount of time spent on processing rendering dynamic content passed as it's heavy on
-resources and takes a lot longer to index. With that in mind, how can we expect Google to see all of our lovely, well
-written content, if it has to render it? It's detrimental to on-page SEO.
+We know that Google limits the amount of time spent on processing rendering dynamic content parsed, as it's heavy on
+resources and takes a lot longer to index. With that in mind, how can we expect Google to see all of our lovely,
+well-written content, if it has to render it? It's detrimental to on-page SEO.
 
 JS should be used to progressively enhance the websites you develop and add additional features and behaviour such as
 animation. **It should not be used to display content that Google might find difficult to index.** We want to ensure all
@@ -215,8 +215,9 @@ That isn't pretty, but it works. I think we can do a lot better:
 You can see how much easier that is to read. Each element describes what it's doing, which isn't just beneficial for
 your eyes, but for SEO
 too. [Search engines give more importance](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML) to
-keywords inside headings than non-semantics `<div>`'s etc. So it's **extremely** important to keep this in mind when
-you're developing your next website. Think about what the element is describing before just using another `<div>`.
+keywords inside headings than non-semantics such as `<div>` elements. So it's **extremely** important to keep this in
+mind when you're developing your next website. Think about what the element is describing before just using
+another `<div>`.
 
 ## Linking
 
@@ -272,7 +273,7 @@ sometimes it's really not necessary.
 
 ### The power of &lt;noscript&gt;
 
-The `<noscript>` tag has magical powers, it only renders the markup inside the element when users have disabled scripts
+The `<noscript>` tag has magical powers. It only renders the markup inside the element when users have disabled scripts
 in their browsers. It can be used in both `<head>` and `<body>`. When used inside `<head>`, the `<noscript>` element can
 only contain `<link>`, `<style>`, and `<meta>` elements.
 
@@ -287,7 +288,7 @@ A common example would be:
 ### Styling
 
 Applying no JS styles can be a bit of pain. A neat trick is to have a `.scss` file with all of your no JS styling and
-compile it as a separate CSS file, let's call it `no-js.css`. In the `<head>` you can encapsulate the CSS file in
+compile it as a separate CSS file. Let's call it `no-js.css`. In the `<head>` you can encapsulate the CSS file in
 a `<noscript>` element to only display when the client has no JS.
 
 ```html
@@ -467,8 +468,8 @@ conversion on an image upload.
 
 [Squidge](https://github.com/ainsleyclark/squidge) is a WordPress plugin that offers this functionality and is
 completely free. It uses the native `cwebp`, `avifenc` libraries to compress your images and comes with a really simple
-API to display images. A CLI is also bundled in, so you can regenerate our entire media library to become more SEO
-friendly. Check it out [here](https://wordpress.org/plugins/squidge/)
+API to display images. A CLI is also bundled in, so you can regenerate your entire media library to become more SEO
+friendly. Check it out [here](https://wordpress.org/plugins/squidge/).
 
 For a more humble approach, I usually compress all images in a `public` folder when running production scripts using
 npm. Below is an example of image compressing using the `cwebp`, `avifenc`, `jpegoptim`, `optipng` and `svgo` libraries.
@@ -537,3 +538,5 @@ fi
 It's clear that with just a little extra time and effort as a developer you can help increase the PSI and your chances
 of ranking highly. A lot of responsibility falls on a developer to ensure a website is SEO friendly, but using just some
 of the tips and tricks above will ensure that you or your client's website won't be left behind in the SERPs.
+
+If you require services for SEO consultancy or SEO friendly websites, visit ainsley.dev [services](/services/).

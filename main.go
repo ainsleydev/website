@@ -5,18 +5,41 @@
 package main
 
 import (
+	"flag"
+
+	"github.com/ainsleyclark/ainsley.dev/api"
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/httpservice"
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
+	"github.com/ainsleyclark/ainsley.dev/api/_sdk"
+	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	"net/http"
 )
 
 func main() {
+	// Pass server port
+	var port string
+	flag.StringVar(&port, "port", "3000", "Server listen address")
+	flag.Parse()
+
+	// Load env file
+	err := godotenv.Load(".env")
+	if err != nil {
+		logger.Fatal(err)
+	}
+
+	// Bootstrap Server
 	e := echo.New()
-	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
-		AllowOrigins: []string{"test"},
+	e.Use(middleware.StaticWithConfig(middleware.StaticConfig{
+		Root:   "public",
+		Index:  "index.html",
+		Browse: false,
+		HTML5:  true,
 	}))
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, World!")
-	})
-	e.Logger.Fatal(e.Start(":1323"))
+	handler, teardown := api.Bootstrap(e)
+	defer teardown()
+	sdk.RegisterHandlers(e.Group(httpservice.BasePath), handler)
+
+	// Start server
+	logger.Fatal(e.Start(":" + port))
 }

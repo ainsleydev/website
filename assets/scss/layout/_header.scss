@@ -12,10 +12,11 @@
 	top: 0;
 	left: 0;
 	height: $header-height;
-	width: 100vw;
+	width: 100%;
 	padding: 0 $header-padding-x-mob;
 	backdrop-filter: blur(1px);
 	z-index: $header-z-index;
+	transition: background-color 600ms ease;
 
 	// Logo
 	// ==========================================================================
@@ -24,33 +25,45 @@
 		display: flex;
 		align-items: center;
 		z-index: 999999;
+		height: 100%;
 		width: $header-logo-size;
 
 		svg {
 			width: 100%;
 			height: 100%;
-
-			path {
-				transition: fill 160ms ease;
-			}
-		}
-
-		&:hover svg path {
-			fill: colour('orange');
 		}
 	}
 
 	// Colours
 	// ==========================================================================
 
-	&-colour {
-		&-black {
-			background-color: rgba($black, $header-background-opacity);
+	&-colour-black {
+		background-color: rgba($black, $header-background-opacity);
+		border-bottom: none;
+	}
+
+	&-colour-white {
+		background-color: rgba($white, $header-background-opacity);
+		border-bottom: 1px solid rgba($black, 0.2);
+
+		.nav-btn-arrow path,
+		#{$self}-logo path {
+			fill: $black;
 		}
 
-		&-white {
-			background-color: rgba($white, $header-background-opacity);
-			border-bottom: 1px solid rgba($black, 0.2);
+		.nav-btn-text {
+			color: $black;
+		}
+	}
+
+	// Nav Header
+	// ==========================================================================
+
+	&-nav {
+		position: absolute;
+
+		* {
+			color: $white;
 		}
 	}
 

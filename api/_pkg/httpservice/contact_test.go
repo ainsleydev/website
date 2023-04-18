@@ -3,22 +3,22 @@ package httpservice
 import (
 	"context"
 	"encoding/json"
-	"fmt"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/slack"
-	"github.com/ainsleyclark/ainsley.dev/gen/mocks"
-	sdk "github.com/ainsleyclark/ainsley.dev/gen/sdk/go"
-	"github.com/ainsleyclark/errors"
-	"github.com/labstack/echo/v4"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
-	"github.com/stretchr/testify/require"
 	"net/http"
 	"net/http/httptest"
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/ainsleyclark/ainsley.dev/api/_mocks"
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
+	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/slack"
+	"github.com/ainsleyclark/ainsley.dev/api/_sdk"
+	"github.com/ainsleyclark/errors"
+	"github.com/labstack/echo/v4"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+	"github.com/stretchr/testify/require"
 )
 
 func TestHandler_SendContactForm(t *testing.T) {
@@ -31,15 +31,16 @@ func TestHandler_SendContactForm(t *testing.T) {
 			payload: "wrong",
 			want:    "Error, malformed payload",
 		},
-		"Honey Pot": {
-			payload: sdk.ContactFormRequest{
-				Honeypot: "bad bot",
-			},
-			want: "Sent successfully",
-		},
 		"No Email": {
 			payload: sdk.ContactFormRequest{},
 			want:    "Please provide an email address in the message",
+		},
+		"Honey Pot": {
+			payload: sdk.ContactFormRequest{
+				Honeypot: "bad bot",
+				Message:  "Hello test@hello.com",
+			},
+			want: "Sent successfully",
 		},
 		"Slack Failure": {
 			payload: sdk.ContactFormRequest{
@@ -120,7 +121,7 @@ var submission = ContactSubmission{
 }
 
 func TestContactSubmission_Text(t *testing.T) {
-	want := fmt.Sprintf("Email: test@hello.com\n\nMessage: message")
+	want := "Email: test@hello.com\n\nMessage: message"
 	got := submission.Text()
 	assert.Contains(t, got, want)
 }
@@ -136,7 +137,7 @@ func TestContactSubmission_Markdown(t *testing.T) {
 }
 
 func TestContactSubmission_HTML(t *testing.T) {
-	want := fmt.Sprintf("<p><strong>Email:</strong> test@hello.com</p><p><strong>Message:</strong> message</p><p><strong>Time:</strong>")
+	want := "<p><strong>Email:</strong> test@hello.com</p><p><strong>Message:</strong> message</p><p><strong>Time:</strong>"
 	got := submission.HTML()
 	assert.Contains(t, got, want)
 }

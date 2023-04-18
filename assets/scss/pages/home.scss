@@ -6,6 +6,179 @@
 @import '../abstracts/mixins';
 @import '../abstracts/variables';
 
+$home-wrapper-height: 250vh;
+$home-show-reel-height: 300vh;
+
 .home {
 	$self: &;
+
+	// Hero	// =========================================================================
+
+	&-hero {
+		overflow-x: hidden;
+		pointer-events: none;
+
+		&-wrapper {
+			height: $home-wrapper-height;
+		}
+
+		&-text {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			@include full-height;
+		}
+
+		&-heading {
+			padding-top: 12.5vh;
+		}
+
+		&-lead {
+			padding-bottom: 5vh;
+		}
+
+		&-heading {
+			margin-bottom: 0;
+
+			h1 {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	// First Section
+	// =========================================================================
+
+	&-first-section {
+		position: relative;
+		padding-top: 0;
+		margin-top: $home-show-reel-height - $home-wrapper-height;
+	}
+
+	// Show-reel
+	// =========================================================================
+
+	&-show-reel {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: $home-show-reel-height;
+
+		&-wrapper {
+			position: sticky;
+			display: flex;
+			align-items: center;
+			top: 0;
+			width: 100%;
+			height: 100vh;
+			perspective: 100vw;
+			overflow: hidden;
+			transform-style: preserve-3d;
+		}
+
+		&-content {
+			width: 100%;
+		}
+	}
+
+	// Video
+	// =========================================================================
+
+	&-video {
+		position: relative;
+		display: block;
+		width: 100%;
+		max-height: 80vh;
+		aspect-ratio: 16 / 9;
+
+		video {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		&-btn {
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 999;
+		}
+	}
+
+	// 3D
+	// =========================================================================
+
+	&-three-d {
+		position: fixed;
+		height: 90%;
+		width: 90%;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 0;
+		perspective: 2000px;
+		filter: grayscale(100%);
+		opacity: 0.4;
+		will-change: transform, opacity, filter;
+
+		img,
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	// Marquee
+	// =========================================================================
+
+	&-marquee {
+		position: absolute;
+		display: block;
+		width: 100vw;
+		height: auto;
+		left: 0;
+		z-index: 10;
+		pointer-events: none;
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-tab {
+		&-hero {
+			@include full-height;
+			display: flex;
+			align-items: center;
+
+			&-text {
+				display: block;
+				height: auto;
+			}
+
+			&-heading {
+				margin-bottom: $margin-large;
+			}
+		}
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-desk {
+		&-first-section {
+			padding-top: $section-padding;
+		}
+
+		&-three-d {
+			width: 100%;
+		}
+
+		&-marquee h2 {
+			@include h1;
+			margin-bottom: 0;
+		}
+	}
 }

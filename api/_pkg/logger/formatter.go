@@ -6,10 +6,11 @@ package logger
 
 import (
 	"fmt"
-	"github.com/logrusorgru/aurora"
-	"github.com/sirupsen/logrus"
 	"sort"
 	"strings"
+
+	"github.com/logrusorgru/aurora"
+	"github.com/sirupsen/logrus"
 )
 
 // localFormatter is the type that implements the Format()
@@ -22,7 +23,7 @@ type localFormatter struct {
 // Format is used to implement a custom Formatter. It takes an `Entry`.
 // It exposes all the fields, including the default ones:
 //
-// * `entry.Data["msg"]`. The message passed from Info, Warn, Error ..
+// * `entry.Data["msg"]`. The message passed from Info, Warn, Error..
 // * `entry.Data["time"]`. The timestamp.
 // * `entry.Data["level"]. The level the entry was logged at.
 //
@@ -63,7 +64,7 @@ func (f *localFormatter) Format(entry *logrus.Entry) ([]byte, error) {
 
 	prefix := fmt.Sprintf("[%s]", f.Prefix)
 	o := fmt.Sprintf("%s %s\t[%s]\t%s%s\n",
-		aurora.Gray(1-1, prefix).BgGray(24-1),
+		aurora.Gray(1-1, prefix).BgGray(24-1), //nolint
 		time,
 		lvlOut,
 		msg,

@@ -2,58 +2,97 @@
 	<!-- =====================
 		Home
 		===================== -->
-	<section class="hero hero-full-height">
-		<div class="container">
-			<div class="row justify-content-between">
-				<div class="col-12">
-					<!-- Text -->
-					<div class="hero-text">
-						<!-- Heading -->
-						<div class="margin-large">
-							<h1>Digital <span class="type-serif">craftmanship*</span><br/>sculpting you as an<br/> industry <u>leader</u>.</h1>
+	<div class="home-hero-wrapper">
+		<div class="home-three-d">
+			{{ partial "svgs/a-symbol-3d.html" . }}
+		</div>
+		<section class="hero home-hero">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-12">
+						<!-- Text -->
+						<div class="hero-animate hero-text home-hero-text">
+							<!-- Heading -->
+							<div class="home-hero-heading">
+								<h1 data-scroll data-scroll-speed="2" data-scroll-position="top">
+									Digital <span class="type-serif">craftmanship*</span><br/>sculpting you as an<br class="d-none d-tab-inline"/>industry <u>leader</u>
+								</h1>
+							</div>
+							<!-- Lead -->
+							<div class="home-hero-lead" data-scroll data-scroll-speed="1" data-scroll-position="top">
+								<p class="lead lead-max-width mb-0">
+									Coupling state-of-the-art technology with stunning designs, we create memorable
+									digital transformations and well-crafted software for everyone from startups to established
+									brands.
+								</p>
+							</div>
+						</div><!-- /Text -->
+						<!-- Arrow -->
+						<div class="all-articles-wrapper all-articles-wrapper-end d-none d-tab-block"
+							 data-scroll data-scroll-speed="1" data-scroll-direction="top">
+							{{ partial "arrow/hover.html" (dict
+								"link" "#content"
+								"title" "Scroll down to explore"
+								"rotation" 135
+								"title" "Explore ainsley.dev"
+							)}}<!-- /Arrow -->
 						</div>
-						<!-- Content -->
-						<p class="lead lead-max-width mb-0">
-							Coupling state-of-the-art technology with beautiful, memorable designs, we create memorable
-							digital transformations and well-crafted software for everyone from startups to established
-							brands.
-						</p>
-					</div><!-- /Text -->
-					<!-- Arrow -->
-                    {{ partial "arrow/hover.html" (dict
-						"link" (printf "%s#content" .Page.RelPermalink)
-						"title" "Scroll down to explore"
-						"rotation" 135
-						"title" "Explore ainsley.dev"
-                    )}}<!-- /Arrow -->
-				</div><!--- /Col -->
-			</div><!-- /Row -->
-		</div><!-- /Container -->
-	</section>
+					</div><!--- /Col -->
+				</div><!-- /Row -->
+			</div><!-- /Container -->
+		</section>
+	</div>
 	<!-- =====================
-		Home
+		Show-reel
 		===================== -->
-	<section class="section section-padding section-padding-top" id="content">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<!-- Heading -->
-					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
-                        {{ partial "type/vertical.html" (dict
-							"text" "Showreel"
-							"number" "02"
-							"line" true
-							"fill" false
-                        )}}
-					</div><!-- /Col -->
-				</div><!-- /Col -->
-			</div><!-- /Row -->
+	<section class="section home-show-reel" id="content">
+		<div class="home-show-reel-wrapper">
+			<!-- Marquee -->
+			<div class="home-marquee">
+				{{ partial "components/marquee.html" (dict
+                	"text" "Showreel"
+                )}}
+			</div><!-- /Marquee -->
+			<div class="container home-show-reel-content"
+				data-video-fullscreen-btn="#home-video"
+				data-plausible="Home Video Click">
+				<!-- Button -->
+				<div class="home-video-btn">
+                    {{ partial "components/button.html" (dict
+						"text" "Full video"
+						"colour" "black"
+						"size" "large"
+						"arrow" true
+						"title" "Play the full video"
+                    )}}
+				</div>
+				<!-- Video -->
+				<div class="home-video cursor-element brightness-80"
+					data-cursor-invert data-cursor-invert-white>
+					<!-- Looped Video -->
+					<video class="video" autoplay muted playsinline loop preload="none">
+						<source src="/portfolio/decspets/video/tags.webm" type="video/webm">
+						<source src="/portfolio/decspets/video/tags-compressed.mp4" type="video/mp4">
+						<source src="/portfolio/decspets/video/tags.mp4" type="video/mp4">
+					</video>
+				</div><!-- /Video -->
+			</div><!-- /Content -->
 		</div><!-- /Container -->
 	</section>
+	<div class="video-full" id="home-video">
+		<video class="video" controls preload="metadata">
+			<source src="/portfolio/decspets/video/tags.webm" type="video/webm">
+			<source src="/portfolio/decspets/video/tags-compressed.mp4" type="video/mp4">
+		</video>
+		<div class="video-full-btn tag tag-black">
+			Close
+		</div>
+	</div>
+
 	<!-- =====================
 		Solutions
 		===================== -->
-	<section class="section section-padding section-padding-top">
+	<section class="section section-padding section-padding-top home-first-section">
 		<div class="container">
 			<div class="row justify-content-between">
 				<!-- Heading -->
@@ -62,26 +101,75 @@
 						"text" "Solutions"
 						"number" "01"
 						"line" true
-						"fill" true
+						"fill" false
                     )}}
 				</div><!-- /Col -->
 				<!-- Content -->
-				<div class="col-12 col-mob-9 col-desk-6">
-					<div class="margin margin-none">
-						<h3>Increase your visibility</h3>
-						<p>
+				<div class="col-12 col-mob-9 col-desk-7 col-hd-6">
+					<!-- Visibility -->
+					<div class="animate-up margin-large" data-animate-no-touch>
+						<h3>
+							Increase your visibility
+						</h3>
+						<p class="lead">
 							Every application made by ainsley.dev is curated to launch your business into the digital world
-							by sculpting your online presence to increase your online visibility.
+							by sculpting your online presence and increasing your visibility.
 						</p>
-						<h3>Discover bespoke solutions</h3>
-						<p>
+					</div>
+					<!-- Solutions -->
+					<div class="animate-up margin-large" data-animate-no-touch>
+						<h3>
+							Discover bespoke solutions
+						</h3>
+						<p class="lead">
 							We take the time to get to know you and the challenges you face with your existing strategies,
 							and create bespoke products by treating your business as if it were our own.
 						</p>
-						<h3>Driven by simplicity</h3>
-						<p>
+					</div>
+					<!-- Simplicity -->
+					<div class="animate-up margin-large margin-none" data-animate-no-touch>
+						<h3>
+							Driven by simplicity
+						</h3>
+						<p class="lead mb-0">
 							We are driven by simplicity and the shared goal of producing visionary designs, coupled with
-							best-in-class in-house software, APIs, designs and websites.
+							world-class in-house software, APIs, designs and websites.
+						</p>
+					</div>
+				</div><!--- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+	<!-- =====================
+		About
+		===================== -->
+	<section class="section section-padding section-padding-top">
+		<div class="container">
+			<div class="row justify-content-between">
+				<!-- Heading -->
+				<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
+                    {{ partial "type/vertical.html" (dict
+						"text" "About"
+						"number" "02"
+						"line" true
+						"fill" false
+                    )}}
+				</div><!-- /Col -->
+				<!-- Content -->
+				<div class="col-12 col-mob-9 col-desk-7 col-hd-6">
+					<div class="animate-up" data-animate-no-touch>
+						<picture class="image margin-large" data-scroll data-scroll-speed="1">
+							{{ partial "media/picture.html" (dict
+								"image" (resources.Get "/images/site/home.jpg")
+								"alt" "ainsley.dev"
+								"lazy" true
+							)}}
+						</picture>
+					</div>
+					<div class="animate-up" data-animate-no-touch>
+						<h2>Who we are</h2>
+						<p class="lead mb-0">
+							In a commercial world increasingly reliant on digital technology, ainsley.dev is a market-leading software design and development company at the forefront of high-tech advancements and techniques.
 						</p>
 					</div>
 				</div><!--- /Col -->
@@ -98,39 +186,47 @@
 				<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
                     {{ partial "type/vertical.html" (dict
 						"text" "Services"
-						"number" "02"
+						"number" "03"
 						"line" true
 						"fill" false
                     )}}
 				</div><!-- /Col -->
 				<!-- Content -->
-				<div class="col-12 col-mob-9 col-desk-6">
-					<div class="row">
+				<div class="col-12 col-mob-9 col-desk-7 col-hd-6">
+					<div class="row no-gaps">
 						<div class="col-12 col-desk-6">
-							<h3 class="type-heading">
+							<h3 class="type-heading animate-up"
+								data-animate-no-touch>
 								Brand strategy
 							</h3>
-							<h3 class="type-heading">
+							<h3 class="type-heading animate-up"
+								data-animate-delay="100" data-animate-no-touch>
 								Digital experience
 							</h3>
-							<h3 class="type-heading">
+							<h3 class="type-heading animate-up"
+								data-animate-delay="200" data-animate-no-touch>
 								Bespoke UI/UX
 							</h3>
-							<h3 class="type-heading mb-desk-0">
+							<h3 class="type-heading animate-up mb-desk-0"
+								data-animate-delay="300" data-animate-no-touch>
 								Development
 							</h3>
 						</div><!--- /Col -->
 						<div class="col-12 col-desk-6">
-							<h3 class="type-heading">
+							<h3 class="type-heading animate-up"
+								data-animate-delay="400" data-animate-no-touch>
 								Software
 							</h3>
-							<h3 class="type-heading">
+							<h3 class="type-heading animate-up"
+								data-animate-delay="500" data-animate-no-touch>
 								SEO
 							</h3>
-							<h3 class="type-heading">
+							<h3 class="type-heading animate-up"
+								data-animate-delay="600" data-animate-no-touch>
 								Copywriting
 							</h3>
-							<h3 class="type-heading mb-0">
+							<h3 class="type-heading animate-up mb-0"
+								data-animate-delay="700" data-animate-no-touch>
 								Illustration
 							</h3>
 						</div><!--- /Col -->
@@ -142,7 +238,7 @@
 	<!-- =====================
 		Portfolio
 		===================== -->
-    {{- $portfolio :=  (where .Site.RegularPages "Type" "portfolio").ByWeight | first 6 -}}
+    {{- $portfolio :=  (where .Site.RegularPages "Type" "portfolio").ByWeight | first 8 -}}
     {{ with $portfolio }}
 		<section class="section section-padding section-padding-top">
 			<div class="container">
@@ -151,7 +247,7 @@
 					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
                         {{ partial "type/vertical.html" (dict
 							"text" "Portfolio"
-							"number" "03"
+							"number" "04"
 							"line" true
 							"fill" false
                         )}}
@@ -159,26 +255,26 @@
 					<!-- Content -->
 					<div class="col-12 col-mob-9">
 						<div class="row no-gaps">
-							<!-- All Articles - Large -->
+							<!-- All Work - Large -->
 							<div class="col-12 all-articles all-articles-large margin-large">
 								<div class="all-articles-wrapper all-articles-wrapper-end">
                                     {{ partial "arrow/text.html" (dict
-										"link" "/insights/"
-										"text" "<h3>All work</h3>"
+										"link" "/portfolio/"
+										"text" "<h2>All work</h3>"
 										"title" "View all work"
 										"small" true
 										"rotation" 45
                                     )}}
 								</div><!-- /Wrapper -->
 							</div><!-- /Col -->
-							<!-- All Articles - Small -->
+							<!-- All Work - Small -->
 							<div class="col-12 all-articles all-articles-small">
 								<div class="all-articles-wrapper">
 									<h6 class="all-articles-sub">
 										Latest Articles
 									</h6>
                                     {{ partial "arrow/text.html" (dict
-										"link" "/insights/"
+										"link" "/portfolio/"
 										"text" "<h2>All work</h3>"
 										"title" "View all work"
 										"small" true
@@ -189,7 +285,7 @@
 							<!-- Cards -->
                             {{ range $index, $page := . }}
                                 {{ $isLeft := eq (mod $index 2) 0 }}
-								<div class="col-12 col-desk-6 card-col-padding card-col-mob-no-margin
+								<div class="col-12 col-desk-6 card-col-padding card-col-mob-no-margin animate-up
 								{{ if $isLeft }} card-col-left {{- else -}} card-col-right {{- end }} card-col">
                                     {{ .Render "card" }}
 								</div><!-- /Col -->
@@ -203,7 +299,7 @@
 	<!-- =====================
 		Insights
 		===================== -->
-    {{- $insights :=  (where .Site.RegularPages "Type" "insights").ByDate.Reverse | first 4 -}}
+    {{- $insights :=  (where .Site.RegularPages "Type" "insights").ByDate.Reverse | first 6 -}}
     {{ with $insights }}
 		<section class="section section-padding">
 			<div class="container">
@@ -212,7 +308,7 @@
 					<div class="col-12 col-mob-2">
                         {{ partial "type/vertical.html" (dict
 							"text" "Insights"
-							"number" "04"
+							"number" "05"
 							"line" true
 							"fill" false
                         )}}
@@ -252,8 +348,9 @@
 							</div><!-- /Col -->
 							<!-- Cards -->
                             {{ range $index, $page := . }}
-								<div class="col-12 card-col {{ if eq $index 0 }} card-col-first {{- end }}">
-                                    {{ .Render "card" }}
+								<div class="col-12 card-col {{ if eq $index 0 }} card-col-first {{- end }} animate-fade"
+									 data-animate-no-touch>
+									{{ .Render "card" }}
 								</div><!-- /Col -->
                             {{- end }}
 						</div><!-- /Row -->
@@ -266,7 +363,6 @@
 		Banner
 		===================== -->
     {{ partial "sections/banner.html" (dict
-    "image" (resources.Get "images/banner/computer.jpg")
+    	"image" (resources.Get "images/banner/computer.jpg")
     )}}
-
 {{ end }}

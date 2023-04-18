@@ -60,9 +60,7 @@
 	// =========================================================================
 
 	&-full-height {
-		height: 100vh;
-		min-height: 100vh !important;
-		min-height: -webkit-fill-available !important;
+		@include full-height;
 	}
 
 	// Half Height
@@ -79,25 +77,19 @@
 
 	&-space-around {
 		display: flex;
+		padding-top: $header-height + 40px;
 
-		#{$self}-container {
-			display: flex;
-			flex-direction: column;
-			height: 90%;
-			justify-content: space-around;
-			align-self: flex-end;
+		#{$self}-row {
+			margin-bottom: $margin-large;
 		}
 	}
 
 	// Text
 	// =========================================================================
 
-	&-text {
+	&-text,
+	&-text-large {
 		margin-bottom: 8vh;
-
-		&-large {
-			margin-bottom: 20vh;
-		}
 	}
 
 	// Lead
@@ -113,7 +105,7 @@
 
 	&-align-bottom {
 		align-items: flex-end;
-		padding-bottom: 10vh;
+		padding-bottom: 7vh;
 	}
 
 	// A Symbol
@@ -126,6 +118,7 @@
 		min-height: 360px;
 		height: 50vw;
 		aspect-ratio: 1.1 / 1;
+		transform: translateY(-60%);
 
 		&-left {
 			left: 0;
@@ -140,6 +133,7 @@
 		svg {
 			width: auto;
 			height: 100%;
+			opacity: 0.99;
 		}
 	}
 
@@ -172,10 +166,41 @@
 		}
 	}
 
+	// Mods
+	// =========================================================================
+
+	&-min-height {
+		min-height: 720px;
+	}
+
+	// Animate
+	// =========================================================================
+
+	&-animate {
+		position: relative;
+
+		u,
+		h1 {
+			position: relative;
+		}
+
+		span {
+			display: inline !important; // Override split-text
+		}
+	}
+
 	// Tablet
 	// =========================================================================
 
 	@include media-mob {
+		&-align-bottom {
+			padding-bottom: 10vh;
+		}
+
+		&-a-symbol {
+			transform: none;
+		}
+
 		&-logos {
 			display: flex;
 			flex-wrap: wrap;
@@ -200,6 +225,50 @@
 	@include media-tab {
 		&-simple {
 			padding-top: clamp(100px, 20vw, 170px);
+		}
+
+		&-text-large {
+			margin-bottom: 20vh;
+		}
+	}
+
+	// Space Around
+	// =========================================================================
+
+	@media (min-height: 800px) {
+		&-space-around {
+			@include full-height;
+			padding-top: 0;
+
+			#{$self}-container {
+				display: flex;
+				flex-direction: column;
+				height: 90%;
+				justify-content: space-around;
+				align-self: flex-end;
+			}
+
+			#{$self}-row {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	// Mobile Only
+	// =========================================================================
+
+	@include media-mob-down {
+		&-space-around {
+			height: auto;
+			padding-top: 0;
+
+			#{$self}-row {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				padding-top: $header-height + 40px;
+				min-height: 100svh;
+			}
 		}
 	}
 

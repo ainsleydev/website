@@ -6,7 +6,8 @@
 #
 # ainsley.dev - 16/09/2021
 
-if [[ $VERCEL_GIT_COMMIT_REF == "master" ]]; then
+echo "Vercel Env: $VERCEL_ENV"
+if [[ $VERCEL_ENV == "production" ]]; then
 	echo "Building production"
 	npm run build:prod
 else

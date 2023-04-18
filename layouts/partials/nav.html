@@ -1,84 +1,74 @@
 <!-- =====================
     Navigation
     ===================== -->
-<nav class="nav" aria-label="Main Navigation">
+<nav class="nav" aria-label="Main Navigation" style="opacity: 0;">
+	<!-- Header -->
+    {{- partial "header.html" (dict
+		"nav" true
+		"ctx" .
+    )}}
+
 	<!-- Main (Top/Left) -->
-	<div class="nav-main nav-main-active">
-		<!-- List -->
-		{{ with site.Menus.navmain -}}
-			<menu class="nav-list">
-				{{ range . -}}
-					<li class="nav-item">
-						<a href="{{ .URL }}" class="nav-link" data-nav-image="#nav-picture-{{ .Identifier }}"
-						   aria-label="Navigate to the {{ .Name }} page">
-							<h2 class="nav-link-text heading-1">{{ .Name }}</h2>
-						</a>
-					</li>
-				{{- end }}
-			</menu><!-- /List -->
-		{{- else -}}
-            {{ errorf "No navmain defined in menu.yaml" }}
-		{{- end }}
-		<!-- Contact -->
-		<div class="nav-contact">
-			<!-- Email -->
-			{{ with site.Params.contact.email -}}
-				<div class="nav-contact-section">
-					<span class="heading-6">Email us</span>
-					<a href="mailto:{{ . }}" aria-label="Email ainsley.dev">
-						<span class="heading-5">{{ . }}</span>
-					</a>
-				</div>
-			{{- end }}
-			<!-- Social -->
-			{{ with site.Params.social -}}
-				<div class="nav-contact-section">
-					<span class="heading-6">Connect with us</span>
-					{{ partial "components/social.html" (dict "colour" "white") }}
-				</div>
-			{{- end }}
-		</div><!-- /Contact -->
-	</div><!-- /Main -->
-	<!-- Nav Sub (Bottom/Right) -->
-	<div class="nav-sub">
-		<!-- List -->
-        {{ with site.Menus.navsub -}}
-			<menu class="nav-list nav-list-white">
-                {{ range . -}}
-					<li class="nav-item">
-						<a href="{{ .URL }}" class="nav-link" aria-label="Navigate to the {{ .Name }} page">
-							<span class="nav-link-text heading-5">{{ .Name }}</span>
-						</a>
-					</li>
+	<div class="container nav-container">
+		<div class="row nav-row">
+			<div class="col-12 col-desk-8">
+				<!-- List -->
+                {{ with site.Menus.navmain -}}
+					<menu class="nav-list">
+                        {{ range . -}}
+							<li class="nav-item">
+								<a href="{{ .URL }}" class="nav-link" data-nav-image="#nav-picture-{{ .Identifier }}"
+								   aria-label="Navigate to the {{ .Name }} page">
+									<h2 class="nav-link-text heading-1">{{ .Name }}</h2>
+								</a>
+							</li>
+                        {{- end }}
+					</menu><!-- /List -->
+                {{- else -}}
+                    {{ errorf "No navmain defined in menu.yaml" }}
                 {{- end }}
-			</menu><!-- /List -->
-        {{- else -}}
-            {{ errorf "No navsub defined in menu.yaml" }}
-        {{- end }}
-		<!-- Privacy -->
-        {{ with site.Copyright -}}
-			<small class="nav-sub-copyright">{{ . }}</small>
-        {{- end }}
-		<!-- Image Hover -->
-        {{ with site.Menus.navMain -}}
-			<div class="nav-images">
-				<!-- Who We Are -->
-                {{ range . -}}
-                    {{- $name := .Name -}}
-                    {{ if .Params.image -}}
-						<picture class="nav-images-item" id="{{ (printf "nav-picture-%s" .Identifier) }}">
-                            {{ partial "media/picture.html" (dict
-								"image" (resources.Get .Params.image.url)
-								"alt" .Params.image.alt
-								"mob" false
-								"tab" false)
-							}}
-						</picture>
-                    {{- else -}}
-                        {{ errorf "No image attached to menu item: %s" .Name }}
-                    {{- end }}
-                {{- end }}
-			</div><!-- /Image Hover -->
-        {{- end }}
-	</div><!-- /Sub -->
+			</div><!-- /Col -->
+			<div class="col-12 col-desk-4">
+				<!-- Contact -->
+				<div class="nav-contact">
+					<!-- Email -->
+					{{ with site.Params.contact.email -}}
+						<div class="nav-contact-section">
+							<span class="heading-6">Email us</span>
+							<a href="mailto:{{ . }}" class="cursor-element"
+								data-cursor-invert data-cursor-invert-black
+								aria-label="Email ainsley.dev">
+								<span class="heading-5">
+									{{ . }}
+								</span>
+							</a>
+						</div>
+					{{- end }}
+					<!-- Phone -->
+					{{ with site.Params.contact.phone -}}
+						<div class="nav-contact-section">
+							<span class="heading-6">Chat with us</span>
+							<a href="tel:{{ .link }}" title="Phone ainsley.dev"
+								data-cursor-invert data-cursor-invert-black
+								aria-label="Phone ainsley.dev">
+								<span class="heading-5">
+									{{ .pretty }}
+								</span>
+							</a>
+						</div>
+					{{- end }}
+					<!-- Social -->
+					{{ with site.Params.social -}}
+						<div class="nav-contact-section">
+							<span class="heading-6">Connect with us</span>
+							{{ partial "components/social.html" (dict
+								"colour" "white"
+								"cursor" "data-cursor-invert data-cursor-invert-black"
+							)}}
+						</div>
+					{{- end }}
+				</div><!-- /Contact -->
+			</div><!-- /Col -->
+		</div>
+	</div>
 </nav>

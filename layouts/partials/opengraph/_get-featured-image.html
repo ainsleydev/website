@@ -1,0 +1,11 @@
+<!-- =====================
+    Featured Image
+    ===================== -->
+{{- $baseURL := partial "util/_base-url.html" . -}}
+{{ $image := "/opengraph.jpg" -}}
+{{- if .Page.Resources.Get "images/og.jpg" -}}
+	{{ $image = (.Page.Resources.Get "images/og.jpg").RelPermalink -}}
+{{- else if and (eq .Section "insights") .IsPage -}}
+	{{- $image = (partial "opengraph/_insights-image.html" .).Permalink -}}
+{{- end -}}
+{{- return (printf "%s%s" $baseURL $image) -}}

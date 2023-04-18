@@ -1,0 +1,114 @@
+// -----------------------------------------------------------------------------
+// _marquee.scss
+// This file contains all styles related to the arrow component.
+// -----------------------------------------------------------------------------
+
+.marquee {
+	$self: &;
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	overflow: hidden;
+	transform: rotate(-3deg) skew(-5deg);
+	height: 100px;
+
+	// Inner
+	// =========================================================================
+
+	&-inner {
+		display: flex;
+		position: absolute;
+		width: 200%;
+		will-change: left;
+		animation: marquee 10s linear infinite;
+
+		&:hover {
+			animation-play-state: paused;
+		}
+	}
+
+	// Wrapper
+	// =========================================================================
+
+	&-wrapper {
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+		width: 50%;
+	}
+
+	// Wrapper
+	// =========================================================================
+
+	&-text {
+		display: flex;
+		align-items: center;
+		margin-bottom: 0;
+		user-select: none;
+		width: 20%;
+		max-width: 20%;
+		font-size: 6.5vw !important;
+
+		&:before {
+			content: '';
+			display: none;
+			position: relative;
+			width: 20%;
+			margin-right: 20px;
+			transform: translateY(4px);
+			height: 4px;
+			background-color: $white;
+		}
+	}
+
+	// Animation
+	// =========================================================================
+
+	@keyframes marquee {
+		0% {
+			left: 0;
+		}
+		100% {
+			left: -100%;
+		}
+	}
+
+	// Desktop Down
+	// =========================================================================
+
+	@include media-desk-down {
+		&-text {
+			width: 33.3%;
+			max-width: 33.3%;
+
+			&:nth-last-child(2),
+			&:last-child {
+				display: none;
+			}
+		}
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-tab {
+		&-inner {
+			animation: marquee 15s linear infinite;
+		}
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-desk {
+		&-text {
+			font-size: 3vw !important;
+
+			&:before {
+				margin-left: 20px;
+				display: inline-block;
+			}
+		}
+	}
+}

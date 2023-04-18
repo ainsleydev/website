@@ -30,6 +30,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/privacy-policy/",
+			"destination": "/privacy/",
+			"permanent": true
+		},
+		{
 			"source": ",/:path((?!compatible).*)",
 			"has": [
 				{
@@ -38,7 +43,7 @@
 					"value": "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; Microsoft; Lumia 950)"
 				}
 			],
-			"destination": ",/compatible",
+			"destination": "/compatible",
 			"permanent": false
 		}
 	],

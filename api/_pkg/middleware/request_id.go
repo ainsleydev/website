@@ -20,8 +20,7 @@ const (
 )
 
 // RequestID assigns a unique identifier to the contact under RequestIDContextKey.
-// The header RequestIDHeader is also sent the UUID
-// to the calling client.
+// The ID is also sent back in the payload to the calling client.
 func RequestID() echo.MiddlewareFunc {
 	return middleware.RequestIDWithConfig(middleware.RequestIDConfig{
 		TargetHeader: RequestIDHeader,

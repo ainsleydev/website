@@ -20,17 +20,18 @@ results:
     text: point PSI on mobile
   - number: 15
     text: rank for [guttering kent]
+logoWeight: 40
 ---
 
 <!-- Intro -->
-{{< vertical-section >}}
+{{< vertical-section large=true >}}
 Established in 2019, Scott’s Guttering are experts in gutter clearance, maintenance and repair on residential and
 commercial properties across the South East, in addition to fascia, soffit and conservatory washes, and bird pest
 control solutions.
 {{< /vertical-section >}}
 
 <!-- Guttering -->
-{{< picture src="images/guttering.jpg" alt="Picture of guttering on a roof" >}}
+{{< picture src="images/guttering.jpg" alt="Picture of guttering on a roof" animate=true >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
@@ -40,18 +41,18 @@ needed to be displayed throughout the landing page, with clear calls to action a
 {{< /vertical-section >}}
 
 <!-- Video -->
-{{< picture src="images/guttering.jpg" alt="TODO" >}}
+{{< picture src="images/guttering.jpg" alt="TODO" animate=true >}}
 
 <!-- Design -->
 {{< vertical-section text="Design" number="02" >}}
-A bright orange/red colour contrasted with a dark navy was chosen in order to capture the user’s attention as soon as
+A bright orange/red colour contrasting with a dark navy were chosen in order to capture the user’s attention as soon as
 they land on the page. Gradients were used to create a depth of field on buttons, imagery and iconography, whilst
 maintaining a simple layout throughout. Reviews were added in the hero section to facilitate trust in the brand, and
 simple calls to action were designed as an easy way for customers to get in touch.
 {{< /vertical-section >}}
 
 <!-- Mockup -->
-{{< picture src="images/mockup.jpg" alt="Dec's Pets Website on an iPhone" >}}
+{{< picture src="images/mockup.jpg" alt="Dec's Pets Website on an iPhone" animate=true >}}
 
 <!-- Development -->
 {{< vertical-section text="Develop" number="03" >}}

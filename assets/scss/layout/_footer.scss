@@ -23,6 +23,7 @@
 	&-main {
 		position: relative;
 		padding: 6rem 0;
+		background-color: $black;
 
 		&-menu {
 			display: grid;
@@ -106,6 +107,13 @@
 		display: flex;
 		bottom: 0;
 		right: $gap-width;
+		width: clamp(220px, 80vw, 350px);
+		max-width: 350px;
+
+		img {
+			height: 100%;
+			width: 100%;
+		}
 	}
 
 	// Logo

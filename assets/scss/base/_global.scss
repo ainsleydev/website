@@ -7,31 +7,39 @@
 // =========================================================================
 
 html {
-	box-sizing: border-box;
-}
-
-*,
-html {
 	scroll-behavior: initial;
-}
-
-html,
-body {
-	//width: 100%;
-	//height: auto;
-	//min-height: 100%;
-	//margin: 0;
-	//padding: 0;
-	font-family: $font;
-	font-size: 1rem;
-	line-height: 1.6;
-	font-kerning: normal;
-	-webkit-font-smoothing: antialiased; // sass-lint:disable-line  no-vendor-prefixes
-	-webkit-tap-highlight-color: transparent; // sass-lint:disable-line  no-vendor-prefixes
+	box-sizing: border-box;
 }
 
 * {
 	box-sizing: inherit;
+}
+
+html,
+body {
+	width: 100%;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	font-family: $font;
+	font-size: 1rem;
+	line-height: 1.6;
+	font-kerning: normal;
+	// NOTE: Do not use overflow auto here, it interferes with Sticky.
+	-webkit-font-smoothing: antialiased; // sass-lint:disable-line  no-vendor-prefixes
+	-webkit-tap-highlight-color: transparent; // sass-lint:disable-line  no-vendor-prefixes
+}
+
+.no-js * {
+	transition: none !important;
+}
+
+@include touch {
+	scroll-behavior: smooth;
+
+	* {
+		scroll-behavior: smooth !important;
+	}
 }
 
 body {

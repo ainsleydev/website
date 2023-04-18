@@ -1,0 +1,21 @@
+<!-- =====================
+    Logos
+		< logos >
+    ===================== -->
+{{ $pages := (where .Site.RegularPages "Type" "portfolio").ByParam "logoWeight" -}}
+{{ with $pages -}}
+    {{ range . -}}
+		<a href="https://decspets.ie" target="_blank" class="cursor-element"
+		   title="Navigate to {{ .Params.company }} Website"
+		   aria-label="{{ .Params.company }} Website"
+		   data-cursor-border data-cursor-border-white>
+           <figure class="image">
+               {{ partial "media/image.html" (dict
+				   "image" (.Resources.GetMatch "**logo-greyscale.svg")
+				   "alt" (printf "%s - Logo" .Params.company)
+				   "lazy" false
+               )}}
+		   </figure>
+		</a>
+    {{- end }}
+{{- end }}

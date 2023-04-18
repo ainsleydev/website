@@ -1,7 +1,12 @@
 name: ainsley.dev
-description: Digital craftsmanship sculpting you as an industry leader. Coupling state-of-the-art technology with beautiful, memorable designs, we create memorable digital transformations and well-crafted software for everyone from startups to established brands.
+niceName: ainsley dev
+description: Bespoke website design & development, in-house software from startups to established brands.
 images:
-    - images/site-feature-image.jpg
+    - /images/site/about.jpg
+    - /images/site/contact.jpg
+    - /images/site/insights.jpg
+    - /images/site/portfolio.jpg
+    - /images/site/services.jpg
 url: https://ainsley.dev
 logo: https://ainsley.dev/images/logo.jpg
 company:
@@ -19,8 +24,8 @@ contact:
         pretty: +44 7507 784 206
 social:
     gov: https://find-and-update.company-information.service.gov.uk/company/14550437
-    github: https://github.com/ainsleyclark
-    linkedin: https://www.linkedin.com/in/ainsleyclark/
+    github: https://github.com/ainsleydev
+    linkedin: https://www.linkedin.com/company/93587806/
     twitter: https://twitter.com/ainsleydev/
     facebook: https://www.facebook.com/ainsley.devltd/
     instagram: https://www.instagram.com/ainsley.devltd/
@@ -33,6 +38,13 @@ imagery:
             size: 767
         -   name: tab
             size: 1023
+plausible:
+    enable: false
+    local: false
+    domain: ainsley.dev
+gtag:
+    enable: false
+    tag: KZFMRNJ
 codepen:
     user: ainsleyclark
     tab: result

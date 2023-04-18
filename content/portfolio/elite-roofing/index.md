@@ -12,17 +12,18 @@ site:
 role: Design & Development
 strategies: [Full brand, UI/UX, Website branding]
 technologies: [Verbis, Spline, Image Sequencing]
+logoWeight: 60
 ---
 
 <!-- Intro -->
-{{< vertical-section >}}
+{{< vertical-section large=true >}}
 Elite Roofing Services is a family run business that undertakes all aspects of domestic and industrial roofing from
 changing a single tile to a full re-roof. They pride themselves on providing the best quality workmanship at competitive
 prices.
 {{< /vertical-section >}}
 
 <!-- Roof -->
-{{< picture src="images/roof.jpg" alt="Hammering on Roof" >}}
+{{< picture src="images/roof.jpg" alt="Hammering on Roof" animate=true  >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
@@ -33,17 +34,17 @@ extensive experience in the industry with an easy way for potential customers to
 {{< /vertical-section >}}
 
 <!-- Video -->
-{{< picture src="images/roof.jpg" alt="TODO" >}}
+{{< picture src="images/roof.jpg" alt="TODO" animate=true  >}}
 
 {{< vertical-section text="Design" number="02" >}}
 As there were no existing brand guidelines for Elite Roofing, a modern and striking colour palette was curated in
-conjunction with a simple, yet clean font. The electric green against the dark background helped to highlight important
-content. A 3D roof model was created in [Spline](https://spline.design/) which brought the minimalist page to life and
+conjunction with a simple, yet, clean font. The electric red against the dark background helped to highlight important
+content. A 3D roof model was created in [Spline](https://spline.design/), which brought the minimalist page to life and
 captured the attention of potential clientele.
 {{< /vertical-section >}}
 
 <!-- Mockup -->
-{{< picture src="images/mockup.jpg" alt="Elite Roofing Website on a Laptop" >}}
+{{< picture src="images/mockup.jpg" alt="Elite Roofing Website on a Laptop" animate=true >}}
 
 <!-- Development -->
 {{< vertical-section text="Develop" number="03" >}}

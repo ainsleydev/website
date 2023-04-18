@@ -13,26 +13,25 @@
 		"build:test": "npm run hugo:clean && hugo --environment production --minify && npm run image && go run main.go",
 		"hugo:clean": "rm -rf public",
 		"image": "./bin/image-optim.sh",
-		"clean": "prettier --write ./**/*.{ts,tsx,scss,json}",
+		"clean": "prettier --write ./assets/**/*.{ts,scss,js}",
 		"lint": "npm run lint:scss && npm run lint:js",
 		"lint:scss": "npx stylelint '**/*.scss'",
-		"lint:js": "eslint --config .eslintrc.json --fix 'assets/**/*.{ts,tsx}'",
+		"lint:js": "eslint --fix 'assets/**/*.{ts,tsx}'",
 		"precommit": "npx lint-staged --debug"
 	},
 	"dependencies": {
 		"@barba/core": "^2.9.7",
 		"@googlemaps/js-api-loader": "^1.15.1",
 		"animejs": "^3.2.1",
-		"aos": "^3.0.0-beta.6",
-		"loconative-scroll": "github:quentinhocde/loconative-scroll",
 		"normalize.css": "^8.0.1",
-		"toastify-js": "^1.12.0"
+		"split-type": "^0.3.3",
+		"toastify-js": "^1.12.0",
+		"web-vitals": "^3.3.0"
 	},
 	"devDependencies": {
 		"@types/animejs": "^3.1.7",
 		"@types/aos": "^3.0.4",
 		"@types/google.maps": "^3.51.0",
-		"@types/grecaptcha": "^3.0.4",
 		"@types/locomotive-scroll": "^4.1.0",
 		"@types/node": "^18.11.18",
 		"@types/toastify-js": "^1.11.1",
@@ -57,7 +56,7 @@
 		}
 	},
 	"lint-staged": {
-		"*.{ts,tsx,scss,json}": [
+		"*.{ts,scss,js}": [
 			"prettier --write"
 		],
 		"*.ts": [
@@ -65,6 +64,31 @@
 		],
 		"*.go": [
 			"gofmt -w"
+		]
+	},
+	"eslintConfig": {
+		"root": true,
+		"extends": [
+			"eslint:recommended",
+			"plugin:@typescript-eslint/recommended",
+			"prettier"
+		],
+		"parser": "@typescript-eslint/parser",
+		"parserOptions": {
+			"project": [
+				"./tsconfig.json"
+			]
+		},
+		"rules": {
+			"@typescript-eslint/ban-ts-comment": "off",
+			"@typescript-eslint/no-var-requires": "off"
+		},
+		"plugins": [
+			"@typescript-eslint"
+		],
+		"ignorePatterns": [
+			"public/**/.js",
+			"staic/**"
 		]
 	},
 	"babel": {
@@ -98,6 +122,7 @@
 			"comment-empty-line-before": "always",
 			"no-invalid-double-slash-comments": null,
 			"declaration-empty-line-before": "never",
+			"at-rule-empty-line-before": null,
 			"value-keyword-case": [
 				"lower",
 				{

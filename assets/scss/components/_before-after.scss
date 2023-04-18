@@ -95,7 +95,7 @@
 
 		&::-webkit-slider-thumb {
 			width: $before-after-border-width;
-			height: 100vh;
+			@include full-height;
 			background: $black;
 			-webkit-appearance: none;
 			appearance: none;
@@ -108,6 +108,22 @@
 			background: 100vh;
 			cursor: pointer;
 		}
+	}
+
+	// Line
+	// =========================================================================
+
+	&-line {
+		position: absolute;
+		display: block;
+		top: 0;
+		left: 50%;
+		width: $before-after-border-width;
+		height: 100%;
+		background-color: $black;
+		cursor: pointer;
+		z-index: 10;
+		transform: translateX(-50%);
 	}
 
 	// Thumb
@@ -183,11 +199,14 @@
 			}
 		}
 	}
+}
 
-	// Non - Touch Screen
-	// =========================================================================
+// Non Touch Screen
+// =========================================================================
 
-	@media (hover: hover) {
+@include no-touch {
+	.before-after {
+
 		&-slider {
 			background-color: rgba($black, 0.5);
 
@@ -195,5 +214,19 @@
 				background: transparent;
 			}
 		}
+
+		&-line {
+			display: none;
+		}
 	}
 }
+
+// Touch Screen
+// =========================================================================
+
+@include touch {
+	.before-after-slider {
+		opacity: 0;
+	}
+}
+

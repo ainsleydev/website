@@ -21,8 +21,8 @@ well-crafted packages with the tips below.
 ## Packages
 
 A GoLang package is simply a folder containing Go files. They should be grouped together by responsibility or behaviour.
-You should have a reason for creating a new package and it should be elegant, but obvious what it's trying to solve.
-Think about who is using your project and packages and where it will be used.
+You should have a reason for creating a new package and it should be elegant, but obvious in what it's trying to solve.
+Think about who will be using your project and packages and where it will be used.
 
 Packages should have purpose and meaning. Try not to create them just because you feel you need to. Sometimes a flat
 directory structure works. Nevertheless, as you continue to grow your packages, it makes sense to separate them by
@@ -30,8 +30,8 @@ responsibility.
 
 ### Naming
 
-**A great package starts with its name**. It should be small, unique, describe what it’s doing and derive from its
-purpose. Ask yourself “what does this package provide?” instead of “what is in this package?”
+**A great package starts with a name**. It should be short, unique, describe what it’s doing and derive from its
+purpose. Ask yourself “What does this package provide?” instead of “What is in this package?”
 
 * Avoid clashing with the standard library, for example `http`. This can cause confusing imports.
 * Avoid plurals; prefer `stringslice` over `stringslices`.
@@ -39,7 +39,7 @@ purpose. Ask yourself “what does this package provide?” instead of “what i
 >Name your packages after what they provide, not what they contain.
 > <cite>[Dave Cheeney](https://dave.cheney.net/2019/01/08/avoid-package-names-like-base-util-or-common)</cite>
 
-[Drone’s](https://github.com/harness/drone) directory structure, layout and idioms are extremely well crafted. You can
+[Drone’s](https://github.com/harness/drone) directory structure, layout and idioms are extremely well-crafted. You can
 see the directory structure of the project below.
 
 ![Drone directory structure](images/drone.png)
@@ -133,8 +133,8 @@ famous `import cycle not allowed` haunted me until I discovered something: domai
 ### What’s DDD?
 
 DDD was first thought up by Eric Evans in 2003, in a book he published
-called [Tackling Complexity in the Heart of Software](https://www.oreilly.com/library/view/domain-driven-design-tackling/0321125215/)
-. It revolves around the idea of establishing your main types and behaviour in a centralised folder or package, and
+called [Tackling Complexity in the Heart of Software](https://www.oreilly.com/library/view/domain-driven-design-tackling/0321125215/).
+It revolves around the idea of establishing your main types and behaviour in a centralised folder or package, and
 having the software implement this behaviour elsewhere.
 
 [Eric Evans](https://www.domainlanguage.com/) establishes that DDD is predicated on the following goals:
@@ -284,7 +284,7 @@ func ReadFile(w io.Writer, f *File) error {
 
 ### Single method
 
-> The bigger the interface, the weaker the abstraction
+> The bigger the interface, the weaker the abstraction.
 > <cite>[Go Proverbs](https://go-proverbs.github.io/)</cite>
 
 Narrow types such as singular method interfaces are **powerful**, as they are extremely easy to implement. For this
@@ -495,7 +495,7 @@ if err != nil {
 ```
 
 Which do you think is more readable? If the former, users will most likely have to refer to the function arguments, and
-perhaps even look at the documentation. By using a configuration struct, we can explicitly define what arguments are to
+perhaps even look at the documentation. By using a configuration struct, we can explicitly define which arguments are to
 be passed.
 
 ### Validation
@@ -538,7 +538,7 @@ godoc -http=:6060
 For more detailed tips and tricks for using godoc, see Elliot
 Chance’s [post](https://elliotchance.medium.com/godoc-tips-tricks-cda6571549b) on Medium.
 
-### Readme.md
+### README.md
 
 When writing a readme, ensure to include a catchline that will lure your users in. 80% of repositories will also get
 used more if you have a logo or mascot (for open source projects).
@@ -565,8 +565,8 @@ you also get a shiny badge alongside it.
 
 ### MakeFile
 
-Make files are an easy way to run, set up and test your code. It’s a gateway to provide your users with easy tooling as
-soon as they clone your package and make it easier for potential developers to contribute to the package.
+Make files are an easy way to run, set up and test your code. They're a gateway to provide your users with easy tooling
+as soon as they clone your package and make it easier for potential developers to contribute to the package.
 
 ```makefile
 setup:

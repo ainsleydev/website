@@ -30,6 +30,10 @@
 			content: '';
 		}
 
+		&:first-of-type #{$self}-header {
+			padding-top: 0;
+		}
+
 		&-active #{$self}-header:after {
 			transform: rotate(-135deg);
 		}
@@ -48,9 +52,6 @@
 
 		* {
 			margin-bottom: 0;
-		}
-
-		&::after {
 		}
 	}
 

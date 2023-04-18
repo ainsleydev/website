@@ -1,0 +1,22 @@
+// -----------------------------------------------------------------------------
+// _alert.scss
+// This file contains all styles related to the alert component.
+// -----------------------------------------------------------------------------
+
+.alert {
+	$self: &;
+	position: relative;
+	width: 100%;
+	padding: 1rem;
+	background-color: $orange;
+	border-radius: 4px;
+
+	// Text
+	// =========================================================================
+
+	&-text {
+		color: $white;
+		margin-bottom: 0;
+		line-height: 1.3;
+	}
+}

@@ -7,49 +7,42 @@
  */
 
 import { Form } from './form';
-import { Toast } from '../animations/toast';
+import { ContactFormRequest } from '../api/SDK';
+import { API, HandleAPIError } from '../api/api';
 import { Log } from '../util/log';
 
-const CONTACT_BUTTON_ID = '#ac-contact';
-
+/**
+ * ContactForm sends the payload of the message on /contact
+ * to the API.
+ */
 export class ContactForm extends Form {
 	/**
 	 * Create a new Contact form.
 	 */
 	constructor() {
-		super(CONTACT_BUTTON_ID, '/api/contact/');
+		super('#ac-contact');
 	}
 
 	/**
 	 * Send
 	 */
 	send(): void {
-		super
-			.fetch(super.getValues(), null, 'Contact Form')
+		Log.debug('Sending Plausible Goal - `Contact Form`');
+		window.plausible('Contact Form');
+		const request = {
+			message: this.getValue('message'),
+			honeypot: this.getValue('first-name'),
+		} as ContactFormRequest;
+		this.addButtonLoading();
+		API.forms
+			.sendContactForm(request)
 			.then(() => {
-				this.form.classList.add('form-success');
-				Toast('Successfully sent email');
+				Log.info('Contact - Successfully sent contact form');
+				window.barba.go('/thank-you/');
 			})
 			.catch((err) => {
-				Log.error(err);
-				Toast(err.message);
+				this.removeButtonLoading();
+				HandleAPIError(err);
 			});
 	}
 }
-
-/**
- * Recaptcha
- */
-(<any>window).onloadCallback = () => {
-	grecaptcha.render('ac-contact', {
-		sitekey: 'YOUR_RECAPTCHA_SITEKEY_HERE',
-		badge: 'inline',
-		type: 'image',
-		size: 'invisible',
-		callback: submit,
-	});
-};
-
-const submit = () => {
-	console.log('hello');
-};

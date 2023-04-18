@@ -8,18 +8,18 @@
 
 import { Log } from '../util/log';
 
+// Handler defines a singular event added by the cursor.
+// It's used for destroying mouse events.
+interface Handler {
+	element: Element;
+	function: EventListener;
+	event: string;
+}
+
 /**
- * Cursor is responsible for adding and removing
- * classes when an event has been triggered.
+ * Cursor adds animations to the mouse cursor.
  */
 export class Cursor {
-	/**
-	 * The DOM selector for the element.
-	 *
-	 * @public
-	 */
-	public readonly selector = '.cursor';
-
 	/**
 	 * The DOM selector for the cursor.
 	 *
@@ -28,11 +28,26 @@ export class Cursor {
 	public readonly elementSelector = '.cursor-element';
 
 	/**
+	 * The DOM selector for the element.
+	 *
+	 * @public
+	 */
+	public readonly selector = '.cursor';
+
+	/**
+	 * Handlers is the member array that contains function
+	 * references to events created by the instance.
+	 *
+	 * @protected
+	 */
+	protected handlers: Handler[] = [];
+
+	/**
 	 * The cursor HTML element.
 	 *
 	 * @private
 	 */
-	private el: HTMLDivElement;
+	private readonly el: HTMLDivElement;
 
 	/**
 	 * Initialises the cursor element.
@@ -42,12 +57,30 @@ export class Cursor {
 	constructor() {
 		const el = document.querySelector(this.selector);
 		if (!el) {
-			Log.error(`No ${this.selector} element found in the DOM`);
+			Log.error(`Cursor - No ${this.selector} element found in the DOM`);
 			return;
 		}
 		this.el = el as HTMLDivElement;
 		this.attachMouseMove();
 		document.querySelectorAll<HTMLElement>(this.elementSelector).forEach((el) => this.attachElementHandlers(el));
+	}
+
+	/**
+	 * Destroy removes all active classes and styles
+	 * from the cursor element.
+	 */
+	public destroy(): void {
+		Log.debug('Cursor - Destroying & removing event handlers');
+		this.el.style.transform = '';
+		this.removeHandlers();
+		setTimeout(() => {
+			this.el.classList.forEach((c) => {
+				if (c == 'cursor') {
+					return;
+				}
+				this.el.classList.remove(c);
+			});
+		}, 200);
 	}
 
 	/**
@@ -66,29 +99,75 @@ export class Cursor {
 	/**
 	 * Attaches the elements to be animated.
 	 *
-	 * @param el
+	 * @param el The DOM element to attach handlers to.
 	 * @private
 	 */
 	private attachElementHandlers(el: HTMLElement): void {
 		const classes = el.getAttributeNames().filter((a) => a.startsWith('data-cursor'));
 
-		el.addEventListener('mousemove', () =>
-			classes.forEach((c) => {
-				this.addScale(el);
-				this.el.classList.add('cursor-active');
-				this.el.classList.add(c.replace('data-', ''));
-			}),
-		);
+		const mouseMoveHandler = this.mouseMove.bind(this, classes, el);
+		el.addEventListener('mousemove', mouseMoveHandler);
+		this.handlers.push({
+			element: el,
+			function: mouseMoveHandler,
+			event: 'mousemove',
+		} as Handler);
 
-		el.addEventListener('mouseleave', () =>
-			classes.forEach((c) => {
-				this.removeScale();
-				this.el.classList.remove('cursor-active');
-				setTimeout(() => {
+		const mouseLeaveHandler = this.mouseLeave.bind(this, classes);
+		el.addEventListener('mouseleave', mouseLeaveHandler);
+		this.handlers.push({
+			element: el,
+			function: mouseLeaveHandler,
+			event: 'mouseleave',
+		} as Handler);
+	}
+
+	/**
+	 * Mouse move handler for an element.
+	 *
+	 * @param classes
+	 * @param el
+	 * @private
+	 */
+	private mouseMove(classes: string[], el: HTMLElement): void {
+		classes.forEach((c) => {
+			this.addScale(el);
+			this.el.classList.add('cursor-active');
+			this.el.classList.add(c.replace('data-', ''));
+		});
+	}
+
+	/**
+	 * Mouse leave event for the cursor.
+	 *
+	 * @param classes
+	 * @private
+	 */
+	private mouseLeave(classes: string[]): void {
+		classes.forEach((c) => {
+			this.removeScale();
+			this.el.classList.remove('cursor-active');
+
+			setTimeout(() => {
+				// This was causing an issue with flickering between insights cards, so
+				// a check is needed to see if the cursor is still animating.
+				if (!this.el.classList.contains('cursor-active')) {
 					this.el.classList.remove(c.replace('data-', ''));
-				}, 300);
-			}),
-		);
+				}
+			}, 100);
+		});
+	}
+
+	/**
+	 * Removes all event listeners from the elements
+	 * that have been assigned.
+	 *
+	 * @private
+	 */
+	private removeHandlers(): void {
+		this.handlers.forEach((handler) => {
+			handler.element.removeEventListener(handler.event, handler.function);
+		});
 	}
 
 	/**
@@ -99,9 +178,14 @@ export class Cursor {
 	 * @private
 	 */
 	private addScale(el: HTMLElement): void {
-		const defaultScale = el.getBoundingClientRect().height / 50 + 0.3;
-		const scale = el.getAttribute('data-cursor-scale') ?? defaultScale > 5 ? 4 : defaultScale;
-		this.el.style.transform = `translate(-50%, -50%) scale(${scale})`;
+		const scaleAttr = el.getAttribute('data-cursor-scale');
+		let scale = el.getBoundingClientRect().height / 50 + 0.5;
+		if (scaleAttr) {
+			scale = parseFloat(scaleAttr);
+		} else {
+			scale = scale > 5 ? 4 : scale;
+		}
+		this.el.style.transform = `translate(-50%, -50%) scale(${scale.toString()})`;
 	}
 
 	/**

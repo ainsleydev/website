@@ -9,7 +9,7 @@
 
 button,
 a.btn {
-	border-radius: 4px;
+	border-radius: $button-border-radius;
 	cursor: pointer;
 	outline: none;
 	user-select: none;
@@ -61,12 +61,25 @@ a.btn {
 		height: auto;
 	}
 
+	// Multiple
+	// =========================================================================
+
+	&-multiple {
+		#{$self} {
+			width: 100%;
+
+			&:last-child {
+				margin-top: 1rem;
+			}
+		}
+	}
+
 	// Text
 	// =========================================================================
 
 	&-text {
 		display: inline-block;
-		font-size: 1rem;
+		font-size: $button-font-size;
 		font-weight: bold;
 		line-height: 1;
 		white-space: nowrap;
@@ -102,6 +115,7 @@ a.btn {
 			}
 		}
 
+		&-grey,
 		&-black {
 			background-color: $black;
 			color: $white;
@@ -127,6 +141,10 @@ a.btn {
 				}
 			}
 		}
+
+		&-grey {
+			background-color: $grey-light;
+		}
 	}
 
 	// Sizes
@@ -134,16 +152,24 @@ a.btn {
 
 	&-size {
 		&-tiny {
-			padding: $button-padding-tiny;
-			font-size: 0.8rem;
+			padding: $button-tiny-padding;
+			font-size: $button-tiny-font-size;
 
 			* {
-				font-size: 0.8rem;
+				font-size: $button-tiny-font-size;
 			}
 		}
 
 		&-small {
-			padding: $button-padding-small;
+			padding: $button-small-padding;
+		}
+
+		&-large {
+			padding: $button-large-padding;
+
+			#{$self}-text {
+				font-size: $button-large-font-size;
+			}
 		}
 	}
 
@@ -226,9 +252,9 @@ a.btn {
 
 		&::after {
 			content: '';
-			width: 18px;
-			height: 18px;
-			border: 2px solid $black;
+			width: 1.4rem;
+			height: 1.4rem;
+			border: 3px solid $white;
 			border-right-color: transparent !important;
 			border-radius: 50%;
 			display: inline-block;
@@ -239,9 +265,8 @@ a.btn {
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			margin-left: -9px;
-			margin-top: -9px;
-			background: $white;
+			margin-left: -0.7rem;
+			margin-top: -0.7rem;
 		}
 
 		@keyframes spinner {
@@ -255,6 +280,21 @@ a.btn {
 
 		&:hover {
 			box-shadow: none;
+		}
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-tab {
+		&-multiple {
+			#{$self} {
+				width: auto;
+
+				&:not(:last-child) {
+					margin-right: 1rem;
+				}
+			}
 		}
 	}
 

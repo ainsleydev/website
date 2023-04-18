@@ -31,6 +31,7 @@
 	// Paragraph
 	// ==========================================================================
 
+	ul,
 	p {
 		&:empty {
 			display: none;
@@ -49,6 +50,8 @@
 
 	a {
 		word-break: break-word;
+		color: $black;
+		text-decoration: underline;
 	}
 
 	// Temp
