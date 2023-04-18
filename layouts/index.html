@@ -1,14 +1,8 @@
 {{ define "main" }}
-
-	<video controls preload='auto' style='margin-top: 200px; background: red; padding: 20px; width: 100%; z-index: 999999999999999999999999;'>
-        {{/*		<source src="/portfolio/decspets/video/tags.webm" type="video/webm">*/}}
-        {{/*		<source src="/portfolio/decspets/video/tags-compressed.mp4" type="video/mp4">*/}}
-		<source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
-	</video>
 	<!-- =====================
 		Home
 		===================== -->
-	<div class="home-hero-wrapper" style='display: none'>
+	<div class="home-hero-wrapper">
 		<div class="home-three-d">
 			{{ partial "svgs/a-symbol-3d.html" . }}
 		</div>
@@ -51,7 +45,7 @@
 	<!-- =====================
 		Show-reel
 		===================== -->
-	<section class="section home-show-reel" id="content" style='display: none'>
+	<section class="section home-show-reel" id="content">
 		<div class="home-show-reel-wrapper">
 			<!-- Marquee -->
 			<div class="home-marquee">
@@ -85,16 +79,14 @@
 			</div><!-- /Content -->
 		</div><!-- /Container -->
 	</section>
-
-{{/*	<div class="video-full" id="home-video">*/}}
-
-{{/*		<div class="video-button cursor-element"*/}}
-{{/*			 data-cursor-invert data-cursor-invert-white>*/}}
-{{/*		</div>*/}}
-{{/*		<div class="video-full-btn tag tag-black">*/}}
-{{/*			Close*/}}
-{{/*		</div>*/}}
-{{/*	</div>*/}}
+	<div class="video-full" id="home-video">
+		<video class="video" controls preload="metadata">
+			<source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+		</video>
+		<div class="video-full-btn tag tag-black">
+			Close
+		</div>
+	</div>
 
 	<!-- =====================
 		Solutions
