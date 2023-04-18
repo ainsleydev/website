@@ -34,15 +34,15 @@ export const video = (): void => {
 	/**
 	 * Add playing class to video when it's playing.
 	 */
-	document.querySelectorAll('video').forEach((vid) => {
-		vid.addEventListener('play', () => vid.classList.add('video-playing'));
-		vid.addEventListener("error", e => {
-			console.log(e);
-		})
-		if (vid.hasAttribute('data-plausible') && window.plausible) {
-			window.plausible(vid.getAttribute('data-plausible'));
-		}
-	});
+	// document.querySelectorAll('video').forEach((vid) => {
+	// 	vid.addEventListener('play', () => vid.classList.add('video-playing'));
+	// 	vid.addEventListener("error", e => {
+	// 		console.log(e);
+	// 	})
+	// 	if (vid.hasAttribute('data-plausible') && window.plausible) {
+	// 		window.plausible(vid.getAttribute('data-plausible'));
+	// 	}
+	// });
 
 	/**
 	 * Handle lazy load
@@ -62,30 +62,30 @@ export const video = (): void => {
 	 *
 	 * @param container
 	 */
-	const openCloseVideo = (container: HTMLElement) => {
-		const video = container.querySelector("video") as HTMLVideoElement;
-		if (!video) {
-			Log.error("Video not found");
-			return;
-		}
-		if (container.classList.contains("video-full-active")) {
-			container.classList.remove("video-full-active");
-			video.pause();
-			return;
-		}
-		container.classList.add("video-full-active");
-	}
-
-	document.querySelectorAll("[data-video-fullscreen-btn]").forEach((button) => {
-		const container = document.querySelector(button.getAttribute("data-video-fullscreen-btn"));
-		if (!video) {
-			Log.error("Video fullscreen not found");
-			return;
-		}
-		button.addEventListener("click", () => openCloseVideo(container as HTMLElement));
-	});
-
-	document.querySelectorAll(".video-full-btn").forEach((btn) => {
-		btn.addEventListener("click", () => openCloseVideo(btn.closest(".video-full") as HTMLElement));
-	});
+	// const openCloseVideo = (container: HTMLElement) => {
+	// 	const video = container.querySelector("video") as HTMLVideoElement;
+	// 	if (!video) {
+	// 		Log.error("Video not found");
+	// 		return;
+	// 	}
+	// 	if (container.classList.contains("video-full-active")) {
+	// 		container.classList.remove("video-full-active");
+	// 		video.pause();
+	// 		return;
+	// 	}
+	// 	container.classList.add("video-full-active");
+	// }
+	//
+	// document.querySelectorAll("[data-video-fullscreen-btn]").forEach((button) => {
+	// 	const container = document.querySelector(button.getAttribute("data-video-fullscreen-btn"));
+	// 	if (!video) {
+	// 		Log.error("Video fullscreen not found");
+	// 		return;
+	// 	}
+	// 	button.addEventListener("click", () => openCloseVideo(container as HTMLElement));
+	// });
+	//
+	// document.querySelectorAll(".video-full-btn").forEach((btn) => {
+	// 	btn.addEventListener("click", () => openCloseVideo(btn.closest(".video-full") as HTMLElement));
+	// });
 };
