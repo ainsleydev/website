@@ -73,7 +73,7 @@ export const video = (): void => {
 			} else if (video.msRequestFullscreen) { /* IE11 */
 				video.msRequestFullscreen();
 			}
-			video.play();
+			playVideo(video);
 		});
 	});
 
