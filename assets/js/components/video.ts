@@ -36,6 +36,9 @@ export const video = (): void => {
 	 */
 	document.querySelectorAll('video').forEach((vid) => {
 		vid.addEventListener('play', () => vid.classList.add('video-playing'));
+		vid.addEventListener("error", e => {
+			console.log(e);
+		})
 		if (vid.hasAttribute('data-plausible') && window.plausible) {
 			window.plausible(vid.getAttribute('data-plausible'));
 		}
