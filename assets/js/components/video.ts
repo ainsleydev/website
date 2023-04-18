@@ -42,30 +42,6 @@ export const video = (): void => {
 	});
 
 	/**
-	 * Container handler.
-	 */
-	document.querySelectorAll('.video-container').forEach((container) => {
-		const button = container.querySelector('.video-button'),
-			vid = container.querySelector('video') as HTMLVideoElement;
-
-		container.addEventListener("click", () => {
-			console.log("hello")
-		})
-
-		if (!button || !vid) {
-			return;
-		}
-		console.log("here")
-		button.addEventListener('click', (e) => {
-			console.log(e);
-			console.log("hello")
-		});
-		button.addEventListener("mousemove", () => {
-			console.log("DFGsdfg")
-		});
-	});
-
-	/**
 	 * Handle lazy load
 	 */
 	document.querySelectorAll('video').forEach((vid) => {
