@@ -35,7 +35,6 @@ const openCloseVideo = (container: HTMLElement) => {
 		return;
 	}
 	if (container.classList.contains("video-full-active")) {
-		container.classList.remove("video-full-active");
 		video.pause();
 		return;
 	}
@@ -56,6 +55,7 @@ export const video = (): void => {
 	 */
 	document.querySelectorAll('video').forEach((vid) => {
 		vid.addEventListener('play', () => vid.classList.add('video-playing'));
+		vid.addEventListener('pause', () => vid.classList.remove('video-playing'));
 		if (vid.hasAttribute('data-plausible') && window.plausible) {
 			window.plausible(vid.getAttribute('data-plausible'));
 		}
@@ -84,15 +84,27 @@ export const video = (): void => {
 			return;
 		}
 		button.addEventListener("click", () => {
-			playVideo(video);
+			video.classList.add("video-full-active");
+			video.play();
 			if (video.requestFullscreen) {
 				video.requestFullscreen();
-			} else if (video.mozRequestFullScreen) {
-				video.mozRequestFullScreen();
-			} else if (video.webkitRequestFullscreen) {
+			} else if (video.webkitRequestFullscreen) { /* Safari */
 				video.webkitRequestFullscreen();
-			} else if (video.msRequestFullscreen) {
+			} else if (video.msRequestFullscreen) { /* IE11 */
 				video.msRequestFullscreen();
+			}
+		});
+	});
+
+	/**
+	 * Close full screen.
+	 */
+	document.querySelectorAll(".video-full").forEach((video) => {
+		video.addEventListener("fullscreenchange", res => {
+			if (!document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement)
+			{
+				video.classList.remove("video-full-active");
+				video.pause();
 			}
 		});
 	});
