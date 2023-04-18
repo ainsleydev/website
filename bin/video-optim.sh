@@ -6,8 +6,8 @@
 # ainsley.dev - 16/09/2021
 
 # Set Variables
-#PUBLIC_PATH="./content"
-PUBLIC_PATH="./static/video"
+PUBLIC_PATH="./content"
+#PUBLIC_PATH="./static/video"
 CRF=30
 
 # Adjust the crf value to change the quality and size of the video.
