@@ -1,8 +1,9 @@
 {{ define "main" }}
-	<video controls style='margin-top: 200px; background: red; padding: 20px; width: 100%;'>
-{{/*		<source src="/portfolio/decspets/video/tags.webm" type="video/webm">*/}}
-{{/*		<source src="/portfolio/decspets/video/tags-compressed.mp4" type="video/mp4">*/}}
-		<source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+
+	<video controls preload='auto' style='margin-top: 200px; background: red; padding: 20px; width: 100%; z-index: 999999999999999999999999;'>
+        {{/*		<source src="/portfolio/decspets/video/tags.webm" type="video/webm">*/}}
+        {{/*		<source src="/portfolio/decspets/video/tags-compressed.mp4" type="video/mp4">*/}}
+		<source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
 	</video>
 	<!-- =====================
 		Home
@@ -50,7 +51,7 @@
 	<!-- =====================
 		Show-reel
 		===================== -->
-	<section class="section home-show-reel" id="content">
+	<section class="section home-show-reel" id="content" style='display: none'>
 		<div class="home-show-reel-wrapper">
 			<!-- Marquee -->
 			<div class="home-marquee">
