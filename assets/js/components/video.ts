@@ -50,10 +50,7 @@ export const video = (): void => {
 		if (!button || !vid) {
 			return;
 		}
-		button.addEventListener('click', () => {
-			console.log('vid');
-			vid.play();
-		});
+		button.addEventListener('click', () => playVideo(vid));
 	});
 	/**
 	 * Handle lazy load
@@ -64,9 +61,7 @@ export const video = (): void => {
 		}
 		WayPoint(vid, {
 			rootMargin: '-100px',
-			callback: () => {
-				vid.play();
-			},
+			callback: () => playVideo(vid),
 		});
 	});
 };
