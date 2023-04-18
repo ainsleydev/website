@@ -8,6 +8,7 @@
 
 import { WayPoint } from '../animations/waypoint';
 import { Log } from '../util/log';
+import { IsTouchDevice } from '../util/css';
 
 /**
  * playVideo plays a video element.
@@ -16,11 +17,12 @@ import { Log } from '../util/log';
  */
 const playVideo = (vid: HTMLVideoElement) => {
 	vid.play()
-		.then(res => {
+		.then((res) => {
 			Log.debug('Video playing: ', res);
-		}).catch(err => {
-		Log.error('Failed to play video: ', err);
-	});
+		})
+		.catch((err) => {
+			Log.error('Failed to play video: ', err);
+		});
 };
 
 /**
@@ -68,9 +70,11 @@ export const video = (): void => {
 			video.classList.add('video-full-active');
 			if (video.requestFullscreen) {
 				video.requestFullscreen();
-			} else if (video.webkitRequestFullscreen) { /* Safari */
+			} else if (video.webkitRequestFullscreen) {
+				/* Safari */
 				video.webkitRequestFullscreen();
-			} else if (video.msRequestFullscreen) { /* IE11 */
+			} else if (video.msRequestFullscreen) {
+				/* IE11 */
 				video.msRequestFullscreen();
 			}
 			playVideo(video);
@@ -81,14 +85,21 @@ export const video = (): void => {
 	 * Close full screen.
 	 */
 	document.querySelectorAll('.video-full').forEach((video: HTMLVideoElement) => {
-		video.addEventListener("pause", () => {
-			if (video.webkitDisplayingFullscreen || video.paused) {
-				video.classList.remove('video-full-active');
-				video.pause();
-			}
-		})
+		if (IsTouchDevice()) {
+			video.addEventListener('pause', () => {
+				if (video.webkitDisplayingFullscreen) {
+					video.classList.remove('video-full-active');
+					video.pause();
+				}
+			});
+		}
 		video.addEventListener('fullscreenchange', () => {
-			if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
+			if (
+				!document.fullscreenElement &&
+				!document.webkitIsFullScreen &&
+				!document.mozFullScreen &&
+				!document.msFullscreenElement
+			) {
 				video.classList.remove('video-full-active');
 				video.pause();
 			}
