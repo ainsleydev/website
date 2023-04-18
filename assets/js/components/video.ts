@@ -99,10 +99,9 @@ export const video = (): void => {
 	/**
 	 * Close full screen.
 	 */
-	document.querySelectorAll(".video-full").forEach((video) => {
-		video.addEventListener("fullscreenchange", res => {
-			if (!document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement)
-			{
+	document.querySelectorAll(".video-full").forEach((video: HTMLVideoElement) => {
+		video.addEventListener("fullscreenchange", () => {
+			if (!document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
 				video.classList.remove("video-full-active");
 				video.pause();
 			}
