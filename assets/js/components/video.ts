@@ -59,30 +59,31 @@ export const video = (): void => {
 	 *
 	 * @param container
 	 */
-	// const openCloseVideo = (container: HTMLElement) => {
-	// 	const video = container.querySelector("video") as HTMLVideoElement;
-	// 	if (!video) {
-	// 		Log.error("Video not found");
-	// 		return;
-	// 	}
-	// 	if (container.classList.contains("video-full-active")) {
-	// 		container.classList.remove("video-full-active");
-	// 		video.pause();
-	// 		return;
-	// 	}
-	// 	container.classList.add("video-full-active");
-	// }
-	//
-	// document.querySelectorAll("[data-video-fullscreen-btn]").forEach((button) => {
-	// 	const container = document.querySelector(button.getAttribute("data-video-fullscreen-btn"));
-	// 	if (!video) {
-	// 		Log.error("Video fullscreen not found");
-	// 		return;
-	// 	}
-	// 	button.addEventListener("click", () => openCloseVideo(container as HTMLElement));
-	// });
-	//
-	// document.querySelectorAll(".video-full-btn").forEach((btn) => {
-	// 	btn.addEventListener("click", () => openCloseVideo(btn.closest(".video-full") as HTMLElement));
-	// });
+	const openCloseVideo = (container: HTMLElement) => {
+		const video = container.querySelector("video") as HTMLVideoElement;
+		if (!video) {
+			Log.error("Video not found");
+			return;
+		}
+		if (container.classList.contains("video-full-active")) {
+			container.classList.remove("video-full-active");
+			video.pause();
+			return;
+		}
+		container.classList.add("video-full-active");
+		playVideo(video);
+	}
+
+	document.querySelectorAll("[data-video-fullscreen-btn]").forEach((button) => {
+		const container = document.querySelector(button.getAttribute("data-video-fullscreen-btn"));
+		if (!video) {
+			Log.error("Video fullscreen not found");
+			return;
+		}
+		button.addEventListener("click", () => openCloseVideo(container as HTMLElement));
+	});
+
+	document.querySelectorAll(".video-full-btn").forEach((btn) => {
+		btn.addEventListener("click", () => openCloseVideo(btn.closest(".video-full") as HTMLElement));
+	});
 };
