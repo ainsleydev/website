@@ -7,6 +7,21 @@
  */
 
 import { WayPoint } from '../animations/waypoint';
+import { Log } from '../util/log';
+
+/**
+ * playVideo plays a video element.
+ *
+ * @param vid
+ */
+const playVideo = (vid: HTMLVideoElement) => {
+	vid.play()
+		.then(res => {
+			Log.debug("Video playing: ", res)
+		}).catch(err => {
+			Log.error("Failed to play video: ", err)
+		});
+}
 
 /**
  * Video - Adds the video playing class when a user
@@ -35,10 +50,7 @@ export const video = (): void => {
 		if (!button || !vid) {
 			return;
 		}
-		button.addEventListener('click', () => {
-			console.log('vid');
-			vid.play();
-		});
+		button.addEventListener('click', () => playVideo(vid));
 	});
 	/**
 	 * Handle lazy load
@@ -49,9 +61,7 @@ export const video = (): void => {
 		}
 		WayPoint(vid, {
 			rootMargin: '-100px',
-			callback: () => {
-				vid.play();
-			},
+			callback: () => playVideo(vid),
 		});
 	});
 };
