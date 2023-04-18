@@ -1,4 +1,4 @@
-name: Cron Build
+name: Deploy
 
 # Run daily.
 on:
