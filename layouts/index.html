@@ -53,7 +53,9 @@
                 	"text" "Showreel"
                 )}}
 			</div><!-- /Marquee -->
-			<div class="container home-show-reel-content">
+			<div class="container home-show-reel-content"
+				data-video-fullscreen-btn="#home-video"
+				data-plausible="Home Video Click">
 				<!-- Button -->
 				<div class="home-video-btn">
                     {{ partial "components/button.html" (dict
@@ -68,7 +70,7 @@
 				<div class="home-video cursor-element brightness-80"
 					data-cursor-invert data-cursor-invert-white>
 					<!-- Looped Video -->
-					<video class="video" muted playsinline loop preload="none" data-lazy>
+					<video class="video" autoplay muted playsinline loop preload="none">
 						<source src="/portfolio/decspets/video/tags.webm" type="video/webm">
 						<source src="/portfolio/decspets/video/tags-compressed.mp4" type="video/mp4">
 						<source src="/portfolio/decspets/video/tags.mp4" type="video/mp4">
@@ -77,21 +79,16 @@
 			</div><!-- /Content -->
 		</div><!-- /Container -->
 	</section>
-	<div class="video-full video-container">
-		<div class="video-container">
-			<video class="video" controls preload="none" data-plausible="Home Video Click">
-				<source src="/portfolio/decspets/video/tags.webm" type="video/webm">
-				<source src="/portfolio/decspets/video/tags-compressed.mp4" type="video/mp4">
-				<source src="/portfolio/decspets/video/tags.mp4" type="video/mp4">
-			</video>
-			<div class="video-button cursor-element"
-				 data-cursor-invert data-cursor-invert-white
-				 data-skew-transform-x="0.15" data-skew-transform-y="0.15"
-				 data-skew-rotate-x="-0.1" data-skew-rotate-y="-0.1"
-				 data-skew-rotate>
-			</div>
+	<div class="video-full" id="home-video">
+		<video class="video" playsinline controls preload="none">
+			<source src="/portfolio/decspets/video/tags.webm" type="video/webm">
+			<source src="/portfolio/decspets/video/tags-compressed.mp4" type="video/mp4">
+		</video>
+		<div class="video-full-btn tag tag-black">
+			Close
 		</div>
 	</div>
+
 	<!-- =====================
 		Solutions
 		===================== -->

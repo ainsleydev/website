@@ -11,7 +11,13 @@
 	aspect-ratio: 16 / 9;
 	outline: none;
 	object-fit: cover; // Poster
-	cursor: pointer;
+
+	// Props
+	// =========================================================================
+
+	[controls] {
+		cursor: pointer;
+	}
 
 	// Container
 	// =========================================================================
@@ -36,7 +42,7 @@
 		border-color: transparent transparent transparent rgba($black, 0.6);
 		cursor: pointer;
 		transition: opacity 300ms ease;
-		z-index: 10;
+		z-index: 999;
 		will-change: opacity;
 	}
 
@@ -53,14 +59,25 @@
 		z-index: $header-z-index + 999;
 		background-color: $black;
 
-		#{$self} {
-			width: 100%;
-			height: auto;
+		&-active {
+			display: block;
 		}
 
-		#{$self}-container {
-			display: flex;
-			align-items: center;
+		&-btn {
+			display: block;
+			z-index: 10;
+			position: absolute;
+			top: 2rem;
+			right: 2rem;
+			cursor: pointer;
+			margin: 0;
+
+			* {
+				color: $white;
+			}
+		}
+
+		#{$self} {
 			width: 100%;
 			height: 100%;
 		}

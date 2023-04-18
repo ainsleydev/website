@@ -19,8 +19,8 @@ const playVideo = (vid: HTMLVideoElement) => {
 		.then(res => {
 			Log.debug("Video playing: ", res)
 		}).catch(err => {
-			Log.error("Failed to play video: ", err)
-		});
+		Log.error("Failed to play video: ", err)
+	});
 }
 
 /**
@@ -37,21 +37,34 @@ export const video = (): void => {
 	document.querySelectorAll('video').forEach((vid) => {
 		vid.addEventListener('play', () => vid.classList.add('video-playing'));
 		if (vid.hasAttribute('data-plausible') && window.plausible) {
-			console.log('in');
 			window.plausible(vid.getAttribute('data-plausible'));
 		}
 	});
+
 	/**
-	 * Button click handler.
+	 * Container handler.
 	 */
 	document.querySelectorAll('.video-container').forEach((container) => {
 		const button = container.querySelector('.video-button'),
 			vid = container.querySelector('video') as HTMLVideoElement;
+
+		container.addEventListener("click", () => {
+			console.log("hello")
+		})
+
 		if (!button || !vid) {
 			return;
 		}
-		button.addEventListener('click', () => playVideo(vid));
+		console.log("here")
+		button.addEventListener('click', (e) => {
+			console.log(e);
+			console.log("hello")
+		});
+		button.addEventListener("mousemove", () => {
+			console.log("DFGsdfg")
+		});
 	});
+
 	/**
 	 * Handle lazy load
 	 */
@@ -63,5 +76,38 @@ export const video = (): void => {
 			rootMargin: '-100px',
 			callback: () => playVideo(vid),
 		});
+	});
+
+	/**
+	 * Handle video full screen and toggle video class.
+	 *
+	 * @param container
+	 */
+	const openCloseVideo = (container: HTMLElement) => {
+		const video = container.querySelector("video") as HTMLVideoElement;
+		if (!video) {
+			Log.error("Video not found");
+			return;
+		}
+		if (container.classList.contains("video-full-active")) {
+			container.classList.remove("video-full-active");
+			video.pause();
+		} else {
+			container.classList.add("video-full-active");
+			playVideo(container.querySelector("video"));
+		}
+	}
+
+	document.querySelectorAll("[data-video-fullscreen-btn]").forEach((button) => {
+		const container = document.querySelector(button.getAttribute("data-video-fullscreen-btn"));
+		if (!video) {
+			Log.error("Video fullscreen not found");
+			return;
+		}
+		button.addEventListener("click", () => openCloseVideo(container as HTMLElement));
+	});
+
+	document.querySelectorAll(".video-full-btn").forEach((btn) => {
+		btn.addEventListener("click", () => openCloseVideo(btn.closest(".video-full") as HTMLElement));
 	});
 };
