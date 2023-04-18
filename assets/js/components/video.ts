@@ -17,30 +17,11 @@ import { Log } from '../util/log';
 const playVideo = (vid: HTMLVideoElement) => {
 	vid.play()
 		.then(res => {
-			Log.debug("Video playing: ", res)
+			Log.debug('Video playing: ', res);
 		}).catch(err => {
-		Log.error("Failed to play video: ", err)
+		Log.error('Failed to play video: ', err);
 	});
-}
-
-/**
- * Handle video full screen and toggle video class.
- *
- * @param container
- */
-const openCloseVideo = (container: HTMLElement) => {
-	const video = container.querySelector("video") as HTMLVideoElement;
-	if (!video) {
-		Log.error("Video not found");
-		return;
-	}
-	if (container.classList.contains("video-full-active")) {
-		video.pause();
-		return;
-	}
-	container.classList.add("video-full-active");
-	playVideo(video);
-}
+};
 
 /**
  * Video - Adds the video playing class when a user
@@ -77,14 +58,14 @@ export const video = (): void => {
 	/**
 	 * Open full screen.
 	 */
-	document.querySelectorAll("[data-video-fullscreen-btn]").forEach((button) => {
-		const video = document.querySelector(button.getAttribute("data-video-fullscreen-btn")) as HTMLVideoElement;
+	document.querySelectorAll('[data-video-fullscreen-btn]').forEach((button) => {
+		const video = document.querySelector(button.getAttribute('data-video-fullscreen-btn')) as HTMLVideoElement;
 		if (!video) {
-			Log.error("Video fullscreen not found");
+			Log.error('Video fullscreen not found');
 			return;
 		}
-		button.addEventListener("click", () => {
-			video.classList.add("video-full-active");
+		button.addEventListener('click', () => {
+			video.classList.add('video-full-active');
 			if (video.requestFullscreen) {
 				video.requestFullscreen();
 			} else if (video.webkitRequestFullscreen) { /* Safari */
@@ -99,14 +80,14 @@ export const video = (): void => {
 	/**
 	 * Close full screen.
 	 */
-	document.querySelectorAll(".video-full").forEach((video: HTMLVideoElement) => {
-		video.addEventListener("fullscreenchange", () => {
+	document.querySelectorAll('.video-full').forEach((video: HTMLVideoElement) => {
+		video.addEventListener('fullscreenchange', () => {
 			if (!video.webkitDisplayingFullscreen) {
-				video.classList.remove("video-full-active");
+				video.classList.remove('video-full-active');
 				video.pause();
 			}
 			if (!document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
-				video.classList.remove("video-full-active");
+				video.classList.remove('video-full-active');
 				video.pause();
 			}
 		});
