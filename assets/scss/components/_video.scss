@@ -44,6 +44,7 @@
 		transition: opacity 300ms ease;
 		z-index: 999;
 		will-change: opacity;
+		pointer-events: none;
 	}
 
 	// Full
@@ -55,31 +56,14 @@
 		top: 0;
 		left: 0;
 		width: 100vw;
-		height: 100vh;
+		height: 100%;
 		z-index: $header-z-index + 999;
 		background-color: $black;
+		cursor: pointer;
+		object-fit: contain;
 
 		&-active {
 			display: block;
-		}
-
-		&-btn {
-			display: block;
-			z-index: 10;
-			position: absolute;
-			top: 2rem;
-			right: 2rem;
-			cursor: pointer;
-			margin: 0;
-
-			* {
-				color: $white;
-			}
-		}
-
-		#{$self} {
-			width: 100%;
-			height: 100%;
 		}
 	}
 

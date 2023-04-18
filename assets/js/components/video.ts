@@ -8,6 +8,7 @@
 
 import { WayPoint } from '../animations/waypoint';
 import { Log } from '../util/log';
+import { IsTouchDevice } from '../util/css';
 
 /**
  * playVideo plays a video element.
@@ -16,12 +17,13 @@ import { Log } from '../util/log';
  */
 const playVideo = (vid: HTMLVideoElement) => {
 	vid.play()
-		.then(res => {
-			Log.debug("Video playing: ", res)
-		}).catch(err => {
-		Log.error("Failed to play video: ", err)
-	});
-}
+		.then((res) => {
+			Log.debug('Video playing: ', res);
+		})
+		.catch((err) => {
+			Log.error('Failed to play video: ', err);
+		});
+};
 
 /**
  * Video - Adds the video playing class when a user
@@ -36,33 +38,10 @@ export const video = (): void => {
 	 */
 	document.querySelectorAll('video').forEach((vid) => {
 		vid.addEventListener('play', () => vid.classList.add('video-playing'));
+		vid.addEventListener('pause', () => vid.classList.remove('video-playing'));
 		if (vid.hasAttribute('data-plausible') && window.plausible) {
 			window.plausible(vid.getAttribute('data-plausible'));
 		}
-	});
-
-	/**
-	 * Container handler.
-	 */
-	document.querySelectorAll('.video-container').forEach((container) => {
-		const button = container.querySelector('.video-button'),
-			vid = container.querySelector('video') as HTMLVideoElement;
-
-		container.addEventListener("click", () => {
-			console.log("hello")
-		})
-
-		if (!button || !vid) {
-			return;
-		}
-		console.log("here")
-		button.addEventListener('click', (e) => {
-			console.log(e);
-			console.log("hello")
-		});
-		button.addEventListener("mousemove", () => {
-			console.log("DFGsdfg")
-		});
 	});
 
 	/**
@@ -79,35 +58,51 @@ export const video = (): void => {
 	});
 
 	/**
-	 * Handle video full screen and toggle video class.
-	 *
-	 * @param container
+	 * Open full screen.
 	 */
-	const openCloseVideo = (container: HTMLElement) => {
-		const video = container.querySelector("video") as HTMLVideoElement;
+	document.querySelectorAll('[data-video-fullscreen-btn]').forEach((button) => {
+		const video = document.querySelector(button.getAttribute('data-video-fullscreen-btn')) as HTMLVideoElement;
 		if (!video) {
-			Log.error("Video not found");
+			Log.error('Video fullscreen not found');
 			return;
 		}
-		if (container.classList.contains("video-full-active")) {
-			container.classList.remove("video-full-active");
-			video.pause();
-		} else {
-			container.classList.add("video-full-active");
-			playVideo(container.querySelector("video"));
-		}
-	}
-
-	document.querySelectorAll("[data-video-fullscreen-btn]").forEach((button) => {
-		const container = document.querySelector(button.getAttribute("data-video-fullscreen-btn"));
-		if (!video) {
-			Log.error("Video fullscreen not found");
-			return;
-		}
-		button.addEventListener("click", () => openCloseVideo(container as HTMLElement));
+		button.addEventListener('click', () => {
+			video.classList.add('video-full-active');
+			if (video.requestFullscreen) {
+				video.requestFullscreen();
+			} else if (video.webkitRequestFullscreen) {
+				/* Safari */
+				video.webkitRequestFullscreen();
+			} else if (video.msRequestFullscreen) {
+				/* IE11 */
+				video.msRequestFullscreen();
+			}
+			playVideo(video);
+		});
 	});
 
-	document.querySelectorAll(".video-full-btn").forEach((btn) => {
-		btn.addEventListener("click", () => openCloseVideo(btn.closest(".video-full") as HTMLElement));
+	/**
+	 * Close full screen.
+	 */
+	document.querySelectorAll('.video-full').forEach((video: HTMLVideoElement) => {
+		if (IsTouchDevice()) {
+			video.addEventListener('pause', () => {
+				if (video.webkitDisplayingFullscreen) {
+					video.classList.remove('video-full-active');
+					video.pause();
+				}
+			});
+		}
+		video.addEventListener('fullscreenchange', () => {
+			if (
+				!document.fullscreenElement &&
+				!document.webkitIsFullScreen &&
+				!document.mozFullScreen &&
+				!document.msFullscreenElement
+			) {
+				video.classList.remove('video-full-active');
+				video.pause();
+			}
+		});
 	});
 };
