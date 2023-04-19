@@ -48,7 +48,7 @@ export const video = (): void => {
 	 * Handle lazy load
 	 */
 	Scroll.onScroll((y: number) => {
-		if (y < 100) {
+		if (y < 1) {
 			return;
 		}
 		document.querySelectorAll('video').forEach((vid) => {
@@ -73,15 +73,15 @@ export const video = (): void => {
 		}
 		button.addEventListener('click', () => {
 			video.classList.add('video-full-active');
-			if (video.requestFullscreen) {
-				video.requestFullscreen();
-			} else if (video.webkitRequestFullscreen) {
-				/* Safari */
-				video.webkitRequestFullscreen();
-			} else if (video.msRequestFullscreen) {
-				/* IE11 */
-				video.msRequestFullscreen();
-			}
+			// if (video.requestFullscreen) {
+			// 	video.requestFullscreen();
+			// } else if (video.webkitRequestFullscreen) {
+			// 	/* Safari */
+			// 	video.webkitRequestFullscreen();
+			// } else if (video.msRequestFullscreen) {
+			// 	/* IE11 */
+			// 	video.msRequestFullscreen();
+			// }
 			playVideo(video);
 		});
 	});
