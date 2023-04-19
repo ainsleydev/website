@@ -32,8 +32,8 @@ EDR Dental is a leading provider of dental restorations for clinicians and their
 state-of-the-art milling machines to produce a wide variety of products from the very best materials.
 {{< /vertical-section >}}
 
-<!-- Milling Machine -->
-{{< picture src="images/machine.jpg" alt="Dental Milling Machine" animate=true >}}
+<!-- Reel -->
+{{< video src="video/reel.mp4" attr="muted loop" lazy=true >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}

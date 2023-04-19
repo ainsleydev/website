@@ -30,8 +30,8 @@ commercial properties across the South East, in addition to fascia, soffit and c
 control solutions.
 {{< /vertical-section >}}
 
-<!-- Guttering -->
-{{< picture src="images/guttering.jpg" alt="Picture of guttering on a roof" animate=true >}}
+<!-- Reel -->
+{{< video src="video/reel.mp4" attr="muted loop" lazy=true >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
@@ -41,7 +41,7 @@ needed to be displayed throughout the landing page, with clear calls to action a
 {{< /vertical-section >}}
 
 <!-- Video -->
-{{< picture src="images/guttering.jpg" alt="TODO" animate=true >}}
+{{< picture src="images/guttering.jpg" alt="Picture of guttering on a roof" animate=true >}}
 
 <!-- Design -->
 {{< vertical-section text="Design" number="02" >}}

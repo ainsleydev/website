@@ -69,17 +69,11 @@
 				<!-- Video -->
 				<div class="home-video cursor-element brightness-80"
 					data-cursor-invert data-cursor-invert-white>
-{{/*					{{ partial "media/video.html" (dict*/}}
-{{/*						"video" (resources.Get "video.mp4")*/}}
-{{/*						"poster" (resources.Get "poster.jpg")*/}}
-{{/*						"class" "class-name"*/}}
-{{/*						"attr" "muted loop"*/}}
-{{/*						"lazy" true*/}}
-{{/*					)}}*/}}
 					<!-- Looped Video -->
-					<video class="video" poster="/images/symbol.jpg" muted playsinline loop preload="metadata" data-lazy>
-						<source src="/portfolio/decspets/video/tags.webm" type="video/webm">
-						<source src="/portfolio/decspets/video/tags-compressed.mp4" type="video/mp4">
+					<video class="video" poster="/images/symbol.jpg" muted playsinline loop preload="none" data-lazy>
+						<source src="/video/showreel-teaser.webm" type="video/webm">
+						<source src="/video/showreel-teaser-compressed.mp4" type="video/mp4">
+						<source src="/video/showreel-teaser.mp4" type="video/mp4">
 					</video>
 				</div><!-- /Video -->
 			</div><!-- /Content -->

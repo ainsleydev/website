@@ -30,8 +30,8 @@ struggling to cope, and a way of sharing experiences through an online community
 rewrite their story.
 {{< /vertical-section >}}
 
-<!-- Cody Dumbarton -->
-{{< picture src="images/cody.jpg" alt="Cody Dumbarton, CEO of Thinkopedia" animate=true >}}
+<!-- Reel -->
+{{< video src="video/reel.mp4" attr="muted loop" lazy=true >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
@@ -41,7 +41,7 @@ also needed, to enable people to get in touch easily.
 {{< /vertical-section >}}
 
 <!-- Video -->
-{{< picture src="images/cody.jpg" alt="TODO" animate=true >}}
+{{< picture src="images/cody.jpg" alt="Cody Dumbarton, CEO of Thinkopedia" animate=true >}}
 
 <!-- Design -->
 {{< vertical-section text="Design" number="02" >}}

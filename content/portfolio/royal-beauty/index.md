@@ -31,8 +31,8 @@ Katherine at Royal Beauty is a beauty salon specialising in massage and beauty t
 creating a warm and friendly atmosphere, where clients can destress and go away feeling refreshed and revitalised.
 {{< /vertical-section >}}
 
-<!-- Kathy -->
-{{< picture src="images/kathy.jpg" alt="Kathy Urresto Massages" animate=true >}}
+<!-- Reel -->
+{{< video src="video/reel.mp4" attr="muted loop" lazy=true >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
