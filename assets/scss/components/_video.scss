@@ -60,21 +60,23 @@
 		width: 100%;
 		height: 100%;
 		max-width: 100%;
+		max-height: 100%;
 		z-index: $header-z-index + 999;
 		background-color: $black;
-
-		&::-webkit-media-controls-mute-button {
-			display: none !important;
-		}
 
 		&-active {
 			display: flex;
 		}
 
+		#{$self} {
+			height: 100%;
+			object-fit: contain;
+		}
+
 		&-close {
 			position: absolute;
-			top: 1.6rem;
-			right: 1.6rem;
+			top: 10px;
+			right: 10px;
 			margin: 0;
 			z-index: 100;
 		}
@@ -93,5 +95,15 @@
 		&-button {
 			border-width: 4vw 0 4vw 5vw;
 		}
+
+		&-full-close {
+			top: 1.6rem;
+			right: 1.6rem;
+		}
 	}
+}
+
+video::-webkit-media-controls-mute-button {
+	-webkit-appearance: none !important;
+	display: none !important;
 }
