@@ -48,7 +48,7 @@ export const video = (): void => {
 	 * Handle lazy load
 	 */
 	Scroll.onScroll((y: number) => {
-		if (y < 100) {
+		if (y < 1) {
 			return;
 		}
 		document.querySelectorAll('video').forEach((vid) => {
@@ -63,51 +63,34 @@ export const video = (): void => {
 	});
 
 	/**
-	 * Open full screen.
+	 * Full screen.
 	 */
 	document.querySelectorAll('[data-video-fullscreen-btn]').forEach((button) => {
-		const video = document.querySelector(button.getAttribute('data-video-fullscreen-btn')) as HTMLVideoElement;
-		if (!video) {
+		const container = document.querySelector(button.getAttribute('data-video-fullscreen-btn')) as HTMLElement;
+		if (!container) {
 			Log.error('Video fullscreen not found');
 			return;
 		}
+		const video = container.querySelector('video');
+		if (!video) {
+			Log.error('Video not found');
+			return;
+		}
+		/**
+		 * Open full screen.
+		 */
 		button.addEventListener('click', () => {
-			video.classList.add('video-full-active');
-			if (video.requestFullscreen) {
-				video.requestFullscreen();
-			} else if (video.webkitRequestFullscreen) {
-				/* Safari */
-				video.webkitRequestFullscreen();
-			} else if (video.msRequestFullscreen) {
-				/* IE11 */
-				video.msRequestFullscreen();
-			}
+			container.classList.add('video-full-active');
 			playVideo(video);
 		});
-	});
-
-	/**
-	 * Close full screen.
-	 */
-	document.querySelectorAll('.video-full').forEach((video: HTMLVideoElement) => {
-		if (IsTouchDevice()) {
-			video.addEventListener('pause', () => {
-				if (video.webkitDisplayingFullscreen) {
-					video.classList.remove('video-full-active');
-					video.pause();
-				}
-			});
-		}
-		video.addEventListener('fullscreenchange', () => {
-			if (
-				!document.fullscreenElement &&
-				!document.webkitIsFullScreen &&
-				!document.mozFullScreen &&
-				!document.msFullscreenElement
-			) {
-				video.classList.remove('video-full-active');
+		/**
+		 * Close full screen.
+		 */
+		container.querySelectorAll('.video-full-close').forEach((btn) => {
+			btn.addEventListener('click', () => {
+				container.classList.remove('video-full-active');
 				video.pause();
-			}
+			});
 		});
 	});
 };
