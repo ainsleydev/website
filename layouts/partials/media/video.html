@@ -11,8 +11,6 @@
 		- poster:	The poster image for the video
 		- class:	Any class names to be appended to the <video> element.
 		- attr:		Any additional attributes to appear.
-		- loop:		If the video should loop, defaults to false.
-		- autoplay:	If the video should autoplay, defaults to false.
 		- lazy:		If the video should be lazy loaded, defaults to false.
     ===================== -->
 {{ if .video }}
@@ -23,13 +21,11 @@
 			class="video"
 				playsinline
                 {{ with .poster }} poster="{{ .RelPermalink }}" {{ end }}
-                {{ with .attr -}} {{ . | safeHTMLAttr -}} {{- end }}
-                {{ if .loop -}} loop {{- end }}
-                {{ if .autoplay -}}
-					autoplay muted
-                {{- else -}}
-					controls
-                {{- end }}
+                {{ with .attr -}}
+					{{ $attr := "" }}
+					{{ if $.lazy -}} {{- $attr = replaceRE "autoplay" "" . -}} {{- end}}
+					{{ $attr | safeHTMLAttr -}}
+				{{- end }}
                 {{ if .lazy -}} data-lazy preload="none" {{- end }}>
             {{- $noExtension := partial "util/_trim-extension.html" .video.RelPermalink -}}
 			<!-- WebM -->
