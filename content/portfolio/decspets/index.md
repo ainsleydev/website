@@ -32,8 +32,8 @@ client base in Ireland, their aim was to establish an e-commerce presence in ord
 wider audience.
 {{< /vertical-section >}}
 
-<!-- Video -->
-{{< video src="video/tags.mp4" attr="muted loop" lazy=true >}}
+<!-- Reel -->
+{{< video src="video/reel.mp4" attr="muted loop" lazy=true >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
