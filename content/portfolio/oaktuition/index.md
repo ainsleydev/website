@@ -31,8 +31,8 @@ Established in 2017, Oak Tuition is a school with highly-qualified, experienced 
 mixed method teaching of the National Curriculum, in accordance with exam board requirements.
 {{< /vertical-section >}}
 
-<!-- Before/After -->
-{{< before-after before="images/before.jpg" after="images/after.jpg" text="Before & after picture of Oak Tuition Website" colour="black" animate=true >}}
+<!-- Reel -->
+{{< video src="video/reel.mp4" attr="muted loop" lazy=true >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
@@ -41,8 +41,8 @@ presence, together with a clear branding across their site and social media page
 information to increase traffic and entice prospective clients to make contact.
 {{< /vertical-section >}}
 
-<!-- Video -->
-{{< picture src="images/poster.jpg" alt="Oak Tuition Website" animate=true >}}
+<!-- Before/After -->
+{{< before-after before="images/before.jpg" after="images/after.jpg" text="Before & after picture of Oak Tuition Website" colour="black" animate=true >}}
 
 <!-- Design -->
 {{< vertical-section text="Design" number="02" >}}

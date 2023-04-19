@@ -22,8 +22,8 @@ changing a single tile to a full re-roof. They pride themselves on providing the
 prices.
 {{< /vertical-section >}}
 
-<!-- Roof -->
-{{< picture src="images/roof.jpg" alt="Hammering on Roof" animate=true  >}}
+<!-- Reel -->
+{{< video src="video/reel.mp4" attr="muted loop" lazy=true >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
