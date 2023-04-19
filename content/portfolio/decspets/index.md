@@ -33,7 +33,7 @@ wider audience.
 {{< /vertical-section >}}
 
 <!-- Video -->
-{{< video src="video/tags.mp4" poster="images/poster.jpg" lazy=true autoplay=true loop=true >}}
+{{< video src="video/tags.mp4" attr="muted loop" lazy=true >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}

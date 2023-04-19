@@ -6,9 +6,9 @@
  * @author Email: hello@ainsley.dev
  */
 
-import { WayPoint } from '../animations/waypoint';
 import { Log } from '../util/log';
 import { IsTouchDevice } from '../util/css';
+import Scroll from '../app/scroll';
 
 /**
  * playVideo plays a video element.
@@ -47,13 +47,18 @@ export const video = (): void => {
 	/**
 	 * Handle lazy load
 	 */
-	document.querySelectorAll('video').forEach((vid) => {
-		if (!vid.hasAttribute('data-lazy')) {
+	Scroll.onScroll((y: number) => {
+		if (y < 100) {
 			return;
 		}
-		WayPoint(vid, {
-			rootMargin: '-100px',
-			callback: () => playVideo(vid),
+		document.querySelectorAll('video').forEach((vid) => {
+			if (!vid.hasAttribute('data-lazy')) {
+				return;
+			}
+			if (vid.classList.contains('video-playing')) {
+				return;
+			}
+			playVideo(vid);
 		});
 	});
 
