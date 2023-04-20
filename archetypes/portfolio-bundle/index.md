@@ -27,7 +27,12 @@ Intro - TODO
 {{< /vertical-section >}}
 
 <!-- Image 1 - TODO -->
-{{< picture src="images/image.jpg" alt="TODO" animate=true >}}
+{{< picture src="images/image.jpg" alt="TODO" lazy=true animate=true >}}
+
+<!-- OR -->
+
+<!-- Reel - TODO -->
+{{< video src="video/reel.mp4" attr="muted loop" lazy=true >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
@@ -35,7 +40,7 @@ Brief - TODO
 {{< /vertical-section >}}
 
 <!-- Image 2 - TODO -->
-{{< picture src="images/image.jpg" alt="TODO" animate=true >}}
+{{< picture src="images/image.jpg" alt="TODO" lazy=true animate=true >}}
 
 <!-- Design -->
 {{< vertical-section text="Design" number="02" >}}
@@ -43,7 +48,7 @@ Design - TODO
 {{< /vertical-section >}}
 
 <!-- Image 3 - TODO -->
-{{< picture src="images/image.jpg" alt="TODO" animate=true >}}
+{{< picture src="images/image.jpg" alt="TODO" lazy=true animate=true >}}
 
 <!-- Development -->
 {{< vertical-section text="Develop" number="03" >}}

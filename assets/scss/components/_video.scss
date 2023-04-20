@@ -7,7 +7,7 @@
 	$self: &;
 	position: relative;
 	width: 100%;
-	height: auto;
+	height: 100%;
 	aspect-ratio: 16 / 9;
 	outline: none;
 	object-fit: cover; // Poster
@@ -17,6 +17,10 @@
 
 	[controls] {
 		cursor: pointer;
+	}
+
+	&-contain {
+		object-fit: contain !important; // Override anything else.
 	}
 
 	// Container

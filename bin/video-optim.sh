@@ -8,6 +8,7 @@
 # Set Variables
 PUBLIC_PATH="./content"
 #PUBLIC_PATH="./static/video"
+AUDIO=true
 CRF=30
 
 # Adjust the crf value to change the quality and size of the video.
@@ -21,7 +22,11 @@ echo '--------------------------------------------'
 for i in $(find ${PUBLIC_PATH} -type f -name "*.mp4" -o -name "*.mkv"); do
 	if [[ ${i} != *"compressed"* ]] && [[ ! -e "${i%.*}-compressed.mp4" ]]; then
 		echo "Processing file: $i"
-		ffmpeg -i "$i" -acodec aac -y -vcodec h264 -crf ${CRF} -threads 4 "${i%.*}-compressed.mp4"
+		if [ "$AUDIO" = true ]; then
+			ffmpeg -i "$i" -acodec aac -y -vcodec h264 -crf ${CRF} -threads 4 "${i%.*}-compressed.mp4"
+		else
+			ffmpeg -i "$i" -an -y -vcodec h264 -crf ${CRF} -threads 4 "${i%.*}-compressed.mp4"
+		fi
 	fi;
 done
 
@@ -32,6 +37,10 @@ echo '--------------------------------------------'
 for i in $(find ${PUBLIC_PATH} -type f -name "*.mp4" -o -name "*.mkv"); do
 	if [[ ${i} != *"compressed"* ]] && [[ ! -e "${i%.*}.webm" ]]; then
 		echo "Processing file: $i"
-		ffmpeg -i "$i" -c:v libvpx-vp9 -crf ${CRF} -b:v 1900K -c:a libopus -b:a 320k -preset veryslow -threads 4 "${i%.*}.webm"
+		if [ "$AUDIO" = true ]; then
+			ffmpeg -i "$i" -c:v libvpx-vp9 -crf ${CRF} -b:v 1900K -c:a libopus -b:a 320k -preset veryslow -threads 4 "${i%.*}.webm"
+		else
+			ffmpeg -i "$i" -c:v libvpx-vp9 -crf ${CRF} -b:v 1900K -an -b:a 320k -preset veryslow -threads 4 "${i%.*}.webm"
+		fi
 	fi;
 done

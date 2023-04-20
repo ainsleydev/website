@@ -41,7 +41,7 @@ needed to be displayed throughout the landing page, with clear calls to action a
 {{< /vertical-section >}}
 
 <!-- Video -->
-{{< picture src="images/guttering.jpg" alt="Picture of guttering on a roof" animate=true >}}
+{{< picture src="images/guttering.jpg" alt="Picture of guttering on a roof" lazy=true animate=true >}}
 
 <!-- Design -->
 {{< vertical-section text="Design" number="02" >}}
@@ -52,7 +52,7 @@ simple calls to action were designed as an easy way for customers to get in touc
 {{< /vertical-section >}}
 
 <!-- Mockup -->
-{{< picture src="images/mockup.jpg" alt="Dec's Pets Website on an iPhone" animate=true >}}
+{{< picture src="images/mockup.jpg" alt="Dec's Pets Website on an iPhone" lazy=true animate=true >}}
 
 <!-- Development -->
 {{< vertical-section text="Develop" number="03" >}}

@@ -35,6 +35,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/portfolio/decspets/",
+			"destination": "/portfolio/decs-pets/",
+			"permanent": true
+		},
+		{
 			"source": ",/:path((?!compatible).*)",
 			"has": [
 				{

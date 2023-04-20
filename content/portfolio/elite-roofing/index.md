@@ -34,7 +34,7 @@ extensive experience in the industry with an easy way for potential customers to
 {{< /vertical-section >}}
 
 <!-- Video -->
-{{< picture src="images/roof.jpg" alt="TODO" animate=true  >}}
+{{< picture src="images/roof.jpg" alt="Man fixing roof with hammer" lazy=true animate=true  >}}
 
 {{< vertical-section text="Design" number="02" >}}
 As there were no existing brand guidelines for Elite Roofing, a modern and striking colour palette was curated in
@@ -44,7 +44,7 @@ captured the attention of potential clientele.
 {{< /vertical-section >}}
 
 <!-- Mockup -->
-{{< picture src="images/mockup.jpg" alt="Elite Roofing Website on a Laptop" animate=true >}}
+{{< picture src="images/mockup.jpg" alt="Elite Roofing Website on a Laptop" lazy=true animate=true >}}
 
 <!-- Development -->
 {{< vertical-section text="Develop" number="03" >}}

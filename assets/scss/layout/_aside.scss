@@ -135,6 +135,7 @@
 		background-color: transparent;
 		max-width: none;
 		transition: none;
+		z-index: $header-z-index - 10;
 
 		&-link {
 			border-bottom: 2px solid rgba($white, 0.1);

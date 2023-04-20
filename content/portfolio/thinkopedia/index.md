@@ -41,7 +41,7 @@ also needed, to enable people to get in touch easily.
 {{< /vertical-section >}}
 
 <!-- Video -->
-{{< picture src="images/cody.jpg" alt="Cody Dumbarton, CEO of Thinkopedia" animate=true >}}
+{{< picture src="images/cody.jpg" alt="Cody Dumbarton, CEO of Thinkopedia" lazy=true animate=true >}}
 
 <!-- Design -->
 {{< vertical-section text="Design" number="02" >}}
@@ -52,7 +52,7 @@ capture the user’s attention, which later aided the animation process.
 {{< /vertical-section >}}
 
 <!-- Mockup -->
-{{< picture src="images/mockup.jpg" alt="Thinkopedia Website on an iPad" animate=true >}}
+{{< picture src="images/mockup.jpg" alt="Thinkopedia Website on an iPad" lazy=true animate=true >}}
 
 <!-- Development -->
 {{< vertical-section text="Develop" number="03" >}}
