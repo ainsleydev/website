@@ -35,6 +35,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/decspets/",
+			"destination": "/decs-pets/",
+			"permanent": true
+		},
+		{
 			"source": ",/:path((?!compatible).*)",
 			"has": [
 				{

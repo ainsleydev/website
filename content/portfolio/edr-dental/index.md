@@ -43,7 +43,7 @@ fluid design was needed to bring the company into the modern era, with easy ways
 {{< /vertical-section >}}
 
 <!-- Video -->
-{{< picture src="images/machine.jpg" alt="TODO" animate=true >}}
+{{< picture src="images/machine.jpg" alt="Dental milling machine" lazy=true animate=true >}}
 
 <!-- Design -->
 {{< vertical-section text="Design" number="02" >}}
@@ -54,7 +54,7 @@ easy to navigate.
 {{< /vertical-section >}}
 
 <!-- Mockup -->
-{{< picture src="images/mockup.jpg" alt="EDR Dental Website on iPhones" animate=true >}}
+{{< picture src="images/mockup.jpg" alt="EDR Dental Website on iPhones" lazy=true animate=true >}}
 
 <!-- Development -->
 {{< vertical-section text="Develop" number="03" >}}
