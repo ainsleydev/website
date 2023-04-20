@@ -35,8 +35,8 @@
 			"permanent": true
 		},
 		{
-			"source": "/decspets/",
-			"destination": "/decs-pets/",
+			"source": "/portfolio/decspets/",
+			"destination": "/portfolio/decs-pets/",
 			"permanent": true
 		},
 		{
