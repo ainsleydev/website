@@ -43,7 +43,7 @@ and treatments, whilst encapsulating the welcoming ambience intrinsic to the sal
 {{< /vertical-section >}}
 
 <!-- Video -->
-{{< picture src="images/kathy.jpg" alt="Kathy Urresto Massages" animate=true >}}
+{{< picture src="images/kathy.jpg" alt="Kathy Urresto Massages" lazy=true animate=true >}}
 
 <!-- Design -->
 {{< vertical-section text="Design" number="02" >}}
@@ -54,7 +54,7 @@ which allowed them to book with ease.
 {{< /vertical-section >}}
 
 <!-- Mockup -->
-{{< picture src="images/mockup.jpg" alt="TODO" animate=true >}}
+{{< picture src="images/mockup.jpg" alt="Royal Beauty website on laptop" lazy=true animate=true >}}
 
 <!-- Development -->
 {{< vertical-section text="Develop" number="03" >}}
