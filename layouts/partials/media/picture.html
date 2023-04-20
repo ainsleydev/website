@@ -56,6 +56,7 @@
 					{{ if site.Params.imagery.avif -}}
 						<source media="(max-width: {{ $container.size }}px)"
 							srcset="{{ $noExtension }}.avif"
+							{{ if .lazy }} loading="lazy" {{- end }}
 							{{ with .class -}} class="{{ . }}" {{- end }}
 							width="{{ $src.Width }}"
 							height="{{ $src.Height }}"
@@ -65,6 +66,7 @@
 					{{ if site.Params.imagery.webp -}}
 						<source media="(max-width: {{ $container.size }}px)"
 							srcset="{{ $noExtension }}.webp"
+							{{ if .lazy }} loading="lazy" {{- end }}
 							{{ with .class -}} class="{{ . }}" {{- end }}
 							width="{{ $src.Width }}"
 							height="{{ $src.Height }}"
@@ -72,6 +74,7 @@
 					{{- end }}
 					<!-- Original -->
 					<source media="(max-width: {{ $container.size }}px)"
+                        {{ if .lazy }} loading="lazy" {{- end }}
 						srcset="{{ $src.RelPermalink }}"
 						{{ with .class -}} class="{{ . }}" {{- end }}/>
 				{{- end }}
@@ -82,6 +85,7 @@
 		<!-- AVIF -->
 		{{ if site.Params.imagery.avif -}}
 			<source srcset="{{ $noExtension }}.avif"
+                {{ if .lazy }} loading="lazy" {{- end }}
 				{{ with .class -}} class="{{ . }}" {{- end }}
 				{{ with .alt -}} alt="{{ . }}" {{- end }}
 				width="{{ .image.Width }}"
@@ -91,6 +95,7 @@
 		{{ if site.Params.imagery.webp -}}
 		<!-- WebP -->
 		<source srcset="{{ $noExtension }}.webp"
+			{{ if .lazy }} loading="lazy" {{- end }}
 			{{ with .class -}} class="{{ . }}" {{- end }}
 			{{ with .alt -}} alt="{{ . }}" {{- end }}
 			width="{{ .image.Width }}"
