@@ -309,6 +309,9 @@ export class VideoPlayer {
 	 */
 	private updateDuration() {
 		const duration = this.video.duration;
+		if (isNaN(duration)) {
+			return;
+		}
 		this.durationDisplay.innerHTML = this.formatTime(duration);
 	}
 
