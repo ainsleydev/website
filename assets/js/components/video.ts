@@ -120,7 +120,7 @@ export class VideoPlayer {
 	 */
 	constructor(videoContainer: HTMLVideoElement) {
 		this.videoContainer = videoContainer;
-		this.video = videoContainer.querySelector("video");
+		this.video = videoContainer.querySelector('video');
 		this.playPauseButton = videoContainer.querySelector('.video-play-pause');
 		this.progressBar = videoContainer.querySelector('.video-progress-bar');
 		this.progress = videoContainer.querySelector('.video-progress');
@@ -171,13 +171,14 @@ export class VideoPlayer {
 	 */
 	private updatePlayPauseButton() {
 		if (this.video.paused) {
-			this.videoContainer.classList.add("video-paused");
-			this.videoContainer.classList.remove("video-playing");
+			this.videoContainer.classList.add('video-paused');
+			this.videoContainer.classList.remove('video-playing');
 			return;
 		}
-		this.videoContainer.classList.remove("video-paused");
-		this.videoContainer.classList.add("video-playing")
+		this.videoContainer.classList.remove('video-paused');
+		this.videoContainer.classList.add('video-playing');
 	}
+
 	/**
 	 * Updates the progress bar of the video player based on the current time of the video.
 	 * If the progress bar is being dragged, the current time of the video is calculated based on the width of the progress bar.
@@ -272,11 +273,7 @@ export class VideoPlayer {
 		} else {
 			this.video.volume = value;
 		}
-		const min = parseInt(this.volumeSlider.min),
-			max = parseInt(this.volumeSlider.max);
-		const percent = (value - min) / (max - min) * 100;
-		this.volumeSlider.style.background = 'linear-gradient(to right, #fff 0%, #fff ' + percent + '%, #0A0A0A ' + percent + '%, #0A0A0A 100%)'
-		this.updateVolumeClass(this.video.volume === 0);
+		this.updateVolumeClass();
 	}
 
 	/**
@@ -285,7 +282,17 @@ export class VideoPlayer {
 	 * @private
 	 */
 	private toggleFullscreen() {
-		document.fullscreenElement ? document.exitFullscreen() : this.video.requestFullscreen();
+		if (document.fullscreenElement) {
+			document.exitFullscreen();
+			return;
+		}
+		if (this.video.requestFullscreen) {
+			this.video.requestFullscreen();
+		} else if (this.video.webkitRequestFullscreen) { /* Safari */
+			this.video.webkitRequestFullscreen();
+		} else if (this.video.msRequestFullscreen) { /* IE11 */
+			this.video.msRequestFullscreen();
+		}
 	}
 
 	/**
@@ -304,14 +311,29 @@ export class VideoPlayer {
 	 * @private
 	 */
 	private toggleMute() {
-		this.updateVolumeClass(!this.video.muted);
 		if (this.video.muted) {
 			this.video.muted = false;
 			this.volumeSlider.value = this.video.volume.toString();
+			this.updateVolumeClass();
 			return;
 		}
 		this.video.muted = true;
 		this.volumeSlider.value = '0';
+		this.updateVolumeClass();
+	}
+
+	/**
+	 * Updates the slider track of the volume slider
+	 * based on the current volume of the video.
+	 *
+	 * @private
+	 */
+	private updateSliderTrack() {
+		const min = parseInt(this.volumeSlider.min),
+			max = parseInt(this.volumeSlider.max),
+			value = parseFloat(this.volumeSlider.value),
+			percent = (value - min) / (max - min) * 100;
+		this.volumeSlider.style.background = 'linear-gradient(to right, #fff 0%, #fff ' + percent + '%, #0A0A0A ' + percent + '%, #0A0A0A 100%)';
 	}
 
 	/**
@@ -320,14 +342,17 @@ export class VideoPlayer {
 	 * @param muted
 	 * @private
 	 */
-	private updateVolumeClass(muted: boolean) {
+	private updateVolumeClass() {
+		let muted = this.video.muted;
+		if (this.volumeSlider.value === '0') muted = true;
+		this.updateSliderTrack();
 		if (muted) {
-			this.videoContainer.classList.add("video-volume-muted");
-			this.videoContainer.classList.remove("video-volume-full");
+			this.videoContainer.classList.add('video-volume-muted');
+			this.videoContainer.classList.remove('video-volume-full');
 			return;
 		}
-		this.videoContainer.classList.remove("video-volume-muted");
-		this.videoContainer.classList.add("video-volume-full");
+		this.videoContainer.classList.remove('video-volume-muted');
+		this.videoContainer.classList.add('video-volume-full');
 	}
 
 	/**
@@ -338,7 +363,7 @@ export class VideoPlayer {
 	 */
 	private exitFullscreen(event: KeyboardEvent) {
 		if (event.key === 'Escape' || event.keyCode === 27) {
-			document.querySelectorAll(".video-full-active").forEach((container) => {
+			document.querySelectorAll('.video-full-active').forEach((container) => {
 				this.togglePlayPause();
 				container.classList.remove('video-full-active');
 			});
