@@ -22,7 +22,7 @@ import { bookmark } from '../components/bookmark';
 import { buttonGoBack } from '../components/button';
 import { copyToClipboard } from '../components/copy';
 import { lazyImages } from '../components/image';
-import { video } from '../components/video';
+import { video, VideoPlayer } from '../components/video';
 import { WebVitals } from '../analytics/web-vitals';
 import { Animations } from '../animations/text';
 import { Elements } from '../util/els';
@@ -96,6 +96,9 @@ class App {
 			inner: '.accordion-content',
 			activeClass: 'accordion-item-active',
 		} as CollapseOptions);
+		document.querySelectorAll('[data-controls]').forEach((el) => {
+			new VideoPlayer(el as HTMLVideoElement);
+		});
 
 		// Prevent the page from refreshing if it's the same URL.
 		this.preventInternalLinks();

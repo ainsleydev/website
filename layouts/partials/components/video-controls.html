@@ -1,0 +1,64 @@
+<!-- =====================
+    Video
+		partial "components/video-controls.html"
+    ===================== -->
+<div class="video-controls">
+	<!-- Time -->
+	<div class="video-time">
+		<div class="video-current-time">00:00</div>
+		<div class="video-progress-bar">
+			<div class="video-progress"></div>
+		</div>
+		<div class="video-duration">00:00</div>
+	</div><!-- /Time -->
+	<!-- Container -->
+	<div class="video-controls-container">
+		<div class="video-left">
+			<!-- Play / Pause -->
+			<div class="video-play-pause">
+				<!-- Play -->
+				<div class="video-play">
+					<svg width="14" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M14 8L.5 15.794V.206L14 8z" fill="#fff" />
+					</svg>
+				</div><!-- /Play -->
+				<!-- Pause -->
+				<div class="video-pause">
+					<svg width="12" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M4 0H0v18h4V0zm8 0H8v18h4V0z"
+							  fill="#fff" />
+					</svg>
+				</div><!-- /Pause -->
+			</div><!-- Play / Pause -->
+			<!-- Volume -->
+			<div class="video-volume">
+				<div class="video-volume-icon">
+					<!-- Loud -->
+					<svg class="video-icon-loud" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M15.278 4.545l-.861.726a5.625 5.625 0 01-.163 7.442l.827.787a6.75 6.75 0 00.197-8.932v-.023z"
+							fill="#fff" />
+						<path
+							d="M12.139 6.75a3.374 3.374 0 01-.101 4.466l.826.765a4.5 4.5 0 00.13-5.957l-.855.726zm-2.014 10.125a.562.562 0 01-.4-.169l-4.286-4.33H1.687a.563.563 0 01-.562-.563V6.188a.563.563 0 01.563-.563h3.751l4.287-4.331a.562.562 0 01.793 0 .563.563 0 01.168.394v14.625a.562.562 0 01-.562.562z"
+							fill="#fff" />
+					</svg>
+					<!-- Mute -->
+					<svg class="video-icon-mute" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M10.125 16.875a.562.562 0 01-.4-.169l-4.286-4.33H1.687a.563.563 0 01-.562-.563V6.188a.563.563 0 01.563-.563h3.751l4.287-4.331a.562.562 0 01.793 0 .563.563 0 01.168.394v14.625a.562.562 0 01-.562.562z"
+							fill="#fff" />
+					</svg>
+				</div>
+				<input class="video-volume-slider" type="range" min="0" max="1" step="0.01" value="1">
+			</div><!-- /Volume -->
+		</div>
+		<!-- Fullscreen -->
+		<div class="video-fullscreen">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+				 stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path
+					d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+			</svg>
+		</div><!-- /Fullscreen -->
+	</div><!-- /Container -->
+</div><!-- /Controls -->
