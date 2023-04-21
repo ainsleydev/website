@@ -7,7 +7,6 @@
  */
 
 import { Log } from '../util/log';
-import { IsTouchDevice } from '../util/css';
 import Scroll from '../app/scroll';
 
 /**
