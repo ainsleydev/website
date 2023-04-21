@@ -7,7 +7,6 @@
  */
 
 import { Log } from '../util/log';
-import { IsTouchDevice } from '../util/css';
 import Scroll from '../app/scroll';
 
 /**
@@ -193,6 +192,9 @@ export class VideoPlayer {
 			: this.video.currentTime;
 		const percent = (currentTime / duration) * 100;
 		this.progress.style.width = `${percent}%`;
+		if (isNaN(currentTime)) {
+			return;
+		}
 		this.currentTimeDisplay.innerHTML = this.formatTime(currentTime);
 	}
 
