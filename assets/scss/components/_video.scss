@@ -176,7 +176,7 @@
 		display: flex;
 		align-items: center;
 		width: 100%;
-		margin-bottom: 4px;
+		margin-bottom: 0;
 
 		#{$self}-current-time,
 		#{$self}-duration {
@@ -219,7 +219,7 @@
 
 	&-progress-bar {
 		width: 100%;
-		height: 14px;
+		height: 12px;
 		margin: 0 10px;
 		padding: 5px;
 		border: solid 1px $white;
@@ -251,7 +251,7 @@
 		&-slider {
 			background: $white;
 			border: solid 1px $white;
-			height: 6px;
+			height: 4px;
 			width: 8rem;
 			outline: none;
 			transition: background 50ms ease;
@@ -259,7 +259,7 @@
 		}
 
 		::-webkit-slider-thumb {
-			width: 12px;
+			width: 8px;
 			height: 20px;
 			cursor: ew-resize;
 			-webkit-appearance: none;
