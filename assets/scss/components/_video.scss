@@ -117,6 +117,7 @@
 		&-container {
 			display: flex;
 			justify-content: space-between;
+			align-items: center;
 			width: 100%;
 			padding: 10px 0;
 		}
@@ -128,13 +129,19 @@
 	&-play-pause {
 		position: relative;
 		margin-right: 1rem;
+
+		#{$self}-play,
+		#{$self}-pause {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
 	}
 
 	// JS Classes
 	// =========================================================================
 
 	&-playing {
-
 		#{$self}-play {
 			opacity: 0;
 		}
@@ -145,7 +152,6 @@
 	}
 
 	&-volume {
-
 		&-muted {
 			#{$self}-volume-slider {
 				background: $black;
@@ -275,14 +281,12 @@
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
-		padding: 10px;
 
-		&-icon {
-			width: 18px;
-			height: 18px;
+		svg {
+			width: 26px;
+			height: 26px;
 		}
 	}
-
 
 	// Desktop
 	// =========================================================================
@@ -294,6 +298,43 @@
 		&-full-close {
 			top: 1.6rem;
 			right: 1.6rem;
+		}
+	}
+}
+
+// Non Touch Screen
+// =========================================================================
+
+@include touch {
+	.video {
+		&-volume {
+			display: none;
+		}
+
+		&-controls {
+			flex-direction: row-reverse;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+			padding: 1rem;
+
+			&-container {
+				padding: 0;
+			}
+		}
+
+		&-fullscreen {
+			margin-right: 1rem;
+
+			svg {
+				width: 22px;
+				height: 22px;
+			}
+		}
+
+		&-controls-container {
+			justify-content: flex-start;
+			width: auto;
 		}
 	}
 }
