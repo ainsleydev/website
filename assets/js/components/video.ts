@@ -111,7 +111,7 @@ export class VideoPlayer {
 	private volumeIcon: HTMLElement;
 	private volumeSlider: HTMLInputElement;
 	private fullscreenButton: HTMLElement;
-	private isDraggingProgress: boolean = false;
+	private isDraggingProgress = false;
 
 	/**
 	 * Initializes the VideoPlayer instance with the provided HTMLVideoElement and sets up the event listeners
@@ -142,15 +142,15 @@ export class VideoPlayer {
 		this.video.addEventListener('play', () => this.updatePlayPauseButton());
 		this.video.addEventListener('pause', () => this.updatePlayPauseButton());
 		this.video.addEventListener('timeupdate', () => this.updateProgress());
-		this.progressBar.addEventListener('mousedown', e => this.startDraggingProgress(e));
-		this.progressBar.addEventListener('mousemove', e => this.dragProgress(e));
-		this.progressBar.addEventListener('mouseup', e => this.stopDraggingProgress(e));
+		this.progressBar.addEventListener('mousedown', (e) => this.startDraggingProgress(e));
+		this.progressBar.addEventListener('mousemove', (e) => this.dragProgress(e));
+		this.progressBar.addEventListener('mouseup', (e) => this.stopDraggingProgress(e));
 		this.volumeIcon.addEventListener('click', () => this.toggleMute());
 		this.volumeSlider.addEventListener('input', () => this.updateVolume());
 		this.fullscreenButton.addEventListener('click', () => this.toggleFullscreen());
 		this.video.addEventListener('loadedmetadata', () => this.updateDuration());
 		this.video.addEventListener('click', () => this.togglePlayPause());
-		document.addEventListener('keydown', e => this.exitFullscreen(e));
+		document.addEventListener('keydown', (e) => this.exitFullscreen(e));
 		this.durationDisplay.innerHTML = this.video.duration.toString();
 	}
 
@@ -188,7 +188,9 @@ export class VideoPlayer {
 	 */
 	private updateProgress() {
 		const duration = this.video.duration;
-		const currentTime = this.isDraggingProgress ? (this.video.duration * parseFloat(this.progress.style.width) / 100) : this.video.currentTime;
+		const currentTime = this.isDraggingProgress
+			? (this.video.duration * parseFloat(this.progress.style.width)) / 100
+			: this.video.currentTime;
 		const percent = (currentTime / duration) * 100;
 		this.progress.style.width = `${percent}%`;
 		this.currentTimeDisplay.innerHTML = this.formatTime(currentTime);
@@ -254,7 +256,7 @@ export class VideoPlayer {
 		const progressWidth = progressBarRect.width;
 		const clickX = event.clientX - progressBarRect.left;
 		const percent = (clickX / progressWidth) * 100;
-		let currentTime = (percent / 100) * this.video.duration;
+		const currentTime = (percent / 100) * this.video.duration;
 
 		if (currentTime >= 0) {
 			this.video.currentTime = currentTime;
@@ -286,13 +288,16 @@ export class VideoPlayer {
 			document.exitFullscreen();
 			return;
 		}
-		if (this.video.requestFullscreen) {
+		if (this.video.requestFullScreen) {
 			this.video.requestFullscreen();
-		} else if (this.video.webkitRequestFullscreen) { /* Safari */
-			this.video.webkitRequestFullscreen();
-		} else if (this.video.msRequestFullscreen) { /* IE11 */
+		} else if (this.video.webkitRequestFullScreen) {
+			this.video.webkitRequestFullScreen();
+		} else if (this.video.mozRequestFullScreen) {
+			this.video.mozRequestFullScreen();
+		} else if (this.video.msRequestFullscreen) {
 			this.video.msRequestFullscreen();
 		}
+		this.video.webkitEnterFullscreen();
 	}
 
 	/**
@@ -332,8 +337,9 @@ export class VideoPlayer {
 		const min = parseInt(this.volumeSlider.min),
 			max = parseInt(this.volumeSlider.max),
 			value = parseFloat(this.volumeSlider.value),
-			percent = (value - min) / (max - min) * 100;
-		this.volumeSlider.style.background = 'linear-gradient(to right, #fff 0%, #fff ' + percent + '%, #0A0A0A ' + percent + '%, #0A0A0A 100%)';
+			percent = ((value - min) / (max - min)) * 100;
+		this.volumeSlider.style.background =
+			'linear-gradient(to right, #fff 0%, #fff ' + percent + '%, #0A0A0A ' + percent + '%, #0A0A0A 100%)';
 	}
 
 	/**
@@ -370,4 +376,3 @@ export class VideoPlayer {
 		}
 	}
 }
-
