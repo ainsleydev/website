@@ -316,7 +316,7 @@
 			align-items: center;
 			justify-content: space-between;
 			width: 100%;
-			padding: 1rem;
+			padding: 1rem 1.4rem;
 
 			&-container {
 				padding: 0;
@@ -324,11 +324,19 @@
 		}
 
 		&-fullscreen {
-			margin-right: 1rem;
+			margin-right: 1.4rem;
 
 			svg {
-				width: 22px;
-				height: 22px;
+				width: 26px;
+				height: 26px;
+			}
+		}
+
+		&-play-pause {
+			margin-right: 1.4rem;
+
+			svg {
+				transform: scale(1.2);
 			}
 		}
 
