@@ -23,6 +23,7 @@ results:
   - number: 56%
     text: increase in PSI
 logoWeight: 10
+lazy: false
 ---
 
 <!-- Intro -->

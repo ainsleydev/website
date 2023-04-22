@@ -13,6 +13,7 @@
     	- permalink:	The relative permalink that the card will link to.
     	- image:		The featured image as a resource.
     	- animate:		If the skew and cursor animations should run.
+    	- lazy:			If the image should be lazy loaded.
     ===================== -->
 <!-- Card -->
 <a href="{{ .permalink }}" class="card card-vertical card-half-margin
@@ -27,7 +28,7 @@
                 {{ partial "media/picture.html" (dict
 					"image" .image
 					"alt" .title
-					"lazy" true
+					"lazy" .lazy
                 )}}
 			</picture>
         {{- end }}
@@ -37,7 +38,7 @@
                 {{ partial "media/picture.html" (dict
 					"image" .clip
 					"alt" .title
-					"lazy" true
+					"lazy" .lazy
                 )}}
 			</picture>
         {{- end }}
