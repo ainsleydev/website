@@ -15,7 +15,8 @@
     ===================== -->
 {{ if .video }}
 	<!-- Container -->
-	<div class="video-container">
+	<div class="video-container {{ if .full -}} video-full {{- end }}"
+		{{ if .controls -}} data-controls {{- end }}>
 		<!-- Video -->
 		<video
 			class="video"
@@ -52,6 +53,22 @@
 				 data-cursor-invert data-cursor-invert-white>
 			</div>
         {{- end }}
+		{{ if .full -}}
+			<!-- Close -->
+			<div class="video-close">
+                {{  partial "components/button.html" (dict
+					"text" "Close"
+					"colour" "white"
+					"size" "tiny"
+					"class" "video-full-close"
+					"title" "Close the video"
+					"attr" "data-cursor-invert data-cursor-invert-black"
+                )}}
+			</div><!-- Close -->
+		{{- end }}
+		{{ if .controls -}}
+			{{ partial "components/video-controls.html" . }}
+		{{- end }}
 	</div><!-- /Container -->
 {{- else -}}
     {{ warnf "Video not found: %v" . }}

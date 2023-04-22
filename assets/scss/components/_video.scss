@@ -5,29 +5,58 @@
 
 .video {
 	$self: &;
-	position: relative;
 	width: 100%;
-	height: 100%;
-	aspect-ratio: 16 / 9;
-	outline: none;
-	object-fit: cover; // Poster
-
-	// Props
-	// =========================================================================
-
-	[controls] {
-		cursor: pointer;
-	}
-
-	&-contain {
-		object-fit: contain !important; // Override anything else.
-	}
 
 	// Container
 	// =========================================================================
 
 	&-container {
 		position: relative;
+		display: flex;
+		align-items: center;
+		width: 100%;
+		height: 0;
+		max-width: 100vw;
+		background-color: #fff;
+		z-index: $header-z-index + 100;
+	}
+
+	// Mods
+	// =========================================================================
+
+	&-contain {
+		object-fit: contain !important; // Override anything else.
+	}
+
+	// Full
+	// =========================================================================
+
+	&-full {
+		display: none;
+		justify-content: center;
+		align-items: center;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		@include full-height;
+		max-width: 100%;
+		max-height: 100%;
+		z-index: $header-z-index + 999;
+		background-color: $black;
+
+		video {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 100%;
+			height: 100%;
+			transform: translate(-50%, -50%);
+		}
+
+		&-active {
+			display: flex;
+		}
 	}
 
 	// Play Button
@@ -51,46 +80,212 @@
 		pointer-events: none;
 	}
 
-	// Full
-	// =========================================================================
-
-	&-full {
-		display: none;
-		justify-content: center;
-		align-items: center;
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		@include full-height;
-		max-width: 100%;
-		max-height: 100%;
-		z-index: $header-z-index + 999;
-		background-color: $black;
-
-		&-active {
-			display: flex;
-		}
-
-		#{$self} {
-			@include full-height;
-			object-fit: contain;
-		}
-
-		&-close {
-			position: absolute;
-			top: 4px;
-			right: 4px;
-			margin: 0;
-			z-index: 100;
-		}
-	}
-
 	// Playing
 	// =========================================================================
 
 	&-playing ~ #{$self}-button {
 		opacity: 0;
+	}
+
+	// Close
+	// =========================================================================
+
+	&-close {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		margin: 0;
+		z-index: 100;
+	}
+
+	// Controls
+	// =========================================================================
+
+	&-controls {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: auto;
+		justify-content: space-between;
+		padding: 0 20px;
+		color: white;
+
+		&-container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+			padding: 10px 0;
+		}
+	}
+
+	// Play / Pause
+	// =========================================================================
+
+	&-play-pause {
+		position: relative;
+		margin-right: 1rem;
+
+		#{$self}-play,
+		#{$self}-pause {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	// JS Classes
+	// =========================================================================
+
+	&-playing {
+		#{$self}-play {
+			opacity: 0;
+		}
+
+		#{$self}-pause {
+			opacity: 1;
+		}
+	}
+
+	&-volume {
+		&-muted {
+			#{$self}-volume-slider {
+				background: $black;
+			}
+
+			#{$self}-icon-loud {
+				opacity: 0;
+			}
+
+			#{$self}-icon-mute {
+				opacity: 1;
+			}
+		}
+	}
+
+	// Play / Pause
+	// =========================================================================
+
+	&-left {
+		display: flex;
+		align-items: center;
+	}
+
+	// Time
+	// =========================================================================
+
+	&-time {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		margin-bottom: 0;
+
+		#{$self}-current-time,
+		#{$self}-duration {
+			@include h6;
+			color: $white;
+			margin: 0;
+			font-weight: bold;
+			width: 70px;
+			user-select: none;
+		}
+
+		#{$self}-duration {
+			text-align: right;
+		}
+	}
+
+	// Icons
+	// =========================================================================
+
+	&-pause,
+	&-icon-mute {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		opacity: 0;
+	}
+
+	&-icon-mute {
+		top: calc(50% - 2px);
+	}
+
+	svg {
+		transition: opacity 200ms ease;
+		will-change: opacity;
+	}
+
+	// Progress Bar
+	// =========================================================================
+
+	&-progress-bar {
+		width: 100%;
+		height: 12px;
+		margin: 0 10px;
+		padding: 5px;
+		border: solid 1px $white;
+		position: relative;
+		cursor: pointer;
+
+		#{$self}-progress {
+			height: calc(100% - 5px);
+			background-color: white;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+		}
+	}
+
+	// Volume
+	// =========================================================================
+
+	&-volume {
+		display: flex;
+		align-items: center;
+
+		&-icon {
+			position: relative;
+			margin-right: 10px;
+		}
+
+		&-slider {
+			background: $white;
+			border: solid 1px $white;
+			height: 4px;
+			width: 8rem;
+			outline: none;
+			transition: background 50ms ease;
+			-webkit-appearance: none;
+		}
+
+		::-webkit-slider-thumb {
+			width: 8px;
+			height: 20px;
+			cursor: ew-resize;
+			-webkit-appearance: none;
+			background: $white;
+		}
+	}
+
+	// Fullscreen
+	// =========================================================================
+
+	&-fullscreen {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+
+		svg {
+			width: 26px;
+			height: 26px;
+		}
 	}
 
 	// Desktop
@@ -107,7 +302,47 @@
 	}
 }
 
-video::-webkit-media-controls-mute-button {
-	-webkit-appearance: none !important;
-	display: none !important;
+// Non Touch Screen
+// =========================================================================
+
+@include touch {
+	.video {
+		&-volume {
+			display: none;
+		}
+
+		&-controls {
+			flex-direction: row-reverse;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+			padding: 1rem 1.4rem;
+
+			&-container {
+				padding: 0;
+			}
+		}
+
+		&-fullscreen {
+			margin-right: 1.4rem;
+
+			svg {
+				width: 26px;
+				height: 26px;
+			}
+		}
+
+		&-play-pause {
+			margin-right: 1.4rem;
+
+			svg {
+				transform: scale(1.2);
+			}
+		}
+
+		&-controls-container {
+			justify-content: flex-start;
+			width: auto;
+		}
+	}
 }
