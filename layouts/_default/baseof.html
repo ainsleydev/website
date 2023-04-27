@@ -22,7 +22,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 		<meta name="apple-mobile-web-app-capable" content="yes" />
-        <title>{{ with .Params.title -}} {{ . }} | {{ end }}{{ .Site.Title }}</title>
+        <title>{{ with .Title -}} {{ . }} {{ end }}{{ if not .IsHome -}} {{ .Site.Params.titleSuffix }} {{- end }}</title>
 		<!-- Description -->
         {{ if and (not .IsHome) (eq .Description "") }}
 			{{ warnf "No meta description for page: %s" .RelPermalink }}

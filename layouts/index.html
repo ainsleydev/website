@@ -179,12 +179,22 @@
 							)}}
 						</picture>
 					</div>
-					<div class="animate-up" data-animate-no-touch>
+					<div class="margin-large animate-up" data-animate-no-touch>
 						<h2>Who we are</h2>
 						<p class="lead mb-0">
 							In a commercial world increasingly reliant on digital technology, ainsley.dev is a market-leading software design and development company at the forefront of high-tech advancements and techniques.
 						</p>
 					</div>
+					<div class="animate-up"
+						data-animate-no-touch>
+                        {{ partial "components/button.html" (dict
+							"text" "Get to know us"
+							"link" "/who-we-are/"
+							"size" "small"
+							"arrow" true
+							"title" "View about us page"
+                        )}}
+					</div><!-- /Row -->
 				</div><!--- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
@@ -206,7 +216,7 @@
 				</div><!-- /Col -->
 				<!-- Content -->
 				<div class="col-12 col-mob-9 col-desk-7 col-hd-6">
-					<div class="row no-gaps">
+					<div class="row no-gaps margin-large">
 						<div class="col-12 col-desk-6">
 							<h3 class="type-heading animate-up"
 								data-animate-no-touch>
@@ -243,6 +253,16 @@
 								Illustration
 							</h3>
 						</div><!--- /Col -->
+					</div><!-- /Row -->
+                  	<div class="row no-gaps animate-up"
+						data-animate-delay="400" data-animate-no-touch>
+                        {{ partial "components/button.html" (dict
+							"text" "View all services"
+							"link" "/services"
+							"size" "small"
+							"arrow" true
+							"title" "View all services"
+                        )}}
 					</div><!-- /Row -->
 				</div><!--- /Col -->
 			</div><!-- /Row -->
