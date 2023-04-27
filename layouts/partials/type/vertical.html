@@ -25,13 +25,13 @@
             {{- end }}
 			<!-- Text -->
             {{ with .text -}}
-				<div class="vertical-text">
+				<h2 class="vertical-text">
                     {{ range $index, $word := split . " " }}
 						<span class="vertical-word">
 						{{ . | safeHTML }}
 					</span>
                     {{ end  }}
-				</div>
+				</h2>
             {{- end }}
 		</div><!-- /Wrapper -->
 		<!-- Line -->

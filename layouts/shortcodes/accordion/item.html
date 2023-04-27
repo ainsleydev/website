@@ -10,9 +10,9 @@
 		data-cursor-border data-cursor-border-white
 		itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
         {{ with .Get "title" -}}
-			<h4 class="accordion-title" itemprop="name">
+			<span class="heading-4 accordion-title" itemprop="name">
 				{{ . | safeHTML }}
-			</h4>
+			</span>
 		{{- else -}}
 			{{- warnf "No title provided to accordion item" -}}
 		{{- end }}
