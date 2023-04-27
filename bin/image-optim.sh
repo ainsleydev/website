@@ -31,14 +31,14 @@ sharp --input "${PUBLIC_PATH}"'/**/*.{jpg,jpeg,png}' --output '{dir}/{name}.avif
 echo '--------------------------------------------'
 echo 'Compressing JPG images'
 echo '--------------------------------------------'
-sharp --input "${PUBLIC_PATH}"'/**/*.jpg' --output '{dir}' --quality=${QUALITY} --compressionLevel=${COMPRESSION_LEVEL} --format=jpg
-sharp --input "${PUBLIC_PATH}"'/**/*.jpeg' --output '{dir}' --quality=${QUALITY} --compressionLevel=${COMPRESSION_LEVEL} --format=jpeg
+sharp --input "${PUBLIC_PATH}"'/**/*.jpg' --output '{dir}' --quality=${QUALITY} --compressionLevel=${COMPRESSION_LEVEL} --format=jpg resize 1920 --withoutEnlargement
+sharp --input "${PUBLIC_PATH}"'/**/*.jpeg' --output '{dir}' --quality=${QUALITY} --compressionLevel=${COMPRESSION_LEVEL} --format=jpeg resize 1920 --withoutEnlargement
 
 ## Compress PNGs
 echo '--------------------------------------------'
 echo 'Compressing PNG images'
 echo '--------------------------------------------'
-sharp --input "${PUBLIC_PATH}"'/**/*.png' --output '{dir}' --quality=${QUALITY} --compressionLevel=${COMPRESSION_LEVEL} --format=png
+sharp --input "${PUBLIC_PATH}"'/**/*.png' --output '{dir}' --quality=${QUALITY} --compressionLevel=${COMPRESSION_LEVEL} --format=png resize 1920 --withoutEnlargement
 
 # Optimise SVGs
 echo '--------------------------------------------'
