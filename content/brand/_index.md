@@ -2,7 +2,6 @@
 title: Brand guidelines
 description: Discover ainsley.dev Brand Guidelines.
 draft: false
-htmlTitle: ainsley.dev <span class="type-serif small-mob">brand <br/>guidelines*</span>
 footerNoPadding: true
 listHero:
   default: list-hero.jpg
