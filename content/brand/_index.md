@@ -1,6 +1,6 @@
 ---
 title: Building a Visual Language
-description: Discover ainsley.dev Brand Guidelines.
+description: Download ainsley.dev's brand guidelines. A visual guide to making sure your visuals look like ainsley.dev
 draft: false
 footerNoPadding: true
 listHero:

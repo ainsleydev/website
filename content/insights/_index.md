@@ -1,6 +1,6 @@
 ---
 title: News & Insights
-description: Discover insights and recent news by ainsley.dev
+description: Stay abreast with recent news and insights in the digital sector from leading experts in the website design, development and software fields.
 draft: false
 htmlTitle: Insights
 pageColour: white

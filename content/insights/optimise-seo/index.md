@@ -1,6 +1,6 @@
 ---
 title: SEO Best Practices for Developers
-description: Go to one of the websites you have developed and turn JavaScript off―does the page still function as it should? If the answer is no, it may be time to consider refactoring your code base to allow for a more SEO-friendly website.
+description: Learn some tips and tricks to boost your SEO efforts, page rankings and page speed as a developer from a technical viewpoint.
 slug: optimise-seo
 publishdate: 2021-12-06
 lastmod: 2021-12-06
