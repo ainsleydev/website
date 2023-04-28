@@ -1,5 +1,5 @@
 ---
-title: Brand guidelines
+title: Building a Visual Language
 description: Discover ainsley.dev Brand Guidelines.
 draft: false
 footerNoPadding: true

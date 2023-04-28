@@ -1,5 +1,5 @@
 ---
-title: Transforming EDR Dental into a brand with a modern UI
+title: EDR Dental - Health Sector Website Case Study
 description: Discover how ainsley.dev transformed a slow, cumbersome, out of date website into a new and refreshed brand for EDR Dental.
 slug: edr-dental
 draft: false

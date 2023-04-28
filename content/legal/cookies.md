@@ -1,5 +1,5 @@
 ---
-title: No cookie policy
+title: Cookie Policy
 description: ainsley.dev consciously refrains from using tracking, marketing, or any other commercial cookies. We call it our “No cookie policy”.
 draft: false
 url: /cookies

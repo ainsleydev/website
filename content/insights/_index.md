@@ -1,5 +1,5 @@
 ---
-title: Insights
+title: News & Insights
 description: Discover insights and recent news by ainsley.dev
 draft: false
 htmlTitle: Insights

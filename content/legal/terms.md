@@ -1,5 +1,5 @@
 ---
-title: Terms & conditions
+title: Terms & Conditions
 description: Read our terms and conditions that govern the contractual relationship between ainsley.dev and you, the user of our site & services.
 draft: false
 url: /terms

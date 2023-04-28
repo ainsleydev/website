@@ -1,5 +1,5 @@
 ---
-title: Privacy policy
+title: Privacy Policy
 description: This privacy policy sets out how ainsley.dev uses and protects any information that you give ainsley.dev LTD when you use this website.
 draft: false
 url: /privacy

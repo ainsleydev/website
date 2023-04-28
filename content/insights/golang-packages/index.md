@@ -1,5 +1,5 @@
 ---
-title: How to write well-crafted GoLang packages
+title: Learn how to create well written GoLang packages
 description: Writing packages for internal use, or developing open source projects? Writing Go packages with clean and clear APIs will increase the chances of them being reused and maintained. Explore best practices, goals, and idioms that help make well-crafted packages.
 slug: golang-packages
 publishdate: 2022-04-16

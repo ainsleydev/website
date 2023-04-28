@@ -1,5 +1,5 @@
 ---
-title: Responsibilities as a developer for optimised SEO
+title: SEO Best Practices for Developers
 description: Go to one of the websites you have developed and turn JavaScript off―does the page still function as it should? If the answer is no, it may be time to consider refactoring your code base to allow for a more SEO-friendly website.
 slug: optimise-seo
 publishdate: 2021-12-06
