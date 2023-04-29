@@ -320,7 +320,15 @@
                                 {{ $isLeft := eq (mod $index 2) 0 }}
 								<div class="col-12 col-desk-6 card-col-padding card-col-mob-no-margin animate-up
 								{{ if $isLeft }} card-col-left {{- else -}} card-col-right {{- end }} card-col">
-                                    {{ .Render "card" }}
+                                    {{ partial "cards/vertical.html" (dict
+										"title" .Params.heading
+										"sub" .Params.company
+										"permalink" .RelPermalink
+										"image" (.Resources.GetMatch "images/card.jpg")
+										"clip" (.Resources.GetMatch "images/card-hover.jpg")
+										"animate" true
+										"lazy" true
+                                    )}}
 								</div><!-- /Col -->
                             {{- end }}
 						</div><!-- /Row -->
