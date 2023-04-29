@@ -1,7 +1,7 @@
 ---
-title: "How to get your first front-end development job as a junior developer"
+title: "How to get your first front-end development job as a junior"
 heading: "From bedroom to agency: How to get your first front-end development job"
-description: Getting your first development job is hard―really hard. Where do you start? In this blog post we’ll cover CV writing, portfolio building and tech busting to help you land that first dream job.
+description: In this blog post we’ll cover CV writing, portfolio building and tech busting to help you land that first dream developer job.
 slug: bedroom-to-agency
 publishdate: 2019-09-16
 draft: false

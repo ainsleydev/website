@@ -10,6 +10,6 @@
     {{- end }}
 	<meta name="description"
 		  content="{{ if .IsHome -}} {{ $.Site.Params.description }} {{- else -}} {{ .Description }} {{- end }}" />
-{{- else -}}
-    {{ warnf "No title param provided to page: %s" .RelPermalink }}
+{{- else if not .IsHome -}}
+    {{ warnf "No description param provided to page: %s" .RelPermalink }}
 {{- end }}

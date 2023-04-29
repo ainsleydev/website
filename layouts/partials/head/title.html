@@ -7,6 +7,5 @@
 	{{- end }}
 	<title>{{ .Title }}{{ .Site.Params.titleSuffix }}</title>
 {{- else -}}
-	dfasdfg
     {{ warnf "No title param provided to page: %s" .RelPermalink }}
 {{- end }}
