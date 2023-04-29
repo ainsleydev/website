@@ -2,8 +2,10 @@
     Description
     ===================== -->
 {{ if .Description -}}
-    {{- if or (lt (len .Description) 120) (gt (len .Description) 158) -}}
-        {{- warnf "Description character count is not configured for page: %s, count: %d, description: %s" .RelPermalink (len .Description) .Description  -}}
+    {{- if lt (len .Description) 120 -}}
+        {{- warnf "Description character count is less than 120 for page: %s, count: %d, description: %s" .RelPermalink (len .Description) .Description -}}
+	{{- else if gt (len .Description) 158 -}}
+        {{- warnf "Description character count is greater than 155 for page: %s, count: %d, description: %s" .RelPermalink (len .Description) .Description -}}
     {{- end }}
     {{ if and (not .IsHome) (eq .Description "") }}
         {{ warnf "No meta description for page: %s" .RelPermalink }}

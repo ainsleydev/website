@@ -87,7 +87,7 @@
 		Body
 		===================== -->
 	{{ $colour := partial "util/_theme-colour.html" . }}
-    <body data-barba="wrapper" data-theme="{{ $colour }}">
+    <body class="{{ partial "util/_namespace.html" . }}" data-barba="wrapper" data-theme="{{ $colour }}">
 		{{ if .Site.Params.gtag.enable -}}
 			<!-- Google Tag Manager (noscript) -->
 			<noscript>
