@@ -23,13 +23,13 @@
 		<!-- Content -->
 		<div class="col-12 col-desk-10">
 			<!-- Title -->
-			{{ with .Title -}}
+			{{ with .Params.heading -}}
 				<h3 class="card-text-title">
 					{{ . }}
 				</h3>
             {{- else -}}
-                {{ warnf "No title attached to page "}}
-			{{- end }}
+                {{ warnf "No heading param provided to page: %s" .RelPermalink }}
+            {{- end }}
 			<!-- Description -->
             {{ with .Params.description -}}
 				<p class="card-text-lead">

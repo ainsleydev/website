@@ -1,5 +1,6 @@
 ---
 title: Royal Beauty - Healthcare Website Case Study
+heading: Increasing Royal Beauty’s ROI to over 135%
 description: Discover how ainsley.dev streamlined Royal Beauty's business with a comprehensive, clean UI and easy to navigate website.
 slug: royal-beauty
 draft: false

@@ -6,7 +6,7 @@
     {{ $lazy = false }}
 {{ end }}
 {{ partial "cards/vertical.html" (dict
-	"title" .Title
+	"title" .Params.heading
 	"sub" .Params.company
 	"permalink" .RelPermalink
 	"image" (.Resources.GetMatch "images/card.jpg")

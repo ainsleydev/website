@@ -63,7 +63,7 @@
 							<div class="row no-gaps {{ if not $isLeft }} justify-content-end {{- end }}">
 								<div class="col-12 col-tab-11 col-desk-12">
 									{{ partial "cards/horizontal.html" (dict
-										"title" .Title
+										"title" .Params.heading
 										"permalink" .RelPermalink
 										"image" (.Resources.GetMatch .Params.featuredImage)
 										"animate" true

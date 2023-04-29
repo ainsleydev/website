@@ -6,7 +6,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12 col-desk-11 offset-desk-1">
-					{{ with .Params.htmlTitle }}
+                    {{ with .Params.heading -}}
 						<!-- Hero Animation -->
 						<div class="hero-animate"
 							data-scroll data-scroll-speed="3" data-scroll-position="top">
@@ -15,7 +15,7 @@
 							</h1>
 						</div>
 					{{- else -}}
-						{{ warnf "No HTML title provided in Params for Portfolio index page" }}
+                        {{ warnf "No heading param provided to page: %s" .RelPermalink }}
 					{{- end }}
 				</div><!-- /Col -->
 			</div><!-- /Row -->

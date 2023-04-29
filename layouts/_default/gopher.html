@@ -21,11 +21,13 @@
 				<!-- Content -->
 				<div class="col-12 col-desk-6 col-desk-large-5">
 					<!-- Heading -->
-					{{ with .Params.htmlTitle -}}
+					{{ with .Params.heading -}}
 						<h1>
-							{{ . | safeHTML }}
+                            {{ . | safeHTML }}
 						</h1>
-					{{- end }}
+                    {{- else -}}
+                        {{ warnf "No heading param provided to page: %s" .RelPermalink }}
+                    {{- end }}
 					<!-- Lead -->
 					{{ with .Params.lead -}}
 						<p class="lead lead-max-width mb-0">

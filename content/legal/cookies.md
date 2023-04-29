@@ -1,5 +1,6 @@
 ---
 title: Cookie Policy
+heading: No cookie policy
 description: Learn how we consciously refrain from tracking, marketing, or any other commercial cookies on our website. We call it our “No cookie policy”.
 draft: false
 url: /cookies

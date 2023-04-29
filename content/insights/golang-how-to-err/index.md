@@ -1,5 +1,6 @@
 ---
 title: How to implement custom errors in GoLang
+heading: Effective error handling in GoLang; how to Error()
 description: Learn how to implement custom errors in GoLang and implement meaningful error messages that can save hours of debugging time.
 slug: golang-how-to-err
 publishdate: 2022-03-14

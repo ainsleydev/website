@@ -1,5 +1,6 @@
 ---
 title: Scott's Guttering - Construction Website Case Study
+heading: Helping Scott’s Guttering rank in the top 15
 description: Discover how ainsley.dev helped Scott's Guttering rank within the top 15 by designing a sleek and easy to use landing page.
 slug: scotts-guttering
 draft: false

@@ -1,5 +1,6 @@
 ---
 title: SEO Best Practices for Developers
+heading: Responsibilities as a developer for optimised SEO
 description: Learn some tips and tricks to boost your SEO efforts, page rankings and page speed as a developer from a technical viewpoint.
 slug: optimise-seo
 publishdate: 2021-12-06

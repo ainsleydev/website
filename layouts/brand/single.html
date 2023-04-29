@@ -23,7 +23,13 @@
 					<div class="hero-text">
 						<!-- Heading -->
 						<div class="margin-large">
-							<h1 class="mb-0">{{ .Title }}</h1>
+							{{ with .Params.heading -}}
+								<h1 class="mb-0">
+									{{ . | safeHTML }}
+								</h1>
+							{{- else -}}
+								{{ warnf "No heading param provided to page: %s" .RelPermalink }}
+							{{- end }}
 							<div class="heading-1">
 								<h2 class="type-serif type-lowercase">Brand guidelines*</h2>
 							</div>
