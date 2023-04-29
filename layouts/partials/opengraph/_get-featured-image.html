@@ -6,6 +6,6 @@
 {{- if .Page.Resources.Get "images/og.jpg" -}}
 	{{ $image = (.Page.Resources.Get "images/og.jpg").RelPermalink -}}
 {{- else if and (eq .Section "insights") .IsPage -}}
-	{{- $image = (partial "opengraph/_insights-image.html" .).Permalink -}}
+	{{- $image = (partial "opengraph/_insights-image.html" .).RelPermalink -}}
 {{- end -}}
 {{- return (printf "%s%s" $baseURL $image) -}}
