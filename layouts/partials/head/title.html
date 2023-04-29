@@ -1,0 +1,12 @@
+<!-- =====================
+    Title
+    ===================== -->
+{{ if .Title -}}
+	{{- if gt (len .Title) 60 -}}
+		{{- warnf "Title exceeds character count: Page: %s, Count: %d, Title: %s" .RelPermalink (len .Title) .Title  -}}
+	{{- end }}
+	<title>{{ .Title }}{{ .Site.Params.titleSuffix }}</title>
+{{- else -}}
+	dfasdfg
+    {{ warnf "No title param provided to page: %s" .RelPermalink }}
+{{- end }}

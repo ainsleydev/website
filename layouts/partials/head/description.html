@@ -1,0 +1,15 @@
+<!-- =====================
+    Description
+    ===================== -->
+{{ if .Description -}}
+    {{- if gt (len .Description) 155 -}}
+        {{- warnf "Description exceeds character count for page: %s, count: %d, description: %s" .RelPermalink (len .Description) .Description  -}}
+    {{- end }}
+    {{ if and (not .IsHome) (eq .Description "") }}
+        {{ warnf "No meta description for page: %s" .RelPermalink }}
+    {{- end }}
+	<meta name="description"
+		  content="{{ if .IsHome -}} {{ $.Site.Params.description }} {{- else -}} {{ .Description }} {{- end }}" />
+{{- else -}}
+    {{ warnf "No title param provided to page: %s" .RelPermalink }}
+{{- end }}
