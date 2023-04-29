@@ -2,8 +2,6 @@
 #
 # Shell script to convert images in the public folder
 # to WebP and optimise JPG's and PNG's.
-#
-# ainsley.dev - 16/09/2021
 
 # Set Variables
 PUBLIC_PATH="./public"

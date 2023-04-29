@@ -2,8 +2,6 @@
 #
 # Shell script to convert videos in the public folder
 # to WebM, AV1 and optimise MP4
-#
-# ainsley.dev - 16/09/2021
 
 # Set Variables
 PUBLIC_PATH="./content"
