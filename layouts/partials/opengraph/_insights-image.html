@@ -18,4 +18,6 @@
 	"y" 980
 	"font" (resources.Get "/fonts/opengraph/PlusJakartaSans-Medium.ttf")
 ))}}
-{{- return $img.Filter $title $author -}}
+{{ $test := ($img.Filter $title $author) | resources.Copy (printf "/images/insights/%s-og.jpg" .Slug) }}
+{{- return $test  -}}
+{{/*{{- return $img.Filter $title $author }}*/}}
