@@ -23,6 +23,7 @@ results:
   - number: 150%
     text: increase in ROI
 logoWeight: 0
+lazy: false
 ---
 
 <!-- Intro -->

@@ -1,6 +1,10 @@
 <!-- =====================
 	Portfolio Card
 	===================== -->
+{{ $lazy := true }}
+{{ if and (isset .Params "lazy") (not .Params.lazy) }}
+    {{ $lazy = false }}
+{{ end }}
 {{ partial "cards/vertical.html" (dict
 	"title" .Title
 	"sub" .Params.company
@@ -8,4 +12,5 @@
 	"image" (.Resources.GetMatch "images/card.jpg")
 	"clip" (.Resources.GetMatch "images/card-hover.jpg")
 	"animate" true
+	"lazy" $lazy
 )}}
