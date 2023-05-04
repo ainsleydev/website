@@ -36,9 +36,12 @@ for i in $(find ${PUBLIC_PATH} -type f -name "*.mp4" -o -name "*.mkv"); do
 	if [[ ${i} != *"compressed"* ]] && [[ ! -e "${i%.*}.webm" ]]; then
 		echo "Processing file: $i"
 		if [ "$AUDIO" = true ]; then
-			ffmpeg -i "$i" -c:v libvpx-vp9 -crf ${CRF} -b:v 1900K -c:a libopus -b:a 320k -preset veryslow -threads 4 "${i%.*}.webm"
+			ffmpeg -i "$i" -c:v libvpx-vp9 -crf ${CRF} -b:v 1900K -c:a libopus -b:a 192k -preset veryslow -threads 4 "${i%.*}.webm"
 		else
-			ffmpeg -i "$i" -c:v libvpx-vp9 -crf ${CRF} -b:v 1900K -an -b:a 320k -preset veryslow -threads 4 "${i%.*}.webm"
+			ffmpeg -i "$i" -c:v libvpx-vp9 -crf ${CRF} -b:v 1900K -an -b:a 192k -preset veryslow -threads 4 "${i%.*}.webm"
 		fi
 	fi;
 done
+
+
+
