@@ -1,6 +1,7 @@
 ---
-title: Helping Scott’s Guttering rank in the top 15
-description: Discover how ainsley.dev boosted Dec's Pets sales by over 200% with a fun, family-friendly designed website and e-commerce store.
+title: Scott's Guttering - Construction Website Case Study
+heading: Helping Scott’s Guttering rank in the top 15
+description: Discover how ainsley.dev helped Scott's Guttering rank within the top 15 by designing a sleek and easy to use landing page.
 slug: scotts-guttering
 draft: false
 weight: 6

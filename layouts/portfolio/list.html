@@ -6,7 +6,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12 col-desk-11 offset-desk-1">
-					{{ with .Params.htmlTitle }}
+                    {{ with .Params.heading -}}
 						<!-- Hero Animation -->
 						<div class="hero-animate"
 							data-scroll data-scroll-speed="3" data-scroll-position="top">
@@ -15,7 +15,7 @@
 							</h1>
 						</div>
 					{{- else -}}
-						{{ warnf "No HTML title provided in Params for Portfolio index page" }}
+                        {{ warnf "No heading param provided to page: %s" .RelPermalink }}
 					{{- end }}
 				</div><!-- /Col -->
 			</div><!-- /Row -->
@@ -36,7 +36,16 @@
 							animate-up" {{ if or (eq $index 0) (eq $index 1) -}} data-animate-delay="400" {{- end }}>
 							<div class="row {{ if not $isLeft }} justify-content-end {{- end }}">
 								<div class="col-12 col-mob-11 col-desk-12">
-									{{ .Render "card" }}
+									{{ $lazy := true }}{{ if or (eq $index 0) (eq $index 1) }}{{ $lazy = false }}{{ end }}
+                                    {{ partial "cards/vertical.html" (dict
+										"title" .Params.heading
+										"sub" .Params.company
+										"permalink" .RelPermalink
+										"image" (.Resources.GetMatch "images/card.jpg")
+										"clip" (.Resources.GetMatch "images/card-hover.jpg")
+										"animate" true
+										"lazy" $lazy
+                                    )}}
 								</div><!-- /Col -->
 							</div><!-- /Row -->
 						</div><!--- /Col -->

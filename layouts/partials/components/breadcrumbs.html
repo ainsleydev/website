@@ -33,7 +33,7 @@
 						<!-- Link -->
 						<a class="breadcrumbs-link" href="{{ $path }}" itemprop="item">
 							<span itemprop="name">
-								 {{ .Title | humanize }}
+								 {{ .Params.heading | humanize }}
 							</span>
 							<meta itemprop="position" content="{{ add $index 1 }}" />
 						</a><!-- /Link -->

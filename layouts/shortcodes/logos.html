@@ -5,7 +5,7 @@
 {{ $pages := (where .Site.RegularPages "Type" "portfolio").ByParam "logoWeight" -}}
 {{ with $pages -}}
     {{ range . -}}
-		<a href="https://decspets.ie" target="_blank" class="cursor-element"
+		<a href="{{ .Params.site.link }}" target="_blank" class="cursor-element"
 		   title="Navigate to {{ .Params.company }} Website"
 		   aria-label="{{ .Params.company }} Website"
 		   data-cursor-border data-cursor-border-white>

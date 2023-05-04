@@ -19,7 +19,13 @@
 						</figure><!-- /Log -->
 						<!-- Title -->
 						<div class="margin-large animate-line-heading">
-							<h1 class="portfolio-title mb-0">{{ .Title }}</h1>
+                            {{ with .Params.heading -}}
+								<h1 class="portfolio-title mb-0">
+									{{ . | safeHTML }}
+								</h1>
+                            {{- else -}}
+                                {{ warnf "No heading param provided to page: %s" .RelPermalink }}
+                            {{- end }}
 						</div><!-- /Title -->
 						<!-- Info -->
 						<div class="animate-line-lead">

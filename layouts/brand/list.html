@@ -23,11 +23,8 @@
 					<div class="hero-text-large">
 						<!-- Heading -->
 						<div class="margin-large">
-                            {{ with .Params.htmlTitle }}
-								<h1>{{ . | safeHTML }}</h1>
-                            {{- else -}}
-                                {{ warnf "No HTML title provided in Params for Brand index page" }}
-                            {{- end }}
+							<span class="heading-1 mb-0">ainsley.dev </span>
+							<h1><span class="type-serif small-mob">brand guidelines*</span></h1>
 						</div>
 						<!-- Button -->
 						{{ with .Resources.GetMatch "brand-pack.zip" -}}
@@ -66,7 +63,7 @@
 							<div class="row no-gaps {{ if not $isLeft }} justify-content-end {{- end }}">
 								<div class="col-12 col-tab-11 col-desk-12">
 									{{ partial "cards/horizontal.html" (dict
-										"title" .Title
+										"title" .Params.heading
 										"permalink" .RelPermalink
 										"image" (.Resources.GetMatch .Params.featuredImage)
 										"animate" true

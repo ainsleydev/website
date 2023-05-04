@@ -1,5 +1,6 @@
 ---
-title: Driving more than 92% of traffic to Oak Tuition
+title: Oak Tuition - Education Website Case Study
+heading: Driving more than 92% of traffic to Oak Tuition
 description: Discover how ainsley.dev increased traffic and replaced an off-the-peg website, with a professional, sleek, but playful multi-page online presence.
 slug: oak-tuition
 draft: false

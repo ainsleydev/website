@@ -1,6 +1,7 @@
 ---
-title: Effective error handling in GoLang; how to Error()
-description: Failure is your domain. Effective error handling in any GoLang package or application is crucial to  understand how and where errors are formulated. Errors used in combination with effective logging can save hours of  debugging time.
+title: How to implement custom errors in GoLang
+heading: Effective error handling in GoLang; how to Error()
+description: Learn how to implement custom errors in GoLang and implement meaningful error messages that can save hours of debugging time.
 slug: golang-how-to-err
 publishdate: 2022-03-14
 lastmod: 2022-03-14
