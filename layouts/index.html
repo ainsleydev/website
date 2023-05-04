@@ -90,13 +90,13 @@
 		</video>
 		<!-- Close -->
 		<div class="video-close">
-			{{  partial "components/button.html" (dict
-			"text" "Close"
-			"colour" "white"
-			"size" "tiny"
-			"class" "video-full-close"
-			"title" "Close the video"
-			"attr" "data-cursor-invert data-cursor-invert-black"
+			{{ partial "components/button.html" (dict
+				"text" "Close"
+				"colour" "white"
+				"size" "tiny"
+				"class" "video-full-close"
+				"title" "Close the video"
+				"attr" "data-cursor-invert data-cursor-invert-black"
 			)}}
 		</div><!-- Close -->
 		<!-- Controls -->
@@ -173,18 +173,28 @@
 					<div class="animate-up" data-animate-no-touch>
 						<picture class="image margin-large" data-scroll data-scroll-speed="1">
 							{{ partial "media/picture.html" (dict
-								"image" (resources.Get "/images/site/home.jpg")
+								"image" (resources.Get "/images/site//home.jpg")
 								"alt" "ainsley.dev"
 								"lazy" true
 							)}}
 						</picture>
 					</div>
-					<div class="animate-up" data-animate-no-touch>
-						<h2>Who we are</h2>
+					<div class="margin-large animate-up" data-animate-no-touch>
+						<h3 class="heading-2">Who we are</h3>
 						<p class="lead mb-0">
 							In a commercial world increasingly reliant on digital technology, ainsley.dev is a market-leading software design and development company at the forefront of high-tech advancements and techniques.
 						</p>
 					</div>
+					<div class="animate-up"
+						data-animate-no-touch>
+                        {{ partial "components/button.html" (dict
+							"text" "Get to know us"
+							"link" "/who-we-are/"
+							"size" "small"
+							"arrow" true
+							"title" "View about us page"
+                        )}}
+					</div><!-- /Row -->
 				</div><!--- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
@@ -206,7 +216,7 @@
 				</div><!-- /Col -->
 				<!-- Content -->
 				<div class="col-12 col-mob-9 col-desk-7 col-hd-6">
-					<div class="row no-gaps">
+					<div class="row no-gaps margin-large">
 						<div class="col-12 col-desk-6">
 							<h3 class="type-heading animate-up"
 								data-animate-no-touch>
@@ -244,6 +254,16 @@
 							</h3>
 						</div><!--- /Col -->
 					</div><!-- /Row -->
+                  	<div class="row no-gaps animate-up"
+						data-animate-delay="400" data-animate-no-touch>
+                        {{ partial "components/button.html" (dict
+							"text" "View all services"
+							"link" "/services"
+							"size" "small"
+							"arrow" true
+							"title" "View all services"
+                        )}}
+					</div><!-- /Row -->
 				</div><!--- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
@@ -273,7 +293,7 @@
 								<div class="all-articles-wrapper all-articles-wrapper-end">
                                     {{ partial "arrow/text.html" (dict
 										"link" "/portfolio/"
-										"text" "<h2>All work</h3>"
+										"text" "<span class='heading-3'>All work</span>"
 										"title" "View all work"
 										"small" true
 										"rotation" 45
@@ -283,12 +303,12 @@
 							<!-- All Work - Small -->
 							<div class="col-12 all-articles all-articles-small">
 								<div class="all-articles-wrapper">
-									<h6 class="all-articles-sub">
+									<span class="all-articles-sub">
 										Latest Articles
-									</h6>
+									</span>
                                     {{ partial "arrow/text.html" (dict
 										"link" "/portfolio/"
-										"text" "<h2>All work</h3>"
+										"text" "<span class='heading-2'>All work</span>"
 										"title" "View all work"
 										"small" true
 										"rotation" 45
@@ -300,7 +320,15 @@
                                 {{ $isLeft := eq (mod $index 2) 0 }}
 								<div class="col-12 col-desk-6 card-col-padding card-col-mob-no-margin animate-up
 								{{ if $isLeft }} card-col-left {{- else -}} card-col-right {{- end }} card-col">
-                                    {{ .Render "card" }}
+                                    {{ partial "cards/vertical.html" (dict
+										"title" .Params.heading
+										"sub" .Params.company
+										"permalink" .RelPermalink
+										"image" (.Resources.GetMatch "images/card.jpg")
+										"clip" (.Resources.GetMatch "images/card-hover.jpg")
+										"animate" true
+										"lazy" true
+                                    )}}
 								</div><!-- /Col -->
                             {{- end }}
 						</div><!-- /Row -->
@@ -332,12 +360,12 @@
 							<!-- All Articles - Large -->
 							<div class="col-12 all-articles all-articles-border all-articles-large">
 								<div class="all-articles-wrapper">
-									<h6 class="all-articles-sub">
+									<span class="heading-6 all-articles-sub">
 										Latest Articles
-									</h6>
+									</span>
                                     {{ partial "arrow/text.html" (dict
 										"link" "/insights/"
-										"text" "<h3>All insights</h3>"
+										"text" "<span class='heading-3'>All insights</span>"
 										"title" "View all insights"
 										"small" true
 										"rotation" 45
@@ -352,7 +380,7 @@
 									</h6>
                                     {{ partial "arrow/text.html" (dict
 										"link" "/insights/"
-										"text" "<h2>All insights</h3>"
+										"text" "<span class='heading-2'>All insights</span>"
 										"title" "View all insights"
 										"small" true
 										"rotation" 45

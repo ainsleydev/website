@@ -22,13 +22,10 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 		<meta name="apple-mobile-web-app-capable" content="yes" />
-        <title>{{ with .Params.title -}} {{ . }} | {{ end }}{{ .Site.Title }}</title>
+		<!-- Title -->
+		{{ partial "head/title.html" . }}
 		<!-- Description -->
-        {{ if and (not .IsHome) (eq .Description "") }}
-			{{ warnf "No meta description for page: %s" .RelPermalink }}
-		{{- end }}
-		<meta name="description"
-			  content="{{ if .IsHome -}} {{ $.Site.Params.description }} {{- else -}} {{ .Description }} {{- end }}"/>
+        {{ partial "head/description.html" . }}
 		<!-- Canonical -->
 		<link rel="canonical"
 			  href="{{ with .Params.canonical -}} {{ . }} {{- else -}} {{ printf "%s%s" $baseURL .RelPermalink }} {{- end }}"/>
@@ -82,7 +79,7 @@
         {{ if eq .Section "insights" -}}
         	{{ .Render "schema" }}
 		{{- end }}
-		<!-- Google Tag Manager -->
+		<!-- Analytics -->
         {{ partial "analytics/gtag.html" . }}
         {{ partial "analytics/plausible.html" . }}
     </head>
@@ -90,7 +87,7 @@
 		Body
 		===================== -->
 	{{ $colour := partial "util/_theme-colour.html" . }}
-    <body data-barba="wrapper" data-theme="{{ $colour }}">
+    <body class="{{ partial "util/_namespace.html" . }}" data-barba="wrapper" data-theme="{{ $colour }}">
 		{{ if .Site.Params.gtag.enable -}}
 			<!-- Google Tag Manager (noscript) -->
 			<noscript>

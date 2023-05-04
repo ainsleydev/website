@@ -22,10 +22,18 @@
 					<!-- Text -->
 					<div class="hero-text">
 						<!-- Heading -->
-						<h1 class="margin-large">
-							Brand guidelines <br/>
-							<span class="type-serif type-lowercase">{{ .Title }}*</span>
-						</h1>
+						<div class="margin-large">
+							{{ with .Params.heading -}}
+								<h1 class="mb-0">
+									{{ . | safeHTML }}
+								</h1>
+							{{- else -}}
+								{{ warnf "No heading param provided to page: %s" .RelPermalink }}
+							{{- end }}
+							<div class="heading-1">
+								<h2 class="type-serif type-lowercase">Brand guidelines*</h2>
+							</div>
+						</div>
 						<!-- File -->
                         {{ with .Params.download -}}
                             {{ $file := $.Resources.GetMatch .path }}

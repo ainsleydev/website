@@ -15,15 +15,17 @@
 			</figure>
 			<div class="col-12 col-desk-6 footer-main-col">
 				<!-- Heading -->
-				<h2 class="footer-heading">
+				<span class="heading-2 footer-heading">
 					Digital craftmanship<br class="d-mob-none"/>&nbsp;sculpting<br class="d-none d-mob-inline"/>&nbsp;you as an<br class="d-mob-none"/>&nbsp;industry leader.
-				</h2><!-- /Heading -->
+				</span><!-- /Heading -->
 				<!-- Contact -->
 				<div class="footer-contact">
 					<!-- Email -->
                     {{ with .Site.Params.contact.email -}}
 						<div class="footer-contact-email margin-large">
-							<h6 class="footer-contact-sub">Email us</h6>
+							<span class="heading-6 footer-contact-sub">
+								Email us
+							</span>
 							<a href="mailto:{{ . | safeHTMLAttr }}" class="cursor-element" title="Email ainsley.dev"
 							   aria-label="Email ainsley.dev"
 							   data-cursor-border data-cursor-border-white>
@@ -34,7 +36,9 @@
 					<!-- Social -->
                     {{ with .Site.Params.social -}}
 						<menu class="footer-contact-social">
-							<h6 class="footer-contact-sub">Connect with us</h6>
+							<span class="heading-6 footer-contact-sub">
+								Connect with us
+							</span>
                             {{ partial "components/social.html" (dict "colour" "white") }}
 						</menu>
                     {{- end }}
@@ -53,8 +57,8 @@
 								<a href="{{ .URL }}" class="footer-main-menu-link"
 								   title="{{ .Name }} Page"
 								   aria-label="Navigate to the {{ .Name }} page">
-									<h5 class="cursor-element" data-cursor-border
-										data-cursor-border-white>{{ .Name }}</h5>
+									<span class="heading-5 cursor-element" data-cursor-border
+										data-cursor-border-white>{{ .Name }}</span>
 								</a>
 							</li>
                         {{- end }}

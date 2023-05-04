@@ -30,6 +30,10 @@ body {
 	-webkit-tap-highlight-color: transparent; // sass-lint:disable-line  no-vendor-prefixes
 }
 
+body.page-forms {
+	overflow: visible !important; // Override initial style.
+}
+
 .no-js * {
 	transition: none !important;
 }

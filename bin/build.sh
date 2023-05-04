@@ -3,8 +3,6 @@
 # Runs the build script for Vercel.
 # The commit ref is compared and built for
 # the different environments.
-#
-# ainsley.dev - 16/09/2021
 
 echo "Vercel Env: $VERCEL_ENV"
 if [[ $VERCEL_ENV == "production" ]]; then

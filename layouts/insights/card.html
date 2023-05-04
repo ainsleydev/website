@@ -12,24 +12,24 @@
 	<div class="row no-gaps">
 		<!-- Date -->
 		<div class="col-12 col-desk-2">
-			<h6 class="card-text-sub margin-large mb-desk-0">
+			<span class="heading-6 card-text-sub margin-large mb-desk-0">
 				{{ with .PublishDate -}}
 					{{ .Format "02/01/2006" }}
 				{{- else -}}
 					{{ warnf "No publish date defined on page: %s" .Title }}
 				{{- end }}
-			</h6>
+			</span>
 		</div><!-- /Col -->
 		<!-- Content -->
 		<div class="col-12 col-desk-10">
 			<!-- Title -->
-			{{ with .Title -}}
+			{{ with .Params.heading -}}
 				<h3 class="card-text-title">
 					{{ . }}
 				</h3>
             {{- else -}}
-                {{ warnf "No title attached to page "}}
-			{{- end }}
+                {{ warnf "No heading param provided to page: %s" .RelPermalink }}
+            {{- end }}
 			<!-- Description -->
             {{ with .Params.description -}}
 				<p class="card-text-lead">
