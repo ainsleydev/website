@@ -10,8 +10,8 @@ if [[ "$VERCEL_GIT_COMMIT_REF" != "main" && "$VERCEL_GIT_COMMIT_REF" != "staging
 	echo "🛑 - Build cancelled"
 	exit 0;
 else
-	# Proceed with the build
-	echo "✅ - Build can proceed"
-	exit 1;
+  # Proceed with the build
+  echo "✅ - Build can proceed"
+  exit 1;
 fi;
 

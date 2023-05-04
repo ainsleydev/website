@@ -1,8 +1,6 @@
 #!/bin/bash
 #
 # Shell script determining operating system.
-#
-# ainsley.dev - 16/09/2021
 
 case "$OSTYPE" in
   solaris*) echo "SOLARIS" ;;

@@ -1,5 +1,6 @@
 ---
-title: Launching Dec’s Pets into the e-commerce market
+title: Dec's Pets - Pet E-Commerce Website Case Study
+heading: Launching Dec’s Pets into the e-commerce market
 description: Discover how ainsley.dev boosted Dec's Pets sales by over 200% with a fun, family-friendly designed website and e-commerce store.
 slug: decs-pets
 draft: false
