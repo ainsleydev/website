@@ -16,11 +16,7 @@
 					"@type": 		"SiteNavigationElement",
 					"position": 	{{ add $index 1 -}},
 					"name": 		{{ $item.Name }},
-					{{ with $page.Params.description -}}
-					"description": 	"{{ $page.Params.description }}",
-					{{- else -}}
-					"description": 	"{{ $.ctx.Site.Params.description }}",
-					{{- end }}
+					"description": 	"{{ $page.Description }}",
 					"url": 			{{ printf "%s/%s" (strings.TrimSuffix "/" $baseURL) (strings.TrimPrefix "/" $item.URL) }}
 				}
 				{{ end }}
