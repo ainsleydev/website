@@ -9,12 +9,13 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/slack"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/stringutil"
-	"github.com/ainsleyclark/ainsley.dev/api/_sdk"
+	sdk "github.com/ainsleydev/website/api/_sdk"
+
 	"github.com/ainsleyclark/errors"
+	"github.com/ainsleydev/website/api/_pkg/gateway/mail"
+	"github.com/ainsleydev/website/api/_pkg/gateway/slack"
+	"github.com/ainsleydev/website/api/_pkg/logger"
+	"github.com/ainsleydev/website/api/_pkg/stringutil"
 	"github.com/labstack/echo/v4"
 )
 

@@ -10,6 +10,7 @@ tags:
   - Jobs
   - Front-end
 author: Ainsley Clark
+private: true
 canonical: https://reddico.co.uk/insights/first-front-end-development-job/
 ---
 

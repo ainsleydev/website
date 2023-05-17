@@ -7,9 +7,10 @@ package middleware
 import (
 	"net/http"
 
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
-	"github.com/ainsleyclark/ainsley.dev/api/_sdk"
+	sdk "github.com/ainsleydev/website/api/_sdk"
+
 	"github.com/ainsleyclark/errors"
+	"github.com/ainsleydev/website/api/_pkg/logger"
 	"github.com/labstack/echo/v4"
 )
 

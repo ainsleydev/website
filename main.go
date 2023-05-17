@@ -7,10 +7,10 @@ package main
 import (
 	"flag"
 
-	"github.com/ainsleyclark/ainsley.dev/api"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/httpservice"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
-	"github.com/ainsleyclark/ainsley.dev/api/_sdk"
+	"github.com/ainsleydev/website/api"
+	"github.com/ainsleydev/website/api/_pkg/httpservice"
+	"github.com/ainsleydev/website/api/_pkg/logger"
+	"github.com/ainsleydev/website/api/_sdk"
 	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"

@@ -47,7 +47,7 @@ at [staging.ainsley.dev](https://staging.ainsley.dev) and is updarted when the `
 **Create a new post**
 
 ```shell
-hugo new --kind post-bundle posts/my-post
+hugo new --kind post-bundle insights/my-post
 ```
 
 **Create a new portfolio item**

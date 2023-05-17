@@ -11,7 +11,7 @@
         {{ warnf "No meta description for page: %s" .RelPermalink }}
     {{- end }}
 	<meta name="description"
-		  content="{{ if .IsHome -}} {{ $.Site.Params.description }} {{- else -}} {{ .Description }} {{- end }}" />
-{{- else if not .IsHome -}}
+		  content="{{ .Description }}" />
+{{- else -}}
     {{ warnf "No description param provided to page: %s" .RelPermalink }}
 {{- end }}

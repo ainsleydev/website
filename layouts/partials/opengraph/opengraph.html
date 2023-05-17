@@ -25,7 +25,7 @@
 	<meta property="og:locale" content="{{ . }}" />
 {{- end }}
 <!-- Site -->
-{{ with .Params.title -}}
+{{ with .Site.Params.name -}}
 	<meta property="og:site_name" content="{{ . }}" />
 {{ end -}}
 <!-- Videos -->

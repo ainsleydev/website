@@ -5,18 +5,17 @@
 package api
 
 import (
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/analytics"
+	"github.com/ainsleydev/website/api/_pkg/analytics"
+	sdk "github.com/ainsleydev/website/api/_sdk"
 	"log"
 	"net/http"
 
-	"github.com/ainsleyclark/ainsley.dev/api/_sdk"
-
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/slack"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/httpservice"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/middleware"
+	"github.com/ainsleydev/website/api/_pkg/environment"
+	"github.com/ainsleydev/website/api/_pkg/gateway/mail"
+	"github.com/ainsleydev/website/api/_pkg/gateway/slack"
+	"github.com/ainsleydev/website/api/_pkg/httpservice"
+	"github.com/ainsleydev/website/api/_pkg/logger"
+	"github.com/ainsleydev/website/api/_pkg/middleware"
 	"github.com/labstack/echo/v4"
 )
 
