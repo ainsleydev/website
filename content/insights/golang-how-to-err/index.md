@@ -7,9 +7,9 @@ publishdate: 2022-03-14
 lastmod: 2022-03-14
 draft: false
 tags:
-  - Startup
-  - Jobs
-  - Front-end
+  - GoLang
+  - Errors
+  - Coding
 author: Ainsley Clark
 ---
 

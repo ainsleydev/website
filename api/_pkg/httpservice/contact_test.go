@@ -9,12 +9,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ainsleyclark/ainsley.dev/api/_mocks"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/slack"
-	"github.com/ainsleyclark/ainsley.dev/api/_sdk"
+	mocks "github.com/ainsleydev/website/api/_mocks"
+	sdk "github.com/ainsleydev/website/api/_sdk"
+
 	"github.com/ainsleyclark/errors"
+	"github.com/ainsleydev/website/api/_pkg/environment"
+	"github.com/ainsleydev/website/api/_pkg/gateway/mail"
+	"github.com/ainsleydev/website/api/_pkg/gateway/slack"
 	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"

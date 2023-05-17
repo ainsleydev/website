@@ -9,8 +9,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
-	"github.com/ainsleyclark/ainsley.dev/api/_sdk"
+	sdk "github.com/ainsleydev/website/api/_sdk"
+
+	"github.com/ainsleydev/website/api/_pkg/environment"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )

@@ -5,9 +5,9 @@
 package httpservice
 
 import (
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/mail"
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/gateway/slack"
+	"github.com/ainsleydev/website/api/_pkg/environment"
+	"github.com/ainsleydev/website/api/_pkg/gateway/mail"
+	"github.com/ainsleydev/website/api/_pkg/gateway/slack"
 )
 
 // Handler defines the type that implements the OpenAPI spec.
