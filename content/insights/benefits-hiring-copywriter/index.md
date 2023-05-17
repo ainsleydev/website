@@ -22,8 +22,6 @@ considering doing it in-house to save some money, but there are actually signifi
 copywriter to handle this for you which far outweigh any expense.
 {{< /lead >}}
 
-[//]: # (![Laptop on Desk]&#40;images/laptop.jpg&#41;)
-
 ## Consistent branding
 
 A professional copywriter can
@@ -76,10 +74,9 @@ Though it's tempting to take on all the work yourself, you will soon realise tha
 copywriter for your website significantly outweigh the cost. So, if you are interested in outsourcing digital
 copywriting for your business, please [get in touch](https://ainsley.dev/services/) with our expert content team.
 
-[How to Stay on Top of Digital Marketing Trends](https://tela.uk/2019/07/how-to-stay-on-top-of-digital-marketing-trends/)
+## Useful links
 
-[Google’s Search Quality Raters Guidelines: A Guide for SEO Beginners](https://www.searchenginejournal.com/google-eat/quality-raters-guidelines/)
-
-[What is Brand Consistency (and Why Does It Matter)?](https://merlinone.com/what-is-brand-consistency/)
-
-[8 Top Social Media Scheduling Tools to Save Time](https://sproutsocial.com/insights/social-media-scheduling-tools/)
+* [How to Stay on Top of Digital Marketing Trends](https://tela.uk/2019/07/how-to-stay-on-top-of-digital-marketing-trends/)
+* [Google’s Search Quality Raters Guidelines: A Guide for SEO Beginners](https://www.searchenginejournal.com/google-eat/quality-raters-guidelines/)
+* [What is Brand Consistency (and Why Does It Matter)?](https://merlinone.com/what-is-brand-consistency/)
+* [8 Top Social Media Scheduling Tools to Save Time](https://sproutsocial.com/insights/social-media-scheduling-tools/)
