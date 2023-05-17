@@ -1,4 +1,4 @@
-module github.com/ainsleyclark/ainsley.dev
+module github.com/ainsleydev/website
 
 go 1.19
 

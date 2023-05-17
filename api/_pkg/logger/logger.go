@@ -7,7 +7,7 @@ package logger
 import (
 	"io"
 
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
+	"github.com/ainsleydev/website/api/_pkg/environment"
 	"github.com/sirupsen/logrus"
 )
 

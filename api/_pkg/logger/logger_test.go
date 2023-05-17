@@ -11,7 +11,7 @@ import (
 
 	"github.com/ainsleyclark/errors"
 
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
+	"github.com/ainsleydev/website/api/_pkg/environment"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 )

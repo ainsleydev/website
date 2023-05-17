@@ -11,8 +11,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/logger"
 	"github.com/ainsleyclark/errors"
+	"github.com/ainsleydev/website/api/_pkg/logger"
 	"github.com/labstack/echo/v4"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"

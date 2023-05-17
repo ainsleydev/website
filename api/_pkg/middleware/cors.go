@@ -7,7 +7,7 @@ package middleware
 import (
 	"net/http"
 
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
+	"github.com/ainsleydev/website/api/_pkg/environment"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )

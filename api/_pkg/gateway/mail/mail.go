@@ -5,10 +5,10 @@
 package mail
 
 import (
-	"github.com/ainsleyclark/ainsley.dev/api/_pkg/environment"
 	"github.com/ainsleyclark/errors"
 	"github.com/ainsleyclark/go-mail/drivers"
 	"github.com/ainsleyclark/go-mail/mail"
+	"github.com/ainsleydev/website/api/_pkg/environment"
 )
 
 type (
