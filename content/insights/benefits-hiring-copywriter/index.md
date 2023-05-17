@@ -22,7 +22,7 @@ considering doing it in-house to save some money, but there are actually signifi
 copywriter to handle this for you which far outweigh any expense.
 {{< /lead >}}
 
-![Laptop on Desk](images/laptop.jpg)
+[//]: # (![Laptop on Desk]&#40;images/laptop.jpg&#41;)
 
 ## Consistent branding
 
