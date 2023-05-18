@@ -12,7 +12,9 @@ $home-show-reel-height: 300vh;
 .home {
 	$self: &;
 
-	// Hero	// =========================================================================
+	// Hero
+	//
+	// =========================================================================
 
 	&-hero {
 		overflow-x: hidden;
@@ -144,10 +146,27 @@ $home-show-reel-height: 300vh;
 		pointer-events: none;
 	}
 
+	// Awwwards
+	// =========================================================================
+
+	#awwwards svg {
+		position: fixed;
+		top: 50%;
+		right: 0;
+		z-index: 999;
+		transform: scale(0.9) translate(6px, -50%);
+	}
+
 	// Tablet
 	// =========================================================================
 
 	@include media-tab {
+		#awwwards svg {
+			top: auto;
+			bottom: 10%;
+			transform: none;
+		}
+
 		&-hero {
 			@include full-height;
 			display: flex;
