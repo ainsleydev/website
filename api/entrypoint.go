@@ -47,7 +47,7 @@ func Bootstrap(server *echo.Echo) (*httpservice.Handler, func()) {
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
-	teardown, err := analytics.InitSentry()
+	teardown, err := analytics.InitSentry(config.SentryDSN)
 	if err != nil {
 		log.Fatalln(err.Error())
 	}

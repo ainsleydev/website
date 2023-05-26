@@ -22,6 +22,7 @@ type Config struct {
 	MailFromAddress string   `env:"MAIL_FROM_ADDRESS,required"`
 	MailFromName    string   `env:"MAIL_FROM_NAME,required"`
 	MailRecipients  []string `env:"MAIL_RECIPIENTS,required" envSeparator:":"`
+	SentryDSN       string   `env:"SENTRY_DSN,required"`
 }
 
 // See: https://vercel.com/docs/concepts/projects/environment-variables/system-environment-variables

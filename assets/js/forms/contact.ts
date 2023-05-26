@@ -28,7 +28,9 @@ export class ContactForm extends Form {
 	 */
 	send(): void {
 		Log.debug('Sending Plausible Goal - `Contact Form`');
-		window.plausible('Contact Form');
+		if (window.plausible) {
+			window.plausible('Contact Form');
+		}
 		const request = {
 			message: this.getValue('message'),
 			honeypot: this.getValue('first-name'),
