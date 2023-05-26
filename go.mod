@@ -19,10 +19,7 @@ require (
 )
 
 require (
-	github.com/certifi/gocertifi v0.0.0-20210507211836-431795d63e8d // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/evalphobia/logrus_sentry v0.8.2 // indirect
-	github.com/getsentry/raven-go v0.2.0 // indirect
 	github.com/go-openapi/jsonpointer v0.19.6 // indirect
 	github.com/go-openapi/swag v0.22.3 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect

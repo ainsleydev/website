@@ -41,6 +41,10 @@ func TestHandler_SendContactForm(t *testing.T) {
 				Honeypot: "bad bot",
 				Message:  "Hello test@hello.com",
 			},
+			mock: func(slack *mocks.Sender, mailer *mocks.Mailer) {
+				slack.On("Send", context.TODO(), mock.Anything, mock.Anything, mock.Anything).
+					Return(nil)
+			},
 			want: "Sent successfully",
 		},
 		"Slack Failure": {

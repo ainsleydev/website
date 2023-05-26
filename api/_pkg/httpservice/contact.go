@@ -66,6 +66,17 @@ func (h Handler) SendContactForm(ctx echo.Context) error {
 			request.Honeypot,
 			request.Message,
 		)
+		// Don't bail if there is an error sending the Slack message.
+		_ = h.Slack.Send(ctx.Request().Context(), slack.Channels.Contact, "Honeypot Trap", []slack.Field{ //nolint
+			{
+				Title: "Message",
+				Value: request.Message,
+			},
+			{
+				Title: "Honeypot",
+				Value: request.Honeypot,
+			},
+		})
 		return ctx.JSON(http.StatusOK, sdk.HTTPResponse{
 			Message: "Sent successfully",
 		})
