@@ -5,17 +5,20 @@
 package analytics
 
 import (
+	"github.com/ainsleydev/website/api/_pkg/logger"
+	"github.com/evalphobia/logrus_sentry"
+	"github.com/sirupsen/logrus"
 	"time"
 
 	"github.com/ainsleyclark/errors"
 	"github.com/getsentry/sentry-go"
 )
 
-func InitSentry() (func(), error) {
+func InitSentry(dsn string) (func(), error) {
 	const op = "Analytics.InitSentry"
 
 	err := sentry.Init(sentry.ClientOptions{
-		Dsn: "https://3c74bf58e8594bceacf79c6e88194c1d@o4504923390083072.ingest.sentry.io/4504923447754752",
+		Dsn: dsn,
 		// Enable printing of SDK debug messages.
 		// Useful when getting started or trying to figure something out.
 		Debug: true,
@@ -24,7 +27,15 @@ func InitSentry() (func(), error) {
 		return func() {}, errors.NewInternal(err, "Could not initialise Sentry SDK", op)
 	}
 
-	sentry.CaptureMessage("It works!")
+	// Example Message
+	// sentry.CaptureMessage("It works!")
+
+	// Add a hook to send log lines to Sentry.
+	hook, err := logrus_sentry.NewSentryHook(dsn, logrus.AllLevels)
+	if err != nil {
+		return func() {}, errors.NewInternal(err, "Could not initialise Sentry SDK", op)
+	}
+	logger.DefaultLogger.AddHook(hook)
 
 	// Flush buffered events before the program terminates.
 	// Set the timeout to the maximum duration the program can afford to wait.
