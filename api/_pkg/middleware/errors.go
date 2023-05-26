@@ -5,8 +5,9 @@
 package middleware
 
 import (
-	"github.com/getsentry/sentry-go"
 	"net/http"
+
+	"github.com/getsentry/sentry-go"
 
 	sdk "github.com/ainsleydev/website/api/_sdk"
 
