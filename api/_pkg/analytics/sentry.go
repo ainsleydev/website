@@ -5,8 +5,9 @@
 package analytics
 
 import (
-	"github.com/ainsleydev/website/api/_pkg/environment"
 	"time"
+
+	"github.com/ainsleydev/website/api/_pkg/environment"
 
 	"github.com/ainsleyclark/errors"
 	"github.com/getsentry/sentry-go"

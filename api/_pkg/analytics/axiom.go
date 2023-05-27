@@ -2,6 +2,7 @@ package analytics
 
 import (
 	"context"
+
 	"github.com/ainsleyclark/errors"
 	"github.com/ainsleydev/website/api/_pkg/logger"
 	adapter "github.com/axiomhq/axiom-go/adapters/logrus"

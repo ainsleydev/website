@@ -5,10 +5,11 @@
 package api
 
 import (
-	"github.com/ainsleydev/website/api/_pkg/analytics"
-	sdk "github.com/ainsleydev/website/api/_sdk"
 	"log"
 	"net/http"
+
+	"github.com/ainsleydev/website/api/_pkg/analytics"
+	sdk "github.com/ainsleydev/website/api/_sdk"
 
 	"github.com/ainsleydev/website/api/_pkg/environment"
 	"github.com/ainsleydev/website/api/_pkg/gateway/mail"
