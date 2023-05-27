@@ -23,6 +23,8 @@ type Config struct {
 	MailFromName    string   `env:"MAIL_FROM_NAME,required"`
 	MailRecipients  []string `env:"MAIL_RECIPIENTS,required" envSeparator:":"`
 	SentryDSN       string   `env:"SENTRY_DSN,required"`
+	AxiomToken      string   `env:"AXIOM_TOKEN,required"`
+	AxiomDataSet    string   `env:"AXIOM_DATASET,required"`
 }
 
 // See: https://vercel.com/docs/concepts/projects/environment-variables/system-environment-variables
@@ -35,8 +37,7 @@ const (
 	Production = "production"
 )
 
-// New populates environment, loads, and validates the
-// environment
+// New populates environment, loads, and validates the environment
 // Returns errors.INTERNAL if parsing failed.
 func New() (*Config, error) {
 	const op = "Environment.Load"

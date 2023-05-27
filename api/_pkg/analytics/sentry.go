@@ -5,20 +5,23 @@
 package analytics
 
 import (
+	"github.com/ainsleydev/website/api/_pkg/environment"
 	"time"
 
 	"github.com/ainsleyclark/errors"
 	"github.com/getsentry/sentry-go"
 )
 
-func InitSentry(dsn string) (func(), error) {
+// InitSentry initialises the Sentry client and returns a function to close it.
+// Returns errors.INTERNAL the client failed to initialise.
+func InitSentry(config *environment.Config) (func(), error) {
 	const op = "Analytics.InitSentry"
 
 	err := sentry.Init(sentry.ClientOptions{
-		Dsn: dsn,
+		Dsn: config.SentryDSN,
 		// Enable printing of SDK debug messages.
 		// Useful when getting started or trying to figure something out.
-		Debug: true,
+		Debug: config.IsDevelopment(),
 	})
 	if err != nil {
 		return func() {}, errors.NewInternal(err, "Could not initialise Sentry SDK", op)
