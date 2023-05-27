@@ -46,9 +46,7 @@ func TestLocalFormatter_Format(t *testing.T) {
 		"Fields": {
 			logrus.Entry{
 				Data: logrus.Fields{
-					"fields": logrus.Fields{
-						"key": "value",
-					},
+					"key": "value",
 				},
 			},
 			"value",

@@ -24,19 +24,17 @@ func Bootstrap(config *environment.Config) {
 
 // WithField logs with field, sets a new map containing
 // "fields".
-func WithField(key string, value interface{}) *logrus.Entry {
-	return DefaultLogger.WithFields(logrus.Fields{"fields": logrus.Fields{
-		key: value,
-	}})
+func WithField(key string, value any) *logrus.Entry {
+	return DefaultLogger.WithField(key, value)
 }
 
 // WithFields logs with fields, sets a new map containing
 // "fields".
 func WithFields(fields logrus.Fields) *logrus.Entry {
-	return DefaultLogger.WithFields(logrus.Fields{"fields": fields})
+	return DefaultLogger.WithFields(fields)
 }
 
-// WithError - Logs with a Verbis error.
+// WithError - Logs with a custom error.
 func WithError(err interface{}) *logrus.Entry {
 	return DefaultLogger.WithField("error", err)
 }

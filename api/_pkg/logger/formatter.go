@@ -49,8 +49,8 @@ func (f *localFormatter) Format(entry *logrus.Entry) ([]byte, error) {
 	msg := entry.Message
 
 	data := ""
-	fields, ok := entry.Data["fields"].(logrus.Fields)
-	if ok {
+	fields := entry.Data
+	if len(fields) > 0 {
 		data += " "
 		keys := make([]string, 0, len(fields))
 		for k := range fields {
