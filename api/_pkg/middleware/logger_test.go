@@ -39,7 +39,7 @@ func TestHandler(t *testing.T) {
 			func(c echo.Context) error {
 				return errors.NewInternal(errors.New("error"), "message", "op")
 			},
-			"code:internal error:error",
+			"code=internal error=error",
 		},
 	}
 
