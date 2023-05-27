@@ -34,20 +34,8 @@ var (
 // and registering the API routes.
 func Handler(w http.ResponseWriter, r *http.Request) {
 	app = echo.New()
-	h, teardown := Bootstrap(app)
+	h, config := Bootstrap(app)
 	handler = h
-	defer teardown()
-	sdk.RegisterHandlersWithBaseURL(app, handler, httpservice.BasePath)
-	app.ServeHTTP(w, r)
-}
-
-// Bootstrap the main application by initialising packages, logging
-// middleware and creating the main handler.
-func Bootstrap(server *echo.Echo) (*httpservice.Handler, func()) {
-	config, err := environment.New()
-	if err != nil {
-		log.Fatalln(err.Error())
-	}
 
 	closeSentry, err := analytics.InitSentry(config)
 	if err != nil {
@@ -55,6 +43,24 @@ func Bootstrap(server *echo.Echo) (*httpservice.Handler, func()) {
 	}
 
 	closeAxiom, err := analytics.InitAxiom(config)
+	if err != nil {
+		log.Fatalln(err.Error())
+	}
+
+	// Flush all logs and analytics before the application closes.
+	defer func() {
+		closeAxiom()
+		closeSentry()
+	}()
+
+	sdk.RegisterHandlersWithBaseURL(app, handler, httpservice.BasePath)
+	app.ServeHTTP(w, r)
+}
+
+// Bootstrap the main application by initialising packages, logging
+// middleware and creating the main handler.
+func Bootstrap(server *echo.Echo) (*httpservice.Handler, *environment.Config) {
+	config, err := environment.New()
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
@@ -69,15 +75,9 @@ func Bootstrap(server *echo.Echo) (*httpservice.Handler, func()) {
 
 	logger.Debugf("Booted API, listening on URL: %s, Region: %s", config.URL, config.Region)
 
-	// Flush all logs and analytics before the application closes.
-	teardown := func() {
-		closeAxiom()
-		closeSentry()
-	}
-
 	return &httpservice.Handler{
 		Config: config,
 		Slack:  slack.New(config),
 		Mailer: mailer,
-	}, teardown
+	}, config
 }
