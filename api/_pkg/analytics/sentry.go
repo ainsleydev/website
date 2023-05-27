@@ -18,6 +18,10 @@ import (
 func InitSentry(config *environment.Config) (func(), error) {
 	const op = "Analytics.InitSentry"
 
+	if !config.IsProduction() {
+		return func() {}, nil
+	}
+
 	err := sentry.Init(sentry.ClientOptions{
 		Dsn: config.SentryDSN,
 		// Enable printing of SDK debug messages.

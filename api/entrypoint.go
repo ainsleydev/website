@@ -54,7 +54,7 @@ func Bootstrap(server *echo.Echo) (*httpservice.Handler, func()) {
 		log.Fatalln(err.Error())
 	}
 
-	closeAxiom, err := analytics.InitAxiom()
+	closeAxiom, err := analytics.InitAxiom(config)
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
@@ -67,13 +67,13 @@ func Bootstrap(server *echo.Echo) (*httpservice.Handler, func()) {
 		log.Fatalln(err.Error())
 	}
 
+	logger.Debugf("Booted API, listening on URL: %s, Region: %s", config.URL, config.Region)
+
 	// Flush all logs and analytics before the application closes.
 	teardown := func() {
 		closeAxiom()
 		closeSentry()
 	}
-
-	logger.Debugf("Booted API, listening on URL: %s, Region: %s", config.URL, config.Region)
 
 	return &httpservice.Handler{
 		Config: config,
