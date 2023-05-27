@@ -3,6 +3,8 @@ package analytics
 import (
 	"context"
 
+	"github.com/ainsleydev/website/api/_pkg/environment"
+
 	"github.com/ainsleyclark/errors"
 	"github.com/ainsleydev/website/api/_pkg/logger"
 	adapter "github.com/axiomhq/axiom-go/adapters/logrus"
@@ -12,8 +14,12 @@ import (
 
 // InitAxiom initialises the Axiom client and returns a function to close it.
 // Returns errors.INTERNAL the client failed to initialise.
-func InitAxiom() (func(), error) {
+func InitAxiom(config *environment.Config) (func(), error) {
 	const op = "Analytics.InitAxiom"
+
+	if !config.IsProduction() {
+		return func() {}, nil
+	}
 
 	hook, err := adapter.New()
 	if err != nil {
