@@ -16,10 +16,14 @@ var DefaultLogger = logrus.New()
 
 // Bootstrap creates a new Logger.
 func Bootstrap(config *environment.Config) {
+	DefaultLogger.SetLevel(logrus.TraceLevel)
+	if config.IsProduction() {
+		DefaultLogger.SetFormatter(&logrus.JSONFormatter{})
+		return
+	}
 	DefaultLogger.SetFormatter(&localFormatter{
 		Prefix: config.BrandName,
 	})
-	DefaultLogger.SetLevel(logrus.TraceLevel)
 }
 
 // WithField logs with field, sets a new map containing
