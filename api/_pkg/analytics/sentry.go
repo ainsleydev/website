@@ -7,24 +7,33 @@ package analytics
 import (
 	"time"
 
+	"github.com/ainsleydev/website/api/_pkg/environment"
+
 	"github.com/ainsleyclark/errors"
 	"github.com/getsentry/sentry-go"
 )
 
-func InitSentry() (func(), error) {
+// InitSentry initialises the Sentry client and returns a function to close it.
+// Returns errors.INTERNAL the client failed to initialise.
+func InitSentry(config *environment.Config) (func(), error) {
 	const op = "Analytics.InitSentry"
 
+	if !config.IsProduction() {
+		return func() {}, nil
+	}
+
 	err := sentry.Init(sentry.ClientOptions{
-		Dsn: "https://3c74bf58e8594bceacf79c6e88194c1d@o4504923390083072.ingest.sentry.io/4504923447754752",
+		Dsn: config.SentryDSN,
 		// Enable printing of SDK debug messages.
 		// Useful when getting started or trying to figure something out.
-		Debug: true,
+		Debug: config.IsDevelopment(),
 	})
 	if err != nil {
 		return func() {}, errors.NewInternal(err, "Could not initialise Sentry SDK", op)
 	}
 
-	sentry.CaptureMessage("It works!")
+	// Example Message
+	// sentry.CaptureMessage("It works!")
 
 	// Flush buffered events before the program terminates.
 	// Set the timeout to the maximum duration the program can afford to wait.

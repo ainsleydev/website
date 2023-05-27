@@ -7,6 +7,8 @@ package middleware
 import (
 	"net/http"
 
+	"github.com/getsentry/sentry-go"
+
 	sdk "github.com/ainsleydev/website/api/_sdk"
 
 	"github.com/ainsleyclark/errors"
@@ -29,8 +31,11 @@ func ErrorHandler(err error, ctx echo.Context) {
 		}
 	}
 	err = ctx.JSON(code, resp)
+	if err != nil && errors.Code(err) == errors.INTERNAL {
+		sentry.CaptureException(err)
+	}
 	if err != nil {
-		logger.WithError(err).Error("Error sending payload")
+		logger.WithError(err).Error()
 	}
 }
 

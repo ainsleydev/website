@@ -17,8 +17,14 @@ import (
 )
 
 func TestBootstrap(t *testing.T) {
-	Bootstrap(&environment.Config{BrandName: "brand"})
-	assert.Equal(t, logrus.TraceLevel, DefaultLogger.Level)
+	t.Run("Development", func(t *testing.T) {
+		Bootstrap(&environment.Config{BrandName: "brand"})
+		assert.IsType(t, &localFormatter{}, DefaultLogger.Formatter)
+	})
+	t.Run("Production", func(t *testing.T) {
+		Bootstrap(&environment.Config{Env: environment.Production})
+		assert.Equal(t, &logrus.JSONFormatter{}, DefaultLogger.Formatter)
+	})
 }
 
 func TestLogger(t *testing.T) {
