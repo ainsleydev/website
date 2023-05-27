@@ -2,6 +2,7 @@ package analytics
 
 import (
 	"context"
+
 	"github.com/ainsleydev/website/api/_pkg/environment"
 
 	"github.com/ainsleyclark/errors"
