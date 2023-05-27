@@ -54,7 +54,7 @@ func Bootstrap(server *echo.Echo) (*httpservice.Handler, func()) {
 		log.Fatalln(err.Error())
 	}
 
-	closeAxiom, err := analytics.InitAxiom(config)
+	err = analytics.InitAxiom(config)
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
@@ -71,7 +71,6 @@ func Bootstrap(server *echo.Echo) (*httpservice.Handler, func()) {
 
 	// Flush all logs and analytics before the application closes.
 	teardown := func() {
-		closeAxiom()
 		closeSentry()
 	}
 
