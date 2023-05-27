@@ -5,10 +5,11 @@
 package api
 
 import (
-	"github.com/ainsleydev/website/api/_pkg/analytics"
-	sdk "github.com/ainsleydev/website/api/_sdk"
 	"log"
 	"net/http"
+
+	"github.com/ainsleydev/website/api/_pkg/analytics"
+	sdk "github.com/ainsleydev/website/api/_sdk"
 
 	"github.com/ainsleydev/website/api/_pkg/environment"
 	"github.com/ainsleydev/website/api/_pkg/gateway/mail"
@@ -47,17 +48,33 @@ func Bootstrap(server *echo.Echo) (*httpservice.Handler, func()) {
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
-	teardown, err := analytics.InitSentry(config.SentryDSN)
+
+	closeSentry, err := analytics.InitSentry(config)
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
+
+	closeAxiom, err := analytics.InitAxiom()
+	if err != nil {
+		log.Fatalln(err.Error())
+	}
+
 	logger.Bootstrap(config)
 	middleware.Load(server, config)
+
 	mailer, err := mail.New(config)
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
-	logger.Infof("Booted API, listening on URL: %s, Region: %s", config.URL, config.Region)
+
+	// Flush all logs and analytics before the application closes.
+	teardown := func() {
+		closeAxiom()
+		closeSentry()
+	}
+
+	logger.Debugf("Booted API, listening on URL: %s, Region: %s", config.URL, config.Region)
+
 	return &httpservice.Handler{
 		Config: config,
 		Slack:  slack.New(config),
