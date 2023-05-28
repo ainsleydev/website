@@ -4,8 +4,13 @@
 {{ $plausible := site.Params.plausible -}}
 {{ if $plausible.enable -}}
 	{{ with $plausible.domain }}
+	<!-- Paid -->
 	<script defer data-domain="{{ . }}"
 		src="https://plausible.io/js/script.outbound-links{{ if $plausible.local }}.local{{ end }}.tagged-events.js">
+	</script>
+	<!-- Self Hosted -->
+	<script defer data-domain="{{ . }}"
+			src="https://analytics.ainsley.dev/js/script.outbound-links{{ if $plausible.local }}.local{{ end }}.tagged-events.js">
 	</script>
 	{{- else -}}
 		{{ warnf "No domain attached to Plauisble site param" }}
