@@ -29,6 +29,7 @@ export class ContactForm extends Form {
 	 */
 	send(): void {
 		Plausible('Contact Form');
+		Plausible('Contact Form Click');
 
 		const request = {
 			message: this.getValue('message'),
