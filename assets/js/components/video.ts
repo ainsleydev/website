@@ -8,6 +8,7 @@
 
 import { Log } from '../util/log';
 import Scroll from '../app/scroll';
+import { Plausible } from '../analytics/plausible';
 
 /**
  * playVideo plays a video element.
@@ -25,6 +26,49 @@ const playVideo = (vid: HTMLVideoElement) => {
 };
 
 /**
+ * The JSON object for tracking video playback events as defined
+ * within the data attribute.
+ */
+interface VideoTrack {
+	name: string;
+	seconds: number[];
+	// Not implemented yet.
+	percentage: number[];
+}
+
+/**
+ * Tracks the video up to a certain percentage and
+ * reports to Plausible.
+ *
+ * @param video
+ */
+const trackVideo = (video: HTMLVideoElement) => {
+	const goal = video.getAttribute('data-plausible-track');
+	if (goal === '') {
+		Log.error('No prefix set on video track attribute');
+		return;
+	}
+
+	const track = JSON.parse(goal);
+	const fired = new Map<number, boolean>();
+
+	video.addEventListener('timeupdate', (e) => {
+		const percentage = Math.round((video.currentTime / video.duration) * 100),
+			seconds = Math.round(video.currentTime);
+
+		if (track.seconds) {
+			track.seconds.forEach((second: number) => {
+				if (seconds >= second && !fired.get(second)) {
+					Log.debug(`${track.name} Video ${second} Secs`);
+					Plausible(`${track.name} Video ${second} Secs`);
+					fired.set(second, true);
+				}
+			});
+		}
+	});
+};
+
+/**
  * Video - Adds the video playing class when a user
  * clicks the play button on the video Element.
  *
@@ -38,8 +82,11 @@ export const video = (): void => {
 	document.querySelectorAll('video').forEach((vid) => {
 		vid.addEventListener('play', () => vid.classList.add('video-playing'));
 		vid.addEventListener('pause', () => vid.classList.remove('video-playing'));
-		if (vid.hasAttribute('data-plausible') && window.plausible) {
-			window.plausible(vid.getAttribute('data-plausible'));
+		if (vid.hasAttribute('data-plausible')) {
+			Plausible(vid.getAttribute('data-plausible'));
+		}
+		if (vid.hasAttribute('data-plausible-track')) {
+			trackVideo(vid);
 		}
 	});
 
