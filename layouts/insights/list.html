@@ -23,7 +23,7 @@
 		===================== -->
 	{{ $paginator := .Paginate .Pages.ByDate.Reverse 14 -}}
 	{{ if $paginator.Pages -}}
-		<section class="section section-padding section-padding-bottom animate-fade" id="pages">
+		<section class="section section-padding section-padding-bottom animate-fade" id="pages" data-barba-prevent="all">
 			<div class="container">
 				<!-- Cards -->
 				<div class="row justify-content-center">

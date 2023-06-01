@@ -13,6 +13,13 @@ import anime from 'animejs/lib/anime.es';
 import barba, { HookMethods, ITransitionData, RequestErrorOrResponse } from '@barba/core';
 import { ITransitionPage } from '@barba/core/dist/core/src/defs';
 
+const excludedPaths = [
+	{ path: 'insights', length: 2 },
+	{ path: 'privacy', length: 1 },
+	{ path: 'terms', length: 1 },
+	{ path: 'cookies', length: 1 },
+];
+
 /**
  * Barba is responsible for mounting the LocoNative scroll
  * client for the site.
@@ -56,9 +63,37 @@ export class Barba {
 				return false;
 			},
 			transitions: [this.defaultTransition(), this.insightsTransition(), this.portfolioTransition()],
+			prevent: (data) => {
+				return this.isExcluded(data.href) || this.isExcluded(window.location.href);
+			},
 		});
 		window.barba = barba;
 	}
+
+	/**
+	 * Determines if a page is prevented from using Barba.
+	 *
+	 * @param href
+	 */
+	private isExcluded = (href: string): boolean => {
+		let excluded = false;
+		excludedPaths.some((exclude) => {
+			const pathname = new URL(href).pathname,
+				paths = pathname.split('/').filter((el) => el != '');
+			if (!paths.includes(exclude.path)) {
+				return false;
+			}
+			if (exclude.length === 1) {
+				excluded = true;
+				return true;
+			}
+			if (paths.length >= exclude.length) {
+				excluded = true;
+				return true;
+			}
+		});
+		return excluded;
+	};
 
 	/**
 	 * The default page transition.
@@ -137,7 +172,11 @@ export class Barba {
 		return {
 			name: 'insights-transition',
 			to: {
-				namespace: ['page-insights', 'section-insights', 'page-legal'],
+				namespace: [
+					// 'page-insights',
+					'section-insights',
+					// 'page-legal'
+				],
 			},
 			leave(data: ITransitionData): Promise<unknown> | void {
 				return anime
