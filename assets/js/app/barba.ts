@@ -13,6 +13,8 @@ import anime from 'animejs/lib/anime.es';
 import barba, { HookMethods, ITransitionData, RequestErrorOrResponse } from '@barba/core';
 import { ITransitionPage } from '@barba/core/dist/core/src/defs';
 
+const excludedPaths = ['insights', 'privacy', 'terms', 'cookies'];
+
 /**
  * Barba is responsible for mounting the LocoNative scroll
  * client for the site.
@@ -56,6 +58,14 @@ export class Barba {
 				return false;
 			},
 			transitions: [this.defaultTransition(), this.insightsTransition(), this.portfolioTransition()],
+			prevent: (data) => {
+				const isExcluded = (href: string): boolean => {
+					const pathname = new URL(href).pathname,
+						paths = pathname.split('/').filter((el) => el != '');
+					return pathname.includes('insights') && paths.length >= 2;
+				};
+				return isExcluded(data.href) || isExcluded(window.location.href);
+			},
 		});
 		window.barba = barba;
 	}
@@ -137,7 +147,11 @@ export class Barba {
 		return {
 			name: 'insights-transition',
 			to: {
-				namespace: ['page-insights', 'section-insights', 'page-legal'],
+				namespace: [
+					// 'page-insights',
+					'section-insights',
+					// 'page-legal'
+				],
 			},
 			leave(data: ITransitionData): Promise<unknown> | void {
 				return anime

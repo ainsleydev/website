@@ -6,6 +6,8 @@
  * @author Email: hello@ainsley.dev
  */
 
+import { namespace } from './namespace';
+
 require('./../vendor/modernizr');
 import { Params } from '../params';
 import { Navigation } from '../components/nav';
@@ -120,13 +122,6 @@ class App {
 	}
 
 	/**
-	 * Obtains the Barba namespace.
-	 */
-	public nameSpace(): string {
-		return document.querySelector('.barba-container').getAttribute('data-barba-namespace');
-	}
-
-	/**
 	 * Initialises types only once (singletons).
 	 *
 	 * @private
@@ -164,7 +159,7 @@ class App {
 			timeout = this.nav.duration() / 2 - 350;
 		setTimeout(() => animations.play(), this.nav.isAnimating ? timeout : 0);
 
-		if (this.nameSpace() === 'home') {
+		if (namespace() === 'home') {
 			homeAnimation();
 		}
 	}

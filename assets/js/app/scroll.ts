@@ -10,6 +10,7 @@ import { Elements } from '../util/els';
 import { Log } from '../util/log';
 import LoconativeScroll from './../vendor/loconative-scroll.js';
 import { OnScrollEvent } from 'locomotive-scroll';
+import { namespace } from './namespace';
 
 /**
  * Scroll is responsible for adding smooth scroll to
@@ -69,10 +70,12 @@ class Scroll {
 	public init(container: Element): void {
 		const scrollContainer = container.querySelector('[data-scroll-container]'),
 			options = this.options;
-		if (scrollContainer.hasAttribute('data-scroll-disable')) {
+		if (scrollContainer.hasAttribute('data-scroll-disable') || namespace(container) === 'page-insights') {
 			Log.debug('Disabling smooth scroll');
-			// TODO - Figure out why this isn't working.
-			// options.smooth = false;
+			options.smooth = false;
+		} else {
+			Log.debug('Enabling smooth scroll');
+			options.smooth = true;
 		}
 		Log.debug('Initialising scroll instance');
 		// @ts-ignore
