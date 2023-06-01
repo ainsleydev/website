@@ -13,7 +13,12 @@ import anime from 'animejs/lib/anime.es';
 import barba, { HookMethods, ITransitionData, RequestErrorOrResponse } from '@barba/core';
 import { ITransitionPage } from '@barba/core/dist/core/src/defs';
 
-const excludedPaths = ['insights', 'privacy', 'terms', 'cookies'];
+const excludedPaths = [
+	{ path: 'insights', length: 2 },
+	{ path: 'privacy', length: 1 },
+	{ path: 'terms', length: 1 },
+	{ path: 'cookies', length: 1 },
+];
 
 /**
  * Barba is responsible for mounting the LocoNative scroll
@@ -59,16 +64,36 @@ export class Barba {
 			},
 			transitions: [this.defaultTransition(), this.insightsTransition(), this.portfolioTransition()],
 			prevent: (data) => {
-				const isExcluded = (href: string): boolean => {
-					const pathname = new URL(href).pathname,
-						paths = pathname.split('/').filter((el) => el != '');
-					return pathname.includes('insights') && paths.length >= 2;
-				};
-				return isExcluded(data.href) || isExcluded(window.location.href);
+				return this.isExcluded(data.href) || this.isExcluded(window.location.href);
 			},
 		});
 		window.barba = barba;
 	}
+
+	/**
+	 * Determines if a page is prevented from using Barba.
+	 *
+	 * @param href
+	 */
+	private isExcluded = (href: string): boolean => {
+		let excluded = false;
+		excludedPaths.some((exclude) => {
+			const pathname = new URL(href).pathname,
+				paths = pathname.split('/').filter((el) => el != '');
+			if (!paths.includes(exclude.path)) {
+				return false;
+			}
+			if (exclude.length === 1) {
+				excluded = true;
+				return true;
+			}
+			if (paths.length >= exclude.length) {
+				excluded = true;
+				return true;
+			}
+		});
+		return excluded;
+	};
 
 	/**
 	 * The default page transition.

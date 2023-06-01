@@ -69,8 +69,13 @@ class Scroll {
 	 */
 	public init(container: Element): void {
 		const scrollContainer = container.querySelector('[data-scroll-container]'),
-			options = this.options;
-		if (scrollContainer.hasAttribute('data-scroll-disable') || namespace(container) === 'page-insights') {
+			options = this.options,
+			space = namespace(container);
+		if (
+			scrollContainer.hasAttribute('data-scroll-disable') ||
+			space === 'page-insights' ||
+			space === 'page-legal'
+		) {
 			Log.debug('Disabling smooth scroll');
 			options.smooth = false;
 		} else {
