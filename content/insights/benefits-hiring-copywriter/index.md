@@ -1,6 +1,6 @@
 ---
 title: Benefits of Hiring a Professional Copywriter for your Site
-heading: Why should you hire a professional content writer anyway?
+heading: Why should you hire a professional content writer?
 description: Hiring a professional copywriter can improve the quality of your content and increase sales. Read on to find out what a copywriter can do for your business.
 slug: benefits-of-hiring-a-copywriter
 publishdate: 2023-05-17

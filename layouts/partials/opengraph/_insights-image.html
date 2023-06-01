@@ -2,15 +2,21 @@
     Insights Image
     ===================== -->
 {{ $img := resources.Get "/images/insights-opengraph.jpg" -}}
-{{- $title := (images.Text .Title (dict
+{{ $length := len .Title -}}
+{{ $yPos := 660 -}}
+{{ if gt $length 48 -}}
+	{{ $yPos = 500 }}
+{{- end }}
+{{- $title := (images.Text (.Title | safeHTML | truncate 61 | string) (dict
 	"color" "#0A0A0A"
 	"size" 120
 	"linespacing" 1
 	"x" 610
-	"y" 660
+	"y" $yPos
 	"font" (resources.Get "/fonts/opengraph/PlusJakartaSans-Bold.ttf")
 ))}}
-{{- $author := (images.Text "By Ainsley Clark" (dict
+{{ $authorText := $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .Params.author)) }}
+{{- $author := (images.Text $authorText.Title (dict
 	"color" "#595959"
 	"size" 80
 	"linespacing" 1
