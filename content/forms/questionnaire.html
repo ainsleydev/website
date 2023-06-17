@@ -7,16 +7,33 @@ scripts:
 - https://embed.typeform.com/next/embed.js
 ---
 
+
 <!-- =====================
-	Questionnaire
+	Feedback
 	===================== -->
-<section class="hero hero-full-height">
-	<div data-tf-widget="X2HORXKI"
-		 data-tf-opacity="100"
-		 data-tf-inline-on-mobile
-		 data-tf-iframe-props="title=Website Questionnaire"
-		 data-tf-transitive-search-params data-tf-auto-focus
-		 data-tf-medium="snippet"
-		 data-tf-full-screen>
-	</div>
+<section class="hero hero-full-height animate-up">
+	<!-- A Symbol -->
+	<figure class="hero-a-symbol hero-a-symbol-right gradient gradient-height-40 animate-fade"
+			data-scroll data-scroll-speed="-3">
+		{{< partial template="svgs/a-symbol.html" class="hero-a-symbol-container" opacity=0.1 greyscale=true clip="right" >}}
+	</figure>
+	<!-- Content -->
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-desk-10 col-desk-large-8"
+				 data-scroll data-scroll-speed="2" data-scroll-position="top">
+				<!-- Heading & Lead -->
+				<div class="margin-large">
+					<h1>
+						Interested in getting your own custom website or app built or rebranded?
+					</h1>
+					<p class="lead lead-max-width">
+						For the first stage in our journey together we need to find out exactly what you're looking for. Fill out our kick-off questionnaire and one of our team will get back to you shortly.
+					</p>
+				</div>
+				<!-- Button -->
+				{{< partial template="components/button.html" colour="white" size="large" text="Let's go" arrow=true attr="data-tf-popup='X2HORXKI' data-tf-size=80 data-tf-iframe-props='title=Website Feedback' data-tf-auto-close data-tf-transitive-search-params data-tf-medium='snippet' data-tf-opacity='100'" >}}
+			</div><!-- /Col -->
+		</div><!-- /Row -->
+	</div><!-- /Container -->
 </section>
