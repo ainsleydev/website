@@ -172,11 +172,7 @@ export class Barba {
 		return {
 			name: 'insights-transition',
 			to: {
-				namespace: [
-					// 'page-insights',
-					'section-insights',
-					// 'page-legal'
-				],
+				namespace: ['section-insights'],
 			},
 			leave(data: ITransitionData): Promise<unknown> | void {
 				return anime

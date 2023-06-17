@@ -31,7 +31,7 @@ body {
 }
 
 body.page-forms {
-	overflow: visible !important; // Override initial style.
+	//overflow: visible !important; // Override initial style.
 }
 
 .no-js * {
@@ -116,4 +116,11 @@ details summary::-webkit-details-marker {
 	.lazy {
 		display: none !important;
 	}
+}
+
+// Typeform
+// =========================================================================
+
+.tf-v1-popup {
+	z-index: $header-z-index + 1 !important;
 }
