@@ -10,13 +10,29 @@ scripts:
 <!-- =====================
 	Feedback
 	===================== -->
-<section class="hero hero-full-height">
-	<div data-tf-widget="EZdY7Tig"
-		 data-tf-opacity="100"
-		 data-tf-inline-on-mobile
-		 data-tf-iframe-props="title=Website Feedback"
-		 data-tf-transitive-search-params data-tf-auto-focus
-		 data-tf-medium="snippet"
-		 data-tf-full-screen>
-	</div>
+<section class="hero hero-full-height animate-up">
+	<!-- A Symbol -->
+	<figure class="hero-a-symbol hero-a-symbol-right gradient gradient-height-40 animate-fade"
+			data-scroll data-scroll-speed="-3">
+		{{< partial template="svgs/a-symbol.html" class="hero-a-symbol-container" opacity=0.1 greyscale=true clip="right" >}}
+	</figure>
+	<!-- Content -->
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-desk-10 col-desk-large-8"
+				data-scroll data-scroll-speed="2" data-scroll-position="top">
+				<!-- Heading & Lead -->
+				<div class="margin-large">
+					<h1>
+						Take a moment to tell us about your experience with <br class="d-none d-desk-inline"/>ainsley.<span class="type-serif">dev*</span>
+					</h1>
+					<p class="lead lead-max-width">
+						We strive to be the best we can be, so we're always looking for ways to improve on all our services. Let us know how you found working with us by completing our short feedback form below.
+					</p>
+				</div>
+				<!-- Button -->
+				{{< partial template="components/button.html" colour="white" size="large" text="Let's go" arrow=true attr="data-tf-popup='EZdY7Tig' data-tf-size=80 data-tf-iframe-props='title=Website Feedback' data-tf-auto-close data-tf-transitive-search-params data-tf-medium='snippet' data-tf-opacity='100'" >}}
+			</div><!-- /Col -->
+		</div><!-- /Row -->
+	</div><!-- /Container -->
 </section>
