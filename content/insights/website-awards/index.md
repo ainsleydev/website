@@ -51,9 +51,11 @@ on [a reputable awards website](https://webflow.com/blog/9-agency-awards), thus 
 optimisation (SEO) efforts and further improving your website's visibility. For
 example, [awwwards.com](http://awwwards.com) has an incredibly high domain rating of 89, which means that by being
 featured on their website you’re essentially obtaining backlinks for free and increasing your domain authority by a
-significant margin. Remember that each awards platform does things slightly differently. Some hold one large, annual
-website award ceremony, whilst others have awards for periods of time like Site of the Day (SOTD), Site of the Month (
-SOTM) and Site of the Year (SOTY), as well as Honourable Mention, with each of these bringing their own percentage of
+significant margin.
+
+Remember that each awards platform does things slightly differently. Some hold one large, annual
+website award ceremony, whilst others have awards for periods of time like Site of the Day (SOTD), Site of the Month
+(SOTM) and Site of the Year (SOTY), as well as Honourable Mention, with each of these bringing their own percentage of
 traffic.
 
 ![Ahrefs Domain Rating for awwwards](images/dr-rating.png)
@@ -83,4 +85,4 @@ will build trust with your audience and help increase conversions and potentiall
 * [4 Ways Your Business Benefits From Entering Awards](https://allthingsbusiness.co.uk/2022/07/21/business-benefits-from-entering-awards/)
 * [How Can Awards Help Your Company?](https://www.business.com/articles/do-awards-really-do-anything-for-your-company/)
 * [Why Having an Award-Winning Website Matters](https://medium.com/bornfight-studio/why-does-having-an-award-winning-website-matter-a8b4da814d6f)
-[* How to Win an Award for Your Website](https://prismic.io/blog/how-to-win-award-for-website)
+* [How to Win an Award for Your Website](https://prismic.io/blog/how-to-win-award-for-website)
