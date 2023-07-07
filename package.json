@@ -45,7 +45,7 @@
 		"prettier": "2.8.4",
 		"prettier-plugin-go-template": "^0.0.13",
 		"sharp-cli": "^4.1.0",
-		"stylelint": "^15.1.0",
+		"stylelint": "^15.10.1",
 		"stylelint-config-standard-scss": "^7.0.0",
 		"swagger-typescript-api": "^12.0.3",
 		"typescript": "^4.9.5"
