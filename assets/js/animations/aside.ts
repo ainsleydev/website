@@ -17,7 +17,6 @@ import anime from 'animejs/lib/anime.es';
 export const aside = (): void => {
 	const check = <HTMLInputElement>document.querySelector('.aside-checkbox');
 	if (check) {
-		console.log(check.checked);
 		check.addEventListener('change', () => {
 			const open = check.checked;
 			anime({

@@ -50,7 +50,7 @@ const LoadMap = () => {
 			});
 
 			map.addListener('click', (e) => {
-				console.log(e.latLng.toJSON());
+				Log.info('Lat Long: ' + e.latLng.toJSON());
 			});
 
 			new google.maps.Marker({
