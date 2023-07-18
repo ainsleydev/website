@@ -24,6 +24,7 @@ import { bookmark } from '../components/bookmark';
 import { buttonGoBack } from '../components/button';
 import { copyToClipboard } from '../components/copy';
 import { lazyImages } from '../components/image';
+import { plausibleQueryParamGoal } from '../analytics/plausible';
 import { video, VideoPlayer } from '../components/video';
 import { WebVitals } from '../analytics/web-vitals';
 import { Animations } from '../animations/text';
@@ -113,6 +114,7 @@ class App {
 		lazyImages();
 		video();
 		aside();
+		plausibleQueryParamGoal();
 
 		// Animations
 		this.initAnimations();

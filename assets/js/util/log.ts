@@ -66,6 +66,7 @@ export class Log {
 	static info(message: unknown, ...args: unknown[]) {
 		if (!args.length) {
 			console.info(`${this.prefix} [${LogLevel.Info}]: ${message}`);
+			return;
 		}
 		console.info(`${this.prefix} [${LogLevel.Info}]: ${message}`, args);
 	}
