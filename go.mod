@@ -5,7 +5,7 @@ go 1.19
 require (
 	github.com/ainsleyclark/errors v0.0.4
 	github.com/ainsleyclark/go-mail v1.1.1
-	github.com/axiomhq/axiom-go v0.15.2
+	github.com/axiomhq/axiom-go v0.16.0
 	github.com/caarlos0/env/v7 v7.1.0
 	github.com/getkin/kin-openapi v0.118.0
 	github.com/getsentry/sentry-go v0.22.0
@@ -40,6 +40,7 @@ require (
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
 	github.com/perimeterx/marshmallow v1.1.5 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/rogpeppe/go-internal v1.10.0 // indirect
 	github.com/stretchr/objx v0.5.0 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.2 // indirect
