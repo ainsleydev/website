@@ -4,20 +4,23 @@
 		===================== -->
 	<section class="hero hero-simple hero-simple-padding-bottom" data-scroll-section>
 		<div class="container">
-			<div class="row">
+			<div class="row hero-animate" data-scroll data-scroll-speed="3" data-scroll-position="top">
+				<!-- Heading -->
 				<div class="col-12 col-desk-11 offset-desk-1">
                     {{ with .Params.heading -}}
-						<!-- Hero Animation -->
-						<div class="hero-animate"
-							data-scroll data-scroll-speed="3" data-scroll-position="top">
-							<h1 class="mb-0">
-                                {{ . | safeHTML }}
-							</h1>
-						</div>
+						<h1>
+							{{ . | safeHTML }}
+						</h1>
 					{{- else -}}
                         {{ warnf "No heading param provided to page: %s" .RelPermalink }}
 					{{- end }}
 				</div><!-- /Col -->
+				<!-- Lead -->
+				<div class="col-12 col-desk-6 offset-desk-1">
+					<p class="lead">
+						Specialising in bespoke websites, we craft unique solutions that elevate your online presence. We take pride in looking after clients from diverse industries in Kent, London and worldwide with our custom web design services. Here are some of the customer visions we’ve brought to life on digital canvas.
+					</p>
+				</div>
 			</div><!-- /Row -->
 		</div><!-- /Container -->
 	</section>
