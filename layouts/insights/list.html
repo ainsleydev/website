@@ -27,10 +27,22 @@
 			<div class="container">
 				<!-- Cards -->
 				<div class="row justify-content-center">
+					{{- $yearCounter := "" -}}
                     {{ range $paginator.Pages -}}
+						{{ $year := .PublishDate.Format "2006" }}
+						<!-- Year -->
+						{{ if ne $yearCounter $year -}}
+							<div class="col-12 col-desk-10 insight-year">
+								<h2 class="mb-0">
+									{{ $year }}
+								</h2>
+							</div>
+						{{- end }}
+						<!-- Card -->
 						<div class="col-12 col-desk-10 card-col">
                             {{ .Render "card" }}
 						</div><!-- /Col -->
+                        {{ $yearCounter = $year }}
                     {{- end }}
 				</div><!-- /Row -->
 				<!-- Previous / Next -->

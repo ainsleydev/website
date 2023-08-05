@@ -105,6 +105,18 @@
 		}
 	}
 
+	// Year
+	// =========================================================================
+
+	&-year {
+		padding-bottom: $margin-large;
+		border-bottom: var(--card-border);
+
+		&:not(:first-child) {
+			padding-top: $margin-large;
+		}
+	}
+
 	// Mobile
 	// =========================================================================
 
