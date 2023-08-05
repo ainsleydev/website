@@ -10,7 +10,7 @@ import { Form } from './form';
 import { ContactFormRequest } from '../api/SDK';
 import { API, HandleAPIError } from '../api/api';
 import { Log } from '../util/log';
-import { Plausible } from '../analytics/plausible';
+import { PlausibleGoal } from '../analytics/plausibleGoal';
 
 /**
  * ContactForm sends the payload of the message on /contact
@@ -28,8 +28,8 @@ export class ContactForm extends Form {
 	 * Send
 	 */
 	send(): void {
-		Plausible('Contact Form');
-		Plausible('Contact Form Click');
+		PlausibleGoal('Contact Form');
+		PlausibleGoal('Contact Form Click');
 
 		const request = {
 			message: this.getValue('message'),
@@ -41,12 +41,12 @@ export class ContactForm extends Form {
 			.sendContactForm(request)
 			.then(() => {
 				Log.info('Contact - Successfully sent contact form');
-				Plausible('Contact Form Success');
+				PlausibleGoal('Contact Form Success');
 				window.barba.go('/thank-you/');
 			})
 			.catch((err) => {
 				this.removeButtonLoading();
-				Plausible('Contact Form Failure');
+				PlausibleGoal('Contact Form Failure');
 				HandleAPIError(err);
 			});
 	}
