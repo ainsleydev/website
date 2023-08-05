@@ -41,7 +41,7 @@
 				{{ range .Params.tags -}}
                     {{ partial "components/tag.html" (dict
 						"text" .
-						"class" "card-tags-item"
+						"class" "card-tags-item tag-margin-top"
 					)}}
 				{{- end }}
 				<small class="card-tags-reading-time">

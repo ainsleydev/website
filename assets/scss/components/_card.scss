@@ -99,7 +99,7 @@
 		}
 
 		#{$self}-tags {
-			margin-top: $margin;
+			margin-top: calc(#{$margin} - 10px);
 			margin-right: 10px;
 
 			&-reading-time {
