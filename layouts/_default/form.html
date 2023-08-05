@@ -1,0 +1,51 @@
+{{ define "main" }}
+	<!-- =====================
+		Form
+		===================== -->
+	<section class="hero hero-full-height animate-up">
+		<!-- A Symbol -->
+		<figure class="hero-a-symbol hero-a-symbol-right gradient gradient-height-40 animate-fade"
+				data-scroll data-scroll-speed="-3">
+			{{ partial "svgs/a-symbol.html" (dict
+				"class" "hero-a-symbol-container"
+				"opacity" "0.1"
+				"grescale" "true"
+				"clip" "right"
+			)}}
+		</figure>
+		<!-- Content -->
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-desk-10 col-desk-large-8"
+					 data-scroll data-scroll-speed="2" data-scroll-position="top">
+					<!-- Content -->
+					<div class="margin-large">
+						<!-- Heading -->
+                        {{ with .Params.heading -}}
+							<h1>
+                                {{ . | safeHTML }}
+							</h1>
+                        {{- else -}}
+                            {{ warnf "No heading param provided to page: %s" .RelPermalink }}
+                        {{- end }}
+						<!-- Lead -->
+                        {{ with .Params.lead -}}
+							<p class="lead lead-max-width">
+                                {{ . }}
+							</p>
+                        {{- end }}
+					</div>
+					<!-- Button -->
+					{{ partial "components/button.html" (dict
+						"colour" "white"
+						"size" "large"
+						"text" "Let's go"
+						"arrow" true
+						"attr" (printf "data-tf-popup='%s' data-tf-size=80 data-tf-iframe-props='title=%s' data-tf-auto-close data-tf-transitive-search-params data-tf-medium='snippet' data-tf-opacity='100'" .Params.popup .Params.Title)
+					)}}
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+
+{{ end }}
