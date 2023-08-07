@@ -41,6 +41,17 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/HTTPError'
+    "/credentials/":
+        "get":
+            description: Obtains credentials from ainsley.dev
+            operationId: GetCredentials
+            responses:
+                200:
+                    description: OK - Retrieved successfully.
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
 components:
     securitySchemes:
         Authentication:
