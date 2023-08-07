@@ -17,10 +17,12 @@
 				</div><!-- /Col -->
 				<!-- Lead -->
 				<div class="col-12 col-desk-6 offset-desk-1">
-					<p class="lead">
-						Specialising in bespoke websites, we craft unique solutions that elevate your online presence. We take pride in looking after clients from diverse industries in Kent, London and worldwide with our custom web design services. Here are some of the customer visions we’ve brought to life on digital canvas.
-					</p>
-				</div>
+                    {{ with .Params.lead -}}
+						<p class="lead mb-0">
+							{{ . }}
+						</p>
+					{{- end }}
+				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
 	</section>
