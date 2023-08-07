@@ -15,8 +15,7 @@
 	&-intro {
 		display: flex;
 		flex-direction: column;
-		margin-top: $margin-large;
-		order: 999;
+		margin-bottom: 1rem;
 
 		&-crumbs {
 			margin-bottom: 8px;
