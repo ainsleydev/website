@@ -47,6 +47,10 @@
 					<article class="richtext">
                         {{ .Content | replaceRE "/a>\n" "/a>" | safeHTML  }}
 					</article>
+					<!-- =====================
+						Content
+						===================== -->
+					{{ .Render "bio" }}
 				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
