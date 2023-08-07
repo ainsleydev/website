@@ -101,7 +101,7 @@ func TestHandler_SendContactForm(t *testing.T) {
 
 			b, err := json.Marshal(test.payload)
 			require.NoError(t, err)
-			req := httptest.NewRequest(http.MethodPost, "/cancel", strings.NewReader(string(b)))
+			req := httptest.NewRequest(http.MethodPost, "/forms/contact/", strings.NewReader(string(b)))
 			req.Header.Set(echo.HeaderContentType, echo.MIMEApplicationJSON)
 			rec := httptest.NewRecorder()
 			c := echo.New().NewContext(req, rec)
