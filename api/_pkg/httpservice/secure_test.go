@@ -1,13 +1,14 @@
 package httpservice
 
 import (
+	"net/http"
+	"net/http/httptest"
+	"testing"
+
 	"github.com/ainsleydev/website/api/_pkg/environment"
 	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"net/http"
-	"net/http/httptest"
-	"testing"
 )
 
 func TestHandler_GetCredentials(t *testing.T) {

@@ -1,8 +1,9 @@
 package httpservice
 
 import (
-	"github.com/labstack/echo/v4"
 	"net/http"
+
+	"github.com/labstack/echo/v4"
 )
 
 // GetCredentials returns obtains credentials from ainsley.dev

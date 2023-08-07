@@ -26,6 +26,7 @@ func TestNew(t *testing.T) {
 		t.Setenv("SENTRY_DSN", "dsn")
 		t.Setenv("AXIOM_TOKEN", "token")
 		t.Setenv("AXIOM_DATASET", "dataset")
+		t.Setenv("CREDENTIALS", "credentials")
 		got, err := New()
 		assert.NoError(t, err)
 		assert.Equal(t, "key", got.APIKey)
