@@ -23,6 +23,10 @@
 		}
 	}
 
+	.lead {
+		margin-bottom: 0;
+	}
+
 	> :last-child {
 		// Assign no margin to the last element in the article.
 		margin-bottom: 0 !important;
@@ -41,7 +45,7 @@
 		+ .image,
 		+ .highlight,
 		+ .codepen {
-			margin-top: $margin;
+			margin-top: $margin-large;
 		}
 	}
 
@@ -65,7 +69,7 @@
 		+ h4,
 		+ h5,
 		+ p {
-			margin-top: $margin;
+			margin-top: $margin-large;
 		}
 	}
 
