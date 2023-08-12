@@ -88,6 +88,22 @@
 		}
 	}
 
+	// Footer (Last Mod)
+	// =========================================================================
+
+	&-footer {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		margin-top: $margin;
+		padding-top: $margin-small;
+		border-top: 1px solid rgba($black, $alpha-standard);
+
+		&-last-mod {
+			margin: 0;
+		}
+	}
+
 	// Desktop
 	// =========================================================================
 

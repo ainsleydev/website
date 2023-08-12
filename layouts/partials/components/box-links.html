@@ -5,49 +5,42 @@
 			"heading" "Something"
 			"sub" "Something"
 			"left" true
+			"title" "Navigate to..."
     	)
-    	- text: 	The text to appear within side the button.
-    	- colour: 	The colour of the button, defaults to foreground.
-    	- class:	Any additional clas names to appear.
+    	- link: 	The href link, this must be passed.
+    	- heading: 	The main heading of the link
+    	- class:	The sub text that appears above the link.
+    	- left:		If the box appears on the left.
+    	- title:	The title & aria label of the link.
     ===================== -->
-{{ define "partials/box-link.html" }}
-    hey {{ .test }}
-{{ end }}
-<div class="box-link-container">
-	<a class="box-link box-link-left" href="/guidelines/html/general/">
+{{ if .link -}}
+	<a class="box-link {{ if .left -}} box-link-left {{- end }}"
+		href="{{ .link }}"
+        {{ with .title -}} title="{{ . }}" aria-label="{{ . }}" {{- end }}>
 		<!-- Text -->
 		<div class="box-link-text">
-			<small class="box-link-sub">Next - SCSS</small>
-			<span class="box-link-heading">
-				Working with Stylesheets
-			</span>
+			<!-- Sub -->
+			{{ with .sub -}}
+				<small class="box-link-sub">
+					{{ . }}
+				</small>
+			{{- end }}
+			<!-- Heading -->
+			{{ with .heading }}
+				<span class="box-link-heading">
+					{{ . }}
+				</span>
+			{{- end }}
 		</div>
 		<!-- Arrow -->
 		<figure class="box-link-arrow">
             {{ partial "svgs/arrow.html" (dict
-            "rotation" 90
-            "colour" "black"
-            "stroke" 1
+				"rotation" 90
+				"colour" "black"
+				"stroke" 1
             )}}
 		</figure>
 	</a>
-	<a class="box-link" href="/guidelines/html/general/">
-		<!-- Text -->
-		<div class="box-link-text">
-			<small class="box-link-sub">
-				Next - SCSS
-			</small>
-			<span class="box-link-heading">
-				Working with Stylesheets
-			</span>
-		</div>
-		<!-- Arrow -->
-		<figure class="box-link-arrow">
-            {{ partial "svgs/arrow.html" (dict
-            "rotation" 90
-            "colour" "black"
-            "stroke" 1
-            )}}
-		</figure>
-	</a>
-</div><!-- /Container -->
+{{- else -}}
+	{{ warnf "No link provided to box link" }}
+{{- end }}

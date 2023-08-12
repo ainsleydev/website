@@ -11,13 +11,20 @@
 			<header class="guidelines-aside-header">
 				<!-- Logo -->
 				<a href="/" class="guidelines-aside-logo cursor-element" aria-label="Navigate to the homepage"
-				   data-cursor-invert data-cursor-invert-black data-cursor-scale="1.6">
-                    {{- partial "svgs/logo.html" -}}
+					data-cursor-invert data-cursor-invert-black data-cursor-scale="1.6">
+					{{- partial "svgs/logo.html" -}}
 				</a>
 			</header>
 			<!-- Items -->
-			<nav class="guidelines-aside-nav">
-				<h6>Markup</h6>
+			<nav class="guidelines-nav">
+                {{ range (where .Site.RegularPages "Type" "guidelines") }}
+					<a href="{{ .RelPermalink }}" class="guidelines-nav-link">
+                        <h5>Use site menus similar to navMain</h5>
+						<h5 class="guidelines-nav-text {{ if eq $.Page.RelPermalink .RelPermalink -}} guidelines-nav-active {{- end }}">
+                            {{ with .Params.heading -}} {{ . }} {{- end }}
+						</h5>
+					</a>
+                {{- end }}
 			</nav>
 		</aside>
 		<!-- =====================
@@ -35,18 +42,33 @@
 				<div class="guidelines-content-richtext richtext">
                     {{ .Content }}
 				</div>
-				{{ partial "components/box-links.html" (dict
-					"left" (dict
+				<!-- Links TODO: Probably need to latch on to the TOC -->
+				<div class="box-link-container">
+					{{ partial "components/box-links.html" (dict
 						"link" "/guidelines"
 						"heading" "Something"
 						"sub" "Something"
-					)
-					"right" (dict
+						"left" true
+						"title" "Navigate to..."
+                    )}}
+                    {{ partial "components/box-links.html" (dict
 						"link" "/guidelines"
 						"heading" "Something"
 						"sub" "Something"
-					))
-				}}
+						"left" false
+						"title" "Navigate to..."
+                    )}}
+				</div>
+				<!-- Footer -->
+				<footer class="guidelines-footer">
+					<!-- Last Mod -->
+					<small class="guidelines-footer-last-mod">
+						Last modified: {{ .Lastmod.Format "02/01/2006" }}
+					</small>
+					<small>
+						2022-{{ now.Year }} ©ainsley.dev, All rights reserved.
+					</small>
+				</footer>
 			</div><!-- /Container -->
 		</article>
 		<!-- =====================
