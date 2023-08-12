@@ -1,0 +1,53 @@
+<!-- =====================
+    Box Link
+    	partial "components/box-links.html" (dict
+    		"link" "/guidelines"
+			"heading" "Something"
+			"sub" "Something"
+			"left" true
+    	)
+    	- text: 	The text to appear within side the button.
+    	- colour: 	The colour of the button, defaults to foreground.
+    	- class:	Any additional clas names to appear.
+    ===================== -->
+{{ define "partials/box-link.html" }}
+    hey {{ .test }}
+{{ end }}
+<div class="box-link-container">
+	<a class="box-link box-link-left" href="/guidelines/html/general/">
+		<!-- Text -->
+		<div class="box-link-text">
+			<small class="box-link-sub">Next - SCSS</small>
+			<span class="box-link-heading">
+				Working with Stylesheets
+			</span>
+		</div>
+		<!-- Arrow -->
+		<figure class="box-link-arrow">
+            {{ partial "svgs/arrow.html" (dict
+            "rotation" 90
+            "colour" "black"
+            "stroke" 1
+            )}}
+		</figure>
+	</a>
+	<a class="box-link" href="/guidelines/html/general/">
+		<!-- Text -->
+		<div class="box-link-text">
+			<small class="box-link-sub">
+				Next - SCSS
+			</small>
+			<span class="box-link-heading">
+				Working with Stylesheets
+			</span>
+		</div>
+		<!-- Arrow -->
+		<figure class="box-link-arrow">
+            {{ partial "svgs/arrow.html" (dict
+            "rotation" 90
+            "colour" "black"
+            "stroke" 1
+            )}}
+		</figure>
+	</a>
+</div><!-- /Container -->

@@ -35,44 +35,18 @@
 				<div class="guidelines-content-richtext richtext">
                     {{ .Content }}
 				</div>
-				<!-- Links -->
-				<div class="box-link-container">
-					<!-- TODO: Make component -->
-					<a class="box-link box-link-left" href="/guidelines/html/general/">
-						<!-- Text -->
-						<div class="box-link-text">
-							<small class="box-link-sub">Next - SCSS</small>
-							<span class="box-link-heading">
-								Working with Stylesheets
-							</span>
-						</div>
-						<!-- Arrow -->
-                        <figure class="box-link-arrow">
-                            {{ partial "svgs/arrow.html" (dict
-								"rotation" 90
-								"colour" "black"
-								"stroke" 1
-                            )}}
-						</figure>
-					</a>
-					<a class="box-link" href="/guidelines/html/general/">
-						<!-- Text -->
-						<div class="box-link-text">
-							<small class="box-link-sub">Next - SCSS</small>
-							<span class="box-link-heading">
-								Working with Stylesheets
-							</span>
-						</div>
-						<!-- Arrow -->
-						<figure class="box-link-arrow">
-                            {{ partial "svgs/arrow.html" (dict
-								"rotation" 90
-								"colour" "black"
-								"stroke" 1
-                            )}}
-						</figure>
-					</a>
-				</div>
+				{{ partial "components/box-links.html" (dict
+					"left" (dict
+						"link" "/guidelines"
+						"heading" "Something"
+						"sub" "Something"
+					)
+					"right" (dict
+						"link" "/guidelines"
+						"heading" "Something"
+						"sub" "Something"
+					))
+				}}
 			</div><!-- /Container -->
 		</article>
 		<!-- =====================
