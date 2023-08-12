@@ -1,0 +1,89 @@
+// -----------------------------------------------------------------------------
+// _box-link.scss
+// This file contains all styles related to the box link component.
+// -----------------------------------------------------------------------------
+
+.box-link {
+	$self: &;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 1rem;
+	border: 1px solid rgba($black, $alpha-standard);
+	background-color: $highlight-bg-colour;
+	border-radius: 4px;
+	text-decoration: none;
+	font-weight: normal;
+
+	// Container
+	// ==========================================================================
+
+	&-container {
+		display: flex;
+		margin-top: $margin;
+	}
+
+	// Left
+	// ==========================================================================
+
+	&-left {
+		flex-direction: row-reverse;
+		margin-right: 1rem;
+
+		#{$self}-text * {
+			text-align: right;
+		}
+
+		#{$self}-arrow {
+			transform: rotate(180deg);
+		}
+	}
+
+	// Text
+	// ==========================================================================
+
+	&-text {
+		display: flex;
+		flex-direction: column;
+	}
+
+	// Heading
+	// ==========================================================================
+
+	&-heading {
+		display: block;
+		font-weight: bold;
+		line-height: 1;
+	}
+
+	// Sub (Small Text)
+	// ==========================================================================
+
+	&-sub {
+		display: block;
+		margin-bottom: 8px;
+		font-weight: 500;
+		line-height: 1;
+		color: $copy-dark-bg;
+	}
+
+	// Arrow
+	// ==========================================================================
+
+	&-arrow {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 24px;
+		max-height: 30px;
+
+		svg {
+			width: 100%;
+		}
+	}
+
+	// Tablet
+	// ==========================================================================
+}

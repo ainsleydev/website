@@ -1,0 +1,89 @@
+// -----------------------------------------------------------------------------
+// _guidelines.scss
+// This file contains all styles related to the guidelines page(s).
+// -----------------------------------------------------------------------------
+
+@import '../abstracts/mixins';
+@import '../abstracts/variables';
+
+.guidelines {
+	$self: &;
+
+	// Container
+	// =========================================================================
+
+	&-container {
+		display: flex;
+		justify-content: flex-start;
+		max-width: 1900px;
+		margin: 0 auto;
+	}
+
+	// Aside
+	// =========================================================================
+
+	&-aside {
+		position: sticky;
+		width: 300px;
+		top: 0;
+		left: 0;
+		@include full-height;
+		padding-left: 24px;
+		padding-right: 1rem;
+		overflow-y: scroll;
+		border-right: var(--card-border);
+
+		&-header {
+			display: flex;
+			align-items: center;
+			height: 80px;
+			margin-bottom: 1rem;
+			border-bottom: var(--card-border);
+		}
+
+		&-logo {
+			display: flex;
+			align-items: center;
+			width: 140px;
+
+			svg {
+				width: 100%;
+				height: auto;
+			}
+		}
+
+		&-items {
+			padding-top: 1rem;
+
+			a {
+				padding: 8px 0;
+			}
+
+			h6 {
+				font-weight: bold;
+			}
+		}
+	}
+
+	// Content
+	// =========================================================================
+
+	&-content {
+		width: 100%;
+		align-self: flex-start;
+		max-width: 1300px;
+		margin-top: 40px;
+		padding: 0 $margin;
+
+		&-container {
+			position: relative;
+			flex-direction: row;
+			width: 100%;
+			max-width: 750px;
+			margin: 0 auto;
+		}
+
+		&-heading {
+		}
+	}
+}

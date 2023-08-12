@@ -1,0 +1,85 @@
+{{ define "main" }}
+	<!-- =====================
+		Guidelines Single
+		===================== -->
+	<div class="guidelines-container">
+		<!-- =====================
+			Menu
+			===================== -->
+		<aside class="guidelines-aside">
+			<!-- Header -->
+			<header class="guidelines-aside-header">
+				<!-- Logo -->
+				<a href="/" class="guidelines-aside-logo cursor-element" aria-label="Navigate to the homepage"
+				   data-cursor-invert data-cursor-invert-black data-cursor-scale="1.6">
+                    {{- partial "svgs/logo.html" -}}
+				</a>
+			</header>
+			<!-- Items -->
+			<nav class="guidelines-aside-nav">
+				<h6>Markup</h6>
+			</nav>
+		</aside>
+		<!-- =====================
+			Content
+			===================== -->
+		<article class="guidelines-content">
+			<div class="guidelines-content-container">
+				<!-- Title -->
+				<div class="guidelines-content-heading">
+					<h1 class="heading-3">
+                        {{ .Title }}
+					</h1>
+				</div>
+				<!-- Page Content -->
+				<div class="guidelines-content-richtext richtext">
+                    {{ .Content }}
+				</div>
+				<!-- Links -->
+				<div class="box-link-container">
+					<!-- TODO: Make component -->
+					<a class="box-link box-link-left" href="/guidelines/html/general/">
+						<!-- Text -->
+						<div class="box-link-text">
+							<small class="box-link-sub">Next - SCSS</small>
+							<span class="box-link-heading">
+								Working with Stylesheets
+							</span>
+						</div>
+						<!-- Arrow -->
+                        <figure class="box-link-arrow">
+                            {{ partial "svgs/arrow.html" (dict
+								"rotation" 90
+								"colour" "black"
+								"stroke" 1
+                            )}}
+						</figure>
+					</a>
+					<a class="box-link" href="/guidelines/html/general/">
+						<!-- Text -->
+						<div class="box-link-text">
+							<small class="box-link-sub">Next - SCSS</small>
+							<span class="box-link-heading">
+								Working with Stylesheets
+							</span>
+						</div>
+						<!-- Arrow -->
+						<figure class="box-link-arrow">
+                            {{ partial "svgs/arrow.html" (dict
+                            "rotation" 90
+                            "colour" "black"
+                            "stroke" 1
+                            )}}
+						</figure>
+					</a>
+				</div>
+			</div><!-- /Container -->
+		</article>
+		<!-- =====================
+			Table of Contents
+			===================== -->
+		<aside class="toc">
+            {{ .TableOfContents }}
+		</aside>
+	</div><!-- /Container -->
+{{ end }}
