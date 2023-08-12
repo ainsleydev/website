@@ -22,23 +22,8 @@
 
 	&-container {
 		display: flex;
+		flex-direction: column;
 		margin-top: $margin;
-	}
-
-	// Left
-	// ==========================================================================
-
-	&-left {
-		flex-direction: row-reverse;
-		margin-right: 1rem;
-
-		#{$self}-text * {
-			text-align: right;
-		}
-
-		#{$self}-arrow {
-			transform: rotate(180deg);
-		}
 	}
 
 	// Text
@@ -47,6 +32,8 @@
 	&-text {
 		display: flex;
 		flex-direction: column;
+		align-items: flex-start;
+		flex-grow: 2;
 	}
 
 	// Heading
@@ -54,8 +41,12 @@
 
 	&-heading {
 		display: block;
+		width: 80%;
+		white-space: nowrap;
 		font-weight: bold;
-		line-height: 1;
+		line-height: 1.2;
+		text-overflow: ellipsis;
+		overflow: hidden;
 	}
 
 	// Sub (Small Text)
@@ -63,7 +54,7 @@
 
 	&-sub {
 		display: block;
-		margin-bottom: 8px;
+		margin-bottom: 4px;
 		font-weight: 500;
 		line-height: 1;
 		color: $copy-dark-bg;
@@ -73,10 +64,12 @@
 	// ==========================================================================
 
 	&-arrow {
+		$arrow-size: 1.2rem;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 24px;
+		width: $arrow-size;
+		min-width: $arrow-size;
 		max-height: 30px;
 
 		svg {
@@ -84,6 +77,34 @@
 		}
 	}
 
+	// Left
+	// ==========================================================================
+
+	&-left {
+		flex-direction: row-reverse;
+		margin-bottom: 1rem;
+
+		#{$self}-arrow {
+			transform: rotate(180deg);
+		}
+
+		#{$self}-text {
+			align-items: flex-end;
+			text-align: right;
+		}
+	}
+
 	// Tablet
 	// ==========================================================================
+
+	@include media-tab {
+		&-container {
+			flex-direction: row;
+		}
+
+		&-left {
+			margin-bottom: 0;
+			margin-right: 1rem;
+		}
+	}
 }

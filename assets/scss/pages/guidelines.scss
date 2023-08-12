@@ -17,13 +17,15 @@
 		justify-content: flex-start;
 		max-width: 1900px;
 		margin: 0 auto;
+		padding: 0 $container-padding-x;
 	}
 
 	// Aside
 	// =========================================================================
 
 	&-aside {
-		position: sticky;
+		position: fixed;
+		transform: translateX(-100%);
 		width: 300px;
 		top: 0;
 		left: 0;
@@ -72,8 +74,7 @@
 		width: 100%;
 		align-self: flex-start;
 		max-width: 1300px;
-		margin-top: 40px;
-		padding: 0 $margin;
+		margin: 40px 0;
 
 		&-container {
 			position: relative;
@@ -84,6 +85,25 @@
 		}
 
 		&-heading {
+		}
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-desk {
+		&-container {
+			padding: 0;
+		}
+
+		&-aside {
+			position: sticky;
+			width: 300px;
+			transform: none;
+		}
+
+		&-content {
+			padding: 0 $margin;
 		}
 	}
 }
