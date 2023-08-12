@@ -114,3 +114,14 @@ schema:
         name: Say hello
         url: /contact/
         weight: 60
+guidelines:
+    -   identifier: html
+        name: HTML
+        url: /guidelines/html
+        weight: 10
+    -   identifier: formatting
+        name: Formatting
+        url: /guidelines/html
+        weight: 10
+        # TODO: Check if this works.
+        parent: html
