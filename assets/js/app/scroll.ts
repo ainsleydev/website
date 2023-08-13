@@ -74,7 +74,8 @@ class Scroll {
 		if (
 			scrollContainer.hasAttribute('data-scroll-disable') ||
 			space === 'page-insights' ||
-			space === 'page-legal'
+			space === 'page-legal' ||
+			space === 'page-guidelines'
 		) {
 			Log.debug('Disabling smooth scroll');
 			options.smooth = false;

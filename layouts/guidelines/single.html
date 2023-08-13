@@ -3,6 +3,17 @@
 		Guidelines Single
 		===================== -->
 	<div class="guidelines-container">
+
+		<!-- =====================
+			Mobile
+			===================== -->
+        <div class="guidelines-header">
+            {{- partial "header.html" (dict
+				"ctx" .
+				"nav" false
+				"colour" "white"
+            )}}
+		</div>
 		<!-- =====================
 			Menu
 			===================== -->
@@ -16,16 +27,36 @@
 				</a>
 			</header>
 			<!-- Items -->
-			<nav class="guidelines-nav">
-                {{ range (where .Site.RegularPages "Type" "guidelines") }}
-					<a href="{{ .RelPermalink }}" class="guidelines-nav-link">
-                        <h5>Use site menus similar to navMain</h5>
-						<h5 class="guidelines-nav-text {{ if eq $.Page.RelPermalink .RelPermalink -}} guidelines-nav-active {{- end }}">
-                            {{ with .Params.heading -}} {{ . }} {{- end }}
-						</h5>
-					</a>
-                {{- end }}
-			</nav>
+            {{ with .Site.Menus.guidelines }}
+				<menu class="guidelines-menu">
+					{{ range . }}
+						<li class="guidelines-menu-section">
+							<!-- Section Title -->
+							<h6 class="guidelines-menu-title">
+								{{ .Name }}
+							</h6>
+							<!-- Sub -->
+							{{ if .HasChildren -}}
+								<menu class="guidelines-menu-sub">
+									{{ range .Children }}
+										<li class="guidelines-menu-item">
+											<a class="guidelines-menu-link
+												{{ if eq $.Page.RelPermalink .URL -}} guidelines-menu-active {{- end }}"
+												href="{{ .URL }}"
+												title="{{ .Name }} Page"
+												aria-label="Navigate to the {{ .Name }} page">
+												{{ .Name }}
+											</a>
+										</li>
+									{{ end }}
+								</menu>
+							{{ end -}}
+						</li>
+					{{ end }}
+				</menu>
+            {{- else -}}
+                {{ errorf "No guidelines defined in menu.yaml" }}
+            {{- end }}
 		</aside>
 		<!-- =====================
 			Content
@@ -75,8 +106,15 @@
 		<!-- =====================
 			Table of Contents
 			===================== -->
-		<aside class="toc">
-            {{ .TableOfContents }}
+		<aside class="toc guidelines-toc">
+			<div class="toc-wrapper">
+				<!-- Title -->
+				<h6 class="toc-title">
+					On this page
+				</h6>
+				<!-- Contents -->
+                {{ .TableOfContents }}
+			</div>
 		</aside>
 	</div><!-- /Container -->
 {{ end }}

@@ -18,6 +18,7 @@ const excludedPaths = [
 	{ path: 'privacy', length: 1 },
 	{ path: 'terms', length: 1 },
 	{ path: 'cookies', length: 1 },
+	{ path: 'guidelines', length: 1 },
 ];
 
 /**

@@ -2,3 +2,83 @@
 // _toc.scss
 // This file contains all styles related to the table of contents component.
 // -----------------------------------------------------------------------------
+
+.toc {
+	$self: &;
+	display: none;
+	width: 300px;
+	order: 10;
+
+	// Wrapper
+	// =========================================================================
+
+	&-wrapper {
+		position: sticky;
+		top: 24px;
+	}
+
+	// Title
+	// =========================================================================
+
+	&-title {
+		font-weight: bold;
+		color: $black;
+	}
+
+	// Nav
+	// =========================================================================
+
+	nav {
+	}
+
+	// List
+	// =========================================================================
+
+	ol {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+
+	// List Item
+	// =========================================================================
+
+	li {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		margin-bottom: 8px;
+
+		&:before {
+			content: '';
+			display: none;
+			height: 20px;
+			width: 2px;
+			background-color: $black;
+		}
+
+		.active:before {
+			display: block;
+		}
+	}
+
+	// Link
+	// =========================================================================
+
+	a {
+		padding-left: 1rem;
+		font-weight: normal;
+		text-decoration: none;
+		font-size: 14px;
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-desk {
+		display: block;
+	}
+}

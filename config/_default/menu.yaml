@@ -115,13 +115,38 @@ schema:
         url: /contact/
         weight: 60
 guidelines:
+    # HTML
     -   identifier: html
         name: HTML
         url: /guidelines/html
         weight: 10
     -   identifier: formatting
         name: Formatting
-        url: /guidelines/html
-        weight: 10
-        # TODO: Check if this works.
+        url: /guidelines/html/general/
+        weight: 11
         parent: html
+    -   identifier: classes-ids
+        name: Classes & IDs
+        url: /guidelines/html/classes-ids/
+        weight: 12
+        parent: html
+    -   identifier: semantics
+        name: Semantics
+        url: /guidelines/html/semantics/
+        weight: 13
+        parent: html
+    -   identifier: accessibility
+        name: Accessibility
+        url: /guidelines/html/accessibility/
+        weight: 14
+        parent: html
+    -   identifier: comments
+        name: Comments
+        url: /guidelines/html/comments/
+        weight: 15
+        parent: html
+    # JS
+    -   identifier: test
+        name: Test
+        url: /guidelines/js
+        weight: 10
