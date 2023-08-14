@@ -3,60 +3,72 @@
 		Guidelines Single
 		===================== -->
 	<div class="guidelines-container">
-
 		<!-- =====================
 			Mobile
 			===================== -->
         <div class="guidelines-header">
-            {{- partial "header.html" (dict
-				"ctx" .
-				"nav" false
-				"colour" "white"
-            )}}
+			<header class="header header-colour-white header-default header-hamburger" data-header-element="">
+				<!-- Logo -->
+				<a href="/" class="header-logo cursor-element" aria-label="Navigate to the homepage"
+				   data-cursor-invert data-cursor-invert-black data-cursor-scale="1.6">
+                    {{- partial "svgs/logo.html" -}}
+				</a>
+				<!-- Hamburger -->
+				{{ partial "svgs/hamburger.html" }}
+			</header>
 		</div>
 		<!-- =====================
 			Menu
 			===================== -->
 		<aside class="guidelines-aside">
-			<!-- Header -->
-			<header class="guidelines-aside-header">
-				<!-- Logo -->
-				<a href="/" class="guidelines-aside-logo cursor-element" aria-label="Navigate to the homepage"
-					data-cursor-invert data-cursor-invert-black data-cursor-scale="1.6">
-					{{- partial "svgs/logo.html" -}}
-				</a>
-			</header>
-			<!-- Items -->
-            {{ with .Site.Menus.guidelines }}
-				<menu class="guidelines-menu">
-					{{ range . }}
-						<li class="guidelines-menu-section">
-							<!-- Section Title -->
-							<h6 class="guidelines-menu-title">
-								{{ .Name }}
-							</h6>
-							<!-- Sub -->
-							{{ if .HasChildren -}}
-								<menu class="guidelines-menu-sub">
-									{{ range .Children }}
-										<li class="guidelines-menu-item">
-											<a class="guidelines-menu-link
+			<!-- Wrapper -->
+			<div class="guidelines-aside-wrapper" id="guidelines-aside-wrapper">
+				<!-- Header -->
+				<header class="guidelines-aside-header">
+					<!-- Logo -->
+					<a href="/" class="header-logo cursor-element" aria-label="Navigate to the homepage"
+					   data-cursor-invert data-cursor-invert-black data-cursor-scale="1.6">
+                        {{- partial "svgs/logo.html" -}}
+					</a>
+				</header>
+				<!-- Items -->
+                {{ with .Site.Menus.guidelines }}
+					<menu class="guidelines-menu">
+                        {{ range . }}
+							<li class="guidelines-menu-section">
+								<!-- Section Title -->
+								<h6 class="guidelines-menu-title">
+                                    {{ .Name }}
+								</h6>
+								<!-- Sub -->
+                                {{ if .HasChildren -}}
+									<menu class="guidelines-menu-sub">
+                                        {{ range .Children }}
+											<li class="guidelines-menu-item">
+												<a class="guidelines-menu-link
 												{{ if eq $.Page.RelPermalink .URL -}} guidelines-menu-active {{- end }}"
-												href="{{ .URL }}"
-												title="{{ .Name }} Page"
-												aria-label="Navigate to the {{ .Name }} page">
-												{{ .Name }}
-											</a>
-										</li>
-									{{ end }}
-								</menu>
-							{{ end -}}
-						</li>
-					{{ end }}
-				</menu>
-            {{- else -}}
-                {{ errorf "No guidelines defined in menu.yaml" }}
-            {{- end }}
+												   href="{{ .URL }}"
+												   title="{{ .Name }} Page"
+												   aria-label="Navigate to the {{ .Name }} page">
+                                                    {{ .Name }}
+												</a>
+											</li>
+                                        {{ end }}
+									</menu>
+                                {{ end -}}
+							</li>
+                        {{ end }}
+					</menu>
+                {{- else -}}
+                    {{ errorf "No guidelines defined in menu.yaml" }}
+                {{- end }}
+			</div><!-- /Wrapper -->
+			<!-- Overlay -->
+			<div class="guidelines-aside-overlay" id="guidelines-aside-overlay">
+				<figure class="guidelines-aside-close">
+                    {{ partial "svgs/cross.html" }}
+				</figure>
+			</div>
 		</aside>
 		<!-- =====================
 			Content
@@ -114,7 +126,6 @@
 		</article>
 		<!-- =====================
 			Table of Contents
-			https://dakotaleemartinez.com/tutorials/how-to-add-active-highlight-to-table-of-contents/
 			===================== -->
 		<aside class="toc guidelines-toc">
 			<div class="toc-wrapper">

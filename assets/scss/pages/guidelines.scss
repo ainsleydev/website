@@ -27,23 +27,50 @@
 	// =========================================================================
 
 	&-aside {
-		position: fixed;
-		transform: translateX(-100%);
-		width: 300px;
-		top: 0;
-		left: 0;
-		@include full-height;
-		padding-left: 24px;
-		padding-right: 1rem;
-		overflow-y: scroll;
-		border-right: var(--card-border);
+		&-wrapper {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 300px;
+			min-width: 300px;
+			transform: translateX(-100%);
+			@include full-height;
+			padding-left: 24px;
+			padding-right: 1rem;
+			background-color: $white;
+			overflow-y: scroll;
+			z-index: $header-z-index + 10;
+			border-right: 1px solid rgba($black, $alpha-standard);
+		}
+
+		&-overlay {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background-color: rgba($black, 0.5);
+			z-index: $header-z-index + 5;
+		}
+
+		&-close {
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			top: 1rem;
+			right: 1rem;
+			fill: $white;
+			transform: scale(1.4);
+		}
 
 		&-header {
 			display: flex;
 			align-items: center;
 			height: 80px;
 			margin-bottom: $margin;
-			border-bottom: var(--card-border);
+			border-bottom: 1px solid rgba($black, $alpha-standard);
 		}
 
 		&-logo {
@@ -127,19 +154,8 @@
 			position: relative;
 			flex-direction: row;
 			width: 100%;
-			max-width: 750px;
 			margin: 0 auto;
 		}
-
-		&-heading {
-		}
-	}
-
-	// Table of Contents
-	// =========================================================================
-
-	&-toc {
-		//display: none;
 	}
 
 	// Footer (Last Mod)
@@ -182,13 +198,23 @@
 		}
 
 		&-aside {
-			position: sticky;
-			width: 300px;
-			transform: none;
+			&-wrapper {
+				position: sticky;
+				width: 300px;
+				transform: none !important; // Override JS
+			}
+
+			&-overlay {
+				display: none !important; // Override JS
+			}
 		}
 
 		&-content {
 			padding: 0 $margin;
+
+			&-container {
+				max-width: 750px;
+			}
 		}
 	}
 }

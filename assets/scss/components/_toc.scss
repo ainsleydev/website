@@ -47,32 +47,33 @@
 	// =========================================================================
 
 	li {
-		display: flex;
-		align-items: center;
 		width: 100%;
 		margin-bottom: 8px;
-
-		&:before {
-			content: '';
-			display: none;
-			height: 20px;
-			width: 2px;
-			background-color: $black;
-		}
-
-		.active:before {
-			display: block;
-		}
 	}
 
 	// Link
 	// =========================================================================
 
 	a {
-		padding-left: 1rem;
+		display: flex;
+		align-items: center;
 		font-weight: normal;
 		text-decoration: none;
 		font-size: 14px;
+
+		&:before {
+			content: '';
+			display: block;
+			height: 20px;
+			width: 2px;
+			margin-right: 2rem;
+			background-color: $black;
+			opacity: 0;
+		}
+
+		&.active:before {
+			opacity: 1;
+		}
 	}
 
 	// Desktop
