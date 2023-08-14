@@ -1,5 +1,5 @@
 <!-- =====================
     Heading
     ===================== -->
-<h{{ .Level }}>{{ .Text | safeHTML }}</h{{ .Level }}>
+<h{{ .Level }} id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }}</h{{ .Level }}>
 

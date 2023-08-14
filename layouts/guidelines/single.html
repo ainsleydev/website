@@ -73,8 +73,7 @@
 				<div class="guidelines-content-richtext richtext">
                     {{ .Content }}
 				</div>
-				<!-- Links TODO: Probably need to latch on to the TOC -->
-
+				<!-- Next & Prev Links -->
 				<div class="box-link-container">
 					{{ $nextPrev := partial "util/_guidelines-next-prev.html" . }}
 					<!-- Previous Link -->
@@ -115,6 +114,7 @@
 		</article>
 		<!-- =====================
 			Table of Contents
+			https://dakotaleemartinez.com/tutorials/how-to-add-active-highlight-to-table-of-contents/
 			===================== -->
 		<aside class="toc guidelines-toc">
 			<div class="toc-wrapper">
