@@ -74,21 +74,31 @@
                     {{ .Content }}
 				</div>
 				<!-- Links TODO: Probably need to latch on to the TOC -->
+
 				<div class="box-link-container">
-					{{ partial "components/box-links.html" (dict
-						"link" "/guidelines"
-						"heading" "Something"
-						"sub" "Something"
-						"left" true
-						"title" "Navigate to..."
-                    )}}
-                    {{ partial "components/box-links.html" (dict
-						"link" "/guidelines"
-						"heading" "Something"
-						"sub" "Something"
-						"left" false
-						"title" "Navigate to..."
-                    )}}
+					{{ $nextPrev := partial "util/_guidelines-next-prev.html" . }}
+					<!-- Previous Link -->
+					{{ with $nextPrev.Get "previous" -}}
+						{{ $page := $.Site.GetPage (strings.TrimSuffix "/" .URL) }}
+                        {{ partial "components/box-links.html" (dict
+							"link" $page.RelPermalink
+							"heading" ($page.Param "linkText")
+							"sub" (printf "Previous - %s" .Name)
+							"left" true
+							"title" (printf "Navigate to the %s page" $page.Title)
+                        )}}
+					{{- end }}
+					<!-- Next Link -->
+                    {{ with $nextPrev.Get "next" -}}
+                        {{ $page := $.Site.GetPage (strings.TrimSuffix "/" .URL) }}
+                        {{ partial "components/box-links.html" (dict
+							"link" $page.RelPermalink
+							"heading" ($page.Param "linkText")
+							"sub" (printf "Next - %s" .Name)
+							"left" false
+							"title" (printf "Navigate to the %s page" $page.Title)
+                        )}}
+                    {{- end }}
 				</div>
 				<!-- Footer -->
 				<footer class="guidelines-footer">

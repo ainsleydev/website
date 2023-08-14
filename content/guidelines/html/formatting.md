@@ -1,5 +1,5 @@
 ---
-title: General
+title: Formatting
 heading: Formatting
 description: TODO
 linkText: This will appear in the box

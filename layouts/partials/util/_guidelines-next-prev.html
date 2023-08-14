@@ -1,0 +1,26 @@
+<!-- =====================
+   	Guidelines Next / Prev
+    ===================== -->
+{{ $data := newScratch }}
+{{ $data.Set "previous" "" }}
+{{ $data.Set "current" "" }}
+{{ $data.Set "next" "" }}
+{{- with .Site.Menus.guidelines }}
+    {{ range . }}
+        {{ if .HasChildren -}}
+            {{ range .Children -}}
+                {{ if ne ($data.Get "current") "" }}
+                    {{ $data.Set "next" . }}
+                    {{ break }}
+                {{- end }}
+                {{ if eq $.Page.RelPermalink .URL -}}
+                    {{ $data.Set "current" . }}
+					{{ continue }}
+                {{- end }}
+                {{ $data.Set "previous" . }}
+            {{- end }}
+        {{- end }}
+    {{- end }}
+    {{ $data.Values }}
+{{- end -}}
+{{- return $data }}

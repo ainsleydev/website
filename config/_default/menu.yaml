@@ -118,11 +118,11 @@ guidelines:
     # HTML
     -   identifier: html
         name: HTML
-        url: /guidelines/html
+        url: /guidelines/html/
         weight: 10
     -   identifier: formatting
         name: Formatting
-        url: /guidelines/html/general/
+        url: /guidelines/html/formatting/
         weight: 11
         parent: html
     -   identifier: classes-ids
@@ -146,7 +146,7 @@ guidelines:
         weight: 15
         parent: html
     # JS
-    -   identifier: test
-        name: Test
+    -   identifier: js
+        name: JavaScript
         url: /guidelines/js
-        weight: 10
+        weight: 16
