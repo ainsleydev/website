@@ -35,10 +35,10 @@
 			min-width: 300px;
 			transform: translateX(-100%);
 			@include full-height;
-			padding-left: 24px;
-			padding-right: 1rem;
 			background-color: $white;
 			overflow-y: scroll;
+			padding-left: 24px;
+			padding-right: 1rem;
 			z-index: $header-z-index + 10;
 			border-right: 1px solid rgba($black, $alpha-standard);
 		}
@@ -165,8 +165,8 @@
 		display: flex;
 		justify-content: space-between;
 		flex-wrap: wrap;
-		margin-top: $margin;
-		padding-top: $margin-small;
+		margin-top: $margin-large;
+		padding-top: $margin;
 		border-top: 1px solid rgba($black, $alpha-standard);
 
 		&-last-mod {
@@ -177,9 +177,20 @@
 	// Tablet Down
 	// =========================================================================
 
-	@include media-tab-down {
+	@include media-desk-down {
 		&-content {
 			margin-top: $header-height + 40px;
+		}
+
+		&-aside-header,
+		&-aside-logo,
+		&-menu {
+			padding-left: 24px;
+			padding-right: 1rem;
+		}
+
+		&-aside-wrapper {
+			padding: 0;
 		}
 	}
 
@@ -210,7 +221,7 @@
 		}
 
 		&-content {
-			padding: 0 $margin;
+			padding: 0 $margin-large;
 
 			&-container {
 				max-width: 750px;
