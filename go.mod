@@ -7,6 +7,7 @@ require (
 	github.com/ainsleyclark/go-mail v1.1.1
 	github.com/axiomhq/axiom-go v0.16.1
 	github.com/caarlos0/env/v7 v7.1.0
+	github.com/getkin/kin-openapi v0.118.0
 	github.com/getsentry/sentry-go v0.23.0
 	github.com/google/uuid v1.3.0
 	github.com/joho/godotenv v1.5.1
@@ -14,7 +15,7 @@ require (
 	github.com/logrusorgru/aurora v2.0.3+incompatible
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.9.3
-	github.com/slack-go/slack v0.12.2
+	github.com/slack-go/slack v0.12.3
 	github.com/stretchr/testify v1.8.4
 )
 
@@ -22,12 +23,10 @@ require (
 	github.com/cenkalti/backoff/v4 v4.2.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/felixge/httpsnoop v1.0.3 // indirect
-	github.com/getkin/kin-openapi v0.118.0 // indirect
 	github.com/go-logr/logr v1.2.4 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/go-openapi/jsonpointer v0.19.5 // indirect
 	github.com/go-openapi/swag v0.19.5 // indirect
-	github.com/go-test/deep v1.0.8 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
