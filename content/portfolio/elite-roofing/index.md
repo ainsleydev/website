@@ -12,7 +12,7 @@ site:
   pretty: eliters.uk
 role: Design & Development
 strategies: [Full brand, UI/UX, Website branding]
-technologies: [Verbis, Spline, Image Sequencing]
+technologies: [Custom CMS, Spline, Image Sequencing]
 logoWeight: 60
 ---
 
@@ -49,7 +49,7 @@ captured the attention of potential clientele.
 
 <!-- Development -->
 {{< vertical-section text="Develop" number="03" >}}
-[Verbis CMS](https://github.com/verbiscms/verbis) was used as a content management system, allowing Elite Roofing to
+A custom CMS was used as a content management system, allowing Elite Roofing to
 change content on their new site. Image sequencing was implemented in mobile, tablet and desktop viewports which allowed
 for the 3D roof model to construct itself when the user scrolled down the page. This added a tremendous amount of depth
 and quality to the landing page. Touches of animation using AOS and custom scroll sequences were added to bring the page
