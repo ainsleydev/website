@@ -13,7 +13,7 @@ site:
   pretty: edrdental.co.uk
 role: Design & Development
 strategies: [Full brand, UI/UX, Multi-page site]
-technologies: [Verbis, barba.js, AOS (Animate on Scroll)]
+technologies: [Custom CMS, barba.js, AOS (Animate on Scroll)]
 quote:
   person: Fantastic design company, could not recommend highly enough. Very professional service and produced a final product that far exceeded expectations, thank you!
   text: Richard Penny, Administrator
@@ -59,7 +59,7 @@ easy to navigate.
 
 <!-- Development -->
 {{< vertical-section text="Develop" number="03" >}}
-[Verbis CMS](https://github.com/verbiscms/verbis) was used as a content management system, allowing EDR Dental to change
+A custom CMS was used as a content management system, allowing EDR Dental to change
 each and every word on their new, modernised site. This made for an extremely rapid platform,
 achieving [97 PSI on mobile](https://pagespeed.web.dev/report?url=https%3A%2F%2Fedrdental.co.uk%2F). Married with high
 attention to detail for accessibility and SEO factors, web.dev/measure lighthouse scores were impressively
