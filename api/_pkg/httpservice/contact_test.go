@@ -1,7 +1,6 @@
 package httpservice
 
 import (
-	"context"
 	"encoding/json"
 	"net/http"
 	"net/http/httptest"
@@ -42,7 +41,7 @@ func TestHandler_SendContactForm(t *testing.T) {
 				Message:  "Hello test@hello.com",
 			},
 			mock: func(slack *mocks.Sender, mailer *mocks.Mailer) {
-				slack.On("Send", context.TODO(), mock.Anything, mock.Anything, mock.Anything).
+				slack.On("Send", mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 					Return(nil)
 			},
 			want: "Sent successfully",
@@ -52,7 +51,7 @@ func TestHandler_SendContactForm(t *testing.T) {
 				Message: "Hello test@hello.com",
 			},
 			mock: func(slack *mocks.Sender, mailer *mocks.Mailer) {
-				slack.On("Send", context.TODO(), mock.Anything, mock.Anything, mock.Anything).
+				slack.On("Send", mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 					Return(errors.New("error"))
 			},
 			want: "Error sending contact form",
@@ -62,7 +61,7 @@ func TestHandler_SendContactForm(t *testing.T) {
 				Message: "Hello test@hello.com",
 			},
 			mock: func(slack *mocks.Sender, mailer *mocks.Mailer) {
-				slack.On("Send", context.TODO(), mock.Anything, mock.Anything, mock.Anything).
+				slack.On("Send", mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 					Return(nil)
 				mailer.On("Send", mock.Anything).
 					Return(mail.Response{}, errors.New("error"))
@@ -74,7 +73,7 @@ func TestHandler_SendContactForm(t *testing.T) {
 				Message: "Hello test@hello.com",
 			},
 			mock: func(slack *mocks.Sender, mailer *mocks.Mailer) {
-				slack.On("Send", context.TODO(), mock.Anything, mock.Anything, mock.Anything).
+				slack.On("Send", mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 					Return(nil)
 				mailer.On("Send", mock.Anything).
 					Return(mail.Response{}, nil)
@@ -101,7 +100,7 @@ func TestHandler_SendContactForm(t *testing.T) {
 
 			b, err := json.Marshal(test.payload)
 			require.NoError(t, err)
-			req := httptest.NewRequest(http.MethodPost, "/cancel", strings.NewReader(string(b)))
+			req := httptest.NewRequest(http.MethodPost, "/forms/contact/", strings.NewReader(string(b)))
 			req.Header.Set(echo.HeaderContentType, echo.MIMEApplicationJSON)
 			rec := httptest.NewRecorder()
 			c := echo.New().NewContext(req, rec)

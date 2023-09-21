@@ -288,4 +288,19 @@ export class SDK<SecurityDataType extends unknown> extends HttpClient<SecurityDa
 				...params,
 			}),
 	};
+	credentials = {
+		/**
+		 * @name GetCredentials
+		 * @request GET:/credentials/
+		 * @secure
+		 * @description Obtains credentials from ainsley.dev
+		 */
+		getCredentials: (params: RequestParams = {}) =>
+			this.request<ContactFormResponse, any>({
+				path: `/credentials/`,
+				method: 'GET',
+				secure: true,
+				...params,
+			}),
+	};
 }

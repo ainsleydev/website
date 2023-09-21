@@ -16,7 +16,7 @@
     {{ end }}
 	<!-- Name & Reading Time -->
 	<div class="insight-author-text">
-		<p>{{ .Params.author }}</p>
+		<p class="insight-author-title">{{ .Params.author }}</p>
 		<small>
 			{{ .Date.Format "Jan 2, 2006" }} - {{ partial "util/_reading-time.html" . }} min read.
 		</small>

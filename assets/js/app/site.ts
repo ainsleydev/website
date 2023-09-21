@@ -24,6 +24,7 @@ import { bookmark } from '../components/bookmark';
 import { buttonGoBack } from '../components/button';
 import { copyToClipboard } from '../components/copy';
 import { lazyImages } from '../components/image';
+import { PlausiblePageView, plausibleQueryParamGoal } from '../analytics/plausibleGoal';
 import { video, VideoPlayer } from '../components/video';
 import { WebVitals } from '../analytics/web-vitals';
 import { Animations } from '../animations/text';
@@ -113,11 +114,13 @@ class App {
 		lazyImages();
 		video();
 		aside();
+		plausibleQueryParamGoal();
 
 		// Animations
 		this.initAnimations();
 
 		// Analytics
+		PlausiblePageView();
 		this.webVitals();
 	}
 
@@ -220,7 +223,7 @@ class App {
 			Elements.Body.scrollTop = 0;
 			data.next.container.scrollTop = 0;
 			Scroll.init(data.next.container);
-			this.triggerPageView();
+			PlausiblePageView();
 			this.boot();
 			anime({
 				targets: ['.header'],
@@ -299,18 +302,6 @@ class App {
 			}
 		});
 		header.classList.add(`header-colour-${colour}`);
-	}
-
-	/**
-	 * Triggers a page view dynamically with Plausible.
-	 *
-	 * @private
-	 */
-	private triggerPageView(): void {
-		if (typeof window.plausible === 'function') {
-			Log.debug('Triggering Plausible page-view');
-			window.plausible('pageview');
-		}
 	}
 
 	/**

@@ -1,0 +1,81 @@
+<!-- =====================
+	Insights Bio
+	===================== -->
+<div class="insight-bio">
+	<!-- Intro -->
+	<div class="margin">
+		<h4 class="heading-2">About the author</h4>
+	</div>
+	<!-- Bio & Details -->
+	{{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .Params.author)) }}
+		<div class="insight-author insight-author-bio">
+			<!-- Photo -->
+			<figure class="insight-author-photo">
+				{{ partial "media/image.html" (dict
+				"image" (.Resources.Get .Params.photo)
+				"alt" (printf "%s Photo" .Title)
+				"resize" "140x"
+				)}}
+			</figure>
+			<!-- Name & Job Title -->
+			<div class="insight-author-text">
+				<!-- Name -->
+				{{ with .Params.title -}}
+					<h5 class="insight-author-title insights-author-title-large">
+						{{ . }}
+					</h5>
+				{{- end }}
+				<!-- Job Title -->
+				{{ with .Params.jobTitle -}}
+					<p>{{ . }}</p>
+				{{- end }}
+			</div>
+		</div><!-- /Author -->
+		<!-- Bio -->
+		<p>
+			{{ .Params.bio }}
+			<!-- TODO: Add arrow and uncomment this when author biographies are done. Need to set headless to false in the markdown file -->
+{{/*			<a href="{{ .RelPermalink }}">Read more...</a>*/}}
+		</p>
+		<!-- Social -->
+		{{ with .Params.social }}
+			<p class="lead insight-bio-follow">
+				<strong>Follow me on:</strong>
+			</p>
+			<div class="insight-social insight-social-small">
+				<!-- LinkedIn -->
+				{{ with .linkedin }}
+					<a href="{{ . }}"
+					   class="insight-social-item cursor-element"
+					   target="_blank"
+					   aria-label="Visit on LinkedIn"
+					   data-cursor-invert data-cursor-invert-black>
+						{{ partial "svgs/linkedin.html" }}
+					</a>
+				{{- end }}<!-- /LinkedIn -->
+				<!-- Twitter -->
+				{{ with .twitter }}
+					<a href="{{ . }}"
+					   class="insight-social-item cursor-element"
+					   target="_blank"
+					   aria-label="Visit on Twitter"
+					   data-cursor-invert data-cursor-invert-black>
+						{{ partial "svgs/twitter.html" }}
+					</a>
+				{{- end }}<!-- /Twitter -->
+				<!-- Twitter -->
+				{{ with .github }}
+					<a href="{{ . }}"
+					   class="insight-social-item cursor-element"
+					   target="_blank"
+					   aria-label="Visit on GitHub"
+					   data-cursor-invert data-cursor-invert-black>
+						{{ partial "svgs/github.html" }}
+					</a>
+				{{- end }}<!-- /Twitter -->
+			</div><!-- /Social -->
+		{{- end }}
+	{{ else }}
+		{{ warnf "No author found for post: %s" .Params.author}}
+	{{ end }}
+</div><!-- /Insights Author -->

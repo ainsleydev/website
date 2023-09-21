@@ -16,7 +16,7 @@ declare global {
 	 * Extension of the window object.
 	 */
 	interface Window {
-		plausible: (args: string) => unknown;
+		plausible: (args: string, p?: { u: string }) => unknown;
 		barba: Core;
 	}
 

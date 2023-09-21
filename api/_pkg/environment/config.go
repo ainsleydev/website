@@ -13,6 +13,7 @@ import (
 type Config struct {
 	Env             string   `env:"VERCEL_ENV"`
 	URL             string   `env:"VERCEL_URL" envDefault:"http://localhost:3000"`
+	Origins         []string `env:"ORIGINS"`
 	Region          string   `env:"VERCEL_REGION"`
 	APIKey          string   `env:"API_KEY,required"`
 	BrandName       string   `env:"BRAND_NAME,required"`
@@ -25,6 +26,7 @@ type Config struct {
 	SentryDSN       string   `env:"SENTRY_DSN,required"`
 	AxiomToken      string   `env:"AXIOM_TOKEN,required"`
 	AxiomDataSet    string   `env:"AXIOM_DATASET,required"`
+	Credentials     string   `env:"CREDENTIALS,required"`
 }
 
 // See: https://vercel.com/docs/concepts/projects/environment-variables/system-environment-variables

@@ -25,6 +25,7 @@
 	}
 
 	&:last-of-type {
+		margin-left: 0;
 		margin-right: 0;
 	}
 
@@ -34,6 +35,13 @@
 	&-black {
 		background-color: $grey-dark;
 		color: $white;
+	}
+
+	// Margin
+	// =========================================================================
+
+	&-margin-top {
+		margin-top: 10px;
 	}
 }
 

@@ -7,12 +7,18 @@
 			<div class="row justify-content-center">
 				<div class="col-12 col-desk-10">
 					<!-- Title -->
-                   {{ with .Params.heading -}}
-						<h1 class="mb-0">
+					{{ with .Params.heading -}}
+						<h1>
 							{{ . | safeHTML }}
 						</h1>
 					{{- else -}}
 						{{ warnf "No heading param provided to page: %s" .RelPermalink }}
+					{{- end }}
+					<!-- Lead -->
+					{{ with .Params.lead -}}
+						<p class="lead lead-max-width mb-0">
+							{{ . }}
+						</p>
 					{{- end }}
 				</div><!-- /Col -->
 			</div><!-- /Row -->
@@ -27,10 +33,22 @@
 			<div class="container">
 				<!-- Cards -->
 				<div class="row justify-content-center">
+					{{- $yearCounter := "" -}}
                     {{ range $paginator.Pages -}}
+						{{ $year := .PublishDate.Format "2006" }}
+						<!-- Year -->
+						{{ if ne $yearCounter $year -}}
+							<div class="col-12 col-desk-10 insight-year">
+								<h2 class="mb-0">
+									{{ $year }}
+								</h2>
+							</div>
+						{{- end }}
+						<!-- Card -->
 						<div class="col-12 col-desk-10 card-col">
                             {{ .Render "card" }}
 						</div><!-- /Col -->
+                        {{ $yearCounter = $year }}
                     {{- end }}
 				</div><!-- /Row -->
 				<!-- Previous / Next -->

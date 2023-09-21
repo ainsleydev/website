@@ -71,7 +71,6 @@ class Scroll {
 		const scrollContainer = container.querySelector('[data-scroll-container]'),
 			options = this.options,
 			space = namespace(container);
-		console.log(space);
 		if (
 			scrollContainer.hasAttribute('data-scroll-disable') ||
 			space === 'page-insights' ||

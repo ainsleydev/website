@@ -8,7 +8,7 @@
 
 import { Log } from '../util/log';
 import Scroll from '../app/scroll';
-import { Plausible } from '../analytics/plausible';
+import { PlausibleGoal } from '../analytics/plausibleGoal';
 
 /**
  * playVideo plays a video element.
@@ -60,7 +60,7 @@ const trackVideo = (video: HTMLVideoElement) => {
 			track.seconds.forEach((second: number) => {
 				if (seconds >= second && !fired.get(second)) {
 					Log.debug(`${track.name} Video ${second} Secs`);
-					Plausible(`${track.name} Video ${second} Secs`);
+					PlausibleGoal(`${track.name} Video ${second} Secs`);
 					fired.set(second, true);
 				}
 			});
@@ -83,7 +83,7 @@ export const video = (): void => {
 		vid.addEventListener('play', () => vid.classList.add('video-playing'));
 		vid.addEventListener('pause', () => vid.classList.remove('video-playing'));
 		if (vid.hasAttribute('data-plausible')) {
-			Plausible(vid.getAttribute('data-plausible'));
+			PlausibleGoal(vid.getAttribute('data-plausible'));
 		}
 		if (vid.hasAttribute('data-plausible-track')) {
 			trackVideo(vid);

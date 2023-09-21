@@ -14,7 +14,7 @@ import (
 
 // CORS returns a Cross-Origin Resource Sharing (CORS) middleware.
 // See also [MDN: Cross-Origin Resource Sharing (CORS)].
-//
+// ma
 // Security: Poorly configured CORS can compromise security because it allows
 // relaxation of the browser's Same-Origin policy.  See [Exploiting CORS
 // misconfigurations for Bitcoins and bounties] and [Portswigger: Cross-origin
@@ -24,6 +24,7 @@ import (
 // [Exploiting CORS misconfigurations for Bitcoins and bounties]: https://blog.portswigger.net/2016/10/exploiting-cors-misconfigurations-for.html
 // [Portswigger: Cross-origin resource sharing (CORS)]: https://portswigger.net/web-security/cors
 func CORS(cfg *environment.Config) echo.MiddlewareFunc {
+	origins := append(cfg.Origins, cfg.URL)
 	return middleware.CORSWithConfig(middleware.CORSConfig{
 		Skipper: middleware.DefaultSkipper,
 		AllowMethods: []string{
@@ -40,8 +41,6 @@ func CORS(cfg *environment.Config) echo.MiddlewareFunc {
 			echo.HeaderAccept,
 			AuthHeader,
 		},
-		AllowOrigins: []string{
-			cfg.URL,
-		},
+		AllowOrigins: origins,
 	})
 }

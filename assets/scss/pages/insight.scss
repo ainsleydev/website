@@ -15,8 +15,7 @@
 	&-intro {
 		display: flex;
 		flex-direction: column;
-		margin-top: $margin-large;
-		order: 999;
+		margin-bottom: 1rem;
 
 		&-crumbs {
 			margin-bottom: 8px;
@@ -35,14 +34,17 @@
 	// =========================================================================
 
 	&-author {
+		$photo-size: 60px;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		margin-top: $margin;
 
 		&-photo {
-			width: 60px;
-			height: 60px;
+			width: $photo-size;
+			height: $photo-size;
+			min-width: $photo-size;
+			max-width: $photo-size;
 			margin-right: 1rem;
 			border-radius: 100%;
 			overflow: hidden;
@@ -63,11 +65,48 @@
 				line-height: 1;
 				color: colour('paragraph');
 			}
+		}
 
-			p {
-				margin-bottom: 4px;
+		&-title {
+			color: $black;
+			margin-bottom: 4px;
+
+			&:not(h5) {
 				font-weight: 500;
 			}
+		}
+
+		&-bio {
+			margin-bottom: 1rem !important;
+
+			#{$self}-author-title {
+				margin-bottom: 10px;
+			}
+
+			p {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	// Bio
+	// =========================================================================
+
+	&-bio {
+		margin-top: $margin-large;
+		padding-top: $margin-large;
+		border-top: var(--card-border);
+
+		&-wrapper {
+			display: flex;
+		}
+
+		&-photo {
+			margin-right: $margin-large;
+		}
+
+		&-follow {
+			margin-bottom: 6px;
 		}
 	}
 
@@ -103,6 +142,22 @@
 				margin-left: 1.4rem;
 			}
 		}
+
+		&-small &-item:not(:first-child) {
+			margin-left: 1rem;
+		}
+	}
+
+	// Year
+	// =========================================================================
+
+	&-year {
+		padding-bottom: $margin-large;
+		border-bottom: var(--card-border);
+
+		&:not(:first-child) {
+			padding-top: $margin-large;
+		}
 	}
 
 	// Mobile
@@ -117,6 +172,10 @@
 		&-meta {
 			flex-direction: row-reverse;
 			align-items: center;
+		}
+
+		&-author-title-large {
+			margin-bottom: 8px;
 		}
 	}
 
