@@ -3,8 +3,8 @@ title: Dec's Pets wins the best Irish E-Commerce website of 2023
 heading: How we helped Dec's Pets win the best Irish E-Commerce website award
 description: Learn how ainsley.dev helped and transformed Dec's Pets to win the best Irish E-Commerce award 2023 for website startup of the year.
 slug: decspets-ecommerce-award
-publishdate: 2021-09-28
-lastmod: 2021-09-28
+publishdate: 2023-09-28
+lastmod: 2023-09-28
 draft: false
 tags:
   - Clients
