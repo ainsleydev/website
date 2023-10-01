@@ -21,8 +21,7 @@ or someone offering SEO web design services, this guide will help you enhance bo
 performance.
 {{< /lead >}}
 
-<!-- Reel -->
-{{< video src="video/edr.mp4" attr="muted loop" lazy=true >}}
+![ainsley.dev Sidebar Menu](images/aside.png)
 
 ## Types of navigation menu and how they are used
 
@@ -47,8 +46,6 @@ main navigation when clicked. They are great for saving screen space on smaller 
 These are positioned on the side of a webpage within an `<aside>` lement and are used to display additional navigation
 options or subcategories. Particularly useful on sites that are content-rich, they allow easy navigation within each
 section of a website.
-
-![ainsley.dev Sidebar Menu](images/aside.png)
 
 ### Footer menus
 
@@ -159,6 +156,8 @@ items in a menu.
 Although they add dynamism to the website and UI, poorly implemented CSS animations can sometimes slow the user down. We
 live in a day and age where people want content, fast. And if you're unable to provide it to them, they may just leave.
 Try to make animations smooth and swift to add that extra special touch of UX instead of detracting from it.
+
+{{< video src="video/edr.mp4" attr="autoplay muted loop" lazy=false >}}
 
 ## Wrapping up
 
