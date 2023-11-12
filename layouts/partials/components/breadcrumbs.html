@@ -1,8 +1,6 @@
 <!-- =====================
 	Breadcrumbs
 	===================== -->
-{{ $url := .RelPermalink -}}
-{{ $.Scratch.Add "path" "/" -}}
 <nav class="breadcrumbs" aria-label="breadcrumb">
 	<ul class="breadcrumbs-list"
 		itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -19,28 +17,35 @@
 			</a><!-- /Link -->
 		</li>
 		<!-- Path -->
-        {{ range $index, $element := split $url "/" -}}
-            {{ $.Scratch.Add "path" $element -}}
-            {{ if ne $element "" -}}
-                {{ with $.Site.GetPage ($.Scratch.Get "path") -}}
-                    {{- $path := printf "%s/" ($.Scratch.Get "path") -}}
-					{{- $isCurrent := (eq $path $.RelPermalink) -}}
-					<!-- Item -->
-					<li class="breadcrumbs-item {{ if $isCurrent }} breadcrumbs-active {{- end }}"
-						itemprop="itemListElement" itemscope
-						itemtype="https://schema.org/ListItem"
-						{{ if $isCurrent }} aria-current="page" {{ end }}>
-						<!-- Link -->
-						<a class="breadcrumbs-link" href="{{ $path }}" itemprop="item">
-							<span itemprop="name">
-								 {{ .Params.heading | humanize }}
-							</span>
-							<meta itemprop="position" content="{{ add $index 1 }}" />
-						</a><!-- /Link -->
-					</li><!-- /Item -->
-                {{- end }}
-                {{- $.Scratch.Add "path" "/" -}}
-            {{- end }}
-        {{- end }}
+        {{ define "partials/breadcrumbs-item.html" -}}
+			<li class="breadcrumbs-item {{ if .current }} breadcrumbs-active {{- end }}"
+				itemprop="itemListElement" itemscope
+				itemtype="https://schema.org/ListItem"
+                    {{ if .current }} aria-current="page" {{ end }}>
+				<!-- Link -->
+				<a class="breadcrumbs-link" href="{{ .link }}" itemprop="item">
+					<span itemprop="name">
+						 {{ .title }}
+					</span>
+					<meta itemprop="position" content="{{ .index }}" />
+				</a><!-- /Link -->
+			</li><!-- /Item -->
+		{{- end }}
+		{{ $index := 0 }}
+		{{- range .Ancestors.Reverse }}
+			{{ if not (eq .RelPermalink "/") }}
+				{{ partial "partials/breadcrumbs-item.html" (dict
+					"title" .Title
+					"link" .RelPermalink
+					"index" $index
+				)}}
+			{{ end }}
+			{{ $index = (add $index 1)}}
+		{{ end }}
+		{{ partial "partials/breadcrumbs-item.html" (dict
+			"title" .Title
+			"link" .RelPermalink
+			"index" $index
+		)}}
 	</ul>
 </nav>
