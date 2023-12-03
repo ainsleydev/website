@@ -2,7 +2,7 @@
 title: Increasing performance with caching in Strapi & SvelteKit
 heading: How to improve performance by caching content using Strapi & SvelteKit
 description: Learn to boost your web app's performance with caching in Strapi and SvelteKit. Explore practical steps to reduce TTFB and improve UX effectively.
-slug: strap-sveltekit-caching
+slug: strapi-sveltekit-caching
 publishdate: 2023-12-03
 lastmod: 2023-12-03
 draft: false
