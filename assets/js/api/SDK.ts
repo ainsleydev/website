@@ -270,6 +270,21 @@ export class HttpClient<SecurityDataType = unknown> {
  * API Spec for the backend of ainsley.dev
  */
 export class SDK<SecurityDataType extends unknown> extends HttpClient<SecurityDataType> {
+	ping = {
+		/**
+		 * @name Ping
+		 * @request GET:/ping/
+		 * @secure
+		 * @description Checks the connectivity or health of the API.
+		 */
+		ping: (params: RequestParams = {}) =>
+			this.request<ContactFormResponse, HTTPError>({
+				path: `/ping/`,
+				method: 'GET',
+				secure: true,
+				...params,
+			}),
+	};
 	forms = {
 		/**
 		 * @name SendContactForm
