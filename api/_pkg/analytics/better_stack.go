@@ -74,22 +74,12 @@ func (h *BetterStackHook) Fire(entry *logrus.Entry) error {
 
 // run processes log entries from the eventCh and sends them to BetterStack.
 func (h *BetterStackHook) run() {
-	defer close(h.closeCh)
-	for {
-		select {
-		case entry, ok := <-h.eventCh:
-			if !ok {
-				return
-			}
-			// Send the log entry to BetterStack
-			if err := h.sendLog(entry); err != nil {
-				logger.Error("Sending log entry to Better Stack: " + err.Error())
-			}
-		case <-h.closeCh:
-			// Close the goroutine when closeCh is closed
-			return
+	for entry := range h.eventCh {
+		if err := h.sendLog(entry); err != nil {
+			logger.Error("Sending log entry to Better Stack: " + err.Error())
 		}
 	}
+	close(h.closeCh)
 }
 
 // Fire is called when a log event occurs.
