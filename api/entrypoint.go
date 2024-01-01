@@ -5,10 +5,13 @@
 package api
 
 import (
-	"github.com/ainsleydev/website/api/_pkg/analytics"
-	sdk "github.com/ainsleydev/website/api/_sdk"
 	"log"
 	"net/http"
+
+	"github.com/ainsleydev/website/api/_pkg/analytics"
+	sdk "github.com/ainsleydev/website/api/_sdk"
+
+	"github.com/labstack/echo/v4"
 
 	"github.com/ainsleydev/website/api/_pkg/environment"
 	"github.com/ainsleydev/website/api/_pkg/gateway/mail"
@@ -16,7 +19,6 @@ import (
 	"github.com/ainsleydev/website/api/_pkg/httpservice"
 	"github.com/ainsleydev/website/api/_pkg/logger"
 	"github.com/ainsleydev/website/api/_pkg/middleware"
-	"github.com/labstack/echo/v4"
 )
 
 var (
@@ -54,12 +56,8 @@ func Bootstrap(server *echo.Echo) (*httpservice.Handler, func()) {
 	}
 
 	logger.Bootstrap(config)
+	logger.DefaultLogger.AddHook(analytics.NewBetterStackHook(config.BetterStackToken))
 	middleware.Load(server, config)
-
-	closeAxiom, err := analytics.InitAxiom(config)
-	if err != nil {
-		log.Fatalln(err.Error())
-	}
 
 	mailer, err := mail.New(config)
 	if err != nil {
@@ -70,7 +68,6 @@ func Bootstrap(server *echo.Echo) (*httpservice.Handler, func()) {
 
 	// Flush all logs and analytics before the application closes.
 	teardown := func() {
-		closeAxiom()
 		closeSentry()
 	}
 

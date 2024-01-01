@@ -11,22 +11,21 @@ import (
 
 // Config defines the environment variables for the application.
 type Config struct {
-	Env             string   `env:"VERCEL_ENV"`
-	URL             string   `env:"VERCEL_URL" envDefault:"http://localhost:3000"`
-	Origins         []string `env:"ORIGINS"`
-	Region          string   `env:"VERCEL_REGION"`
-	APIKey          string   `env:"API_KEY,required"`
-	BrandName       string   `env:"BRAND_NAME,required"`
-	BrandColour     string   `env:"BRAND_COLOUR"`
-	SlackToken      string   `env:"SLACK_TOKEN,required"`
-	MailAPIKey      string   `env:"MAIL_API_KEY,required"`
-	MailFromAddress string   `env:"MAIL_FROM_ADDRESS,required"`
-	MailFromName    string   `env:"MAIL_FROM_NAME,required"`
-	MailRecipients  []string `env:"MAIL_RECIPIENTS,required" envSeparator:":"`
-	SentryDSN       string   `env:"SENTRY_DSN,required"`
-	AxiomToken      string   `env:"AXIOM_TOKEN,required"`
-	AxiomDataSet    string   `env:"AXIOM_DATASET,required"`
-	Credentials     string   `env:"CREDENTIALS,required"`
+	Env              string   `env:"VERCEL_ENV"`
+	URL              string   `env:"VERCEL_URL" envDefault:"http://localhost:3000"`
+	Origins          []string `env:"ORIGINS"`
+	Region           string   `env:"VERCEL_REGION"`
+	APIKey           string   `env:"API_KEY,required"`
+	BrandName        string   `env:"BRAND_NAME,required"`
+	BrandColour      string   `env:"BRAND_COLOUR"`
+	SlackToken       string   `env:"SLACK_TOKEN,required"`
+	MailAPIKey       string   `env:"MAIL_API_KEY,required"`
+	MailFromAddress  string   `env:"MAIL_FROM_ADDRESS,required"`
+	MailFromName     string   `env:"MAIL_FROM_NAME,required"`
+	MailRecipients   []string `env:"MAIL_RECIPIENTS,required" envSeparator:":"`
+	SentryDSN        string   `env:"SENTRY_DSN,required"`
+	BetterStackToken string   `env:"BETTER_STACK_TOKEN,required"`
+	Credentials      string   `env:"CREDENTIALS,required"`
 }
 
 // See: https://vercel.com/docs/concepts/projects/environment-variables/system-environment-variables
