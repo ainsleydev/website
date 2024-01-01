@@ -56,7 +56,8 @@ func Bootstrap(server *echo.Echo) (*httpservice.Handler, func()) {
 	}
 
 	logger.Bootstrap(config)
-	logger.DefaultLogger.AddHook(analytics.NewBetterStackHook(config.BetterStackToken))
+	betterStack := analytics.NewBetterStackHook(config)
+	logger.DefaultLogger.AddHook(betterStack)
 	middleware.Load(server, config)
 
 	mailer, err := mail.New(config)
@@ -69,6 +70,7 @@ func Bootstrap(server *echo.Echo) (*httpservice.Handler, func()) {
 	// Flush all logs and analytics before the application closes.
 	teardown := func() {
 		closeSentry()
+		betterStack.Close()
 	}
 
 	return &httpservice.Handler{
