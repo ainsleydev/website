@@ -17,16 +17,20 @@ import (
 type BetterStackHook struct {
 	client    *http.Client
 	config    *environment.Config
+	url       string
 	eventCh   chan *logrus.Entry // Channel to buffer log entries
 	closeCh   chan struct{}      // Channel used to signal closure of the hook
 	closeOnce sync.Once          // Ensures Close is only called once
 }
+
+const betterStackInjestURL = "https://in.logs.betterstack.com"
 
 // NewBetterStackHook creates a new BetterStackHook.
 func NewBetterStackHook(config *environment.Config) *BetterStackHook {
 	hook := &BetterStackHook{
 		client:    http.DefaultClient,
 		config:    config,
+		url:       betterStackInjestURL,
 		eventCh:   make(chan *logrus.Entry),
 		closeCh:   make(chan struct{}),
 		closeOnce: sync.Once{},
@@ -75,7 +79,6 @@ func (h *BetterStackHook) run() {
 		select {
 		case entry, ok := <-h.eventCh:
 			if !ok {
-				// Channel is closed, process remaining entries.
 				return
 			}
 			// Send the log entry to BetterStack
@@ -91,6 +94,10 @@ func (h *BetterStackHook) run() {
 
 // Fire is called when a log event occurs.
 func (h *BetterStackHook) sendLog(entry *logrus.Entry) error {
+	if entry == nil {
+		return errors.New("nil logrus entry")
+	}
+
 	// Marshal the data map to JSON.
 	payload, err := json.Marshal(map[string]any{
 		"message":     entry.Message,
@@ -104,7 +111,7 @@ func (h *BetterStackHook) sendLog(entry *logrus.Entry) error {
 	}
 
 	// Create the POST request to Better Stack.
-	req, err := http.NewRequest("POST", "https://in.logs.betterstack.com", bytes.NewBuffer(payload))
+	req, err := http.NewRequest("POST", h.url, bytes.NewBuffer(payload))
 	if err != nil {
 		return err
 	}
