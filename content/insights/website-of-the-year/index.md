@@ -11,7 +11,7 @@ tags:
   - Design
   - Development
   - Business
-author: Ainsley Clark
+author: Stephanie Clark
 ---
 
 {{< lead >}}
