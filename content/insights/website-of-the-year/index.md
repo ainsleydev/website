@@ -21,6 +21,7 @@ the [Website of the Year award](https://www.webguruawards.com/sites/ainsley-dev)
 prestigious [Web Guru Awards](https://www.webguruawards.com/) for our brand new site, released in early 2022.
 {{< /lead >}}
 
+![Guru of the Year](images/guru-of-the-year.jpg)
 
 The Website of the Year award is known for recognising outstanding creativity and technical prowess in both web design
 and development. The Web Guru Awards are a unique international platform that name the best designs on the web as part
