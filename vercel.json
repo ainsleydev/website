@@ -20,7 +20,7 @@
 	},
 	"build": {
 		"env": {
-			"GO_BUILD_FLAGS": "CGO_ENABLED=0"
+			"CGO_ENABLED": "0"
 		}
 	},
 	"headers": [
