@@ -18,6 +18,11 @@
 			"memory": 256
 		}
 	},
+	"build": {
+		"env": {
+			"GO_BUILD_FLAGS": "CGO_ENABLED=0"
+		}
+	},
 	"headers": [
 		{
 			"source": "/(.*)",
