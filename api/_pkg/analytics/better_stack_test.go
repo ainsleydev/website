@@ -32,7 +32,7 @@ func TestBetterStackHook_Fire(t *testing.T) {
 		wantErr   bool
 	}{
 		"Valid Log Entry": {
-			setupHook: func(h *BetterStackHook) { /* No special setup needed */ },
+			setupHook: func(_ *BetterStackHook) { /* No special setup needed */ },
 			wantErr:   false,
 		},
 		"After Close": {
@@ -77,7 +77,7 @@ func TestBetterStackHook_Close(t *testing.T) {
 }
 
 func TestBetterStackHook_Run(t *testing.T) {
-	t.Run("Send Log Error", func(t *testing.T) {
+	t.Run("Send Log Error", func(_ *testing.T) {
 		hook := NewBetterStackHook(&environment.Config{})
 
 		// Start run in a goroutine
@@ -99,7 +99,7 @@ func TestBetterStackHook_SendLog(t *testing.T) {
 	}{
 		"Successful Log Send": {
 			setupServer: func(server *httptest.Server) {
-				server.Config.Handler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				server.Config.Handler = http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
 					w.WriteHeader(http.StatusOK)
 				})
 			},

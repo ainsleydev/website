@@ -12,10 +12,11 @@ import (
 	"testing"
 
 	"github.com/ainsleyclark/errors"
-	"github.com/ainsleydev/website/api/_pkg/logger"
 	"github.com/labstack/echo/v4"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/ainsleydev/website/api/_pkg/logger"
 )
 
 func TestHandler(t *testing.T) {
@@ -24,19 +25,19 @@ func TestHandler(t *testing.T) {
 		want  string
 	}{
 		"Info": {
-			func(c echo.Context) error {
+			func(_ echo.Context) error {
 				return nil
 			},
 			"level=info msg=\"Request succeeded\"",
 		},
 		"Standard Error": {
-			func(c echo.Context) error {
+			func(_ echo.Context) error {
 				return fmt.Errorf("error")
 			},
 			"level=error msg=\"Request failed\"",
 		},
 		"Error": {
-			func(c echo.Context) error {
+			func(_ echo.Context) error {
 				return errors.NewInternal(errors.New("error"), "message", "op")
 			},
 			"code=internal error=error",
