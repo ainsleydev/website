@@ -1,0 +1,58 @@
+{{ define "main" }}
+	<!-- =====================
+		Services Single
+		===================== -->
+	<section class="section section-padding">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-12 col-desk-6">
+                    {{ partial "components/breadcrumbs.html" . }}
+					<!-- Title -->
+					<div class="animate-line-heading">
+                        {{ with .Params.heading -}}
+							<h1>
+                                {{ . | safeHTML }}
+							</h1>
+                        {{- else -}}
+                            {{ warnf "No heading param provided to page: %s" .RelPermalink }}
+                        {{- end }}
+					</div><!-- /Title -->
+					<!-- Lead -->]
+					<div class="lead animate-text">
+						<p class="lead">
+                            {{ with .Params.lead -}}
+                                {{ . | safeHTML }}
+                            {{- else -}}
+                                {{ warnf "No lead param provided to page: %s" .RelPermalink }}
+                            {{- end }}
+						</p>
+					</div><!-- /Lead -->
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- Container -->
+	</section>
+	<!-- =====================
+		Why Us?
+		===================== -->
+	<section class="section">
+
+	</section>
+
+	<!-- =====================
+		Workflow
+		===================== -->
+
+	<!-- =====================
+		Content
+		===================== -->
+	<!-- =====================
+		Quote
+		===================== -->
+    {{ with .Params.quote -}}
+        {{ partial "sections/quote.html" (dict
+        	"text" .text
+			"cite" .person
+       	 	"class" "bg-grey-light"
+        )}}
+    {{- end }}
+{{ end }}
