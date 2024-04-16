@@ -1,0 +1,27 @@
+<!-- =====================
+    Services Related
+    ===================== -->
+{{ $currSlug := .Slug }}
+{{- $other :=  (where .Site.RegularPages "Type" "services").ByWeight.ByDate -}}
+<section class="section section-padding">
+	<div class="container">
+		<div class="row">
+			<!-- Links -->
+			<div class="col-12">
+				<h6>Other Services</h6>
+                {{ range $other }}
+					{{- if ne $currSlug .Slug }}
+						<a class="no-line" href="{{ .RelPermalink }}">
+							<h3>{{ .Params.heading }}</h3>
+						</a>
+					{{- end }}
+                {{- end }}
+			</div><!--- /Col -->
+			<!-- Image -->
+			<div class="col-12">
+
+			</div>
+		</div><!-- /Row -->
+	</div><!-- /Container -->
+</section>
+
