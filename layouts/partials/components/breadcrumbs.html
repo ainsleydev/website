@@ -16,6 +16,14 @@
 				<meta itemprop="position" content="1" />
 			</a><!-- /Link -->
 		</li>
+		<!-- Title -->
+		{{ define "partials/breadcrumbs-title.html" -}}
+            {{ $title := .Title }}
+            {{ if isset .Params "breadcrumbs" }}
+                {{ $title = .Params.breadcrumbs }}
+            {{ end }}
+			{{ return $title }}
+		{{- end }}
 		<!-- Path -->
         {{ define "partials/breadcrumbs-item.html" -}}
 			<li class="breadcrumbs-item {{ if .current }} breadcrumbs-active {{- end }}"
@@ -34,8 +42,12 @@
 		{{ $index := 0 }}
 		{{- range .Ancestors.Reverse }}
 			{{ if not (eq .RelPermalink "/") }}
+				{{ $title := .Title }}
+				{{ if ne .Params.breadcrumb "" }}
+					{{ $title = .Params.breadcrumbs }}
+				{{ end }}
 				{{ partial "partials/breadcrumbs-item.html" (dict
-					"title" .Title
+					"title" (partial "partials/breadcrumbs-title.html" .)
 					"link" .RelPermalink
 					"index" $index
 				)}}
@@ -43,7 +55,7 @@
 			{{ $index = (add $index 1)}}
 		{{ end }}
 		{{ partial "partials/breadcrumbs-item.html" (dict
-			"title" .Title
+			"title"  (partial "partials/breadcrumbs-title.html" $)
 			"link" .RelPermalink
 			"index" $index
 		)}}

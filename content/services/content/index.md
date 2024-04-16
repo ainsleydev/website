@@ -5,6 +5,7 @@ slug: content
 draft: false
 weight: 1
 heading: Content
+breadcrumbs: Content
 lead: We offer a wide range of services, from UI/UX design to website development. Specialising in software development and API integration, we deliver expertly designed solutions to any digital obstacle.
 why:
   - title: Bespoke

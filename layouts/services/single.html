@@ -19,7 +19,7 @@
 					</div><!-- /Title -->
 					<!-- Lead -->
 					<div class="lead animate-text">
-						<p class="lead">
+						<p class="lead mb-0">
                             {{ with .Params.lead -}}
                                 {{ . | safeHTML }}
                             {{- else -}}
@@ -30,6 +30,33 @@
 				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- Container -->
+		<!-- Gallery TODO: make it so that each image has its own parralax -->
+		<div class="carousel">
+            {{ with .Params.gallery }}
+				<!-- Original -->
+                {{ range . }}
+					<div class="carousel-item">
+                        {{ partial "media/picture.html" (dict
+                        "image" ($.Resources.GetMatch .image)
+                        "alt" .alt
+                        "lazy" false
+                        "class" "carousel-image"
+                        )}}
+					</div>
+                {{- end }}
+				<!-- Repeat -->
+                {{ range . }}
+					<div class="carousel-item">
+                        {{ partial "media/picture.html" (dict
+                        "image" ($.Resources.GetMatch .image)
+                        "alt" .alt
+                        "lazy" false
+                        "class" "carousel-image"
+                        )}}
+					</div>
+                {{- end }}
+            {{- end }}
+		</div>
 	</section>
 	<!-- =====================
 		Why Us?
@@ -243,7 +270,7 @@
 		===================== -->
     {{ .Render "related" }}
 	<!-- =====================
-		Contact
+		Contact - TODO, maybe partial?
 		===================== -->
 	<section class="section">
 		<div class="container">

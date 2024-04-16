@@ -1,0 +1,70 @@
+// -----------------------------------------------------------------------------
+// _carousel.scss
+// This file contains all styles related to the carousel component.
+// -----------------------------------------------------------------------------
+
+:root {
+	--no-of-slides: 7;
+	--slides-in-view: 4;
+	--slide-width: 570px;
+	--iteration-time: 30s;
+}
+
+// https://stackoverflow.com/questions/70442770/infinite-scrolling-carousel-css-only
+.carousel {
+	$self: &;
+	position: relative;
+	display: flex;
+	width: calc(var(--slide-width) * var(--no-of-slides) * 2);
+	gap: 1rem;
+	margin-bottom: 100px;
+	overflow: hidden;
+	counter-reset: slideNo;
+	transform: rotate(-2deg);
+
+	// Item
+	// =========================================================================
+
+	&-item {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		width: 570px;
+		animation: scroll var(--iteration-time) linear infinite;
+		transition: all 100ms ease;
+		transform: translateZ(0);
+		will-change: transform;
+
+		&:before {
+			counter-increment: slideNo;
+			content: counter(slideNo);
+			position: absolute;
+			top: 0;
+			left: 50%;
+			font-size: 2rem;
+			color: lime;
+		}
+	}
+
+	// Image
+	// =========================================================================
+
+	&-image {
+		width: 100%;
+		height: auto;
+		transform: scale(1.01);
+	}
+
+	// Animation
+	// =========================================================================
+
+	@keyframes scroll {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(calc(var(--slide-width) * var(--no-of-slides) * -1));
+		}
+	}
+}
