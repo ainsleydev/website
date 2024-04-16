@@ -16,10 +16,13 @@ why:
   - title: Impactful
     content: Your website’s the centrepiece of your visual identity. We make every click count through creative design and UX that converts.
 workflow:
-  - title: Kick off meeting with stakeholders
-    content: TODO
+  title: Kick off meeting with stakeholders
+  content: TODO
 quote:
-    person: Declan O’Keffee, Digital Director
-    text: I have had the pleasure of working closely with ainsley.dev on the development of my new website. They have such a huge array of skills, not just in web development but across business and e-commerce as a whole. They helped us create a beautiful and modern website, and gave us ideas and initiatives for the future. It was a pleasure working with them.
+  person: Declan O’Keffee, Digital Director
+  text: I have had the pleasure of working closely with ainsley.dev on the development of my new website. They have such a huge array of skills, not just in web development but across business and e-commerce as a whole. They helped us create a beautiful and modern website, and gave us ideas and initiatives for the future. It was a pleasure working with them.
+featuredProjects:
+  - decs-pets
+featuredInsights:
+  - ai-generated-content
 ---
-
