@@ -31,6 +31,16 @@ why:
     content: Well draw on insights from discovery workshops to make informed decisions on the user journeys, content hierarchy and sitemap.
   - title: Impactful
     content: Your website’s the centrepiece of your visual identity. We make every click count through creative design and UX that converts.
+sections:
+  - image: images/audits.svg
+    title: <u>Thoughtful</u> UX Design
+    content: We get to know you as a business, including your values, and evaluate where you sit in the market before working with you. This enables us to create a design or application that fits the needs of your company and boosts your online presence.
+  - image: images/2easy.svg
+    title: <u>Thoughtful</u> UX Design
+    content: We get to know you as a business, including your values, and evaluate where you sit in the market before working with you. This enables us to create a design or application that fits the needs of your company and boosts your online presence.
+  - image: images/audits.svg
+    title: <u>Thoughtful</u> UX Design
+    content: We get to know you as a business, including your values, and evaluate where you sit in the market before working with you. This enables us to create a design or application that fits the needs of your company and boosts your online presence.
 workflow:
   title: Kick off meeting with stakeholders
   content: TODO

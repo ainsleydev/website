@@ -1,0 +1,59 @@
+<!-- =====================
+    Button
+    	partial "components/carousel.html" (dict
+    		"ctx" .
+    		"images" (slice
+				(dict
+					"image" "image.jpg"
+					"alt" "Alt text"
+				)
+			)
+    	)
+    	- ctx: 			The context of the page.
+    	- images: 		Key, value pair of images and alt text.
+    ===================== -->
+{{ define "partials/carousel-item.html" -}}
+	<div data-scroll data-scrol-speed="{{ mul .index 1 }}">
+		<div class="carousel-item">
+            {{ partial "media/picture.html" (dict
+				"image" (.ctx.Resources.GetMatch .item.image)
+				"alt" .item.alt
+				"lazy" false
+				"class" "carousel-image"
+            )}}
+		</div>
+	</div>
+{{- end }}
+{{ with .images }}
+	<div class="carousel" data-carousel-length="{{ len . }}">
+		<style>
+			@keyframes scroll {
+				0% {
+					transform: translateX(0);
+				}
+				100% {
+					transform: translateX(calc(-1 * clamp(240px, 30vw, 570px) * {{ len . }}));
+				}
+			}
+			.carousel-item {
+				animation: scroll 20s linear infinite;
+			}
+		</style>
+		<!-- Original -->
+		{{ range $index, $item := . }}
+			{{ partial "partials/carousel-item.html" (dict
+				"ctx" $.ctx
+				"item" $item
+				"index" $index
+			)}}
+		{{- end }}
+		<!-- Repeat -->
+        {{ range $index, $item := . }}
+            {{ partial "partials/carousel-item.html" (dict
+				"ctx" $.ctx
+				"item" $item
+				"index" $index
+            )}}
+		{{- end }}
+	</div>
+{{- end }}

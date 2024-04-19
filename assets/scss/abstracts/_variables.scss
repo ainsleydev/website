@@ -182,6 +182,12 @@ $card-margin-bottom: 3.75rem;
 $card-vertical-padding-top: 145%;
 $card-horizontal-padding-top: 65%;
 
+// Carousel
+// ==========================================================================
+
+$carousel-padding: 0 0 100px;
+$carousel-item-width: clamp(240px, 30vw, 570px);
+
 // Code
 // ==========================================================================
 
