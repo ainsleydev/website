@@ -1,6 +1,6 @@
 ---
 title: Branding Title - TODO
-description: Branding Description - TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+description: Branding Description - TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
 slug: branding
 draft: false
 weight: 1

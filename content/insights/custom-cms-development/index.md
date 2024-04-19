@@ -1,5 +1,5 @@
 ---
-title: Is a custom-built content management systems (CMS) right for your website?
+title: Is a custom-built CMS right for your website?
 heading: Custom CMS development – Is it right for your website?
 description: Should you invest in a custom CMS for your website? Explore our guide to help you decide if custom CMS development or a pre-built solution is right for you!
 slug: custom-cms-development
