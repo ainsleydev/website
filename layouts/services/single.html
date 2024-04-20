@@ -118,16 +118,16 @@
 		<section class="section" data-scroll-section>
 			<div class="container">
 				<div class="row">
-					<div class="col-12 col-tab-6">
-						<!-- Title -->
-						{{ with .title }}
-							<h2>{{ . }}</h2>
-						{{- end }}
-						<!-- Content -->
-						{{ with .content }}
-							<p>{{ . | safeHTML }}</p>
-						{{- end }}
-					</div><!-- /Col -->
+					{{ range $index, $workflow := . -}}
+						<div class="col-12 col-tab-3">
+							<div class="card card-background">
+								<h4 class="card-number type-serif">
+									0{{ $index | cast.ToInt | add 1 }}
+								</h4>
+								<h4 class="card-title">{{ . }}</h4>
+							</div>
+						</div><!-- /Col -->
+					{{- end }}
 				</div><!-- /Row -->
 			</div><!-- Container -->
 		</section>
@@ -135,11 +135,54 @@
 	<!-- =====================
 		Content
 		===================== -->
-	<section class="section">
+	<section class="section section-padding" data-scroll-section>
 		<div class="container">
-
+			<div class="row">
+				<!-- Heading -->
+				<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
+                    {{ partial "type/vertical.html" (dict
+						"text" "Explanation"
+						"line" true
+						"fill" false
+                    )}}
+				</div><!-- /Col -->
+				<!-- Rich Text -->
+				<div class="col-12 col-mob-9">
+					<article class="richtext">
+                        {{ .Content | replaceRE "/a>\n" "/a>" | safeHTML  }}
+					</article>
+				</div><!-- /Col -->
+			</div><!-- /Row -->
 		</div><!-- /Container -->
 	</section>
+	<!-- =====================
+		FAQs
+		===================== -->
+	{{ with .Params.faqs }}
+		<section class="section section-padding section-padding-bottom">
+			<div class="container">
+				<div class="row">
+					<!-- Heading -->
+					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
+                        {{ partial "type/vertical.html" (dict
+							"text" "FAQs"
+							"line" true
+							"fill" false
+                        )}}
+					</div><!-- /Col -->
+					<!-- Accordion -->
+					<div class="col-12 col-mob-9">
+                        {{ $items := slice }}
+                        {{ range . }}
+                            {{ $items = $items | append (dict "title" .question "content" .answer) }}
+                        {{ end }}
+						{{ partial "components/accordion.html" $items }}
+					</div>
+				</div><!-- /Row -->
+			</div><!-- /Container -->
+		</section>
+
+	{{- end }}
 	<!-- =====================
 		Quote
 		===================== -->
@@ -158,7 +201,7 @@
 			<div class="container">
 				<div class="row justify-content-between">
 					<!-- Heading -->
-					<div class="col-12 col-mob-2" data-scroll data-scroll-initial data-scroll-speed="2">
+					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
                         {{ partial "type/vertical.html" (dict
                         	"text" "Featured"
 							"line" true
