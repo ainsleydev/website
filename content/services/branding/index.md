@@ -3,7 +3,9 @@ title: Branding Title - TODO
 description: Branding Description - TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
 slug: branding
 draft: false
-weight: 1
+weight: 2
+scripts:
+    - js/pages/services-single.ts
 heading: Branding
 breadcrumbs: Branding
 lead: We offer a wide range of services, from UI/UX design to website development. Specialising in software development and API integration, we deliver expertly designed solutions to any digital obstacle.
@@ -42,12 +44,15 @@ sections:
     title: <u>Thoughtful</u> UX Design
     content: We get to know you as a business, including your values, and evaluate where you sit in the market before working with you. This enables us to create a design or application that fits the needs of your company and boosts your online presence.
 workflow:
-  - Kick-off meeting with stakeholders
-  - Discovery document
-  - Sitemap finalisation
-  - Wireframing & prototyping
-  - UI
-  - Functiional scope
+  title: Our Web Design Process
+  content: We follow a tried and tested process to ensure your website is delivered on time and on budget. Our process includes the following.
+  items:
+    - Kick-off meeting with stakeholders
+    - Discovery document
+    - Sitemap finalisation
+    - Wireframing & prototyping
+    - UI
+    - Functiional scope
 faqs:
   - question: What is web design?
     answer: Web design is the process of creating great-looking, functional websites. It involves arranging strategic elements on a page like copy, images, and more to deliver great user experience (UX). A well-made website not only captures visitors’ attention, but also ensures they can navigate the site easily to find what they’re looking for.

@@ -23,6 +23,7 @@
 		"@barba/core": "^2.9.7",
 		"@googlemaps/js-api-loader": "^1.15.1",
 		"animejs": "^3.2.1",
+		"glider-js": "^1.7.8",
 		"normalize.css": "^8.0.1",
 		"split-type": "^0.3.3",
 		"toastify-js": "^1.12.0",

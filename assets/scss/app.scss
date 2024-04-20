@@ -20,6 +20,7 @@
 @import 'node_modules/normalize.css/normalize';
 @import './vendor/syntax';
 @import './vendor/locomotive';
+@import './vendor/glider';
 
 /* ====================
     Base
@@ -68,6 +69,7 @@
 @import 'components/card';
 @import 'components/carousel';
 @import 'components/code';
+@import 'components/glider';
 @import 'components/highlight';
 @import 'components/image';
 @import 'components/list';

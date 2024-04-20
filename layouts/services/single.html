@@ -97,7 +97,7 @@
 						<!-- Image -->
                         {{ if .image }}
 							<div class="col-12 col-desk-6">
-								<picture class="image margin-large" data-scroll data-scroll-speed="2">
+								<picture class="image margin-large" data-scroll data-scroll-speed="0.5">
                                     {{ partial "media/picture.html" (dict
 										"image" ($.Resources.GetMatch .image)
 										"alt" (printf "%s Image" .title)
@@ -114,20 +114,44 @@
 	<!-- =====================
 		Workflow
 		===================== -->
-	{{ with .Params.workflow -}}
+	{{ with .Params.workflow }}
 		<section class="section" data-scroll-section>
+			<!-- Content -->
 			<div class="container">
-				<div class="row">
-					{{ range $index, $workflow := . -}}
-						<div class="col-12 col-tab-3">
-							<div class="card card-background">
-								<h4 class="card-number type-serif">
+				<div class="row" data-container-set>
+					<div class="col-12 col-desk-5">
+						<div class="margin-large">
+							<!-- Title -->
+                            {{ with .title }}
+								<h2>{{ . }}</h2>
+                            {{- end }}
+							<!-- Content -->
+                            {{ with .content }}
+								<p>{{ . }}</p>
+                            {{- end }}
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Glider -->
+			<div class="glider-container">
+				<div class="glider">
+					{{ range $index, $workflow := .items -}}
+						<div class="card card-background mb-0">
+							<h4 class="card-number type-serif">
 {{/*									0{{ $index | cast.ToInt | add 1 }}*/}}
-								</h4>
-								<h4 class="card-title">{{ $workflow }}</h4>
-							</div>
-						</div><!-- /Col -->
+							</h4>
+							<h4 class="card-title">{{ $workflow }}</h4>
+						</div>
 					{{- end }}
+				</div><!-- /Row -->
+				<div class="row">
+					<div class="col-12">
+						<div class="glider-line">
+							<span class="heading-4">Design</span>
+							<hr class="rule line-medium" />
+						</div>
+					</div>
 				</div><!-- /Row -->
 			</div><!-- Container -->
 		</section>
