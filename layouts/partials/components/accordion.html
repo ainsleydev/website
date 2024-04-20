@@ -1,6 +1,6 @@
 <!-- =====================
     Accordion
-    	partial "components/button.html" (slice
+    	partial "components/accordion.html" (slice
 			(dict
 				"title"   	"How do I do something?"
 				"content" 	"Like this"
@@ -12,30 +12,6 @@
     ===================== -->
 <div class="accordion animate-fade" data-animate-no-touch>
 	{{ range . }}
-		<details class="accordion-item" open>
-			<!-- Title -->
-			<summary class="accordion-header cursor-element"
-					 data-cursor-border data-cursor-border-white
-					 itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-				{{ with .title -}}
-					<span class="heading-4 accordion-title" itemprop="name">
-					{{ . | safeHTML }}
-				</span>
-				{{- else -}}
-					{{- warnf "No title provided to accordion item" -}}
-				{{- end }}
-			</summary><!-- /Title -->
-			<!-- Content -->
-			<div class="accordion-content"
-				 itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-				{{ with .content -}}
-					<p class="lead" itemprop="text">
-						{{ . | safeHTML }}
-					</p>
-				{{- else -}}
-					{{- warnf "No content provided to accordion item" -}}
-				{{- end }}
-			</div><!-- /Content -->
-		</details><!-- / Item -->
+		{{ partial "components/accordion-item.html" . }}
 	{{- end }}
 </div>

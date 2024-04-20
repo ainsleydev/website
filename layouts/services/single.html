@@ -122,9 +122,9 @@
 						<div class="col-12 col-tab-3">
 							<div class="card card-background">
 								<h4 class="card-number type-serif">
-									0{{ $index | cast.ToInt | add 1 }}
+{{/*									0{{ $index | cast.ToInt | add 1 }}*/}}
 								</h4>
-								<h4 class="card-title">{{ . }}</h4>
+								<h4 class="card-title">{{ $workflow }}</h4>
 							</div>
 						</div><!-- /Col -->
 					{{- end }}
