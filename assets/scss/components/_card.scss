@@ -120,6 +120,7 @@
 		background-color: $grey-light;
 		min-height: 500px;
 		padding: $margin;
+		margin-right: $gap-width;
 
 		#{$self}-title,
 		#{$self}-number {
@@ -129,6 +130,33 @@
 
 		#{$self}-number {
 			margin-bottom: 0.6rem;
+		}
+	}
+
+	&-line {
+		position: relative;
+
+		&::after {
+			content: '';
+			display: block;
+			width: 100%;
+			height: $line-size-medium;
+			background-color: $white;
+			margin-bottom: 18px;
+		}
+
+		&-text {
+			bottom: 0;
+			background-color: $black;
+			position: absolute;
+			z-index: 1;
+			padding: 0 $margin;
+			margin-left: -$margin;
+			margin-bottom: 0;
+		}
+
+		&:last-child {
+			margin-right: $gap-width;
 		}
 	}
 

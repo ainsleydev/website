@@ -20,7 +20,7 @@
 
 	&-track {
 		display: flex;
-		gap: $gap-width;
+		//gap: $gap-width;
 	}
 
 	// Item
@@ -30,18 +30,8 @@
 		margin-right: $container-padding-x;
 	}
 
-	// Line
+	// Tablet
 	// =========================================================================
-
-	&-line {
-		display: flex;
-		align-items: center;
-		gap: $margin;
-
-		hr {
-			flex-grow: 2;
-		}
-	}
 
 	@include media-tab {
 		&-container {

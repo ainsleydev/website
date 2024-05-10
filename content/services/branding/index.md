@@ -47,12 +47,14 @@ workflow:
   title: Our Web Design Process
   content: We follow a tried and tested process to ensure your website is delivered on time and on budget. Our process includes the following.
   items:
-    - Kick-off meeting with stakeholders
-    - Discovery document
-    - Sitemap finalisation
-    - Wireframing & prototyping
-    - UI
-    - Functiional scope
+    - text: Kick-off meeting with stakeholders
+      group: Design
+    - text: Discovery document
+    - text: Sitemap finalisation
+    - text: Wireframing & prototyping
+      group: Development
+    - text: UI
+    - text: Functiional scope
 faqs:
   - question: What is web design?
     answer: Web design is the process of creating great-looking, functional websites. It involves arranging strategic elements on a page like copy, images, and more to deliver great user experience (UX). A well-made website not only captures visitors’ attention, but also ensures they can navigate the site easily to find what they’re looking for.
