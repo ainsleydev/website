@@ -130,6 +130,9 @@ type ClientInterface interface {
 	SendContactFormWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	SendContactForm(ctx context.Context, body SendContactFormJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// Ping request
+	Ping(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
 }
 
 func (c *Client) GetCredentials(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -158,6 +161,18 @@ func (c *Client) SendContactFormWithBody(ctx context.Context, contentType string
 
 func (c *Client) SendContactForm(ctx context.Context, body SendContactFormJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewSendContactFormRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) Ping(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewPingRequest(c.Server)
 	if err != nil {
 		return nil, err
 	}
@@ -235,6 +250,33 @@ func NewSendContactFormRequestWithBody(server string, contentType string, body i
 	return req, nil
 }
 
+// NewPingRequest generates requests for Ping
+func NewPingRequest(server string) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/ping/")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 func (c *Client) applyEditors(ctx context.Context, req *http.Request, additionalEditors []RequestEditorFn) error {
 	for _, r := range c.RequestEditors {
 		if err := r(ctx, req); err != nil {
@@ -285,6 +327,9 @@ type ClientWithResponsesInterface interface {
 	SendContactFormWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SendContactFormResponse, error)
 
 	SendContactFormWithResponse(ctx context.Context, body SendContactFormJSONRequestBody, reqEditors ...RequestEditorFn) (*SendContactFormResponse, error)
+
+	// PingWithResponse request
+	PingWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*PingResponse, error)
 }
 
 type GetCredentialsResponse struct {
@@ -331,6 +376,28 @@ func (r SendContactFormResponse) StatusCode() int {
 	return 0
 }
 
+type PingResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSONDefault  *HTTPError
+}
+
+// Status returns HTTPResponse.Status
+func (r PingResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PingResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 // GetCredentialsWithResponse request returning *GetCredentialsResponse
 func (c *ClientWithResponses) GetCredentialsWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetCredentialsResponse, error) {
 	rsp, err := c.GetCredentials(ctx, reqEditors...)
@@ -355,6 +422,15 @@ func (c *ClientWithResponses) SendContactFormWithResponse(ctx context.Context, b
 		return nil, err
 	}
 	return ParseSendContactFormResponse(rsp)
+}
+
+// PingWithResponse request returning *PingResponse
+func (c *ClientWithResponses) PingWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*PingResponse, error) {
+	rsp, err := c.Ping(ctx, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParsePingResponse(rsp)
 }
 
 // ParseGetCredentialsResponse parses an HTTP response from a GetCredentialsWithResponse call
@@ -406,6 +482,32 @@ func ParseSendContactFormResponse(rsp *http.Response) (*SendContactFormResponse,
 	return response, nil
 }
 
+// ParsePingResponse parses an HTTP response from a PingWithResponse call
+func ParsePingResponse(rsp *http.Response) (*PingResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PingResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && true:
+		var dest HTTPError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSONDefault = &dest
+
+	}
+
+	return response, nil
+}
+
 // ServerInterface represents all server handlers.
 type ServerInterface interface {
 
@@ -414,6 +516,9 @@ type ServerInterface interface {
 
 	// (POST /forms/contact/)
 	SendContactForm(ctx echo.Context) error
+
+	// (GET /ping/)
+	Ping(ctx echo.Context) error
 }
 
 // ServerInterfaceWrapper converts echo contexts to parameters.
@@ -440,6 +545,17 @@ func (w *ServerInterfaceWrapper) SendContactForm(ctx echo.Context) error {
 
 	// Invoke the callback with all the unmarshaled arguments
 	err = w.Handler.SendContactForm(ctx)
+	return err
+}
+
+// Ping converts echo context to params.
+func (w *ServerInterfaceWrapper) Ping(ctx echo.Context) error {
+	var err error
+
+	ctx.Set(AuthenticationScopes, []string{})
+
+	// Invoke the callback with all the unmarshaled arguments
+	err = w.Handler.Ping(ctx)
 	return err
 }
 
@@ -473,27 +589,29 @@ func RegisterHandlersWithBaseURL(router EchoRouter, si ServerInterface, baseURL 
 
 	router.GET(baseURL+"/credentials/", wrapper.GetCredentials)
 	router.POST(baseURL+"/forms/contact/", wrapper.SendContactForm)
+	router.GET(baseURL+"/ping/", wrapper.Ping)
 
 }
 
 // Base64 encoded, gzipped, json marshaled Swagger object
 var swaggerSpec = []string{
 
-	"H4sIAAAAAAAC/6xVXW/bNhT9KwS3R0XK1jc/zc3SzWi7GnE6DAiC4Zq8kthSJEteuTEK/feBlGzJsrNg",
-	"H0+26ctzzzn3g9+4sI2zBg0FvvjGg6ixgfT1xhoCQW+sb+7wS4uB4qnEILxypKzhC/4eQ4AKGRjJgMir",
-	"bUsYWOltw6hGJnoMVlrf5DzjzluHnhSmDLU1uHf2Au59jawZsI9gbUAfQWjvkC94IK9MxbuMD5H/DabL",
-	"uMcvrfIo+eLhiJmNLB+Pd+z2EwqKqX+9v1/fem99TH6qTliZKOETNE7HaxgD/0znF1TgAWZ24QXFY3Ti",
-	"kbHWwFYjI8ugpRoNKQF0MWNkC71VU5w3rRHxNH+PVFv5D6wapB1oj/jPWXeHwVkT8Nw9CQTxc2n2v4Nu",
-	"Y0T3nPCPAX1qMSBCeV7x5Xr1ooiUb6R+yHNOvMt4QNF6RftNHJae7nK0evBTxQasESRGPANNBPnjarle",
-	"Xb3F/cgHnIq/uwisTGn71kljk1Q2oHRC0tr+BMoEjftc4m4EnRyye4SGZ7z16Q6RC4uiCF+hqtDnykbf",
-	"T0dkuV6xjUMR/UtmbUF8RiOZLdlpNq0EDqUaEr/e/MxeXd1oaAOyd8Pf8+SVorrd5sI2xYAnNPjPxQS8",
-	"2Gq7LRoIhL54t7q5/W1zG5kS+iZ8KDfod0rgBHN6NwUV0U9Fem5HX/kd+tCr/SG/zq+H1jfgFF/wV+ko",
-	"4w6oTqUshEcZawk6FPGgwgsb6sOWYiI2Ce4b7tS04wisJF/wX5BuxngeO7Dv/5T4x+vrQ/HRpJSET1Q4",
-	"DcqMuzmdz1r5rKof3rIrdofkFe5QstAKgSGUrdb7PMZ3GS/iwIRiaLUk1NlLO35tAwUGzODXNGQstNtG",
-	"hejoMGL2uOcdVJifyd6gkZPXhPeTh4FeW7mfSQbn9DBFxadgZ8K/91jyBf+uGF+tYniyigvv1QVn4pOQ",
-	"9kVk7REIMwZas1KhloGBR3ZYCzHEQQhsB1rJRCnn3YtF+/cKTjbic1XdoKGTgvYzXUKr6X9l0j9rF2h8",
-	"NPjkUMRVi4eY6Vrki4fzhfjw2D3GEB+HMUXMusxb2aZnh92anfLWNFHFfJtMJz/Ob5fNgTYElTLV36KE",
-	"PiY/Q3vs/goAAP//7j6e6BEJAAA=",
+	"H4sIAAAAAAAC/8xW32/jNgz+VwRtj67d7d7ytF7XuxX3o0HTGwYUxcDIjK2rLOkkOtfg4P99oOzE+eGu",
+	"2G0Pe2rDUB/Jj+THfJPKNd5ZtBTl7JuMqsYG0r+XzhIoeuNCc4tfWozE1hKjCtqTdlbO5AeMESoUYEsB",
+	"REEvW8IoVsE1gmoUqscQKxeaXGbSB+cxkMYUoXYWN95N4N7VKJoBewfWRgwMQhuPciYjBW0r2WVy8Px3",
+	"MF0mA35pdcBSzu53mNmY5cPujVt+RkUc+re7u/lVCC5w8MPqlCtTSvgEjTf8DNnxz2SfqAK3MEcPXqh4",
+	"9E55ZKK1sDQoyAloqUZLWgFNRuRsoadqH+dNaxVb8w9ItSv/AVVDadu0R/znqLvF6J2NeMpeCQT898Ju",
+	"fgfTskf3XOGfIoY0YkCE5WnHL+bXLxaR4o2pb+OcJt5lMqJqg6bNgpelT/dipHrgU/MA1gglMp6FhkH+",
+	"OLuYX5+9w82YD3jNnzsG1nbl+tFJa5OqbECbhGSM+wW0jQY3eYnrEXTPKO4QGpnJNqQ3RD7OiiJ+harC",
+	"kGvHvB+uyMX8Wiw8KuYvkbUE9Yi2FG4lDqMZrXBo1RD49eJX8ers0kAbUbwfvj4OXmmq22WuXFMMeMpA",
+	"eCz2wIulccuigUgYivfXl1cfF1ecKWFo4s1qgWGtFe5h7r9NTgXzqckc09F3fo0h9tX+lJ/n58PoW/Ba",
+	"zuSrZMqkB6pTKwsVsORegokFGyqcUKibJXEgsefcD9whabsVuC7lTL5Fuhz9JU9gP/8p8M/n59vmo00h",
+	"CZ+o8Aa0HbU52Y9G+aSrN+/EmbhFChrXWIrYKoUxrlpjNjn7d5kseGFiMYxaKtS7KY2fu0hRgLD4NS2Z",
+	"iO2y0ZEZHVbM7XTeQ4X5SdkLtOXeNZH95mGk167cHJUM3pthi4rP0R0V/mPAlZzJH4rxahXDySom7tUE",
+	"M3wSkl5w1gGBMBNgjFhpNGUUEFBsZYFdPMQo1mB0mVLKZfdi076/ggNFfK6rC7R00NB+p1fQGvpPM+nP",
+	"2kQanyw+eVQstbj14YHy2lbPL8xljeoxbn8VWFSk15o2wgVRIxiqWXEGtT4doTkP+nfvy3gq5jcf307c",
+	"gmmqWRt1FLtMwPw/uN47QXJ2f3p87h+6B3YJLHzJ42ijgyvbdOLFlV3r4GzDVRwr977KslZ22THQgqDS",
+	"tvpblNj75CdoD91fAQAA//8LLRQSfQoAAA==",
 }
 
 // GetSwagger returns the content of the embedded swagger specification file

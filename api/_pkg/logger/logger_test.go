@@ -11,9 +11,10 @@ import (
 
 	"github.com/ainsleyclark/errors"
 
-	"github.com/ainsleydev/website/api/_pkg/environment"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/ainsleydev/website/api/_pkg/environment"
 )
 
 func TestBootstrap(t *testing.T) {
@@ -138,7 +139,7 @@ func TestLogger_Fatal(t *testing.T) {
 	defer func() {
 		DefaultLogger = logrus.New()
 	}()
-	DefaultLogger.ExitFunc = func(i int) {}
+	DefaultLogger.ExitFunc = func(_ int) {}
 	Fatal("fatal")
 	assert.Contains(t, buf.String(), "fatal")
 }

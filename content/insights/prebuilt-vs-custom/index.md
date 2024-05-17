@@ -1,6 +1,6 @@
 ---
 title: The pros and cons of pre-built and custom websites
-heading: "Prebuilt Themes vs. Custom Websites: Which Is Right for You?"
+heading: "Prebuilt themes vs. Custom websites: Which is right for you?"
 description: Looking for a new website but unsure whether you need a pre-built theme or custom build? Keep reading to find out the advantages and disadvantages of each!
 slug: prebuilt-vs-custom
 publishdate: 2023-06-06

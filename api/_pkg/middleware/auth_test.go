@@ -9,10 +9,11 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/ainsleydev/website/api/_pkg/environment"
 	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"github.com/ainsleydev/website/api/_pkg/environment"
 )
 
 func TestAuth(t *testing.T) {
@@ -22,7 +23,7 @@ func TestAuth(t *testing.T) {
 		want   int
 	}{
 		"Bad API Key": {
-			input:  func(r *http.Request) {},
+			input:  func(_ *http.Request) {},
 			config: environment.Config{},
 			want:   http.StatusUnauthorized,
 		},

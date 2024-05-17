@@ -19,7 +19,6 @@ businesses often find themselves navigating unchartered waters. This is where th
 comes in. Let’s explore how a digital agency can help your business thrive.
 {{< /lead >}}
 
-
 ## What does a creative digital agency do?
 
 Agencies specialise in maximising your online presence, ensuring your business stands out in the crowded digital space.
