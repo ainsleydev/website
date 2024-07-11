@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"net/http"
 	"sync"
+	"time"
 
 	"github.com/ainsleyclark/errors"
 	"github.com/sirupsen/logrus"
@@ -47,6 +48,7 @@ func (h *BetterStackHook) Levels() []logrus.Level {
 
 // Close gracefully shuts down the hook, ensuring all logs are processed.
 func (h *BetterStackHook) Close() {
+	time.Sleep(3 * time.Second) // Fixing: BetterStackHook.Fire: hook is closed, Could not close hook
 	h.closeOnce.Do(func() {
 		close(h.eventCh)
 		<-h.closeCh

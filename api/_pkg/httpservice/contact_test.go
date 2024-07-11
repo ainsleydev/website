@@ -51,11 +51,13 @@ func TestHandler_SendContactForm(t *testing.T) {
 			payload: sdk.ContactFormRequest{
 				Message: "Hello test@hello.com",
 			},
-			mock: func(slack *mocks.Sender, _ *mocks.Mailer) {
+			mock: func(slack *mocks.Sender, mailer *mocks.Mailer) {
 				slack.On("Send", mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 					Return(errors.New("error"))
+				mailer.On("Send", mock.Anything).
+					Return(mail.Response{}, nil)
 			},
-			want: "Error sending contact form",
+			want: "Sent successfully",
 		},
 		"Mail Failure": {
 			payload: sdk.ContactFormRequest{
