@@ -1,7 +1,7 @@
 ---
 title: How UI/UX Design can impact Software Development
 heading: The Importance of UI/UX Design in Software Development
-description: Want to boost your software’s success? Find out how UI/UX design enhances user satisfaction, accessibility, and brand recognition in modern software development.
+description: Want to boost your software’s success? Find out how UI/UX design enhances user satisfaction & brand recognition in software development.
 slug: ui-ux-in-software-development
 publishdate: 2024-07-31
 lastmod: 2024-07-31
@@ -30,7 +30,7 @@ button designs, and layout. UX design, on the other hand, encompasses the entire
 feel, involving user research, personas, and ensuring accessibility. Together, they create software that’s both visually
 appealing and functionally superior.
 
-\[insert image 1\]
+![UI Wireframes](images/wireframes.jpg)
 
 ## UI/UX in modern software development
 
@@ -57,7 +57,7 @@ brand guidelines in place makes your business more recognisable in the marketpla
 The role of UI/UX influences everything, from user engagement to conversion rates. As we move into an increasingly
 digital world, the importance of thoughtful UI/UX design in software development will only continue to grow.
 
-\[insert image 2\]
+![UI Wireframes](images/laptop.jpg)
 
 ## The power of custom UI/UX
 
@@ -87,8 +87,6 @@ layout before any coding begins. Once you are happy with the design, the develop
 When considering an agency to build your bespoke software, look for those that emphasise a user-centric approach, for
 example, by developing Single Page Applications (SPAs). These ensure smooth navigation and quick load times – important
 elements that can essentially make or break your software's success.
-
-\[insert image 3\]
 
 ## Wrapping up
 
