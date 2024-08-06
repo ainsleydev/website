@@ -1,7 +1,7 @@
 ---
-title: How UI/UX Design can impact Software Development
-heading: The Importance of UI/UX Design in Software Development
-description: Want to boost your software’s success? Find out how UI/UX design enhances user satisfaction & brand recognition in software development.
+title: How UI/UX Design Can Impact Software Development
+heading: The importance of UI/UX design in software development
+description: Boost your software's chances of success – here's our guide to how UI/UX design enhances user satisfaction and brand recognition in software development.
 slug: ui-ux-in-software-development
 publishdate: 2024-07-31
 lastmod: 2024-07-31
