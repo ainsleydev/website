@@ -81,3 +81,4 @@ copywriting for your business, please [get in touch](https://ainsley.dev/service
 * [What is Brand Consistency (and Why Does It Matter)?](https://merlinone.com/what-is-brand-consistency/)
 * [8 Top Social Media Scheduling Tools to Save Time](https://sproutsocial.com/insights/social-media-scheduling-tools/)
 * [Obtain links when content writing](https://respona.com/backlink-checker/)
+* [How to Manage Social Media](https://postiz.com/)
