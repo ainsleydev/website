@@ -10,19 +10,19 @@ heading: Branding
 breadcrumbs: Branding
 lead: We offer a wide range of services, from UI/UX design to website development. Specialising in software development and API integration, we deliver expertly designed solutions to any digital obstacle.
 gallery:
-  - image: images/2easy.svg
+  - image: images/slider/2easy.svg
     alt: 2Easy Competitions
-  - image: images/audits.svg
+  - image: images/slider/audits.svg
     alt: Audits.com
-  - image: images/decs-pets.svg
+  - image: images/slider/decs-pets.svg
     alt: Dec's Pets
-  - image: images/edr-dental.svg
+  - image: images/slider/edr-dental.svg
     alt: EDR Dental
-  - image: images/oak-tuition.svg
+  - image: images/slider/oak-tuition.svg
     alt: Oak Tuition
-  - image: images/scotts-guttering.svg
+  - image: images/slider/scotts-guttering.svg
     alt: Scott's Guttering
-  - image: images/thinkopedia.svg
+  - image: images/slider/thinkopedia.svg
     alt: Thinkopedia
 why:
   - title: Bespoke

@@ -1,0 +1,11 @@
+<svg id="vue" xmlns="http://www.w3.org/2000/svg" width="820" height="460" viewBox="0 0 820 460">
+  <rect id="bg" width="820" height="460" fill="#1a1a1a"/>
+  <g id="logo" transform="translate(202.694 430.339)">
+    <g id="Group_1520" data-name="Group 1520" transform="translate(237.407 -313.339)">
+      <path id="Path_4058" data-name="Path 4058" d="M0,0-30.225,52.351-60.449,0H-161.1L-30.225,226.688,100.652,0Z" fill="#41b883"/>
+    </g>
+    <g id="Group_1521" data-name="Group 1521" transform="translate(237.407 -313.339)">
+      <path id="Path_4059" data-name="Path 4059" d="M0,0-30.225,52.351-60.449,0h-48.3l78.526,136.01L48.3,0Z" fill="#34495e"/>
+    </g>
+  </g>
+</svg>
