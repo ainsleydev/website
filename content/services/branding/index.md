@@ -89,7 +89,7 @@ faqs:
        <li><strong>Favicon (ICO)</strong> - A 32 x 32 favicon of your logo will be created for use on your website.</li>
        </ul>
 quote:
-  person: Nafhesa Ali, CEO - Oak Tuition
+  person: Nafhesa Ali, CEO @ Oak Tuition
   text: ainsley.dev is fantastic. They make the whole process of branding & web development so easy through their support and expertise. Highly recommend and would definitely work with them again.
 featuredProjects:
   - oak-tuition

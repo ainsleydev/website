@@ -60,9 +60,9 @@ workflow:
     - text: Deployment
       group: DevOps
     - text: Refinement
-      group: Finalisation
+      group: Delivery
     - text: Review & feedback
-      group: Finalisation
+      group: Delivery
 faqs:
   - question: Do I need a CMS?
     answer: Deciding whether a CMS is the right choice for you depends on various factors. For many small businesses that are just getting started, sometimes a static site is enough. However, if you envisage adding content as your business expands, a CMS is certainly a good choice to grow your online presence.
@@ -79,7 +79,7 @@ faqs:
   - question: Is training provided on how to use the CMS?
     answer: As part of our service, we provide comprehensive training sessions to familiarise you with the CMS. These sessions are tailored to your specific needs and conducted at the end of the build process. Additionally, we create custom videos to walk you through your new platform, ready for you to refer to as and when you wish.
 quote:
-  person: Declan O’Keffee, Digital Director
+  person: Declan O’Keffee, Digital Director @ Dec's Pets
   text: I have had the pleasure of working closely with ainsley.dev on the development of my new website. They have such a huge array of skills, not just in web development but across business and e-commerce as a whole. They helped us create a beautiful and modern website, and gave us ideas and initiatives for the future. It was a pleasure working with them.
 featuredProjects:
   - decs-pets

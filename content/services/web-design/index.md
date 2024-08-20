@@ -83,7 +83,7 @@ faqs:
   - question: What steps do you take to ensure your designs are accessible to all users?
     answer: We prioritize accessibility in our design process to ensure inclusivity for all users. Some of our steps include conforming to web accessibility standards such as WCAG (Web Content Accessibility Guidelines), incorporating semantic HTML markup, keyboard navigation, and alternative text, so that your website is available for all.
 quote:
-  person: Kathy Urresto, CEO - Royal Beauty
+  person: Kathy Urresto, CEO @ Royal Beauty
   text: Amazing design and development company. They made a tailored website for me within a short time, and with great ideas. They listened to all my needs, were very responsive and super professional. Highly recommend. Thanks Ainsley!!
 featuredProjects:
   - thinkopedia
