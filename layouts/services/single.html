@@ -40,7 +40,7 @@
 		Why Us?
 		===================== -->
 	{{ with .Params.why }}
-		<section class="section" data-scroll-section>
+		<section class="section section-padding section-padding-bottom" data-scroll-section>
 			<div class="container">
 				<div class="row">
 					<!-- Vertical Line & Text -->
@@ -79,33 +79,36 @@
         {{ range $index, $section := . }}
 			{{ $isLast :=  eq (add $index 1) (len $.Params.sections) -}}
             {{- $isLeft := eq (mod $index 2) 0 -}}
-			<section class="section section-padding
-				{{ if not $isLast -}} section-padding-top {{- end }}" data-scroll-section>
-				<div class="container">
-					<div class="row align-items-center justify-content-between">
-						<!-- Content -->
-						<div class="col-12 col-desk-5 {{ if $isLeft -}} order-desk-last {{- end }}">
+			<section class="section image-split-section mb-desk-0
+				{{ if $isLast -}} section-padding section-padding-bottom {{- end }}" data-scroll-section>
+				<!-- Media -->
+				{{ if or .image .video }}
+					<div class="image-split {{ if $isLeft -}} image-split-right {{ else }} image-split-left {{- end }}">
+						{{ if .image -}}
+							<picture class="image animate-up">
+								{{ partial "media/picture.html" (dict
+									"image" ($.Resources.GetMatch .image)
+									"alt" (printf "%s Image" .title)
+									"lazy" true
+								)}}
+							</picture>
+						{{- end }}
+					</div>
+				{{- end }}
+				<!-- Content -->
+				<div class="container image-split-container">
+					<div class="row" data-scroll data-scroll-speed="2">
+						<div class="col-12 col-desk-6 col-hd-5
+							{{ if not $isLeft -}} offset-desk-6 pl-desk-0 {{ else }} pr-desk-0 {{- end }}">
 							<!-- Title -->
                             {{ with .title }}
 								<h2>{{ . | safeHTML }}</h2>
                             {{- end }}
 							<!-- Content -->
 							{{ with .content }}
-								<p>{{ . | safeHTML }}</p>
+								<p class="lead mb-0">{{ . | safeHTML }}</p>
 							{{- end }}
 						</div><!-- /Col -->
-						<!-- Image -->
-                        {{ if .image }}
-							<div class="col-12 col-desk-6">
-								<picture class="image margin-large" data-scroll data-scroll-speed="0.5">
-                                    {{ partial "media/picture.html" (dict
-										"image" ($.Resources.GetMatch .image)
-										"alt" (printf "%s Image" .title)
-										"lazy" true
-                                    )}}
-								</picture>
-							</div><!-- /Col -->
-                        {{- end }}
 					</div><!-- /Row -->
 				</div><!-- Container -->
 			</section>
@@ -163,9 +166,41 @@
 		</section>
     {{- end }}
 	<!-- =====================
+		FAQs
+		===================== -->
+	{{ with .Params.faqs }}
+		<section class="section section-padding section-padding-top">
+			<div class="container">
+				<div class="row">
+					<!-- Heading -->
+					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
+						{{ partial "type/vertical.html" (dict
+							"text" "FAQs"
+							"line" true
+							"fill" false
+						)}}
+					</div><!-- /Col -->
+					<!-- Accordion -->
+					<div class="col-12 col-mob-9">
+						{{ $items := slice }}
+						{{ range . }}
+							{{ $items = $items | append (dict "title" .question "content" .answer) }}
+						{{ end }}
+						{{ partial "components/accordion.html" $items }}
+					</div>
+				</div><!-- /Row -->
+				<div class="section section-padding section-padding-small row">
+					<div class="col-12">
+						<hr class="m-0">
+					</div><!-- /Col -->
+				</div><!-- /Row -->
+			</div><!-- /Container -->
+		</section>
+	{{- end }}
+	<!-- =====================
 		Content
 		===================== -->
-	<section class="section section-padding" data-scroll-section>
+	<section class="section section-padding section-padding-bottom" data-scroll-section>
 		<div class="container">
 			<div class="row">
 				<!-- Heading -->
@@ -185,33 +220,6 @@
 			</div><!-- /Row -->
 		</div><!-- /Container -->
 	</section>
-	<!-- =====================
-		FAQs
-		===================== -->
-	{{ with .Params.faqs }}
-		<section class="section section-padding section-padding-bottom">
-			<div class="container">
-				<div class="row">
-					<!-- Heading -->
-					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
-                        {{ partial "type/vertical.html" (dict
-							"text" "FAQs"
-							"line" true
-							"fill" false
-                        )}}
-					</div><!-- /Col -->
-					<!-- Accordion -->
-					<div class="col-12 col-mob-9">
-                        {{ $items := slice }}
-                        {{ range . }}
-                            {{ $items = $items | append (dict "title" .question "content" .answer) }}
-                        {{ end }}
-						{{ partial "components/accordion.html" $items }}
-					</div>
-				</div><!-- /Row -->
-			</div><!-- /Container -->
-		</section>
-	{{- end }}
 	<!-- =====================
 		Quote
 		===================== -->
