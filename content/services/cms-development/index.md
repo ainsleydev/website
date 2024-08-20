@@ -3,7 +3,7 @@ title: Leading Custom CMS Development in Kent, Sussex & London
 description: We're not just your standard WordPress agency; discover how a world class CMS development company can provide you with fast, scalable bespoke CMS solutions.
 slug: cms-development
 draft: false
-weight: 5
+weight: 4
 scripts:
     - js/pages/services-single.ts
 heading: CMS Development
@@ -31,12 +31,12 @@ why:
     content: Beyond design and development, we provide ongoing support for our clients every step of the way, from conception to launch day and beyond.
 sections:
   - image: images/sections/wordpress-mobile.jpg
-    title: <u>Headless</u> first
+    title: Headless first
     content: Grow your online presence with a custom headless CMS, enriched with all the features you need to build and manage dynamic and modern digital experiences. Our headless-first approach ensures that the front-end is always decoupled, resulting in an extremely quick and highly secure platform.
   - image: images/sections/ecommerce-dashboard.jpg
     title: E-Commerce magic
     content: We've helped several companies tap into the massive £217bn that's spent online each year, by developing innovative and bespoke e-commerce platforms suited to their unique needs. We develop online stores that are ready to grow as your business does.
-  - image: images/sections/api-dashboard.jpg
+  - image: images/sections/payload-mobile.jpg
     title: API integrations
     content: We’ll work tirelessly to improve and streamline the back-end setup of your website. Because all of our CMS builds are designed around your specific businesses needs, we're able to integrate any API or platform you're using.
 workflow:
