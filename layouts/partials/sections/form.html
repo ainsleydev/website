@@ -8,7 +8,6 @@
 		- dark:				If the form should be dark mode.
 		- class:			Any additional class names to appear.
     	- attr:		 		Any additional or attributes to appear.
-    	- largePadding:	 If the contact details should have large padding on mobile.
     ===================== -->
 <section class="
 	{{ with .class -}} {{ . }} {{- end }}"
@@ -59,8 +58,7 @@
 			</div><!-- /Col -->
 			<!-- Contact -->
 			<div class="col-12 col-desk-4">
-				<aside class="contact-aside section-padding-small
-					{{ if .largePadding }} contact-aside-large-padding {{- end }} ">
+				<aside class="contact-aside section-padding-small">
 					<!-- Email -->
 					<div class="contact-aside-item margin-large">
 						<h6>Email us</h6>

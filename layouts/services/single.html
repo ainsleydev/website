@@ -191,7 +191,7 @@
 						)}}
 					</div><!-- /Col -->
 					<!-- Accordion -->
-					<div class="col-12 col-mob-9">
+					<div class="col-12 col-mob-9 offset-mob-1">
 						{{ $items := slice }}
 						{{ range . }}
 							{{ $items = $items | append (dict "title" .question "content" .answer) }}
@@ -209,7 +209,8 @@
 		<div class="container d-none d-desk-block">
 			<div class="row">
 				<div class="col-12">
-					<hr class="m-0">
+					<hr class="rule rule-divider rule-divider-align-right"
+						data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">
 				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
@@ -229,7 +230,7 @@
                     )}}
 				</div><!-- /Col -->
 				<!-- Rich Text -->
-				<div class="col-12 col-mob-9">
+				<div class="col-12 col-mob-9 offset-mob-1">
 					<article class="richtext">
                         {{ .Content | replaceRE "/a>\n" "/a>" | safeHTML  }}
 					</article>
@@ -319,6 +320,19 @@
 		</section>
     {{- end }}
 	<!-- =====================
+		Rule
+		===================== -->
+	<section class="section section-padding section-padding-small">
+		<div class="container d-none d-desk-block">
+			<div class="row">
+				<div class="col-12">
+					<hr class="rule rule-divider rule-divider-align-right"
+						data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section><!-- /Row -->
+	<!-- =====================
 		Featured Insights
 		===================== -->
     {{ if .Params.featuredInsights }}
@@ -388,41 +402,29 @@
 	<!-- =====================
 		Contact
 		===================== -->
-		<section class="section contact contact-dark section-padding">
-			<!-- Content -->
-			<div class="container">
-				<div class="row">
-					<div class="col-12 col-desk-6">
-						<div class="margin-title">
-							<!-- Heading -->
-							<h2>Get in touch with us now</h2>
-							<!-- Lead -->
-							<p class="lead lead-max-width mb-0">
-								Looking to bring your vision to life? Get in touch using the form below, and we'll
-								get in touch to discuss how we can make your project a success.
-							</p>
-						</div>
-					</div><!--- /Col -->
-				</div><!-- /Row -->
-			</div><!-- /Container -->
-			<!-- Form -->
-			{{ partial "sections/form.html" (dict
-				"dark" true
-				"class" "animate-up"
-				"largePadding" true
-			)}}
-		</section>
-	<!-- =====================
-		Rule
-		===================== -->
-	<section>
+	<section class="section section-padding contact contact-dark services-contact">
+		<!-- Content -->
 		<div class="container">
 			<div class="row">
-				<div class="col-12">
-					<hr class="m-0">
-				</div><!-- /Col -->
+				<div class="col-12 col-desk-6">
+					<div class="margin-title">
+						<!-- Heading -->
+						<h2>Get in touch with us now</h2>
+						<!-- Lead -->
+						<p class="lead lead-max-width mb-0">
+							Looking to bring your vision to life? Get in touch using the form below, and we'll
+							get in touch to discuss how we can make your project a success.
+						</p>
+					</div>
+				</div><!--- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->
-	</section><!-- /Row -->
+		<!-- Form -->
+		{{ partial "sections/form.html" (dict
+			"dark" true
+			"class" "animate-up"
+			"largePadding" true
+		)}}
+	</section>
 {{ end }}
 

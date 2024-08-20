@@ -3,33 +3,37 @@
     ===================== -->
 {{ $currSlug := .Slug }}
 {{- $other :=  (where .Site.RegularPages "Type" "services").ByWeight.ByDate -}}
-<section class="section section-padding bg-grey-light">
-	<div class="container">
+<section class="service-related">
+	<!-- Image -->
+	{{ if .Resources.GetMatch "images/featured.*" }}
+		<picture class="service-related-image">
+			{{ partial "media/picture.html" (dict
+			"image" (.Resources.GetMatch "images/featured.*")
+			"alt" (printf "%s Featured Image" .Params.heading)
+			"lazy" true
+			"class" "zoom-element"
+			)}}
+		</picture>
+	{{ end }}
+	<!-- Content -->
+	<div class="container service-related-container">
 		<div class="row">
 			<!-- Links -->
 			<div class="col-12">
 				<h6>Other Services</h6>
-                {{ range $other }}
-					{{- if ne $currSlug .Slug }}
-						<a class="no-line" href="{{ .RelPermalink }}">
-							<h3>{{ .Params.heading }}</h3>
-						</a>
+				<menu class="service-related-nav">
+					{{ range $other }}
+						{{- if ne $currSlug .Slug }}
+							<a href="{{ .RelPermalink }}" class="service-related-nav-link no-line cursor-element"
+								data-cursor-invert data-cursor-invert-black data-cursor-scale="1.6">
+								<h3 class="service-related-nav-title">
+									{{ .Params.heading }}
+								</h3>
+							</a>
+						{{- end }}
 					{{- end }}
-                {{- end }}
+				</menu>
 			</div><!--- /Col -->
-			<!-- Image -->
-			<div class="col-12">
-				{{ if .Resources.GetMatch "images/featured.*" }}
-					<picture>
-						{{ partial "media/picture.html" (dict
-							"image" (.Resources.GetMatch "images/featured.*")
-							"alt" (printf "%s Featured Image" .Params.heading)
-							"lazy" true
-							"class" "zoom-element"
-						)}}
-					</picture>
-				{{ end }}
-			</div>
 		</div><!-- /Row -->
 	</div><!-- /Container -->
 </section>
