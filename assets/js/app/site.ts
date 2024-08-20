@@ -201,6 +201,7 @@ class App {
 			if (!this.hasSmoothScroll()) {
 				Elements.HTML.style.scrollBehavior = 'initial';
 			}
+			Scroll.clearStyles();
 			anime({
 				targets: ['.header'],
 				opacity: [1, 0],

@@ -128,58 +128,58 @@
 		Workflow
 		===================== -->
 	{{ with .Params.workflow }}
-		<section class="section" data-scroll-section>
-			<!-- Content -->
-			<div class="container">
-				<div class="row" data-container-set>
-					<div class="col-12 col-desk-5">
-						<div class="margin-large">
-							<!-- Title -->
-                            {{ with .title }}
-								<h2>{{ . }}</h2>
-                            {{- end }}
-							<!-- Content -->
-                            {{ with .content }}
-								<p>{{ . }}</p>
-                            {{- end }}
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Glider -->
-			<div class="glider-container">
-				<div class="glider">
-					{{ range $index, $workflow := .items -}}
-						<div class="card-line">
-							<div class="card card-background">
-								<!-- Number -->
-								<h4 class="card-number type-serif">
-									0{{ $index | cast.ToInt | add 1 }}
-								</h4>
-								<!-- Text -->
-								{{ with .text }}
-									<h4 class="card-title">
-										{{ . }}
-									</h4>
-								{{- end }}
-							</div>
-							<!-- Group -->
-							{{ with .group }}
-								<h4 class="card-line-text">
-									{{ . }}
-								</h4>
-							{{- end }}
-						</div>
-					{{- end }}
-				</div><!-- /Row -->
-			</div><!-- Container -->
-		</section>
+{{/*		<section class="section" data-scroll-section>*/}}
+{{/*			<!-- Content -->*/}}
+{{/*			<div class="container">*/}}
+{{/*				<div class="row" data-container-set>*/}}
+{{/*					<div class="col-12 col-desk-5">*/}}
+{{/*						<div class="margin-large">*/}}
+{{/*							<!-- Title -->*/}}
+{{/*                            {{ with .title }}*/}}
+{{/*								<h2>{{ . }}</h2>*/}}
+{{/*                            {{- end }}*/}}
+{{/*							<!-- Content -->*/}}
+{{/*                            {{ with .content }}*/}}
+{{/*								<p>{{ . }}</p>*/}}
+{{/*                            {{- end }}*/}}
+{{/*						</div>*/}}
+{{/*					</div>*/}}
+{{/*				</div>*/}}
+{{/*			</div>*/}}
+{{/*			<!-- Glider -->*/}}
+{{/*			<div class="glider-container">*/}}
+{{/*				<div class="glider">*/}}
+{{/*					{{ range $index, $workflow := .items -}}*/}}
+{{/*						<div class="card-line">*/}}
+{{/*							<div class="card card-background">*/}}
+{{/*								<!-- Number -->*/}}
+{{/*								<h4 class="card-number type-serif">*/}}
+{{/*									0{{ $index | cast.ToInt | add 1 }}*/}}
+{{/*								</h4>*/}}
+{{/*								<!-- Text -->*/}}
+{{/*								{{ with .text }}*/}}
+{{/*									<h4 class="card-title">*/}}
+{{/*										{{ . }}*/}}
+{{/*									</h4>*/}}
+{{/*								{{- end }}*/}}
+{{/*							</div>*/}}
+{{/*							<!-- Group -->*/}}
+{{/*							{{ with .group }}*/}}
+{{/*								<h4 class="card-line-text">*/}}
+{{/*									{{ . }}*/}}
+{{/*								</h4>*/}}
+{{/*							{{- end }}*/}}
+{{/*						</div>*/}}
+{{/*					{{- end }}*/}}
+{{/*				</div><!-- /Row -->*/}}
+{{/*			</div><!-- Container -->*/}}
+{{/*		</section>*/}}
     {{- end }}
 	<!-- =====================
 		FAQs
 		===================== -->
 	{{ with .Params.faqs }}
-		<section class="section section-padding section-padding-top">
+		<section class="section section-padding section-padding-top" data-scroll-section>
 			<div class="container">
 				<div class="row">
 					<!-- Heading -->
