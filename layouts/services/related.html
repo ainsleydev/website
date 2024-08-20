@@ -19,7 +19,16 @@
 			</div><!--- /Col -->
 			<!-- Image -->
 			<div class="col-12">
-
+				{{ if .Resources.GetMatch "images/featured.*" }}
+					<picture>
+						{{ partial "media/picture.html" (dict
+							"image" (.Resources.GetMatch "images/featured.*")
+							"alt" (printf "%s Featured Image" .Params.heading)
+							"lazy" true
+							"class" "zoom-element"
+						)}}
+					</picture>
+				{{ end }}
 			</div>
 		</div><!-- /Row -->
 	</div><!-- /Container -->
