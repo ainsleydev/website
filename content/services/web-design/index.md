@@ -38,7 +38,7 @@ sections:
   - image: images/sections/s-clark-mobiles.jpg
     title: Visual storytelling
     content: We don't just throw pictures and words together; we aim to take your users on a captivating journey through your new website. With bespoke visuals, we craft engaging, compelling digital stories for your audience, resulting in more conversions and sales.
-  - video: images/sections/s-clark-tablet.mp4
+  - video: video/s-clark-tablet.mp4
     title: Dynamic animation & motion graphics
     content: Flat websites can be boring. We'll transform static content into immersive visual experiences that are completely tailored towards your brand. Using cutting-edge tech, we're able to push the boundaries of creativity by delivering fluid, dynamic animation that keeps your users engaged.
 workflow:

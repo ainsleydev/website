@@ -103,6 +103,12 @@
 									"lazy" true
 								)}}
 							</picture>
+						{{ else if .video }}
+							{{ partial "media/video.html" (dict
+								"video" ($.Resources.GetMatch .video)
+								"lazy" false
+								"attr" "autoplay loop muted"
+							)}}
 						{{- end }}
 					</div>
 				{{- end }}
