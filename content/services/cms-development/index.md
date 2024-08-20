@@ -1,6 +1,6 @@
 ---
 title: Leading Custom CMS Development in Kent, Sussex & London
-description: Discover how a world class headless CMS development company can provide you with fast, scalable bespoke CMS solutions.
+description: We're not just your standard WordPress agency; discover how a world class CMS development company can provide you with fast, scalable bespoke CMS solutions.
 slug: cms-development
 draft: false
 weight: 5
@@ -40,17 +40,29 @@ sections:
     title: API integrations
     content: We’ll work tirelessly to improve and streamline the back-end setup of your website. Because all of our CMS builds are designed around your specific businesses needs, we're able to integrate any API or platform you're using.
 workflow:
-  title: Our Web Design Process
-  content: We follow a tried and tested process to ensure your website is delivered on time and on budget. Our process includes the following.
+  title: CMS development workflow
+  content: Below shows the stages of a typical development timeline, from the initial questionnaire to the delivery of your new CMS.
   items:
-    - text: Kick-off meeting with stakeholders
-      group: Design
-    - text: Discovery document
-    - text: Sitemap finalisation
-    - text: Wireframing & prototyping
+    - text: Questionnaire
+      group: Planning
+    - text: Kick-off meeting/workshop
+      group: Planning
+    - text: Technical design
+      group: Planning
+    - text: Technology selection
+      group: Planning
+    - text: Development (front-end and back-end)
       group: Development
-    - text: UI
-    - text: Functiional scope
+    - text: Testing & debugging
+      group: Development
+    - text: Optimisation
+      group: Development
+    - text: Deployment
+      group: DevOps
+    - text: Refinement
+      group: Finalisation
+    - text: Review & feedback
+      group: Finalisation
 faqs:
   - question: Do I need a CMS?
     answer: Deciding whether a CMS is the right choice for you depends on various factors. For many small businesses that are just getting started, sometimes a static site is enough. However, if you envisage adding content as your business expands, a CMS is certainly a good choice to grow your online presence.
@@ -71,8 +83,10 @@ quote:
   text: I have had the pleasure of working closely with ainsley.dev on the development of my new website. They have such a huge array of skills, not just in web development but across business and e-commerce as a whole. They helped us create a beautiful and modern website, and gave us ideas and initiatives for the future. It was a pleasure working with them.
 featuredProjects:
   - decs-pets
+  - oak-tuition
 featuredInsights:
-  - ai-generated-content
+  - custom-cms-development
+  - prebuilt-vs-custom
 ---
 
 ### What is a CMS?
