@@ -100,6 +100,16 @@ class Scroll {
 		}
 		this.instance.destroy();
 		this.instance = null;
+		this.clearStyles();
+	}
+
+	/**
+	 * Removes all styles associated with a scroll element.
+	 */
+	public clearStyles(): void {
+		document.querySelectorAll<HTMLElement>('[data-scroll]').forEach((e) => {
+			e.removeAttribute('style');
+		});
 	}
 
 	/**

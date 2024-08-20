@@ -1,0 +1,437 @@
+{{ define "main" }}
+	<!-- =====================
+		Services Single
+		===================== -->
+	<section class="section section-padding section-padding-top" data-scroll-section>
+		<div class="container">
+			<div class="row" data-scroll data-scroll-speed="0">
+				<div class="col-12 col-tab-10 col-desk-8 col-desk-large-6 offset-desk-3">
+					<!-- Breadcrumbs -->
+                    <div class="margin">
+						{{ partial "components/breadcrumbs.html" . }}
+					</div>
+					<!-- Title -->
+					<div class="animate-line-heading">
+                        {{ with .Params.heading -}}
+							<h1>
+                                {{ . | safeHTML }}
+							</h1>
+                        {{- else -}}
+                            {{ warnf "No heading param provided to page: %s" .RelPermalink }}
+                        {{- end }}
+					</div><!-- /Title -->
+					<!-- Lead -->
+					<div class="margin-large lead animate-text">
+						<p class="lead mb-0">
+                            {{ with .Params.lead -}}
+                                {{ . | safeHTML }}
+                            {{- else -}}
+                                {{ warnf "No lead param provided to page: %s" .RelPermalink }}
+                            {{- end }}
+						</p>
+					</div><!-- /Lead -->
+					{{ partial "components/button.html" (dict
+						"colour" "white"
+						"link" "#why"
+						"text" "Explore"
+						"title" "Scroll down to explore"
+						"arrow" true
+					)}}
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- Container -->
+		<!-- Carousel -->
+        {{ partial "components/carousel.html" (dict
+        	"ctx" .
+			"images" .Params.gallery
+		)}}
+	</section>
+	<!-- =====================
+		Why Us?
+		===================== -->
+	{{ with .Params.why }}
+		<section id="why" class="section section-padding section-padding-bottom" data-scroll-section>
+			<div class="container">
+				<div class="row">
+					<!-- Vertical Line & Text -->
+					<div class="col-12 col-mob-3" data-scroll data-scroll-speed="1">
+                        {{ partial "type/vertical.html" (dict
+							"text" "Why Us?"
+							"line" true
+							"fill" true
+							"inline" true
+                        )}}
+					</div><!-- /Col -->
+					<!-- Text Blocks -->
+					<div class="col-12 col-mob-9">
+						<div class="row justify-content-between">
+                            {{ range . }}
+								<div class="col-12 col-desk-5">
+									<!-- Title -->
+                                    {{ with .title -}}
+										<h3>{{ . }}</h3>
+                                    {{- end }}
+									<!-- Text -->
+                                    {{ with .content -}}
+										<p>{{ . | safeHTML }}</p>
+                                    {{- end }}
+								</div>
+                            {{- end }}
+						</div><!-- /Row -->
+					</div><!-- /Col -->
+				</div><!-- /Row -->
+			</div><!-- Container -->
+		</section>
+	{{- end }}
+	<!-- =====================
+		Sections
+		===================== -->
+	{{ with .Params.sections -}}
+        {{ range $index, $section := . }}
+			{{ $isLast :=  eq (add $index 1) (len $.Params.sections) -}}
+            {{- $isLeft := eq (mod $index 2) 0 -}}
+			<section class="section image-split-section mb-desk-0
+				{{ if $isLast -}} section-padding section-padding-bottom {{- end }}" data-scroll-section>
+				<!-- Media -->
+				{{ if or .image .video }}
+					<div class="image-split {{ if $isLeft -}} image-split-right {{ else }} image-split-left {{- end }}">
+						{{ if .image -}}
+							<picture class="image animate-up">
+								{{ partial "media/picture.html" (dict
+									"image" ($.Resources.GetMatch .image)
+									"alt" (printf "%s Image" .title)
+									"lazy" true
+								)}}
+							</picture>
+						{{ else if .video }}
+							{{ partial "media/video.html" (dict
+								"video" ($.Resources.GetMatch .video)
+								"lazy" false
+								"attr" "autoplay loop muted"
+							)}}
+						{{- end }}
+					</div>
+				{{- end }}
+				<!-- Content -->
+				<div class="container image-split-container">
+					<div class="row" data-scroll data-scroll-speed="2">
+						<div class="col-12 col-desk-6 col-hd-5
+							{{ if not $isLeft -}} offset-desk-6 pl-desk-0 {{ else }} pr-desk-0 {{- end }}">
+							<!-- Title -->
+                            {{ with .title }}
+								<h2>{{ . | safeHTML }}</h2>
+                            {{- end }}
+							<!-- Content -->
+							{{ with .content }}
+								<p class="lead mb-0">{{ . | safeHTML }}</p>
+							{{- end }}
+						</div><!-- /Col -->
+					</div><!-- /Row -->
+				</div><!-- Container -->
+			</section>
+        {{- end }}
+	{{- end }}
+	<!-- =====================
+		Workflow
+		===================== -->
+	{{ with .Params.workflow }}
+{{/*		<section class="section" data-scroll-section>*/}}
+{{/*			<!-- Content -->*/}}
+{{/*			<div class="container">*/}}
+{{/*				<div class="row" data-container-set>*/}}
+{{/*					<div class="col-12 col-desk-5">*/}}
+{{/*						<div class="margin-large">*/}}
+{{/*							<!-- Title -->*/}}
+{{/*                            {{ with .title }}*/}}
+{{/*								<h2>{{ . }}</h2>*/}}
+{{/*                            {{- end }}*/}}
+{{/*							<!-- Content -->*/}}
+{{/*                            {{ with .content }}*/}}
+{{/*								<p>{{ . }}</p>*/}}
+{{/*                            {{- end }}*/}}
+{{/*						</div>*/}}
+{{/*					</div>*/}}
+{{/*				</div>*/}}
+{{/*			</div>*/}}
+{{/*			<!-- Glider -->*/}}
+{{/*			<div class="glider-container">*/}}
+{{/*				<div class="glider">*/}}
+{{/*					{{ range $index, $workflow := .items -}}*/}}
+{{/*						<div class="card-line">*/}}
+{{/*							<div class="card card-background">*/}}
+{{/*								<!-- Number -->*/}}
+{{/*								<h4 class="card-number type-serif">*/}}
+{{/*									0{{ $index | cast.ToInt | add 1 }}*/}}
+{{/*								</h4>*/}}
+{{/*								<!-- Text -->*/}}
+{{/*								{{ with .text }}*/}}
+{{/*									<h4 class="card-title">*/}}
+{{/*										{{ . }}*/}}
+{{/*									</h4>*/}}
+{{/*								{{- end }}*/}}
+{{/*							</div>*/}}
+{{/*							<!-- Group -->*/}}
+{{/*							{{ with .group }}*/}}
+{{/*								<h4 class="card-line-text">*/}}
+{{/*									{{ . }}*/}}
+{{/*								</h4>*/}}
+{{/*							{{- end }}*/}}
+{{/*						</div>*/}}
+{{/*					{{- end }}*/}}
+{{/*				</div><!-- /Row -->*/}}
+{{/*			</div><!-- Container -->*/}}
+{{/*		</section>*/}}
+    {{- end }}
+	<!-- =====================
+		FAQs
+		===================== -->
+	{{ with .Params.faqs }}
+		<section class="section section-padding section-padding-top" data-scroll-section>
+			<div class="container">
+				<div class="row">
+					<!-- Heading -->
+					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
+						{{ partial "type/vertical.html" (dict
+							"text" "FAQs"
+							"line" true
+							"fill" false
+						)}}
+					</div><!-- /Col -->
+					<!-- Accordion -->
+					<div class="col-12 col-mob-9 offset-mob-1">
+						{{ $items := slice }}
+						{{ range . }}
+							{{ $items = $items | append (dict "title" .question "content" .answer) }}
+						{{ end }}
+						{{ partial "components/accordion.html" $items }}
+					</div>
+				</div><!-- /Row -->
+			</div><!-- /Container -->
+		</section>
+	{{- end }}
+	<!-- =====================
+		Rule
+		===================== -->
+	<section class="section section-padding section-padding-small d-none d-desk-block">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<hr class="rule rule-divider rule-divider-align-right"
+						data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section><!-- /Row -->
+	<!-- =====================
+		Content
+		===================== -->
+	<section class="section section-padding section-padding-bottom" data-scroll-section>
+		<div class="container">
+			<div class="row">
+				<!-- Heading -->
+				<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
+                    {{ partial "type/vertical.html" (dict
+						"text" "Explanation"
+						"line" true
+						"fill" false
+                    )}}
+				</div><!-- /Col -->
+				<!-- Rich Text -->
+				<div class="col-12 col-mob-9 offset-mob-1">
+					<article class="richtext">
+                        {{ .Content | replaceRE "/a>\n" "/a>" | safeHTML  }}
+					</article>
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+	<!-- =====================
+		Quote
+		===================== -->
+    {{ with .Params.quote -}}
+        {{ partial "sections/quote.html" (dict
+        	"text" .text
+			"cite" .person
+       	 	"class" "bg-grey-light"
+        )}}
+    {{- end }}
+	<!-- =====================
+		Featured Projects
+		===================== -->
+	{{ if .Params.featuredProjects }}
+		<section class="section section-padding section-padding-top" data-scroll-section>
+			<div class="container">
+				<div class="row justify-content-between">
+					<!-- Heading -->
+					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
+                        {{ partial "type/vertical.html" (dict
+                        	"text" "Featured"
+							"line" true
+							"fill" false
+                        )}}
+					</div><!-- /Col -->
+					<!-- Content -->
+					<div class="col-12 col-mob-9">
+						<div class="row no-gaps">
+							<!-- All Work - Large -->
+							<div class="col-12 all-articles all-articles-large margin-large">
+								<div class="all-articles-wrapper all-articles-wrapper-end">
+                                    {{ partial "arrow/text.html" (dict
+                                    	"link" "/portfolio/"
+                                    	"text" "<span class='heading-3'>All work</span>"
+                                    	"title" "View all work"
+                                    	"small" true
+                                    	"rotation" 45
+                                    )}}
+								</div><!-- /Wrapper -->
+							</div><!-- /Col -->
+							<!-- All Work - Small -->
+							<div class="col-12 all-articles all-articles-small">
+								<div class="all-articles-wrapper">
+									<span class="all-articles-sub">
+										Latest Articles
+									</span>
+                                    {{ partial "arrow/text.html" (dict
+										"link" "/portfolio/"
+                                    	"text" "<span class='heading-2'>All work</span>"
+                                   	 	"title" "View all work"
+                                   	 	"small" true
+                                    	"rotation" 45
+                                    )}}
+								</div><!-- /Wrapper -->
+							</div><!-- /Col -->
+							<!-- Cards -->
+                            {{ range $index, $slug := .Params.featuredProjects }}
+                                {{ with $.Site.GetPage (printf "/portfolio/%s" $slug) }}
+                                    {{ $isLeft := eq (mod $index 2) 0 }}
+									<div class="col-12 col-desk-6 card-col-padding card-col-mob-no-margin animate-up
+									{{ if $isLeft }} card-col-left {{- else -}} card-col-right {{- end }} card-col">
+                                        {{ partial "cards/vertical.html" (dict
+											"title" .Params.heading
+											"sub" .Params.company
+											"permalink" .RelPermalink
+											"image" (.Resources.GetMatch "images/card.jpg")
+											"clip" (.Resources.GetMatch "images/card-hover.jpg")
+											"animate" true
+											"lazy" true
+                                        )}}
+									</div><!-- /Col -->
+								{{- else -}}
+									{{ warnf "Slug did not match a portfolio item: %s" . }}
+								{{- end }}
+                            {{- end }}
+						</div><!-- /Row -->
+					</div><!--- /Col -->
+				</div><!-- /Row -->
+			</div><!-- /Container -->
+		</section>
+    {{- end }}
+	<!-- =====================
+		Rule
+		===================== -->
+	<section class="section section-padding section-padding-small d-none d-desk-block">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<hr class="rule rule-divider rule-divider-align-right"
+						data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section><!-- /Row -->
+	<!-- =====================
+		Featured Insights
+		===================== -->
+    {{ if .Params.featuredInsights }}
+		<section class="section section-padding" data-scroll-section>
+			<div class="container">
+				<div class="row justify-content-between">
+					<!-- Heading -->
+					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
+                        {{ partial "type/vertical.html" (dict
+							"text" "Insights"
+							"line" true
+							"fill" false
+                        )}}
+					</div><!-- /Col -->
+					<!-- Content -->
+					<div class="col-12 col-mob-9">
+						<div class="row no-gaps">
+							<!-- All Articles - Large -->
+							<div class="col-12 all-articles all-articles-border all-articles-large">
+								<div class="all-articles-wrapper">
+									<span class="heading-6 all-articles-sub">
+										Latest Articles
+									</span>
+                                    {{ partial "arrow/text.html" (dict
+										"link" "/insights/"
+										"text" "<span class='heading-3'>All insights</span>"
+										"title" "View all insights"
+										"small" true
+										"rotation" 45
+                                    )}}
+								</div><!-- /Wrapper -->
+							</div><!-- /Col -->
+							<!-- All Articles - Small -->
+							<div class="col-12 all-articles all-articles-border all-articles-small">
+								<div class="all-articles-wrapper">
+									<h6 class="all-articles-sub">
+										Latest Articles
+									</h6>
+                                    {{ partial "arrow/text.html" (dict
+										"link" "/insights/"
+										"text" "<span class='heading-2'>All insights</span>"
+										"title" "View all insights"
+										"small" true
+										"rotation" 45
+                                    )}}
+								</div><!-- /Wrapper -->
+							</div><!-- /Col -->
+							<!-- Cards -->
+							{{ range $index, $slug := .Params.featuredInsights }}
+								{{ with $.Site.GetPage (printf "/insights/%s" $slug) }}
+									<div class="col-12 card-col {{ if eq $index 0 }} card-col-first {{- end }} animate-fade"
+										 data-animate-no-touch>
+										{{ .Render "card" }}
+									</div><!-- /Col -->
+								{{- end }}
+							{{- end }}
+						</div><!-- /Row -->
+					</div><!--- /Col -->
+				</div><!-- /Row -->
+			</div><!-- /Container -->
+		</section>
+    {{- end }}
+	<!-- =====================
+		Other Services bg-grey-light
+		===================== -->
+    {{ .Render "related" }}
+	<!-- =====================
+		Contact
+		===================== -->
+	<section class="section section-padding contact contact-dark services-contact">
+		<!-- Content -->
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-desk-6">
+					<div class="margin-title">
+						<!-- Heading -->
+						<h2>Get in touch with us now</h2>
+						<!-- Lead -->
+						<p class="lead lead-max-width mb-0">
+							Looking to bring your vision to life? Get in touch using the form below, and we'll
+							get in touch to discuss how we can make your project a success.
+						</p>
+					</div>
+				</div><!--- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+		<!-- Form -->
+		{{ partial "sections/form.html" (dict
+			"dark" true
+			"class" "animate-up"
+			"largePadding" true
+		)}}
+	</section>
+{{ end }}
+

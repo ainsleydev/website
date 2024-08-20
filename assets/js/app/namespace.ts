@@ -6,8 +6,6 @@
  * @author Email: hello@ainsley.dev
  */
 
-import { Elements } from '../util/els';
-
 /**
  * Obtains the Barba namespace.
  *

@@ -1,5 +1,5 @@
 ---
-title: Discover why digital transformation is a must for staying ahead in today's evolving marketplace.
+title: Discover why digital transformation helps you stay ahead.
 heading: Why does every company need digital transformation?
 description: What is digital transformation and what are its benefits? Discover why digital transformation is a must for staying ahead in today's evolving marketplace.
 slug: digital-transformation

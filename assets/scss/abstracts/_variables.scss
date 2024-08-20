@@ -182,6 +182,12 @@ $card-margin-bottom: 3.75rem;
 $card-vertical-padding-top: 145%;
 $card-horizontal-padding-top: 65%;
 
+// Carousel
+// ==========================================================================
+
+$carousel-padding: 0 0 100px;
+$carousel-item-width: clamp(320px, 80vw, 570px);
+
 // Code
 // ==========================================================================
 
@@ -246,7 +252,7 @@ $social-icon-height-mob: 20px;
 	--colour-copy-light: #{$copy-light-bg};
 	--colour-off-white: #{$off-white};
 	--colour-paragraph: #{$copy-dark-bg};
-	--colour-list: #{$white};
+	--colour-list: #{$copy-dark-bg};
 
 	// A Symbol
 	--a-symbol-clip-left: #{$a-symbol-clip-left};

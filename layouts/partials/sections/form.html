@@ -1,0 +1,87 @@
+<!-- =====================
+	Form
+		partial "sections/form.html" (dict
+			"dark" true
+   			"class" "animate-up"
+			"attr" "download"
+		)}}
+		- dark:				If the form should be dark mode.
+		- class:			Any additional class names to appear.
+    	- attr:		 		Any additional or attributes to appear.
+    ===================== -->
+<section class="
+	{{ with .class -}} {{ . }} {{- end }}"
+	{{ .attr  | safeHTMLAttr }} >
+	<div class="container">
+		<div class="row">
+			<!-- Form -->
+			<div class="col-12 col-desk-8 order-desk-last">
+				<noscript>
+					<div class="alert">
+						<h4 class="alert-text">We're sorry, this form cannot work on browsers that do not have JavaScript enabled.</h4>
+					</div>
+				</noscript>
+				<form action="" class="form contact-form {{ if .dark -}} form-dark {{- end }}">
+					<div class="form-wrapper">
+						<!-- Name -->
+						<fieldset class="form-group-bee">
+							<input type="text" name="first-name" autocomplete="off" tabindex="-1">
+						</fieldset>
+						<!-- Message -->
+						<fieldset class="form-group">
+							<label class="form-label">
+								<textarea class="form-input form-textarea" rows="6"
+									name="message">Hey ainsley.dev...</textarea>
+							</label>
+						</fieldset>
+						<!-- Message -->
+						<span class="tag {{ if .dark -}} tag-white {{- else -}} tag-black {{- end }} form-message">
+							Include your email in the message
+						</span>
+					</div>
+					<!-- Submit -->
+					<div class="form-submit">
+						{{ $btnColour := "black" -}}
+						{{ if .dark -}}
+							{{- $btnColour = "white" -}}
+						{{- end }}
+						<!-- Button -->
+						{{ partial "components/button.html" (dict
+							"colour" $btnColour
+							"size" "large"
+							"text" "Let's go"
+							"arrow" true
+							"attr" (printf "type=submit id=ac-contact")
+						)}}
+					</div>
+				</form>
+			</div><!-- /Col -->
+			<!-- Contact -->
+			<div class="col-12 col-desk-4">
+				<aside class="contact-aside section-padding-small">
+					<!-- Email -->
+					<div class="contact-aside-item margin-large">
+						<h6>Email us</h6>
+						<a href="mailto:{{ site.Params.contact.email }}"
+						title="Email ainsley.dev" aria-label="Email ainsley.dev">
+							<h5>{{ site.Params.contact.email }}</h5>
+						</a>
+					</div>
+					<!-- Phone -->
+					<div class="contact-aside-item margin-large">
+						<h6>Chat with us</h6>
+						<a href="tel:{{ site.Params.contact.phone.link }}"
+						title="Phone ainsley.dev" aria-label="Phone ainsley.dev">
+							<h5>{{ site.Params.contact.phone.pretty }}</h5>
+						</a>
+					</div>
+					<!-- Social -->
+					<div class="contact-aside-item">
+						<h6>Connect with us</h6>
+						{{ partial "components/social.html" . }}
+					</div>
+				</aside>
+			</div><!-- /Col -->
+		</div><!-- /Row -->
+	</div><!-- /Container -->
+</section>

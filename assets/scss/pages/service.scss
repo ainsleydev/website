@@ -1,0 +1,87 @@
+// -----------------------------------------------------------------------------
+// _service.scss
+// This file contains all styles related to the service single page.
+// -----------------------------------------------------------------------------
+
+@import '../abstracts/mixins';
+@import '../abstracts/variables';
+
+.service {
+	$self: &;
+
+	// Related
+	// =========================================================================
+
+	&-related {
+		display: flex;
+		position: relative;
+		flex-direction: column;
+		background-color: $grey-light;
+
+		&-image {
+			display: block;
+			width: 100vw;
+			height: 40vh;
+			flex-grow: 2;
+
+			source,
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		&-container {
+			display: flex;
+			align-items: center;
+			padding-top: $section-padding;
+			padding-bottom: $section-padding;
+			height: auto;
+		}
+
+		&-nav {
+			margin-bottom: -0.5rem;
+
+			&-link {
+				display: block;
+				padding: 0.5rem 0;
+
+				&:first-child {
+					margin-top: 2rem;
+				}
+			}
+
+			&-title {
+				margin: 0;
+			}
+		}
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-desk {
+		&-related {
+			&-image {
+				display: block;
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 50%;
+				height: 100%;
+
+				source,
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+
+			&-nav-link:not(:last-child) {
+				margin-bottom: 0.6rem;
+			}
+		}
+	}
+}
