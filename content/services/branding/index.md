@@ -82,10 +82,12 @@ faqs:
     answer: We include 3 rounds of revisions for any project at each milestone. You will have the opportunity to provide feedback at every step and request modifications if required.
   - question: What do I get?
     answer: >
-     We always supply a comprehensive kit of files in any branding project, allowing you to use the new assets across a wide variety of mediums. Below is a summary.
-     **CMYK (PDF/EPS)** - A CMYK (Cyan, Magenta, Yellow & Black) file set of the asset use that displays full colour. This is for printed material.
-     **RGB (JPG/PNG/SVG)** - Screen colours are made up of RGB (Red, Green & Blue). SVG files will also be included, which are lossless vector files, so they don't pixelate. These are ideal for digital distribution.
-     **Favicon (ICO)** - A 32 x 32 favicon of your logo will be created for use on your website.
+       We always supply a comprehensive kit of files in any branding project, allowing you to use the new assets across a wide variety of mediums. Below is a summary.
+       <ul>
+       <li><strong>CMYK (PDF/EPS)</strong> - A CMYK (Cyan, Magenta, Yellow & Black) file set of the asset use that displays full colour. This is for printed material.</li>
+       <li><strong>RGB (JPG/PNG/SVG)</strong> - Screen colours are made up of RGB (Red, Green & Blue). SVG files will also be included, which are lossless vector files, so they don't pixelate. These are ideal for digital distribution.</li>
+       <li><strong>Favicon (ICO)</strong> - A 32 x 32 favicon of your logo will be created for use on your website.</li>
+       </ul>
 quote:
   person: Nafhesa Ali, CEO - Oak Tuition
   text: ainsley.dev is fantastic. They make the whole process of branding & web development so easy through their support and expertise. Highly recommend and would definitely work with them again.

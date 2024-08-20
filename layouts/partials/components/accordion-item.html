@@ -24,9 +24,12 @@
 	<div class="accordion-content"
 		 itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
 		{{ with .content -}}
-			<p class="lead" itemprop="text">
-				{{ . | safeHTML }}
-			</p>
+			<div itemprop="text">
+				<p class="lead">
+					{{ . | markdownify | safeHTML }}
+				</p>
+			</div>
+
 		{{- else -}}
 			{{- warnf "No content provided to accordion item" -}}
 		{{- end }}
