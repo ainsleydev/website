@@ -6,7 +6,10 @@
 		<div class="container">
 			<div class="row" data-scroll data-scroll-speed="0">
 				<div class="col-12 col-tab-10 col-desk-8 col-desk-large-6 offset-desk-3">
-                    {{ partial "components/breadcrumbs.html" . }}
+					<!-- Breadcrumbs -->
+                    <div class="margin">
+						{{ partial "components/breadcrumbs.html" . }}
+					</div>
 					<!-- Title -->
 					<div class="animate-line-heading">
                         {{ with .Params.heading -}}
@@ -18,7 +21,7 @@
                         {{- end }}
 					</div><!-- /Title -->
 					<!-- Lead -->
-					<div class="lead animate-text">
+					<div class="margin-large lead animate-text">
 						<p class="lead mb-0">
                             {{ with .Params.lead -}}
                                 {{ . | safeHTML }}
@@ -27,6 +30,13 @@
                             {{- end }}
 						</p>
 					</div><!-- /Lead -->
+					{{ partial "components/button.html" (dict
+						"colour" "white"
+						"link" "#why"
+						"text" "Explore"
+						"title" "Scroll down to explore"
+						"arrow" true
+					)}}
 				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- Container -->
@@ -40,7 +50,7 @@
 		Why Us?
 		===================== -->
 	{{ with .Params.why }}
-		<section class="section section-padding section-padding-bottom" data-scroll-section>
+		<section id="why" class="section section-padding section-padding-bottom" data-scroll-section>
 			<div class="container">
 				<div class="row">
 					<!-- Vertical Line & Text -->
@@ -189,14 +199,21 @@
 						{{ partial "components/accordion.html" $items }}
 					</div>
 				</div><!-- /Row -->
-				<div class="section section-padding section-padding-small row">
-					<div class="col-12">
-						<hr class="m-0">
-					</div><!-- /Col -->
-				</div><!-- /Row -->
 			</div><!-- /Container -->
 		</section>
 	{{- end }}
+	<!-- =====================
+		Rule
+		===================== -->
+	<section class="section section-padding section-padding-small">
+		<div class="container d-none d-desk-block">
+			<div class="row">
+				<div class="col-12">
+					<hr class="m-0">
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section><!-- /Row -->
 	<!-- =====================
 		Content
 		===================== -->
@@ -365,16 +382,47 @@
 		</section>
     {{- end }}
 	<!-- =====================
-		Other Services
+		Other Services bg-grey-light
 		===================== -->
     {{ .Render "related" }}
 	<!-- =====================
-		Contact - TODO, maybe partial?
+		Contact
 		===================== -->
-	<section class="section">
+		<section class="section contact contact-dark section-padding">
+			<!-- Content -->
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-desk-6">
+						<div class="margin-title">
+							<!-- Heading -->
+							<h2>Get in touch with us now</h2>
+							<!-- Lead -->
+							<p class="lead lead-max-width mb-0">
+								Looking to bring your vision to life? Get in touch using the form below, and we'll
+								get in touch to discuss how we can make your project a success.
+							</p>
+						</div>
+					</div><!--- /Col -->
+				</div><!-- /Row -->
+			</div><!-- /Container -->
+			<!-- Form -->
+			{{ partial "sections/form.html" (dict
+				"dark" true
+				"class" "animate-up"
+				"largePadding" true
+			)}}
+		</section>
+	<!-- =====================
+		Rule
+		===================== -->
+	<section>
 		<div class="container">
-
+			<div class="row">
+				<div class="col-12">
+					<hr class="m-0">
+				</div><!-- /Col -->
+			</div><!-- /Row -->
 		</div><!-- /Container -->
-	</section>
+	</section><!-- /Row -->
 {{ end }}
 

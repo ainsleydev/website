@@ -121,7 +121,7 @@ class App {
 
 		// Analytics
 		PlausiblePageView();
-		this.webVitals();
+		//this.webVitals(); // Currently disabled.
 	}
 
 	/**
