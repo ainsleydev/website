@@ -12,8 +12,6 @@ lead: We are a leading digital agency providing bespoke branding services to boo
 gallery:
   - image: images/slider/2easy.svg
     alt: 2Easy Competitions
-  - image: images/slider/audits.svg
-    alt: Audits.com
   - image: images/slider/decs-pets.svg
     alt: Dec's Pets
   - image: images/slider/edr-dental.svg

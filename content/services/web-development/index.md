@@ -1,6 +1,6 @@
 ---
-title: Industry leading website development in Kent, Sussex & London
-description: Enhance your brand's online presence with an industry-leading website tailored towards your business' unique needs.
+title: Industry leading website development in Kent Sussex & London
+description: Enhance your brand's online presence with an industry-leading website development tailored towards your business' unique needs.
 slug: web-development
 draft: false
 weight: 5

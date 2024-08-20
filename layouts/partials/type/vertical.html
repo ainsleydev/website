@@ -5,16 +5,19 @@
 			"number" 1
 			"line" true
 			"fill" true
+			"inline" false
 		)
 		- text:		The content of the quote.
 		- number:	A optional number associated with the text.
 		- line:		If the line should be displayed.
 		- fill:		If the line should stretch to fit the container.
+		- inline: 	If the words should be inline on mobile.
     ===================== -->
 <div class="vertical-container">
 	<div class="vertical
 	{{ with .number }} vertical-with-number {{- end }}
-	{{ if .fill -}} vertical-fill {{- end }}">
+	{{ if .fill -}} vertical-fill {{- end }}
+	{{ if .inline -}} vertical-inline {{- end }}">
 		<!-- Wrapper -->
 		<div class="vertical-wrapper">
 			<!-- Number -->

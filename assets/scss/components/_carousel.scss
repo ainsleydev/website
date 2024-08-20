@@ -7,9 +7,8 @@
 	$self: &;
 	position: relative;
 	display: flex;
-	width: calc($carousel-item-width * var(--no-of-slides) * 2);
-	gap: 1rem;
-	margin: $section-padding-small 0;
+	width: calc(#{$carousel-item-width} * var(--no-of-slides) * 2);
+	margin: clamp(60px, 10vw, 160px) 0;
 	padding-bottom: $margin;
 	overflow: hidden;
 	counter-reset: slideNo;
@@ -23,8 +22,9 @@
 		display: flex;
 		flex-direction: column;
 		overflow: hidden;
+		padding-left: 1.6rem;
 		width: $carousel-item-width;
-		transition: all 10ms ease;
+		transition: all 100ms ease;
 		transform: translateZ(0);
 		will-change: transform;
 	}
