@@ -47,6 +47,7 @@ func (h *BetterStackHook) Levels() []logrus.Level {
 
 // Close gracefully shuts down the hook, ensuring all logs are processed.
 func (h *BetterStackHook) Close() {
+	// TODO: Need to fix: BetterStackHook.Fire: hook is closed, Could not close hook
 	h.closeOnce.Do(func() {
 		close(h.eventCh)
 		<-h.closeCh
