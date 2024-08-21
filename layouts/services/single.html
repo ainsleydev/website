@@ -1,17 +1,22 @@
 {{ define "main" }}
 	<!-- =====================
 		Services Single
+			TODO:
+			 - Add links to the gallery items (including archetype)
+			 - Finish content page (including graphics)
+			 - Video should play on app.Boot, when navigating between pages, videos don't load (check portfolio)
+
 		===================== -->
 	<section class="section section-padding section-padding-top" data-scroll-section>
 		<div class="container">
 			<div class="row" data-scroll data-scroll-speed="0">
 				<div class="col-12 col-tab-10 col-desk-8 col-desk-large-6 offset-desk-3">
 					<!-- Hero Animation -->
-					<div class="hero-animate margin-large">
+					<div class="hero-animate">
 						<!-- Breadcrumbs -->
 						{{ partial "components/breadcrumbs.html" (dict "ctx" .) }}
 						<!-- Content -->
-                       <div class="margin">
+                       <div class="margin-large">
 						   {{ with .Params.heading -}}
 							   <h1>
 								   {{ . | safeHTML }}
@@ -49,7 +54,7 @@
 		Why Us?
 		===================== -->
 	{{ with .Params.why }}
-		<section id="why" class="section section-padding section-padding-bottom" data-scroll-section>
+		<section id="why" class="section section-padding section-padding-bottom animate-fade" data-scroll-section>
 			<div class="container">
 				<div class="row">
 					<!-- Vertical Line & Text -->
@@ -87,8 +92,10 @@
 		===================== -->
 	{{ with .Params.sections -}}
         {{ range $index, $section := . }}
+			{{- $isLast := eq (sub (len $.Params.sections) 1) $index -}}
             {{- $isLeft := eq (mod $index 2) 0 -}}
-			<section class="section image-split-section mb-desk-0" data-scroll-section>
+			<section class="section image-split-section {{ if $isLast -}} mb-0 {{ else }} mb-desk-0 {{- end }}"
+				data-scroll-section>
 				<!-- Media -->
 				{{ if or .image .video }}
 					<div class="image-split {{ if $isLeft -}} image-split-right {{ else }} image-split-left {{- end }}">
@@ -132,7 +139,7 @@
 		Workflow
 		===================== -->
 	{{ with .Params.workflow }}
-		<section class="section" data-scroll-section>
+		<section class="section section-padding section-padding-top" data-scroll-section>
 			<!-- Content -->
 			<div class="container">
 				<div class="row" data-container-set>
@@ -249,12 +256,14 @@
 	<!-- =====================
 		Rule
 		===================== -->
-	<section class="section section-padding section-padding-top d-none d-desk-block">
-		<div class="container">
-			<hr class="rule rule-divider rule-divider-align-right"
-				data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">
-		</div><!-- /Container -->
-	</section>
+	{{ if .Params.featuredProjects }}
+		<section class="section section-padding section-padding-top d-none d-desk-block">
+			<div class="container">
+				<hr class="rule rule-divider rule-divider-align-right"
+					data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">
+			</div><!-- /Container -->
+		</section>
+	{{- end }}
 	<!-- =====================
 		Featured Projects
 		===================== -->
