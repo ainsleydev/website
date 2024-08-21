@@ -50,13 +50,39 @@ class Scroll {
 	};
 
 	/**
+	 * Queue for scroll callbacks
+	 *
+	 * @private
+	 */
+	private scrollCallbacks: Array<(y: number) => unknown> = [];
+
+	/**
+	 * The window.load handler
+	 *
+	 * @private
+	 */
+	private loadHandler = null;
+
+	/**
 	 * Creates a new scroll instance.
 	 *
 	 * @param container
 	 */
 	constructor(container: Element) {
-		this.init(container);
-		this.onScroll((y: number) => this.setScrollTop(y));
+		this.loadHandler = () => {
+			this.init(container);
+
+			// Process queued callbacks
+			this.scrollCallbacks.forEach((callback) => {
+				this.onScroll(callback);
+			});
+
+			// Clear the queue
+			this.scrollCallbacks = [];
+		};
+
+		// Attach the window.onload event listener to ensure everything is fully loaded
+		window.addEventListener('load', this.loadHandler);
 	}
 
 	/**
@@ -100,7 +126,13 @@ class Scroll {
 		}
 		this.instance.destroy();
 		this.instance = null;
+
 		this.clearStyles();
+
+		if (this.loadHandler) {
+			window.removeEventListener('load', this.loadHandler);
+			this.loadHandler = null;
+		}
 	}
 
 	/**
@@ -114,13 +146,18 @@ class Scroll {
 
 	/**
 	 * Adds the scroll event listener.
-	 * If it's a touch device, it will use the native scroll event,
-	 * otherwise it will bind to the scroll instance.
+	 * If the instance isn't initialized yet, the callback will be queued
+	 * and executed once the instance is ready.
 	 *
 	 * @param callback
 	 */
-	public onScroll(callback: (y: number) => unknown) {
-		this.instance.on('scroll', (e: OnScrollEvent) => callback(e.scroll.y));
+	public onScroll(callback: (y: number) => unknown): void {
+		if (this.instance) {
+			this.instance.on('scroll', (e: OnScrollEvent) => callback(e.scroll.y));
+			return;
+		}
+		// Queue the callback if instance isn't ready yet
+		this.scrollCallbacks.push(callback);
 	}
 
 	/**

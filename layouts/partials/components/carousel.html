@@ -26,35 +26,38 @@
 {{- end }}
 {{ with .images }}
 	{{ $length := len . }}
-	<div class="carousel" data-carousel-length="{{ $length }}">
-		<style>
-			@keyframes scroll {
-				0% {
-					transform: translateX(0);
+	<div class="carousel-container">
+		<div class="carousel" data-carousel-length="{{ $length }}">
+			<style>
+				@keyframes scroll {
+					0% {
+						transform: translateX(0);
+					}
+					100% {
+						transform: translateX(calc(-1 * clamp(320px, 80vw, 570px) * {{ $length }}));
+					}
 				}
-				100% {
-					transform: translateX(calc(-1 * clamp(320px, 80vw, 570px) * {{ $length }}));
+				.carousel-item {
+					animation: scroll {{ mul $length 3 }}s linear infinite;
 				}
-			}
-			.carousel-item {
-				animation: scroll {{ mul $length 3 }}s linear infinite;
-			}
-		</style>
-		<!-- Original -->
-		{{ range $index, $item := . }}
-			{{ partial "partials/carousel-item.html" (dict
+			</style>
+			<!-- Original -->
+			{{ range $index, $item := . }}
+				{{ partial "partials/carousel-item.html" (dict
 				"ctx" $.ctx
 				"item" $item
 				"index" $index
-			)}}
-		{{- end }}
-		<!-- Repeat -->
-        {{ range $index, $item := . }}
-            {{ partial "partials/carousel-item.html" (dict
+				)}}
+			{{- end }}
+			<!-- Repeat -->
+			{{ range $index, $item := . }}
+				{{ partial "partials/carousel-item.html" (dict
 				"ctx" $.ctx
 				"item" $item
 				"index" $index
-            )}}
-		{{- end }}
+				)}}
+			{{- end }}
+		</div>
 	</div>
+
 {{- end }}

@@ -8,7 +8,7 @@ scripts:
     - js/pages/services-single.ts
 heading: Branding
 breadcrumbs: Branding
-lead: We are a leading digital agency providing bespoke branding services to boost your company's online presence. Specialising in unique, memorable and future-proof visuals, we create branding that captures your tone of voice and truly resonates with your customers.
+lead: We are a leading digital agency providing bespoke branding services to elevate your online presence. Specializing in unique and memorable visuals, we create branding that captures your tone of voice and resonates with your customers.
 gallery:
   - image: images/slider/2easy.svg
     alt: 2Easy Competitions

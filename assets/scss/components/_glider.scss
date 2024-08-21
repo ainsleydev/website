@@ -5,6 +5,8 @@
 
 .glider {
 	position: relative;
+	display: flex;
+	flex-wrap: nowrap;
 	margin-bottom: $margin;
 
 	// Container
@@ -12,7 +14,21 @@
 
 	&-container {
 		position: relative;
-		padding-left: $container-padding-x;
+		max-width: none;
+		width: 100vw;
+		margin: 0;
+		padding: 0;
+
+		::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	// Item
+	// =========================================================================
+
+	&-item {
+		width: 100%;
 	}
 
 	// Track
@@ -20,7 +36,6 @@
 
 	&-track {
 		display: flex;
-		//gap: $gap-width;
 	}
 
 	// Item
