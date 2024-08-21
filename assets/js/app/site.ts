@@ -29,6 +29,7 @@ import { video, VideoPlayer } from '../components/video';
 import { WebVitals } from '../analytics/web-vitals';
 import { Animations } from '../animations/text';
 import { Elements } from '../util/els';
+import { ContactForm } from '../forms/contact';
 import { Barba } from './barba';
 import Scroll from './scroll';
 import { aside } from '../animations/aside';
@@ -92,6 +93,7 @@ class App {
 		new FitText();
 		new Card();
 		new Arrow();
+		new ContactForm();
 		new Collapse({
 			accordion: true,
 			container: '.accordion',

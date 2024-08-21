@@ -28,6 +28,10 @@ hr,
 	// Sizes
 	// =========================================================================
 
+	&-thin {
+		border-width: $line-size-thin;
+	}
+
 	&-medium {
 		border-width: $line-size-medium;
 	}

@@ -113,6 +113,10 @@ a.btn {
 					fill: $white;
 				}
 			}
+
+			&::after {
+				border-color: $black !important;
+			}
 		}
 
 		&-grey,

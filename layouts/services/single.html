@@ -7,7 +7,7 @@
 			<div class="row" data-scroll data-scroll-speed="0">
 				<div class="col-12 col-tab-10 col-desk-8 col-desk-large-6 offset-desk-3">
 					<!-- Hero Animation -->
-					<div class="hero-animate margin">
+					<div class="hero-animate margin-large">
 						<!-- Breadcrumbs -->
 						{{ partial "components/breadcrumbs.html" (dict "ctx" .) }}
 						<!-- Content -->
@@ -190,7 +190,7 @@
 		FAQs
 		===================== -->
 	{{ with .Params.faqs }}
-		<section class="section section-padding section-padding-top" data-scroll-section>
+		<section class="section section-padding" data-scroll-section>
 			<div class="container">
 				<div class="row">
 					<!-- Heading -->
@@ -214,22 +214,19 @@
 		</section>
 	{{- end }}
 	<!-- =====================
-		Rule TODO: We need to add this to the services single SCSS file as the padding isn't right on mobile.
+		Quote
 		===================== -->
-	<section class="section section-padding section-padding-small d-none d-desk-block">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<hr class="rule rule-divider rule-divider-align-right"
-						data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">
-				</div><!-- /Col -->
-			</div><!-- /Row -->
-		</div><!-- /Container -->
-	</section><!-- /Row -->
+	{{ with .Params.quote -}}
+		{{ partial "sections/quote.html" (dict
+			"text" .text
+			"cite" .person
+			"class" "bg-grey-light"
+		)}}
+	{{- end }}
 	<!-- =====================
 		Content
 		===================== -->
-	<section class="section section-padding section-padding-bottom" data-scroll-section>
+	<section class="section section-padding section-padding-top" data-scroll-section>
 		<div class="container">
 			<div class="row">
 				<!-- Heading -->
@@ -250,15 +247,14 @@
 		</div><!-- /Container -->
 	</section>
 	<!-- =====================
-		Quote
+		Rule
 		===================== -->
-    {{ with .Params.quote -}}
-        {{ partial "sections/quote.html" (dict
-        	"text" .text
-			"cite" .person
-       	 	"class" "bg-grey-light"
-        )}}
-    {{- end }}
+	<section class="section section-padding section-padding-top d-none d-desk-block">
+		<div class="container">
+			<hr class="rule rule-divider rule-divider-align-right"
+				data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">
+		</div><!-- /Container -->
+	</section>
 	<!-- =====================
 		Featured Projects
 		===================== -->
@@ -333,16 +329,12 @@
 	<!-- =====================
 		Rule
 		===================== -->
-	<section class="section section-padding section-padding-small d-none d-desk-block">
+	<section class="section section-padding section-padding-top d-none d-desk-block">
 		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<hr class="rule rule-divider rule-divider-align-right"
-						data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">
-				</div><!-- /Col -->
-			</div><!-- /Row -->
+			<hr class="rule rule-divider rule-divider-align-right"
+				data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">
 		</div><!-- /Container -->
-	</section><!-- /Row -->
+	</section>
 	<!-- =====================
 		Featured Insights
 		===================== -->
@@ -407,7 +399,7 @@
 		</section>
     {{- end }}
 	<!-- =====================
-		Other Services bg-grey-light
+		Other Services
 		===================== -->
     {{ .Render "related" }}
 	<!-- =====================
@@ -434,7 +426,6 @@
 		{{ partial "sections/form.html" (dict
 			"dark" true
 			"class" "animate-up"
-			"largePadding" true
 		)}}
 	</section>
 {{ end }}

@@ -9,6 +9,7 @@ scripts:
 heading: Web Development
 breadcrumbs: Web Development
 lead: Our bread and butter is website development. With years of experience in web design, development and technical SEO, we develop and sculpt custom-built, high-performing websites that transforms our clients into market leaders.
+footerRule: true
 gallery:
   - image: images/slider/s-clark.jpg
     alt: S.Clark Website
