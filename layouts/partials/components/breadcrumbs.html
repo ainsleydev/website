@@ -1,7 +1,14 @@
 <!-- =====================
 	Breadcrumbs
+    	partial "components/breadcrumbs.html" (dict
+			"ctx"   	.
+			"margin" 	false
+		)
+    	- ctx: 		The current Hugo context
+    	- margin: 	If margin should be outputted.
 	===================== -->
-<nav class="breadcrumbs" aria-label="breadcrumb">
+<nav class="breadcrumbs {{ if and (isset . "margin") (not .margin) -}} mb-0 {{- end }}"
+	aria-label="breadcrumb">
 	<ul class="breadcrumbs-list"
 		itemscope itemtype="https://schema.org/BreadcrumbList">
 		<!-- Home -->
@@ -37,7 +44,7 @@
 
 		{{ $index := 2 }} <!-- Start index at 2 since Home is 1 -->
 		<!-- Ancestor Breadcrumbs -->
-		{{ range .Ancestors.Reverse }}
+		{{ range .ctx.Ancestors.Reverse }}
 			{{ if not (eq .RelPermalink "/") }}
 				{{ partial "partials/breadcrumbs-item.html" (dict
 					"title" (partial "partials/breadcrumbs-title.html" .)
@@ -50,8 +57,8 @@
 		{{ end }}
 		<!-- Current Page Breadcrumb -->
 		{{ partial "partials/breadcrumbs-item.html" (dict
-			"title" (partial "partials/breadcrumbs-title.html" $)
-			"link" .RelPermalink
+			"title" (partial "partials/breadcrumbs-title.html" .ctx)
+			"link" .ctx.RelPermalink
 			"index" $index
 			"current" true
 		)}}

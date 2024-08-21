@@ -117,10 +117,15 @@
 		flex-direction: column;
 		justify-content: flex-end;
 		align-items: flex-start;
+		aspect-ratio: 330 / 420;
 		background-color: $grey-light;
-		min-height: 500px;
 		padding: $margin;
 		margin-right: $gap-width;
+
+		#{$self}-title {
+			display: flex;
+			align-items: flex-end;
+		}
 
 		#{$self}-title,
 		#{$self}-number {
@@ -130,6 +135,7 @@
 
 		#{$self}-number {
 			margin-bottom: 0.6rem;
+			color: $copy-dark-bg;
 		}
 	}
 
@@ -143,6 +149,10 @@
 			height: $line-size-medium;
 			background-color: $white;
 			margin-bottom: 18px;
+		}
+
+		&:last-child::after {
+			width: calc(100% - #{$gap-width});
 		}
 
 		&-text {

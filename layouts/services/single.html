@@ -6,37 +6,36 @@
 		<div class="container">
 			<div class="row" data-scroll data-scroll-speed="0">
 				<div class="col-12 col-tab-10 col-desk-8 col-desk-large-6 offset-desk-3">
-					<!-- Breadcrumbs -->
-                    <div class="margin">
-						{{ partial "components/breadcrumbs.html" . }}
-					</div>
-					<!-- Title -->
-					<div class="animate-line-heading">
-                        {{ with .Params.heading -}}
-							<h1>
-                                {{ . | safeHTML }}
-							</h1>
-                        {{- else -}}
-                            {{ warnf "No heading param provided to page: %s" .RelPermalink }}
-                        {{- end }}
-					</div><!-- /Title -->
-					<!-- Lead -->
-					<div class="margin-large lead animate-text">
-						<p class="lead mb-0">
-                            {{ with .Params.lead -}}
-                                {{ . | safeHTML }}
-                            {{- else -}}
-                                {{ warnf "No lead param provided to page: %s" .RelPermalink }}
-                            {{- end }}
-						</p>
-					</div><!-- /Lead -->
-					{{ partial "components/button.html" (dict
-						"colour" "white"
-						"link" "#why"
-						"text" "Explore"
-						"title" "Scroll down to explore"
-						"arrow" true
-					)}}
+					<!-- Hero Animation -->
+					<div class="hero-animate margin-large">
+						<!-- Breadcrumbs -->
+						{{ partial "components/breadcrumbs.html" (dict "ctx" .) }}
+						<!-- Content -->
+                       <div class="margin">
+						   {{ with .Params.heading -}}
+							   <h1>
+								   {{ . | safeHTML }}
+							   </h1>
+						   {{- else -}}
+							   {{ warnf "No heading param provided to page: %s" .RelPermalink }}
+						   {{- end }}
+						   <!-- Lead -->
+						   <p class="lead lead-max-width text-animate-lead">
+							   {{ with .Params.lead -}}
+								   {{ . | safeHTML }}
+							   {{- else -}}
+								   {{ warnf "No lead param provided to page: %s" .RelPermalink }}
+							   {{- end }}
+						   </p>
+					   </div>
+						{{ partial "components/button.html" (dict
+							"colour" "white"
+							"link" "#why"
+							"text" "Explore"
+							"title" "Scroll down to explore"
+							"arrow" true
+						)}}
+					</div><!-- /Hero Animation -->
 				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- Container -->
@@ -88,10 +87,8 @@
 		===================== -->
 	{{ with .Params.sections -}}
         {{ range $index, $section := . }}
-			{{ $isLast :=  eq (add $index 1) (len $.Params.sections) -}}
             {{- $isLeft := eq (mod $index 2) 0 -}}
-			<section class="section image-split-section mb-desk-0
-				{{ if $isLast -}} section-padding section-padding-bottom {{- end }}" data-scroll-section>
+			<section class="section image-split-section mb-desk-0" data-scroll-section>
 				<!-- Media -->
 				{{ if or .image .video }}
 					<div class="image-split {{ if $isLeft -}} image-split-right {{ else }} image-split-left {{- end }}">
@@ -135,58 +132,65 @@
 		Workflow
 		===================== -->
 	{{ with .Params.workflow }}
-{{/*		<section class="section" data-scroll-section>*/}}
-{{/*			<!-- Content -->*/}}
-{{/*			<div class="container">*/}}
-{{/*				<div class="row" data-container-set>*/}}
-{{/*					<div class="col-12 col-desk-5">*/}}
-{{/*						<div class="margin-large">*/}}
-{{/*							<!-- Title -->*/}}
-{{/*                            {{ with .title }}*/}}
-{{/*								<h2>{{ . }}</h2>*/}}
-{{/*                            {{- end }}*/}}
-{{/*							<!-- Content -->*/}}
-{{/*                            {{ with .content }}*/}}
-{{/*								<p>{{ . }}</p>*/}}
-{{/*                            {{- end }}*/}}
-{{/*						</div>*/}}
-{{/*					</div>*/}}
-{{/*				</div>*/}}
-{{/*			</div>*/}}
-{{/*			<!-- Glider -->*/}}
-{{/*			<div class="glider-container">*/}}
-{{/*				<div class="glider">*/}}
-{{/*					{{ range $index, $workflow := .items -}}*/}}
-{{/*						<div class="card-line">*/}}
-{{/*							<div class="card card-background">*/}}
-{{/*								<!-- Number -->*/}}
-{{/*								<h4 class="card-number type-serif">*/}}
-{{/*									0{{ $index | cast.ToInt | add 1 }}*/}}
-{{/*								</h4>*/}}
-{{/*								<!-- Text -->*/}}
-{{/*								{{ with .text }}*/}}
-{{/*									<h4 class="card-title">*/}}
-{{/*										{{ . }}*/}}
-{{/*									</h4>*/}}
-{{/*								{{- end }}*/}}
-{{/*							</div>*/}}
-{{/*							<!-- Group -->*/}}
-{{/*							{{ with .group }}*/}}
-{{/*								<h4 class="card-line-text">*/}}
-{{/*									{{ . }}*/}}
-{{/*								</h4>*/}}
-{{/*							{{- end }}*/}}
-{{/*						</div>*/}}
-{{/*					{{- end }}*/}}
-{{/*				</div><!-- /Row -->*/}}
-{{/*			</div><!-- Container -->*/}}
-{{/*		</section>*/}}
+		<section class="section" data-scroll-section>
+			<!-- Content -->
+			<div class="container">
+				<div class="row" data-container-set>
+					<div class="col-12 col-desk-5">
+						<div class="margin-large">
+							<!-- Title -->
+                            {{ with .title }}
+								<h2>{{ . }}</h2>
+                            {{- end }}
+							<!-- Content -->
+                            {{ with .content }}
+								<p>{{ . }}</p>
+                            {{- end }}
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Glider -->
+			<div class="container glider-container">
+				{{ if .items -}}
+					<div class="glider">
+					{{ $items := .items }}
+					{{ $length := len .items -}}
+					{{ range $index, $workflow := .items -}}
+						<div class="glider-item card-line">
+							<div class="card card-background">
+								<!-- Number -->
+								<h4 class="card-number type-serif">
+									0{{ $index | cast.ToInt | add 1 }}
+								</h4>
+								<!-- Text -->
+								{{ with .text }}
+									<h4 class="card-title">
+										{{ . }}
+									</h4>
+								{{- end }}
+							</div>
+							<!-- Group -->
+							{{ with .group }}
+								{{ $previous := index $items (sub $index 1) }}
+								{{ if (ne $previous.group .)  }}
+									<h4 class="card-line-text">
+										{{ . }}
+									</h4>
+								{{- end }}
+							{{- end }}
+						</div>
+					{{- end }}
+				</div><!-- /Row -->
+				{{- end }}
+			</div><!-- Container -->
+		</section>
     {{- end }}
 	<!-- =====================
 		FAQs
 		===================== -->
 	{{ with .Params.faqs }}
-		<section class="section section-padding section-padding-top" data-scroll-section>
+		<section class="section section-padding" data-scroll-section>
 			<div class="container">
 				<div class="row">
 					<!-- Heading -->
@@ -210,22 +214,19 @@
 		</section>
 	{{- end }}
 	<!-- =====================
-		Rule
+		Quote
 		===================== -->
-	<section class="section section-padding section-padding-small d-none d-desk-block">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<hr class="rule rule-divider rule-divider-align-right"
-						data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">
-				</div><!-- /Col -->
-			</div><!-- /Row -->
-		</div><!-- /Container -->
-	</section><!-- /Row -->
+	{{ with .Params.quote -}}
+		{{ partial "sections/quote.html" (dict
+			"text" .text
+			"cite" .person
+			"class" "bg-grey-light"
+		)}}
+	{{- end }}
 	<!-- =====================
 		Content
 		===================== -->
-	<section class="section section-padding section-padding-bottom" data-scroll-section>
+	<section class="section section-padding section-padding-top" data-scroll-section>
 		<div class="container">
 			<div class="row">
 				<!-- Heading -->
@@ -246,15 +247,14 @@
 		</div><!-- /Container -->
 	</section>
 	<!-- =====================
-		Quote
+		Rule
 		===================== -->
-    {{ with .Params.quote -}}
-        {{ partial "sections/quote.html" (dict
-        	"text" .text
-			"cite" .person
-       	 	"class" "bg-grey-light"
-        )}}
-    {{- end }}
+	<section class="section section-padding section-padding-top d-none d-desk-block">
+		<div class="container">
+			<hr class="rule rule-divider rule-divider-align-right"
+				data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">
+		</div><!-- /Container -->
+	</section>
 	<!-- =====================
 		Featured Projects
 		===================== -->
@@ -329,16 +329,12 @@
 	<!-- =====================
 		Rule
 		===================== -->
-	<section class="section section-padding section-padding-small d-none d-desk-block">
+	<section class="section section-padding section-padding-top d-none d-desk-block">
 		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<hr class="rule rule-divider rule-divider-align-right"
-						data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">
-				</div><!-- /Col -->
-			</div><!-- /Row -->
+			<hr class="rule rule-divider rule-divider-align-right"
+				data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">
 		</div><!-- /Container -->
-	</section><!-- /Row -->
+	</section>
 	<!-- =====================
 		Featured Insights
 		===================== -->
@@ -403,7 +399,7 @@
 		</section>
     {{- end }}
 	<!-- =====================
-		Other Services bg-grey-light
+		Other Services
 		===================== -->
     {{ .Render "related" }}
 	<!-- =====================
@@ -430,7 +426,6 @@
 		{{ partial "sections/form.html" (dict
 			"dark" true
 			"class" "animate-up"
-			"largePadding" true
 		)}}
 	</section>
 {{ end }}

@@ -7,7 +7,7 @@
 	$self: &;
 	position: relative;
 	overflow: clip;
-	margin-bottom: 8px;
+	margin-bottom: 1rem;
 
 	// Props
 	// =========================================================================
@@ -62,6 +62,8 @@
 	// =========================================================================
 
 	@include media-tab {
+		margin-bottom: 1.4rem;
+
 		&-item {
 			padding: 0;
 		}

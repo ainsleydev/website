@@ -3,10 +3,11 @@ title: Content Title - TODO
 description: Content Description - TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
 slug: content
 draft: false
-weight: 1
+weight: 6
 heading: Content
 breadcrumbs: Content
 lead: We offer a wide range of services, from UI/UX design to website development. Specialising in software development and API integration, we deliver expertly designed solutions to any digital obstacle.
+footerRule: true
 why:
   - title: Bespoke
     content: We’re artists at heart, and it shows. Your new website will be hand-crafted to create one-of-a-kind websites that break industry stereotypes

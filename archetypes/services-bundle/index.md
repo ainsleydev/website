@@ -9,6 +9,7 @@ scripts:
 heading:
 breadcrumbs:
 lead:
+footerRule: true
 gallery:
   - image: images/slider/image.svg
     alt: TODO

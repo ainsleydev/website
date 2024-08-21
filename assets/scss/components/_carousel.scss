@@ -10,9 +10,16 @@
 	width: calc(#{$carousel-item-width} * var(--no-of-slides) * 2);
 	margin: clamp(60px, 10vw, 160px) 0;
 	padding-bottom: $margin;
-	overflow: hidden;
 	counter-reset: slideNo;
 	transform: rotate(-2deg);
+
+	// Container
+	// =========================================================================
+
+	&-container {
+		width: 100%;
+		overflow-x: clip;
+	}
 
 	// Item
 	// =========================================================================

@@ -24,8 +24,6 @@
 	// =========================================================================
 
 	@include media-desk-down {
-		padding-bottom: 0;
-
 		&-aside-item:not(:last-child) {
 			margin-bottom: $margin;
 		}

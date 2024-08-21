@@ -9,6 +9,7 @@ scripts:
 heading: Web Design
 breadcrumbs: Web Design
 lead: Let us bring your vision to life with captivating bespoke designs for your website. We craft industry-leading web designs to optimise user experience and boost your conversions.
+footerRule: true
 gallery:
   - image: images/slider/decs-pets.jpg
     alt: Dec's Pets Mobile Screens

@@ -150,3 +150,25 @@ body {
 		margin-top: 0;
 	}
 }
+
+// Glider
+// =========================================================================
+
+.glider {
+	flex-wrap: wrap;
+	margin-bottom: -$margin-large;
+
+	&-item {
+		width: 20%;
+		margin-bottom: $margin-large;
+	}
+
+	&-container {
+		max-width: $container-max-width !important;
+		padding: 0 $container-padding-x !important;
+
+		@media (min-width: $container-max-width + 100) {
+			padding: 0 !important;
+		}
+	}
+}
