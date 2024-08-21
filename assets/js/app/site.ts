@@ -106,6 +106,9 @@ class App {
 		// Prevent the page from refreshing if it's the same URL.
 		this.preventInternalLinks();
 
+		// Add scrollTo for internal links.
+		this.scrollInternalLinks();
+
 		// Functions
 		beforeAfter();
 		bookmark();
@@ -269,6 +272,31 @@ class App {
 		});
 	}
 
+	private scrollInternalLinks(): void {
+		if (!this.hasSmoothScroll()) {
+			return;
+		}
+
+		const links = document.querySelectorAll<HTMLAnchorElement>('a[href*="#"]');
+		links.forEach((link) => {
+			const href = link.getAttribute('href');
+
+			// Ensure the href contains a hash and it's not just '#'
+			if (href && href.startsWith('#') && href.length > 1) {
+				const targetElement = document.querySelector(href);
+				if (!targetElement) {
+					return;
+				}
+				link.addEventListener('click', (e) => {
+					e.preventDefault();
+					Scroll.instance.scrollTo(targetElement, {
+						offset: -80,
+					});
+				});
+			}
+		});
+	}
+
 	/**
 	 * Finds all scripts within the next container and
 	 * appends them to ensure JS is loaded after
@@ -284,6 +312,7 @@ class App {
 				return;
 			}
 			const script = document.createElement('script');
+			console.log(script);
 			script.src = item.src;
 			container.appendChild(script);
 		});

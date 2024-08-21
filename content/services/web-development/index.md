@@ -3,7 +3,7 @@ title: Industry leading website development in Kent Sussex & London
 description: Enhance your brand's online presence with an industry-leading website development tailored towards your business' unique needs.
 slug: web-development
 draft: false
-weight: 5
+weight: 3
 scripts:
     - js/pages/services-single.ts
 heading: Web Development
@@ -48,8 +48,8 @@ sections:
     title: Our websites perform better
     content: From the very first line of code that's written, we keep SEO, usability and page speed at the for-front of our builds. This results in lightning fast platforms that eliminate the frustration of slow page load times for your users.
 workflow:
-  title:
-  content:
+  title: Web development workflow
+  content: These are the stages of a typical web development timeline, from the initial questionnaire to the delivery of your new website.
   items:
     - text: Questionnaire
       group: Planning

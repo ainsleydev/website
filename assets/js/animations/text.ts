@@ -187,6 +187,26 @@ const hero = (): Playable => {
 				duration: 1500,
 			},
 			'-=900',
+		)
+		.add(
+			{
+				targets: wrapper.querySelector('.btn'),
+				translateY: [50, 0],
+				translateZ: 0,
+				easing: 'easeOutExpo',
+				opacity: [0, 1],
+				duration: 1500,
+			},
+			'-=1500',
+		)
+		.add(
+			{
+				targets: wrapper.querySelector('.breadcrumbs'),
+				easing: 'linear',
+				opacity: [0, 1],
+				duration: 1000,
+			},
+			'-=1500',
 		);
 
 	const arrow = document.querySelector('.hero .arrow-hover');

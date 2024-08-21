@@ -6,35 +6,36 @@
 		<div class="container">
 			<div class="row" data-scroll data-scroll-speed="0">
 				<div class="col-12 col-tab-10 col-desk-8 col-desk-large-6 offset-desk-3">
-					<!-- Breadcrumbs -->
-					{{ partial "components/breadcrumbs.html" (dict "ctx" .) }}
-					<!-- Title -->
-					<div class="animate-line-heading">
-                        {{ with .Params.heading -}}
-							<h1>
-                                {{ . | safeHTML }}
-							</h1>
-                        {{- else -}}
-                            {{ warnf "No heading param provided to page: %s" .RelPermalink }}
-                        {{- end }}
-					</div><!-- /Title -->
-					<!-- Lead -->
-					<div class="margin-large lead animate-text">
-						<p class="lead mb-0">
-                            {{ with .Params.lead -}}
-                                {{ . | safeHTML }}
-                            {{- else -}}
-                                {{ warnf "No lead param provided to page: %s" .RelPermalink }}
-                            {{- end }}
-						</p>
-					</div><!-- /Lead -->
-					{{ partial "components/button.html" (dict
-						"colour" "white"
-						"link" "#why"
-						"text" "Explore"
-						"title" "Scroll down to explore"
-						"arrow" true
-					)}}
+					<!-- Hero Animation -->
+					<div class="hero-animate margin">
+						<!-- Breadcrumbs -->
+						{{ partial "components/breadcrumbs.html" (dict "ctx" .) }}
+						<!-- Content -->
+                       <div class="margin">
+						   {{ with .Params.heading -}}
+							   <h1>
+								   {{ . | safeHTML }}
+							   </h1>
+						   {{- else -}}
+							   {{ warnf "No heading param provided to page: %s" .RelPermalink }}
+						   {{- end }}
+						   <!-- Lead -->
+						   <p class="lead lead-max-width text-animate-lead">
+							   {{ with .Params.lead -}}
+								   {{ . | safeHTML }}
+							   {{- else -}}
+								   {{ warnf "No lead param provided to page: %s" .RelPermalink }}
+							   {{- end }}
+						   </p>
+					   </div>
+						{{ partial "components/button.html" (dict
+							"colour" "white"
+							"link" "#why"
+							"text" "Explore"
+							"title" "Scroll down to explore"
+							"arrow" true
+						)}}
+					</div><!-- /Hero Animation -->
 				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- Container -->
@@ -151,7 +152,8 @@
 			</div>
 			<!-- Glider -->
 			<div class="container glider-container">
-				<div class="glider">
+				{{ if .items -}}
+					<div class="glider">
 					{{ $items := .items }}
 					{{ $length := len .items -}}
 					{{ range $index, $workflow := .items -}}
@@ -180,6 +182,7 @@
 						</div>
 					{{- end }}
 				</div><!-- /Row -->
+				{{- end }}
 			</div><!-- Container -->
 		</section>
     {{- end }}

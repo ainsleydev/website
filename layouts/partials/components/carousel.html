@@ -13,7 +13,7 @@
     	- images: 		Key, value pair of images and alt text.
     ===================== -->
 {{ define "partials/carousel-item.html" -}}
-	<div data-scroll data-scrol-speed="{{ mul .index 1 }}">
+	<div class="carousel-item-container" data-scroll data-scrol-speed="{{ mul .index 1 }}">
 		<div class="carousel-item">
             {{ partial "media/picture.html" (dict
 				"image" (.ctx.Resources.GetMatch .item.image)
