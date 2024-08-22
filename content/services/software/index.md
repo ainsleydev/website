@@ -13,34 +13,49 @@ footerRule: true
 gallery:
   - image: images/slider/golang.svg
     alt: GoLang Logo
+    link: https://go.dev
   - image: images/slider/nextjs.svg
     alt: NextJS Logo
+    link: https://nextjs.org
   - image: images/slider/laravel.svg
     alt: Laravel Logo
+    link: https://laravel.com
   - image: images/slider/digital-ocean.svg
     alt: Digital Ocean Logo
+    link: https://www.digitalocean.com
   - image: images/slider/postgres.svg
     alt: Postgres Logo
+    link: https://www.postgresql.org
   - image: images/slider/google-cloud.svg
     alt: Google Cloud Logo
+    link: https://cloud.google.com
   - image: images/slider/node.svg
     alt: Node Logo
+    link: https://nodejs.org
   - image: images/slider/mongodb.svg
     alt: MongoDB Logo
+    link: https://www.mongodb.com
   - image: images/slider/typescript.svg
     alt: Typescript Logo
+    link: https://www.typescriptlang.org
   - image: images/slider/vue.svg
     alt: Vue Logo
+    link: https://vuejs.org
   - image: images/slider/mysql.svg
     alt: MySQL Logo
+    link: https://www.mysql.com
   - image: images/slider/php.svg
     alt: PHP Logo
+    link: https://www.php.net
   - image: images/slider/vercel.svg
     alt: Vercel Logo
+    link: https://vercel.com
   - image: images/slider/sveltekit.svg
     alt: SvelteKit Logo
+    link: https://kit.svelte.dev
   - image: images/slider/javascript.svg
     alt: JavaScript Logo
+    link: https://www.javascript.com
 why:
   - title: Bespoke
     content: We can build anything for anyone. Whether you need a large scale, enterprise CRM solution or a simple API integration, we can help.

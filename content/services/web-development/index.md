@@ -13,20 +13,28 @@ footerRule: true
 gallery:
   - image: images/slider/s-clark.jpg
     alt: S.Clark Website
+    link: https://sclark.uk
   - image: images/slider/2easy.jpg
     alt: 2Easy Competitions Website
+    link: https://2easycompetitions.com
   - image: images/slider/decs-pets.jpg
     alt: Dec's Pets Website
+    link: https://decspets.ie
   - image: images/slider/edr-dental.jpg
     alt: EDR Dental Website
+    link: https://edrdental.co.uk
   - image: images/slider/elite-roofing.jpg
     alt: Elite Roofing Website
+    link: https://edrdental.co.uk
   - image: images/slider/oaktuition.jpg
     alt: Oak Tuition Website
+    link: https://oaktuition.ainsleyclark.xyz
   - image: images/slider/royal-beauty.jpg
     alt: Royal Beauty Website
+    link: https://katherinebodycare.co.uk
   - image: images/slider/thinkopedia.jpg
     alt: Thinkopedia Website
+    link: https://thinkopedia.ainsleyclark.xyz
   - image: images/slider/voice-search.jpg
     alt: Voice Search Website
 why:

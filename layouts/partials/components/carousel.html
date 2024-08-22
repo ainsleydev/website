@@ -14,14 +14,23 @@
     ===================== -->
 {{ define "partials/carousel-item.html" -}}
 	<div class="carousel-item-container" data-scroll data-scrol-speed="{{ mul .index 1 }}">
-		<div class="carousel-item">
+		{{ $isLink := (isset .item "link") -}}
+		{{ if $isLink -}}
+			<a class="carousel-item" href="{{ .item.link }}" target="_blank">
+		{{- else }}
+			<div class="carousel-item">
+		{{- end }}
             {{ partial "media/picture.html" (dict
 				"image" (.ctx.Resources.GetMatch .item.image)
 				"alt" .item.alt
 				"lazy" false
 				"class" "carousel-image"
             )}}
-		</div>
+		{{ if $isLink -}}
+			</a>
+		{{- else }}
+			</div>
+		{{- end }}
 	</div>
 {{- end }}
 {{ with .images }}
@@ -44,17 +53,17 @@
 			<!-- Original -->
 			{{ range $index, $item := . }}
 				{{ partial "partials/carousel-item.html" (dict
-				"ctx" $.ctx
-				"item" $item
-				"index" $index
+					"ctx" $.ctx
+					"item" $item
+					"index" $index
 				)}}
 			{{- end }}
 			<!-- Repeat -->
 			{{ range $index, $item := . }}
 				{{ partial "partials/carousel-item.html" (dict
-				"ctx" $.ctx
-				"item" $item
-				"index" $index
+					"ctx" $.ctx
+					"item" $item
+					"index" $index
 				)}}
 			{{- end }}
 		</div>

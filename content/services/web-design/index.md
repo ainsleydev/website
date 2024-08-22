@@ -13,16 +13,22 @@ footerRule: true
 gallery:
   - image: images/slider/decs-pets.jpg
     alt: Dec's Pets Mobile Screens
+    link: https://decspets.ie
   - image: images/slider/edr-dental.jpg
     alt: EDR Dental Apple Devices
+    link: https://edrdental.co.uk
   - image: images/slider/elite-roofing.jpg
     alt: Elite Roofing on Apple Mac Screen
+    link: https://eliters.uk/
   - image: images/slider/oak-tuition.jpg
     alt: Oak Tuition Mobile Screens
+    link: https://oaktuition.ainsleyclark.xyz
   - image: images/slider/royal-beauty.jpg
     alt: Royal Beauty Mobile Screens
+    link: https://katherinebodycare.co.uk
   - image: images/slider/thinkopedia.jpg
     alt: Thinkopedia
+    link: https://thinkopedia.ainsleyclark.xyz
 why:
   - title: Bespoke
     content: Keeping your unique vision at the forefront, we create completely bespoke designs by perfectly aligning with your brand identity and goals.
