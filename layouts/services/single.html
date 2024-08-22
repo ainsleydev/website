@@ -109,7 +109,7 @@
 						{{ else if .video }}
 							{{ partial "media/video.html" (dict
 								"video" ($.Resources.GetMatch .video)
-								"lazy" false
+								"lazy" true
 								"attr" "autoplay loop muted"
 							)}}
 						{{- end }}
