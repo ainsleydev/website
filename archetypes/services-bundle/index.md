@@ -13,12 +13,16 @@ footerRule: true
 gallery:
   - image: images/slider/image.svg
     alt: TODO
+    link:
   - image: images/slider/image.svg
     alt: TODO
+    link:
   - image: images/slider/image.svg
     alt: TODO
+    link:
   - image: images/slider/image.svg
     alt: TODO
+    link:
 why:
   - title:
     content:
