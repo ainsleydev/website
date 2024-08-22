@@ -1,30 +1,90 @@
 ---
-title: Content Title - TODO
-description: Content Description - TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+title: Content Writing & Copywriting Services in Kent, Sussex & London
+description: Elevate your brands tone  of voice with compelling narratives that drive conversions with professional content writing and proofreading services.
 slug: content
 draft: false
-weight: 6
+weight: 5
+scripts:
+  - js/pages/services-single.ts
 heading: Content
 breadcrumbs: Content
-lead: We offer a wide range of services, from UI/UX design to website development. Specialising in software development and API integration, we deliver expertly designed solutions to any digital obstacle.
+lead:
 footerRule: true
+gallery:
+  - image: images/slider/elite-roofing.jpg
+    alt: Elite Roofing Website
+    link: https://eliters.uk
+  - image: images/slider/s-clark.jpg
+    alt: S.Clark Website
+    link: https://sclark.uk
+  - image: images/slider/decs-pets.jpg
+    alt: A Guide To Training Your Cat Blog Post
+    link: https://decspets.ie/insights/a-guide-to-training-your-cat/
+  - image: images/slider/2easy.jpg
+    alt: 2Easy Competitions Website
+    link: https://2easycompetitions.com
+  - image: images/slider/adev.jpg
+    alt: Enhancing user experience (UX) in custom website design Blog Post
+    link: /insights/enhancing-ux/
 why:
-  - title: Bespoke
-    content: We’re artists at heart, and it shows. Your new website will be hand-crafted to create one-of-a-kind websites that break industry stereotypes
-  - title: Seamless
-    content: Our designers combine creativity with a deep understanding of user needs to deliver meaningful and relevant digital experiences.
-  - title: Thoughtful
-    content: Well draw on insights from discovery workshops to make informed decisions on the user journeys, content hierarchy and sitemap.
-  - title: Impactful
-    content: Your website’s the centrepiece of your visual identity. We make every click count through creative design and UX that converts.
+  - title:
+    content:
+  - title:
+    content:
+  - title:
+    content:
+  - title:
+    content:
+sections:
+  - image: images/sections/s-clark-mobile.jpg
+    title:
+    content:
+  - image: images/sections/strap-desktop.jpg
+    title:
+    content:
+  - image: images/sections/ipad-payload.jpg
+    title:
+    content:
 workflow:
-  title: Kick off meeting with stakeholders
-  content: TODO
+  title:
+  content:
+  items:
+    - text: TODO
+      group: TODO
+    - text: TODO
+      group: TODO
+    - text: TODO
+      group: TODO
+    - text: TODO
+      group: TODO
+    - text: TODO
+      group: TODO
+    - text: TODO
+      group: TODO
+    - text: TODO
+      group: TODO
+    - text: TODO
+      group: TODO
+faqs:
+  - question: TODO
+    answer: TODO
+  - question: TODO
+    answer: TODO
+  - question: TODO
+    answer: TODO
+  - question: TODO
+    answer: TODO
+  - question: TODO
+    answer: TODO
+  - question: TODO
+    answer: TODO
+  - question: TODO
+    answer: TODO
 quote:
-  person: Declan O’Keffee, Digital Director
-  text: I have had the pleasure of working closely with ainsley.dev on the development of my new website. They have such a huge array of skills, not just in web development but across business and e-commerce as a whole. They helped us create a beautiful and modern website, and gave us ideas and initiatives for the future. It was a pleasure working with them.
+  person:
+  text:
 featuredProjects:
-  - decs-pets
+  - project-slug
 featuredInsights:
-  - ai-generated-content
+  - insights-slug
 ---
