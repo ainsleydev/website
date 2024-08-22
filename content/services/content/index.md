@@ -39,7 +39,7 @@ sections:
   - image: images/sections/s-clark-mobile.jpg
     title:
     content:
-  - image: images/sections/strap-desktop.jpg
+  - image: images/sections/strapi-desktop.jpg
     title:
     content:
   - image: images/sections/ipad-payload.jpg
