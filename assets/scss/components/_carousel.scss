@@ -19,6 +19,7 @@
 	&-container {
 		width: 100%;
 		overflow-x: clip;
+		transition: all 0.2s;
 	}
 
 	// Item
@@ -43,6 +44,28 @@
 		width: 100%;
 		height: auto;
 		transform: scale(1.01);
+		transition: transform 200ms ease-in-out;
+	}
+
+	// Links (Hover)
+	// =========================================================================
+
+	@include media-desk {
+		&-has-links:hover {
+			#{$self}-item {
+				animation-play-state: paused;
+			}
+
+			#{$self}-image {
+				transition: transform 0.2s ease;
+				transform: scale(0.9);
+			}
+
+			#{$self}-item:hover #{$self}-image {
+				transform: scale(1.1);
+				animation-play-state: paused;
+			}
+		}
 	}
 
 	// Tablet

@@ -8,15 +8,17 @@
 					"alt" "Alt text"
 				)
 			)
+			"hasLinks" true
     	)
     	- ctx: 			The context of the page.
-    	- images: 		Key, value pair of images and alt text.
+    	- images: 		Key, value a pair of images and alt text.
+    	- hasLinks:		If the carousel images has links attached to them.
     ===================== -->
 {{ define "partials/carousel-item.html" -}}
 	<div class="carousel-item-container" data-scroll data-scrol-speed="{{ mul .index 1 }}">
 		{{ $isLink := (isset .item "link") -}}
 		{{ if $isLink -}}
-			<a class="carousel-item" href="{{ .item.link }}" target="_blank">
+			<a class="carousel-item carousel-item-link" href="{{ .item.link }}" target="_blank">
 		{{- else }}
 			<div class="carousel-item">
 		{{- end }}
@@ -36,7 +38,8 @@
 {{ with .images }}
 	{{ $length := len . }}
 	<div class="carousel-container">
-		<div class="carousel" data-carousel-length="{{ $length }}">
+		<div class="carousel {{ if $.hasLinks -}} carousel-has-links {{- end }}"
+			data-carousel-length="{{ $length }}">
 			<style>
 				@keyframes scroll {
 					0% {
