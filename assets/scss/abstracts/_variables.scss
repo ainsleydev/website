@@ -95,6 +95,7 @@ $section-padding-large: clamp(120px, 30vw, 240px);
 $margin: 1.8rem;
 $margin-tiny: 0.6rem;
 $margin-small: 1rem;
+$margin-medium: 1.4rem;
 $margin-large: 3rem;
 $margin-title: clamp(50px, 10vw, 100px);
 $spacing-properties: (
@@ -141,6 +142,7 @@ $accordion-arrow-size: 1.3rem;
 // ==========================================================================
 
 $arrow-size: clamp(50px, 5vw, 66px);
+$arrow-size-small: clamp(44px, 5vw, 50px);
 
 // A Symbol
 // ==========================================================================

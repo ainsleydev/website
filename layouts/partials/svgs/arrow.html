@@ -3,10 +3,12 @@
     	partial "svgs/arrow.html" (dict
     		"rotation" 45
     		"colour" "white"
+    		"size"
     		"stroke" 2
     	)
     	- rotation:	The degree of rotation of the arrow
     	- colour: 	The colour of the arrow, defaults to foreground.
+    	- size: 	The size of the arrow, can be left default or small.
     	- stroke: 	The amount of border width to apply to the button.
     	- class: 	Any CSS classes to add to the arrow.
     ===================== -->
@@ -15,7 +17,8 @@
 	 	width="65"
 	 	viewBox="0 0 65 65"
 	 	class="arrow
-		{{ with .class -}} {{ . }} {{- end }}"
+		{{ with .class -}} {{ . }} {{- end }}
+		{{ with .size -}} arrow-size-{{ . }} {{- end }}"
 		{{ with .rotation -}} style='--arrow-rotation: {{ . }}deg;' {{- end }}>
 	<path d="M49.462,1V35.055H45.679V7.451L6.651,46.4,3.976,43.726,43,4.78H15.321V1Z"
 		  transform="translate(-3.516 34.27) rotate(-45)"

@@ -9,6 +9,10 @@ scripts:
 heading: CMS Development
 breadcrumbs: CMS Development
 lead: Stand out online with our CMS development services for all businesses, from startups to SMEs to large enterprises. Create rich media and content pieces effortlessly, without the need for any coding skills.
+tags:
+  - Headless
+  - E-Commerce
+  - API Integrations
 footerRule: true
 gallery:
   - image: images/slider/payload.svg

@@ -49,7 +49,7 @@ export class Animations {
 	 */
 	play(): void {
 		this.playables.forEach((play) => {
-			if (play) {
+			if (play && typeof play === 'function') {
 				play();
 			}
 		});

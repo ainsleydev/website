@@ -1,6 +1,6 @@
 <!-- =====================
     Logos
-		< logos >
+		partial "components/logos.html"
     ===================== -->
 {{ $pages := (where .Site.RegularPages "Type" "portfolio").ByParam "logoWeight" -}}
 {{ with $pages -}}

@@ -9,6 +9,10 @@ scripts:
 heading: Branding
 breadcrumbs: Branding
 lead: We are a leading digital agency providing bespoke branding services to elevate your online presence. Specializing in unique and memorable visuals, we create branding that captures your tone of voice and resonates with your customers.
+tags:
+  - Logos
+  - Illustration
+  - Packaging
 footerRule: true
 gallery:
   - image: images/slider/2easy.svg

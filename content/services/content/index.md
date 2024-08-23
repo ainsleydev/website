@@ -9,6 +9,10 @@ scripts:
 heading: Content
 breadcrumbs: Content
 lead:
+tags:
+  - TODO
+  - TODO
+  - TODO
 footerRule: true
 gallery:
   - image: images/slider/elite-roofing.jpg
