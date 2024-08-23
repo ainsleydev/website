@@ -9,18 +9,27 @@ scripts:
 heading: CMS Development
 breadcrumbs: CMS Development
 lead: Stand out online with our CMS development services for all businesses, from startups to SMEs to large enterprises. Create rich media and content pieces effortlessly, without the need for any coding skills.
+tags:
+  - Headless
+  - E-Commerce
+  - API Integrations
 footerRule: true
 gallery:
   - image: images/slider/payload.svg
     alt: Payload CMS Logo
+    link: https://payloadcms.com
   - image: images/slider/strapi.svg
     alt: Strapi CMS Logo
+    link: https://strapi.io
   - image: images/slider/wordpress.svg
     alt: WordPress Logo
+    link: https://wordpress.com
   - image: images/slider/woocommerce.svg
     alt: WooCommerce Logo
+    link: https://woocommerce.com
   - image: images/slider/stripe.svg
     alt: Stripe Logo
+    link: https://stripe.com
 why:
   - title: Bespoke
     content: Content management systems should be as unique as your business. We build platforms that are completely tailored towards your specific needs.

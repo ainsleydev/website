@@ -10,23 +10,35 @@ heading: Web Development
 breadcrumbs: Web Development
 lead: Our bread and butter is website development. With years of experience in web design, development and technical SEO, we develop and sculpt custom-built, high-performing websites that transforms our clients into market leaders.
 footerRule: true
+tags:
+  - SEO
+  - Performant
+  - Responsive
 gallery:
   - image: images/slider/s-clark.jpg
     alt: S.Clark Website
+    link: https://sclark.uk
   - image: images/slider/2easy.jpg
     alt: 2Easy Competitions Website
+    link: https://2easycompetitions.com
   - image: images/slider/decs-pets.jpg
     alt: Dec's Pets Website
+    link: https://decspets.ie
   - image: images/slider/edr-dental.jpg
     alt: EDR Dental Website
+    link: https://edrdental.co.uk
   - image: images/slider/elite-roofing.jpg
     alt: Elite Roofing Website
+    link: https://edrdental.co.uk
   - image: images/slider/oaktuition.jpg
     alt: Oak Tuition Website
+    link: https://oaktuition.ainsleyclark.xyz
   - image: images/slider/royal-beauty.jpg
     alt: Royal Beauty Website
+    link: https://katherinebodycare.co.uk
   - image: images/slider/thinkopedia.jpg
     alt: Thinkopedia Website
+    link: https://thinkopedia.ainsleyclark.xyz
   - image: images/slider/voice-search.jpg
     alt: Voice Search Website
 why:

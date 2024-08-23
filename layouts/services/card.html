@@ -1,0 +1,68 @@
+<!-- =====================
+    Services Card
+    ===================== -->
+<a href="{{ .RelPermalink }}"
+   class="card card-basic card-feature skew"
+   title="Visit the {{ .Title }} page"
+   aria-label="Navigate to the {{ .Title }} page"
+   data-skew-transform-x="0.15" data-skew-transform-y="0.15"
+   data-skew-rotate-x="-0.1" data-skew-rotate-y="-0.1"
+   data-skew-rotate>
+	<div class="row no-gaps justify-content-desk-between align-items-desk-end">
+		<!-- Image -->
+		<div class="col-12">
+			<picture class="margin-large card-feature-image">
+				{{ partial "media/image.html" (dict
+					"image" (.Resources.GetMatch "images/featured.*")
+					"alt" (printf "%s Image" .Params.title))
+				}}
+			</picture>
+		</div>
+		<!-- Content -->
+		<div class="col-12 col-desk-6">
+			<!-- Number -->
+			<h3 class="card-feature-number type-serif">
+				0{{ .Weight }}*
+			</h3>
+			<!-- Title -->
+			<div class="card-feature-title">
+				<hr class="d-none d-desk-block rule card-feature-rule"
+					data-scroll data-scroll-speed="-0.4" data-scroll-direction="horizontal" />
+				{{ with .Params.heading -}}
+					<h2 class="card-text-title">
+						{{ . }}
+					</h2>
+				{{- else -}}
+					{{ warnf "No heading param provided to page: %s" .RelPermalink }}
+				{{- end }}
+			</div>
+			<!-- Tags -->
+			<div class="card-tags">
+				{{ range .Params.tags -}}
+					{{ partial "components/tag.html" (dict
+						"text" .
+						"colour" "grey"
+						"class" "card-tags-item tag-margin-top"
+					)}}
+				{{- end }}
+			</div>
+		</div><!-- /Col -->
+		<!-- Description -->
+		<div class="col-12 col-desk-4 margin mb-desk-0">
+			{{ with .Params.description -}}
+				<p class="card-feature-description lead">
+					{{ . }}
+				</p>
+			{{- end }}
+		</div><!-- /Col -->
+		<div class="col-12 col-desk-1">
+			<div class="card-feature-arrow">
+				{{ partial "svgs/arrow.html" (dict
+					"rotation" 45
+					"colour" "white"
+					"size" "small"
+				)}}
+			</div>
+		</div>
+	</div><!-- /Row -->
+</a><!-- /Card -->

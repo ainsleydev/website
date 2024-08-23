@@ -8,9 +8,13 @@
 
 import Glider from 'glider-js';
 import { Log } from '../util/log';
-import anime from 'animejs';
 import { IsTouchDevice } from '../util/css';
 
+/**
+ * Inits Glider.JS
+ *
+ * See: https://nickpiscitelli.github.io/Glider.js/
+ */
 const initGlider = () => {
 	new Glider(document.querySelector('.glider'), {
 		slidesToShow: 1.6,
@@ -92,16 +96,3 @@ if (!IsTouchDevice()) {
 		});
 	});
 }
-
-// Define the animation
-anime({
-	targets: document.querySelectorAll('.carousel-item-container'),
-	// Initial state: skew from left to right and off-screen
-	translateY: [300, 0], // Start off-screen from bottom
-	opacity: [0, 1], // Start off-screen from bottom
-	easing: 'easeOutQuad',
-	duration: 500, // Duration of the animation
-	delay: anime.stagger(100), // Stagger animation start
-	loop: false, // Loop the animation
-	autoplay: true, // Start the animation immediately
-});

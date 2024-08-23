@@ -9,20 +9,30 @@ scripts:
 heading: Branding
 breadcrumbs: Branding
 lead: We are a leading digital agency providing bespoke branding services to elevate your online presence. Specializing in unique and memorable visuals, we create branding that captures your tone of voice and resonates with your customers.
+tags:
+  - Logos
+  - Illustration
+  - Packaging
 footerRule: true
 gallery:
   - image: images/slider/2easy.svg
     alt: 2Easy Competitions
+    link: https://2easycompetitions.com
   - image: images/slider/decs-pets.svg
     alt: Dec's Pets
+    link: https://decspets.ie
   - image: images/slider/edr-dental.svg
     alt: EDR Dental
+    link: https://edrdental.co.uk
   - image: images/slider/oak-tuition.svg
     alt: Oak Tuition
+    link: https://oaktuition.ainsleyclark.xyz
   - image: images/slider/scotts-guttering.svg
     alt: Scott's Guttering
+    link: https://scottsguttering.ainsleyclark.xyz
   - image: images/slider/thinkopedia.svg
     alt: Thinkopedia
+    link: https://thinkopedia.ainsleyclark.xyz
 why:
   - title: Discovery
     content: By getting to know your business from the ground up, we form a powerful visual identity that represents your core values.
