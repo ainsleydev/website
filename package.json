@@ -13,6 +13,7 @@
 		"build:test": "npm run hugo:clean && hugo --environment production --minify && npm run image && go run main.go",
 		"hugo:clean": "rm -rf public",
 		"image": "./bin/image-optim.sh",
+		"video": "./bin/video-optim.sh",
 		"clean": "prettier --write ./assets/**/*.{ts,scss,js}",
 		"lint": "npm run lint:scss && npm run lint:js",
 		"lint:scss": "npx stylelint '**/*.scss'",
