@@ -5,9 +5,12 @@ slug: web-development
 draft: false
 weight: 3
 scripts:
-    - js/pages/services-single.ts
+  - js/pages/services-single.ts
+sitemap:
+  priority: 0.9
 heading: Web Development
 breadcrumbs: Web Development
+buttonName: Web Dev
 lead: Our bread and butter is website development. With years of experience in web design, development and technical SEO, we develop and sculpt custom-built, high-performing websites that transforms our clients into market leaders.
 footerRule: true
 tags:

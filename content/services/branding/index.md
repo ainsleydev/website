@@ -5,9 +5,12 @@ slug: branding
 draft: false
 weight: 1
 scripts:
-    - js/pages/services-single.ts
+  - js/pages/services-single.ts
+sitemap:
+  priority: 0.9
 heading: Branding
 breadcrumbs: Branding
+buttonName: Branding
 lead: We are a leading digital agency providing bespoke branding services to elevate your online presence. Specializing in unique and memorable visuals, we create branding that captures your tone of voice and resonates with your customers.
 tags:
   - Logos

@@ -184,6 +184,7 @@ class App {
 		this.barba.hooks.beforeEnter((data: ITransitionData) => {
 			Scroll.destroy();
 			this.reloadJS(data.next.container);
+			this.setTheme(data.next.container);
 			if (!this.hasSmoothScroll()) {
 				// Prevent reflow when changing page.
 				setTimeout(() => {
@@ -276,6 +277,20 @@ class App {
 		});
 	}
 
+	/**
+	 * Sets the current theme on the window.
+	 *
+	 * @param container
+	 * @private
+	 */
+	private setTheme(container?: HTMLElement): void {
+		let el = Elements.Main;
+		if (!container) {
+			el = container;
+		}
+		window.theme = el.getAttribute('data-theme');
+	}
+
 	private scrollInternalLinks(): void {
 		if (!this.hasSmoothScroll()) {
 			return;
@@ -316,7 +331,6 @@ class App {
 				return;
 			}
 			const script = document.createElement('script');
-			console.log(script);
 			script.src = item.src;
 			container.appendChild(script);
 		});
