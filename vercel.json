@@ -18,6 +18,11 @@
 			"memory": 256
 		}
 	},
+	"build": {
+		"env": {
+			"CGO_ENABLED": "0"
+		}
+	},
 	"headers": [
 		{
 			"source": "/(.*)",
@@ -64,6 +69,11 @@
 		{
 			"source": "/portfolio/decspets/",
 			"destination": "/portfolio/decs-pets/",
+			"permanent": true
+		},
+		{
+			"source": "/insights/enhance-website-navigation-menus-for-seo/",
+			"destination": "/insights/seo-nav-menus",
 			"permanent": true
 		},
 		{

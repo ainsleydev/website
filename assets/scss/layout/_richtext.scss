@@ -62,7 +62,8 @@
 	// ==========================================================================
 
 	.image,
-	.codepen {
+	.codepen,
+	.video-container {
 		+ h1,
 		+ h2,
 		+ h3,
@@ -73,9 +74,14 @@
 		}
 	}
 
-	// Images
+	// Images & Video
 	// ==========================================================================
 
+	p + .video-container {
+		margin-top: $margin;
+	}
+
+	.video,
 	.image {
 		margin-text-outline: $margin;
 		/* stylelint-disable-line no-descending-specificity */
@@ -114,5 +120,14 @@
 		h3 {
 			@include h4;
 		}
+	}
+}
+
+// Theme White
+// =========================================================================
+
+.theme-black .richtext {
+	a:not(.btn) {
+		color: $white;
 	}
 }

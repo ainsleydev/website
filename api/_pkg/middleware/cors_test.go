@@ -9,10 +9,11 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/ainsleydev/website/api/_pkg/environment"
 	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"github.com/ainsleydev/website/api/_pkg/environment"
 )
 
 func TestCORS(t *testing.T) {
@@ -24,7 +25,7 @@ func TestCORS(t *testing.T) {
 	rec := httptest.NewRecorder()
 	ctx := e.NewContext(req, rec)
 	req.Header.Set(echo.HeaderOrigin, cfg.URL)
-	h := CORS(&cfg)(func(ctx echo.Context) error {
+	h := CORS(&cfg)(func(_ echo.Context) error {
 		return nil
 	})
 	err := h(ctx)

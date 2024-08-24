@@ -18,6 +18,24 @@ servers:
         description: Staging Environment
 paths:
     # Note, you must add the trailing slash.
+    "/ping/":
+        "get":
+            description: Checks the connectivity or health of the API.
+            operationId: Ping
+            responses:
+                200:
+                    description: OK - API is operational
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: PONG
+                default:
+                    description: Unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/HTTPError'
     "/forms/contact/":
         "post":
             description: Posts a new form submission from to contact page.

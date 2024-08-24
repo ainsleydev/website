@@ -159,7 +159,15 @@ This Agreement shall be invoiced on a time and materials basis as outlined in th
 and invoice every 30 days if a re-occurring payment which will detail all hours and additional costs that the Client is
 responsible for.
 
-**A 50% deposit is required before any work is commenced.**
+**A non-refundable 50% deposit is required before any work is commenced.**
+
+### Termination
+
+In the event that the Client chooses to terminate the project, the deposit will be considered 
+non-refundable, regardless of whether work has commenced or if the a contract has been signed.
+This policy is in place to secure the Client's commitment and  compensate for the reservation of time and resources 
+allocated to the project. By making the deposit, the Client acknowledges and agrees that this payment is forfeited 
+if the project is terminated by the Client at any stage.
 
 ### Severability
 

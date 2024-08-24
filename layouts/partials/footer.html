@@ -3,6 +3,10 @@
     ===================== -->
 <footer class="footer" data-scroll-section>
 	<div class="container">
+		<!-- Rule -->
+		{{ if .Params.footerRule -}}
+			<hr class="rule rule-opaque rule-thin m-0" />
+		{{- end }}
 		<!-- Main -->
 		<div class="row footer-main {{ if .Params.footerNoPadding -}} pt-0 {{- end }}">
 			<!-- Symbol -->
@@ -16,7 +20,7 @@
 			<div class="col-12 col-desk-6 footer-main-col">
 				<!-- Heading -->
 				<span class="heading-2 footer-heading">
-					Digital craftmanship<br class="d-mob-none"/>&nbsp;sculpting<br class="d-none d-mob-inline"/>&nbsp;you as an<br class="d-mob-none"/>&nbsp;industry leader.
+					Digital craftmanship<br class="d-mob-none"/><span class="d-none d-mob-inline">&nbsp;</span>sculpting<br class="d-none d-mob-inline"/>&nbsp;you as an<br class="d-mob-none"/><span class="d-none d-mob-inline">&nbsp;</span>industry leader.
 				</span><!-- /Heading -->
 				<!-- Contact -->
 				<div class="footer-contact">

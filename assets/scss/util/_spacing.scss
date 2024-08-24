@@ -26,6 +26,10 @@
 		margin-bottom: $margin-small;
 	}
 
+	&-medium {
+		margin-bottom: $margin-medium;
+	}
+
 	&-large {
 		margin-bottom: $margin-large;
 	}
@@ -43,6 +47,10 @@
 
 		#{$self}-small {
 			margin-top: $margin-small;
+		}
+
+		#{$self}-medium {
+			margin-top: $margin-medium;
 		}
 
 		#{$self}-large {

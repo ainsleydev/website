@@ -1,0 +1,78 @@
+// -----------------------------------------------------------------------------
+// _carousel.scss
+// This file contains all styles related to the carousel component.
+// -----------------------------------------------------------------------------
+
+.carousel {
+	$self: &;
+	position: relative;
+	display: flex;
+	width: calc(#{$carousel-item-width} * var(--no-of-slides) * 2);
+	margin: clamp(60px, 10vw, 160px) 0;
+	padding-bottom: $margin;
+	counter-reset: slideNo;
+	transform: rotate(-2deg);
+
+	// Container
+	// =========================================================================
+
+	&-container {
+		width: 100%;
+		overflow-x: clip;
+		transition: all 0.2s;
+	}
+
+	// Item
+	// =========================================================================
+
+	&-item {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		padding-left: 1.6rem;
+		width: $carousel-item-width;
+		transition: all 100ms ease;
+		transform: translateZ(0);
+		will-change: transform;
+	}
+
+	// Image
+	// =========================================================================
+
+	&-image {
+		width: 100%;
+		height: auto;
+		transform: scale(1.01);
+		transition: transform 200ms ease-in-out;
+	}
+
+	// Links (Hover)
+	// =========================================================================
+
+	@include media-desk {
+		&-has-links:hover {
+			#{$self}-item {
+				animation-play-state: paused;
+			}
+
+			#{$self}-image {
+				transition: transform 0.2s ease;
+				transform: scale(0.9);
+			}
+
+			#{$self}-item:hover #{$self}-image {
+				transform: scale(1.1);
+				animation-play-state: paused;
+			}
+		}
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-tab {
+		margin: clamp(60px, 20vh, 160px) 0;
+		padding-bottom: 0;
+	}
+}

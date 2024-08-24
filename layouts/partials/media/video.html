@@ -23,8 +23,8 @@
 				playsinline
                 {{ with .poster }} poster="{{ .RelPermalink }}" {{ end }}
                 {{ with .attr -}}
-					{{ $attr := "" }}
-					{{ if $.lazy -}} {{- $attr = replaceRE "autoplay" "" . -}} {{- end}}
+					{{ $attr := . }}
+					{{ if $.lazy -}} {{- $attr = replaceRE "autoplay" "" . -}} {{- end }}
 					{{ $attr | safeHTMLAttr -}}
 				{{- end }}
                 {{ if .lazy -}} data-lazy preload="none" {{- end }}>
@@ -48,7 +48,7 @@
 					type="video/mp4"/>
 		</video>
 		<!-- Play Button -->
-        {{ if and (not .lazy) (.not .autoplay) (not .loop) -}}
+        {{ if and (eq .lazy false) (eq .autoplay false) (eq .loop false) -}}
 			<div class="video-button cursor-element"
 				 data-cursor-invert data-cursor-invert-white>
 			</div>

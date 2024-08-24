@@ -41,6 +41,7 @@ export class Animations {
 		this.playables.push(...line());
 		this.playables.push(...up());
 		this.playables.push(...fade());
+		this.playables.push(carousel());
 	}
 
 	/**
@@ -48,7 +49,7 @@ export class Animations {
 	 */
 	play(): void {
 		this.playables.forEach((play) => {
-			if (play) {
+			if (play && typeof play === 'function') {
 				play();
 			}
 		});
@@ -132,7 +133,7 @@ const hero = (): Playable => {
 		return;
 	}
 	addSpace(heading);
-	const text = new SplitType(heading as HTMLElement, { types: 'chars, words' });
+	const text = new SplitType(heading as HTMLElement, { types: 'chars,words' });
 	addUnderline(heading);
 	addMark(text.chars);
 
@@ -180,13 +181,29 @@ const hero = (): Playable => {
 		.add(
 			{
 				targets: wrapper.querySelector('.lead'),
-				translateY: [50, 0],
-				translateZ: 0,
-				easing: 'easeOutExpo',
+				easing: 'easeOutQuad',
 				opacity: [0, 1],
 				duration: 1500,
 			},
-			'-=900',
+			900,
+		)
+		.add(
+			{
+				targets: wrapper.querySelector('.btn'),
+				easing: 'easeOutQuad',
+				opacity: [0, 1],
+				duration: 1000,
+			},
+			900,
+		)
+		.add(
+			{
+				targets: wrapper.querySelector('.breadcrumbs'),
+				easing: 'easeOutQuad',
+				opacity: [0, 1],
+				duration: 1000,
+			},
+			900,
 		);
 
 	const arrow = document.querySelector('.hero .arrow-hover');
@@ -348,4 +365,55 @@ const fade = (): Playable[] => {
 		});
 	});
 	return playables;
+};
+
+/**
+ * Carousel animation (Services Page)
+ */
+const carousel = (): Playable => {
+	const items = document.querySelectorAll('.carousel-item-container');
+	if (!items.length) {
+		return <() => void>{};
+	}
+
+	const timeline = anime.timeline({
+		autoplay: true,
+	});
+
+	// Mobile (don't do the whole bouncy thing)
+	if (window.innerWidth < 1024) {
+		timeline.add({
+			targets: items,
+			opacity: [0, 1],
+			easing: 'easeInQuad',
+			duration: 1000,
+			delay: anime.stagger(100),
+		});
+		return timeline.play;
+	}
+
+	// Desktop
+	timeline
+		.add(
+			{
+				targets: items,
+				translateY: [250, 0],
+				easing: 'easeOutElastic',
+				duration: 2500,
+				delay: anime.stagger(120),
+			},
+			0,
+		)
+		.add(
+			{
+				targets: items,
+				opacity: [0, 1],
+				easing: 'easeInQuad',
+				duration: 1000,
+				delay: anime.stagger(100),
+			},
+			100,
+		);
+
+	return timeline.play;
 };

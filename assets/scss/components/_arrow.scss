@@ -59,6 +59,16 @@
 			margin-right: -10px;
 		}
 	}
+
+	// Sizes
+	// =========================================================================
+
+	&-size {
+		&-small {
+			width: $arrow-size-small;
+			height: $arrow-size-small;
+		}
+	}
 }
 
 // With JS (Prevents Hover)

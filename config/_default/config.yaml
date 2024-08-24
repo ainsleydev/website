@@ -4,9 +4,9 @@ baseURL: "http://localhost:3000"
 build:
     noJSConfigInAssets: false
     writeStats: true
-disableKinds: [ "taxonomy", "taxonomyTerm" ]
-ignoreErrors: [ "error-disable-taxonomy" ]
-taxonomies:
+disableKinds: []
+ignoreErrors: []
+taxonomies: []
 #    author: ""
 copyright: "ainsley.dev LTD is a registered company in England and Wales. Company Number 12478393. ©2022 ainsley.dev LTD. All rights reserved®."
 disableHugoGeneratorInject: true

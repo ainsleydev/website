@@ -13,7 +13,10 @@
 					<header class="insight-intro">
 						<!-- Crumbs -->
 						<div class="insight-intro-crumbs">
-                            {{ partial "components/breadcrumbs.html" . }}
+                            {{ partial "components/breadcrumbs.html" (dict
+								"ctx" .
+								"margin" false
+							)}}
 						</div>
 						<!-- Tags -->
 						{{ with .Params.tags }}
@@ -58,6 +61,6 @@
 	<!-- =====================
 		Other Reads
 		===================== -->
-	{{ .Render "related"}}
+	{{ .Render "related" }}
 {{ end }}
 

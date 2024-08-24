@@ -95,6 +95,7 @@ $section-padding-large: clamp(120px, 30vw, 240px);
 $margin: 1.8rem;
 $margin-tiny: 0.6rem;
 $margin-small: 1rem;
+$margin-medium: 1.4rem;
 $margin-large: 3rem;
 $margin-title: clamp(50px, 10vw, 100px);
 $spacing-properties: (
@@ -110,6 +111,10 @@ $header-padding-x-desk: 30px;
 $header-logo-size: 115px;
 $header-background-opacity: 0.6;
 $header-z-index: 99999;
+
+.header {
+	// Etc
+}
 
 // Nav
 // =========================================================================
@@ -137,6 +142,7 @@ $accordion-arrow-size: 1.3rem;
 // ==========================================================================
 
 $arrow-size: clamp(50px, 5vw, 66px);
+$arrow-size-small: clamp(44px, 5vw, 50px);
 
 // A Symbol
 // ==========================================================================
@@ -178,6 +184,12 @@ $card-margin-bottom: 3.75rem;
 $card-vertical-padding-top: 145%;
 $card-horizontal-padding-top: 65%;
 
+// Carousel
+// ==========================================================================
+
+$carousel-padding: 0 0 100px;
+$carousel-item-width: clamp(320px, 80vw, 570px);
+
 // Code
 // ==========================================================================
 
@@ -190,6 +202,7 @@ $code-padding: 0.2em 0.4em;
 
 $line-margin: $margin;
 $line-size: 2px;
+$line-size-thin: 1px;
 $line-size-medium: 3px;
 $line-size-thick: 4px;
 
@@ -242,7 +255,7 @@ $social-icon-height-mob: 20px;
 	--colour-copy-light: #{$copy-light-bg};
 	--colour-off-white: #{$off-white};
 	--colour-paragraph: #{$copy-dark-bg};
-	--colour-list: #{$white};
+	--colour-list: #{$copy-dark-bg};
 
 	// A Symbol
 	--a-symbol-clip-left: #{$a-symbol-clip-left};

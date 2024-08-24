@@ -12,13 +12,14 @@ import (
 	sdk "github.com/ainsleydev/website/api/_sdk"
 
 	"github.com/ainsleyclark/errors"
-	"github.com/ainsleydev/website/api/_pkg/environment"
-	"github.com/ainsleydev/website/api/_pkg/gateway/mail"
-	"github.com/ainsleydev/website/api/_pkg/gateway/slack"
 	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
+
+	"github.com/ainsleydev/website/api/_pkg/environment"
+	"github.com/ainsleydev/website/api/_pkg/gateway/mail"
+	"github.com/ainsleydev/website/api/_pkg/gateway/slack"
 )
 
 func TestHandler_SendContactForm(t *testing.T) {
@@ -40,7 +41,7 @@ func TestHandler_SendContactForm(t *testing.T) {
 				Honeypot: "bad bot",
 				Message:  "Hello test@hello.com",
 			},
-			mock: func(slack *mocks.Sender, mailer *mocks.Mailer) {
+			mock: func(slack *mocks.Sender, _ *mocks.Mailer) {
 				slack.On("Send", mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 					Return(nil)
 			},
@@ -53,8 +54,10 @@ func TestHandler_SendContactForm(t *testing.T) {
 			mock: func(slack *mocks.Sender, mailer *mocks.Mailer) {
 				slack.On("Send", mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 					Return(errors.New("error"))
+				mailer.On("Send", mock.Anything).
+					Return(mail.Response{}, nil)
 			},
-			want: "Error sending contact form",
+			want: "Sent successfully",
 		},
 		"Mail Failure": {
 			payload: sdk.ContactFormRequest{

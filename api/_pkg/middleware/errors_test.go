@@ -14,10 +14,11 @@ import (
 	sdk "github.com/ainsleydev/website/api/_sdk"
 
 	"github.com/ainsleyclark/errors"
-	"github.com/ainsleydev/website/api/_pkg/logger"
 	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"github.com/ainsleydev/website/api/_pkg/logger"
 )
 
 func TestErrorHandler(t *testing.T) {
@@ -53,7 +54,7 @@ func TestErrorHandler(t *testing.T) {
 			req := httptest.NewRequest(http.MethodPost, "/", nil)
 			rec := httptest.NewRecorder()
 			ctx := e.NewContext(req, rec)
-			e.POST("/", func(c echo.Context) error {
+			e.POST("/", func(_ echo.Context) error {
 				return test.input
 			})
 			ErrorHandler(test.input, ctx)
@@ -71,7 +72,7 @@ func TestErrorHandler(t *testing.T) {
 		defer func() {
 			errorGetter = orig
 		}()
-		errorGetter = func(err error) any {
+		errorGetter = func(_ error) any {
 			return make(chan int)
 		}
 		e := echo.New()

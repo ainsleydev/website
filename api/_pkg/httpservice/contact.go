@@ -12,11 +12,12 @@ import (
 	sdk "github.com/ainsleydev/website/api/_sdk"
 
 	"github.com/ainsleyclark/errors"
+	"github.com/labstack/echo/v4"
+
 	"github.com/ainsleydev/website/api/_pkg/gateway/mail"
 	"github.com/ainsleydev/website/api/_pkg/gateway/slack"
 	"github.com/ainsleydev/website/api/_pkg/logger"
 	"github.com/ainsleydev/website/api/_pkg/stringutil"
-	"github.com/labstack/echo/v4"
 )
 
 // ContactSubmission is the contact form data used
@@ -93,7 +94,7 @@ func (h Handler) SendContactForm(ctx echo.Context) error {
 		submission.Fields(),
 	)
 	if err != nil {
-		return errors.NewInvalid(err, "Error sending contact form", op)
+		logger.WithError(errors.NewInvalid(err, "Error sending contact form", op)).Error()
 	}
 
 	// Then send an email.
