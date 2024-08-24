@@ -41,18 +41,23 @@ export const cardFeatureAnimation = (): void => {
 					lastX = e.clientX;
 					lastY = e.clientY;
 
+					console.log(isFirstMove);
+
+					// Instantly set image to the target position on the first move
 					if (isFirstMove) {
-						// Instantly set image to the target position on the first move
+						image.style.transition = 'opacity 0.3s ease, transform 300ms linear';
 						image.style.transform = `translate(${targetX}px, ${targetY}px) rotate(0deg)`;
 						image.style.opacity = '1';
 						currentX = targetX;
+						atus;
 						currentY = targetY;
 						isFirstMove = false;
-					} else {
-						// Start animating towards the target position
-						if (!animationFrameId) {
-							animateImage();
-						}
+						return;
+					}
+
+					// Start animating towards the target position
+					if (!animationFrameId) {
+						animateImage();
 					}
 				};
 
