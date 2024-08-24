@@ -18,6 +18,7 @@ declare global {
 	interface Window {
 		plausible: (args: string, p?: { u: string }) => unknown;
 		barba: Core;
+		theme: string;
 	}
 
 	/**

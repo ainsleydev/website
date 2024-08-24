@@ -13,7 +13,6 @@ $home-show-reel-height: 300vh;
 	$self: &;
 
 	// Hero
-	//
 	// =========================================================================
 
 	&-hero {
@@ -144,18 +143,6 @@ $home-show-reel-height: 300vh;
 		left: 0;
 		z-index: 10;
 		pointer-events: none;
-	}
-
-	// Awwwards
-	// =========================================================================
-
-	#awwwards {
-		display: flex;
-		position: fixed;
-		top: 50%;
-		right: 0;
-		z-index: 999;
-		transform: scale(0.9) translate(6px, -50%);
 	}
 
 	// Tablet
