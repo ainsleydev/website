@@ -98,7 +98,7 @@ const animateImage = (image: HTMLElement, state: ImageAnimationState): void => {
 export const cardFeatureAnimation = (): void => {
 	if (window.innerWidth < 1024) return;
 
-	const cards = document.querySelectorAll('.card-feature');
+	const cards = document.querySelectorAll<HTMLElement>('.card-feature');
 
 	cards.forEach((card) => {
 		const image = card.querySelector('.card-feature-image') as HTMLElement;
