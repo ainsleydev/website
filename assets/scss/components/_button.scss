@@ -91,7 +91,7 @@ a.btn {
 	&-colour {
 		&-white {
 			background-color: $white;
-			color: $black;
+			color: $black !important;
 
 			svg path {
 				/* stylelint-disable-line no-descending-specificity */
@@ -112,6 +112,10 @@ a.btn {
 					stroke: $white;
 					fill: $white;
 				}
+			}
+
+			&::after {
+				border-color: $black !important;
 			}
 		}
 

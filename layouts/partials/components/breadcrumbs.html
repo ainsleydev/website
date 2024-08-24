@@ -1,51 +1,66 @@
 <!-- =====================
 	Breadcrumbs
+    	partial "components/breadcrumbs.html" (dict
+			"ctx"   	.
+			"margin" 	false
+		)
+    	- ctx: 		The current Hugo context
+    	- margin: 	If margin should be outputted.
 	===================== -->
-<nav class="breadcrumbs" aria-label="breadcrumb">
+<nav class="breadcrumbs {{ if and (isset . "margin") (not .margin) -}} mb-0 {{- end }}"
+	aria-label="breadcrumb">
 	<ul class="breadcrumbs-list"
 		itemscope itemtype="https://schema.org/BreadcrumbList">
 		<!-- Home -->
-		<li class="breadcrumbs-item"
-			itemprop="itemListElement" itemscope
-			itemtype="https://schema.org/ListItem">
+		<li class="breadcrumbs-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
 			<!-- Link -->
 			<a class="breadcrumbs-link" href="/" itemprop="item">
-				<span itemprop="name">
-					Home
-				</span>
+                <span itemprop="name">
+                    Home
+                </span>
 				<meta itemprop="position" content="1" />
 			</a><!-- /Link -->
 		</li>
-		<!-- Path -->
-        {{ define "partials/breadcrumbs-item.html" -}}
-			<li class="breadcrumbs-item {{ if .current }} breadcrumbs-active {{- end }}"
-				itemprop="itemListElement" itemscope
-				itemtype="https://schema.org/ListItem"
-                    {{ if .current }} aria-current="page" {{ end }}>
+		<!-- Breadcrumb Item Partial -->
+		{{ define "partials/breadcrumbs-item.html" -}}
+			<li class="breadcrumbs-item {{ if .current }}breadcrumbs-active{{ end }}"
+				itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"
+				{{ if .current }}aria-current="page"{{ end }}>
 				<!-- Link -->
 				<a class="breadcrumbs-link" href="{{ .link }}" itemprop="item">
-					<span itemprop="name">
-						 {{ .title }}
-					</span>
+					<span itemprop="name">{{ .title }}</span>
 					<meta itemprop="position" content="{{ .index }}" />
 				</a><!-- /Link -->
 			</li><!-- /Item -->
 		{{- end }}
-		{{ $index := 0 }}
-		{{- range .Ancestors.Reverse }}
+		<!-- Title Extraction Partial -->
+		{{ define "partials/breadcrumbs-title.html" -}}
+			{{ $title := .Title }}
+			{{ if isset .Params "breadcrumbs" }}
+				{{ $title = .Params.breadcrumbs }}
+			{{ end }}
+			{{ return $title }}
+		{{- end }}
+
+		{{ $index := 2 }} <!-- Start index at 2 since Home is 1 -->
+		<!-- Ancestor Breadcrumbs -->
+		{{ range .ctx.Ancestors.Reverse }}
 			{{ if not (eq .RelPermalink "/") }}
 				{{ partial "partials/breadcrumbs-item.html" (dict
-					"title" .Title
+					"title" (partial "partials/breadcrumbs-title.html" .)
 					"link" .RelPermalink
 					"index" $index
+					"current" false
 				)}}
+				{{ $index = add $index 1 }}
 			{{ end }}
-			{{ $index = (add $index 1)}}
 		{{ end }}
+		<!-- Current Page Breadcrumb -->
 		{{ partial "partials/breadcrumbs-item.html" (dict
-			"title" .Title
-			"link" .RelPermalink
+			"title" (partial "partials/breadcrumbs-title.html" .ctx)
+			"link" .ctx.RelPermalink
 			"index" $index
+			"current" true
 		)}}
 	</ul>
 </nav>

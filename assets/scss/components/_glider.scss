@@ -1,0 +1,56 @@
+// -----------------------------------------------------------------------------
+// _glider.scss
+// This file contains all styles related to the glider component.
+// -----------------------------------------------------------------------------
+
+.glider {
+	position: relative;
+	display: flex;
+	flex-wrap: nowrap;
+	margin-bottom: $margin;
+
+	// Container
+	// =========================================================================
+
+	&-container {
+		position: relative;
+		max-width: none;
+		width: 100vw;
+		margin: 0;
+		padding: 0;
+
+		::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	// Item
+	// =========================================================================
+
+	&-item {
+		width: 100%;
+	}
+
+	// Track
+	// =========================================================================
+
+	&-track {
+		display: flex;
+	}
+
+	// Item
+	// =========================================================================
+
+	&-slider:last-child {
+		margin-right: $container-padding-x;
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-tab {
+		&-container {
+			padding-left: 0;
+		}
+	}
+}

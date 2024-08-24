@@ -28,6 +28,10 @@ hr,
 	// Sizes
 	// =========================================================================
 
+	&-thin {
+		border-width: $line-size-thin;
+	}
+
 	&-medium {
 		border-width: $line-size-medium;
 	}
@@ -41,5 +45,20 @@ hr,
 
 	&-opaque {
 		opacity: $alpha-standard;
+	}
+
+	// Divider
+	// =========================================================================
+
+	&-divider {
+		width: 20vw;
+		max-width: 300px;
+		margin-top: 0;
+		margin-bottom: 0;
+
+		&-align-right {
+			margin-left: auto;
+			margin-right: 0;
+		}
 	}
 }

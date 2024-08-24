@@ -72,6 +72,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/insights/enhance-website-navigation-menus-for-seo/",
+			"destination": "/insights/seo-nav-menus",
+			"permanent": true
+		},
+		{
 			"source": ",/:path((?!compatible).*)",
 			"has": [
 				{

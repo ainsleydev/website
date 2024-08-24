@@ -4,28 +4,7 @@
     		Content
     	< /accordion/item >
     ===================== -->
-<details class="accordion-item" open>
-	<!-- Title -->
-	<summary class="accordion-header cursor-element"
-		data-cursor-border data-cursor-border-white
-		itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        {{ with .Get "title" -}}
-			<span class="heading-4 accordion-title" itemprop="name">
-				{{ . | safeHTML }}
-			</span>
-		{{- else -}}
-			{{- warnf "No title provided to accordion item" -}}
-		{{- end }}
-	</summary><!-- /Title -->
-	<!-- Content -->
-	<div class="accordion-content"
-		itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-		{{ with .Inner -}}
-			<p class="lead" itemprop="text">
-				{{ . | safeHTML }}
-			</p>
-        {{- else -}}
-            {{- warnf "No content provided to accordion item" -}}
-        {{- end }}
-	</div><!-- /Content -->
-</details><!-- / Item -->
+{{ partial "components/accordion-item.html" (dict
+	"title" (.Get "title")
+	"content" .Inner
+)}}

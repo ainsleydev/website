@@ -1,5 +1,5 @@
 ---
-title: How a digital agency can expand your business reach and increase revenue
+title: How a digital agency can increase your business's revenue
 heading: How a creative digital agency can grow your business
 description: Looking to boost your business' online presence but not sure where to start? Hire a digital agency! Check out what a creative digital agency can do for you.
 slug: creative-agency-growing-your-business

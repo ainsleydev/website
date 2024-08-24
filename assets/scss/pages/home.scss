@@ -149,7 +149,8 @@ $home-show-reel-height: 300vh;
 	// Awwwards
 	// =========================================================================
 
-	#awwwards svg {
+	#awwwards {
+		display: flex;
 		position: fixed;
 		top: 50%;
 		right: 0;
