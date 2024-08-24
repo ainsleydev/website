@@ -12,7 +12,7 @@
 		<!-- Image -->
 		<div class="col-12">
 			<picture class="margin-large card-feature-image">
-				{{ partial "media/image.html" (dict
+				{{ partial "media/picture.html" (dict
 					"image" (.Resources.GetMatch "images/featured.*")
 					"alt" (printf "%s Image" .Params.title))
 					"lazy" true
