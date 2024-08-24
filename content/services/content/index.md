@@ -1,6 +1,6 @@
 ---
 title: Content & Copywriting Services in Kent, Sussex & London
-description: Elevate your brands tone  of voice with compelling narratives that drive conversions with professional content writing and proofreading services.
+description: Elevate your brands tone of voice with compelling narratives that drive conversions with professional content writing and proofreading services.
 slug: content
 draft: false
 weight: 6
@@ -8,7 +8,7 @@ scripts:
   - js/pages/services-single.ts
 heading: Content Writing
 breadcrumbs: Content
-lead: Words aren't just powerful—they're transformative. At ainsley.dev, we strive to create narratives that captivate, convince, and convert. Our SEO-trained content team craft web copy and blog posts that not only strike a cord with your audience, but help your business climb search rankings.
+lead: Words aren't just powerful—they're transformative. We strive to create narratives that captivate, convince and convert. Our team crafts content that not only strike a cord with your audience, but help your business climb search rankings.
 tags:
   - Tone of Voice
   - Copywriting
