@@ -251,9 +251,11 @@
 				margin-bottom: 0;
 			}
 
-			#{$self}-tags,
-			&-number {
-				margin-left: calc(70px + 2.6rem);
+			&-full-width {
+				#{$self}-tags,
+				#{$self}-feature-number {
+					margin-left: calc(70px + 2.6rem);
+				}
 			}
 
 			&-description {
