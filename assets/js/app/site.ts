@@ -36,6 +36,7 @@ import { aside } from '../animations/aside';
 import { homeAnimation } from '../pages/home';
 import { ITransitionData } from '@barba/core';
 import anime from 'animejs/lib/anime.es';
+import { cardFeatureAnimation } from '../animations/card-feature';
 
 /**
  * App is the main type for the site which bootstraps the
@@ -119,6 +120,7 @@ class App {
 		lazyImages();
 		video();
 		aside();
+		cardFeatureAnimation();
 		plausibleQueryParamGoal();
 
 		// Animations

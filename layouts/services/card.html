@@ -15,6 +15,7 @@
 				{{ partial "media/image.html" (dict
 					"image" (.Resources.GetMatch "images/featured.*")
 					"alt" (printf "%s Image" .Params.title))
+					"lazy" true
 				}}
 			</picture>
 		</div>
@@ -29,7 +30,7 @@
 				<hr class="d-none d-desk-block rule card-feature-rule"
 					data-scroll data-scroll-speed="-0.4" data-scroll-direction="horizontal" />
 				{{ with .Params.heading -}}
-					<h2 class="card-text-title">
+					<h2 class="card-feature-title">
 						{{ . }}
 					</h2>
 				{{- else -}}
@@ -56,7 +57,14 @@
 			{{- end }}
 		</div><!-- /Col -->
 		<div class="col-12 col-desk-1">
-			<div class="card-feature-arrow">
+			{{ partial "components/button.html" (dict
+				"text" (printf "Explore %s" .Params.heading)
+				"size" "small"
+				"arrow" false
+				"class" "d-desk-none"
+				"title"  (printf "Explore the %s Page" .Params.heading)
+			)}}
+			<div class="card-feature-arrow d-none d-desk-flex">
 				{{ partial "svgs/arrow.html" (dict
 					"rotation" 45
 					"colour" "white"

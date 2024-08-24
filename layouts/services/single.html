@@ -164,7 +164,7 @@
 							<div class="card card-background">
 								<!-- Number -->
 								<h4 class="card-number type-serif">
-									0{{ $index | cast.ToInt | add 1 }}
+									{{ if lt $index 9 -}}0{{ end }}{{ $index | cast.ToInt | add 1 }}
 								</h4>
 								<!-- Text -->
 								{{ with .text }}

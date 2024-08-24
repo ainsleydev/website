@@ -12,8 +12,8 @@ lead: Our bread and butter is website development. With years of experience in w
 footerRule: true
 tags:
   - SEO
-  - Performant
-  - Responsive
+  - A/B Testing
+  - Responsive Design
 gallery:
   - image: images/slider/s-clark.jpg
     alt: S.Clark Website
