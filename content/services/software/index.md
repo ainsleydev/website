@@ -8,6 +8,7 @@ scripts:
     - js/pages/services-single.ts
 heading: Bespoke Software
 breadcrumbs: Bespoke Software
+buttonName: Software
 lead: We take pride in our expertise in designing cutting-edge custom software solutions tailored to our clients' unique needs. Our team is committed to crafting exceptional bespoke software to help enhance your business' productivity and efficiency.
 tags:
   - Scalable

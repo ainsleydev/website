@@ -8,6 +8,7 @@ scripts:
     - js/pages/services-single.ts
 heading:
 breadcrumbs:
+buttonName:
 lead:
 footerRule: true
 gallery:
