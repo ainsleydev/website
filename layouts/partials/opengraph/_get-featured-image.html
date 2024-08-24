@@ -3,8 +3,13 @@
     ===================== -->
 {{- $baseURL := partial "util/_base-url.html" . -}}
 {{ $image := "/opengraph.jpg" -}}
-{{- if .Page.Resources.Get "images/og.jpg" -}}
+<!-- Pages -->
+{{- if .Page.Resources.GetMatch "images/og.jpg" -}}
 	{{ $image = (.Page.Resources.Get "images/og.jpg").RelPermalink -}}
+<!-- Sections -->
+{{- else if .Resources.GetMatch "og.jpg" -}}
+	{{ $image = (.Resources.Get "og.jpg").RelPermalink -}}
+<!-- Insights -->
 {{- else if and (eq .Section "insights") .IsPage -}}
 	{{- $image = (partial "opengraph/_insights-image.html" .).RelPermalink -}}
 {{- end -}}
