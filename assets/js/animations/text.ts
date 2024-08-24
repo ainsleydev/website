@@ -133,7 +133,7 @@ const hero = (): Playable => {
 		return;
 	}
 	addSpace(heading);
-	const text = new SplitType(heading as HTMLElement, { types: 'chars, words' });
+	const text = new SplitType(heading as HTMLElement, { types: 'chars,words' });
 	addUnderline(heading);
 	addMark(text.chars);
 
@@ -376,10 +376,24 @@ const carousel = (): Playable => {
 		return <() => void>{};
 	}
 
-	const timeline = anime
-		.timeline({
-			autoplay: true,
-		})
+	const timeline = anime.timeline({
+		autoplay: true,
+	});
+
+	// Mobile (don't do the whole bouncy thing)
+	if (window.innerWidth < 1024) {
+		timeline.add({
+			targets: items,
+			opacity: [0, 1],
+			easing: 'easeInQuad',
+			duration: 1000,
+			delay: anime.stagger(100),
+		});
+		return timeline.play;
+	}
+
+	// Desktop
+	timeline
 		.add(
 			{
 				targets: items,

@@ -196,6 +196,15 @@
 		&-title {
 			display: flex;
 			align-items: center;
+			margin-top: 0;
+		}
+
+		&-number {
+			margin-bottom: 2px;
+		}
+
+		&-title {
+			margin-bottom: 0;
 		}
 
 		#{$self}-tags {
@@ -222,12 +231,22 @@
 			justify-content: flex-end;
 
 			&-image {
-				display: none;
+				display: block;
 				position: absolute;
+				top: 0;
+				left: 0;
+				width: 30%;
+				border-radius: 6px;
+				z-index: -1;
 				opacity: 0;
+				pointer-events: none;
+				transition: opacity 0.3s ease, transform 100ms linear;
+				will-change: transform, opacity;
+				-webkit-transform-style: preserve-3d;
 			}
 
 			#{$self}-tags {
+				margin-top: $margin;
 				margin-bottom: 0;
 			}
 

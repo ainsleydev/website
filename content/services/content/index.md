@@ -1,18 +1,18 @@
 ---
-title: Content Writing & Copywriting Services in Kent, Sussex & London
+title: Content & Copywriting Services in Kent, Sussex & London
 description: Elevate your brands tone  of voice with compelling narratives that drive conversions with professional content writing and proofreading services.
 slug: content
 draft: false
-weight: 5
+weight: 6
 scripts:
   - js/pages/services-single.ts
 heading: Content
 breadcrumbs: Content
 lead:
 tags:
-  - TODO
-  - TODO
-  - TODO
+  - Tone of Voice
+  - Copywriting
+  - Marketing Support
 footerRule: true
 gallery:
   - image: images/slider/elite-roofing.jpg
