@@ -2,7 +2,7 @@
 	<!-- =====================
 		Services Single
 		===================== -->
-	<section class="section section-padding section-padding-top" data-scroll-section>
+	<section class="section service-hero" data-scroll-section>
 		<div class="container">
 			<div class="row" data-scroll data-scroll-speed="0">
 				<div class="col-12 col-tab-10 col-desk-8 col-desk-large-6 offset-desk-3">
@@ -20,7 +20,7 @@
 							   {{ warnf "No heading param provided to page: %s" .RelPermalink }}
 						   {{- end }}
 						   <!-- Lead -->
-						   <p class="lead lead-max-width text-animate-lead">
+						   <p class="lead text-animate-lead">
 							   {{ with .Params.lead -}}
 								   {{ . | safeHTML }}
 							   {{- else -}}

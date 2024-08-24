@@ -120,56 +120,36 @@
         {{ partial "components/video-controls.html" . }}
 	</div>
 	<!-- =====================
-		Solutions
+		Services
 		===================== -->
-	<section class="section section-padding section-padding-top home-first-section">
-		<div class="container">
-			<div class="row justify-content-between">
-				<!-- Heading -->
-				<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
-                    {{ partial "type/vertical.html" (dict
-						"text" "Solutions"
-						"number" "01"
-						"line" true
-						"fill" false
-                    )}}
-				</div><!-- /Col -->
-				<!-- Content -->
-				<div class="col-12 col-mob-9 col-desk-7 col-hd-6">
-					<!-- Visibility -->
-					<div class="animate-up margin-large" data-animate-no-touch>
-						<h3>
-							Increase your visibility
-						</h3>
-						<p class="lead">
-							Every application made by ainsley.dev is curated to launch your business into the digital world
-							by sculpting your online presence and increasing your visibility.
-						</p>
-					</div>
-					<!-- Solutions -->
-					<div class="animate-up margin-large" data-animate-no-touch>
-						<h3>
-							Discover bespoke solutions
-						</h3>
-						<p class="lead">
-							We take the time to get to know you and the challenges you face with your existing strategies,
-							and create bespoke products by treating your business as if it were our own.
-						</p>
-					</div>
-					<!-- Simplicity -->
-					<div class="animate-up margin-large margin-none" data-animate-no-touch>
-						<h3>
-							Driven by simplicity
-						</h3>
-						<p class="lead mb-0">
-							We are driven by simplicity and the shared goal of producing visionary designs, coupled with
-							world-class in-house software, APIs, designs and websites.
-						</p>
-					</div>
-				</div><!--- /Col -->
-			</div><!-- /Row -->
-		</div><!-- /Container -->
-	</section>
+	{{- $services :=  (where .Site.RegularPages "Type" "services").ByWeight | first 8 -}}
+	{{ with $services }}
+		<section class="section section-padding section-padding-top home-first-section">
+			<div class="container">
+				<div class="row justify-content-between">
+					<!-- Heading -->
+					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
+						{{ partial "type/vertical.html" (dict
+							"text" "Services"
+							"number" "01"
+							"line" true
+							"fill" false
+						)}}
+					</div><!-- /Col -->
+					<!-- Pages -->
+					<div class="col-12 col-mob-9">
+						{{ range $services -}}
+							{{ partial "components/featured-card.html" (dict
+								"service" .
+								"fullWidth" false
+								"numbers" false
+							)}}
+						{{- end }}
+					</div><!-- /Col -->
+				</div><!-- /Row -->
+			</div><!-- /Container -->
+		</section>
+	{{- end }}
 	<!-- =====================
 		About
 		===================== -->
@@ -217,70 +197,52 @@
 		</div><!-- /Container -->
 	</section>
 	<!-- =====================
-		Services
-		===================== -->
+Solutions
+===================== -->
 	<section class="section section-padding section-padding-top">
 		<div class="container">
 			<div class="row justify-content-between">
 				<!-- Heading -->
 				<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
-                    {{ partial "type/vertical.html" (dict
-						"text" "Services"
+					{{ partial "type/vertical.html" (dict
+						"text" "Solutions"
 						"number" "03"
 						"line" true
 						"fill" false
-                    )}}
+					)}}
 				</div><!-- /Col -->
 				<!-- Content -->
 				<div class="col-12 col-mob-9 col-desk-7 col-hd-6">
-					<div class="row no-gaps margin-large">
-						<div class="col-12 col-desk-6">
-							<h3 class="type-heading animate-up"
-								data-animate-no-touch>
-								Brand strategy
-							</h3>
-							<h3 class="type-heading animate-up"
-								data-animate-delay="100" data-animate-no-touch>
-								Digital experience
-							</h3>
-							<h3 class="type-heading animate-up"
-								data-animate-delay="200" data-animate-no-touch>
-								Bespoke UI/UX
-							</h3>
-							<h3 class="type-heading animate-up mb-desk-0"
-								data-animate-delay="300" data-animate-no-touch>
-								Development
-							</h3>
-						</div><!--- /Col -->
-						<div class="col-12 col-desk-6">
-							<h3 class="type-heading animate-up"
-								data-animate-delay="400" data-animate-no-touch>
-								Software
-							</h3>
-							<h3 class="type-heading animate-up"
-								data-animate-delay="500" data-animate-no-touch>
-								SEO
-							</h3>
-							<h3 class="type-heading animate-up"
-								data-animate-delay="600" data-animate-no-touch>
-								Copywriting
-							</h3>
-							<h3 class="type-heading animate-up mb-0"
-								data-animate-delay="700" data-animate-no-touch>
-								Illustration
-							</h3>
-						</div><!--- /Col -->
-					</div><!-- /Row -->
-                  	<div class="row no-gaps animate-up"
-						data-animate-delay="400" data-animate-no-touch>
-                        {{ partial "components/button.html" (dict
-							"text" "View all services"
-							"link" "/services/"
-							"size" "small"
-							"arrow" true
-							"title" "View all services"
-                        )}}
-					</div><!-- /Row -->
+					<!-- Visibility -->
+					<div class="animate-up margin-large" data-animate-no-touch>
+						<h3>
+							Increase your visibility
+						</h3>
+						<p class="lead">
+							Every application made by ainsley.dev is curated to launch your business into the digital world
+							by sculpting your online presence and increasing your visibility.
+						</p>
+					</div>
+					<!-- Solutions -->
+					<div class="animate-up margin-large" data-animate-no-touch>
+						<h3>
+							Discover bespoke solutions
+						</h3>
+						<p class="lead">
+							We take the time to get to know you and the challenges you face with your existing strategies,
+							and create bespoke products by treating your business as if it were our own.
+						</p>
+					</div>
+					<!-- Simplicity -->
+					<div class="animate-up margin-large margin-none" data-animate-no-touch>
+						<h3>
+							Driven by simplicity
+						</h3>
+						<p class="lead mb-0">
+							We are driven by simplicity and the shared goal of producing visionary designs, coupled with
+							world-class in-house software, APIs, designs and websites.
+						</p>
+					</div>
 				</div><!--- /Col -->
 			</div><!-- /Row -->
 		</div><!-- /Container -->

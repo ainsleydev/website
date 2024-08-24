@@ -2,7 +2,7 @@
 title: Improving website navigation menus for SEO, usability and UX
 heading: How to enhance your website navigation menu for SEO and usability
 description: The design of your website's navigation menu is more important than you may think. Check out these key tips on how to improve it for SEO and usability.
-slug: enhance-website-navigation-menus-for-seo
+slug: seo-nav-menus
 publishdate: 2023-10-01
 lastmod: 2023-10-01
 draft: false
