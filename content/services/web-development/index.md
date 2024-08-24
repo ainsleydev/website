@@ -5,7 +5,9 @@ slug: web-development
 draft: false
 weight: 3
 scripts:
-    - js/pages/services-single.ts
+  - js/pages/services-single.ts
+sitemap:
+  priority: 0.9
 heading: Web Development
 breadcrumbs: Web Development
 buttonName: Web Dev

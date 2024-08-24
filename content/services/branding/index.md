@@ -5,7 +5,9 @@ slug: branding
 draft: false
 weight: 1
 scripts:
-    - js/pages/services-single.ts
+  - js/pages/services-single.ts
+sitemap:
+  priority: 0.9
 heading: Branding
 breadcrumbs: Branding
 buttonName: Branding

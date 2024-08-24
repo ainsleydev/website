@@ -5,7 +5,9 @@ slug: web-design
 draft: false
 weight: 2
 scripts:
-    - js/pages/services-single.ts
+  - js/pages/services-single.ts
+sitemap:
+  priority: 0.9
 heading: Web Design
 breadcrumbs: Web Design
 buttonName: Design

@@ -5,7 +5,9 @@ slug: software
 draft: false
 weight: 5
 scripts:
-    - js/pages/services-single.ts
+  - js/pages/services-single.ts
+sitemap:
+  priority: 0.9
 heading: Bespoke Software
 breadcrumbs: Bespoke Software
 buttonName: Software

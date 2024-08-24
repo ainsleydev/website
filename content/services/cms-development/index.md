@@ -5,7 +5,9 @@ slug: cms-development
 draft: false
 weight: 4
 scripts:
-    - js/pages/services-single.ts
+  - js/pages/services-single.ts
+sitemap:
+  priority: 0.9
 heading: CMS Development
 breadcrumbs: CMS Development
 buttonName: CMS Dev

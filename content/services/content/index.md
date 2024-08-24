@@ -6,6 +6,8 @@ draft: false
 weight: 6
 scripts:
   - js/pages/services-single.ts
+sitemap:
+  priority: 0.9
 heading: Content Writing
 breadcrumbs: Content
 buttonName: Content
