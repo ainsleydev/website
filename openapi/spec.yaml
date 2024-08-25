@@ -116,11 +116,15 @@ components:
                 message:
                     type: string
                     description: The message from the user.
+                url:
+                    type: string
+                    description: The URL path the request origination from.
                 honeypot:
                     type: string
                     description: The message from the user.
             required:
                 - message
+                - url
                 - honeypot
         ContactFormResponse:
             type: string
