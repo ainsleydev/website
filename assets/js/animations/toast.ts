@@ -17,9 +17,12 @@ import Toastify, { Options } from 'toastify-js';
  * Display a toast message.
  *
  * @param message The message to display in the toast.
+ * @param colour 'black' or 'white'
  */
-export const Toast = (message: string): void => {
-	const colour = window.theme === 'black' ? 'white' : 'black';
+export const Toast = (message: string, colour?: string): void => {
+	if (!colour) {
+		colour = window.theme === 'black' ? 'white' : 'black';
+	}
 
 	// Define the options for the toast.
 	const options: Options = {

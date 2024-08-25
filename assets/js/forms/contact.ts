@@ -33,6 +33,7 @@ export class ContactForm extends Form {
 
 		const request = {
 			message: this.getValue('message'),
+			url: window.location.href,
 			honeypot: this.getValue('first-name'),
 		} as ContactFormRequest;
 		this.addButtonLoading();

@@ -122,13 +122,14 @@ func TestHandler_SendContactForm(t *testing.T) {
 var submission = ContactSubmission{
 	ContactFormRequest: sdk.ContactFormRequest{
 		Message: "message",
+		Url:     "/contact/",
 	},
 	Email: "test@hello.com",
 	Time:  time.Now(),
 }
 
 func TestContactSubmission_Text(t *testing.T) {
-	want := "Email: test@hello.com\n\nMessage: message"
+	want := "Email: test@hello.com\n\nMessage: message\n\nURL: /contact/"
 	got := submission.Text()
 	assert.Contains(t, got, want)
 }
@@ -137,6 +138,7 @@ func TestContactSubmission_Markdown(t *testing.T) {
 	want := []slack.Field{
 		{Title: "Email", Value: submission.Email},
 		{Title: "Message", Value: submission.Message},
+		{Title: "URL", Value: submission.Url},
 		{Title: "Time", Value: submission.Time.Format(time.RFC850)},
 	}
 	got := submission.Fields()
@@ -144,7 +146,7 @@ func TestContactSubmission_Markdown(t *testing.T) {
 }
 
 func TestContactSubmission_HTML(t *testing.T) {
-	want := "<p><strong>Email:</strong> test@hello.com</p><p><strong>Message:</strong> message</p><p><strong>Time:</strong>"
+	want := "<p><strong>Email:</strong> test@hello.com</p><p><strong>Message:</strong> message</p><p><strong>URL:</strong> /contact/</p><p><strong>Time:</strong>"
 	got := submission.HTML()
 	assert.Contains(t, got, want)
 }
