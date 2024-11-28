@@ -26,6 +26,7 @@
 		"animejs": "^3.2.1",
 		"glider-js": "^1.7.8",
 		"normalize.css": "^8.0.1",
+		"sharp": "^0.33.5",
 		"split-type": "^0.3.3",
 		"toastify-js": "^1.12.0",
 		"web-vitals": "^3.3.0"
