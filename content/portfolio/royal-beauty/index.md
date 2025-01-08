@@ -8,7 +8,7 @@ weight: 98
 company: Royal Beauty
 year: 2019
 site:
-  link: https://katherinebodycare.co.uk/
+  link: https://katherinebodycare.ainsleyclark.xyz/
   pretty: katherinebodycare.co.uk
 role: Design & Development
 strategies: [Website branding, Landing page, UI/UX]
