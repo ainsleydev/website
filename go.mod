@@ -1,8 +1,6 @@
 module github.com/ainsleydev/website
 
-go 1.23.0
-
-toolchain go1.24.6
+go 1.20
 
 require (
 	github.com/ainsleyclark/errors v0.0.4
