@@ -21,13 +21,13 @@ jobs:
 
             # Step 2 - Install Go on the runner
             -   name: Install Go
-                uses: actions/setup-go@v3
+                uses: actions/setup-go@v5
                 with:
                     go-version: ${{ matrix.go-version }}
 
             # Step 3 - Lint
             -   name: Lint
-                uses: golangci/golangci-lint-action@v2
+                uses: golangci/golangci-lint-action@v7
                 with:
                     version: latest
                     skip-go-installation: true
