@@ -32,8 +32,8 @@ Stephanie Clark is a leading content writer who offers an array of distinct prof
 one-to-one English language classes, copywriting and content editing for businesses across the globe.
 {{< /vertical-section >}}
 
-<!-- Profile -->
-{{< picture src="images/stephanie-profile.jpg" alt="Stephanie Clark" lazy=true animate=true >}}
+<!-- Reel -->
+{{< video src="video/test.mp4" attr="muted loop" lazy=true >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
