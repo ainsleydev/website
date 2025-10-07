@@ -33,7 +33,7 @@ one-to-one English language classes, copywriting and content editing for busines
 {{< /vertical-section >}}
 
 <!-- Reel -->
-{{< video src="video/test.mp4" attr="muted loop" lazy=true >}}
+{{< video src="video/reel.mp4" attr="muted loop" lazy=true contrast=97 >}}
 
 <!-- Brief -->
 {{< vertical-section text="Brief" number="01" >}}
