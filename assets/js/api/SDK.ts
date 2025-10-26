@@ -36,6 +36,8 @@ export interface HTTPError {
 export interface ContactFormRequest {
 	/** The message from the user. */
 	message: string;
+	/** The URL path the request origination from. */
+	url: string;
 	/** The message from the user. */
 	honeypot: string;
 }

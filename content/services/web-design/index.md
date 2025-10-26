@@ -5,9 +5,12 @@ slug: web-design
 draft: false
 weight: 2
 scripts:
-    - js/pages/services-single.ts
+  - js/pages/services-single.ts
+sitemap:
+  priority: 0.9
 heading: Web Design
 breadcrumbs: Web Design
+buttonName: Design
 lead: Let us bring your vision to life with captivating bespoke designs for your website. We craft industry-leading web designs to optimise user experience and boost your conversions.
 tags:
   - UI/UX

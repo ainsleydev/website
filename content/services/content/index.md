@@ -6,8 +6,11 @@ draft: false
 weight: 6
 scripts:
   - js/pages/services-single.ts
+sitemap:
+  priority: 0.9
 heading: Content Writing
 breadcrumbs: Content
+buttonName: Content
 lead: Words aren't just powerful—they're transformative. We strive to create narratives that captivate, convince and convert. Our team crafts content that not only strike a cord with your audience, but help your business climb search rankings.
 tags:
   - Tone of Voice

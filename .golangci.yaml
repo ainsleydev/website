@@ -1,22 +1,41 @@
+version: "2"
 run:
-    go: 1.20
+  go: "1.24"
 linters:
-    enable:
-        - thelper
-        - gofumpt
-        - tparallel
-        - unconvert
-        - unparam
-        - wastedassign
-        - revive
-        - forbidigo
-        - tagliatelle
-        - misspell
-
-linters-settings:
+  enable:
+    - forbidigo
+    - misspell
+    - revive
+    - tagliatelle
+    - thelper
+    - tparallel
+    - unconvert
+    - unparam
+    - wastedassign
+  settings:
     tagliatelle:
-        case:
-            use-field-name: false
-            rules:
-                yaml: snake
-                json: snake
+      case:
+        rules:
+          json: snake
+          yaml: snake
+        use-field-name: false
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
+formatters:
+  enable:
+    - gofumpt
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$

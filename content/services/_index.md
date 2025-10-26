@@ -5,5 +5,6 @@ description: ainsley.dev offers a wide range of services, from brand strategy, U
 draft: false
 breadcrumbs: Services
 sitemap:
-  priority: 1
+  priority: 1.0
+  changeFreq: weekly
 ---

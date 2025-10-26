@@ -6,6 +6,7 @@
 {{- $js := partial "head/_scripts.html" (partial "util/_reverse-slice.html" (append "js/app.ts" .Params.scripts)) -}}
 {{- $hash := now.Unix -}}
 {{- $baseURL := partial "util/_base-url.html" . -}}
+{{- $colour := partial "util/_theme-colour.html" . -}}
 <!-- =====================
     HTML
     ===================== -->
@@ -30,7 +31,10 @@
 		<link rel="canonical"
 			  href="{{ with .Params.canonical -}} {{ . }} {{- else -}} {{ printf "%s%s" $baseURL .RelPermalink }} {{- end }}"/>
 		<!-- Base -->
-		<script>window.BaseURL = {{ $baseURL }};</script>
+		<script>
+			window.BaseURL = {{ $baseURL }};
+			window.theme = {{ $colour }}
+		</script>
 		<!-- CSS -->
         {{ range $css -}}
 			<link rel="stylesheet" href="{{ .RelPermalink }}?{{ $hash }}">
@@ -86,7 +90,6 @@
 	<!-- =====================
 		Body
 		===================== -->
-	{{ $colour := partial "util/_theme-colour.html" . }}
     <body class="{{ partial "util/_namespace.html" . }}" data-barba="wrapper" data-theme="{{ $colour }}">
 		{{ if .Site.Params.gtag.enable -}}
 			<!-- Google Tag Manager (noscript) -->

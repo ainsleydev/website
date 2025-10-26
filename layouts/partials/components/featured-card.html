@@ -21,9 +21,14 @@
 		<div class="row no-gaps justify-content-desk-between align-items-desk-end">
 			<!-- Image -->
 			<div class="col-12">
+				{{ $default := .Resources.GetMatch "images/featured-small.*" -}}
+				{{ if not $default -}}
+					{{ warnf "No featured-small image file found for service page %s" .RelPermalink -}}
+				{{- end }}
 				<picture class="margin-large card-feature-image">
 					{{ partial "media/picture.html" (dict
 						"image" (.Resources.GetMatch "images/featured.*")
+						"default" $default
 						"alt" (printf "%s Image" .Params.title))
 						"lazy" true
 					}}
@@ -63,8 +68,8 @@
 				</div>
 			</div><!-- /Col -->
 			<!-- Description -->
-			<div class="col-12 col-desk-4 margin mb-desk-0">
-				{{ with .Params.description -}}
+			<div class="col-12 col-desk-5 margin mb-desk-0">
+				{{ with .Params.lead -}}
 					<p class="card-feature-description lead">
 						{{ . }}
 					</p>
@@ -72,7 +77,7 @@
 			</div><!-- /Col -->
 			<div class="col-12 col-desk-1">
 				{{ partial "components/button.html" (dict
-					"text" (printf "Explore %s" .Params.heading)
+					"text" (printf "Explore %s" .Params.buttonName)
 					"size" "small"
 					"arrow" false
 					"class" "d-desk-none"
