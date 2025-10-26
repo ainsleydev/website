@@ -4,7 +4,7 @@ heading: Introducing Thinkopedia to the world of blogging
 description: Discover how ainsley.dev introduced Thinkopedia into the world of blogging by creating a minimalist, interactive, easy-to-use blogging platform.
 slug: thinkopedia
 draft: false
-weight: 5
+weight: 4
 company: Thinkopedia
 year: 2019
 site:

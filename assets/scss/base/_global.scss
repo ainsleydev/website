@@ -40,6 +40,7 @@ body.page-forms {
 
 @include touch {
 	scroll-behavior: smooth;
+	scroll-padding-top: $header-height;
 
 	* {
 		scroll-behavior: smooth !important;
@@ -123,4 +124,16 @@ details summary::-webkit-details-marker {
 
 .tf-v1-popup {
 	z-index: $header-z-index + 1 !important;
+}
+
+// Awwwards
+// =========================================================================
+
+#awwwards {
+	display: flex;
+	position: fixed;
+	top: 50%;
+	right: 0;
+	z-index: 999;
+	transform: scale(0.9) translate(6px, -50%);
 }

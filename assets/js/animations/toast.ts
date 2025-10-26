@@ -17,8 +17,13 @@ import Toastify, { Options } from 'toastify-js';
  * Display a toast message.
  *
  * @param message The message to display in the toast.
+ * @param colour 'black' or 'white'
  */
-export const Toast = (message: string): void => {
+export const Toast = (message: string, colour?: string): void => {
+	if (!colour) {
+		colour = window.theme === 'black' ? 'white' : 'black';
+	}
+
 	// Define the options for the toast.
 	const options: Options = {
 		text: `
@@ -26,10 +31,10 @@ export const Toast = (message: string): void => {
             <div class="toastify-close type-serif">x</div>
         `,
 		duration: 3000,
-		selector: Elements.Main,
+		selector: Elements.Body,
 		newWindow: true,
 		close: true,
-		className: 'toastify-error',
+		className: `toastify-${colour} toastify-error`,
 		gravity: 'bottom', // `top` or `bottom`
 		position: 'right', // `left`, `center` or `right`
 		stopOnFocus: true, // Prevents dismissing of toast on hover

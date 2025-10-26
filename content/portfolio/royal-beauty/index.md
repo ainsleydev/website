@@ -4,11 +4,11 @@ heading: Increasing Royal Beauty’s ROI to over 135%
 description: Discover how ainsley.dev streamlined Royal Beauty's business with a comprehensive, clean UI and easy to navigate website.
 slug: royal-beauty
 draft: false
-weight: 3
+weight: 98
 company: Royal Beauty
 year: 2019
 site:
-  link: https://katherinebodycare.co.uk/
+  link: https://katherinebodycare.ainsleyclark.xyz/
   pretty: katherinebodycare.co.uk
 role: Design & Development
 strategies: [Website branding, Landing page, UI/UX]

@@ -8,17 +8,19 @@
 			"class" "class-name"
 			"width"	100
 			"height" 100
+			"default" (resources.Get "hello-small.jpg")
 			"mob" "hide"
 		)
 		- image:					The image resource. A warning will be thrown without this key.
 		- alt:						The alternative text for the image. A warning will be thrown without this key.
 		- lazy:						If the image should be lazy loaded, defaults to false.
 		- class:					Any class names to be appended to the <img> or <source> element(s).
-		- width:	Optional width in px for the image (for SVG images).
-		- height:	Optional height in px for the image (for SVG images).
-		- [css-key] string/image:	Hide a particular viewport by outputting a 1px dot by passing hide.
-									If the key is of type resources, it will be outputted otherwise it will be resized.
-									See .Params for the css keys.
+		- width:					Optional width in px for the image (for SVG images).
+		- height:					Optional height in px for the image (for SVG images).
+		- default: 					Will override the default image (for smaller image sizes for example).
+		- [css-key] 				string/image:	Hide a particular viewport by outputting a 1px dot by passing hide.
+													If the key is of type resources, it will be outputted otherwise it will be resized.
+													See .Params for the css keys.
 		Reference: https://bitbanged.com/posts/using-responsive-images-effortlessly-with-hugo/
     ===================== -->
 {{ if .image }}
@@ -78,14 +80,16 @@
 			 {{ end }}
 		{{- end }}
 		<!-- Original - AVIF/WebP -->
-        {{- $noExtension := strings.TrimSuffix (path.Ext .image.RelPermalink) .image.RelPermalink -}}
+		{{- $image := .image -}}
+		{{- if .default }}{{ $image = .default }}{{ end -}}
+        {{- $noExtension := strings.TrimSuffix (path.Ext $image.RelPermalink) $image.RelPermalink -}}
 		<!-- AVIF -->
 		{{ if site.Params.imagery.avif -}}
 			<source srcset="{{ $noExtension }}.avif"
 				{{ with .class -}} class="{{ . }}" {{- end }}
 				{{ with .alt -}} alt="{{ . }}" {{- end }}
-				width="{{ .image.Width }}"
-				height="{{ .image.Height }}"
+				width="{{ $image.Width }}"
+				height="{{ $image.Height }}"
 				type="image/avif"/>
 		{{- end }}
 		{{ if site.Params.imagery.webp -}}
@@ -93,13 +97,13 @@
 		<source srcset="{{ $noExtension }}.webp"
 			{{ with .class -}} class="{{ . }}" {{- end }}
 			{{ with .alt -}} alt="{{ . }}" {{- end }}
-			width="{{ .image.Width }}"
-			height="{{ .image.Height }}"
+			width="{{ $image.Width }}"
+			height="{{ $image.Height }}"
 			type="image/webp"/>
 		{{- end }}
 		<!-- Original -->
         {{ partial "partials/media/image.html" (dict
-			"image" .image
+			"image" $image
         	"alt" .alt
 			"lazy" .lazy
 			"class" .class
