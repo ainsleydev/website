@@ -150,3 +150,8 @@ guidelines:
         name: JavaScript
         url: /guidelines/js
         weight: 16
+    # Go
+    -   identifier: go
+        name: Go
+        url: /guidelines/go
+        weight: 17

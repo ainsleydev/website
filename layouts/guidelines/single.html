@@ -32,22 +32,24 @@
 					</a>
 				</header>
 				<!-- Items -->
-                {{ with .Site.Menus.guidelines }}
+				{{ $section := site.GetPage "section" "guidelines" }}
+				{{ if $section }}
 					<menu class="guidelines-menu">
-                        {{ range . }}
+						{{ range sort $section.Sections "Weight" }}
 							<li class="guidelines-menu-section">
 								<!-- Section Title -->
 								<h6 class="guidelines-menu-title">
                                     {{ .Name }}
 								</h6>
 								<!-- Sub -->
-                                {{ if .HasChildren -}}
+								{{ $pages := sort .RegularPages "Weight" }}
+								{{ if gt (len $pages) 0 }}
 									<menu class="guidelines-menu-sub">
-                                        {{ range .Children }}
+                                        {{ range $pages }}
 											<li class="guidelines-menu-item">
 												<a class="guidelines-menu-link
-												{{ if eq $.Page.RelPermalink .URL -}} guidelines-menu-active {{- end }}"
-												   href="{{ .URL }}"
+												{{ if eq $.Page.RelPermalink .RelPermalink -}} guidelines-menu-active {{- end }}"
+												   href="{{ .RelPermalink }}"
 												   title="{{ .Name }} Page"
 												   aria-label="Navigate to the {{ .Name }} page">
                                                     {{ .Name }}
@@ -59,7 +61,7 @@
 							</li>
                         {{ end }}
 					</menu>
-                {{- else -}}
+				{{ else -}}
                     {{ errorf "No guidelines defined in menu.yaml" }}
                 {{- end }}
 			</div><!-- /Wrapper -->
