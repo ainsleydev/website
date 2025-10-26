@@ -1,13 +1,11 @@
 ---
-title: Semantics
-heading: Semantics
+title: Testing
+heading: Testing
 description: TODO
-linkText: This will appear in the box
 publishdate: 2023-07-16
 lastmod: 2023-07-16
 draft: true
 pageColour: white
-weight: 1
 scripts:
     - js/pages/guidelines.ts
 ---
