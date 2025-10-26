@@ -85,7 +85,7 @@
 				</div>
 				<!-- Page Content -->
 				<div class="guidelines-content-richtext richtext richtext-small-format">
-                    {{ .Content }}
+					{{ .Content | replaceRE "/a>\n" "/a>" | safeHTML  }}
 				</div>
 				<!-- Next & Prev Links -->
 				<div class="box-link-container">
