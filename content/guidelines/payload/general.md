@@ -59,30 +59,6 @@ export const Listings: CollectionConfig = {
 }
 ```
 
-## Hooks
-
-Use hooks for data transformation and business logic:
-
-```typescript
-hooks: {
-	beforeChange: [
-		async ({ data, originalDoc, req, operation }) => {
-			// Custom logic: Update location if using profile location
-			const isOwner = originalDoc?.createdBy === req?.user?.id
-
-			if ((operation === 'create' || isOwner) && data?.location?.useProfileLocation) {
-				data.location = {
-					...data.location,
-					...req.user.location,
-					useProfileLocation: true,
-				}
-			}
-			return data
-		},
-	],
-}
-```
-
 ## Access Control
 
 - Create separate access control functions for reusability.

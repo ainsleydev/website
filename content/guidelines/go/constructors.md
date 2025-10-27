@@ -13,6 +13,10 @@ scripts:
 
 Constructors must validate all required dependencies using `enforce` helpers and return pointer
 types. Only to be used in the context of when being called from a `cmd` package.
+ ## New
+
+- Prefer `NewX()` constructors over global initialisation unless it's the only constructor in the package then it will
+  be written as `New()`.
 
 ## Enforce
 

@@ -12,9 +12,9 @@ scripts:
 
 ## Component Naming
 
-- Use **PascalCase** for component file names (e.g., `ButtonCard.svelte`, `Modal.svelte`).
-- Group related components in feature directories (e.g., `/components/Form/`, `/components/Graphics/`).
-- Use flat structure for standalone reusable components (e.g., `/components/Button.svelte`).
+- Use **PascalCase** for component file names -> `ButtonCard.svelte` or `Modal.svelte`
+- Group related components in feature directories -> `/components/Form/` or `/components/Graphics/`
+- Use flat structure for stand alone reusable components -> `/components/Button.svelte`
 
 ## Svelte 5 Patterns
 
@@ -42,7 +42,7 @@ Use Svelte 5's runes for reactivity:
 </style>
 ```
 
-## Context Pattern
+## Context
 
 Use context for sharing data across components:
 
@@ -69,7 +69,6 @@ const settings = getContext<Settings>(SETTINGS)
 src/lib/
 ├── components/        # Reusable UI components
 ├── blocks/            # Page block components
-├── partials/          # Layout partials
 ├── templates/         # Page templates
 ├── forms/             # Form handling
 ├── data/              # Data services

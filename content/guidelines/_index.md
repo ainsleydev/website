@@ -21,12 +21,12 @@ codebases, public or private.
 
 ## Purpose
 
-These guidelines serve multiple purposes:
+These guidelines serve multiple functions:
 
-- **Consistency**: Establish common patterns and conventions across projects.
-- **Quality**: Promote best practices that lead to maintainable, testable code.
-- **Onboarding**: Help new developers and AI agents understand our coding standards.
-- **Collaboration**: Create a shared language for code reviews and technical discussions.
+- **Consistency**: Write common habits and conventions in projects.
+- **Quality**: Promote best practices that lead to testable, maintainable code.
+- **Onboarding**: Help new developers and AI agents learn our coding standards.
+- **Collaboration**: Develop a shared vocabulary for technical conversation and code review.
 
 ## General Principles
 

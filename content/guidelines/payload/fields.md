@@ -11,28 +11,6 @@ scripts:
   - js/pages/guidelines.ts
 ---
 
-## Width
-
-Use `admin.width` to control field widths in rows:
-
-```typescript
-{
-	type: 'row',
-	fields: [
-		{
-			name: 'fieldOne',
-			type: 'text',
-			admin: { width: '50%' },
-		},
-		{
-			name: 'fieldTwo',
-			type: 'text',
-			admin: { width: '50%' },
-		},
-	],
-}
-```
-
 ## Reusable Fields
 
 For fields that occur more than once within the codebase, they should be abstract within `src/fields`. Every field that
@@ -126,3 +104,25 @@ export const SlugField: Slug = (fieldToUse = 'title', overrides = {}) => {
 - **Provide default values** but allow customisation via overrides.
 - **Co-locate fields** that work together (e.g., slug and slugLock).
 - **Custom components** via path references for admin UI customisation.
+
+## Width
+
+Use `admin.width` to control field widths in rows:
+
+```typescript
+{
+	type: 'row',
+	fields: [
+		{
+			name: 'fieldOne',
+			type: 'text',
+			admin: { width: '50%' },
+		},
+		{
+			name: 'fieldTwo',
+			type: 'text',
+			admin: { width: '50%' },
+		},
+	],
+}
+```

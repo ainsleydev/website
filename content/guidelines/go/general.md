@@ -28,7 +28,8 @@ scripts:
 
 ## Defining Types
 
-Prefer to use the `type` keyword once for multiple type declarations.
+- Keep structs small and cohesive; split if too many responsibilities.
+- Prefer to use the `type` keyword once for multiple type declarations.
 
 **Example**
 
@@ -50,12 +51,6 @@ type (
 	}
 )
 ```
-
-## Structs and Composition
-
-- Prefer `NewX()` constructors over global initialisation unless it's the only constructor in the package then it will
-  be written as `New()`.
-- Keep structs small and cohesive; split if too many responsibilities.
 
 ## Naming Conventions
 
