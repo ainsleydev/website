@@ -89,6 +89,10 @@ terms:
         name: Cookies
         url: /cookies/
         weight: 20
+    -   identifier: guidelines
+        name: Guidelines
+        url: /guidelines/
+        weight: 30
 schema:
     -   identifier: home
         name: Home
