@@ -2,7 +2,6 @@
 title: Testing
 heading: Testing
 description: JavaScript and TypeScript testing patterns with Vitest
-linkText: Testing patterns
 weight: 2
 publishdate: 2025-10-27
 lastmod: 2025-10-27

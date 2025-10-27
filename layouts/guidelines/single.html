@@ -100,8 +100,8 @@
 							{{ $page := $.Site.GetPage (strings.TrimSuffix "/" .URL) }}
 							{{ partial "components/box-links.html" (dict
 								"link" $page.RelPermalink
-								"heading" ($page.Param "linkText")
-								"sub" (printf "Previous - %s" .Name)
+								"heading" (printf "%s - %s" .Parent .Name)
+								"sub" "Previous"
 								"left" true
 								"title" (printf "Navigate to the %s page" $page.Title)
 							)}}
@@ -111,8 +111,8 @@
 							{{ $page := $.Site.GetPage (strings.TrimSuffix "/" .URL) }}
 							{{ partial "components/box-links.html" (dict
 								"link" $page.RelPermalink
-								"heading" ($page.Param "linkText")
-								"sub" (printf "Next - %s" .Name)
+								"heading" (printf "%s - %s" .Parent .Name)
+								"sub" "Next"
 								"left" false
 								"title" (printf "Navigate to the %s page" $page.Title)
 							)}}

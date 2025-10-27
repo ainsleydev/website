@@ -2,7 +2,7 @@
 title: General
 heading: General
 description: Payload CMS collection and configuration patterns
-publishdate: 2023-07-16
+publishdate: 2025-10-27
 lastmod: 2025-10-27
 draft: false
 pageColour: white

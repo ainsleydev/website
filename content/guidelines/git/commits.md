@@ -2,7 +2,6 @@
 title: Commits
 heading: Commits
 description: ainsley.dev Developer Guidelines | Git conventional commit format with type prefixes and present tense
-linkText: Commit message format
 weight: 1
 publishdate: 2025-10-26
 lastmod: 2025-10-27

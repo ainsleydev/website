@@ -2,9 +2,8 @@
 title: Formatting
 heading: Formatting
 description: ainsley.dev Developer Guidelines | HTML formatting standards including indentation, quotes & self-closing tags
-linkText: HTML formatting standards
 weight: 2
-publishdate: 2023-07-16
+publishdate: 2025-10-27
 lastmod: 2025-10-27
 draft: false
 pageColour: white
@@ -24,7 +23,7 @@ chance of search engines to properly pass markup.
 
 Use tabs instead of spaces for markup. Do not mix tabs with spaces, ensure it is probably formatted.
 
-**Not recommended**
+**Avoid**
 
 ```html
 <ul>
@@ -32,7 +31,7 @@ Use tabs instead of spaces for markup. Do not mix tabs with spaces, ensure it is
 </ul>
 ```
 
-**Recommended**
+**Prefer**
 
 ```html
 <ul>
@@ -45,13 +44,13 @@ Use tabs instead of spaces for markup. Do not mix tabs with spaces, ensure it is
 Always use double quotes around attribute values. Emitting quotes can avoid to bad readability, despite HTML allowing
 for attributes without quotes.
 
-**Not recommended**
+**Avoid**
 
 ```html
 <button class="button button-grey">My Button</button>
 ```
 
-**Recommended**
+**Prefer**
 
 ```html
 <button class=button disabled>My Button</button>
@@ -64,7 +63,7 @@ Break long lines when it exceeds the amount of characters within the editor.
 It is also recommended to ensure that the closing tag is one a new line. This helps to locate the closing tag and
 improves readability.
 
-**Not recommended**
+**Avoid**
 
 ```html
 <p>I'm baby blue bottle tilde godard, blog ennui pour-over craft beer. Pabst chartreuse iceland, bespoke next level
@@ -72,7 +71,7 @@ improves readability.
 	sold out unicorn bicycle rights roof party. </p>
 ```
 
-**Recommended**
+**Prefer**
 
 ```html
 <p>
@@ -86,14 +85,14 @@ improves readability.
 
 All attribute names, classes, IDs should be lower case and with a hyphen between two words (kebab case).
 
-**Not recommended**
+**Avoid**
 
 ```html
 <h1 class="heading_Test"></h1>
 <P Class="LEAD"></P>
 ```
 
-**Recommended**
+**Prefer**
 
 ```html
 <h1 class="hero-heading"></h1>
@@ -106,13 +105,13 @@ All self closing elements should contain `/` at the end of the tag. Please
 see [this](https://www.scaler.com/topics/self-closing-tags-in-html/) article for a definition of all HTML elements with
 self closing elements.
 
-**Not recommended**
+**Avoid**
 
 ```html
 <img src="my-image.jpg">
 ```
 
-**Recommended**
+**Prefer**
 
 ```html
 <img src="my-image.jpg"/>

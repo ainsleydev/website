@@ -3,7 +3,7 @@ title: Developer Guidelines
 heading: Developer Guidelines
 description: Coding standards and best practices for developers and AI agents
 draft: false
-publishdate: 2023-07-16
+publishdate: 2025-10-27
 lastmod: 2025-10-27
 layout: single
 toc: false
