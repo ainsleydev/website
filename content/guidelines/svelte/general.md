@@ -42,35 +42,6 @@ Use Svelte 5's runes for reactivity:
 </style>
 ```
 
-## Event Handling
-
-Use `createEventDispatcher` for component events:
-
-```svelte
-<script lang="ts">
-	import { createEventDispatcher, onMount } from 'svelte'
-
-	const dispatch = createEventDispatcher<{ close: void }>()
-
-	const handleKeydown = (event: KeyboardEvent) => {
-		if (event.key === 'Escape') dispatch('close')
-	}
-
-	onMount(() => {
-		document.addEventListener('keydown', handleKeydown)
-		return () => {
-			document.removeEventListener('keydown', handleKeydown)
-		}
-	})
-</script>
-
-{#if isOpen}
-	<dialog open aria-modal="true" on:click={handleBackdropClick}>
-		<!-- content -->
-	</dialog>
-{/if}
-```
-
 ## Context Pattern
 
 Use context for sharing data across components:
@@ -92,44 +63,9 @@ import { getContext } from 'svelte'
 const settings = getContext<Settings>(SETTINGS)
 ```
 
-## Form Handling
-
-Use Svelte stores and Zod for form state management:
-
-```typescript
-export type ClientForm = {
-	fields: Writable<FormData>
-	errors: Writable<FormErrors>
-	validate: (opts?: { field?: string }) => boolean
-	submitting: Readable<boolean>
-	submit: (submitter?: HTMLElement | Event | EventTarget | null) => void
-	submitted: Readable<boolean>
-	enhance: (el: HTMLFormElement, submitFn?: SubmitFunction) => { destroy(): void }
-}
-
-export const clientForm = (
-	schema: z.ZodSchema,
-	options?: { submissionDelay?: number },
-	onSubmit?: (data: FormData) => Promise<void>,
-	initial: FormData = {},
-): ClientForm => {
-	const fields = writable<FormData>(initial)
-	const errors = writable<FormErrors>({})
-
-	const validate = (opts?: { field?: string }) => {
-		const current = get(fields)
-		const result = schema.safeParse(current)
-		errors.set(result.success ? {} : flattenZodErrors(result.error))
-		return result.success
-	}
-
-	return { fields, errors, validate, submit, submitting, submitted, enhance }
-}
-```
-
 ## Component Organisation
 
-```
+```txt
 src/lib/
 ├── components/        # Reusable UI components
 ├── blocks/            # Page block components
@@ -138,28 +74,6 @@ src/lib/
 ├── forms/             # Form handling
 ├── data/              # Data services
 └── util/              # Utility functions
-```
-
-## Conditional Rendering
-
-Use Svelte's conditional blocks:
-
-```svelte
-{#if condition}
-	<p>Condition is true</p>
-{:else if anotherCondition}
-	<p>Another condition is true</p>
-{:else}
-	<p>All conditions are false</p>
-{/if}
-```
-
-## List Rendering
-
-```svelte
-{#each items as item (item.id)}
-	<div>{item.name}</div>
-{/each}
 ```
 
 ## Accessibility

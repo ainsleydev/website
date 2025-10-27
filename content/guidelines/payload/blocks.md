@@ -107,25 +107,3 @@ export const ContentWithMedia: Block = {
 	],
 }
 ```
-
-## Field Width
-
-Use `admin.width` to control field widths in rows:
-
-```typescript
-{
-	type: 'row',
-	fields: [
-		{
-			name: 'fieldOne',
-			type: 'text',
-			admin: { width: '50%' },
-		},
-		{
-			name: 'fieldTwo',
-			type: 'text',
-			admin: { width: '50%' },
-		},
-	],
-}
-```
