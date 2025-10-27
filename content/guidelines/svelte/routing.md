@@ -50,29 +50,3 @@ routes/
     └── forms/
         └── +server.ts
 ```
-
-## Layout Groups
-
-Use parentheses for layout groups that don't affect the URL:
-
-```
-(auth)/login → /login
-(web)/search → /search
-```
-
-## Dynamic Routes
-
-Use square brackets for dynamic parameters:
-
-```
-[vehicle]/+page.svelte → /ford, /toyota, etc.
-[id]/+page.svelte → /123, /456, etc.
-```
-
-## Catch-All Routes
-
-Use rest parameters `[...param]` for catch-all routes:
-
-```
-[...page]/+page.svelte → /any/path/here
-```

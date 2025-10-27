@@ -1,6 +1,6 @@
 ---
-title: Formatting
-heading: Formatting
+title: General
+heading: General
 description: ainsley.dev Developer Guidelines | HTML formatting standards including indentation, quotes & self-closing tags
 weight: 2
 publishdate: 2025-10-27
