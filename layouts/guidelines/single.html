@@ -95,6 +95,7 @@
 				{{ if $showPrevNext -}}
 					<div class="box-link-container">
 						{{ $nextPrev := partial "util/_guidelines-next-prev.html" . }}
+						{{ printf "%+v\n" $nextPrev }}
 						<!-- Previous Link -->
 						{{ with $nextPrev.Get "previous" -}}
 							{{ $page := $.Site.GetPage (strings.TrimSuffix "/" .URL) }}

@@ -1,10 +1,9 @@
-
 ---
 title: Errors
 heading: Errors
 description: TODO
 linkText: This will appear in the box
-weight: 2
+weight: 3
 publishdate: 2025-10-26
 lastmod: 2025-10-26
 draft: true
@@ -16,8 +15,29 @@ scripts:
 - Always check errors, never ignore them with `_` unless absolutely necessary.
 - If ignoring an error, add a comment explaining why.
 - Return errors up the stack; don't just log and continue unless appropriate.
-- Aways prioritise clarity over depth of stack trace — add context that helps debugging, not
-  repetition.
+- Always prioritise clarity over depth of stack trace — add context that helps debugging, not repetition
+
+## Domain Error Types
+
+Define custom errors to give context and allow type-based handling, rather than using generic `fmt.Errorf`. Use custom
+errors only when it makes sense—for domain-specific cases where inspecting or handling by type is useful.
+
+**Example:**
+
+```go
+type ErrInsufficientBalance struct {
+    Amount float64
+}
+
+func (e ErrInsufficientBalance) Error() string {
+    return fmt.Sprintf("insufficient balance: need %.2f", e.Amount)
+}
+
+// Usage
+if balance < withdrawAmount {
+    return ErrInsufficientBalance{Amount: withdrawAmount}
+}
+```
 
 ## Using errors.Wrap
 

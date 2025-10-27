@@ -7,6 +7,7 @@ publishdate: 2025-10-26
 lastmod: 2025-10-26
 draft: true
 pageColour: white
+weight: 1
 scripts:
     - js/pages/guidelines.ts
 ---
