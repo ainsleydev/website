@@ -27,6 +27,11 @@
 	// =========================================================================
 
 	&-aside {
+		::-webkit-scrollbar {
+			width: 0;
+			background: transparent;
+		}
+
 		&-wrapper {
 			position: fixed;
 			top: 0;

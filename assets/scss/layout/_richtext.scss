@@ -109,6 +109,14 @@
 			}
 		}
 
+		p {
+			+ .image,
+			+ .highlight,
+			+ .codepen {
+				margin-top: -0.2rem;
+			}
+		}
+
 		h1 {
 			@include h2;
 		}

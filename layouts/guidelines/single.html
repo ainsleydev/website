@@ -88,31 +88,37 @@
 					{{ .Content | replaceRE "/a>\n" "/a>" | safeHTML  }}
 				</div>
 				<!-- Next & Prev Links -->
-				<div class="box-link-container">
-					{{ $nextPrev := partial "util/_guidelines-next-prev.html" . }}
-					<!-- Previous Link -->
-					{{ with $nextPrev.Get "previous" -}}
-						{{ $page := $.Site.GetPage (strings.TrimSuffix "/" .URL) }}
-                        {{ partial "components/box-links.html" (dict
-							"link" $page.RelPermalink
-							"heading" ($page.Param "linkText")
-							"sub" (printf "Previous - %s" .Name)
-							"left" true
-							"title" (printf "Navigate to the %s page" $page.Title)
-                        )}}
-					{{- end }}
-					<!-- Next Link -->
-                    {{ with $nextPrev.Get "next" -}}
-                        {{ $page := $.Site.GetPage (strings.TrimSuffix "/" .URL) }}
-                        {{ partial "components/box-links.html" (dict
-							"link" $page.RelPermalink
-							"heading" ($page.Param "linkText")
-							"sub" (printf "Next - %s" .Name)
-							"left" false
-							"title" (printf "Navigate to the %s page" $page.Title)
-                        )}}
-                    {{- end }}
-				</div>
+				{{ $showPrevNext := true -}}
+				{{ if eq .Params.showprevnext false -}}
+					{{ $showPrevNext = false -}}
+				{{ end -}}
+				{{ if $showPrevNext -}}
+					<div class="box-link-container">
+						{{ $nextPrev := partial "util/_guidelines-next-prev.html" . }}
+						<!-- Previous Link -->
+						{{ with $nextPrev.Get "previous" -}}
+							{{ $page := $.Site.GetPage (strings.TrimSuffix "/" .URL) }}
+							{{ partial "components/box-links.html" (dict
+								"link" $page.RelPermalink
+								"heading" ($page.Param "linkText")
+								"sub" (printf "Previous - %s" .Name)
+								"left" true
+								"title" (printf "Navigate to the %s page" $page.Title)
+							)}}
+						{{- end }}
+						<!-- Next Link -->
+						{{ with $nextPrev.Get "next" -}}
+							{{ $page := $.Site.GetPage (strings.TrimSuffix "/" .URL) }}
+							{{ partial "components/box-links.html" (dict
+								"link" $page.RelPermalink
+								"heading" ($page.Param "linkText")
+								"sub" (printf "Next - %s" .Name)
+								"left" false
+								"title" (printf "Navigate to the %s page" $page.Title)
+							)}}
+						{{- end }}
+					</div>
+				{{- end }}
 				<!-- Footer -->
 				<footer class="guidelines-footer">
 					<!-- Last Mod -->
@@ -129,15 +135,18 @@
 		<!-- =====================
 			Table of Contents
 			===================== -->
-		<aside class="toc guidelines-toc">
-			<div class="toc-wrapper">
-				<!-- Title -->
-				<h6 class="toc-title">
-					On this page
-				</h6>
-				<!-- Contents -->
-                {{ .TableOfContents }}
-			</div>
-		</aside>
+		{{ $toc := .TableOfContents | safeHTML }}
+		{{ if ne $toc "<nav id=\"TableOfContents\"></nav>" }}
+			<aside class="toc guidelines-toc">
+				<div class="toc-wrapper">
+					<!-- Title -->
+					<h6 class="toc-title">
+						On this page
+					</h6>
+					<!-- Contents -->
+					{{ $toc }}
+				</div>
+			</aside>
+		{{- end }}
 	</div><!-- /Container -->
 {{ end }}

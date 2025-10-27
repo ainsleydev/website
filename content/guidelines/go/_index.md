@@ -1,6 +1,6 @@
 ---
 title: "Go"
-weight: 2
+weight: 3
 ---
 
 ### Code Style
