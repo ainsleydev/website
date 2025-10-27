@@ -11,7 +11,6 @@ scripts:
     - js/pages/guidelines.ts
 ---
 
-# TODO: Need to sort out margin for highlight & codepen, look at another blog post.
 
 {{< lead >}}
 I'm baby chartreuse bicycle rights squid narwhal, slow-carb pour-over street art food truck. Pop-up pitchfork vaporware
@@ -34,7 +33,6 @@ Use tabs instead of spaces for markup. Do not mix tabs with spaces, ensure it is
 **Not recommended**
 
 ```html
-
 <ul>
 	<li>List Item</li>
 </ul>
@@ -43,7 +41,6 @@ Use tabs instead of spaces for markup. Do not mix tabs with spaces, ensure it is
 **Recommended**
 
 ```html
-
 <ul>
 	<li>List Item</li>
 </ul>
@@ -57,14 +54,12 @@ for attributes without quotes.
 **Not recommended**
 
 ```html
-
-<button class="button button-grey">My Button</button>czxccvzxcvjlvjxcvjkxcjv
+<button class="button button-grey">My Button</button>
 ```
 
 **Recommended**
 
 ```html
-
 <button class=button disabled>My Button</button>
 ```
 

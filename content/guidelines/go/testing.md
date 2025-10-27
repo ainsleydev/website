@@ -23,7 +23,7 @@ All Go tests should be written in one of two ways:
 - Individual test cases require unique setup logic that would need a setup function in the test
   table.
 
-#### General Rules
+## General Rules
 
 - Always call `t.Parallel()` at the top of every test function and within each subtest, unless:
 	- It's an integration test (files ending in `_integration_test.go`).
@@ -44,7 +44,7 @@ All Go tests should be written in one of two ways:
 - If 100% coverage is not possible, explain _why_ in a brief note above the test function (no inline
   comments).
 
-#### Test Tables
+## Test Tables
 
 The test should be:
 
@@ -87,7 +87,7 @@ func TestExample(t *testing.T) {
 }
 ```
 
-#### Subtests with `t.Run`
+## Subtests with `t.Run`
 
 - Use `require` for preconditions (e.g. setup or function calls that must not fail).
 - Use `assert` for validation of expected outputs.
@@ -124,7 +124,7 @@ func TestApp_OrderedCommands(t *testing.T) {
 }
 ```
 
-### Mocking
+## Mocking
 
 Mocks should only be introduced when a test depends on an **external interface** or system
 boundary — for example, Terraform execution, encryption providers, or file I/O wrappers.
@@ -133,9 +133,6 @@ boundary — for example, Terraform execution, encryption providers, or file I/O
 - Place generated mocks under `internal/mocks/` and prefix them with `Mock` (e.g.
   `MockInfraManager`).
 - Clean up with `defer ctrl.Finish()` and avoid over-mocking.
-
-#### General Rules
-
 - Use [`gomock`](https://pkg.go.dev/go.uber.org/mock/gomock) for creating mocks.
 - Generate mocks into the `internal/mocks/` directory using below's example.
 
@@ -145,7 +142,7 @@ boundary — for example, Terraform execution, encryption providers, or file I/O
 go tool go.uber.org/mock/mockgen -source=gen.go -destination ../mocks/fs.go -package=mocks
 ```
 
-#### Setup Functions
+## Setup Functions
 
 - If a test contains repeated setup logic (e.g., creating `App` instances, default values, or common
   test data), scan for a `setup(t)` function.

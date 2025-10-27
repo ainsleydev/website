@@ -19,7 +19,7 @@ scripts:
 - Aways prioritise clarity over depth of stack trace — add context that helps debugging, not
   repetition.
 
-#### Using errors.Wrap
+## Using errors.Wrap
 
 Always use `errors.Wrap` from `github.com/pkg/errors` for adding context to errors. Use `fmt.Errorf`
 if there are more than one argument that's not an error.
