@@ -31,6 +31,7 @@ import { Animations } from '../animations/text';
 import { Elements } from '../util/els';
 import { ContactForm } from '../forms/contact';
 import { Barba } from './barba';
+import { TOC } from '../components/toc';
 import Scroll from './scroll';
 import { aside } from '../animations/aside';
 import { homeAnimation } from '../pages/home';
@@ -94,6 +95,7 @@ class App {
 		new FitText();
 		new Card();
 		new Arrow();
+		new TOC();
 		new ContactForm();
 		new Collapse({
 			accordion: true,
