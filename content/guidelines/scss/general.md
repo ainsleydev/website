@@ -1,11 +1,12 @@
 ---
 title: General
 heading: General
-description: SCSS patterns and organisation
+description: ainsley.dev Developer Guidelines | SCSS patterns, directory structure, variables & breakpoint mixins
 publishdate: 2023-07-16
 lastmod: 2025-10-27
 draft: false
 pageColour: white
+weight: 1
 scripts:
     - js/pages/guidelines.ts
 ---

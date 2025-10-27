@@ -1,11 +1,12 @@
 ---
 title: Naming
 heading: Naming
-description: TODO
+description: ainsley.dev Developer Guidelines | SCSS BEM-inspired naming conventions & component patterns
 publishdate: 2023-07-16
 lastmod: 2025-10-27
 draft: false
 pageColour: white
+weight: 2
 scripts:
     - js/pages/guidelines.ts
 ---

@@ -1,11 +1,11 @@
 ---
 title: Function Patterns
 heading: Function Patterns
-description: TODO
-linkText: This will appear in the box
+description: ainsley.dev Developer Guidelines | Go function patterns using context.Context for I/O & cancellation
+linkText: Function patterns
 weight: 2
 publishdate: 2025-10-26
-lastmod: 2025-10-26
+lastmod: 2025-10-27
 draft: false
 pageColour: white
 scripts:
