@@ -25,74 +25,33 @@ Before committing, **always** run the following checks:
 
 ### For Go Projects
 
-1. **Run all tests**:
-   ```bash
-   go test ./...
-   ```
+**Run all tests**:
 
-2. **Run linting and formatting**:
-   ```bash
-   pnpm check
-   ```
+```bash
+go test ./...
+```
+
+**Run linting and formatting**:
+
+```bash
+go fmt ./...
+```
 
 If both pass, proceed with the commit. If either fails, fix the issues before committing.
 
-### Handling Network Issues During Testing
+### For JS Projects
 
-If you encounter network errors when running `go test ./...` or `pnpm check` (e.g., "dial tcp: lookup storage.googleapis.com"), follow these steps:
+**Run all tests**:
 
-1. **Check the local Go version**:
-   ```bash
-   GOTOOLCHAIN=local go version
-   ```
+```bash
+pnpm test
+```
 
-2. **Temporarily downgrade `go.mod`** to match the local Go version:
-   ```bash
-   # If local version is go1.24.7, change go.mod from:
-   # go 1.25.3
-   # to:
-   # go 1.24.7
-   ```
+**Run linting and formatting**:
 
-3. **Run tests with the local toolchain**:
-   ```bash
-   GOTOOLCHAIN=local go test ./... -timeout 5m
-   ```
-
-4. **Verify the code compiles and tests pass** (or skip appropriately).
-
-5. **Restore the original Go version in `go.mod`** before committing:
-   ```bash
-   # Change back to:
-   # go 1.25.3
-   ```
-
-6. **CRITICAL: Never commit the downgraded `go.mod` version**. Always restore it to the original version before staging files.
-
-7. **Alternative formatting check** (if `pnpm check` fails due to network):
-   ```bash
-   GOTOOLCHAIN=local go fmt ./...
-   GOTOOLCHAIN=local go vet ./...
-   ```
-
-## Additional Checks
-
-- [ ] Code is properly formatted with `go fmt`.
-- [ ] Generated files (`.gen.go`, manifest tracked files) were not manually edited.
-- [ ] New exported types, functions, and constants have Go doc comments.
-- [ ] Tests follow the test table or `t.Run` patterns.
-- [ ] If adding new dependencies, ensure they're necessary and well-maintained.
-- [ ] All comments end with a full stop.
-- [ ] Error handling is appropriate and errors are wrapped with context.
-- [ ] No debug statements or console.log() calls left in the code.
-
-## For TypeScript/JavaScript Projects
-
-- [ ] Run linting: `pnpm lint`
-- [ ] Run formatting: `pnpm format`
-- [ ] Run tests: `pnpm test`
-- [ ] Type check: `pnpm type-check` (if applicable)
-- [ ] Build succeeds: `pnpm build`
+```bash
+pnpm format && pnpm lint:fix
+```
 
 ## General Checks
 
