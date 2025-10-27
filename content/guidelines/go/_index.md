@@ -13,3 +13,15 @@ weight: 3
 - **Error handling**: Always check and handle errors appropriately.
 - **Imports**: Standard library, third-party, then internal imports.
 
+## Interfaces and Abstraction
+
+- Keep interfaces small and focused (a single responsibility).
+- Prefer returning concrete types unless abstraction is required for testing or swapping implementations.
+- Document interface expectations explicitly (e.g., "implementations must be thread-safe").
+
+## Structs and Composition
+
+- Use struct embedding for composition, not inheritance.
+- Prefer `NewX()` constructors over global initialisation unless it's the only constructor in the package then it will
+  be written as `New()`.
+- Keep structs small and cohesive; split if too many responsibilities.

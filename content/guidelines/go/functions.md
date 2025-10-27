@@ -1,19 +1,22 @@
 ---
-title: Context
-heading: Context
+title: Function Patterns
+heading: Function Patterns
 description: TODO
 linkText: This will appear in the box
+weight: 2
 publishdate: 2025-10-26
 lastmod: 2025-10-26
-draft: true
+draft: false
 pageColour: white
 scripts:
     - js/pages/guidelines.ts
 ---
 
-### Context
+## Context
 
 Use `context.Context` as the first parameter for functions that perform I/O or can be cancelled.
+
+**Example:**
 
 ```go
     func Run(ctx context.Context, cmd Command) (Result, error) {
