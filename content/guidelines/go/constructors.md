@@ -1,7 +1,7 @@
 ---
-title: Constructors
-heading: Constructors
-description: Constructor patterns with validation using the enforce package
+title: Constructors & Funcs
+heading: Constructors & Funcs
+description: Constructor & function patterns with validation using the enforce package
 weight: 4
 publishdate: 2025-10-27
 lastmod: 2025-10-27
@@ -42,6 +42,23 @@ func NewGenerator(fs afero.Fs, manifest *manifest.Tracker, printer *printer.Cons
 		Printer:  printer,
 		fs:       fs,
 		manifest: manifest,
+	}
+}
+```
+
+## Context
+
+Use `context.Context` as the first parameter for functions that perform I/O or can be cancelled.
+
+**Example:**
+
+```go
+    func Run(ctx context.Context, cmd Command) (Result, error) {
+	select {
+		case <-ctx.Done():
+			return Result{}, ctx.Err()
+		default:
+			// Execute command
 	}
 }
 ```
