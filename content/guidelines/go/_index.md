@@ -25,3 +25,14 @@ weight: 3
 - Prefer `NewX()` constructors over global initialisation unless it's the only constructor in the package then it will
   be written as `New()`.
 - Keep structs small and cohesive; split if too many responsibilities.
+
+## Naming Conventions
+
+- **Exported identifiers**: Use `PascalCase` (e.g., `UserService`, `GetConfig`).
+- **Unexported identifiers**: Use `camelCase` (e.g., `userService`, `getConfig`).
+- **Files**: Use `snake_case` for file names (e.g., `user_service.go`).
+- **Test files**: End with `_test.go` (e.g., `user_service_test.go`).
+- **Integration tests**: End with `_integration_test.go`.
+- **Generated files**: `*.gen.go` files are auto-generated - do not edit.
+- **Interfaces**: Often end in `-er` suffix (e.g., `Reader`, `Writer`, `Store`).
+- **Package names**: Short, lowercase, single-word names when possible.
