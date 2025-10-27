@@ -14,6 +14,7 @@ scripts:
 
 - Document all exported types, functions, and constants with Go doc comments.
 - Ensure that the comments convey the meaning behind the code, not just the what.
+- All comments must end with a full stop, including inline comments and multi-line comments.
 - Within function bodies, only keep comments that explain _why_ something is done, not _what_ is
   done. The code itself should be clear enough to show what it does.
 - Keep high-level comments that explain the flow or purpose of a section (e.g., "Try loading
