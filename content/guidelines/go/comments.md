@@ -1,11 +1,11 @@
 ---
 title: Comments
 heading: Comments
-description: TODO
-linkText: This will appear in the box
+description: ainsley.dev Developer Guidelines | Go documentation & comment standards for exported types and functions
+linkText: Comment documentation standards
 publishdate: 2025-10-26
-lastmod: 2025-10-26
-draft: true
+lastmod: 2025-10-27
+draft: false
 pageColour: white
 weight: 1
 scripts:
