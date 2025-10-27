@@ -2,7 +2,6 @@
 title: Routing
 heading: Routing
 description: SvelteKit file-based routing conventions
-linkText: Routing conventions
 weight: 2
 publishdate: 2025-10-27
 lastmod: 2025-10-27

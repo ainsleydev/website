@@ -2,8 +2,7 @@
 title: Errors
 heading: Errors
 description: ainsley.dev Developer Guidelines | Go error handling patterns with custom types and errors.Wrap
-linkText: Error handling patterns
-weight: 5
+weight: 6
 publishdate: 2025-10-26
 lastmod: 2025-10-27
 draft: false

@@ -2,7 +2,6 @@
 title: Blocks
 heading: Blocks
 description: Page block configuration patterns for flexible content
-linkText: Block definitions
 weight: 3
 publishdate: 2025-10-27
 lastmod: 2025-10-27

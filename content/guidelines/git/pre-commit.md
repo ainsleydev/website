@@ -2,7 +2,6 @@
 title: Pre-Commit Checklist
 heading: Pre-Commit Checklist
 description: Steps to follow before committing code
-linkText: Pre-commit checklist
 weight: 2
 publishdate: 2025-10-27
 lastmod: 2025-10-27

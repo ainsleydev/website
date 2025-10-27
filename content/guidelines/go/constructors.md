@@ -2,8 +2,7 @@
 title: Constructors
 heading: Constructors
 description: Constructor patterns with validation using the enforce package
-linkText: Constructors and validation
-weight: 3
+weight: 4
 publishdate: 2025-10-27
 lastmod: 2025-10-27
 draft: false
@@ -15,7 +14,7 @@ scripts:
 Constructors must validate all required dependencies using `enforce` helpers and return pointer
 types. Only to be used in the context of when being called from a `cmd` package.
 
-## Enforce Helpers
+## Enforce
 
 - Not nil values → `enforce.NotNil()`
 - Boolean conditions → `enforce.True()`
@@ -24,6 +23,8 @@ types. Only to be used in the context of when being called from a `cmd` package.
 
 These helpers provide simple runtime guarantees and will exit the program with a helpful message if
 a condition fails.
+
+This package can be found in `github.com/ainsleydev/webkit/pkg`.
 
 **Example:**
 

@@ -2,11 +2,11 @@
 title: General
 heading: General
 description: ainsley.dev Developer Guidelines | Go code style, interfaces & naming conventions
-publishdate: 2023-07-16
+publishdate: 2025-10-27
 lastmod: 2025-10-27
 draft: false
 pageColour: white
-weight: 7
+weight: 1
 scripts:
     - js/pages/guidelines.ts
 ---

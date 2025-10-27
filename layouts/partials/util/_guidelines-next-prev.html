@@ -4,29 +4,26 @@
 {{ $data := newScratch }}
 {{ $data.Set "previous" "" }}
 {{ $data.Set "next" "" }}
-
-{{- $allPages := slice -}}
-{{- $section := site.GetPage "section" "guidelines" -}}
-{{- if $section -}}
-    {{- range sort $section.Sections "Weight" -}}
-        {{- $pages := sort .RegularPages "Weight" -}}
-        {{- range $pages -}}
-            {{- $allPages = $allPages | append . -}}
-        {{- end -}}
-    {{- end -}}
-
-    {{- range $index, $page := $allPages -}}
-        {{- if eq $.Page.RelPermalink $page.RelPermalink -}}
-            {{- if gt $index 0 -}}
-                {{- $prev := index $allPages (sub $index 1) -}}
-                {{- $data.Set "previous" (dict "URL" $prev.RelPermalink "Name" $prev.Title) -}}
-            {{- end -}}
-            {{- if lt $index (sub (len $allPages) 1) -}}
-                {{- $next := index $allPages (add $index 1) -}}
-                {{- $data.Set "next" (dict "URL" $next.RelPermalink "Name" $next.Title) -}}
-            {{- end -}}
-        {{- end -}}
-    {{- end -}}
-{{- end -}}
-
-{{- return $data }}
+{{ $allPages := slice -}}
+{{ $section := site.GetPage "section" "guidelines" -}}
+{{ if $section -}}
+    {{ range sort $section.Sections "Weight" -}}
+        {{ $pages := sort .RegularPages "Weight" -}}
+        {{ range $pages -}}
+            {{ $allPages = $allPages | append . -}}
+        {{- end }}
+    {{- end }}
+	{{ range $index, $page := $allPages -}}
+		{{ if eq $.Page.RelPermalink $page.RelPermalink -}}
+            {{ if gt $index 0 -}}
+                {{ $prev := index $allPages (sub $index 1) -}}
+                {{ $data.Set "previous" (dict "URL" $prev.RelPermalink "Name" $prev.Title "Parent" $prev.Parent.Title) }}
+            {{ end -}}
+            {{ if lt $index (sub (len $allPages) 1) -}}
+                {{ $next := index $allPages (add $index 1) -}}
+                {{ $data.Set "next" (dict "URL" $next.RelPermalink "Name" $next.Title "Parent" $next.Parent.Title) }}
+            {{- end }}
+        {{- end }}
+    {{- end }}
+{{- end }}
+{{ return $data }}
