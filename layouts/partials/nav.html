@@ -4,10 +4,9 @@
 <nav class="nav" aria-label="Main Navigation" style="opacity: 0;">
 	<!-- Header -->
     {{- partial "header.html" (dict
+    	"ctx" .
 		"nav" true
-		"ctx" .
     )}}
-
 	<!-- Main (Top/Left) -->
 	<div class="container nav-container">
 		<div class="row nav-row">

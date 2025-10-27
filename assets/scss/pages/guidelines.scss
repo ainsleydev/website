@@ -1,0 +1,236 @@
+// -----------------------------------------------------------------------------
+// _guidelines.scss
+// This file contains all styles related to the guidelines page(s).
+// -----------------------------------------------------------------------------
+
+@import '../abstracts/mixins';
+@import '../abstracts/variables';
+
+.guidelines {
+	$self: &;
+
+	// Container
+	// =========================================================================
+
+	&-container {
+		display: flex;
+		flex-direction: column;
+		max-width: 1900px;
+		margin: 0 auto;
+		padding: 0 $container-padding-x;
+	}
+
+	// Header (Mobile)
+	// =========================================================================
+
+	// Aside
+	// =========================================================================
+
+	&-aside {
+		::-webkit-scrollbar {
+			width: 0;
+			background: transparent;
+		}
+
+		&-wrapper {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 300px;
+			min-width: 300px;
+			transform: translateX(-100%);
+			@include full-height;
+			background-color: $white;
+			overflow-y: scroll;
+			padding-left: 24px;
+			padding-right: 1rem;
+			z-index: $header-z-index + 10;
+			border-right: 1px solid rgba($black, $alpha-standard);
+		}
+
+		&-overlay {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background-color: rgba($black, 0.5);
+			z-index: $header-z-index + 5;
+		}
+
+		&-close {
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			top: 1rem;
+			right: 1rem;
+			fill: $white;
+			transform: scale(1.4);
+		}
+
+		&-header {
+			display: flex;
+			align-items: center;
+			height: 80px;
+			margin-bottom: $margin;
+			border-bottom: 1px solid rgba($black, $alpha-standard);
+		}
+
+		&-logo {
+			display: flex;
+			align-items: center;
+			width: 140px;
+
+			svg {
+				width: 100%;
+				height: auto;
+			}
+		}
+
+		&-items {
+			padding-top: 1rem;
+
+			a {
+				padding: 8px 0;
+			}
+
+			h6 {
+				font-weight: bold;
+			}
+		}
+	}
+
+	// Menu
+	// =========================================================================
+
+	&-menu {
+		&-section {
+			margin-bottom: $margin;
+		}
+
+		&-title {
+			color: $black;
+			font-weight: bold;
+			margin-bottom: 1rem;
+		}
+
+		&-item {
+			display: flex;
+			align-items: center;
+		}
+
+		&-link {
+			display: block;
+			width: 100%;
+			margin-bottom: 6px;
+			padding: 8px 0 8px 8px;
+			border-radius: 4px;
+			font-size: 14px;
+			color: $copy-light-bg;
+			font-weight: 500;
+			text-decoration: none;
+			line-height: 1;
+			transition: all 50ms ease;
+
+			&:not(#{$self}-menu-active):hover {
+				background-color: $black;
+				color: $white;
+			}
+		}
+
+		&-active {
+			background-color: $off-white;
+			font-weight: bold;
+		}
+	}
+
+	// Content
+	// =========================================================================
+
+	&-content {
+		width: 100%;
+		align-self: flex-start;
+		max-width: 1300px;
+		margin: 40px 0;
+
+		&-container {
+			position: relative;
+			flex-direction: row;
+			width: 100%;
+			margin: 0 auto;
+		}
+	}
+
+	// Footer (Last Mod)
+	// =========================================================================
+
+	&-footer {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		margin-top: $margin-large;
+		padding-top: $margin;
+		border-top: 1px solid rgba($black, $alpha-standard);
+
+		&-last-mod {
+			margin: 0;
+		}
+	}
+
+	// Tablet Down
+	// =========================================================================
+
+	@include media-desk-down {
+		&-content {
+			margin-top: $header-height + 40px;
+		}
+
+		&-aside-header,
+		&-aside-logo,
+		&-menu {
+			padding-left: 24px;
+			padding-right: 1rem;
+		}
+
+		&-aside-wrapper {
+			padding: 0;
+		}
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-desk {
+		&-container {
+			flex-direction: row;
+			justify-content: flex-start;
+			padding: 0;
+		}
+
+		&-header {
+			display: none;
+		}
+
+		&-aside {
+			&-wrapper {
+				position: sticky;
+				width: 300px;
+				transform: none !important; // Override JS
+			}
+
+			&-overlay {
+				display: none !important; // Override JS
+			}
+		}
+
+		&-content {
+			padding: 0 $margin-large;
+
+			&-container {
+				max-width: 750px;
+			}
+		}
+	}
+}

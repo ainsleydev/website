@@ -56,7 +56,7 @@ markup:
         tabWidth: 4
     tableOfContents:
         endLevel: 2
-        ordered: false
+        ordered: true
         startLevel: 2
 outputs:
     home: ["HTML","RSS", "JSON"]

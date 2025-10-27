@@ -1,0 +1,152 @@
+{{ define "main" }}
+	<!-- =====================
+		Guidelines Single
+		===================== -->
+	<div class="guidelines-container">
+		<!-- =====================
+			Mobile
+			===================== -->
+        <div class="guidelines-header">
+			<header class="header header-colour-white header-default header-hamburger" data-header-element="">
+				<!-- Logo -->
+				<a href="/" class="header-logo cursor-element" aria-label="Navigate to the homepage"
+				   data-cursor-invert data-cursor-invert-black data-cursor-scale="1.6">
+                    {{- partial "svgs/logo.html" -}}
+				</a>
+				<!-- Hamburger -->
+				{{ partial "svgs/hamburger.html" }}
+			</header>
+		</div>
+		<!-- =====================
+			Menu
+			===================== -->
+		<aside class="guidelines-aside">
+			<!-- Wrapper -->
+			<div class="guidelines-aside-wrapper" id="guidelines-aside-wrapper">
+				<!-- Header -->
+				<header class="guidelines-aside-header">
+					<!-- Logo -->
+					<a href="/" class="header-logo cursor-element" aria-label="Navigate to the homepage"
+					   data-cursor-invert data-cursor-invert-black data-cursor-scale="1.6">
+                        {{- partial "svgs/logo.html" -}}
+					</a>
+				</header>
+				<!-- Items -->
+				{{ $section := site.GetPage "section" "guidelines" }}
+				{{ if $section }}
+					<menu class="guidelines-menu">
+						{{ range sort $section.Sections "Weight" }}
+							<li class="guidelines-menu-section">
+								<!-- Section Title -->
+								<h6 class="guidelines-menu-title">
+                                    {{ .Name }}
+								</h6>
+								<!-- Sub -->
+								{{ $pages := sort .RegularPages "Weight" }}
+								{{ if gt (len $pages) 0 }}
+									<menu class="guidelines-menu-sub">
+                                        {{ range $pages }}
+											<li class="guidelines-menu-item">
+												<a class="guidelines-menu-link
+												{{ if eq $.Page.RelPermalink .RelPermalink -}} guidelines-menu-active {{- end }}"
+												   href="{{ .RelPermalink }}"
+												   title="{{ .Name }} Page"
+												   aria-label="Navigate to the {{ .Name }} page">
+                                                    {{ .Name }}
+												</a>
+											</li>
+                                        {{ end }}
+									</menu>
+                                {{ end -}}
+							</li>
+                        {{ end }}
+					</menu>
+				{{ else -}}
+                    {{ errorf "No guidelines defined in menu.yaml" }}
+                {{- end }}
+			</div><!-- /Wrapper -->
+			<!-- Overlay -->
+			<div class="guidelines-aside-overlay" id="guidelines-aside-overlay">
+				<figure class="guidelines-aside-close">
+                    {{ partial "svgs/cross.html" }}
+				</figure>
+			</div>
+		</aside>
+		<!-- =====================
+			Content
+			===================== -->
+		<article class="guidelines-content">
+			<div class="guidelines-content-container">
+				<!-- Title -->
+				<div class="guidelines-content-heading">
+					<h1 class="heading-2">
+                        {{ .Title }}
+					</h1>
+				</div>
+				<!-- Page Content -->
+				<div class="guidelines-content-richtext richtext richtext-small-format">
+					{{ .Content | replaceRE "/a>\n" "/a>" | safeHTML  }}
+				</div>
+				<!-- Next & Prev Links -->
+				{{ $showPrevNext := true -}}
+				{{ if eq .Params.showprevnext false -}}
+					{{ $showPrevNext = false -}}
+				{{ end -}}
+				{{ if $showPrevNext -}}
+					<div class="box-link-container">
+						{{ $nextPrev := partial "util/_guidelines-next-prev.html" . }}
+						<!-- Previous Link -->
+						{{ with $nextPrev.Get "previous" -}}
+							{{ $page := $.Site.GetPage (strings.TrimSuffix "/" .URL) }}
+							{{ partial "components/box-links.html" (dict
+								"link" $page.RelPermalink
+								"heading" (printf "%s - %s" .Parent .Name)
+								"sub" "Previous"
+								"left" true
+								"title" (printf "Navigate to the %s page" $page.Title)
+							)}}
+						{{- end }}
+						<!-- Next Link -->
+						{{ with $nextPrev.Get "next" -}}
+							{{ $page := $.Site.GetPage (strings.TrimSuffix "/" .URL) }}
+							{{ partial "components/box-links.html" (dict
+								"link" $page.RelPermalink
+								"heading" (printf "%s - %s" .Parent .Name)
+								"sub" "Next"
+								"left" false
+								"title" (printf "Navigate to the %s page" $page.Title)
+							)}}
+						{{- end }}
+					</div>
+				{{- end }}
+				<!-- Footer -->
+				<footer class="guidelines-footer">
+					<!-- Last Mod -->
+					<small class="guidelines-footer-last-mod">
+						Last modified: {{ .Lastmod.Format "02/01/2006" }}
+					</small>
+					<!-- Copyright -->
+					<small>
+						2022-{{ now.Year }} ©ainsley.dev, All rights reserved.
+					</small>
+				</footer>
+			</div><!-- /Container -->
+		</article>
+		<!-- =====================
+			Table of Contents
+			===================== -->
+		{{ $toc := .TableOfContents | safeHTML }}
+		{{ if ne $toc "<nav id=\"TableOfContents\"></nav>" }}
+			<aside class="toc guidelines-toc">
+				<div class="toc-wrapper">
+					<!-- Title -->
+					<h6 class="toc-title">
+						On this page
+					</h6>
+					<!-- Contents -->
+					{{ $toc }}
+				</div>
+			</aside>
+		{{- end }}
+	</div><!-- /Container -->
+{{ end }}
