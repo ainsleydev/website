@@ -17,7 +17,7 @@ scripts:
 Prefer using maps with function values over switch statements when dispatching based on string or
 integer keys. This approach is more maintainable, extensible, and testable.
 
-**Prefer:**
+**Recommended**
 
 ```go
 type handlerFunc func(input Request) (Response, error)
@@ -37,7 +37,7 @@ func dispatch(action string, req Request) (Response, error) {
 }
 ```
 
-**Avoid:**
+**Not recommended**
 
 ```go
 func dispatch(action string, req Request) (Response, error) {

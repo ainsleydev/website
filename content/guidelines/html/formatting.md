@@ -1,21 +1,16 @@
 ---
 title: Formatting
 heading: Formatting
-description: TODO
-linkText: This will appear in the box
+description: ainsley.dev Developer Guidelines | HTML formatting standards including indentation, quotes & self-closing tags
+linkText: HTML formatting standards
+weight: 2
 publishdate: 2023-07-16
-lastmod: 2023-07-16
-draft: true
+lastmod: 2025-10-27
+draft: false
 pageColour: white
 scripts:
     - js/pages/guidelines.ts
 ---
-
-{{< lead >}}
-I'm baby chartreuse bicycle rights squid narwhal, slow-carb pour-over street art food truck. Pop-up pitchfork vaporware
-migas edison bulb, waistcoat tonx +1 sriracha slow-carb raw denim fashion axe health goth listicle synth. Scenester
-butcher direct trade, flexitarian hexagon unicorn mustache bruh asymmetrical lomo pok pok mukbang.
-{{< /lead >}}
 
 ## Validity
 
