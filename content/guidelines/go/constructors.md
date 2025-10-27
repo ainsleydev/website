@@ -3,7 +3,7 @@ title: Constructors
 heading: Constructors
 description: Constructor patterns with validation using the enforce package
 linkText: Constructors and validation
-weight: 5
+weight: 3
 publishdate: 2025-10-27
 lastmod: 2025-10-27
 draft: false

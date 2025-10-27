@@ -11,7 +11,6 @@ scripts:
     - js/pages/guidelines.ts
 ---
 
-
 {{< lead >}}
 I'm baby chartreuse bicycle rights squid narwhal, slow-carb pour-over street art food truck. Pop-up pitchfork vaporware
 migas edison bulb, waistcoat tonx +1 sriracha slow-carb raw denim fashion axe health goth listicle synth. Scenester

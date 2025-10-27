@@ -11,8 +11,6 @@ scripts:
     - js/pages/guidelines.ts
 ---
 
-## Commit Messages
-
 Follow a conventional commit format with a type prefix and present tense gerund (doing words):
 
 ### Format
@@ -40,22 +38,3 @@ style: Refactoring manifest loader for clarity
 test: Adding integration tests for scaffold command
 docs: Updating README with installation steps
 ```
-
-## Pre-Commit Checklist
-
-Before submitting changes, agents should verify the following:
-
-#### Branch workflow
-
-- [ ] Never push directly to `main` - always create a new branch.
-- [ ] Branch names should be descriptive (e.g., `feature/add-sops-validation`,
-  `fix/terraform-state-bug`).
-
-#### Verification steps (this should be in Go?)
-
-- [ ] All tests pass locally (run `go test ./...`).
-- [ ] Code is properly formatted with `go fmt`.
-- [ ] Generated files (`.gen.go`, manifest tracked files) were not manually edited.
-- [ ] New exported types, functions, and constants have Go doc comments.
-- [ ] Tests follow the test table or `t.Run` patterns described above.
-- [ ] If adding new dependencies, ensure they're necessary and well-maintained.

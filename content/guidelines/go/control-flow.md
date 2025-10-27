@@ -3,7 +3,7 @@ title: Control Flow
 heading: Control Flow
 description: Control flow patterns and best practices
 linkText: Control flow patterns
-weight: 6
+weight: 4
 publishdate: 2025-10-27
 lastmod: 2025-10-27
 draft: false
