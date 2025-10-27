@@ -14,7 +14,7 @@ scripts:
 
 Organise SCSS files into a clear hierarchy:
 
-```
+```text
 scss/
 ├── abstracts/        # Variables, functions, mixins
 │   ├── _colours.scss
@@ -32,31 +32,6 @@ scss/
 ├── components/       # Component styles
 └── util/             # Utility styles
 └── app.scss          # Entry point
-```
-
-## CSS Variables & Tokens
-
-Generate CSS variables from SCSS maps in `:root`:
-
-```scss
-:root {
-	// Colours
-	@each $color, $shade-map in a.$colours {
-		@each $shade, $value in $shade-map {
-			--colour-#{$color}-#{$shade}: #{$value};
-		}
-	}
-
-	// Colour Tokens
-	@each $type, $token-map in a.$tokens {
-		@each $token, $value in $token-map {
-			--token-#{$type}-#{$token}: #{$value};
-		}
-	}
-
-	--header-height: #{a.$header-height};
-	--container-max-width: 1328px;
-}
 ```
 
 ## Component Styling Pattern

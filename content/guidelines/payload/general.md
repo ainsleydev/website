@@ -14,8 +14,7 @@ scripts:
 
 - Use `camelCase` for all field names.
 - Always include `admin.description` for Payload collections and fields.
-- Collection slugs should be lowercase with hyphens (e.g., `'media'`, `'form-submissions'`).
-- Use `type: 'point'` for focal point fields on images.
+- Collection slugs should be lowercase with hyphens (e.g. `'media'`, `'form-submissions'`).
 - Leverage helper functions from `payload-helper` package for common patterns.
 
 ## Collection Configuration
