@@ -4,7 +4,7 @@ description: SCSS coding standards covering BEM naming, structure & responsive d
 weight: 2
 publishdate: 2025-10-27
 lastmod: 2025-10-27
-draft: true
+draft: false
 pageColour: white
 scripts:
   - js/pages/guidelines.ts
