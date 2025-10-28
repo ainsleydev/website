@@ -11,7 +11,7 @@ scripts:
     - js/pages/guidelines.ts
 ---
 
-### Code Style
+## Code Style
 
 - **Formatting**: Use `gofmt` for standard Go formatting.
 - **File naming**: snake_case for files, test files end with `_test.go`.
@@ -22,23 +22,38 @@ scripts:
 
 ## Interfaces and Abstraction
 
-- Keep interfaces small and focused (a single responsibility).
+- Keep interfaces small and focused (single responsibility).
 - Prefer returning concrete types unless abstraction is required for testing or swapping implementations.
-- Document interface expectations explicitly (e.g., "implementations must be thread-safe").
+- Document interface expectations explicitly (e.g. "implementations must be thread-safe").
 
-## Structs and Composition
+## Defining Types
 
-- Use struct embedding for composition, not inheritance.
-- Prefer `NewX()` constructors over global initialisation unless it's the only constructor in the package then it will
-  be written as `New()`.
 - Keep structs small and cohesive; split if too many responsibilities.
+- Prefer to use the `type` keyword once for multiple type declarations.
+
+**Example**
+
+```go
+type (
+	// Environment contains env-specific variable configurations.
+	Environment struct {
+		Dev        EnvVar `json:"dev,omitempty"`
+		Staging    EnvVar `json:"staging,omitempty"`
+		Production EnvVar `json:"production,omitempty"`
+	}
+	// EnvVar is a map of variable names to their configurations.
+	EnvVar map[string]EnvValue
+	// EnvValue represents a single env variable configuration
+	EnvValue struct {
+		Source EnvSource `json:"source"`          // See below
+		Value  any       `json:"value,omitempty"` // Used for "value" and "resource" sources
+		Path   string    `json:"path,omitempty"`  // Used for "sops" source (format: "key")
+	}
+)
+```
 
 ## Naming Conventions
 
-- **Exported identifiers**: Use `PascalCase` (e.g., `UserService`, `GetConfig`).
-- **Unexported identifiers**: Use `camelCase` (e.g., `userService`, `getConfig`).
-- **Files**: Use `snake_case` for file names (e.g., `user_service.go`).
-- **Test files**: End with `_test.go` (e.g., `user_service_test.go`).
 - **Integration tests**: End with `_integration_test.go`.
 - **Generated files**: `*.gen.go` files are auto-generated - do not edit.
 - **Interfaces**: Often end in `-er` suffix (e.g., `Reader`, `Writer`, `Store`).
