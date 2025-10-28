@@ -78,7 +78,7 @@ footer:
         weight: 80
 terms:
     -   identifier: terms-conditions
-        name: Terms & Conditions
+        name: Terms
         url: /terms/
         weight: 0
     -   identifier: privacy
