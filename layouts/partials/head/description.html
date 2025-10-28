@@ -3,10 +3,13 @@
     ===================== -->
 {{ if .Description -}}
     {{- $description := .Description -}}
-    {{- if hasPrefix .RelPermalink "/guidelines" -}}
-		{{- $prefix := "ainsley.dev Developer Guidelines | Discover best practices, tips, and standards for building reliable & maintainable software " -}}
-        {{- $description = printf "%s%s" $prefix .Description -}}
-    {{- end -}}
+	{{- if hasPrefix .RelPermalink "/guidelines" -}}
+		{{- if eq .Parent.RelPermalink "/guidelines/" -}}
+			{{- $description = printf "ainsley.dev Developer Guidelines | %s | Discover best practices, tips, and standards for building reliable & maintainable software" .Title -}}
+		{{- else -}}
+			{{- $description = printf "ainsley.dev Developer Guidelines | %s - %s | Discover best practices, tips, and standards for building reliable & maintainable software" .Parent.Title .Title -}}
+		{{- end -}}
+	{{- end -}}
     {{- if gt (len $description) 158 -}}
         {{- $description = printf "%s..." (substr $description 0 155) -}}
         {{- warnf "Description character count is greater than 155 for page: %s, count: %d, trimmed with ellipsis" .RelPermalink (len .Description) -}}
