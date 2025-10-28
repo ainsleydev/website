@@ -2,16 +2,23 @@
     Description
     ===================== -->
 {{ if .Description -}}
-    {{- if lt (len .Description) 120 -}}
-        {{- warnf "Description character count is less than 120 for page: %s, count: %d, description: %s" .RelPermalink (len .Description) .Description -}}
-	{{- else if gt (len .Description) 158 -}}
-        {{- warnf "Description character count is greater than 155 for page: %s, count: %d, description: %s" .RelPermalink (len .Description) .Description -}}
+    {{- $description := .Description -}}
+    {{- $prefix := "ainsley.dev Developer Guidelines | " -}}
+    {{- if hasPrefix .RelPermalink "/guidelines" -}}
+        {{- $description = printf "%s%s" $prefix .Description -}}
+    {{- end -}}
+    {{- if gt (len $description) 158 -}}
+        {{- $description = printf "%s..." (substr $description 0 155) -}}
+        {{- warnf "Description character count is greater than 155 for page: %s, count: %d, trimmed with ellipsis" .RelPermalink (len .Description) -}}
+    {{- end -}}
+    {{- if lt (len $description) 120 -}}
+        {{- warnf "Description character count is less than 120 for page: %s, count: %d, description: %s" .RelPermalink (len $description) $description -}}
     {{- end }}
     {{ if and (not .IsHome) (eq .Description "") }}
         {{ warnf "No meta description for page: %s" .RelPermalink }}
     {{- end }}
 	<meta name="description"
-		  content="{{ .Description }}" />
+		  content="{{ $description }}" />
 {{- else -}}
     {{ warnf "No description param provided to page: %s" .RelPermalink }}
 {{- end }}
