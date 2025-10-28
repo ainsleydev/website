@@ -61,22 +61,22 @@
 				<!-- Footer -->
 				{{ partial "guidelines/footer.html" . }}
 			</div><!-- /Container -->
+			<!-- =====================
+				Table of Contents
+				===================== -->
+			{{ $toc := .TableOfContents | safeHTML }}
+			{{ if ne $toc "<nav id=\"TableOfContents\"></nav>" }}
+				<aside class="toc guidelines-toc">
+					<div class="toc-wrapper">
+						<!-- Title -->
+						<h6 class="toc-title">
+							On this page
+						</h6>
+						<!-- Contents -->
+						{{ $toc }}
+					</div>
+				</aside>
+			{{- end }}
 		</article>
-		<!-- =====================
-			Table of Contents
-			===================== -->
-		{{ $toc := .TableOfContents | safeHTML }}
-		{{ if ne $toc "<nav id=\"TableOfContents\"></nav>" }}
-			<aside class="toc guidelines-toc">
-				<div class="toc-wrapper">
-					<!-- Title -->
-					<h6 class="toc-title">
-						On this page
-					</h6>
-					<!-- Contents -->
-					{{ $toc }}
-				</div>
-			</aside>
-		{{- end }}
 	</div><!-- /Container -->
 {{ end }}
