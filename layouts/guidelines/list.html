@@ -4,74 +4,13 @@
 		===================== -->
 	<div class="guidelines-container">
 		<!-- =====================
-			Mobile
+			Header
 			===================== -->
-		<div class="guidelines-header">
-			<header class="header header-colour-white header-default header-hamburger" data-header-element="">
-				<!-- Logo -->
-				<a href="/" class="header-logo cursor-element" aria-label="Navigate to the homepage"
-				   data-cursor-invert data-cursor-invert-black data-cursor-scale="1.6">
-					{{- partial "svgs/logo.html" -}}
-				</a>
-				<!-- Hamburger -->
-				{{ partial "svgs/hamburger.html" }}
-			</header>
-		</div>
+		{{ partial "guidelines/header.html" . }}
 		<!-- =====================
 			Menu
 			===================== -->
-		<aside class="guidelines-aside">
-			<!-- Wrapper -->
-			<div class="guidelines-aside-wrapper" id="guidelines-aside-wrapper">
-				<!-- Header -->
-				<header class="guidelines-aside-header">
-					<!-- Logo -->
-					<a href="/" class="header-logo cursor-element" aria-label="Navigate to the homepage"
-					   data-cursor-invert data-cursor-invert-black data-cursor-scale="1.6">
-						{{- partial "svgs/logo.html" -}}
-					</a>
-				</header>
-				<!-- Items -->
-				{{ $section := site.GetPage "section" "guidelines" }}
-				{{ if $section }}
-					<menu class="guidelines-menu">
-						{{ range sort $section.Sections "Weight" }}
-							<li class="guidelines-menu-section">
-								<!-- Section Title -->
-								<h6 class="guidelines-menu-title">
-									{{ .Name }}
-								</h6>
-								<!-- Sub -->
-								{{ $pages := sort .RegularPages "Weight" }}
-								{{ if gt (len $pages) 0 }}
-									<menu class="guidelines-menu-sub">
-										{{ range $pages }}
-											<li class="guidelines-menu-item">
-												<a class="guidelines-menu-link
-												{{ if eq $.Page.RelPermalink .RelPermalink -}} guidelines-menu-active {{- end }}"
-												   href="{{ .RelPermalink }}"
-												   title="{{ .Name }} Page"
-												   aria-label="Navigate to the {{ .Name }} page">
-													{{ .Name }}
-												</a>
-											</li>
-										{{ end }}
-									</menu>
-								{{ end -}}
-							</li>
-						{{ end }}
-					</menu>
-				{{ else -}}
-					{{ errorf "No guidelines defined in menu.yaml" }}
-				{{- end }}
-			</div><!-- /Wrapper -->
-			<!-- Overlay -->
-			<div class="guidelines-aside-overlay" id="guidelines-aside-overlay">
-				<figure class="guidelines-aside-close">
-					{{ partial "svgs/cross.html" }}
-				</figure>
-			</div>
-		</aside>
+		{{ partial "guidelines/sidebar.html" . }}
 		<!-- =====================
 			Content
 			===================== -->
@@ -111,16 +50,7 @@
 					</div>
 				{{ end }}
 				<!-- Footer -->
-				<footer class="guidelines-footer">
-					<!-- Last Mod -->
-					<small class="guidelines-footer-last-mod">
-						Last modified: {{ .Lastmod.Format "02/01/2006" }}
-					</small>
-					<!-- Copyright -->
-					<small>
-						2022-{{ now.Year }} ©ainsley.dev, All rights reserved.
-					</small>
-				</footer>
+				{{ partial "guidelines/footer.html" . }}
 			</div><!-- /Container -->
 		</article>
 	</div><!-- /Container -->
