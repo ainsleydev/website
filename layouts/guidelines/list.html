@@ -32,21 +32,11 @@
 				{{ $pages := sort .RegularPages "Weight" }}
 				{{ if gt (len $pages) 0 }}
 					<div class="guidelines-content-list">
-						<h2 class="heading-3">Pages</h2>
-						<ul class="guidelines-pages-list">
+						<div class="guidelines-pages-list">
 							{{ range $pages }}
-								<li class="guidelines-page-item">
-									<a href="{{ .RelPermalink }}" class="guidelines-page-link" title="Navigate to {{ .Title }}">
-										<h3 class="heading-4">{{ .Title }}</h3>
-										{{ if .Params.description }}
-											<p class="guidelines-page-description">{{ .Params.description }}</p>
-										{{ else if .Summary }}
-											<p class="guidelines-page-description">{{ .Summary }}</p>
-										{{ end }}
-									</a>
-								</li>
+								{{ .Render "card" }}
 							{{ end }}
-						</ul>
+						</div>
 					</div>
 				{{ end }}
 				<!-- Footer -->

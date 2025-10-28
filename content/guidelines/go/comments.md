@@ -1,7 +1,7 @@
 ---
 title: Comments
 heading: Comments
-description: ainsley.dev Developer Guidelines | Go documentation & comment standards for exported types and functions
+description: Go documentation & comment standards for exported types and functions
 publishdate: 2025-10-26
 lastmod: 2025-10-27
 draft: false
