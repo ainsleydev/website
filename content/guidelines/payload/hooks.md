@@ -1,7 +1,7 @@
 ---
 title: Hooks
 heading: Hooks
-description: ainsley.dev Developer Guidelines | Payload CMS hooks for data transformation and business logic patterns
+description: Payload CMS hooks for data transformation and business logic patterns
 weight: 4
 publishdate: 2025-10-27
 lastmod: 2025-10-27

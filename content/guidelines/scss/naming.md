@@ -1,7 +1,7 @@
 ---
 title: Naming
 heading: Naming
-description: ainsley.dev Developer Guidelines | SCSS BEM-inspired naming conventions & component patterns
+description: SCSS BEM-inspired naming conventions & component patterns
 publishdate: 2025-10-27
 lastmod: 2025-10-27
 draft: false
