@@ -3,8 +3,8 @@
     ===================== -->
 {{ if .Description -}}
     {{- $description := .Description -}}
-    {{- $prefix := "ainsley.dev Developer Guidelines | " -}}
     {{- if hasPrefix .RelPermalink "/guidelines" -}}
+		{{- $prefix := "ainsley.dev Developer Guidelines | Discover best practices, tips, and standards for building reliable & maintainable software " -}}
         {{- $description = printf "%s%s" $prefix .Description -}}
     {{- end -}}
     {{- if gt (len $description) 158 -}}
