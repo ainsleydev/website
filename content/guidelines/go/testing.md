@@ -1,7 +1,7 @@
 ---
 title: Testing
 heading: Testing
-description: ainsley.dev Developer Guidelines | Go testing patterns using test tables, t.Run subtests & mocking
+description: Go testing patterns using test tables, t.Run subtests & mocking
 weight: 7
 publishdate: 2025-10-27
 lastmod: 2025-10-27
