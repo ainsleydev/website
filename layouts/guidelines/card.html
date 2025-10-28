@@ -1,0 +1,19 @@
+<!-- =====================
+	Guidelines Card
+	===================== -->
+<a href="{{ .RelPermalink }}" class="guidelines-card" title="Navigate to {{ .Title }}">
+	<!-- Title -->
+	<h3 class="heading-5">
+		{{ .Title }}
+	</h3>
+	<!-- Description -->
+	{{ if .Params.description }}
+		<small class="guidelines-card-description">
+			{{ .Params.description }}
+		</small>
+	{{ else if .Summary }}
+		<small class="guidelines-card-description">
+			{{ .Summary }}
+		</small>
+	{{ end }}
+</a>

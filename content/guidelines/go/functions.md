@@ -1,7 +1,7 @@
 ---
 title: Function Patterns
 heading: Function Patterns
-description: ainsley.dev Developer Guidelines | Go function patterns using context.Context for I/O & cancellation
+description: Go function patterns using context.Context for I/O & cancellation
 weight: 3
 publishdate: 2025-10-26
 lastmod: 2025-10-27

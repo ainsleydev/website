@@ -1,7 +1,7 @@
 ---
 title: Errors
 heading: Errors
-description: ainsley.dev Developer Guidelines | Go error handling patterns with custom types and errors.Wrap
+description: Go error handling patterns with custom types and errors.Wrap
 weight: 6
 publishdate: 2025-10-26
 lastmod: 2025-10-27
