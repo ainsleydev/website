@@ -26,7 +26,7 @@ These guidelines serve multiple functions:
 - **Onboarding**: Help new developers and AI agents learn our coding standards.
 - **Collaboration**: Develop a shared vocabulary for technical conversation and code review.
 
-## General Principles
+## Guiding Principles
 
 Across all languages and frameworks, we follow these core principles:
 
