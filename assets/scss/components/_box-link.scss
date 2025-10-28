@@ -1,0 +1,116 @@
+// -----------------------------------------------------------------------------
+// _box-link.scss
+// This file contains all styles related to the box link component.
+// -----------------------------------------------------------------------------
+
+.box-link {
+	$self: &;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 1rem;
+	border: 1px solid rgba($black, $alpha-standard);
+	background-color: $highlight-bg-colour;
+	border-radius: 4px;
+	text-decoration: none;
+	font-weight: normal;
+	transition: box-shadow 0.15s ease;
+	will-change: box-shadow;
+
+	// Container
+	// ==========================================================================
+
+	&-container {
+		display: flex;
+		flex-direction: column;
+		margin-top: $margin;
+	}
+
+	// Text
+	// ==========================================================================
+
+	&-text {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		flex-grow: 2;
+	}
+
+	// Heading
+	// ==========================================================================
+
+	&-heading {
+		display: block;
+		width: 80%;
+		white-space: nowrap;
+		font-weight: bold;
+		line-height: 1.2;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+
+	// Sub (Small Text)
+	// ==========================================================================
+
+	&-sub {
+		display: block;
+		margin-bottom: 4px;
+		font-weight: 500;
+		line-height: 1;
+		color: $copy-dark-bg;
+	}
+
+	// Arrow
+	// ==========================================================================
+
+	&-arrow {
+		$arrow-size: 1.2rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: $arrow-size;
+		min-width: $arrow-size;
+		max-height: 30px;
+
+		svg {
+			width: 100%;
+		}
+	}
+
+	// Left
+	// ==========================================================================
+
+	&-left {
+		flex-direction: row-reverse;
+		margin-bottom: 1rem;
+
+		#{$self}-arrow {
+			transform: rotate(180deg);
+		}
+
+		#{$self}-text {
+			align-items: flex-end;
+			text-align: right;
+		}
+	}
+
+	&:hover {
+		box-shadow: rgba(0, 0, 0, 0.02) 0px 12px 13px;
+	}
+
+	// Tablet
+	// ==========================================================================
+
+	@include media-tab {
+		&-container {
+			flex-direction: row;
+		}
+
+		&-left {
+			margin-bottom: 0;
+			margin-right: 1rem;
+		}
+	}
+}

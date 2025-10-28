@@ -102,10 +102,12 @@
 		<!-- Hamburger -->
 		<input class="nav-checkbox" type="checkbox" id="nav-check" aria-hidden="true" />
 		<!-- Header -->
-        {{- partial "header.html" (dict
-			"colour" $colour
-			"ctx" .
-        )}}
+        {{ if ne .Section "guidelines" -}}
+			{{- partial "header.html" (dict
+				"colour" $colour
+				"ctx" .
+			)}}
+		{{- end }}
 		<!-- Navigation -->
         {{- partial "nav.html" . -}}
 		<!-- Transition -->
@@ -115,7 +117,7 @@
 		<!-- Content Wrapper -->
 		<div class="barba-container" data-barba="container" data-barba-namespace="{{ partial "util/_namespace.html" . }}">
 			<div class="content-wrapper" data-scroll-container
-					{{ if or (and (eq .Section "insights") .IsPage) (and (eq .Section "legal") .IsPage) -}} data-scroll-disable {{- end }}>
+					{{ if or (and (eq .Section "insights") .IsPage) (and (eq .Section "legal") .IsPage) (and (eq .Section "guidelines") .IsPage) -}} data-scroll-disable {{- end }}>
 				<!-- Main Content -->
 				<main id="main" class="theme-{{ $colour }}" data-theme="{{ $colour }}">
                     {{- block "main" . -}} {{- end }}

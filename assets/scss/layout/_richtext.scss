@@ -90,6 +90,60 @@
 			margin-bottom: $margin;
 		}
 	}
+
+	// Small Format (Guidelines)
+	// ==========================================================================
+
+	&-small-format {
+		p,
+		ul,
+		blockquote,
+		.highlight,
+		.codepen {
+			+ h1,
+			+ h2,
+			+ h3,
+			+ h4,
+			+ h5 {
+				margin-top: $margin;
+			}
+		}
+
+		p {
+			+ .image,
+			+ .highlight,
+			+ .codepen {
+				margin-top: -0.2rem;
+			}
+		}
+
+		h1 {
+			@include h2;
+		}
+
+		h2 {
+			@include h3;
+		}
+
+		h3 {
+			@include h4;
+		}
+	}
+
+	// Checkbox ([ ])
+	// ==========================================================================
+
+	ul {
+		li:has(input[type='checkbox']) {
+			input[type='checkbox'] {
+				width: 18px;
+				height: 18px;
+				vertical-align: middle;
+				margin-right: 0.5rem;
+				transform: translateY(-2px);
+			}
+		}
+	}
 }
 
 // Theme White
