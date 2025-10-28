@@ -129,6 +129,21 @@
 			@include h4;
 		}
 	}
+
+	// Checkbox ([ ])
+	// ==========================================================================
+
+	ul {
+		li:has(input[type='checkbox']) {
+			input[type='checkbox'] {
+				width: 18px;
+				height: 18px;
+				vertical-align: middle;
+				margin-right: 0.5rem;
+				transform: translateY(-2px);
+			}
+		}
+	}
 }
 
 // Theme White

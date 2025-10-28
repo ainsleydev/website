@@ -55,6 +55,6 @@ pnpm format && pnpm lint:fix
 ## General Checks
 
 - [ ] Commit message follows the conventional commit format.
-- [ ] No sensitive information (passwords, API keys, etc.) in the code.
-- [ ] No large files accidentally committed.
-- [ ] All new files have appropriate copyright/license headers (if required).
+- [ ] No sensitive information (passwords, API keys, etc.) in the commit history.
+- [ ] No large files accidentally committed (+50 mb)
+- [ ] All new files have appropriate copyright/licence headers (if required).

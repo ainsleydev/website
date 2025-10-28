@@ -79,7 +79,7 @@
 					<!-- Menu -->
                     {{ with .Site.Menus.terms -}}
 						<menu class="footer-sub-menu">
-                            {{ range . -}}
+                            {{ range sort . "Weight" -}}
 								<li class="footer-sub-menu-item">
 									<a class="footer-sub-menu-link cursor-element" href="{{ .URL }}"
 									   title="{{ .Name }} Page"
