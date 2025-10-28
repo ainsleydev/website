@@ -78,7 +78,7 @@ export class TOC {
 	private update(): void {
 		this.activeHeader ||= this.headers[0];
 		let activeIndex = this.headers.findIndex((header) => {
-			return header.getBoundingClientRect().top > 50;
+			return header.getBoundingClientRect().top > 100;
 		});
 		if (activeIndex == -1) {
 			activeIndex = this.headers.length - 1;
