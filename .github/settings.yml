@@ -1,5 +1,5 @@
 repository:
-    topics: website, golang go-templates, ainsley-dev, webdev
+    topics: website, golang, go-templates, ainsley-dev, webdev
     private: false
     allow_merge_commit: false
     delete_branch_on_merge: true
