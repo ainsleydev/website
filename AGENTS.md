@@ -226,18 +226,13 @@ Code Copyright 2023 ainsley.dev. Code released under the BSD-3 Clause licence.
 
 # Developer Guidelines
 
-The following guidelines apply to this project. They ensure consistency, maintainability, and quality.
-
-## Purpose and Principles
-
 
 The ainsley.dev Developer Guidelines provide coding standards, patterns, and best practices for developers and AI agents
 working on ainsley.dev projects. They are designed to ensure consistency, maintainability, and quality across all
 codebases, public or private.
 
-![Dashboard Wireframe](guidelines.jpg)
 
-## Purpose
+### Purpose
 
 These guidelines serve multiple functions:
 
@@ -246,7 +241,7 @@ These guidelines serve multiple functions:
 - **Onboarding**: Help new developers and AI agents learn our coding standards.
 - **Collaboration**: Develop a shared vocabulary for technical conversation and code review.
 
-## Guiding Principles
+### Guiding Principles
 
 Across all languages and frameworks, we follow these core principles:
 
@@ -257,7 +252,7 @@ Across all languages and frameworks, we follow these core principles:
 - **Use British English**: All content and comments use British spellings.
 - **Review before committing**: Run linting, formatting, and tests before pushing code.
 
-## Contributing
+### Contributing
 
 These guidelines are based on patterns observed in our codebases, including:
 
@@ -299,12 +294,12 @@ type Generator interface {
 
 Constructors must validate all required dependencies using `enforce` helpers and return pointer
 types. Only to be used in the context of when being called from a `cmd` package.
- ## New
+#### New
 
 - Prefer `NewX()` constructors over global initialisation unless it's the only constructor in the package then it will
   be written as `New()`.
 
-## Enforce
+#### Enforce
 
 - Not nil values → `enforce.NotNil()`
 - Boolean conditions → `enforce.True()`
@@ -332,7 +327,7 @@ func NewGenerator(fs afero.Fs, manifest *manifest.Tracker, printer *printer.Cons
 }
 ```
 
-## Context
+#### Context
 
 Use `context.Context` as the first parameter for functions that perform I/O or can be cancelled.
 
@@ -352,7 +347,7 @@ Use `context.Context` as the first parameter for functions that perform I/O or c
 ### Control-flow
 
 
-## Maps Over Switch
+#### Maps Over Switch
 
 Prefer using maps with function values over switch statements when dispatching based on string or integer keys. This
 approach is more maintainable, extensible, and testable.
@@ -394,7 +389,7 @@ func dispatch(action string, req Request) (Response, error) {
 }
 ```
 
-## Exceptions
+#### Exceptions
 
 - Type switches (`switch v := value.(type)`) are appropriate for type assertions.
 - Switch statements are acceptable when matching on complex conditions or ranges.
@@ -408,7 +403,7 @@ func dispatch(action string, req Request) (Response, error) {
 - Return errors up the stack; don't just log and continue unless appropriate.
 - Always prioritise clarity over depth of stack trace — add context that helps debugging, not repetition
 
-## Domain Error Types
+#### Domain Error Types
 
 Define custom errors to give context and allow type-based handling, rather than using generic `fmt.Errorf`. Use custom
 errors only when it makes sense—for domain-specific cases where inspecting or handling by type is useful.
@@ -430,7 +425,7 @@ if balance < withdrawAmount {
 }
 ```
 
-## Using errors.Wrap
+#### Using errors.Wrap
 
 Always use `errors.Wrap` from `github.com/pkg/errors` for adding context to errors. Use `fmt.Errorf`
 if there are more than one argument that's not an error.
@@ -459,7 +454,7 @@ func ValidatePort(port int) error {
 ### Functions
 
 
-## Context
+#### Context
 
 Use `context.Context` as the first parameter for functions that perform I/O or can be cancelled.
 
@@ -479,7 +474,7 @@ Use `context.Context` as the first parameter for functions that perform I/O or c
 ### General
 
 
-## Code Style
+#### Code Style
 
 - **Formatting**: Use `gofmt` for standard Go formatting.
 - **File naming**: snake_case for files, test files end with `_test.go`.
@@ -488,13 +483,13 @@ Use `context.Context` as the first parameter for functions that perform I/O or c
 - **Error handling**: Always check and handle errors appropriately.
 - **Imports**: Standard library, third-party, then internal imports.
 
-## Interfaces and Abstraction
+#### Interfaces and Abstraction
 
 - Keep interfaces small and focused (single responsibility).
 - Prefer returning concrete types unless abstraction is required for testing or swapping implementations.
 - Document interface expectations explicitly (e.g. "implementations must be thread-safe").
 
-## Defining Types
+#### Defining Types
 
 - Keep structs small and cohesive; split if too many responsibilities.
 - Prefer to use the `type` keyword once for multiple type declarations.
@@ -520,7 +515,7 @@ type (
 )
 ```
 
-## Naming Conventions
+#### Naming Conventions
 
 - **Integration tests**: End with `_integration_test.go`.
 - **Generated files**: `*.gen.go` files are auto-generated - do not edit.
@@ -542,7 +537,7 @@ All Go tests should be written in one of two ways:
 - Individual test cases require unique setup logic that would need a setup function in the test
   table.
 
-## General Rules
+#### General Rules
 
 - Always call `t.Parallel()` at the top of every test function and within each subtest, unless:
 	- It's an integration test (files ending in `_integration_test.go`).
@@ -563,7 +558,7 @@ All Go tests should be written in one of two ways:
 - If 100% coverage is not possible, explain _why_ in a brief note above the test function (no inline
   comments).
 
-## Test Organisation
+#### Test Organisation
 
 - **One test function per exported function/method** — add new test cases as subtests within the
   existing test function rather than creating separate test functions.
@@ -575,7 +570,7 @@ All Go tests should be written in one of two ways:
 - Aim for comprehensive coverage within each test function rather than fragmenting tests across
   multiple functions.
 
-## Test Tables
+#### Test Tables
 
 The test should be:
 
@@ -618,7 +613,7 @@ func TestExample(t *testing.T) {
 }
 ```
 
-## Subtests with `t.Run`
+#### Subtests with `t.Run`
 
 - Use `require` for preconditions (e.g. setup or function calls that must not fail).
 - Use `assert` for validation of expected outputs.
@@ -655,7 +650,7 @@ func TestApp_OrderedCommands(t *testing.T) {
 }
 ```
 
-## Mocking
+#### Mocking
 
 Mocks should only be introduced when a test depends on an **external interface** or system
 boundary — for example, Terraform execution, encryption providers, or file I/O wrappers.
@@ -673,7 +668,7 @@ boundary — for example, Terraform execution, encryption providers, or file I/O
 go tool go.uber.org/mock/mockgen -source=gen.go -destination ../mocks/fs.go -package=mocks
 ```
 
-## Setup Functions
+#### Setup Functions
 
 - If a test contains repeated setup logic (e.g., creating `App` instances, default values, or common
   test data), scan for a `setup(t)` function.
@@ -715,14 +710,14 @@ func TestApp_OrderedCommands(t *testing.T) {
 ### General
 
 
-## Code Style
+#### Code Style
 
 - Use `camelCase` for all field names and variables.
 - Prefer named exports over default exports.
 - Use TypeScript's strict mode.
 - Place types co-located with implementation files.
 
-## Naming Conventions
+#### Naming Conventions
 
 - **Types/Interfaces**: Use `PascalCase` (e.g., `UserService`, `ClientForm`).
 - **Variables/Functions**: Use `camelCase` (e.g., `userService`, `getConfig`).
@@ -731,7 +726,7 @@ func TestApp_OrderedCommands(t *testing.T) {
 - **React Components**: Use `PascalCase` (e.g., `ButtonCard.tsx`).
 - **Test files**: End with `.test.ts` for unit tests, `.int.spec.ts` for integration tests.
 
-## Type Imports
+#### Type Imports
 
 Use the `type` keyword for type-only imports to clearly distinguish types from values:
 
@@ -741,7 +736,7 @@ import { cacheHookCollections } from './plugin/hooks.js'
 import type { PayloadHelperPluginConfig } from './types.js'
 ```
 
-## Documentation
+#### Documentation
 
 - Document all exported functions with JSDoc comments.
 - Explain the purpose and parameters of functions.
@@ -764,7 +759,7 @@ export const generateRandomString = (length: number): string => {
 }
 ```
 
-## Utility Functions
+#### Utility Functions
 
 - Write pure functions with no side effects.
 - Follow single responsibility principle.
@@ -773,26 +768,26 @@ export const generateRandomString = (length: number): string => {
 ### Testing
 
 
-## Test Framework
+#### Test Framework
 
 - Use **Vitest** for unit and integration tests.
 - Use **Playwright** for end-to-end tests.
 - Use **Testing Library** for component testing.
 
-## Test Organisation
+#### Test Organisation
 
 - Use `describe` blocks for test suites.
 - Use descriptive test names that explain what's being tested.
 - Follow Arrange-Act-Assert pattern.
 - Group related tests together.
 
-## Test Naming Convention
+#### Test Naming Convention
 
 - `*.test.ts` - Unit tests
 - `*.int.spec.ts` - Integration tests
 - `*.e2e.spec.ts` - End-to-end tests
 
-## Writing Tests
+#### Writing Tests
 
 **Example:**
 
@@ -843,7 +838,7 @@ describe('ListingParams', () => {
 })
 ```
 
-## Best Practices
+#### Best Practices
 
 - Test behaviour, not implementation details.
 - Use meaningful test names.
@@ -858,7 +853,7 @@ describe('ListingParams', () => {
 ### General
 
 
-## Validity
+#### Validity
 
 All HTML should be using the [Markup Validation Service](https://validator.w3.org/) before creating a pull request or
 pushing to production. This will help avoid common mistakes such as closing tags, wrong attributes and many more.
@@ -866,7 +861,7 @@ pushing to production. This will help avoid common mistakes such as closing tags
 By validating HTML it ensures that web pages are consistent across multiple devices and platforms and increases the
 chance of search engines to properly pass markup.
 
-## Indentation
+#### Indentation
 
 Use tabs instead of spaces for markup. Do not mix tabs with spaces, ensure it is probably formatted.
 
@@ -886,7 +881,7 @@ Use tabs instead of spaces for markup. Do not mix tabs with spaces, ensure it is
 </ul>
 ```
 
-## Quotes
+#### Quotes
 
 Always use double quotes around attribute values. Emitting quotes can avoid to bad readability, despite HTML allowing
 for attributes without quotes.
@@ -903,7 +898,7 @@ for attributes without quotes.
 <button class=button disabled>My Button</button>
 ```
 
-## Line breaking
+#### Line breaking
 
 Break long lines when it exceeds the amount of characters within the editor.
 
@@ -928,7 +923,7 @@ improves readability.
 </p>
 ```
 
-## Letter-casing
+#### Letter-casing
 
 All attribute names, classes, IDs should be lower case and with a hyphen between two words (kebab case).
 
@@ -946,7 +941,7 @@ All attribute names, classes, IDs should be lower case and with a hyphen between
 <p class="lead"></P>
 ```
 
-## Self closing
+#### Self closing
 
 All self closing elements should contain `/` at the end of the tag. Please
 see [this](https://www.scaler.com/topics/self-closing-tags-in-html/) article for a definition of all HTML elements with
@@ -970,7 +965,7 @@ self closing elements.
 ### General
 
 
-## Directory Structure
+#### Directory Structure
 
 Organise SCSS files into a clear hierarchy:
 
@@ -994,7 +989,7 @@ scss/
 └── app.scss          # Entry point
 ```
 
-## Key Patterns
+#### Key Patterns
 
 - **Use `@use` instead of `@import`**: Import abstracts with aliases (e.g., `@use '../scss/abstracts' as a;`).
 - **Variable naming**: Use kebab-case (e.g., `$section-75`, `$border-radius-4`).
@@ -1002,7 +997,7 @@ scss/
 - **Parent selector**: Use `$self: &;` for compound selectors.
 - **Nesting**: Nest related modifiers but avoid deep nesting (max 3 levels).
 
-## Breakpoint Mixin
+#### Breakpoint Mixin
 
 Use breakpoint mixins for responsive design:
 
@@ -1022,7 +1017,7 @@ Use breakpoint mixins for responsive design:
 }
 ```
 
-## Colour System
+#### Colour System
 
 Define colours as maps and generate CSS variables:
 
@@ -1045,7 +1040,7 @@ $colours: (
 --colour-blue-500: #3b82f6;
 ```
 
-## Scoped Component Styles
+#### Scoped Component Styles
 
 When using component-scoped SCSS in Svelte:
 
@@ -1068,7 +1063,7 @@ When using component-scoped SCSS in Svelte:
 ### Naming
 
 
-## Component Styling Pattern
+#### Component Styling Pattern
 
 Use BEM-inspired modifiers with parent selector:
 
@@ -1109,13 +1104,13 @@ Use BEM-inspired modifiers with parent selector:
 
 Follow a conventional commit format with a type prefix and present tense gerund (doing words):
 
-### Format
+#### Format
 
 ```
 <type>: <description>
 ```
 
-### Types
+#### Types
 
 - `feat:` - Adding new features or functionality.
 - `fix:` - Fixing bugs or issues.
@@ -1124,7 +1119,7 @@ Follow a conventional commit format with a type prefix and present tense gerund 
 - `test:` - Adding or updating tests.
 - `docs:` - Updating documentation.
 
-### Examples
+#### Examples
 
 ```txt
 feat: Adding SOPS encryption support
@@ -1140,16 +1135,16 @@ docs: Updating README with installation steps
 
 Before submitting changes, verify the following:
 
-## Branch Workflow
+#### Branch Workflow
 
 - [ ] Never push directly to `main` - always create a new branch.
 - [ ] Branch names should be descriptive (e.g., `feature/add-sops-validation`, `fix/terraform-state-bug`).
 
-## Verification Steps
+#### Verification Steps
 
 Before committing, **always** run the following checks:
 
-### For Go Projects
+#### For Go Projects
 
 **Run all tests**:
 
@@ -1165,7 +1160,7 @@ go fmt ./...
 
 If both pass, proceed with the commit. If either fails, fix the issues before committing.
 
-### For JS Projects
+#### For JS Projects
 
 **Run all tests**:
 
@@ -1179,7 +1174,7 @@ pnpm test
 pnpm format && pnpm lint:fix
 ```
 
-## General Checks
+#### General Checks
 
 - [ ] Commit message follows the conventional commit format.
 - [ ] No sensitive information (passwords, API keys, etc.) in the commit history.

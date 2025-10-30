@@ -31,16 +31,21 @@ echo "---" >> "$OUTPUT"
 echo "" >> "$OUTPUT"
 echo "# Developer Guidelines" >> "$OUTPUT"
 echo "" >> "$OUTPUT"
-echo "The following guidelines apply to this project. They ensure consistency, maintainability, and quality." >> "$OUTPUT"
-echo "" >> "$OUTPUT"
 
-# Add main guidelines intro
+# Add main guidelines intro (strip frontmatter and demote headings)
 MAIN_INDEX="$GUIDELINES_DIR/_index.md"
 if [ -f "$MAIN_INDEX" ]; then
-    echo "## Purpose and Principles" >> "$OUTPUT"
-    echo "" >> "$OUTPUT"
-    # Strip frontmatter and add content
-    awk '/^---$/{if(++count==2){flag=1;next}}flag' "$MAIN_INDEX" >> "$OUTPUT"
+    # Strip frontmatter, remove the image line, and demote headings by one level
+    awk '
+    /^---$/{if(++count==2){flag=1;next}}
+    flag && !/^!\[Dashboard Wireframe\]/ {
+        if ($0 ~ /^## /) {
+            sub(/^## /, "### ")
+        } else if ($0 ~ /^# /) {
+            sub(/^# /, "## ")
+        }
+        print
+    }' "$MAIN_INDEX" >> "$OUTPUT"
     echo "" >> "$OUTPUT"
 fi
 
@@ -74,8 +79,21 @@ for tech in "${TECHNOLOGIES[@]}"; do
             echo "### ${filename^}" >> "$OUTPUT"
             echo "" >> "$OUTPUT"
 
-            # Strip frontmatter and add content
-            awk '/^---$/{if(++count==2){flag=1;next}}flag' "$file" >> "$OUTPUT"
+            # Strip frontmatter and demote headings (## becomes ####, ### becomes ####)
+            awk '
+            /^---$/{if(++count==2){flag=1;next}}
+            flag {
+                # Trim leading whitespace for heading detection
+                line = $0
+                gsub(/^[[:space:]]+/, "", line)
+
+                if (line ~ /^### /) {
+                    sub(/^[[:space:]]*### /, "#### ", $0)
+                } else if (line ~ /^## /) {
+                    sub(/^[[:space:]]*## /, "#### ", $0)
+                }
+                print
+            }' "$file" >> "$OUTPUT"
             echo "" >> "$OUTPUT"
         fi
     done
