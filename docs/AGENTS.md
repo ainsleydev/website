@@ -1,5 +1,9 @@
 # ainsley.dev - Project Documentation
 
+> **Note**: This file is the source for project-specific documentation. It is combined with developer
+> guidelines from `content/guidelines/` to generate the root `AGENTS.md` file. To regenerate the
+> combined documentation, run `npm run agents`.
+
 ## Project Overview
 
 ainsley.dev is a professional portfolio and agency website showcasing digital craftmanship. The site combines Hugo's static site generation with a Go backend API, creating a fast, modern web experience.
