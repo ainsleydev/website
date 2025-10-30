@@ -65,23 +65,6 @@ echo "" >> "$OUTPUT"
 echo "# Developer Guidelines" >> "$OUTPUT"
 echo "" >> "$OUTPUT"
 
-# Add main guidelines intro (strip frontmatter and demote headings)
-MAIN_INDEX="$GUIDELINES_DIR/_index.md"
-if [ -f "$MAIN_INDEX" ]; then
-    # Strip frontmatter, remove the image line, and demote headings by one level
-    awk '
-    /^---$/{if(++count==2){flag=1;next}}
-    flag && !/^!\[Dashboard Wireframe\]/ {
-        if ($0 ~ /^## /) {
-            sub(/^## /, "### ")
-        } else if ($0 ~ /^# /) {
-            sub(/^# /, "## ")
-        }
-        print
-    }' "$MAIN_INDEX" >> "$OUTPUT"
-    echo "" >> "$OUTPUT"
-fi
-
 # Process each technology
 for tech in "${TECHNOLOGIES[@]}"; do
     tech_dir="$GUIDELINES_DIR/$tech"
