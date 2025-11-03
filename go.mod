@@ -7,7 +7,7 @@ require (
 	github.com/ainsleyclark/go-mail v1.1.1
 	github.com/caarlos0/env/v7 v7.1.0
 	github.com/getkin/kin-openapi v0.133.0
-	github.com/getsentry/sentry-go v0.36.1
+	github.com/getsentry/sentry-go v0.36.2
 	github.com/google/uuid v1.6.0
 	github.com/joho/godotenv v1.5.1
 	github.com/labstack/echo/v4 v4.13.4
