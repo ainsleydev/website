@@ -43,7 +43,7 @@ scss/
 - **Parent selector**: Use `$self: &;` for compound selectors.
 - **Nesting**: Nest related modifiers but avoid deep nesting (max 3 levels).
 
-## Breakpoint Mixin
+## Breakpoint Mixins
 
 Use breakpoint mixins for responsive design:
 

@@ -1,7 +1,7 @@
 ---
 title: General
 heading: General
-description: HTML formatting standards including indentation, quotes & self-closing tags
+description: HTML formatting standards, including indentation, quotes & self-closing tags
 weight: 2
 publishdate: 2025-10-27
 lastmod: 2025-10-27
@@ -17,11 +17,11 @@ All HTML should be using the [Markup Validation Service](https://validator.w3.or
 pushing to production. This will help avoid common mistakes such as closing tags, wrong attributes and many more.
 
 By validating HTML it ensures that web pages are consistent across multiple devices and platforms and increases the
-chance of search engines to properly pass markup.
+chance of search engines properly passing markup.
 
 ## Indentation
 
-Use tabs instead of spaces for markup. Do not mix tabs with spaces, ensure it is probably formatted.
+Use tabs instead of spaces for markup. Do not mix tabs with spaces and ensure it is properly formatted.
 
 **Avoid**
 
@@ -41,8 +41,8 @@ Use tabs instead of spaces for markup. Do not mix tabs with spaces, ensure it is
 
 ## Quotes
 
-Always use double quotes around attribute values. Emitting quotes can avoid to bad readability, despite HTML allowing
-for attributes without quotes.
+Always use double quotes around attribute values. Emitting quotes can prevent bad readability, despite HTML allowing for
+attributes without quotes.
 
 **Avoid**
 
@@ -58,9 +58,9 @@ for attributes without quotes.
 
 ## Line breaking
 
-Break long lines when it exceeds the amount of characters within the editor.
+Break long lines when it exceeds the number of characters within the editor.
 
-It is also recommended to ensure that the closing tag is one a new line. This helps to locate the closing tag and
+It is also recommended to ensure that the closing tag is on a new line. This helps to locate the closing tag and
 improves readability.
 
 **Avoid**
@@ -83,7 +83,7 @@ improves readability.
 
 ## Letter-casing
 
-All attribute names, classes, IDs should be lower case and with a hyphen between two words (kebab case).
+All attribute names, classes and IDs should be lower case and with a hyphen between two words (kebab case).
 
 **Avoid**
 

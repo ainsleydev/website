@@ -23,7 +23,7 @@ Follow a conventional commit format with a type prefix and present tense gerund 
 
 - `feat:` - Adding new features or functionality.
 - `fix:` - Fixing bugs or issues.
-- `chore:` - Updating dependencies, linting, or other maintenance tasks.
+- `chore:` - Updating dependencies, linting or other maintenance tasks.
 - `style:` - Refactoring code or improving code style (no functional changes).
 - `test:` - Adding or updating tests.
 - `docs:` - Updating documentation.

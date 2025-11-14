@@ -33,15 +33,15 @@ Across all languages and frameworks, we follow these core principles:
 - **Clarity over cleverness**: Write code that is easy to understand and maintain.
 - **Boring is good**: Predictability wins over magic.
 - **Test your code**: Write tests that verify behaviour, not implementation details.
-- **Document intent**: Comment on the "why", not the "what".
-- **Use British English**: All content and comments use British spellings.
-- **Review before committing**: Run linting, formatting, and tests before pushing code.
+- **Document intent**: Comment on the 'why', not the 'what'.
+- **Use British English**: All content and comments use British spelling.
+- **Review before committing**: Run linting, formatting and tests before pushing code.
 
 ## Contributing
 
 These guidelines are based on patterns observed in our codebases, including:
 
-- [webkit](https://github.com/ainsleydev/webkit) - Go CLI tool for web project scaffolding
+- [webkit](https://github.com/ainsleydev/webkit) - Go CLI tool for web project scaffolding.
 
 If you notice patterns or practices that should be documented, or if guidelines need clarification, please contribute by
 updating the relevant sections.
