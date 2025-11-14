@@ -14,7 +14,7 @@ scripts:
 - Always check errors, never ignore them with `_` unless absolutely necessary.
 - If ignoring an error, add a comment explaining why.
 - Return errors up the stack; don't just log and continue unless appropriate.
-- Always prioritise clarity over depth of stack trace — add context that helps debugging, not repetition
+- Always prioritise clarity over depth of stack trace — add context that helps debugging, not repetition.
 
 ## Domain Error Types
 
@@ -41,9 +41,9 @@ if balance < withdrawAmount {
 ## Using errors.Wrap
 
 Always use `errors.Wrap` from `github.com/pkg/errors` for adding context to errors. Use `fmt.Errorf`
-if there are more than one argument that's not an error.
+if there is more than one argument that's not an error.
 
-I.e. you can use `fmt.Errorf`, but only when needing to format.
+i.e. you can use `fmt.Errorf`, but only when needing to format.
 
 **Example:**
 

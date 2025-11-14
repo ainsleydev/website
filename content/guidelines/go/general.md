@@ -24,7 +24,7 @@ scripts:
 
 - Keep interfaces small and focused (single responsibility).
 - Prefer returning concrete types unless abstraction is required for testing or swapping implementations.
-- Document interface expectations explicitly (e.g. "implementations must be thread-safe").
+- Document interface expectations explicitly (e.g. 'implementations must be thread-safe').
 
 ## Defining Types
 
