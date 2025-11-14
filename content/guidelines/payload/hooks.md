@@ -12,7 +12,7 @@ scripts:
 ---
 
 Use hooks for data transformation and business logic. Hooks should be placed in a separate file under `hooks/{file}.ts`
-within the collection folder and have a test along side it.
+within the collection folder and have a test alongside it.
 
 **Example**:
 

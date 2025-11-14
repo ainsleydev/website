@@ -14,7 +14,7 @@ scripts:
 ## Maps Over Switch
 
 Prefer using maps with function values over switch statements when dispatching based on string or integer keys. This
-approach is more maintainable, extensible, and testable.
+approach is more maintainable, extensible and testable.
 
 **Prefer**
 

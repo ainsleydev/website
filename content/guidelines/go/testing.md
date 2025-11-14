@@ -139,14 +139,14 @@ func TestApp_OrderedCommands(t *testing.T) {
 ## Mocking
 
 Mocks should only be introduced when a test depends on an **external interface** or system
-boundary — for example, Terraform execution, encryption providers, or file I/O wrappers.
+boundary — for example, Terraform execution, encryption providers or file I/O wrappers.
 
 - Prefer fakes or real in-memory types where possible.
 - Place generated mocks under `internal/mocks/` and prefix them with `Mock` (e.g.
   `MockInfraManager`).
 - Clean up with `defer ctrl.Finish()` and avoid over-mocking.
 - Use [`gomock`](https://pkg.go.dev/go.uber.org/mock/gomock) for creating mocks.
-- Generate mocks into the `internal/mocks/` directory using below's example.
+- Generate mocks into the `internal/mocks/` directory using the example below.
 
 **Example:**
 
@@ -163,7 +163,7 @@ go tool go.uber.org/mock/mockgen -source=gen.go -destination ../mocks/fs.go -pac
 	- Accept `t *testing.T` as an argument.
 	- Return any values required by multiple subtests (e.g., test structs, default app objects).
 	- Call `t.Helper()` at the start.
-- Use `setup(t)` in subtests to maintain readability, avoid duplication, and keep each test
+- Use `setup(t)` in subtests to maintain readability, avoid duplication and keep each test
   self-contained.
 
 ```go
