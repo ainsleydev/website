@@ -1,12 +1,22 @@
 <!DOCTYPE html>
+{{- $scssFile := resources.Get "scss/app.scss" -}}
+{{- if not $scssFile -}}{{- errorf "theme/shared: scss/app.scss not found" -}}{{- end -}}
+{{- $css := $scssFile | toCSS (dict "targetPath" "css/app.css" "enableSourceMap" true) -}}
+{{- if ne hugo.Environment "development" -}}
+	{{- $css = $css | minify | fingerprint "sha512" -}}
+{{- end -}}
 <html lang="{{ .Site.LanguageCode | default "en-gb" }}">
 	<head>
 		<meta charset="UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+		{{ block "title" . }}<title>{{ .Title }} | {{ .Site.Title }}</title>{{ end }}
+		{{ block "meta" . }}{{ end }}
+		<link rel="stylesheet" href="{{ $css.RelPermalink }}"/>
 		{{ block "head" . }}{{ end }}
 	</head>
 	<body>
+		{{ block "body-start" . }}{{ end }}
 		{{ block "main" . }}{{ end }}
+		{{ block "body-end" . }}{{ end }}
 	</body>
 </html>

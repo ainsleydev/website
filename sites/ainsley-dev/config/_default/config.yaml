@@ -24,6 +24,10 @@ module:
             target: "assets"
         -   source: "static"
             target: "assets"
+        -   source: "../../theme/shared/assets"
+            target: "assets"
+        -   source: "../../node_modules"
+            target: "assets/node_modules"
 markup:
     defaultMarkdownHandler: goldmark
     goldmark:

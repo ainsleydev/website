@@ -7,3 +7,6 @@ disableHugoGeneratorInject: true
 enableGitInfo: false
 enableEmoji: true
 enableRobotsTXT: true
+security:
+    exec:
+        allow: [ "^dart-sass-embedded$", "^go$", "npx$", "^postcss$", "^babel$" ]
