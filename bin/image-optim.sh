@@ -4,7 +4,7 @@
 # to WebP and optimise JPG's and PNG's.
 
 # Set Variables
-PUBLIC_PATH="./public"
+PUBLIC_PATH="./sites/ainsley-dev/public"
 QUALITY=80
 COMPRESSION_LEVEL=8
 

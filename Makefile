@@ -28,12 +28,12 @@ deploy-staging: # Deploy staging to Vercel
 
 sdk: # Generates the Go & Typescript API SDKs
 	oapi-codegen --package=sdk openapi/spec.yaml > api/_sdk/api.gen.go
-	swagger-typescript-api --path openapi/spec.yaml --output assets/js/api --templates openapi/templates --name SDK --module-name-first-tag
+	swagger-typescript-api --path openapi/spec.yaml --output sites/ainsley-dev/assets/js/api --templates openapi/templates --name SDK --module-name-first-tag
 .PHONY: sdk
 
 clean: # Remove unused entries, dependencies and cache
-	hugo mod clean
-	rm -rf public
+	cd sites/ainsley-dev && hugo mod clean
+	rm -rf sites/ainsley-dev/public
 .PHONY: clean
 
 lint: # Run linter

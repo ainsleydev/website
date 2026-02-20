@@ -33,28 +33,34 @@ ainsley.dev is a professional portfolio and agency website showcasing digital cr
 
 ```
 /home/user/website/
-├── content/           # Hugo content (markdown files)
-│   ├── guidelines/   # Developer guidelines
-│   ├── insights/     # Blog posts
-│   ├── portfolio/    # Portfolio projects
-│   ├── services/     # Service pages
-│   └── about/        # About pages
-├── api/              # Go API backend
-│   ├── _pkg/         # API packages
-│   ├── _sdk/         # Generated SDK
-│   └── _mocks/       # Test mocks
-├── layouts/          # Hugo templates
-├── assets/           # Source files
-│   ├── js/           # TypeScript files
-│   ├── scss/         # Stylesheets
-│   └── images/       # Images
-├── config/           # Hugo configuration
-│   ├── _default/     # Base config
-│   ├── production/   # Production overrides
-│   └── staging/      # Staging overrides
-├── static/           # Static files (copied as-is)
-├── bin/              # Build scripts
-└── public/           # Generated output (git-ignored)
+├── sites/
+│   ├── ainsley-dev/       # ainsley.dev Hugo site
+│   │   ├── content/       # Hugo content (markdown files)
+│   │   │   ├── guidelines/ # Developer guidelines
+│   │   │   ├── insights/  # Blog posts
+│   │   │   ├── portfolio/ # Portfolio projects
+│   │   │   ├── services/  # Service pages
+│   │   │   └── about/     # About pages
+│   │   ├── layouts/       # Hugo templates
+│   │   ├── assets/        # Source files (JS, SCSS, images)
+│   │   ├── config/        # Hugo configuration
+│   │   │   ├── _default/  # Base config
+│   │   │   ├── production/ # Production overrides
+│   │   │   └── staging/   # Staging overrides
+│   │   ├── static/        # Static files (copied as-is)
+│   │   └── public/        # Generated output (git-ignored)
+│   └── ainsley-clark/     # ainsleyclark.com Hugo site
+│       ├── content/       # Site content
+│       ├── layouts/       # Site-specific template overrides
+│       └── config/        # Site configuration
+├── theme/
+│   └── shared/            # Shared base theme (layouts, assets)
+├── api/                   # Go API backend
+│   ├── _pkg/              # API packages
+│   ├── _sdk/              # Generated SDK
+│   └── _mocks/            # Test mocks
+├── bin/                   # Build scripts
+└── openapi/               # OpenAPI specification
 ```
 
 ## Development Workflow
@@ -150,8 +156,8 @@ make deploy        # Deploy to Vercel
 
 ### Environment Configuration
 - Development: `.env.example` template
-- Staging: `config/staging/`
-- Production: `config/production/`
+- Staging: `sites/ainsley-dev/config/staging/`
+- Production: `sites/ainsley-dev/config/production/`
 
 ## Content Management
 
@@ -159,10 +165,10 @@ make deploy        # Deploy to Vercel
 
 ```bash
 # New blog post
-hugo new --kind post-bundle insights/my-post
+hugo new --source sites/ainsley-dev --kind post-bundle insights/my-post
 
 # New portfolio item
-hugo new --kind portfolio-bundle portfolio/client-name
+hugo new --source sites/ainsley-dev --kind portfolio-bundle portfolio/client-name
 ```
 
 ### Content Types

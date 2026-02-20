@@ -6,19 +6,19 @@
 	"license": "BSD-3",
 	"scripts": {
 		"serve": "vercel dev",
-		"serve-no-reload": "hugo server --disableLiveReload",
-		"build": "npm run hugo:clean && hugo --environment development",
-		"build:staging": "npm run hugo:clean && hugo --environment staging --minify",
-		"build:prod": "npm run hugo:clean && hugo --environment production --minify && npm run image",
-		"build:test": "npm run hugo:clean && hugo --environment production --minify && npm run image && go run main.go",
-		"hugo:clean": "rm -rf public",
+		"serve-no-reload": "hugo server --source sites/ainsley-dev --disableLiveReload",
+		"build": "npm run hugo:clean && hugo --source sites/ainsley-dev --environment development",
+		"build:staging": "npm run hugo:clean && hugo --source sites/ainsley-dev --environment staging --minify",
+		"build:prod": "npm run hugo:clean && hugo --source sites/ainsley-dev --environment production --minify && npm run image",
+		"build:test": "npm run hugo:clean && hugo --source sites/ainsley-dev --environment production --minify && npm run image && go run main.go",
+		"hugo:clean": "rm -rf sites/ainsley-dev/public",
 		"image": "./bin/image-optim.sh",
 		"video": "./bin/video-optim.sh",
 		"agents": "./bin/generate-agents-md.sh",
-		"clean": "prettier --write ./assets/**/*.{ts,scss,js}",
+		"clean": "prettier --write './sites/ainsley-dev/assets/**/*.{ts,scss,js}'",
 		"lint": "npm run lint:scss && npm run lint:js",
 		"lint:scss": "npx stylelint '**/*.scss'",
-		"lint:js": "eslint --fix 'assets/**/*.{ts,tsx}'",
+		"lint:js": "eslint --fix 'sites/ainsley-dev/assets/**/*.{ts,tsx}'",
 		"precommit": "npx lint-staged --debug"
 	},
 	"dependencies": {
@@ -91,8 +91,8 @@
 			"@typescript-eslint"
 		],
 		"ignorePatterns": [
-			"public/**/.js",
-			"staic/**"
+			"sites/ainsley-dev/public/**",
+			"sites/ainsley-clark/public/**"
 		]
 	},
 	"babel": {

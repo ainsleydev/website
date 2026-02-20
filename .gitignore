@@ -55,9 +55,10 @@ coverage.out
 ./coverage.out
 
 # Generated files by hugo
-/public/
-/resources/_gen/
-/assets/jsconfig.json
+sites/ainsley-dev/public/
+sites/ainsley-clark/public/
+sites/ainsley-dev/resources/
+sites/ainsley-dev/assets/jsconfig.json
 hugo_stats.json
 
 # Executable may be added to repository
@@ -66,6 +67,6 @@ hugo.darwin
 hugo.linux
 
 # Temporary lock file while building
-/.hugo_build.lock
-.hugo_build.lock
+sites/ainsley-dev/.hugo_build.lock
+sites/ainsley-clark/.hugo_build.lock
 .env*.local

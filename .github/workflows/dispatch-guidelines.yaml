@@ -6,7 +6,7 @@ on:
         branches:
             - main
         paths:
-            - 'content/guidelines/**'
+            - 'sites/ainsley-dev/content/guidelines/**'
 
 jobs:
     dispatch:

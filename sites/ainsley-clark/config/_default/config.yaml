@@ -1,0 +1,9 @@
+languageCode: en-gb
+title: Ainsley Clark
+baseURL: "http://localhost:1314"
+theme: shared
+themesDir: "../../theme"
+disableHugoGeneratorInject: true
+enableGitInfo: false
+enableEmoji: true
+enableRobotsTXT: true
