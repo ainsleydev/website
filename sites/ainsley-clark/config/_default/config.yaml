@@ -1,12 +1,22 @@
 languageCode: en-gb
 title: Ainsley Clark
 baseURL: "http://localhost:1314"
-theme: shared
-themesDir: "../../theme"
 disableHugoGeneratorInject: true
 enableGitInfo: false
 enableEmoji: true
 enableRobotsTXT: true
+module:
+    mounts:
+        -   source: "assets"
+            target: "assets"
+        -   source: "../../theme/shared/assets"
+            target: "assets"
+        -   source: "../../node_modules"
+            target: "assets/node_modules"
+        -   source: "layouts"
+            target: "layouts"
+        -   source: "../../theme/shared/layouts"
+            target: "layouts"
 security:
     exec:
         allow: [ "^dart-sass-embedded$", "^go$", "npx$", "^postcss$", "^babel$" ]
