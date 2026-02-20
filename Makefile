@@ -14,9 +14,25 @@ setup-vercel: # Temp setup for Vercel
 	npm -g install svgo
 .PHONY: setup-vercel
 
-serve: # Serve the application
+serve: # Serve the ainsley.dev site via Vercel
 	npm run serve
 .PHONY: serve
+
+serve-ainsley-clark: # Serve the ainsleyclark.com site on port 1314
+	npm run serve:ainsley-clark
+.PHONY: serve-ainsley-clark
+
+build: # Build the ainsley.dev site for development
+	npm run build
+.PHONY: build
+
+build-ainsley-clark: # Build the ainsleyclark.com site for production
+	npm run build:ainsley-clark
+.PHONY: build-ainsley-clark
+
+build-all: # Build both sites for production
+	npm run build:all
+.PHONY: build-all
 
 deploy-prod: # Deploy production to Vercel
 	vercel --prod
@@ -33,7 +49,7 @@ sdk: # Generates the Go & Typescript API SDKs
 
 clean: # Remove unused entries, dependencies and cache
 	cd sites/ainsley-dev && hugo mod clean
-	rm -rf sites/ainsley-dev/public
+	rm -rf sites/ainsley-dev/public sites/ainsley-clark/public
 .PHONY: clean
 
 lint: # Run linter

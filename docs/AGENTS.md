@@ -196,18 +196,17 @@ Located in `/bin/`:
 ## Makefile Commands
 
 ```bash
-make setup         # Install dependencies
-make serve         # Run development server
-make build         # Build the project
-make test          # Run tests
-make test-coverage # Run tests with coverage
-make lint          # Run all linters
-make lint-go       # Lint Go code
-make lint-ts       # Lint TypeScript
-make format        # Format all code
-make sdk           # Generate API SDK
-make deploy        # Deploy to Vercel
-make clean         # Clean build artifacts
+make setup                # Install dependencies
+make serve                # Serve ainsley.dev via Vercel
+make serve-ainsley-clark  # Serve ainsleyclark.com on port 1314
+make build                # Build ainsley.dev (development)
+make build-ainsley-clark  # Build ainsleyclark.com (production)
+make build-all            # Build both sites for production
+make test                 # Run tests
+make lint                 # Run all linters
+make format               # Format all code
+make sdk                  # Generate API SDK
+make clean                # Clean build artefacts for both sites
 ```
 
 ## Git Workflow
