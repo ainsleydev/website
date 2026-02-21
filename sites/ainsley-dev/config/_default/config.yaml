@@ -1,6 +1,8 @@
 languageCode: en-gb
 title: ainsley.dev - Digital Craftsmanship Sculpting You As An Industry Leader.
 baseURL: "http://localhost:3000"
+ignoreLogs:
+    - warning-partial-superfluous-prefix
 build:
     noJSConfigInAssets: false
     writeStats: true
@@ -20,10 +22,30 @@ imaging:
     resampleFilter: Lanczos
 module:
     mounts:
+        # Site directories (re-declared because custom mounts replace all defaults)
+        -   source: "content"
+            target: "content"
+        -   source: "data"
+            target: "data"
+        -   source: "archetypes"
+            target: "archetypes"
+        -   source: "layouts"
+            target: "layouts"
+        # Theme layouts — partials, shortcodes, _default, etc.
+        -   source: "../../themes/shared/layouts"
+            target: "layouts"
+        # Theme assets — scss, js, fonts, images (Hugo Pipes source)
+        -   source: "../../themes/shared/assets"
+            target: "assets"
+        # Site-level assets overlay (empty now; site wins over theme for any future duplicate paths)
         -   source: "assets"
             target: "assets"
+        # Existing: static/ → assets so Hugo Pipes can access files (e.g. mix-manifest.json)
         -   source: "static"
             target: "assets"
+        # Static files served directly to the browser
+        -   source: "static"
+            target: "static"
 markup:
     defaultMarkdownHandler: goldmark
     goldmark:

@@ -1,0 +1,128 @@
+/**
+ * no-js.scss
+ * All no-js CSS stored here.
+ *
+ * @author Ainsley Clark
+ * @author URL:   https://ainsley.dev
+ * @author Email: hello@ainsley.dev
+ */
+/*  ====================
+    Imports
+    ==================== */
+@use 'sass:math';
+@use 'sass:color';
+:root {
+  --colour-background: #0a0a0a;
+  --colour-foreground: #ffffff;
+  --colour-black: #0a0a0a;
+  --colour-white: #ffffff;
+  --colour-orange: #ff5043;
+  --colour-blue: #70cbce;
+  --colour-copy: #0a0a0a;
+  --colour-copy-dark: #9a9a9a;
+  --colour-copy-light: #595959;
+  --colour-off-white: #f2f2f2;
+  --colour-paragraph: #9a9a9a;
+  --colour-list: #9a9a9a;
+  --a-symbol-clip-left: -22%;
+  --a-symbol-clip-right: 22%;
+  --card-border: 2px solid rgba(255, 255, 255, 0.15);
+  --alpha-standard: 0.15;
+  --alpha-light: 0.1;
+  --margin: 1.8rem;
+  --margin-small: 1rem;
+  --margin-large: 3rem;
+  --link-hover-colour: #70cbce;
+  --table-border-colour: #2b2b2b;
+  --table-cell-colour: #9a9a9a;
+  --table-stripe-colour: #0f0f0f; }
+  :root .theme-white {
+    background-color: #ffffff;
+    --colour-background: #ffffff;
+    --colour-foreground: #0a0a0a;
+    --colour-paragraph: #595959;
+    --colour-list: #595959;
+    --card-border: 2px solid rgba(10, 10, 10, 0.15);
+    --table-border-colour: #dddddd;
+    --table-cell-colour: #595959;
+    --table-stripe-colour: #f2f2f2; }
+    :root .theme-white strong,
+    :root .theme-white b {
+      color: #0a0a0a; }
+
+body {
+  opacity: 1; }
+
+.cursor {
+  display: none; }
+
+.header {
+  background-color: #0a0a0a; }
+  .header-logo path {
+    fill: #ffffff !important; }
+
+.nav {
+  display: flex;
+  visibility: hidden;
+  opacity: 0; }
+  .nav-checkbox:checked ~ .nav, .nav-active {
+    visibility: visible;
+    opacity: 1 !important; }
+  .nav-btn-arrow path {
+    fill: #ffffff !important; }
+  .nav-btn-text {
+    color: #ffffff !important; }
+  .nav-link-text {
+    transform: none !important; }
+  .nav-link::after {
+    display: none; }
+
+.accordion-content {
+  max-height: initial; }
+
+.accordion-item {
+  pointer-events: none; }
+
+.accordion-header::after {
+  display: none; }
+
+.aside-checkbox:checked + .aside {
+  transform: translateX(0); }
+
+.form {
+  display: none; }
+
+.map-wrapper {
+  display: none !important; }
+
+.zoom-element {
+  transform: none !important; }
+
+.home-hero-wrapper {
+  height: auto; }
+
+.home-three-d {
+  position: absolute;
+  bottom: 0; }
+
+.home-show-reel {
+  position: relative;
+  height: auto; }
+
+.home-first-section {
+  margin-top: 0; }
+
+.glider {
+  flex-wrap: wrap;
+  margin-bottom: -3rem; }
+  .glider-item {
+    width: 20%;
+    margin-bottom: 3rem; }
+  .glider-container {
+    max-width: 1600px !important;
+    padding: 0 7vw !important; }
+    @media (min-width: 1700px) {
+      .glider-container {
+        padding: 0 !important; } }
+
+/*# sourceMappingURL=no-js.css.map */

@@ -46,8 +46,8 @@
 		<!-- Ancestor Breadcrumbs -->
 		{{ range .ctx.Ancestors.Reverse }}
 			{{ if not (eq .RelPermalink "/") }}
-				{{ partial "partials/breadcrumbs-item.html" (dict
-					"title" (partial "partials/breadcrumbs-title.html" .)
+				{{ partial "breadcrumbs-item.html" (dict
+					"title" (partial "breadcrumbs-title.html" .)
 					"link" .RelPermalink
 					"index" $index
 					"current" false
@@ -56,8 +56,8 @@
 			{{ end }}
 		{{ end }}
 		<!-- Current Page Breadcrumb -->
-		{{ partial "partials/breadcrumbs-item.html" (dict
-			"title" (partial "partials/breadcrumbs-title.html" .ctx)
+		{{ partial "breadcrumbs-item.html" (dict
+			"title" (partial "breadcrumbs-title.html" .ctx)
 			"link" .ctx.RelPermalink
 			"index" $index
 			"current" true

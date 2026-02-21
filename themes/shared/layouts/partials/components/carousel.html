@@ -55,7 +55,7 @@
 			</style>
 			<!-- Original -->
 			{{ range $index, $item := . }}
-				{{ partial "partials/carousel-item.html" (dict
+				{{ partial "carousel-item.html" (dict
 					"ctx" $.ctx
 					"item" $item
 					"index" $index
@@ -63,7 +63,7 @@
 			{{- end }}
 			<!-- Repeat -->
 			{{ range $index, $item := . }}
-				{{ partial "partials/carousel-item.html" (dict
+				{{ partial "carousel-item.html" (dict
 					"ctx" $.ctx
 					"item" $item
 					"index" $index

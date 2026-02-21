@@ -8,8 +8,8 @@
     	- next:		Next page in section, can be .PrevInSection (single page) or .Prev (paginator).
     ===================== -->
 <!-- Links -->
-{{- $next := (partial "partials/prev-next-get-link.html" .prev) -}}
-{{- $prev := (partial "partials/prev-next-get-link.html" .next) -}}
+{{- $next := (partial "prev-next-get-link.html" .prev) -}}
+{{- $prev := (partial "prev-next-get-link.html" .next) -}}
 <!-- Buttons -->
 {{ if or .next .prev -}}
 	<div class="pagination">
