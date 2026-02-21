@@ -54,27 +54,32 @@
 		{
 			"source": "/about/",
 			"destination": "/who-we-are/",
-			"permanent": true
+			"permanent": true,
+			"has": [{"type": "host", "value": "ainsley\\.dev"}]
 		},
 		{
 			"source": "/work/",
 			"destination": "/portfolio/",
-			"permanent": true
+			"permanent": true,
+			"has": [{"type": "host", "value": "ainsley\\.dev"}]
 		},
 		{
 			"source": "/privacy-policy/",
 			"destination": "/privacy/",
-			"permanent": true
+			"permanent": true,
+			"has": [{"type": "host", "value": "ainsley\\.dev"}]
 		},
 		{
 			"source": "/portfolio/decspets/",
 			"destination": "/portfolio/decs-pets/",
-			"permanent": true
+			"permanent": true,
+			"has": [{"type": "host", "value": "ainsley\\.dev"}]
 		},
 		{
 			"source": "/insights/enhance-website-navigation-menus-for-seo/",
 			"destination": "/insights/seo-nav-menus",
-			"permanent": true
+			"permanent": true,
+			"has": [{"type": "host", "value": "ainsley\\.dev"}]
 		},
 		{
 			"source": ",/:path((?!compatible).*)",
@@ -83,6 +88,10 @@
 					"type": "header",
 					"key": "User-Agent",
 					"value": "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; Microsoft; Lumia 950)"
+				},
+				{
+					"type": "host",
+					"value": "ainsley\\.dev"
 				}
 			],
 			"destination": "/compatible",
