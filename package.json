@@ -8,7 +8,7 @@
 	"scripts": {
 		"precommit": "npx lint-staged --debug",
 		"setup": "pnpm install && husky install && pnpm add -g vercel && pnpm add -g svgo && go mod tidy && go install github.com/deepmap/oapi-codegen/cmd/oapi-codegen@latest && go generate ./...",
-		"setup:vercel": "pnpm setup && sh ./bin/os.sh && pnpm install && pnpm add -g svgo",
+		"setup:vercel": "sh ./bin/os.sh && pnpm install && pnpm add -g svgo",
 		"dev": "concurrently --names \"ainsley-dev,ainsley-clark\" --prefix \"[{name}]\" --prefix-colors \"cyan,magenta\" \"pnpm dev:ainsley-dev\" \"pnpm dev:ainsley-clark\"",
 		"dev:ainsley-dev": "hugo server --source sites/ainsley-dev --port 3000 --buildDrafts --watch",
 		"dev:ainsley-clark": "hugo server --source sites/ainsley-clark --port 3001 --buildDrafts --watch",
