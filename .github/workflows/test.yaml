@@ -29,7 +29,13 @@ jobs:
             -   name: Setup pnpm
                 uses: pnpm/action-setup@v4
 
-            # Step 4 - Install dependencies
+            # Step 4 - Install system dependencies
+            -   name: Install system dependencies
+                run: |
+                    sudo apt-get update
+                    sudo apt-get install -y libvips-dev
+
+            # Step 5 - Install dependencies
             -   name: Install dependencies
                 run: pnpm install
 
