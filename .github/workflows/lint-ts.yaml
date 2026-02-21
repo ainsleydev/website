@@ -19,8 +19,6 @@ jobs:
             # Step 2 - Setup pnpm
             -   name: Setup pnpm
                 uses: pnpm/action-setup@v4
-                with:
-                    version: 10
 
             # Step 3 - Install dependencies
             -   name: Install dependencies
