@@ -169,5 +169,11 @@
 			"scss/no-global-function-names": null,
 			"scss/double-slash-comment-empty-line-before": null
 		}
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"hugo-bin-extended",
+			"sharp"
+		]
 	}
 }
