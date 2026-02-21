@@ -1,14 +1,17 @@
 #!/bin/bash
 #
 # Runs the build script for Vercel.
-# The commit ref is compared and built for
-# the different environments.
+# SITE env var determines which Hugo site to build (default: ainsley-dev).
+
+SITE=${SITE:-ainsley-dev}
 
 echo "Vercel Env: $VERCEL_ENV"
+echo "Building site: $SITE"
+
 if [[ $VERCEL_ENV == "production" ]]; then
 	echo "Building production"
-	npm run build:prod
+	pnpm run build:prod:$SITE
 else
 	echo "Building staging"
-	npm run build:staging
+	pnpm run build:staging:$SITE
 fi

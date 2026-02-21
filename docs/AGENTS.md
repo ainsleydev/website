@@ -2,7 +2,7 @@
 
 > **Note**: This file is the source for project-specific documentation. It is combined with developer
 > guidelines from `content/guidelines/` to generate the root `AGENTS.md` file. To regenerate the
-> combined documentation, run `npm run agents`.
+> combined documentation, run `pnpm agents`.
 
 ## Project Overview
 
@@ -63,46 +63,52 @@ ainsley.dev is a professional portfolio and agency website showcasing digital cr
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
-# Local development server
-npm run serve
-# or
+# Local development server (runs both sites simultaneously with colors)
+# - ainsley-dev on http://localhost:3000
+# - ainsley-clark on http://localhost:3001
+pnpm dev
+
+# Single site development
+pnpm dev:ainsley-dev   # ainsley-dev only
+pnpm dev:ainsley-clark # ainsley-clark only
+
+# Or use Vercel dev server
 vercel dev
-
-# Hugo server only (no reload)
-npm run serve-no-reload
 ```
 
 ### Building
 
 ```bash
-# Development build
-npm run build
+# Development build (both sites)
+pnpm build
 
-# Staging build (minified)
-npm run build:staging
+# Development build (single site)
+pnpm build:ainsley-dev
+pnpm build:ainsley-clark
 
-# Production build (minified + optimized images)
-npm run build:prod
+# Staging build (both sites, minified)
+pnpm build:staging
 
-# Test build with API server
-npm run build:test
+# Production build (both sites, minified)
+pnpm build:prod
 ```
 
 ### Testing
 
 ```bash
 # Run Go tests
-make test
+pnpm test
 
 # Run with coverage
-make test-coverage
+pnpm cover
 
 # Run linting
-make lint          # All
-make lint-go       # Go only
-make lint-ts       # TypeScript only
+pnpm lint          # All
+pnpm lint:go       # Go only
+pnpm lint:js       # JavaScript/TypeScript only
+pnpm lint:scss     # SCSS only
 ```
 
 ### Code Quality
@@ -114,10 +120,14 @@ Pre-commit hooks automatically run:
 
 Manual commands:
 ```bash
-npm run clean      # Format with Prettier
-npm run lint       # Lint SCSS and JS
-npm run lint:scss  # Lint SCSS only
-npm run lint:js    # Lint/fix TypeScript
+pnpm format        # Format all code
+pnpm format:go     # Format Go
+pnpm format:js     # Format JS/TS/SCSS
+pnpm lint          # Lint all
+pnpm lint:scss     # Lint SCSS
+pnpm lint:js       # Lint JavaScript/TypeScript
+pnpm lint:go       # Lint Go
+pnpm clean         # Clean build artifacts
 ```
 
 ## API Structure
@@ -145,7 +155,8 @@ The Go API is located in `/api/_pkg/` and provides:
 
 ### Manual Deploy
 ```bash
-make deploy        # Deploy to Vercel
+pnpm deploy:prod       # Deploy to production
+pnpm deploy:staging    # Deploy to staging
 ```
 
 ### Environment Configuration
@@ -180,28 +191,48 @@ Located in `/bin/`:
 
 ## Configuration Files
 
-- **package.json** - Node.js dependencies and scripts
+- **package.json** - Node.js dependencies and scripts (pnpm workspaces)
 - **go.mod** - Go module dependencies
 - **tsconfig.json** - TypeScript configuration
 - **vercel.json** - Vercel deployment configuration
-- **Makefile** - Build automation commands
 - **.golangci.yaml** - Go linting rules
 
-## Makefile Commands
+## pnpm Scripts
 
 ```bash
-make setup         # Install dependencies
-make serve         # Run development server
-make build         # Build the project
-make test          # Run tests
-make test-coverage # Run tests with coverage
-make lint          # Run all linters
-make lint-go       # Lint Go code
-make lint-ts       # Lint TypeScript
-make format        # Format all code
-make sdk           # Generate API SDK
-make deploy        # Deploy to Vercel
-make clean         # Clean build artifacts
+pnpm setup                    # Install dependencies and setup
+pnpm setup:vercel             # Setup for Vercel deployment
+pnpm dev                      # Run both Hugo servers (ports 3000 & 3001)
+pnpm dev:ainsley-dev          # Run ainsley-dev only
+pnpm dev:ainsley-clark        # Run ainsley-clark only
+pnpm build                    # Build both sites
+pnpm build:ainsley-dev        # Build ainsley-dev only
+pnpm build:ainsley-clark      # Build ainsley-clark only
+pnpm build:staging            # Build staging (both sites)
+pnpm build:staging:ainsley-dev # Build staging (ainsley-dev only)
+pnpm build:staging:ainsley-clark # Build staging (ainsley-clark only)
+pnpm build:prod               # Build production (both sites)
+pnpm build:prod:ainsley-dev   # Build production (ainsley-dev only)
+pnpm build:prod:ainsley-clark # Build production (ainsley-clark only)
+pnpm test                     # Run Go tests
+pnpm cover                    # Run tests with coverage report
+pnpm lint                     # Run all linters (Go, JS, SCSS)
+pnpm lint:go                  # Lint Go code
+pnpm lint:js                  # Lint JavaScript/TypeScript
+pnpm lint:scss                # Lint SCSS
+pnpm format                   # Format all code (Go, JS, TS, SCSS)
+pnpm format:go                # Format Go code
+pnpm format:js                # Format JavaScript/TypeScript/SCSS
+pnpm sdk                      # Generate Go & TypeScript API SDKs
+pnpm deploy:prod              # Deploy to production
+pnpm deploy:staging           # Deploy to staging
+pnpm clean                    # Clean build artifacts
+pnpm mock                     # Generate mocks
+pnpm image                    # Optimize images
+pnpm video                    # Optimize videos
+pnpm agents                   # Generate agents markdown
+pnpm todo                     # Show TODO items
+pnpm precommit                # Run pre-commit checks
 ```
 
 ## Git Workflow

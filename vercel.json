@@ -1,8 +1,8 @@
 {
 	"buildCommand": "./bin/build.sh",
 	"cleanUrls": false,
-	"devCommand": "hugo server --buildDrafts --watch --port $PORT",
-	"installCommand": "make setup-vercel",
+	"devCommand": "hugo server --source sites/${SITE:-ainsley-dev} --buildDrafts --watch --port $PORT",
+	"installCommand": "pnpm run setup:vercel",
 	"outputDirectory": "public",
 	"public": false,
 	"regions": ["lhr1"],

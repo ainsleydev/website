@@ -1,0 +1,230 @@
+// -----------------------------------------------------------------------------
+// _before-after.scss
+// This file contains all styles related to the before/after component.
+// -----------------------------------------------------------------------------
+
+.before-after {
+	$self: &;
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+
+	// Wrapper
+	// =========================================================================
+
+	&-wrapper {
+		position: relative;
+		width: 100%;
+		padding-top: 56.25%; // 8:5 Aspect Ratio
+		overflow: hidden;
+	}
+
+	// Aspect (Preserves Ratio)
+	// =========================================================================
+
+	&-aspect {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+	}
+
+	// Images
+	// =========================================================================
+
+	&-foreground,
+	&-background {
+		width: 100%;
+		z-index: 2;
+
+		img,
+		source {
+			width: 100%;
+			height: 100% !important; // Override page (Portfolio Single)
+			object-fit: cover;
+		}
+	}
+
+	// Foreground
+	// =========================================================================
+
+	&-background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		will-change: width;
+	}
+
+	// Text
+	// =========================================================================
+
+	&-text {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		margin-top: $margin;
+
+		* {
+			width: 50%;
+			margin-bottom: 0;
+		}
+	}
+
+	// Slider
+	// =========================================================================
+
+	&-slider {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		outline: none;
+		margin: 0;
+		z-index: 10;
+		transition: all 0.3s;
+		background-color: transparent;
+		cursor: pointer;
+		appearance: none;
+		-webkit-appearance: none;
+
+		&::-webkit-slider-thumb {
+			width: $before-after-border-width;
+			@include full-height;
+			background: $black;
+			-webkit-appearance: none;
+			appearance: none;
+			cursor: pointer;
+		}
+
+		&::-moz-range-thumb {
+			width: $before-after-border-width;
+			height: $before-after-height;
+			background: 100vh;
+			cursor: pointer;
+		}
+	}
+
+	// Line
+	// =========================================================================
+
+	&-line {
+		position: absolute;
+		display: block;
+		top: 0;
+		left: 50%;
+		width: $before-after-border-width;
+		height: 100%;
+		background-color: $black;
+		cursor: pointer;
+		z-index: 10;
+		transform: translateX(-50%);
+	}
+
+	// Thumb
+	// =========================================================================
+
+	&-thumb {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 100;
+		pointer-events: none;
+		will-change: left;
+		bottom: 0;
+		right: 0;
+
+		&:before,
+		&:after {
+			content: '';
+			padding: 1rem;
+			display: inline-block;
+			border: solid $black;
+			margin: 0;
+			border-width: 0 $before-after-arrow-size $before-after-arrow-size 0;
+		}
+
+		&:after {
+			transform: rotate(-45deg);
+		}
+		&:before {
+			transform: rotate(135deg);
+		}
+	}
+
+	// Colours
+	// =========================================================================
+
+	&-white {
+		#{$self}-slider {
+			&::-webkit-slider-thumb {
+				background: $white;
+			}
+
+			&::-moz-range-thumb {
+				background: $white;
+			}
+		}
+
+		#{$self}-thumb {
+			&:before,
+			&:after {
+				border-color: $white;
+			}
+		}
+	}
+
+	// Desktop
+	// =========================================================================
+
+	@include media-desk {
+		&-wrapper {
+			min-height: 0;
+		}
+
+		&-thumb {
+			&::before,
+			&::after {
+				margin: 0 10px;
+				padding: 20px;
+			}
+		}
+	}
+}
+
+// Non Touch Screen
+// =========================================================================
+
+@include no-touch {
+	.before-after {
+		&-slider {
+			background-color: rgba($black, 0.5);
+
+			&:hover {
+				background: transparent;
+			}
+		}
+
+		&-line {
+			display: none;
+		}
+	}
+}
+
+// Touch Screen
+// =========================================================================
+
+@include touch {
+	.before-after-slider {
+		opacity: 0;
+	}
+}

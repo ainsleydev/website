@@ -1,0 +1,109 @@
+languageCode: en-gb
+title: ainsley.dev - Digital Craftsmanship Sculpting You As An Industry Leader.
+baseURL: "http://localhost:3000"
+build:
+    noJSConfigInAssets: false
+    writeStats: true
+disableKinds: []
+ignoreErrors: []
+taxonomies: []
+#    author: ""
+copyright: "ainsley.dev LTD is a registered company in England and Wales. Company Number 12478393. ©2022 ainsley.dev LTD. All rights reserved®."
+disableHugoGeneratorInject: true
+enableGitInfo: false
+enableEmoji: true
+enableInlineShortcodes: true
+enableRobotsTXT: true
+imaging:
+    hint: photo
+    quality: 80
+    resampleFilter: Lanczos
+module:
+    mounts:
+        # Site directories (re-declared because custom mounts replace all defaults)
+        -   source: "content"
+            target: "content"
+        -   source: "data"
+            target: "data"
+        -   source: "archetypes"
+            target: "archetypes"
+        -   source: "layouts"
+            target: "layouts"
+        # Theme layouts — partials, shortcodes, _default, etc.
+        -   source: "../../themes/shared/layouts"
+            target: "layouts"
+        # Theme assets — scss, js, fonts, images (Hugo Pipes source)
+        -   source: "../../themes/shared/assets"
+            target: "assets"
+        # Site-level assets overlay (empty now; site wins over theme for any future duplicate paths)
+        -   source: "assets"
+            target: "assets"
+        # Existing: static/ → assets so Hugo Pipes can access files (e.g. mix-manifest.json)
+        -   source: "static"
+            target: "assets"
+        # Static files served directly to the browser
+        -   source: "static"
+            target: "static"
+markup:
+    defaultMarkdownHandler: goldmark
+    goldmark:
+        extensions:
+            definitionList: true
+            footnote: true
+            linkify: true
+            linkifyProtocol: https
+            strikethrough: true
+            table: true
+            taskList: true
+            typographer: true
+        parser:
+            attribute:
+                block: true
+                title: true
+            autoHeadingID: true
+            autoHeadingIDType: github
+            wrapStandAloneImageWithinParagraph: false
+        renderer:
+            hardWraps: false
+            unsafe: true
+            xhtml: false
+    highlight:
+        codeFences: true
+        lineNos: true
+        lineNumbersInTable: false
+        noClasses: false
+        noHl: false
+        tabWidth: 4
+    tableOfContents:
+        endLevel: 2
+        ordered: true
+        startLevel: 2
+outputs:
+    home: ["HTML","RSS", "JSON"]
+    section: ["HTML","RSS", "JSON"]
+related:
+    threshold: 0
+    includeNewer: false
+    toLower: true
+    indices:
+        - name: tags
+          weight: 80
+        - name: keywords
+          weight: 60
+        - name: date
+          weight: 50
+security:
+    exec:
+        allow: [ "^dart-sass-embedded$", "^go$", "npx$", "^postcss$", "^babel$" ]
+    funcs:
+        getenv:
+            - ^ # Allow all
+            - ^HUGO_
+            - ^CI$
+            - ^VERCEL_
+sitemap:
+    changefreq: monthly
+    filename: sitemap.xml
+    priority: 0.5
+
+

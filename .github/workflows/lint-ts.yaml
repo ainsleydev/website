@@ -16,10 +16,14 @@ jobs:
                 with:
                     fetch-depth: 0
 
-            # Step 2 - Install dependencies
-            -   name: Lint
-                run: npm install
+            # Step 2 - Setup pnpm
+            -   name: Setup pnpm
+                uses: pnpm/action-setup@v4
 
-            # Step 3 - Run ESLint
+            # Step 3 - Install dependencies
+            -   name: Install dependencies
+                run: pnpm install
+
+            # Step 4 - Run ESLint
             -   name: Lint
-                run: npm run lint:js
+                run: pnpm lint:js
