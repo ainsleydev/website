@@ -1,0 +1,52 @@
+name: ainsley.dev
+niceName: ainsley dev
+description: Bespoke website design & development, in-house software from startups to established brands. We create memorable digital transformations.
+titleSuffix: " | ainsley.dev®"
+images:
+    - /images/site/about.jpg
+    - /images/site/contact.jpg
+    - /images/site/insights.jpg
+    - /images/site/portfolio.jpg
+    - /images/site/services.jpg
+url: https://ainsley.dev
+logo: https://ainsley.dev/images/logo.jpg
+company:
+    name: ainsley.dev LTD
+    number: 14550437
+    locality: London
+    country: UK
+    postalCode: WC2H 9JQ
+    address: ainsley.dev, 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ
+contact:
+    email: "hello@ainsley.dev"
+    map: https://www.google.com/maps/place/ainsley.dev/@51.5139491,-0.1232573,17.02z/data=!4m6!3m5!1s0x487605b625a28957:0xa6030818dec3f050!8m2!3d51.5149037!4d-0.1235842!16s%2Fg%2F11shgfsthh
+    phone:
+        link: +447507784206
+        pretty: +44 7507 784 206
+social:
+    gov: https://find-and-update.company-information.service.gov.uk/company/14550437
+    github: https://github.com/ainsleydev
+    linkedin: https://www.linkedin.com/company/93587806/
+    twitter: https://twitter.com/ainsleydev/
+    facebook: https://www.facebook.com/ainsley.devltd/
+    instagram: https://www.instagram.com/ainsley.devltd/
+    dribbble: https://dribbble.com/ainsleydev/
+imagery:
+    webp: false
+    avif: false
+    container:
+        -   name: mob
+            size: 767
+        -   name: tab
+            size: 1023
+plausible:
+    enable: false
+    local: false
+    domain: ainsley.dev
+gtag:
+    enable: false
+    tag: KZFMRNJ
+codepen:
+    user: ainsleyclark
+    tab: result
+    theme: dark

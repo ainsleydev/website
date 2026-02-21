@@ -1,6 +1,6 @@
 languageCode: en-gb
-title: ainsley.dev - Digital Craftsmanship Sculpting You As An Industry Leader.
-baseURL: "http://localhost:3000"
+title: Ainsley Clark - TODO
+baseURL: "http://localhost:3001"
 build:
     noJSConfigInAssets: false
     writeStats: true

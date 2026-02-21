@@ -1,0 +1,120 @@
+navMain:
+    -   identifier: about
+        name: Who we are
+        url: /who-we-are/
+        weight: 10
+        params:
+            image:
+                url: /images/nav/about.jpg
+                alt: ainsley.dev Office Desk
+    -   identifier: services
+        name: Services
+        url: /services/
+        weight: 20
+        params:
+            image:
+                url: /images/nav/services.jpg
+                alt: Signpost with Logo
+    -   identifier: portfolio
+        name: Portfolio
+        url: /portfolio/
+        weight: 30
+        params:
+            image:
+                url: /images/nav/portfolio.jpg
+                alt: Portfolio Image
+    -   identifier: insights
+        name: Insights
+        url: /insights/
+        weight: 40
+        params:
+            image:
+                url: /images/nav/insights.jpg
+                alt: ainsley.dev Office Keyboard
+    -   identifier: contact
+        name: Say hello
+        url: /contact/
+        weight: 50
+        params:
+            image:
+                url: /images/nav/contact.jpg
+                alt: ainsley.dev Office Desk
+footer:
+    -   identifier: home
+        name: Home
+        url: /
+        weight: 10
+    -   identifier: about
+        name: Who we are
+        url: /who-we-are/
+        weight: 10
+    -   identifier: services
+        name: Services
+        url: /services/
+        weight: 20
+    -   identifier: portfolio
+        name: Portfolio
+        url: /portfolio/
+        weight: 30
+    -   identifier: insights
+        name: Insights
+        url: /insights/
+        weight: 40
+    -   identifier: contact
+        name: Say hello
+        url: /contact/
+        weight: 50
+    -   identifier: brand
+        name: Brand
+        url: /brand/
+        weight: 60
+    -   identifier: questionnaire
+        name: Questionnaire
+        url: /questionnaire/
+        weight: 70
+    -   identifier: feedback
+        name: Feedback
+        url: /feedback/
+        weight: 80
+terms:
+    -   identifier: terms-conditions
+        name: Terms
+        url: /terms/
+        weight: 0
+    -   identifier: privacy
+        name: Privacy
+        url: /privacy/
+        weight: 10
+    -   identifier: cookies
+        name: Cookies
+        url: /cookies/
+        weight: 20
+    -   identifier: guidelines
+        name: Guidelines
+        url: /guidelines/
+        weight: 30
+schema:
+    -   identifier: home
+        name: Home
+        url: /
+        weight: 10
+    -   identifier: about
+        name: Who we are
+        url: /who-we-are/
+        weight: 20
+    -   identifier: services
+        name: Services
+        url: /services/
+        weight: 30
+    -   identifier: portfolio
+        name: Portfolio
+        url: /portfolio/
+        weight: 40
+    -   identifier: insights
+        name: Insights
+        url: /insights/
+        weight: 50
+    -   identifier: contact
+        name: Say hello
+        url: /contact/
+        weight: 60
