@@ -6,25 +6,25 @@
 	"license": "BSD-3",
 	"packageManager": "pnpm@10.0.0",
 	"scripts": {
-		"precommit": "npx lint-staged --debug",
+		"precommit": "lint-staged --debug",
 		"setup": "pnpm install && husky install && pnpm add -g vercel && pnpm add -g svgo && go mod tidy && go install github.com/deepmap/oapi-codegen/cmd/oapi-codegen@latest && go generate ./...",
 		"setup:vercel": "pnpm install && sh ./bin/os.sh",
 		"dev": "concurrently --names \"ainsley-dev,ainsley-clark\" --prefix \"[{name}]\" --prefix-colors \"cyan,magenta\" \"pnpm dev:ainsley-dev\" \"pnpm dev:ainsley-clark\"",
 		"dev:ainsley-dev": "hugo server --source sites/ainsley-dev --port 3000 --buildDrafts --watch",
 		"dev:ainsley-clark": "hugo server --source sites/ainsley-clark --port 3001 --buildDrafts --watch",
 		"build": "pnpm run build:ainsley-dev && pnpm run build:ainsley-clark",
-		"build:ainsley-dev": "rm -rf sites/ainsley-dev/public && hugo --source sites/ainsley-dev --environment development",
-		"build:ainsley-clark": "rm -rf sites/ainsley-clark/public && hugo --source sites/ainsley-clark --environment development",
+		"build:ainsley-dev": "rimraf sites/ainsley-dev/public && hugo --source sites/ainsley-dev --environment development",
+		"build:ainsley-clark": "rimraf sites/ainsley-clark/public && hugo --source sites/ainsley-clark --environment development",
 		"build:staging": "pnpm run build:staging:ainsley-dev && pnpm run build:staging:ainsley-clark",
-		"build:staging:ainsley-dev": "rm -rf sites/ainsley-dev/public && hugo --source sites/ainsley-dev --environment staging --minify",
-		"build:staging:ainsley-clark": "rm -rf sites/ainsley-clark/public && hugo --source sites/ainsley-clark --environment staging --minify",
+		"build:staging:ainsley-dev": "rimraf sites/ainsley-dev/public && hugo --source sites/ainsley-dev --environment staging --minify",
+		"build:staging:ainsley-clark": "rimraf sites/ainsley-clark/public && hugo --source sites/ainsley-clark --environment staging --minify",
 		"build:prod": "pnpm run build:prod:ainsley-dev && pnpm run build:prod:ainsley-clark",
-		"build:prod:ainsley-dev": "rm -rf sites/ainsley-dev/public && hugo --source sites/ainsley-dev --environment production --minify",
-		"build:prod:ainsley-clark": "rm -rf sites/ainsley-clark/public && hugo --source sites/ainsley-clark --environment production --minify",
+		"build:prod:ainsley-dev": "rimraf sites/ainsley-dev/public && hugo --source sites/ainsley-dev --environment production --minify",
+		"build:prod:ainsley-clark": "rimraf sites/ainsley-clark/public && hugo --source sites/ainsley-clark --environment production --minify",
 		"deploy:prod": "vercel --prod",
 		"deploy:staging": "vercel --name staging",
 		"sdk": "oapi-codegen --package=sdk openapi/spec.yaml > api/_sdk/api.gen.go && swagger-typescript-api --path openapi/spec.yaml --output assets/js/api --templates openapi/templates --name SDK --module-name-first-tag",
-		"clean": "rm -rf sites/*/public && hugo mod clean",
+		"clean": "rimraf \"sites/*/public\" && hugo mod clean",
 		"lint": "pnpm run lint:scss && pnpm run lint:js && pnpm run lint:go",
 		"lint:scss": "npx stylelint '**/*.scss'",
 		"lint:js": "eslint --fix '**/assets/**/*.{ts,tsx}'",
@@ -34,7 +34,7 @@
 		"format:js": "prettier --write **/assets/**/*.{ts,scss,js}",
 		"test": "cd ./api/_pkg && go test ./... -race $(go list ./... | grep -v /gen/ | grep -v /mocks/ | grep -v github.com/ainsleyclark/ainsley.dev) -coverprofile=../../coverage.out -covermode=atomic && cd ../../",
 		"cover": "pnpm run test && go tool cover -html=coverage.out",
-		"mock": "rm -rf api/_mocks && mockery --dir=api/_pkg --all --exported=true --output=./api/_mocks",
+		"mock": "rimraf api/_mocks && mockery --dir=api/_pkg --all --exported=true --output=./api/_mocks",
 		"image": "./bin/image-optim.sh",
 		"video": "./bin/video-optim.sh",
 		"agents": "./bin/generate-agents-md.sh",
@@ -68,6 +68,7 @@
 		"lint-staged": "^13.1.2",
 		"prettier": "2.8.4",
 		"prettier-plugin-go-template": "^0.0.13",
+		"rimraf": "^6.0.1",
 		"sharp-cli": "^4.1.0",
 		"svgo": "^3.0.0",
 		"stylelint": "^15.1.0",
@@ -112,14 +113,8 @@
 			"@typescript-eslint"
 		],
 		"ignorePatterns": [
-			"public/**/.js",
-			"staic/**"
-		]
-	},
-	"babel": {
-		"presets": [
-			"@babel/preset-typescript",
-			"@babel/preset-env"
+			"public/**/*.js",
+			"static/**"
 		]
 	},
 	"prettier": {
