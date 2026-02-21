@@ -42,8 +42,12 @@ sharp --input "${PUBLIC_PATH}"'/**/*.png' --output '{dir}' --quality=${QUALITY} 
 echo '--------------------------------------------'
 echo 'Optimising SVG images'
 echo '--------------------------------------------'
-if hash svgo 2>/dev/null; then
-	svgo --recursive --multipass --folder "${PUBLIC_PATH}"
+if [ -d "${PUBLIC_PATH}" ]; then
+	if hash svgo 2>/dev/null; then
+		svgo --recursive --multipass --folder "${PUBLIC_PATH}"
+	else
+		echo "Install svgo to optimize SVG images"
+	fi
 else
-	echo "Install svgo to optimize SVG images"
+	echo "Public directory not found at ${PUBLIC_PATH}, skipping SVG optimization"
 fi

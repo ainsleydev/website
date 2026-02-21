@@ -20,3 +20,9 @@ fi
 echo "Copying output to root public directory"
 rm -rf public
 cp -r sites/$SITE/public public
+
+# Optimize images in production builds
+if [[ $VERCEL_ENV == "production" ]]; then
+	echo "Optimizing images"
+	pnpm image
+fi
