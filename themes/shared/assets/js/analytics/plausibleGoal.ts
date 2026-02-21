@@ -16,7 +16,7 @@ import { Log } from '../util/log';
 export const PlausiblePageView = () => {
 	if (typeof window.plausible === 'function') {
 		const url = window.location.href;
-		Log.debug('Triggering Plausible page-view with URL: ' + url);
+		Log.debug('Triggering Plausible page-view with URL:', url);
 		window.plausible('pageview', { u: url });
 	}
 };
@@ -41,7 +41,7 @@ export const plausibleQueryParamGoal = () => {
 	QUERY_PARAM_GOALS.forEach((goal) => {
 		if (url.searchParams.has(goal.param)) {
 			PlausibleGoal(goal.name);
-			Log.info('Triggering query param Plausible goal: ' + goal.name);
+			Log.info('Triggering query param Plausible goal:', goal.name);
 			return;
 		}
 	});

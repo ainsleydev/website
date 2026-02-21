@@ -25,9 +25,19 @@ jobs:
                 with:
                     go-version: ${{ matrix.go-version }}
 
-            # Step 3 - Test
+            # Step 3 - Setup pnpm
+            -   name: Setup pnpm
+                uses: pnpm/action-setup@v4
+                with:
+                    version: 10
+
+            # Step 4 - Install dependencies
+            -   name: Install dependencies
+                run: pnpm install
+
+            # Step 5 - Test
             -   name: Test
-                run: make test
+                run: pnpm test
 
             # Step 4 - Upload to Codecov
             -   name: Upload coverage to Codecov
