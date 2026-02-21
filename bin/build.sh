@@ -15,3 +15,8 @@ else
 	echo "Building staging"
 	pnpm run build:staging:$SITE
 fi
+
+# Copy the built site to the root public directory for Vercel
+echo "Copying output to root public directory"
+rm -rf public
+cp -r sites/$SITE/public public

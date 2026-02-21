@@ -2,7 +2,7 @@
 	"buildCommand": "./bin/build.sh",
 	"cleanUrls": false,
 	"devCommand": "hugo server --source sites/${SITE:-ainsley-dev} --buildDrafts --watch --port $PORT",
-	"installCommand": "pnpm run setup:vercel",
+	"installCommand": "pnpm setup:vercel",
 	"outputDirectory": "public",
 	"public": false,
 	"regions": ["lhr1"],
