@@ -1,6 +1,104 @@
 {{ define "main" }}
-<main>
-	<h1>{{ .Title }}</h1>
-	<p>{{ .Params.description }}</p>
-</main>
+	<!-- =====================
+		Hero
+		===================== -->
+	<section class="hero hero-space-around" data-scroll-section>
+		<!-- A Symbol -->
+		<figure class="hero-a-symbol hero-a-symbol-right gradient gradient-height-40 animate-fade"
+				data-scroll data-scroll-speed="-3">
+			{{ partial "svgs/a-symbol.html" (dict
+				"opacity" 0.1
+				"greyscale" true
+				"clip" "right"
+				"class" "hero-a-symbol-container"
+			)}}
+		</figure>
+		<!-- Content -->
+		<div class="container hero-container">
+			<!-- Intro -->
+			<div class="row hero-row" data-scroll data-scroll-speed="2" data-scroll-position="top">
+				<div class="col-12">
+					<!-- Hero Animation -->
+					<div class="hero-animate">
+						<!-- Heading -->
+						{{ with .Params.heading -}}
+						<h1>
+							{{ . | safeHTML }}
+						</h1>
+						{{- else -}}
+							{{ warnf "No heading param provided to page: %s" .RelPermalink }}
+						{{- end }}
+						<!-- Lead -->
+						<p class="lead lead-max-width hero-lead">
+							We offer a wide range of services, from UI/UX design to website development. Specialising in
+							software development and API integration, we deliver expertly designed solutions to any digital
+							obstacle.
+						</p>
+						<!-- Actions -->
+						<div>
+							{{ partial "components/button.html" (dict
+								"text" "Get to know me"
+								"link" "https://ainsley.dev"
+								"colour" "white"
+								"size" "small"
+								"title" "Visit ainsley.dev"
+							)}}
+							{{ partial "components/button.html" (dict
+								"text" "Visit ainsley.dev"
+								"link" "https://ainsley.dev"
+								"colour" "black"
+								"size" "small"
+								"title" "Visit ainsley.dev"
+							)}}
+						</div>
+					</div>
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+			<!-- Logos -->
+			<div class="row" data-scroll data-scroll-speed="3" data-scroll-position="top">
+				<div class="col-12">
+					<span class="heading-6 margin animate-fade" data-animate-no-touch>
+						Trusted By
+					</span>
+					<div class="hero-logos">
+						{{ partial "components/logos.html" . }}
+					</div>
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+	<!-- =====================
+		Bio
+		===================== -->
+	{{ with .Params.bio }}
+	<section class="section image-split-section mb-desk-0" data-scroll-section>
+		<!-- Media -->
+		{{ with .image }}
+			<div class="image-split image-split-right">
+				<picture class="image animate-up">
+					{{ partial "media/picture.html" (dict
+						"image" (resources.Get .)
+						"alt" (printf "%s Image" $.Title)
+						"lazy" true
+					)}}
+				</picture>
+			</div>
+		{{- end }}
+		<!-- Content -->
+		<div class="container image-split-container">
+			<div class="row" data-scroll data-scroll-speed="2">
+				<div class="col-12 col-desk-6 col-hd-5 offset-desk-6 pl-desk-0">
+					<!-- Title -->
+					{{ with .title }}
+						<h2>{{ . | safeHTML }}</h2>
+					{{- end }}
+					<!-- Content -->
+					{{ with .content }}
+						<p class="lead mb-0">{{ . | safeHTML }}</p>
+					{{- end }}
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- Container -->
+	</section>
+	{{- end }}
 {{ end }}
