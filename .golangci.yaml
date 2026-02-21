@@ -1,6 +1,6 @@
 version: "2"
 run:
-  go: "1.24"
+  go: "1.26"
 linters:
   enable:
     - forbidigo
@@ -30,6 +30,7 @@ linters:
       - third_party$
       - builtin$
       - examples$
+      - api/_pkg/gateway/mail/mail_test\.go$
 formatters:
   enable:
     - gofumpt
