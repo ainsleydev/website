@@ -2,13 +2,14 @@
 	"name": "ainsley.dev",
 	"version": "1.0.0",
 	"author": "Ainsley Clark <hello@ainsley.dev>",
-	"description": "Website code for ainsley.dev",
+	"description": "Website code for ainsley.dev & ainsleyclark.com",
 	"license": "BSD-3",
 	"packageManager": "pnpm@10.0.0",
 	"scripts": {
+		"precommit": "npx lint-staged --debug",
 		"setup": "pnpm install && husky install && pnpm add -g vercel && pnpm add -g svgo && go mod tidy && go install github.com/deepmap/oapi-codegen/cmd/oapi-codegen@latest && go generate ./...",
 		"setup:vercel": "sh ./bin/os.sh && pnpm install && pnpm add -g svgo",
-		"dev": "concurrently \"hugo server --source sites/ainsley-dev --port 3000 --buildDrafts --watch\" \"hugo server --source sites/ainsley-clark --port 3001 --buildDrafts --watch\"",
+		"dev": "concurrently --names \"ainsley-dev,ainsley-clark\" --prefix \"[{name}]\" --prefix-colors \"cyan,magenta\" \"pnpm dev:ainsley-dev\" \"pnpm dev:ainsley-clark\"",
 		"dev:ainsley-dev": "hugo server --source sites/ainsley-dev --port 3000 --buildDrafts --watch",
 		"dev:ainsley-clark": "hugo server --source sites/ainsley-clark --port 3001 --buildDrafts --watch",
 		"build": "pnpm run build:ainsley-dev && pnpm run build:ainsley-clark",
@@ -37,8 +38,7 @@
 		"image": "./bin/image-optim.sh",
 		"video": "./bin/video-optim.sh",
 		"agents": "./bin/generate-agents-md.sh",
-		"todo": "grep --exclude-dir=.vercel --exclude-dir=.gen --exclude-dir=public --exclude-dir=node_modules --exclude-dir=.git -nRo -E '\\S*[^\\.] TODO.*' .",
-		"precommit": "npx lint-staged --debug"
+		"todo": "grep --exclude-dir=.vercel --exclude-dir=.gen --exclude-dir=public --exclude-dir=node_modules --exclude-dir=.git -nRo -E '\\S*[^\\.] TODO.*' ."
 	},
 	"dependencies": {
 		"@barba/core": "^2.9.7",
