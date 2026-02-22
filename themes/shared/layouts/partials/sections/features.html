@@ -17,7 +17,7 @@
     ===================== -->
 {{ if .items }}
 	<section id="{{ if .id  -}} {{ .id }} {{- else -}} features {{- end }}"
-			 class="section section-padding section-padding-bottom {{ with .class -}} {{ . }} {{- end }}"
+			 class="{{ with .class -}} {{ . }} {{- end }}"
 			 data-scroll-section>
 		<div class="container">
 			<div class="row">

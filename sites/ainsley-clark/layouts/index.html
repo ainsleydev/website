@@ -71,49 +71,39 @@
 		Bio
 		===================== -->
 	{{ with .Params.bio }}
-		<section class="section image-split-section mb-desk-0" data-scroll-section>
-		<!-- Media -->
-		{{ if .image }}
-			<div class="image-split image-split-right">
-				<picture class="image animate-up">
-					{{ partial "media/picture.html" (dict
-						"image" (resources.GetMatch .image)
-						"alt" (printf "%s Image" $.Title)
-						"lazy" true
-					)}}
-				</picture>
-			</div>
-		{{- end }}
-		<!-- Content -->
-		<div class="container image-split-container">
-			<div class="row" data-scroll data-scroll-speed="2">
-				<div class="col-12 col-desk-6 col-hd-5 offset-desk-6 pl-desk-0">
-					<!-- Title -->
-					{{ with .title }}
-						<h2>{{ . | safeHTML }}</h2>
-					{{- end }}
-					<!-- Content -->
-					{{ with .content }}
-						<p class="lead mb-0">{{ . | safeHTML }}</p>
-					{{- end }}
-				</div><!-- /Col -->
-			</div><!-- /Row -->
-		</div><!-- Container -->
-	</section>
-	{{- end }}
-	<!-- =====================
-		Conferences
-		===================== -->
-	{{ $conferences := where site.RegularPages "Section" "conferences" }}
-	{{ with $conferences }}
 		<section class="section" data-scroll-section>
 			<div class="container">
 				<div class="row justify-content-between">
 					<!-- Heading -->
 					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
 						{{ partial "type/vertical.html" (dict
-							"text" "Media"
+							"text" "Bio"
 							"number" "01"
+							"line" true
+							"fill" false
+						)}}
+					</div><!-- /Col -->
+					<!-- Pages -->
+					<div class="col-12 col-mob-9">
+						<p>{{ .content }}</p>
+					</div><!-- /Col -->
+				</div><!-- /Row -->
+			</div>
+		</section>
+	{{- end }}
+	<!-- =====================
+		Conferences
+		===================== -->
+	{{ $conferences := where site.RegularPages "Section" "conferences" }}
+	{{ with $conferences }}
+		<section class="section section-padding section-padding-bottom" data-scroll-section>
+			<div class="container">
+				<div class="row justify-content-between">
+					<!-- Heading -->
+					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
+						{{ partial "type/vertical.html" (dict
+							"text" "Media"
+							"number" "02"
 							"line" true
 							"fill" false
 						)}}
@@ -137,8 +127,72 @@
 			"title"   "Competencies"
 			"textNumber" "02"
 			"id"      "skills"
-			"class"   "animate-fade"
+			"class"   "section section-padding section-padding-bottom animate-fade"
 		)}}
+	{{- end }}
+	<!-- =====================
+		Insights
+		===================== -->
+	{{- $insights :=  (where .Site.RegularPages "Type" "insights").ByDate.Reverse | first 4 -}}
+	{{ with $insights }}
+		<section class="section section-padding section-padding-bottom">
+			<div class="container">
+				<div class="row justify-content-between">
+					<!-- Heading -->
+					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
+						{{ partial "type/vertical.html" (dict
+							"text" "Insights"
+							"number" "05"
+							"line" true
+							"fill" false
+						)}}
+					</div><!-- /Col -->
+					<!-- Content -->
+					<div class="col-12 col-mob-9">
+						<div class="row no-gaps">
+							<!-- TODO: There's a d-none here as we don't have other articles to link too -->
+							<!-- All Articles - Large -->
+							<div class="col-12 all-articles all-articles-border all-articles-large d-none">
+								<div class="all-articles-wrapper">
+									<span class="heading-6 all-articles-sub">
+										Latest Articles
+									</span>
+									{{ partial "arrow/text.html" (dict
+										"link" "/insights/"
+										"text" "<span class='heading-3'>All insights</span>"
+										"title" "View all insights"
+										"small" true
+										"rotation" 45
+									)}}
+								</div><!-- /Wrapper -->
+							</div><!-- /Col -->
+							<!-- All Articles - Small -->
+							<div class="col-12 all-articles all-articles-border all-articles-small d-none">
+								<div class="all-articles-wrapper">
+									<h6 class="all-articles-sub">
+										Latest Articles
+									</h6>
+									{{ partial "arrow/text.html" (dict
+										"link" "/insights/"
+										"text" "<span class='heading-2'>All insights</span>"
+										"title" "View all insights"
+										"small" true
+										"rotation" 45
+									)}}
+								</div><!-- /Wrapper -->
+							</div><!-- /Col -->
+							<!-- Cards -->
+							{{ range $index, $page := . }}
+								<div class="col-12 card-col {{ if eq $index 0 }} card-col-first {{- end }} animate-fade"
+									 data-animate-no-touch>
+									{{ .Render "card" }}
+								</div><!-- /Col -->
+							{{- end }}
+						</div><!-- /Row -->
+					</div><!--- /Col -->
+				</div><!-- /Row -->
+			</div><!-- /Container -->
+		</section>
 	{{- end }}
 	<!-- =====================
 		Quote
