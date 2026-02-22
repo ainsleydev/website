@@ -24,11 +24,12 @@
 				</span><!-- /Heading -->
 				<!-- Contact -->
 				<div class="footer-contact">
+					{{ $p := default "us" .Site.Params.wording.pronoun }}
 					<!-- Email -->
                     {{ with .Site.Params.contact.email -}}
 						<div class="footer-contact-email margin-large">
 							<span class="heading-6 footer-contact-sub">
-								Email us
+								Email {{ $p }}
 							</span>
 							<a href="mailto:{{ . | safeHTMLAttr }}" class="cursor-element" title="Email ainsley.dev"
 							   aria-label="Email ainsley.dev"
@@ -41,7 +42,7 @@
                     {{ with .Site.Params.social -}}
 						<menu class="footer-contact-social">
 							<span class="heading-6 footer-contact-sub">
-								Connect with us
+								Connect with {{ $p }}
 							</span>
                             {{ partial "components/social.html" (dict "colour" "white") }}
 						</menu>
