@@ -4,16 +4,18 @@
 			"title" "Say hello"
 			"dark" true
    			"class" "animate-up"
+			"id"    "contact"
 			"attr" "download"
 			"placeholder" "Hey ainsley.dev..."
 		)}}
 		- title:			Optional title that will sit horizontally.
 		- dark:				If the form should be dark mode.
 		- class:			Any additional class names to appear.
+		- id:				Optional section element id.
     	- attr:		 		Any additional or attributes to appear.
     	- placeholder:		The form textarea placeholder, defaults to Hey ainsley.dev
     ===================== -->
-<section class="section {{ with .class -}} {{ . }} {{- end }}" {{ .attr  | safeHTMLAttr }} >
+<section class="section {{ with .class -}} {{ . }} {{- end }}" {{ with .id }}id="{{ . }}"{{ end }} {{ .attr | safeHTMLAttr }}>
 	<div class="container">
 		<!-- Intro -->
 		{{ if .title }}
