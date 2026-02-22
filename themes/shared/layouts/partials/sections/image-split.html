@@ -1,12 +1,14 @@
 <!-- =====================
 	Image Split
 		partial "sections/image-split.html" (dict
-			"title"   $section.title
-			"content" $section.content
+			"title"   "Title"
+			"content" "Content"
 			"image"   ($.Resources.GetMatch $section.image)
 			"video"   ($.Resources.GetMatch $section.video)
-			"left"    $isLeft
-			"isLast"  $isLast
+			"left"    true
+			"isLast"  false
+			"id"      "image-split"
+			"class"   "animate-fade"
 		)}}
 		- title:   Section heading (string, optional).
 		- content: Body text rendered as a lead paragraph (string, optional).
@@ -14,8 +16,11 @@
 		- video:   Resolved page bundle video resource (optional). Takes precedence over image.
 		- left:    When true, media is placed on the right and text on the left. Flipped when false.
 		- isLast:  When true, suppresses the bottom margin on the section.
+		- id:      The section element id. Defaults to "image-split".
+		- class:   Additional class names appended to the section element.
     ===================== -->
-<section class="section image-split-section {{ if .isLast -}} mb-0 {{ else }} mb-desk-0 {{- end }}"
+<section id="{{ if .id -}} {{ .id }} {{- else -}} image-split {{- end }}"
+	class="section image-split-section {{ if .isLast -}} mb-0 {{ else }} mb-desk-0 {{- end }}{{ with .class }} {{ . }}{{ end }}"
 	data-scroll-section>
 	<!-- Media -->
 	{{ if or .image .video }}
