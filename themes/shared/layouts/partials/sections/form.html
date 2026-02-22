@@ -10,7 +10,7 @@
 		- class:			Any additional class names to appear.
     	- attr:		 		Any additional or attributes to appear.
     ===================== -->
-<section class="{{ with .class -}} {{ . }} {{- end }}" {{ .attr  | safeHTMLAttr }} >
+<section class="section {{ with .class -}} {{ . }} {{- end }}" {{ .attr  | safeHTMLAttr }} >
 	<div class="container">
 		<div class="row">
 			<!-- Form -->

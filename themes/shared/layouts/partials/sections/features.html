@@ -16,8 +16,8 @@
 		- class:	Additional class names appended to the section element.
     ===================== -->
 {{ if .items }}
-	<section id="{{ if .id  -}} {{ .id }} {{- else -}} features {{- end }}"
-			 class="{{ with .class -}} {{ . }} {{- end }}"
+	<section class="section {{ with .class -}} {{ . }} {{- end }}"
+			id="{{ if .id  -}} {{ .id }} {{- else -}} features {{- end }}"
 			 data-scroll-section>
 		<div class="container">
 			<div class="row">
