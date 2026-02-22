@@ -1,0 +1,56 @@
+<!-- =====================
+	Image Split
+		partial "sections/image-split.html" (dict
+			"title"   $section.title
+			"content" $section.content
+			"image"   ($.Resources.GetMatch $section.image)
+			"video"   ($.Resources.GetMatch $section.video)
+			"left"    $isLeft
+			"isLast"  $isLast
+		)}}
+		- title:   Section heading (string, optional).
+		- content: Body text rendered as a lead paragraph (string, optional).
+		- image:   Resolved page bundle image resource (optional).
+		- video:   Resolved page bundle video resource (optional). Takes precedence over image.
+		- left:    When true, media is placed on the right and text on the left. Flipped when false.
+		- isLast:  When true, suppresses the bottom margin on the section.
+    ===================== -->
+<section class="section image-split-section {{ if .isLast -}} mb-0 {{ else }} mb-desk-0 {{- end }}"
+	data-scroll-section>
+	<!-- Media -->
+	{{ if or .image .video }}
+		<div class="image-split {{ if .left -}} image-split-right {{ else }} image-split-left {{- end }}">
+			{{ if .video -}}
+				{{ partial "media/video.html" (dict
+					"video" .video
+					"lazy" true
+					"attr" "autoplay loop muted"
+				)}}
+			{{ else if .image }}
+				<picture class="image animate-up">
+					{{ partial "media/picture.html" (dict
+						"image" .image
+						"alt" (printf "%s Image" .title)
+						"lazy" true
+					)}}
+				</picture>
+			{{- end }}
+		</div>
+	{{- end }}
+	<!-- Content -->
+	<div class="container image-split-container">
+		<div class="row" data-scroll data-scroll-speed="2">
+			<div class="col-12 col-desk-6 col-hd-5
+				{{ if not .left -}} offset-desk-6 pl-desk-0 {{ else }} pr-desk-0 {{- end }}">
+				<!-- Title -->
+				{{ with .title }}
+					<h2>{{ . | safeHTML }}</h2>
+				{{- end }}
+				<!-- Content -->
+				{{ with .content }}
+					<p class="lead mb-0">{{ . | safeHTML }}</p>
+				{{- end }}
+			</div><!-- /Col -->
+		</div><!-- /Row -->
+	</div><!-- Container -->
+</section>
