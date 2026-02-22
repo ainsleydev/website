@@ -59,9 +59,10 @@
 			<!-- Contact -->
 			<div class="col-12 col-desk-4">
 				<aside class="contact-aside section-padding-small section-padding-top">
+					{{ $p := default "us" site.Params.wording.pronoun }}
 					<!-- Email -->
 					<div class="contact-aside-item margin-large">
-						<h6>Email us</h6>
+						<h6>Email {{ $p }}</h6>
 						<a href="mailto:{{ site.Params.contact.email }}"
 						title="Email ainsley.dev" aria-label="Email ainsley.dev">
 							<h5>{{ site.Params.contact.email }}</h5>
@@ -69,7 +70,7 @@
 					</div>
 					<!-- Phone -->
 					<div class="contact-aside-item margin-large">
-						<h6>Chat with us</h6>
+						<h6>Chat with {{ $p }}</h6>
 						<a href="tel:{{ site.Params.contact.phone.link }}"
 						title="Phone ainsley.dev" aria-label="Phone ainsley.dev">
 							<h5>{{ site.Params.contact.phone.pretty }}</h5>
@@ -77,7 +78,7 @@
 					</div>
 					<!-- Social -->
 					<div class="contact-aside-item">
-						<h6>Connect with us</h6>
+						<h6>Connect with {{ $p }}</h6>
 						{{ partial "components/social.html" . }}
 					</div>
 				</aside>

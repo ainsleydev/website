@@ -30,10 +30,11 @@
 			<div class="col-12 col-desk-4">
 				<!-- Contact -->
 				<div class="nav-contact">
+					{{ $p := default "us" site.Params.wording.pronoun }}
 					<!-- Email -->
 					{{ with site.Params.contact.email -}}
 						<div class="nav-contact-section">
-							<span class="heading-6">Email us</span>
+							<span class="heading-6">Email {{ $p }}</span>
 							<a href="mailto:{{ . }}" class="cursor-element"
 								data-cursor-invert data-cursor-invert-black
 								aria-label="Email ainsley.dev">
@@ -46,7 +47,7 @@
 					<!-- Phone -->
 					{{ with site.Params.contact.phone -}}
 						<div class="nav-contact-section">
-							<span class="heading-6">Chat with us</span>
+							<span class="heading-6">Chat with {{ $p }}</span>
 							<a href="tel:{{ .link }}" title="Phone ainsley.dev"
 								data-cursor-invert data-cursor-invert-black
 								aria-label="Phone ainsley.dev">
@@ -59,7 +60,7 @@
 					<!-- Social -->
 					{{ with site.Params.social -}}
 						<div class="nav-contact-section">
-							<span class="heading-6">Connect with us</span>
+							<span class="heading-6">Connect with {{ $p }}</span>
 							{{ partial "components/social.html" (dict
 								"colour" "white"
 								"cursor" "data-cursor-invert data-cursor-invert-black"
