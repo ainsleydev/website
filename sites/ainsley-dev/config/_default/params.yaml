@@ -50,5 +50,7 @@ codepen:
     user: ainsleyclark
     tab: result
     theme: dark
+footer:
+    title: 'Digital craftmanship<br class="d-mob-none"/><span class="d-none d-mob-inline">&nbsp;</span>sculpting<br class="d-none d-mob-inline"/>&nbsp;you as an<br class="d-mob-none"/><span class="d-none d-mob-inline">&nbsp;</span>industry leader.'
 wording:
     pronoun: us
