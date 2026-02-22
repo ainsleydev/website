@@ -57,7 +57,7 @@
 		===================== -->
 	{{ with .Params.bio }}
 
-		<section class="section section-padding" data-scroll-section style="overflow-x: clip;">
+		<section id="bio" class="section section-padding" data-scroll-section style="overflow-x: clip;">
 			<div class="container">
 				<div class="row">
 					<!-- Heading -->
@@ -100,7 +100,7 @@
 		===================== -->
 	{{ $conferences := where site.RegularPages "Section" "conferences" }}
 	{{ with $conferences }}
-		<section class="section section-padding section-padding-bottom" data-scroll-section>
+		<section id="media" class="section section-padding section-padding-bottom" data-scroll-section>
 			<div class="container">
 				<div class="row justify-content-between">
 					<!-- Heading -->
@@ -218,6 +218,7 @@
 		"dark" true
 		"class" "section-padding animate-up"
 		"placeholder" "Hey Ainsley..."
+		"attr" "id=contact"
 	)}}
 	<!-- =====================
 		Divider

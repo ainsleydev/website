@@ -236,6 +236,7 @@ class App {
 			Scroll.init(data.next.container);
 			PlausiblePageView();
 			this.boot();
+			this.scrollToHash();
 			anime({
 				targets: ['.header'],
 				opacity: [0, 1],
@@ -302,7 +303,7 @@ class App {
 		links.forEach((link) => {
 			const href = link.getAttribute('href');
 
-			// Ensure the href contains a hash and it's not just '#'
+			// Same-page anchor links (e.g. #bio).
 			if (href && href.startsWith('#') && href.length > 1) {
 				const targetElement = document.querySelector(href);
 				if (!targetElement) {
@@ -314,8 +315,61 @@ class App {
 						offset: -80,
 					});
 				});
+				return;
+			}
+
+			// Homepage anchor links (e.g. /#bio).
+			// If already on the home page, close the nav then scroll.
+			// If on another page, Barba handles navigation and the after
+			// hook scrolls to the target once the transition completes.
+			if (href && href.startsWith('/#') && href.length > 2) {
+				link.addEventListener('click', (e) => {
+					const isHomePage = window.location.pathname === '/';
+					if (!isHomePage) {
+						return;
+					}
+					e.preventDefault();
+					e.stopPropagation();
+					const hash = href.substring(1);
+					const target = document.querySelector(hash);
+					if (!target) {
+						return;
+					}
+					if (this.nav.isOpen) {
+						this.nav.play();
+						setTimeout(() => {
+							Scroll.instance.scrollTo(target, { offset: -80 });
+						}, this.nav.duration());
+						return;
+					}
+					Scroll.instance.scrollTo(target, { offset: -80 });
+				});
 			}
 		});
+	}
+
+	/**
+	 * Scrolls to the element matching window.location.hash if one
+	 * is present. Called after Barba page transitions so that
+	 * cross-page anchor links (e.g. /#bio) land on the correct
+	 * section.
+	 *
+	 * @private
+	 */
+	private scrollToHash(): void {
+		const hash = window.location.hash;
+		if (!hash || hash.length <= 1) {
+			return;
+		}
+		const target = document.querySelector(hash);
+		if (!target) {
+			return;
+		}
+		if (this.hasSmoothScroll() && Scroll.instance) {
+			Scroll.instance.scrollTo(target, { offset: -80 });
+			return;
+		}
+		target.scrollIntoView();
 	}
 
 	/**
