@@ -38,6 +38,7 @@
 		"image": "./bin/image-optim.sh",
 		"video": "./bin/video-optim.sh",
 		"agents": "./bin/generate-agents-md.sh",
+		"kill": "sudo kill -9 $(lsof -ti:3000 -ti:3001)",
 		"todo": "grep --exclude-dir=.vercel --exclude-dir=.gen --exclude-dir=public --exclude-dir=node_modules --exclude-dir=.git -nRo -E '\\S*[^\\.] TODO.*' ."
 	},
 	"dependencies": {

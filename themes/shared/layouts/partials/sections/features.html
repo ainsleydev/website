@@ -1,0 +1,62 @@
+<!-- =====================
+	Features
+		partial "sections/features.html" (dict
+			"items"  (slice
+				(dict "title" "Custom" "content" "Websites should be unique.")
+				(dict "title" "Responsive" "content" "We test across all platforms.")
+			)
+			"title"   "Why Us?"
+			"textNumber" "01"
+			"id"      "features"
+			"class"   "animate-fade"
+		)}}
+		- items:	Slice of objects, each with "title", "content" (text), and/or "list" (slice of strings) keys (required).
+		- title:	Label shown in the vertical type component. Defaults to "Why Us?".
+		- id:		The section element id. Defaults to "features".
+		- class:	Additional class names appended to the section element.
+    ===================== -->
+{{ if .items }}
+	<section class="section {{ with .class -}} {{ . }} {{- end }}"
+			id="{{ if .id  -}} {{ .id }} {{- else -}} features {{- end }}"
+			 data-scroll-section>
+		<div class="container">
+			<div class="row">
+				<!-- Vertical Line & Text -->
+				<div class="col-12 col-mob-3" data-scroll data-scroll-speed="1">
+					{{ partial "type/vertical.html" (dict
+						"text" (cond (ne $.title "") $.title "Why Us?")
+						"line" true
+						"fill" true
+						"inline" true
+						"number" $.textNumber
+					)}}
+				</div><!-- /Col -->
+				<!-- Text Blocks -->
+				<div class="col-12 col-mob-9">
+					<div class="row justify-content-between">
+						{{ range .items }}
+							<div class="col-12 col-desk-5">
+								<!-- Title -->
+								{{ with .title -}}
+									<h3>{{ . }}</h3>
+								{{- end }}
+								<!-- Text -->
+								{{ with .content -}}
+									<p>{{ . | safeHTML }}</p>
+								{{- end }}
+								<!-- List -->
+								{{ with .list -}}
+									<ul class="list">
+										{{ range . -}}
+											<li>{{ . }}</li>
+										{{- end }}
+									</ul>
+								{{- end }}
+							</div>
+						{{- end }}
+					</div><!-- /Row -->
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+{{- end }}

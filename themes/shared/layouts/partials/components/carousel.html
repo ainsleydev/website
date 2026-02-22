@@ -23,7 +23,7 @@
 			<div class="carousel-item">
 		{{- end }}
             {{ partial "media/picture.html" (dict
-				"image" (.ctx.Resources.GetMatch .item.image)
+				"image" (or (.ctx.Resources.GetMatch .item.image) (resources.GetMatch .item.image))
 				"alt" .item.alt
 				"lazy" false
 				"class" "carousel-image"

@@ -1,0 +1,76 @@
+<!-- =====================
+    Insights Card
+    	partial "components/insights-card.html" (dict
+			"href"        .RelPermalink
+			"external"    false
+			"publishDate" .PublishDate
+			"heading"     .Params.heading
+			"description" .Params.description
+			"tags"        .Params.tags
+			"readingTime" (partial "util/_reading-time.html" .)
+		)
+    	- href:        The URL for the card link.
+    	- external:    If true, opens the link in a new tab with rel="noopener noreferrer".
+    	- publishDate: The publish date of the insight.
+    	- heading:     The card title.
+    	- description: The description text.
+    	- tags:        Slice of tag strings.
+    	- readingTime: Pre-computed reading time integer (omit for external cards).
+    ===================== -->
+{{ if not .href -}}
+	{{ warnf "No href provided to insights-card" -}}
+{{- end }}
+{{ if not .heading -}}
+	{{ warnf "No heading provided to insights-card for: %s" .href -}}
+{{- end }}
+<a href="{{ .href }}"
+	class="card card-basic cursor-element skew"
+	title="Visit the {{ .heading }} page"
+	aria-label="Navigate to the {{ .heading }} page"
+	{{ if .external }}target="_blank" rel="noopener noreferrer"{{ end }}
+	data-cursor-invert data-cursor-invert-white
+	data-skew-transform-x="0.15" data-skew-transform-y="0.15"
+	data-skew-rotate-x="-0.1" data-skew-rotate-y="-0.1"
+	data-skew-rotate>
+	<div class="row no-gaps">
+		<!-- Date -->
+		<div class="col-12 col-desk-2">
+			<span class="heading-6 card-text-sub margin-large mb-desk-0">
+				{{ with .publishDate -}}
+					{{ .Format "02/01/2006" }}
+				{{- else -}}
+					{{ warnf "No publishDate provided to insights-card for: %s" $.href }}
+				{{- end }}
+			</span>
+		</div><!-- /Col -->
+		<!-- Content -->
+		<div class="col-12 col-desk-10">
+			<!-- Title -->
+			{{ with .heading -}}
+				<h3 class="card-text-title">
+					{{ . }}
+				</h3>
+			{{- end }}
+			<!-- Description -->
+			{{ with .description -}}
+				<p class="card-text-lead">
+					{{ . | strings.TrimSuffix "." }}...
+				</p>
+			{{- end }}
+			<!-- Tags & Reading Time -->
+			<div class="card-tags">
+				{{ range .tags -}}
+					{{ partial "components/tag.html" (dict
+						"text" .
+						"class" "card-tags-item tag-margin-top"
+					)}}
+				{{- end }}
+				{{ with .readingTime -}}
+					<small class="card-tags-reading-time">
+						{{ . }} min read
+					</small>
+				{{- end }}
+			</div>
+		</div><!-- /Col -->
+	</div><!-- /Row -->
+</a><!-- /Card -->

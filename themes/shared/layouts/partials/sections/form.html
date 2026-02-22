@@ -1,18 +1,31 @@
 <!-- =====================
 	Form
 		partial "sections/form.html" (dict
+			"title" "Say hello"
 			"dark" true
    			"class" "animate-up"
 			"attr" "download"
+			"placeholder" "Hey ainsley.dev..."
 		)}}
+		- title:			Optional title that will sit horizontally.
 		- dark:				If the form should be dark mode.
 		- class:			Any additional class names to appear.
     	- attr:		 		Any additional or attributes to appear.
+    	- placeholder:		The form textarea placeholder, defaults to Hey ainsley.dev
     ===================== -->
-<section class="
-	{{ with .class -}} {{ . }} {{- end }}"
-	{{ .attr  | safeHTMLAttr }} >
+<section class="section {{ with .class -}} {{ . }} {{- end }}" {{ .attr  | safeHTMLAttr }} >
 	<div class="container">
+		<!-- Intro -->
+		{{ if .title }}
+			<div class="row margin-title">
+				<div class="col-12">
+					<h2 class="heading-1 mb-0">
+						{{ .title | safeHTML }}
+					</h2>
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		{{- end }}
+		<!-- Content -->
 		<div class="row">
 			<!-- Form -->
 			<div class="col-12 col-desk-8 order-desk-last">
@@ -30,8 +43,7 @@
 						<!-- Message -->
 						<fieldset class="form-group">
 							<label class="form-label">
-								<textarea class="form-input form-textarea" rows="6"
-									name="message">Hey ainsley.dev...</textarea>
+								<textarea class="form-input form-textarea" rows="6" name="message">{{- with .placeholder -}}{{ . }}{{- else -}}Hey ainsley.dev...{{- end }}</textarea>
 							</label>
 						</fieldset>
 						<!-- Message -->

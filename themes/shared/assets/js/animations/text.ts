@@ -189,7 +189,7 @@ const hero = (): Playable => {
 		)
 		.add(
 			{
-				targets: wrapper.querySelector('.btn'),
+				targets: wrapper.querySelectorAll('.btn'),
 				easing: 'easeOutQuad',
 				opacity: [0, 1],
 				duration: 1000,

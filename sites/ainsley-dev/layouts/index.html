@@ -138,11 +138,18 @@
 					</div><!-- /Col -->
 					<!-- Pages -->
 					<div class="col-12 col-mob-9">
-						{{ range $services -}}
+						{{ range . -}}
 							{{ partial "components/featured-card.html" (dict
-								"service" .
-								"fullWidth" false
-								"numbers" false
+								"href"         .RelPermalink
+								"image"        (.Resources.GetMatch "images/featured.*")
+								"imageDefault" (.Resources.GetMatch "images/featured-small.*")
+								"heading"      .Params.heading
+								"lead"         .Params.lead
+								"tags"         .Params.tags
+								"buttonName"   .Params.buttonName
+								"fullWidth"    false
+								"numbers"      false
+								"external"     false
 							)}}
 						{{- end }}
 					</div><!-- /Col -->
@@ -197,8 +204,8 @@
 		</div><!-- /Container -->
 	</section>
 	<!-- =====================
-Solutions
-===================== -->
+		Solutions
+		===================== -->
 	<section class="section section-padding section-padding-top">
 		<div class="container">
 			<div class="row justify-content-between">

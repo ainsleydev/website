@@ -49,87 +49,28 @@
 	<!-- =====================
 		Why Us?
 		===================== -->
-	{{ with .Params.why }}
-		<section id="why" class="section section-padding section-padding-bottom animate-fade" data-scroll-section>
-			<div class="container">
-				<div class="row">
-					<!-- Vertical Line & Text -->
-					<div class="col-12 col-mob-3" data-scroll data-scroll-speed="1">
-                        {{ partial "type/vertical.html" (dict
-							"text" "Why Us?"
-							"line" true
-							"fill" true
-							"inline" true
-                        )}}
-					</div><!-- /Col -->
-					<!-- Text Blocks -->
-					<div class="col-12 col-mob-9">
-						<div class="row justify-content-between">
-                            {{ range . }}
-								<div class="col-12 col-desk-5">
-									<!-- Title -->
-                                    {{ with .title -}}
-										<h3>{{ . }}</h3>
-                                    {{- end }}
-									<!-- Text -->
-                                    {{ with .content -}}
-										<p>{{ . | safeHTML }}</p>
-                                    {{- end }}
-								</div>
-                            {{- end }}
-						</div><!-- /Row -->
-					</div><!-- /Col -->
-				</div><!-- /Row -->
-			</div><!-- Container -->
-		</section>
+	{{ with .Params.why -}}
+		{{ partial "sections/features.html" (dict
+			"items" .
+			"title" "Why Us?"
+			"id"    "why"
+			"class" "section-padding section-padding-bottom animate-fade"
+		)}}
 	{{- end }}
 	<!-- =====================
 		Sections
 		===================== -->
 	{{ with .Params.sections -}}
-        {{ range $index, $section := . }}
-			{{- $isLast := eq (sub (len $.Params.sections) 1) $index -}}
-            {{- $isLeft := eq (mod $index 2) 0 -}}
-			<section class="section image-split-section {{ if $isLast -}} mb-0 {{ else }} mb-desk-0 {{- end }}"
-				data-scroll-section>
-				<!-- Media -->
-				{{ if or .image .video }}
-					<div class="image-split {{ if $isLeft -}} image-split-right {{ else }} image-split-left {{- end }}">
-						{{ if .image -}}
-							<picture class="image animate-up">
-								{{ partial "media/picture.html" (dict
-									"image" ($.Resources.GetMatch .image)
-									"alt" (printf "%s Image" .title)
-									"lazy" true
-								)}}
-							</picture>
-						{{ else if .video }}
-							{{ partial "media/video.html" (dict
-								"video" ($.Resources.GetMatch .video)
-								"lazy" true
-								"attr" "autoplay loop muted"
-							)}}
-						{{- end }}
-					</div>
-				{{- end }}
-				<!-- Content -->
-				<div class="container image-split-container">
-					<div class="row" data-scroll data-scroll-speed="2">
-						<div class="col-12 col-desk-6 col-hd-5
-							{{ if not $isLeft -}} offset-desk-6 pl-desk-0 {{ else }} pr-desk-0 {{- end }}">
-							<!-- Title -->
-                            {{ with .title }}
-								<h2>{{ . | safeHTML }}</h2>
-                            {{- end }}
-							<!-- Content -->
-							{{ with .content }}
-								<p class="lead mb-0">{{ . | safeHTML }}</p>
-							{{- end }}
-						</div><!-- /Col -->
-					</div><!-- /Row -->
-				</div><!-- Container -->
-			</section>
-        {{- end }}
+		{{ range $index, $section := . }}
+			{{ partial "sections/image-split.html" (dict
+				"title"   $section.title
+				"content" $section.content
+				"image"   ($.Resources.GetMatch $section.image)
+				"video"   ($.Resources.GetMatch $section.video)
+				"left"    (eq (mod $index 2) 0)
+				"isLast"  (eq (sub (len $.Params.sections) 1) $index)
+			)}}
+		{{- end }}
 	{{- end }}
 	<!-- =====================
 		Workflow
