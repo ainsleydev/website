@@ -1,7 +1,7 @@
 navMain:
-    -   identifier: about
-        name: Who we are
-        url: /who-we-are/
+    -   identifier: bio
+        name: Bio
+        url: "#bio"
         weight: 10
         params:
             image:

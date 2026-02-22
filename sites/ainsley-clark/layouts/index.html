@@ -2,83 +2,112 @@
 	<!-- =====================
 		Hero
 		===================== -->
-	<section class="hero hero-space-around" data-scroll-section>
-		<!-- A Symbol -->
-		<figure class="hero-a-symbol hero-a-symbol-right gradient gradient-height-40 animate-fade"
-				data-scroll data-scroll-speed="-3">
-			{{ partial "svgs/a-symbol.html" (dict
-				"opacity" 0.1
-				"greyscale" true
-				"clip" "right"
-				"class" "hero-a-symbol-container"
-			)}}
-		</figure>
-		<!-- Content -->
-		<div class="container hero-container">
-			<!-- Intro -->
-			<div class="row hero-row" data-scroll data-scroll-speed="2" data-scroll-position="top">
-				<div class="col-12">
+	<section class="section service-hero" data-scroll-section>
+		<div class="container">
+			<div class="row justify-content-center" data-scroll data-scroll-speed="0">
+				<div class="col-12 col-tab-10 col-desk-8 col-desk-large-8">
 					<!-- Hero Animation -->
 					<div class="hero-animate">
-						<!-- Heading -->
-						{{ with .Params.heading -}}
-						<h1>
-							{{ . | safeHTML }}
-						</h1>
-						{{- else -}}
-							{{ warnf "No heading param provided to page: %s" .RelPermalink }}
-						{{- end }}
-						<!-- Lead -->
-						<p class="lead lead-max-width hero-lead">
-							We offer a wide range of services, from UI/UX design to website development. Specialising in
-							software development and API integration, we deliver expertly designed solutions to any digital
-							obstacle.
-						</p>
-						<!-- Actions -->
-						<div>
+						<!-- Content -->
+						<div class="margin-large">
+							{{ with .Params.heading -}}
+								<h1>
+									{{ . | safeHTML }}
+								</h1>
+							{{ else -}}
+								{{ warnf "No heading param provided to page: %s" .RelPermalink }}
+							{{- end }}
+							<!-- Lead -->
+							<p class="lead ler text-animate-lead">
+								{{ with .Params.lead -}}
+									{{ . | safeHTML }}
+								{{ else -}}
+									{{ warnf "No lead param provided to page: %s" .RelPermalink }}
+								{{- end }}
+							</p>
+						</div>
+						<!-- Buttons -->
+						<div class="hero-buttons">
 							{{ partial "components/button.html" (dict
-								"text" "Get to know me"
-								"link" "https://ainsley.dev"
 								"colour" "white"
-								"size" "small"
-								"title" "Visit ainsley.dev"
+								"link" "#bio"
+								"text" "Explore"
+								"title" "Scroll down to explore"
 							)}}
 							{{ partial "components/button.html" (dict
-								"text" "Visit ainsley.dev"
+								"colour" "grey"
 								"link" "https://ainsley.dev"
-								"colour" "black"
-								"size" "small"
-								"title" "Visit ainsley.dev"
+								"text" "Visit ainsley.dev"
+								"title" "Scroll down to explore"
 							)}}
 						</div>
-					</div>
+					</div><!-- /Hero Animation -->
 				</div><!-- /Col -->
 			</div><!-- /Row -->
-			<!-- Logos -->
-			<div class="row" data-scroll data-scroll-speed="3" data-scroll-position="top">
-				<div class="col-12">
-					<span class="heading-6 margin animate-fade" data-animate-no-touch>
-						Trusted By
-					</span>
-					<div class="hero-logos">
-						{{ partial "components/logos.html" . }}
-					</div>
-				</div><!-- /Col -->
-			</div><!-- /Row -->
-		</div><!-- /Container -->
+		</div><!-- Container -->
+		<!-- Carousel -->
+		{{ partial "components/carousel.html" (dict
+			"ctx" .
+			"images" .Params.gallery
+			"hasLinks" true
+		)}}
 	</section>
 	<!-- =====================
 		Bio
 		===================== -->
 	{{ with .Params.bio }}
-		{{ partial "sections/image-split.html" (dict
-			"title"   "Hello"
-			"content" .content
-			"image" (resources.GetMatch .image)
-			"left"    false
-			"isLast" false
-			"class" "section-padding"
-		)}}
+		<section class="section section-padding section-padding-top" data-scroll-section style="overflow-x: clip;">
+			<div class="container">
+				<div class="row">
+					<!-- Heading -->
+					<div class="col-12 col-mob-3" data-scroll data-scroll-speed="2">
+						{{ partial "type/vertical.html" (dict
+							"text" "Bio"
+							"number" "01"
+							"line" true
+							"fill" false
+						)}}
+					</div><!-- /Col -->
+
+
+					<!-- Content -->
+					<div class="col-12 col-mob-9">
+						<!-- Featured Image -->
+						<picture class="image animate-up animate-fade-desk margin-large">
+							{{ partial "media/picture.html" (dict
+								"image" (resources.GetMatch "images/bio.jpg")
+								"alt" (printf "ainsley.dev %s Mockup" .Params.company)
+								"lazy" false
+							)}}
+						</picture>
+
+						<!-- Discovery -->
+						<article class="section section-padding-small section-padding-bottom animate-fade" data-animate-no-touch>
+{{/*							<!-- Intro -->*/}}
+{{/*							<div class="row no-gaps align-items-center justify-content-between margin-medium">*/}}
+{{/*								<div class="col-6">*/}}
+{{/*									<h3 class="heading-2">Get </h3>*/}}
+{{/*								</div><!-- /Col -->*/}}
+{{/*								<div class="col-2">*/}}
+{{/*									<hr class="rule rule-medium d-none d-desk-block m-0"*/}}
+{{/*										data-scroll data-scroll-speed="1" data-scroll-direction="horizontal" />*/}}
+{{/*								</div><!-- /Col -->*/}}
+{{/*							</div><!-- /Row -->*/}}
+							<!-- Content -->
+							<div class="row no-gaps justify-content-between">
+								<div class="col-12 col-desk-8">
+									<div class="margin margin-none">
+										<p>At this stage, we kick off with a meeting to discover the project’s requirements and where you see yourself in the industry. We discuss what you desire, what’s lacking in your current solution, and how we can better it.</p>
+										<p>Technical requirements are established for the project, and a detailed proposal (if it’s a website) or SRS (software requirement specification) is created detailing the design, templates and technical intricacies of the project.</p>
+										<p>At the end of this stage, we can prepare a precise quotation for a better understanding of how much the project may cost and how long it will take.</p>
+									</div>
+								</div><!-- /Col -->
+							</div><!-- /Row -->
+						</article>
+					</div><!-- /Col -->
+				</div><!-- /Row -->
+			</div><!-- /Col -->
+		</section>
 	{{- end }}
 	<!-- =====================
 		Conferences
@@ -197,8 +226,12 @@
 		Form
 		===================== -->
 	{{ partial "sections/form.html" (dict
+		"title" `Say <span class="type-serif">hello</span> and get <br class="d-none d-desk-inline" />in touch <span class="type-serif"><u>now</u>*</span>`
 		"dark" true
 		"class" "section-padding animate-up"
 		"placeholder" "Hey Ainsley..."
 	)}}
+	<!-- =====================
+		Divider
+		===================== -->
 {{ end }}
