@@ -73,11 +73,11 @@
 	{{ with .Params.bio }}
 	<section class="section image-split-section mb-desk-0" data-scroll-section>
 		<!-- Media -->
-		{{ with .image }}
+		{{ if .image }}
 			<div class="image-split image-split-right">
 				<picture class="image animate-up">
 					{{ partial "media/picture.html" (dict
-						"image" (resources.Get .)
+						"image" (resources.GetMatch .image)
 						"alt" (printf "%s Image" $.Title)
 						"lazy" true
 					)}}
@@ -101,4 +101,23 @@
 		</div><!-- Container -->
 	</section>
 	{{- end }}
+	<!-- =====================
+		Core Competencies
+		===================== -->
+	{{ with .Params.competencies -}}
+		{{ partial "sections/features.html" (dict
+			"items"  .
+			"title"   "Core Competencies"
+			"id"      "competencies"
+			"class"   "animate-fade"
+		)}}
+	{{- end }}
+	<!-- =====================
+		Form
+		===================== -->
+	{{ partial "sections/form.html" (dict
+		"dark" true
+		"class" "animate-up"
+		"placeholder" "Hey Ainsley..."
+	)}}
 {{ end }}

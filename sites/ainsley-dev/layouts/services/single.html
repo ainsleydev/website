@@ -49,39 +49,13 @@
 	<!-- =====================
 		Why Us?
 		===================== -->
-	{{ with .Params.why }}
-		<section id="why" class="section section-padding section-padding-bottom animate-fade" data-scroll-section>
-			<div class="container">
-				<div class="row">
-					<!-- Vertical Line & Text -->
-					<div class="col-12 col-mob-3" data-scroll data-scroll-speed="1">
-                        {{ partial "type/vertical.html" (dict
-							"text" "Why Us?"
-							"line" true
-							"fill" true
-							"inline" true
-                        )}}
-					</div><!-- /Col -->
-					<!-- Text Blocks -->
-					<div class="col-12 col-mob-9">
-						<div class="row justify-content-between">
-                            {{ range . }}
-								<div class="col-12 col-desk-5">
-									<!-- Title -->
-                                    {{ with .title -}}
-										<h3>{{ . }}</h3>
-                                    {{- end }}
-									<!-- Text -->
-                                    {{ with .content -}}
-										<p>{{ . | safeHTML }}</p>
-                                    {{- end }}
-								</div>
-                            {{- end }}
-						</div><!-- /Row -->
-					</div><!-- /Col -->
-				</div><!-- /Row -->
-			</div><!-- Container -->
-		</section>
+	{{ with .Params.why -}}
+		{{ partial "sections/features.html" (dict
+			"items" .
+			"title" "Why Us?"
+			"id"    "why"
+			"class" "animate-fade"
+		)}}
 	{{- end }}
 	<!-- =====================
 		Sections

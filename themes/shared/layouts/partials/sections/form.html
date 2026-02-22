@@ -4,14 +4,13 @@
 			"dark" true
    			"class" "animate-up"
 			"attr" "download"
+			"placeholder" "Hey ainsley.dev...""
 		)}}
 		- dark:				If the form should be dark mode.
 		- class:			Any additional class names to appear.
     	- attr:		 		Any additional or attributes to appear.
     ===================== -->
-<section class="
-	{{ with .class -}} {{ . }} {{- end }}"
-	{{ .attr  | safeHTMLAttr }} >
+<section class="{{ with .class -}} {{ . }} {{- end }}" {{ .attr  | safeHTMLAttr }} >
 	<div class="container">
 		<div class="row">
 			<!-- Form -->
@@ -30,8 +29,9 @@
 						<!-- Message -->
 						<fieldset class="form-group">
 							<label class="form-label">
-								<textarea class="form-input form-textarea" rows="6"
-									name="message">Hey ainsley.dev...</textarea>
+								<textarea class="form-input form-textarea" rows="6" name="message">
+									{{- with .placeholder -}}{{ . }}{{- else -}}Hey ainsley.dev...{{- end }}
+								</textarea>
 							</label>
 						</fieldset>
 						<!-- Message -->
