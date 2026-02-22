@@ -6,12 +6,13 @@
 			"fullWidth" true
 			"numbers" 	false
 		)
-    	- ctx: 			The service - TODO: We should probably refactor this so it doens't just accept a service.
+    	- ctx: 			The service/page - accepts any page with heading, lead, tags, buttonName params.
     	- fullWidth:	If false, this section should be used with vertical type.
     	- meta: 		If numbers should be included
+    	- externalURL:	Optional. If set on the page params, used as the href instead of RelPermalink.
     ===================== -->
 {{ with .service -}}
-	<a href="{{ .RelPermalink }}"
+	<a href="{{ with .Params.externalURL }}{{ . }}{{ else }}{{ .RelPermalink }}{{ end }}"
 	   class="card card-basic card-feature {{ if $.fullWidth }} card-feature-full-width {{- end }} skew"
 	   title="Visit the {{ .Title }} page"
 	   aria-label="Navigate to the {{ .Title }} page"

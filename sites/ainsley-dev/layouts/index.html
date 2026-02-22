@@ -138,7 +138,7 @@
 					</div><!-- /Col -->
 					<!-- Pages -->
 					<div class="col-12 col-mob-9">
-						{{ range $services -}}
+						{{ range . -}}
 							{{ partial "components/featured-card.html" (dict
 								"service" .
 								"fullWidth" false
