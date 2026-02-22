@@ -1,13 +1,12 @@
 ---
-heading: GopherCon UK 2025
+heading: JET Tech Fest
 lead: How Just Eat uses tooling to deploy Go micro-services in minutes.
-weight: 1
+weight: 3
 tags:
-  - Go
-  - Microservices
-  - Platform Engineering
+  - Career
+  - Soft Skills
 buttonName: Watch Talk
-externalURL: https://gophercon.co.uk
+externalURL: https://www.youtube.com/watch?v=JnjKQZOsvcw
 build:
   render: "never"
   list: "always"
