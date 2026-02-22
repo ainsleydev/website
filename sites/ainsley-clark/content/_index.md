@@ -6,7 +6,7 @@ bio:
   image: images/bio.jpg
   title: Hi, I'm Ainsley.
   content: Senior/Lead Software Engineer at Just Eat Takeaway.com. GopherCon UK speaker. Chair of the Go Guild at JET and open-source contributor. Passionate about writing well-crafted Go, mentoring engineers, and building communities where Gophers thrive.
-competencies:
+skills:
   - title: Languages & Frameworks
     list:
       - Go

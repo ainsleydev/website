@@ -71,7 +71,7 @@
 		Bio
 		===================== -->
 	{{ with .Params.bio }}
-	<section class="section image-split-section mb-desk-0" data-scroll-section>
+		<section class="section image-split-section mb-desk-0" data-scroll-section>
 		<!-- Media -->
 		{{ if .image }}
 			<div class="image-split image-split-right">
@@ -104,11 +104,11 @@
 	<!-- =====================
 		Core Competencies
 		===================== -->
-	{{ with .Params.competencies -}}
+	{{ with .Params.skills -}}
 		{{ partial "sections/features.html" (dict
 			"items"  .
 			"title"   "Core Competencies"
-			"id"      "competencies"
+			"id"      "skills"
 			"class"   "animate-fade"
 		)}}
 	{{- end }}
