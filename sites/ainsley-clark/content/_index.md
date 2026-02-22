@@ -43,5 +43,8 @@ skills:
       - Docker
       - Linux
       - Elastic
+quote:
+  text: You know those leaders who can get really impressive results while keeping morale high amongst the group - that's Ainsley. I’ve had the good chance of working with him at Just Eat, he served as our Tech Manager and demonstrated great leadership.
+  person: Arnold Mutungi @ Just Eat
 ---
 

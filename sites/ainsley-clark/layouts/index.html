@@ -141,11 +141,21 @@
 		)}}
 	{{- end }}
 	<!-- =====================
+		Quote
+		===================== -->
+	{{ with .Params.quote -}}
+		{{ partial "sections/quote.html" (dict
+			"text" .text
+			"cite" .person
+			"class" "bg-grey-light"
+		)}}
+	{{- end }}
+	<!-- =====================
 		Form
 		===================== -->
 	{{ partial "sections/form.html" (dict
 		"dark" true
-		"class" "animate-up"
+		"class" "section section-padding animate-up"
 		"placeholder" "Hey Ainsley..."
 	)}}
 {{ end }}
