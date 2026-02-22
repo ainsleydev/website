@@ -318,19 +318,21 @@ class App {
 				return;
 			}
 
-			// Homepage anchor links (e.g. /#bio).
-			// If already on the home page, close the nav then scroll.
+			// Path-based anchor links (e.g. /#bio or /whatever#link).
+			// If already on the target page, close the nav then scroll.
 			// If on another page, Barba handles navigation and the after
 			// hook scrolls to the target once the transition completes.
-			if (href && href.startsWith('/#') && href.length > 2) {
+			const hashIndex = href ? href.indexOf('#') : -1;
+			if (href && !href.startsWith('#') && hashIndex > 0) {
+				const pathPart = href.substring(0, hashIndex);
 				link.addEventListener('click', (e) => {
-					const isHomePage = window.location.pathname === '/';
-					if (!isHomePage) {
+					const isCurrentPage = window.location.pathname === pathPart;
+					if (!isCurrentPage) {
 						return;
 					}
 					e.preventDefault();
 					e.stopPropagation();
-					const hash = href.substring(1);
+					const hash = href.substring(hashIndex);
 					const target = document.querySelector(hash);
 					if (!target) {
 						return;
