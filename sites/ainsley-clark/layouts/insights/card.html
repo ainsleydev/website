@@ -2,11 +2,10 @@
     Insights Card
     ===================== -->
 {{ partial "components/insights-card.html" (dict
-	"href"        .RelPermalink
-	"external"    false
+	"href"        .Params.externalURL
+	"external"    true
 	"publishDate" .PublishDate
 	"heading"     .Params.heading
 	"description" .Params.description
 	"tags"        .Params.tags
-	"readingTime" (partial "util/_reading-time.html" .)
 )}}
