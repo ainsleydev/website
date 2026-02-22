@@ -121,28 +121,25 @@
 					<!-- Pages -->
 					<div class="col-12 col-mob-9">
 						{{ range . }}
-							{{ partial "components/featured-card.html" (dict
-								"service"   .
-								"fullWidth" false
-								"numbers"   false
-							)}}
+							{{ .Render "card" }}
 						{{ end }}
 					</div><!-- /Col -->
 				</div><!-- /Row -->
 			</div>
 		</section>
 	{{ end }}
-<!-- =====================
-	Core Competencies
-	===================== -->
-{{ with .Params.skills -}}
-{{ partial "sections/features.html" (dict
-"items"  .
-"title"   "Core Competencies"
-"id"      "skills"
-"class"   "animate-fade"
-)}}
-{{- end }}
+	<!-- =====================
+		Core Competencies
+		===================== -->
+	{{ with .Params.skills -}}
+		{{ partial "sections/features.html" (dict
+			"items"  .
+			"title"   "Core Competencies"
+			"textNumber" "02"
+			"id"      "skills"
+			"class"   "animate-fade"
+		)}}
+	{{- end }}
 	<!-- =====================
 		Form
 		===================== -->
