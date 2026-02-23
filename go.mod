@@ -1,6 +1,6 @@
 module github.com/ainsleydev/website
 
-go 1.24.5
+go 1.25
 
 require (
 	github.com/ainsleyclark/errors v0.0.4
@@ -10,11 +10,11 @@ require (
 	github.com/getsentry/sentry-go v0.42.0
 	github.com/google/uuid v1.6.0
 	github.com/joho/godotenv v1.5.1
-	github.com/labstack/echo/v4 v4.15.0
+	github.com/labstack/echo/v4 v4.15.1
 	github.com/logrusorgru/aurora v2.0.3+incompatible
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.9.4
-	github.com/slack-go/slack v0.17.3
+	github.com/slack-go/slack v0.18.0
 	github.com/stretchr/testify v1.11.1
 )
 
