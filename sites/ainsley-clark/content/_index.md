@@ -7,24 +7,23 @@ bio:
   title: Hi, I'm Ainsley.
   content: "Most of my time is spent writing Go at Just Eat Takeaway.com, where I work as a Senior/Lead Software Engineer across platform services, architecture, and tooling. The rest goes into the thing I care about just as much — growing engineers and the Go community. At JET, that meant founding and chairing the Go Guild, a cross-organisation community focused on Go adoption, engineering standards, and knowledge sharing. We've published over 10 episodes on YouTube, hosted speakers like Eleanor McHugh, and built a space where Gophers across the company come together to learn and set the bar higher. In 2025, I spoke at GopherCon UK on how Just Eat uses tooling to deploy Go micro-services in minutes. Before that, I presented at JET TechFest and started creating content around Go best practices — from writing well-crafted packages to effective error handling. Before JET, I spent four years at Reddico as a Senior Full Stack Engineer, designing and shipping an intelligent link-building tool that processed 100k+ tasks daily across ten bespoke micro-services. I also founded ainsley.dev, a registered software company that won Website of the Year in its first year — end-to-end experience from branding and design through to architecture and deployment. Open source is a big part of how I contribute back. go-mail (190+ stars) is a cross-platform mail driver for Go. Verbis is a CMS built entirely in Go. WebKit turns a single app.json manifest into production-ready infrastructure and CI/CD pipelines. The thread through all of it — whether it's code review, pair programming, one-on-ones, or running a guild — is making the engineers around me better and building communities where people actually grow"
 gallery:
-  - image: images/slider/2easy.svg
-    alt: 2Easy Competitions
-    link: https://2easycompetitions.com
-  - image: images/slider/decs-pets.svg
+#  - image: images/logos/decs-pets.svg
+#    alt: 2Easy Competitions
+#    link: https://2easycompetitions.com
+  - image: images/logos/decs-pets.svg
     alt: Dec's Pets
-    link: https://decspets.ie
-  - image: images/slider/edr-dental.svg
+  - image: images/logos/edr-dental.svg
     alt: EDR Dental
-    link: https://edrdental.co.uk
-  - image: images/slider/oak-tuition.svg
+  - image: images/logos/elite-roofing.svg
+    alt: Elite Roofing
+  - image: images/logos/oak-tuition.svg
     alt: Oak Tuition
-    link: https://oaktuition.ainsleyclark.xyz
-  - image: images/slider/scotts-guttering.svg
+  - image: images/logos/s-clark.svg
+    alt: S.Clark
+  - image: images/logos/scotts-guttering.svg
     alt: Scott's Guttering
-    link: https://scottsguttering.ainsleyclark.xyz
-  - image: images/slider/thinkopedia.svg
+  - image: images/logos/thinkopedia.svg
     alt: Thinkopedia
-    link: https://thinkopedia.ainsleyclark.xyz
 skills:
   - title: Languages & Frameworks
     list:
