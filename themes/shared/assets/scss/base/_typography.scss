@@ -92,6 +92,10 @@ h1,
 	margin-bottom: 1.3rem;
 	line-height: 1.2;
 	letter-spacing: $text-letter-spacing;
+
+	.type-serif {
+		@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 40px, 60px);
+	}
 }
 
 h2,

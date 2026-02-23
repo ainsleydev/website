@@ -1,7 +1,8 @@
 <!-- =====================
-	Form
-		partial "sections/form.html" (dict
+	Contact
+		partial "sections/contact.html" (dict
 			"title" "Say hello"
+			"lead" "Looking to bring your vision to life"
 			"dark" true
    			"class" "animate-up"
 			"id"    "contact"
@@ -9,22 +10,30 @@
 			"placeholder" "Hey ainsley.dev..."
 		)}}
 		- title:			Optional title that will sit horizontally.
+		- lead:				Lead text that will sit beneath the title.
 		- dark:				If the form should be dark mode.
 		- class:			Any additional class names to appear.
 		- id:				Optional section element id.
     	- attr:		 		Any additional or attributes to appear.
     	- placeholder:		The form textarea placeholder, defaults to Hey ainsley.dev
     ===================== -->
-<section class="section {{ with .class -}} {{ . }} {{- end }}" {{ with .id }}id="{{ . }}"{{ end }} {{ .attr | safeHTMLAttr }}>
+<section class="section contact
+	{{ with .class -}} {{ . }} {{- end }} {{ if .dark -}} contact-dark {{- end }}"
+	{{ with .id }}id="{{ . }}"{{ end }} {{ .attr | safeHTMLAttr }}>
 	<div class="container">
 		<!-- Intro -->
-		{{ if .title }}
-			<div class="row margin-title">
-				<div class="col-12">
-					<h2 class="heading-1 mb-0">
-						{{ .title | safeHTML }}
-					</h2>
-				</div><!-- /Col -->
+		{{ if or .title .lead }}
+			<div class="row">
+				<div class="col-12 col-desk-6">
+					<div class="margin-title">
+						<!-- Heading -->
+						<h2>{{ .title | safeHTML }}</h2>
+						<!-- Lead -->
+						<p class="lead lead-max-width mb-0">
+							{{ .lead | safeHTML }}
+						</p>
+					</div>
+				</div><!--- /Col -->
 			</div><!-- /Row -->
 		{{- end }}
 		<!-- Content -->

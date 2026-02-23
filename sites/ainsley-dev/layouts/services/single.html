@@ -351,28 +351,11 @@
 	<!-- =====================
 		Contact
 		===================== -->
-	<section class="section section-padding contact contact-dark services-contact">
-		<!-- Content -->
-		<div class="container">
-			<div class="row">
-				<div class="col-12 col-desk-6">
-					<div class="margin-title">
-						<!-- Heading -->
-						<h2>Get in touch with us now</h2>
-						<!-- Lead -->
-						<p class="lead lead-max-width mb-0">
-							Looking to bring your vision to life? Get in touch using the form below, and we'll
-							get in touch to discuss how we can make your project a success.
-						</p>
-					</div>
-				</div><!--- /Col -->
-			</div><!-- /Row -->
-		</div><!-- /Container -->
-		<!-- Form -->
-		{{ partial "sections/form.html" (dict
-			"dark" true
-			"class" "animate-up"
-		)}}
-	</section>
+	{{ partial "sections/contact.html" (dict
+		"title" "Get in touch with us now"
+		"lead" "Looking to bring your vision to life? Get in touch using the form below, and we'llget in touch to discuss how we can make your project a success."
+		"dark" true
+		"class" "section-padding animate-up"
+	)}}
 {{ end }}
 
