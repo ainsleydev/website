@@ -26,6 +26,9 @@ module:
         # Theme assets — scss, js, fonts, images (Hugo Pipes source)
         -   source: "../../themes/shared/assets"
             target: "assets"
+        # Theme static files
+        -   source: "../../themes/shared/static"
+            target: "static"
         # Site directories (re-declared because custom mounts replace all defaults)
         -   source: "content"
             target: "content"

@@ -20,6 +20,15 @@ imaging:
     resampleFilter: Lanczos
 module:
     mounts:
+        # Theme layouts — partials, shortcodes, _default, etc.
+        -   source: "../../themes/shared/layouts"
+            target: "layouts"
+        # Theme assets — scss, js, fonts, images (Hugo Pipes source)
+        -   source: "../../themes/shared/assets"
+            target: "assets"
+        # Theme static files
+        -   source: "../../themes/shared/static"
+            target: "static"
         # Site directories (re-declared because custom mounts replace all defaults)
         -   source: "content"
             target: "content"
@@ -29,12 +38,6 @@ module:
             target: "archetypes"
         -   source: "layouts"
             target: "layouts"
-        # Theme layouts — partials, shortcodes, _default, etc.
-        -   source: "../../themes/shared/layouts"
-            target: "layouts"
-        # Theme assets — scss, js, fonts, images (Hugo Pipes source)
-        -   source: "../../themes/shared/assets"
-            target: "assets"
         # Site-level assets overlay (empty now; site wins over theme for any future duplicate paths)
         -   source: "assets"
             target: "assets"

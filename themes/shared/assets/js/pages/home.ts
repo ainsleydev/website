@@ -16,8 +16,13 @@ import { Elements } from '../util/els';
 export const homeAnimation = (): void => {
 	const hero = <HTMLElement>document.querySelector('.home-hero-wrapper'),
 		wrapper = <HTMLElement>document.querySelector('.home-three-d'),
-		svg = <HTMLElement>document.querySelector('.home-three-d svg'),
-		height = hero.getBoundingClientRect().height,
+		svg = <HTMLElement>document.querySelector('.home-three-d svg')
+
+	if (!hero || !svg || !wrapper) {
+		return
+	}
+
+	const height = hero.getBoundingClientRect().height,
 		offset = 500;
 
 	const scrollTimeline = anime
