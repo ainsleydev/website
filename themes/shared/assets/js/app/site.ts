@@ -295,9 +295,7 @@ class App {
 	}
 
 	private scrollInternalLinks(): void {
-		if (!this.hasSmoothScroll()) {
-			return;
-		}
+		const smoothScroll = this.hasSmoothScroll();
 
 		const links = document.querySelectorAll<HTMLAnchorElement>('a[href*="#"]');
 		links.forEach((link) => {
@@ -305,15 +303,16 @@ class App {
 
 			// Same-page anchor links (e.g. #bio).
 			if (href && href.startsWith('#') && href.length > 1) {
+				if (!smoothScroll) {
+					return;
+				}
 				const targetElement = document.querySelector(href);
 				if (!targetElement) {
 					return;
 				}
 				link.addEventListener('click', (e) => {
 					e.preventDefault();
-					Scroll.instance.scrollTo(targetElement, {
-						offset: -80,
-					});
+					this.scrollTo(targetElement);
 				});
 				return;
 			}
@@ -339,15 +338,26 @@ class App {
 					}
 					if (this.nav.isOpen) {
 						this.nav.play();
-						setTimeout(() => {
-							Scroll.instance.scrollTo(target, { offset: -80 });
-						}, this.nav.duration());
-						return;
 					}
-					Scroll.instance.scrollTo(target, { offset: -80 });
+					this.scrollTo(target);
 				});
 			}
 		});
+	}
+
+	/**
+	 * Scrolls to the target element, using the smooth scroll
+	 * instance on desktop and native scrollIntoView on mobile.
+	 *
+	 * @param target
+	 * @private
+	 */
+	private scrollTo(target: Element): void {
+		if (this.hasSmoothScroll() && Scroll.instance) {
+			Scroll.instance.scrollTo(target, { offset: -80 });
+		} else {
+			target.scrollIntoView({ behavior: 'smooth' });
+		}
 	}
 
 	/**

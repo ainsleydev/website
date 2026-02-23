@@ -20,6 +20,10 @@ export const homeAnimation = (): void => {
 		height = hero.getBoundingClientRect().height,
 		offset = 500;
 
+	if (!hero || !svg || !wrapper) {
+		return
+	}
+
 	const scrollTimeline = anime
 		.timeline({
 			autoplay: false,
