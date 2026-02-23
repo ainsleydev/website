@@ -108,12 +108,6 @@ class App {
 			new VideoPlayer(el as HTMLVideoElement);
 		});
 
-		// Prevent the page from refreshing if it's the same URL.
-		this.preventInternalLinks();
-
-		// Add scrollTo for internal links.
-		this.scrollInternalLinks();
-
 		// Functions
 		beforeAfter();
 		bookmark();
@@ -146,6 +140,8 @@ class App {
 		this.beforeEnter();
 		this.after();
 		this.mouseMoveHandler();
+		this.preventInternalLinks();
+		this.scrollInternalLinks();
 		this.booted = true;
 	}
 
@@ -236,7 +232,7 @@ class App {
 			Scroll.init(data.next.container);
 			PlausiblePageView();
 			this.boot();
-			this.scrollToHash();
+			requestAnimationFrame(() => this.scrollToHash());
 			anime({
 				targets: ['.header'],
 				opacity: [0, 1],
@@ -268,15 +264,16 @@ class App {
 	 * @private
 	 */
 	private preventInternalLinks(): void {
-		document.querySelectorAll<HTMLAnchorElement>('a[href]').forEach((link) => {
-			link.addEventListener('click', (e: Event) => {
-				const link = e.currentTarget as HTMLAnchorElement;
-				if (link.href === window.location.href && this.nav.isOpen) {
-					e.preventDefault();
-					e.stopPropagation();
-					this.nav.play();
-				}
-			});
+		document.addEventListener('click', (e: Event) => {
+			const link = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href]');
+			if (!link) {
+				return;
+			}
+			if (link.href === window.location.href && this.nav.isOpen) {
+				e.preventDefault();
+				e.stopPropagation();
+				this.nav.play();
+			}
 		});
 	}
 
@@ -299,8 +296,11 @@ class App {
 			return;
 		}
 
-		const links = document.querySelectorAll<HTMLAnchorElement>('a[href*="#"]');
-		links.forEach((link) => {
+		document.addEventListener('click', (e: Event) => {
+			const link = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href*="#"]');
+			if (!link) {
+				return;
+			}
 			const href = link.getAttribute('href');
 
 			// Same-page anchor links (e.g. #bio).
@@ -309,12 +309,8 @@ class App {
 				if (!targetElement) {
 					return;
 				}
-				link.addEventListener('click', (e) => {
-					e.preventDefault();
-					Scroll.instance.scrollTo(targetElement, {
-						offset: -80,
-					});
-				});
+				e.preventDefault();
+				Scroll.instance.scrollTo(targetElement, { offset: -80 });
 				return;
 			}
 
@@ -325,27 +321,25 @@ class App {
 			const hashIndex = href ? href.indexOf('#') : -1;
 			if (href && !href.startsWith('#') && hashIndex > 0) {
 				const pathPart = href.substring(0, hashIndex);
-				link.addEventListener('click', (e) => {
-					const isCurrentPage = window.location.pathname === pathPart;
-					if (!isCurrentPage) {
-						return;
-					}
-					e.preventDefault();
-					e.stopPropagation();
-					const hash = href.substring(hashIndex);
-					const target = document.querySelector(hash);
-					if (!target) {
-						return;
-					}
-					if (this.nav.isOpen) {
-						this.nav.play();
-						setTimeout(() => {
-							Scroll.instance.scrollTo(target, { offset: -80 });
-						}, this.nav.duration());
-						return;
-					}
-					Scroll.instance.scrollTo(target, { offset: -80 });
-				});
+				const isCurrentPage = window.location.pathname === pathPart;
+				if (!isCurrentPage) {
+					return;
+				}
+				e.preventDefault();
+				e.stopPropagation();
+				const hash = href.substring(hashIndex);
+				const target = document.querySelector(hash);
+				if (!target) {
+					return;
+				}
+				if (this.nav.isOpen) {
+					this.nav.play();
+					setTimeout(() => {
+						Scroll.instance.scrollTo(target, { offset: -80 });
+					}, this.nav.duration());
+					return;
+				}
+				Scroll.instance.scrollTo(target, { offset: -80 });
 			}
 		});
 	}
