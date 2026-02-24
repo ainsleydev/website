@@ -1,0 +1,25 @@
+// -----------------------------------------------------------------------------
+// quote-carousel.scss
+// This file contains all styles related to the quote carousel component.
+// -----------------------------------------------------------------------------
+
+.quote-carousel {
+	overflow-x: clip;
+
+	// Embla Carousel
+	// =========================================================================
+
+	&-embla {
+		overflow: hidden;
+	}
+
+	&-container {
+		display: flex;
+		align-items: stretch;
+	}
+
+	&-slide {
+		flex: 0 0 100%;
+		min-width: 0;
+	}
+}

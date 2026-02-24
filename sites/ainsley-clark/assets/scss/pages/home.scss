@@ -3,25 +3,18 @@
 // This file contains all styles related to the home a-clark page.
 // -----------------------------------------------------------------------------
 
-body {
-}
+// TODO: Probably better way of doing this.
+@import '../../../../../themes/shared/assets/scss/abstracts/mixins';
+@import '../../../../../themes/shared/assets/scss/abstracts/variables';
 
 
-.home {
+@include media-mob {
 
-	&-hero-rules {
-		position: absolute;
-		top: 0;
-		right: 0;
+	.conferences {
 
-		&-wrapper {
-			position: relative;
-			width: 150px;
-
-			&:last-child  {
-				right: 75px;
-				transform: rotate(90deg) translateX(100%);
-			}
+		.card:first-child {
+			border-top: var(--card-border);
+			margin: 0;
 		}
 	}
 }

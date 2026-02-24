@@ -6,7 +6,7 @@
 .logo-carousel {
 	position: relative;
 	width: 100%;
-	overflow: hidden;
+	overflow-x: clip;
 	margin-top: clamp(60px, 10vw, 100px);
 
 	// Gradients
