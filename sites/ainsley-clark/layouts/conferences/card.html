@@ -1,0 +1,15 @@
+<!-- =====================
+    Conferences Card
+    ===================== -->
+{{ partial "components/featured-card.html" (dict
+	"href"         .Params.externalURL
+	"image"        (.Resources.GetMatch "images/featured.*")
+	"imageDefault" (.Resources.GetMatch "images/featured-small.*")
+	"heading"      .Params.heading
+	"lead"         .Params.lead
+	"tags"         .Params.tags
+	"buttonName"   .Params.buttonName
+	"fullWidth"    false
+	"numbers"      false
+	"external"     true
+)}}

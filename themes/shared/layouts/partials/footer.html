@@ -1,0 +1,107 @@
+<!-- =====================
+    Footer
+    ===================== -->
+<footer class="footer" data-scroll-section>
+	<div class="container">
+		<!-- Rule -->
+		{{ if .Params.footerRule -}}
+			<hr class="rule rule-opaque rule-thin m-0" />
+		{{- end }}
+		<!-- Main -->
+		<div class="row footer-main {{ if .Params.footerNoPadding -}} pt-0 {{- end }}">
+			<!-- Symbol -->
+			<figure class="footer-symbol">
+				{{ partial "media/image.html" (dict
+					"image" (resources.Get "/images/footer-logo.svg")
+					"alt" "ainsley.dev Symbol"
+					"lazy" true
+				)}}
+			</figure>
+			<div class="col-12 col-desk-6 footer-main-col">
+				<!-- Heading -->
+				<span class="heading-2 footer-heading">
+					{{ .Site.Params.footer.title | safeHTML }}
+				</span><!-- /Heading -->
+				<!-- Contact -->
+				<div class="footer-contact">
+					{{ $p := default "us" .Site.Params.wording.pronoun }}
+					<!-- Email -->
+                    {{ with .Site.Params.contact.email -}}
+						<div class="footer-contact-email margin-large">
+							<span class="heading-6 footer-contact-sub">
+								Email {{ $p }}
+							</span>
+							<a href="mailto:{{ . | safeHTMLAttr }}" class="cursor-element" title="Email ainsley.dev"
+							   aria-label="Email ainsley.dev"
+							   data-cursor-border data-cursor-border-white>
+								<span class="heading-5">{{ . }}</span>
+							</a>
+						</div>
+                    {{- end }}
+					<!-- Social -->
+                    {{ with .Site.Params.social -}}
+						<menu class="footer-contact-social">
+							<span class="heading-6 footer-contact-sub">
+								Connect with {{ $p }}
+							</span>
+                            {{ partial "components/social.html" (dict "colour" "white") }}
+						</menu>
+                    {{- end }}
+				</div><!-- /Contact -->
+			</div><!-- /Col -->
+			<div class="col-12 col-desk-6 footer-main-col">
+				<!-- Logo -->
+				<figure class="footer-logo">
+                    {{- partial "svgs/logo.html" "white" -}}
+				</figure>
+				<!-- Navigation -->
+                {{ with .Site.Menus.footer -}}
+					<menu class="footer-main-menu">
+                        {{ range . -}}
+							<li class="footer-main-menu-item">
+								<a href="{{ .URL }}" class="footer-main-menu-link"
+								   title="{{ .Name }} Page"
+								   aria-label="Navigate to the {{ .Name }} page">
+									<span class="heading-5 cursor-element" data-cursor-border
+										data-cursor-border-white>{{ .Name }}</span>
+								</a>
+							</li>
+                        {{- end }}
+					</menu><!-- /List -->
+                {{- else -}}
+                    {{ errorf "No footer defined in menu.yaml" }}
+                {{- end }}
+			</div><!-- /Col -->
+		</div><!-- /Main/Row -->
+		<!-- Sub -->
+		<div class="row footer-sub">
+			<div class="col-12">
+				<div class="footer-sub-wrapper">
+					<!-- Menu -->
+                    {{ with .Site.Menus.terms -}}
+						<menu class="footer-sub-menu">
+                            {{ range sort . "Weight" -}}
+								<li class="footer-sub-menu-item">
+									<a class="footer-sub-menu-link cursor-element" href="{{ .URL }}"
+									   title="{{ .Name }} Page"
+									   aria-label="Navigate to the {{ .Name }} page"
+									   data-cursor-border data-cursor-border-white>
+                                        {{ .Name }}
+									</a>
+								</li>
+                            {{- end }}
+						</menu>
+                    {{- end }}
+					<!-- Text -->
+					<small class="footer-sub-text">
+						ainsley.dev® is a registered company in England and Wales. Company
+						Number {{ with .Site.Params.company.number -}} 14550437 {{- end}}. ©{{ now.Year }}
+						ainsley.dev LTD. All rights reserved. <br class="d-none d-desk-large-inline"/>The ainsley.dev®
+						name and logo are registered trademarks of ainsley.dev LTD.
+					</small>
+				</div><!-- /Wrapper -->
+			</div><!-- /CXol -->
+		</div><!-- /Sub/Row -->
+	</div><!-- /Container -->
+</footer>
+

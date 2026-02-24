@@ -1,0 +1,28 @@
+{{- $guidelines := slice -}}
+{{- $section := .Site.GetPage "section" "guidelines" -}}
+{{- if $section -}}
+    {{- range sort $section.Sections "Weight" -}}
+        {{- $subsection := . -}}
+        {{- range sort .RegularPages "Weight" -}}
+            {{- $page := dict
+                "title" .Title
+                "url" .RelPermalink
+                "permalink" .Permalink
+                "markdown" .RawContent
+                "plainContent" .Plain
+                "summary" .Summary
+                "section" $subsection.Title
+                "subsection" (path.Base (path.Dir .File.Path))
+                "weight" .Weight
+            -}}
+            {{- $allowedParams := slice "date" "description" "draft" "heading" "lastmod" "publishdate" "title" "weight" -}}
+            {{- range $key, $value := .Params -}}
+                {{- if in $allowedParams $key -}}
+                    {{- $page = merge $page (dict $key $value) -}}
+                {{- end -}}
+            {{- end -}}
+            {{- $guidelines = $guidelines | append $page -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+{{- $guidelines | jsonify (dict "indent" "  ") -}}

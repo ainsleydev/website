@@ -1,0 +1,381 @@
+// -----------------------------------------------------------------------------
+// _card.scss
+// This file contains all styles related to the card component.
+// -----------------------------------------------------------------------------
+
+.card {
+	$self: &;
+	position: relative;
+	display: block;
+	text-decoration: none;
+	margin-bottom: $card-margin-bottom;
+	user-select: none;
+
+	// Col
+	// =========================================================================
+
+	&-col {
+		position: relative;
+
+		&.col-12:last-child #{$self} {
+			margin-bottom: 0;
+		}
+
+		&-first #{$self}-basic,
+		&:first-child #{$self}-basic {
+			padding-top: 0;
+		}
+
+		&-last #{$self}-basic,
+		&:last-child #{$self}-basic {
+			padding-bottom: 0;
+			border: none !important;
+		}
+	}
+
+	// Image
+	// =========================================================================
+
+	&-image {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		object-fit: cover;
+
+		&-wrapper {
+			position: relative;
+			width: 100%;
+			overflow: hidden;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	// Text
+	// =========================================================================
+
+	&-text {
+		margin-top: $margin;
+
+		* {
+			text-decoration: none;
+		}
+
+		&-title {
+			margin-bottom: 0;
+		}
+
+		&-lead {
+			font-weight: normal;
+			margin-top: 1rem;
+		}
+	}
+
+	// Basic
+	// =========================================================================
+
+	&-basic {
+		margin-bottom: 0;
+		padding-top: $margin-large;
+		padding-bottom: $margin-large;
+		border-bottom: var(--card-border);
+
+		#{$self}-text {
+			&-title {
+				margin-top: -14px;
+			}
+
+			&-lead {
+				margin-bottom: 0;
+			}
+		}
+
+		#{$self}-tags {
+			margin-top: calc(#{$margin} - 10px);
+			margin-right: 10px;
+
+			&-reading-time {
+				display: none;
+				font-weight: 500;
+			}
+		}
+	}
+
+	// Background
+	// =========================================================================
+
+	&-background {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-start;
+		aspect-ratio: 330 / 420;
+		background-color: $grey-light;
+		padding: $margin;
+		margin-right: $gap-width;
+
+		#{$self}-title {
+			display: flex;
+			align-items: flex-end;
+		}
+
+		#{$self}-title,
+		#{$self}-number {
+			margin: 0;
+			line-height: 1.2;
+		}
+
+		#{$self}-number {
+			margin-bottom: 0.6rem;
+			color: $copy-dark-bg;
+		}
+	}
+
+	&-line {
+		position: relative;
+
+		&::after {
+			content: '';
+			display: block;
+			width: 100%;
+			height: $line-size-medium;
+			background-color: $white;
+			margin-bottom: 18px;
+		}
+
+		&:last-child::after {
+			width: calc(100% - #{$gap-width});
+		}
+
+		&-text {
+			bottom: 0;
+			background-color: $black;
+			position: absolute;
+			z-index: 1;
+			padding: 0 $margin;
+			margin-left: -$margin;
+			margin-bottom: 0;
+		}
+
+		&:last-child {
+			margin-right: $gap-width;
+		}
+	}
+
+	// Feature
+	// =========================================================================
+
+	&-feature {
+		&:first-child {
+			margin-top: -$margin;
+		}
+
+		&-image {
+			display: flex;
+			width: 100%;
+			height: auto;
+			overflow: clip;
+
+			source,
+			img {
+				width: 100%;
+				height: 100%;
+				transform: scale(1.01);
+				object-fit: cover;
+			}
+		}
+
+		&-title {
+			display: flex;
+			align-items: center;
+			margin-top: 0;
+		}
+
+		&-number {
+			margin-bottom: 2px;
+		}
+
+		&-title {
+			margin-bottom: 0;
+		}
+
+		#{$self}-tags {
+			margin-top: 10px;
+			margin-bottom: $margin;
+		}
+
+		&-rule {
+			width: 60px;
+			margin: 0 2.6rem 0 0 !important;
+		}
+
+		&-description {
+			margin-bottom: $margin-large;
+			font-weight: normal;
+		}
+
+		&-arrow {
+			width: 100%;
+		}
+
+		@include media-desk {
+			padding: 4rem 0;
+			justify-content: flex-end;
+
+			&-image {
+				display: block;
+				position: absolute;
+				margin: 0;
+				top: 0;
+				left: 0;
+				width: 30%;
+				border-radius: 6px;
+				z-index: -1;
+				opacity: 0;
+				pointer-events: none;
+				transition: opacity 0.3s ease, transform 100ms linear;
+				will-change: transform, opacity;
+				-webkit-transform-style: preserve-3d;
+			}
+
+			#{$self}-tags {
+				margin-top: $margin;
+				margin-bottom: 0;
+			}
+
+			&-full-width {
+				#{$self}-tags,
+				#{$self}-feature-number {
+					margin-left: calc(70px + 2.6rem);
+				}
+			}
+
+			&-description {
+				max-width: 580px;
+			}
+
+			&-arrow {
+				display: flex;
+				justify-content: flex-end;
+			}
+		}
+	}
+
+	// Vertical
+	// =========================================================================
+
+	&-vertical {
+		#{$self}-image-wrapper {
+			padding-top: $card-vertical-padding-top;
+		}
+	}
+
+	// Horizontal
+	// =========================================================================
+
+	&-horizontal {
+		#{$self}-image-wrapper {
+			padding-top: $card-horizontal-padding-top;
+		}
+	}
+
+	// Clip
+	// =========================================================================
+
+	&-clip {
+		position: relative;
+
+		#{$self}-image,
+		#{$self}-image-clip {
+			display: block;
+
+			source,
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		#{$self}-image-clip {
+			position: absolute;
+			z-index: 10;
+			pointer-events: none;
+			clip-path: circle(0%);
+			transform-origin: center;
+		}
+	}
+
+	// Mods
+	// =========================================================================
+
+	@media (min-width: $grid-breakpoint-mob * 1px) and (max-width: $grid-breakpoint-desk * 1px) {
+		&-col-mob-no-margin #{$self} {
+			margin-top: 0 !important; // Override below
+			margin-bottom: $card-margin-bottom;
+		}
+	}
+
+	// Mobile
+	// =========================================================================
+
+	@include media-mob {
+		&-col:nth-child(even) #{$self}-half-margin {
+			margin-top: $section-padding-large;
+		}
+
+		&-tags {
+			&-item {
+				transform: none;
+			}
+
+			#{$self}-tags-reading-time {
+				display: inline;
+				margin-top: 0;
+				margin-left: 10px;
+			}
+		}
+
+		&-half-margin {
+			margin-bottom: 0;
+		}
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-tab {
+		&-tags-reading-time {
+			display: inline-block;
+		}
+	}
+
+	// Desk
+	// =========================================================================
+
+	@include media-desk {
+		&-col-padding {
+			&#{$self}-col-left {
+				padding-right: $margin-large;
+			}
+
+			&#{$self}-col-right {
+				padding-left: $margin-large;
+			}
+		}
+	}
+}
+
+.services-image {
+	@include media-desk {
+		display: none !important;
+	}
+}

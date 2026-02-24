@@ -63,20 +63,16 @@ func (h Handler) SendContactForm(ctx echo.Context) error {
 
 	// Bail if the honeypot is set.
 	if request.Honeypot != "" {
-		logger.Infof("Received a contact form submission with a Honeypot: %s, Message: %s",
+		logger.Infof("Received a contact form submission with a Honeypot: %s, URL: %s, Message: %s",
 			request.Honeypot,
+			request.Url,
 			request.Message,
 		)
 		// Don't bail if there is an error sending the Slack message.
 		_ = h.Slack.Send(ctx.Request().Context(), slack.Channels.Contact, "Honeypot Trap", []slack.Field{ //nolint
-			{
-				Title: "Message",
-				Value: request.Message,
-			},
-			{
-				Title: "Honeypot",
-				Value: request.Honeypot,
-			},
+			{Title: "Message", Value: request.Message},
+			{Title: "URL", Value: request.Url},
+			{Title: "Honeypot", Value: request.Honeypot},
 		})
 		return ctx.JSON(http.StatusOK, sdk.HTTPResponse{
 			Message: "Sent successfully",
@@ -119,9 +115,10 @@ func (h Handler) SendContactForm(ctx echo.Context) error {
 // Text returns the text formatted string of a contact form submission.
 func (c ContactSubmission) Text() string {
 	return fmt.Sprintf(
-		"Email: %s\n\nMessage: %s\n\n Time: %s\n",
+		"Email: %s\n\nMessage: %s\n\nURL: %s\n\n Time: %s\n",
 		c.Email,
 		c.Message,
+		c.Url,
 		c.Time.Format(time.RFC850),
 	)
 }
@@ -138,6 +135,10 @@ func (c ContactSubmission) Fields() []slack.Field {
 			Value: c.Message,
 		},
 		{
+			Title: "URL",
+			Value: c.Url,
+		},
+		{
 			Title: "Time",
 			Value: c.Time.Format(time.RFC850),
 		},
@@ -147,9 +148,10 @@ func (c ContactSubmission) Fields() []slack.Field {
 // HTML returns the HTML formatted string of a contact form submission.
 func (c ContactSubmission) HTML() string {
 	return fmt.Sprintf(
-		"<p><strong>Email:</strong> %s</p><p><strong>Message:</strong> %s</p><p><strong>Time:</strong> %s</p>",
+		"<p><strong>Email:</strong> %s</p><p><strong>Message:</strong> %s</p><p><strong>URL:</strong> %s</p><p><strong>Time:</strong> %s</p>",
 		c.Email,
 		c.Message,
+		c.Url,
 		c.Time.Format(time.RFC850),
 	)
 }

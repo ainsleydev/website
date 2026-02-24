@@ -1,0 +1,11 @@
+<!-- =====================
+    Insights Card
+    ===================== -->
+{{ partial "components/insights-card.html" (dict
+	"href"        .Params.externalURL
+	"external"    true
+	"publishDate" .PublishDate
+	"heading"     .Params.heading
+	"description" .Params.description
+	"tags"        .Params.tags
+)}}

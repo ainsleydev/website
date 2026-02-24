@@ -1,0 +1,156 @@
+// -----------------------------------------------------------------------------
+// _richtext.scss
+// This file contains all styles related to any richtext sections of the site.
+// -----------------------------------------------------------------------------
+
+.richtext {
+	$self: &;
+
+	// Margin
+	// ==========================================================================
+
+	p,
+	ul,
+	blockquote,
+	.highlight,
+	.codepen {
+		+ h1,
+		+ h2,
+		+ h3,
+		+ h4,
+		+ h5 {
+			margin-top: $margin-large;
+		}
+	}
+
+	.lead {
+		margin-bottom: 0;
+	}
+
+	> :last-child {
+		// Assign no margin to the last element in the article.
+		margin-bottom: 0 !important;
+	}
+
+	// Paragraph
+	// ==========================================================================
+
+	ul,
+	p {
+		&:empty {
+			display: none;
+			margin: 0;
+		}
+
+		+ .image,
+		+ .highlight,
+		+ .codepen {
+			margin-top: $margin-large;
+		}
+	}
+
+	// Links
+	// ==========================================================================
+
+	a {
+		word-break: break-word;
+		color: $black;
+		text-decoration: underline;
+	}
+
+	// Temp
+	// ==========================================================================
+
+	.image,
+	.codepen,
+	.video-container {
+		+ h1,
+		+ h2,
+		+ h3,
+		+ h4,
+		+ h5,
+		+ p {
+			margin-top: $margin-large;
+		}
+	}
+
+	// Images & Video
+	// ==========================================================================
+
+	p + .video-container {
+		margin-top: $margin;
+	}
+
+	.video,
+	.image {
+		margin-text-outline: $margin;
+		/* stylelint-disable-line no-descending-specificity */
+
+		+ .image {
+			margin-bottom: $margin;
+		}
+	}
+
+	// Small Format (Guidelines)
+	// ==========================================================================
+
+	&-small-format {
+		p,
+		ul,
+		blockquote,
+		.highlight,
+		.codepen {
+			+ h1,
+			+ h2,
+			+ h3,
+			+ h4,
+			+ h5 {
+				margin-top: $margin;
+			}
+		}
+
+		p {
+			+ .image,
+			+ .highlight,
+			+ .codepen {
+				margin-top: -0.2rem;
+			}
+		}
+
+		h1 {
+			@include h2;
+		}
+
+		h2 {
+			@include h3;
+		}
+
+		h3 {
+			@include h4;
+		}
+	}
+
+	// Checkbox ([ ])
+	// ==========================================================================
+
+	ul {
+		li:has(input[type='checkbox']) {
+			input[type='checkbox'] {
+				width: 18px;
+				height: 18px;
+				vertical-align: middle;
+				margin-right: 0.5rem;
+				transform: translateY(-2px);
+			}
+		}
+	}
+}
+
+// Theme White
+// =========================================================================
+
+.theme-black .richtext {
+	a:not(.btn) {
+		color: $white;
+	}
+}

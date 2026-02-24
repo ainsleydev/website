@@ -1,0 +1,14 @@
+{
+	"minify": true,
+	"options": [
+		"setClasses"
+	],
+	"feature-detects": [
+		"test/canvas",
+		"test/svg",
+		"test/touchevents",
+		"test/img/webp",
+		"test/svg/filters",
+		"test/webgl/extensions"
+	]
+}

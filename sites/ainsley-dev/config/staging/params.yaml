@@ -1,0 +1,6 @@
+imagery:
+    webp: false
+    avif: false
+plausible:
+    enable: false
+    local: false

@@ -1,0 +1,24 @@
+name: Dispatch Guidelines Update
+
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - main
+        paths:
+            - 'content/guidelines/**'
+
+jobs:
+    dispatch:
+        name: Send repository dispatch event
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Repository Dispatch
+                uses: peter-evans/repository-dispatch@v4
+                with:
+                    token: ${{ secrets.ORG_GITHUB_PAT }}
+                    repository: ainsleydev/webkit
+                    event-type: guidelines-updated
+                    client-payload: '{"ref":"main","sha":"${{ github.sha }}"}'
+
+

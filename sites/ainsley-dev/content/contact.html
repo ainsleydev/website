@@ -1,0 +1,66 @@
+---
+title: Serious About Your Digital Journey? Let's Talk
+description: Kick off your next project with ainsley.dev. Get in touch with us so we can work together and start your journey to digital freedom.
+draft: false
+pageColour: white
+namespace: contact
+scripts:
+  - js/pages/contact.ts
+---
+
+<!-- =====================
+	Contact
+    ===================== -->
+<section class="hero hero-simple margin-title">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<!-- Hero Animation -->
+				<div class="hero-animate">
+					<h1 class="mb-0">
+						Let’s capture<span class="type-serif"> your<br class="d-none d-tab-inline" />vision*</span> and values, so we <br class="d-none d-tab-inline" />can help you build a <br class="d-none d-tab-inline" /><u>vibrant</u> brand identity
+					</h1>
+				</div>
+			</div><!-- /Col -->
+		</div><!-- /Row -->
+	</div><!-- /Container -->
+</section>
+<!-- =====================
+	Form
+    ===================== -->
+{{< partial template="sections/contact.html" dark=false class="section-padding section-padding-bottom animate-up" attr="data-animate-delay=200" noPaddingMobile=true >}}
+<!-- =====================
+    Map
+    ===================== -->
+<section class="section map-wrapper animate-fade" data-animate-delay="200" data-animate-no-touch>
+	<!-- Content -->
+	<div class="container map-container">
+		<div class="row">
+			<div class="col-12">
+				<!-- Info -->
+				<div class="map-info section-padding-small">
+					<!-- Address -->
+					<div class="margin">
+						<h6>Write to us</h6>
+						<address>
+							<h5>
+								ainsley.dev<br/>
+								71-75 Shelton Street<br/>
+								Covent Garden<br/>
+								London<br/>
+								WC2H 9JQ
+							</h5>
+						</address>
+					</div>
+					<!-- Directions -->
+					<a href="{{< param "contact.map" >}}" class="map-info-link" target="_blank"
+					title="Get Directions to ainsley.dev"
+					aria-label="Navigate to a link containing directions to ainsley.dev">Get
+					directions</a>
+				</div><!-- /Info -->
+			</div><!-- /Col -->
+		</div><!-- /Row -->
+	</div><!-- /Container -->
+	<!-- Google Map -->
+	<div class="map"></div>
+</section>

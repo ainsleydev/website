@@ -1,0 +1,16 @@
+<!-- =====================
+    Services Card
+    ===================== -->
+{{ partial "components/featured-card.html" (dict
+	"href"         .RelPermalink
+	"image"        (.Resources.GetMatch "images/featured.*")
+	"imageDefault" (.Resources.GetMatch "images/featured-small.*")
+	"heading"      .Params.heading
+	"lead"         .Params.lead
+	"tags"         .Params.tags
+	"buttonName"   .Params.buttonName
+	"fullWidth"    true
+	"numbers"      true
+	"weight"       .Weight
+	"external"     false
+)}}

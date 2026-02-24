@@ -11,7 +11,7 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                go-version: [ 1.20.x ]
+                go-version: [ 1.24.x ]
         steps:
             # Step 1 - Checks-out your repository under $GITHUB_WORKSPACE
             -   name: Checkout
@@ -21,13 +21,27 @@ jobs:
 
             # Step 2 - Install Go on the runner
             -   name: Install Go
-                uses: actions/setup-go@v3
+                uses: actions/setup-go@v5
                 with:
                     go-version: ${{ matrix.go-version }}
 
-            # Step 3 - Test
+            # Step 3 - Setup pnpm
+            -   name: Setup pnpm
+                uses: pnpm/action-setup@v4
+
+            # Step 4 - Install system dependencies
+            -   name: Install system dependencies
+                run: |
+                    sudo apt-get update
+                    sudo apt-get install -y libvips-dev
+
+            # Step 5 - Install dependencies
+            -   name: Install dependencies
+                run: pnpm install
+
+            # Step 5 - Test
             -   name: Test
-                run: make test
+                run: pnpm test
 
             # Step 4 - Upload to Codecov
             -   name: Upload coverage to Codecov

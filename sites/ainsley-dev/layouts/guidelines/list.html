@@ -1,0 +1,47 @@
+{{ define "main" }}
+	<!-- =====================
+		Guidelines List
+		===================== -->
+	<div class="guidelines-container">
+		<!-- =====================
+			Header
+			===================== -->
+		{{ partial "guidelines/header.html" . }}
+		<!-- =====================
+			Menu
+			===================== -->
+		{{ partial "guidelines/sidebar.html" . }}
+		<!-- =====================
+			Content
+			===================== -->
+		<article class="guidelines-content">
+			<div class="guidelines-content-container">
+				<!-- Title -->
+				<div class="guidelines-content-heading">
+					<h1 class="heading-2">
+						{{ .Title }}
+					</h1>
+				</div>
+				<!-- Intro Content (if any) -->
+				{{ if .Content }}
+					<div class="guidelines-content-richtext richtext richtext-small-format">
+						{{ .Content | replaceRE "/a>\n" "/a>" | safeHTML }}
+					</div>
+				{{ end }}
+				<!-- Child Pages List -->
+				{{ $pages := sort .RegularPages "Weight" }}
+				{{ if gt (len $pages) 0 }}
+					<div class="guidelines-content-list">
+						<div class="guidelines-pages-list">
+							{{ range $pages }}
+								{{ .Render "card" }}
+							{{ end }}
+						</div>
+					</div>
+				{{ end }}
+				<!-- Footer -->
+				{{ partial "guidelines/footer.html" . }}
+			</div><!-- /Container -->
+		</article>
+	</div><!-- /Container -->
+{{ end }}

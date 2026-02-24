@@ -1,0 +1,236 @@
+{{ define "main" }}
+	<!-- =====================
+		Hero
+		===================== -->
+	<section class="section service-hero" data-scroll-section>
+		<div class="container">
+			<div class="row justify-content-center" data-scroll data-scroll-speed="0">
+				<div class="col-12 col-tab-10 col-desk-8 col-desk-large-8">
+					<!-- Hero Animation -->
+					<div class="hero-animate">
+						<!-- Content -->
+						<div class="margin-large">
+							{{ with .Params.heading -}}
+								<h1>
+									{{ . | safeHTML }}
+								</h1>
+							{{ else -}}
+								{{ warnf "No heading param provided to page: %s" .RelPermalink }}
+							{{- end }}
+							<!-- Lead -->
+							<p class="lead ler text-animate-lead">
+								{{ with .Params.lead -}}
+									{{ . | safeHTML }}
+								{{ else -}}
+									{{ warnf "No lead param provided to page: %s" .RelPermalink }}
+								{{- end }}
+							</p>
+						</div>
+						<!-- Buttons -->
+						<div class="hero-buttons">
+							{{ partial "components/button.html" (dict
+								"colour" "white"
+								"link" "#bio"
+								"text" "Explore"
+								"title" "Scroll down to explore"
+							)}}
+							{{ partial "components/button.html" (dict
+								"colour" "grey"
+								"link" "https://ainsley.dev"
+								"text" "Visit ainsley.dev"
+								"title" "Scroll down to explore"
+							)}}
+						</div>
+					</div><!-- /Hero Animation -->
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- Container -->
+		<!-- Carousel -->
+		{{ partial "components/carousel.html" (dict
+			"ctx" .
+			"images" .Params.gallery
+			"hasLinks" true
+		)}}
+	</section>
+	<!-- =====================
+		Bio
+		===================== -->
+	{{ with .Params.bio }}
+
+		<section id="bio" class="section section-padding" data-scroll-section style="overflow-x: clip;">
+			<div class="container">
+				<div class="row">
+					<!-- Heading -->
+					<div class="col-12 col-mob-3" data-scroll data-scroll-speed="2">
+						{{ partial "type/vertical.html" (dict
+							"text" "Bio"
+							"number" "01"
+							"line" true
+							"fill" false
+						)}}
+					</div><!-- /Col -->
+					<!-- Content -->
+					<div class="col-12 col-mob-9 col-desk-7 col-desk-large-6">
+						<picture class="image animate-up animate-fade-desk margin-large">
+							{{ partial "media/picture.html" (dict
+								"image" (resources.GetMatch .image)
+								"alt" "Ainsley Clark"
+								"lazy" true
+							)}}
+						</picture>
+						<div class="margin margin-none">
+							<h3>Test</h3>
+							<p>At this stage, we kick off with a meeting to discover the project’s requirements and where you see yourself in the industry. We discuss what you desire, what’s lacking in your current solution, and how we can better it.</p>
+							<h3>Test</h3>
+							<p>Technical requirements are established for the project, and a detailed proposal (if it’s a website) or SRS (software requirement specification) is created detailing the design, templates and technical intricacies of the project.</p>
+							<p>At the end of this stage, we can prepare a precise quotation for a better understanding of how much the project may cost and how long it will take.</p>
+						</div>
+					</div><!-- /Col -->
+					<!-- Rule -->
+					<div class="col-2">
+						<hr class="rule rule-medium d-none d-desk-block m-0"
+							data-scroll data-scroll-speed="1" data-scroll-direction="horizontal" style="width: 70%" />
+					</div><!-- /Col -->
+				</div><!-- /Row -->
+			</div><!-- /Col -->
+		</section>
+	{{- end }}
+	<!-- =====================
+		Conferences
+		===================== -->
+	{{ $conferences := where site.RegularPages "Section" "conferences" }}
+	{{ with $conferences }}
+		<section id="media" class="section section-padding section-padding-bottom" data-scroll-section>
+			<div class="container">
+				<div class="row justify-content-between">
+					<!-- Heading -->
+					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
+						{{ partial "type/vertical.html" (dict
+							"text" "Media"
+							"number" "02"
+							"line" true
+							"fill" false
+						)}}
+					</div><!-- /Col -->
+					<!-- Pages -->
+					<div class="col-12 col-mob-9">
+						<hr class="rule rule-thin rule-opaque my-0 d-none d-desk-block">
+						{{ range . }}
+							{{ .Render "card" }}
+						{{ end }}
+					</div><!-- /Col -->
+				</div><!-- /Row -->
+			</div>
+		</section>
+	{{ end }}
+	<!-- =====================
+		Core Competencies
+		===================== -->
+	{{ with .Params.skills -}}
+		{{ partial "sections/features.html" (dict
+			"items"  .
+			"title"   "Competencies"
+			"textNumber" "03"
+			"id"      "skills"
+			"class"   "section-padding section-padding-bottom animate-fade"
+		)}}
+	{{- end }}
+
+	<!-- =====================
+		Insights
+		===================== -->
+	{{- $insights :=  (where .Site.RegularPages "Type" "insights").ByDate.Reverse | first 4 -}}
+	{{ with $insights }}
+		<section class="section section-padding section-padding-bottom">
+			<div class="container">
+				<div class="row justify-content-between">
+					<!-- Heading -->
+					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
+						{{ partial "type/vertical.html" (dict
+							"text" "Insights"
+							"number" "05"
+							"line" true
+							"fill" false
+						)}}
+					</div><!-- /Col -->
+					<!-- Content -->
+					<div class="col-12 col-mob-9">
+						<div class="row no-gaps">
+							<!-- TODO: There's a d-none here as we don't have other articles to link too -->
+							<!-- All Articles - Large -->
+							<div class="col-12 all-articles all-articles-border all-articles-large d-none">
+								<div class="all-articles-wrapper">
+									<span class="heading-6 all-articles-sub">
+										Latest Articles
+									</span>
+									{{ partial "arrow/text.html" (dict
+										"link" "/insights/"
+										"text" "<span class='heading-3'>All insights</span>"
+										"title" "View all insights"
+										"small" true
+										"rotation" 45
+									)}}
+								</div><!-- /Wrapper -->
+							</div><!-- /Col -->
+							<!-- All Articles - Small -->
+							<div class="col-12 all-articles all-articles-border all-articles-small d-none">
+								<div class="all-articles-wrapper">
+									<h6 class="all-articles-sub">
+										Latest Articles
+									</h6>
+									{{ partial "arrow/text.html" (dict
+										"link" "/insights/"
+										"text" "<span class='heading-2'>All insights</span>"
+										"title" "View all insights"
+										"small" true
+										"rotation" 45
+									)}}
+								</div><!-- /Wrapper -->
+							</div><!-- /Col -->
+							<!-- Cards -->
+							{{ range $index, $page := . }}
+								<div class="col-12 card-col {{ if eq $index 0 }} card-col-first {{- end }} animate-fade"
+									 data-animate-no-touch>
+									{{ .Render "card" }}
+								</div><!-- /Col -->
+							{{- end }}
+						</div><!-- /Row -->
+					</div><!--- /Col -->
+				</div><!-- /Row -->
+			</div><!-- /Container -->
+		</section>
+	{{- end }}
+	<!-- =====================
+		Quote
+		===================== -->
+	{{ with .Params.quote -}}
+		{{ partial "sections/quote.html" (dict
+			"text" .text
+			"cite" .person
+			"class" "bg-grey-light"
+		)}}
+	{{- end }}
+	<!-- =====================
+		Form
+		===================== -->
+	{{ partial "sections/contact.html" (dict
+		"title" `Say hello and get <br class="d-none d-desk-inline" />in touch <span class="type-serif"><u>now</u>*</span>`
+		"lead" "Looking to bring your vision to life? Get in touch using the form below, and we'llget in touch to discuss how we can make your project a success."
+		"dark" true
+		"class" "section-padding animate-up"
+		"placeholder" "Hey Ainsley..."
+		"id" "contact"
+	)}}
+	<!-- =====================
+		Divider
+		===================== -->
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<hr class="rule rule-thin rule-opaque my-0">
+				</div><!-- /Container -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+{{ end }}
