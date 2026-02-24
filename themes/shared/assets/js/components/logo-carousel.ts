@@ -1,6 +1,3 @@
-import EmblaCarousel from 'embla-carousel';
-import AutoScroll from 'embla-carousel-auto-scroll';
-
 /**
  * LogoCarousel initialises an auto-scrolling logo ticker on all
  * .logo-carousel-embla elements using Embla Carousel with the
@@ -13,11 +10,20 @@ export class LogoCarousel {
 		this.init();
 	}
 
-	private init(): void {
-		document.querySelectorAll<HTMLElement>(this.selector).forEach((node) => {
+	private async init(): Promise<void> {
+		const nodes = document.querySelectorAll<HTMLElement>(this.selector);
+		if (!nodes.length) return;
+
+		const [{ default: EmblaCarousel }, { default: AutoScroll }] = await Promise.all([
+			import('embla-carousel'),
+			import('embla-carousel-auto-scroll'),
+		]);
+
+		nodes.forEach((node) => {
 			EmblaCarousel(node,
 				{
 					loop: true,
+					align: 'start',
 					dragFree: true,
 					watchDrag: false,
 					watchResize: true,
@@ -35,5 +41,3 @@ export class LogoCarousel {
 		});
 	}
 }
-
-new LogoCarousel();

@@ -2,9 +2,9 @@
 	<!-- =====================
 		Hero
 		===================== -->
-	<section class="section service-hero" data-scroll-section>
+	<section class="hero hero-simple hero-simple-padding-bottom" data-scroll-section>
 		<div class="container">
-			<div class="row" data-scroll data-scroll-speed="0">
+			<div class="row justify-content-between" data-scroll data-scroll-speed="0">
 				<div class="col-12 col-tab-10 col-desk-8 col-desk-large-8">
 					<!-- Hero Animation -->
 					<div class="hero-animate">
@@ -43,19 +43,29 @@
 						</div>
 					</div><!-- /Hero Animation -->
 				</div><!-- /Col -->
+				<!-- Rule -->
+				<div class="col-2">
+					<hr class="rule rule-medium d-none d-desk-block m-0"
+						data-scroll data-scroll-speed="1" data-scroll-direction="horizontal" style="width: 70%" />
+				</div><!-- /Col -->
 			</div><!-- /Row -->
 		</div><!-- Container -->
 		<!-- Carousel -->
+		{{ $logos := resources.Match "images/logos/*.svg" }}
+		{{ $images := slice }}
+		{{ range $logos }}
+			{{ $images = $images | append (dict "image" .Name "alt" (path.Base .Name | strings.TrimSuffix ".svg" | replace "-" " " | title)) }}
+		{{ end }}
 		{{ partial "components/logo-carousel.html" (dict
 			"ctx" .
-			"images" .Params.gallery
+			"images" $images
 		)}}
 	</section>
 	<!-- =====================
 		Bio
 		===================== -->
 	{{ with .Params.bio }}
-		<section id="bio" class="section section-padding" data-scroll-section style="overflow-x: clip;">
+		<section id="bio" class="section section-padding section-padding-bottom" data-scroll-section style="overflow-x: clip;">
 			<div class="container">
 				<div class="row">
 					<!-- Heading -->

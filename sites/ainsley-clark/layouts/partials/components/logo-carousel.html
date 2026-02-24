@@ -19,15 +19,17 @@
 				<div class="logo-carousel">
 					<div class="logo-carousel-embla">
 						<div class="logo-carousel-container">
-							{{ range . }}
-								<div class="logo-carousel-slide">
-									{{ partial "media/picture.html" (dict
-										"image" (or ($.ctx.Resources.GetMatch .image) (resources.GetMatch .image))
-										"alt"   .alt
-										"lazy"  false
-										"class" "logo-carousel-img"
-									)}}
-								</div>
+							{{ range seq 4 }}
+								{{ range $.images }}
+									<div class="logo-carousel-slide">
+										{{ partial "media/picture.html" (dict
+											"image" (or ($.ctx.Resources.GetMatch .image) (resources.GetMatch .image))
+											"alt"   .alt
+											"lazy"  false
+											"class" "logo-carousel-img"
+										)}}
+									</div>
+								{{ end }}
 							{{ end }}
 						</div>
 					</div>
@@ -35,11 +37,4 @@
 			</div><!-- /Col -->
 		</div><!-- /Row -->
 	</div><!-- /Container -->
-{{ end }}
-<!-- Assets — Emitted once per page regardless of how many times the partial is called -->
-{{ if not ($.ctx.Store.Get "logoCarouselInit") }}
-	{{ $.ctx.Store.Set "logoCarouselInit" true }}
-	{{ $js := resources.Get "js/components/logo-carousel.ts" | js.Build (dict "targetPath" "js/logo-carousel.js") -}}
-	{{ if ne hugo.Environment "development" -}}{{- $js = $js | resources.Minify -}}{{- end -}}
-	<script defer src="{{ ($js | resources.Fingerprint "sha512").RelPermalink }}"></script>
 {{ end }}
