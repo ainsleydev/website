@@ -1,3 +1,4 @@
 ---
 title: Insights
+pageColour: white
 ---

@@ -12,36 +12,15 @@
 						Related insights
 					</h2>
 				</div><!-- /Col -->
-				<!-- All Articles - Large -->
-				<div class="col-12 col-tab-10 all-articles all-articles-large">
-					<div class="all-articles-wrapper">
-						<h3>
-							Related insights
-						</h3>
-						{{ partial "arrow/text.html" (dict
-							"link" "/insights/"
-							"text" "<h3>All insights</h3>"
-							"title" "View all insights"
-							"small" true
-							"rotation" 45
-						)}}
-					</div><!-- /Wrapper -->
-				</div><!-- /Col -->
-				<!-- All Articles - Small -->
-				<div class="col-12 all-articles all-articles-small">
-					<div class="all-articles-wrapper">
-						<h6 class="all-articles-sub">
-							Latest Articles
-						</h6>
-                        {{ partial "arrow/text.html" (dict
-							"link" "/insights/"
-							"text" "<h2>All insights</h3>"
-							"title" "View all insights"
-							"small" true
-							"rotation" 45
-                        )}}
-					</div><!-- /Wrapper -->
-				</div><!-- /Col -->
+						{{ partial "components/all-articles.html" (dict
+					"link" "/insights/"
+					"text" "All insights"
+					"title" "View all insights"
+					"largeSubText" "Related insights"
+					"largeSubTag" "h3"
+					"smallSubText" "Latest Articles"
+					"class" "col-tab-10"
+				)}}
 				{{ range  . -}}
 					<div class="col-12 col-tab-10 card-col">
 						{{ .Render "card" }}

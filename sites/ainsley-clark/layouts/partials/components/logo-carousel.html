@@ -1,0 +1,40 @@
+<!-- =====================
+	Logo Carousel
+		partial "components/logo-carousel.html" (dict
+			"ctx"    .
+			"images" (slice
+				(dict
+					"image" "images/logos/my-logo.svg"
+					"alt"   "My Logo"
+				)
+			)
+		)
+		- ctx:    The context of the page.
+		- images: Slice of dicts with "image" (path) and "alt" (text) keys.
+	===================== -->
+{{ with .images }}
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="logo-carousel">
+					<div class="logo-carousel-embla">
+						<div class="logo-carousel-container">
+							{{ range seq 4 }}
+								{{ range $.images }}
+									<div class="logo-carousel-slide">
+										{{ partial "media/picture.html" (dict
+											"image" (or ($.ctx.Resources.GetMatch .image) (resources.GetMatch .image))
+											"alt"   .alt
+											"lazy"  false
+											"class" "logo-carousel-img"
+										)}}
+									</div>
+								{{ end }}
+							{{ end }}
+						</div>
+					</div>
+				</div>
+			</div><!-- /Col -->
+		</div><!-- /Row -->
+	</div><!-- /Container -->
+{{ end }}

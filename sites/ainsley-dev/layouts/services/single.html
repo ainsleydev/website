@@ -219,33 +219,15 @@
 					<!-- Content -->
 					<div class="col-12 col-mob-9">
 						<div class="row no-gaps">
-							<!-- All Work - Large -->
-							<div class="col-12 all-articles all-articles-large margin-large">
-								<div class="all-articles-wrapper all-articles-wrapper-end">
-                                    {{ partial "arrow/text.html" (dict
-                                    	"link" "/portfolio/"
-                                    	"text" "<span class='heading-3'>All work</span>"
-                                    	"title" "View all work"
-                                    	"small" true
-                                    	"rotation" 45
-                                    )}}
-								</div><!-- /Wrapper -->
-							</div><!-- /Col -->
-							<!-- All Work - Small -->
-							<div class="col-12 all-articles all-articles-small">
-								<div class="all-articles-wrapper">
-									<span class="all-articles-sub">
-										Latest Articles
-									</span>
-                                    {{ partial "arrow/text.html" (dict
-										"link" "/portfolio/"
-                                    	"text" "<span class='heading-2'>All work</span>"
-                                   	 	"title" "View all work"
-                                   	 	"small" true
-                                    	"rotation" 45
-                                    )}}
-								</div><!-- /Wrapper -->
-							</div><!-- /Col -->
+												{{ partial "components/all-articles.html" (dict
+								"link" "/portfolio/"
+								"text" "All work"
+								"title" "View all work"
+								"smallSubText" "Latest Articles"
+								"smallSubTag" "span"
+								"wrapperEnd" true
+								"class" "margin-large"
+							)}}
 							<!-- Cards -->
                             {{ range $index, $slug := .Params.featuredProjects }}
                                 {{ with $.Site.GetPage (printf "/portfolio/%s" $slug) }}
@@ -299,36 +281,14 @@
 					<!-- Content -->
 					<div class="col-12 col-mob-9">
 						<div class="row no-gaps">
-							<!-- All Articles - Large -->
-							<div class="col-12 all-articles all-articles-border all-articles-large">
-								<div class="all-articles-wrapper">
-									<span class="heading-6 all-articles-sub">
-										Latest Articles
-									</span>
-                                    {{ partial "arrow/text.html" (dict
-										"link" "/insights/"
-										"text" "<span class='heading-3'>All insights</span>"
-										"title" "View all insights"
-										"small" true
-										"rotation" 45
-                                    )}}
-								</div><!-- /Wrapper -->
-							</div><!-- /Col -->
-							<!-- All Articles - Small -->
-							<div class="col-12 all-articles all-articles-border all-articles-small">
-								<div class="all-articles-wrapper">
-									<h6 class="all-articles-sub">
-										Latest Articles
-									</h6>
-                                    {{ partial "arrow/text.html" (dict
-										"link" "/insights/"
-										"text" "<span class='heading-2'>All insights</span>"
-										"title" "View all insights"
-										"small" true
-										"rotation" 45
-                                    )}}
-								</div><!-- /Wrapper -->
-							</div><!-- /Col -->
+												{{ partial "components/all-articles.html" (dict
+								"link" "/insights/"
+								"text" "All insights"
+								"title" "View all insights"
+								"largeSubText" "Latest Articles"
+								"smallSubText" "Latest Articles"
+								"border" true
+							)}}
 							<!-- Cards -->
 							{{ range $index, $slug := .Params.featuredInsights }}
 								{{ with $.Site.GetPage (printf "/insights/%s" $slug) }}

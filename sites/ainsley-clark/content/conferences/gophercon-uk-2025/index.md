@@ -7,7 +7,7 @@ tags:
   - Microservices
   - Platform Engineering
 buttonName: Watch Talk
-externalURL: https://gophercon.co.uk
+externalURL: https://www.youtube.com/watch?v=JnjKQZOsvcw
 build:
   render: "never"
   list: "always"

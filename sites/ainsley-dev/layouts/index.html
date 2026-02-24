@@ -50,8 +50,8 @@
 								"title" "Scroll down to explore"
 								"rotation" 135
 								"title" "Explore ainsley.dev"
-							)}}<!-- /Arrow -->
-						</div>
+							)}}
+						</div><!-- /Arrow -->
 					</div><!--- /Col -->
 				</div><!-- /Row -->
 			</div><!-- /Container -->
@@ -122,7 +122,7 @@
 	<!-- =====================
 		Services
 		===================== -->
-	{{- $services :=  (where .Site.RegularPages "Type" "services").ByWeight | first 8 -}}
+	{{ $services :=  (where .Site.RegularPages "Type" "services").ByWeight | first 8 -}}
 	{{ with $services }}
 		<section class="section section-padding section-padding-top home-first-section">
 			<div class="container">
@@ -274,33 +274,15 @@
 					<!-- Content -->
 					<div class="col-12 col-mob-9">
 						<div class="row no-gaps">
-							<!-- All Work - Large -->
-							<div class="col-12 all-articles all-articles-large margin-large">
-								<div class="all-articles-wrapper all-articles-wrapper-end">
-                                    {{ partial "arrow/text.html" (dict
-										"link" "/portfolio/"
-										"text" "<span class='heading-3'>All work</span>"
-										"title" "View all work"
-										"small" true
-										"rotation" 45
-                                    )}}
-								</div><!-- /Wrapper -->
-							</div><!-- /Col -->
-							<!-- All Work - Small -->
-							<div class="col-12 all-articles all-articles-small">
-								<div class="all-articles-wrapper">
-									<span class="all-articles-sub">
-										Latest Articles
-									</span>
-                                    {{ partial "arrow/text.html" (dict
-										"link" "/portfolio/"
-										"text" "<span class='heading-2'>All work</span>"
-										"title" "View all work"
-										"small" true
-										"rotation" 45
-                                    )}}
-								</div><!-- /Wrapper -->
-							</div><!-- /Col -->
+							{{ partial "components/all-articles.html" (dict
+								"link" "/portfolio/"
+								"text" "All work"
+								"title" "View all work"
+								"smallSubText" "Latest Articles"
+								"smallSubTag" "span"
+								"wrapperEnd" true
+								"class" "margin-large"
+							)}}
 							<!-- Cards -->
                             {{ range $index, $page := . }}
                                 {{ $isLeft := eq (mod $index 2) 0 }}
@@ -343,36 +325,14 @@
 					<!-- Content -->
 					<div class="col-12 col-mob-9">
 						<div class="row no-gaps">
-							<!-- All Articles - Large -->
-							<div class="col-12 all-articles all-articles-border all-articles-large">
-								<div class="all-articles-wrapper">
-									<span class="heading-6 all-articles-sub">
-										Latest Articles
-									</span>
-                                    {{ partial "arrow/text.html" (dict
-										"link" "/insights/"
-										"text" "<span class='heading-3'>All insights</span>"
-										"title" "View all insights"
-										"small" true
-										"rotation" 45
-                                    )}}
-								</div><!-- /Wrapper -->
-							</div><!-- /Col -->
-							<!-- All Articles - Small -->
-							<div class="col-12 all-articles all-articles-border all-articles-small">
-								<div class="all-articles-wrapper">
-									<h6 class="all-articles-sub">
-										Latest Articles
-									</h6>
-                                    {{ partial "arrow/text.html" (dict
-										"link" "/insights/"
-										"text" "<span class='heading-2'>All insights</span>"
-										"title" "View all insights"
-										"small" true
-										"rotation" 45
-                                    )}}
-								</div><!-- /Wrapper -->
-							</div><!-- /Col -->
+												{{ partial "components/all-articles.html" (dict
+								"link" "/insights/"
+								"text" "All insights"
+								"title" "View all insights"
+								"largeSubText" "Latest Articles"
+								"smallSubText" "Latest Articles"
+								"border" true
+							)}}
 							<!-- Cards -->
                             {{ range $index, $page := . }}
 								<div class="col-12 card-col {{ if eq $index 0 }} card-col-first {{- end }} animate-fade"

@@ -1,0 +1,53 @@
+<!-- =====================
+    Quote Carousel
+    	partial "sections/quote-carousel.html" (dict
+    		"quotes" (slice
+    			(dict "text" "Quote one." "cite" "Person A, Company")
+    			(dict "text" "Quote two." "cite" "Person B, Company")
+    		)
+    		"class" "bg-grey-dark"
+    	)}}
+		- quotes:	A slice of dicts, each with "text" and "cite" keys.
+		- class:	Any additional class names to be appended to the quote section.
+    ===================== -->
+<section class="section section-padding quote-section quote-carousel-section
+	{{ with .class -}} {{ . }} {{- end }}">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<!-- Mark -->
+				<figure class="quote-mark">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 237.495 230.943">
+						<g>
+							<path d="M9.6,265.1V180.759q0-58.238,25.6-96.394t74.805-50.2V69.3Q79.887,77.336,66.834,98.924T51.772,154.652H89.928V265.1Z" transform="translate(-9.6 -34.16)" fill="#fff"/>
+							<path d="M9.6,265.1V180.759q0-58.238,25.6-96.394t74.805-50.2V69.3Q79.887,77.336,66.834,98.924T51.772,154.652H89.928V265.1Z" transform="translate(127.485 -34.16)" fill="#fff"/>
+						</g>
+					</svg>
+				</figure>
+				<!-- Carousel -->
+				<div class="quote-carousel-embla">
+					<div class="quote-carousel-container">
+						{{ range .quotes }}
+						<div class="quote-carousel-slide">
+							<blockquote class="quote">
+								<p class="heading-3 quote-text">
+									<!-- Title -->
+									{{ with .text -}}
+										<span class="quote-title">
+											{{ . | strings.TrimPrefix " " | strings.TrimSuffix " " }}
+										</span>
+									{{- end }}
+									<!-- Cite -->
+									{{ with .cite -}}
+										<cite class="quote-cite">{{ . }}</cite>
+									{{- end }}
+								</p>
+							</blockquote>
+						</div>
+						{{ end }}
+					</div>
+				</div>
+			</div><!--/Col -->
+		</div><!--/Row -->
+	</div><!--/Container -->
+</section>

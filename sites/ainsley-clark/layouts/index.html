@@ -2,10 +2,10 @@
 	<!-- =====================
 		Hero
 		===================== -->
-	<section class="section service-hero" data-scroll-section>
+	<section class="hero hero-simple hero-simple-padding-bottom" data-scroll-section>
 		<div class="container">
-			<div class="row justify-content-center" data-scroll data-scroll-speed="0">
-				<div class="col-12 col-tab-10 col-desk-8 col-desk-large-8">
+			<div class="row justify-content-between" data-scroll data-scroll-speed="0">
+				<div class="col-12 col-tab-10">
 					<!-- Hero Animation -->
 					<div class="hero-animate">
 						<!-- Content -->
@@ -18,7 +18,7 @@
 								{{ warnf "No heading param provided to page: %s" .RelPermalink }}
 							{{- end }}
 							<!-- Lead -->
-							<p class="lead ler text-animate-lead">
+							<p class="lead text-animate-lead" style="max-width: 700px;">
 								{{ with .Params.lead -}}
 									{{ . | safeHTML }}
 								{{ else -}}
@@ -43,21 +43,29 @@
 						</div>
 					</div><!-- /Hero Animation -->
 				</div><!-- /Col -->
+				<!-- Rule -->
+				<div class="col-2 d-flex justify-content-desk-end">
+					<hr class="rule rule-medium d-none d-desk-block m-0"
+						data-scroll data-scroll-speed="1" data-scroll-direction="horizontal" width="70%" />
+				</div>
 			</div><!-- /Row -->
 		</div><!-- Container -->
 		<!-- Carousel -->
-		{{ partial "components/carousel.html" (dict
+		{{ $logos := resources.Match "images/logos/*.svg" }}
+		{{ $images := slice }}
+		{{ range $logos }}
+			{{ $images = $images | append (dict "image" .Name "alt" (path.Base .Name | strings.TrimSuffix ".svg" | replace "-" " " | title)) }}
+		{{ end }}
+		{{ partial "components/logo-carousel.html" (dict
 			"ctx" .
-			"images" .Params.gallery
-			"hasLinks" true
+			"images" $images
 		)}}
 	</section>
 	<!-- =====================
 		Bio
 		===================== -->
 	{{ with .Params.bio }}
-
-		<section id="bio" class="section section-padding" data-scroll-section style="overflow-x: clip;">
+		<section id="bio" class="bio section section-padding section-padding-bottom" data-scroll-section style="overflow-x: clip;">
 			<div class="container">
 				<div class="row">
 					<!-- Heading -->
@@ -83,13 +91,18 @@
 							<p>At this stage, we kick off with a meeting to discover the project’s requirements and where you see yourself in the industry. We discuss what you desire, what’s lacking in your current solution, and how we can better it.</p>
 							<h3>Test</h3>
 							<p>Technical requirements are established for the project, and a detailed proposal (if it’s a website) or SRS (software requirement specification) is created detailing the design, templates and technical intricacies of the project.</p>
-							<p>At the end of this stage, we can prepare a precise quotation for a better understanding of how much the project may cost and how long it will take.</p>
+							<h3>Test</h3>
+							<p>Technical requirements are established for the project, and a detailed proposal (if it’s a website) or SRS (software requirement specification) is created detailing the design, templates and technical intricacies of the project.</p>
 						</div>
 					</div><!-- /Col -->
 					<!-- Rule -->
 					<div class="col-2">
-						<hr class="rule rule-medium d-none d-desk-block m-0"
-							data-scroll data-scroll-speed="1" data-scroll-direction="horizontal" style="width: 70%" />
+						<hr class="rule rule-medium d-none d-desk-block m-0 bio-rule"
+							data-scroll data-scroll-speed="1" data-scroll-direction="horizontal" />
+						<div class="d-none d-desk-block" style="transform: translate(50%, 250px) rotate(90deg)">
+							<hr class="rule rule-medium d-none d-desk-block m-0 bio-rule"
+								data-scroll data-scroll-speed="1" data-scroll-direction="horizontal"  />
+						</div>
 					</div><!-- /Col -->
 				</div><!-- /Row -->
 			</div><!-- /Col -->
@@ -109,15 +122,15 @@
 							"text" "Media"
 							"number" "02"
 							"line" true
-							"fill" false
 						)}}
 					</div><!-- /Col -->
 					<!-- Pages -->
 					<div class="col-12 col-mob-9">
-						<hr class="rule rule-thin rule-opaque my-0 d-none d-desk-block">
-						{{ range . }}
-							{{ .Render "card" }}
-						{{ end }}
+						<div class="conferences">
+							{{ range . }}
+								{{ .Render "card" }}
+							{{ end }}
+						</div>
 					</div><!-- /Col -->
 				</div><!-- /Row -->
 			</div>
@@ -135,11 +148,10 @@
 			"class"   "section-padding section-padding-bottom animate-fade"
 		)}}
 	{{- end }}
-
 	<!-- =====================
 		Insights
 		===================== -->
-	{{- $insights :=  (where .Site.RegularPages "Type" "insights").ByDate.Reverse | first 4 -}}
+	{{ $insights :=  (where .Site.RegularPages "Type" "insights").ByDate.Reverse | first 4 -}}
 	{{ with $insights }}
 		<section class="section section-padding section-padding-bottom">
 			<div class="container">
@@ -148,45 +160,21 @@
 					<div class="col-12 col-mob-2" data-scroll data-scroll-speed="2">
 						{{ partial "type/vertical.html" (dict
 							"text" "Insights"
-							"number" "05"
+							"number" "04"
 							"line" true
-							"fill" false
 						)}}
 					</div><!-- /Col -->
 					<!-- Content -->
 					<div class="col-12 col-mob-9">
 						<div class="row no-gaps">
-							<!-- TODO: There's a d-none here as we don't have other articles to link too -->
-							<!-- All Articles - Large -->
-							<div class="col-12 all-articles all-articles-border all-articles-large d-none">
-								<div class="all-articles-wrapper">
-									<span class="heading-6 all-articles-sub">
-										Latest Articles
-									</span>
-									{{ partial "arrow/text.html" (dict
-										"link" "/insights/"
-										"text" "<span class='heading-3'>All insights</span>"
-										"title" "View all insights"
-										"small" true
-										"rotation" 45
-									)}}
-								</div><!-- /Wrapper -->
-							</div><!-- /Col -->
-							<!-- All Articles - Small -->
-							<div class="col-12 all-articles all-articles-border all-articles-small d-none">
-								<div class="all-articles-wrapper">
-									<h6 class="all-articles-sub">
-										Latest Articles
-									</h6>
-									{{ partial "arrow/text.html" (dict
-										"link" "/insights/"
-										"text" "<span class='heading-2'>All insights</span>"
-										"title" "View all insights"
-										"small" true
-										"rotation" 45
-									)}}
-								</div><!-- /Wrapper -->
-							</div><!-- /Col -->
+							{{ partial "components/all-articles.html" (dict
+								"link" "/insights/"
+								"text" "All insights"
+								"title" "View all insights"
+								"largeSubText" "Latest Articles"
+								"smallSubText" "Latest Articles"
+								"border" true
+							)}}
 							<!-- Cards -->
 							{{ range $index, $page := . }}
 								<div class="col-12 card-col {{ if eq $index 0 }} card-col-first {{- end }} animate-fade"
@@ -204,10 +192,11 @@
 		Quote
 		===================== -->
 	{{ with .Params.quote -}}
-		{{ partial "sections/quote.html" (dict
-			"text" .text
-			"cite" .person
-			"class" "bg-grey-light"
+		{{ partial "sections/quote-carousel.html" (dict
+			"class" "bg-grey-dark"
+			"quotes" (slice
+				(dict "text" .text "cite" .person)
+			)
 		)}}
 	{{- end }}
 	<!-- =====================

@@ -1,0 +1,27 @@
+// -----------------------------------------------------------------------------
+// _home.scss
+// This file contains all styles related to the home a-clark page.
+// -----------------------------------------------------------------------------
+
+// TODO: Probably better way of doing this.
+@import '../../../../../themes/shared/assets/scss/abstracts/mixins';
+@import '../../../../../themes/shared/assets/scss/abstracts/variables';
+
+
+.bio {
+
+	&-rule {
+		width: 60%;
+	}
+}
+
+.conferences {
+
+	@include media-mob {
+
+		.card:first-child {
+			border-top: var(--card-border);
+			margin: 0;
+		}
+	}
+}

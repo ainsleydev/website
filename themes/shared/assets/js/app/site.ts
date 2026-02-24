@@ -38,6 +38,8 @@ import { homeAnimation } from '../pages/home';
 import { ITransitionData } from '@barba/core';
 import anime from 'animejs/lib/anime.es';
 import { cardFeatureAnimation } from '../animations/card-feature';
+import { LogoCarousel } from '../components/logo-carousel';
+import { QuoteCarousel } from '../components/quote-carousel';
 
 /**
  * App is the main type for the site which bootstraps the
@@ -97,6 +99,8 @@ class App {
 		new Arrow();
 		new TOC();
 		new ContactForm();
+		new LogoCarousel();
+		new QuoteCarousel();
 		new Collapse({
 			accordion: true,
 			container: '.accordion',
