@@ -2,8 +2,6 @@ module github.com/ainsleydev/website
 
 go 1.24.5
 
-toolchain go1.24.5
-
 require (
 	github.com/ainsleyclark/errors v0.0.4
 	github.com/ainsleyclark/go-mail v1.1.1
