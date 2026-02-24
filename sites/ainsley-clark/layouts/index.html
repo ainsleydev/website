@@ -65,7 +65,7 @@
 		Bio
 		===================== -->
 	{{ with .Params.bio }}
-		<section id="bio" class="section section-padding section-padding-bottom" data-scroll-section style="overflow-x: clip;">
+		<section id="bio" class="bio section section-padding section-padding-bottom" data-scroll-section style="overflow-x: clip;">
 			<div class="container">
 				<div class="row">
 					<!-- Heading -->
@@ -91,16 +91,17 @@
 							<p>At this stage, we kick off with a meeting to discover the project’s requirements and where you see yourself in the industry. We discuss what you desire, what’s lacking in your current solution, and how we can better it.</p>
 							<h3>Test</h3>
 							<p>Technical requirements are established for the project, and a detailed proposal (if it’s a website) or SRS (software requirement specification) is created detailing the design, templates and technical intricacies of the project.</p>
-							<p>At the end of this stage, we can prepare a precise quotation for a better understanding of how much the project may cost and how long it will take.</p>
+							<h3>Test</h3>
+							<p>Technical requirements are established for the project, and a detailed proposal (if it’s a website) or SRS (software requirement specification) is created detailing the design, templates and technical intricacies of the project.</p>
 						</div>
 					</div><!-- /Col -->
 					<!-- Rule -->
 					<div class="col-2">
-						<hr class="rule rule-medium d-none d-desk-block m-0"
-							data-scroll data-scroll-speed="1" data-scroll-direction="horizontal" style="width: 60%" />
+						<hr class="rule rule-medium d-none d-desk-block m-0 bio-rule"
+							data-scroll data-scroll-speed="1" data-scroll-direction="horizontal" />
 						<div class="d-none d-desk-block" style="transform: translate(50%, 250px) rotate(90deg)">
-							<hr class="rule rule-medium d-none d-desk-block m-0"
-								data-scroll data-scroll-speed="1" data-scroll-direction="horizontal" style="width: 60%" />
+							<hr class="rule rule-medium d-none d-desk-block m-0 bio-rule"
+								data-scroll data-scroll-speed="1" data-scroll-direction="horizontal"  />
 						</div>
 					</div><!-- /Col -->
 				</div><!-- /Row -->
@@ -166,36 +167,14 @@
 					<!-- Content -->
 					<div class="col-12 col-mob-9">
 						<div class="row no-gaps">
-							<!-- All Articles - Large -->
-							<div class="col-12 all-articles all-articles-border all-articles-large">
-								<div class="all-articles-wrapper">
-									<span class="heading-6 all-articles-sub">
-										Latest Articles
-									</span>
-									{{ partial "arrow/text.html" (dict
-										"link" "/insights/"
-										"text" "<span class='heading-3'>All insights</span>"
-										"title" "View all insights"
-										"small" true
-										"rotation" 45
-									)}}
-								</div><!-- /Wrapper -->
-							</div><!-- /Col -->
-							<!-- All Articles - Small -->
-							<div class="col-12 all-articles all-articles-border all-articles-small">
-								<div class="all-articles-wrapper">
-									<h6 class="all-articles-sub">
-										Latest Articles
-									</h6>
-									{{ partial "arrow/text.html" (dict
-										"link" "/insights/"
-										"text" "<span class='heading-2'>All insights</span>"
-										"title" "View all insights"
-										"small" true
-										"rotation" 45
-									)}}
-								</div><!-- /Wrapper -->
-							</div><!-- /Col -->
+							{{ partial "components/all-articles.html" (dict
+								"link" "/insights/"
+								"text" "All insights"
+								"title" "View all insights"
+								"largeSubText" "Latest Articles"
+								"smallSubText" "Latest Articles"
+								"border" true
+							)}}
 							<!-- Cards -->
 							{{ range $index, $page := . }}
 								<div class="col-12 card-col {{ if eq $index 0 }} card-col-first {{- end }} animate-fade"

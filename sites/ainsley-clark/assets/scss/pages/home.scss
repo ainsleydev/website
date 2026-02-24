@@ -8,9 +8,16 @@
 @import '../../../../../themes/shared/assets/scss/abstracts/variables';
 
 
-@include media-mob {
+.bio {
 
-	.conferences {
+	&-rule {
+		width: 60%;
+	}
+}
+
+.conferences {
+
+	@include media-mob {
 
 		.card:first-child {
 			border-top: var(--card-border);

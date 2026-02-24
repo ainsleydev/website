@@ -1,0 +1,72 @@
+<!-- =====================
+	All Articles
+		partial "components/all-articles.html" (dict
+			"link"         "/insights/"
+			"text"         "All insights"
+			"title"        "View all insights"
+			"largeSubText" "Latest Articles"
+			"smallSubText" "Latest Articles"
+			"border"       true
+			"wrapperEnd"   true
+			"class"        "margin-large"
+			"largeSubTag"  "h3"
+			"smallSubTag"  "span"
+		)
+		- link:         The URL for the arrow link.
+		- text:         The link text content.
+		- title:        The title & aria label.
+		- largeSubText: Optional sub-label in the large variant.
+		- smallSubText: Optional sub-label in the small variant.
+		- border:       If true, adds all-articles-border to both variants.
+		- wrapperEnd:   If true, adds all-articles-wrapper-end to the large wrapper.
+		- class:        Additional classes appended to the large col element.
+		- largeSubTag:  Large sub-label element. Defaults to "span", use "h3" for headings.
+		- smallSubTag:  Small sub-label element. Defaults to "h6", use "span" for non-headings.
+    ===================== -->
+<!-- All Articles - Large -->
+<div class="col-12 all-articles {{ if .border -}} all-articles-border {{- end }} all-articles-large
+    {{ with .class }} {{ . }} {{- end }}">
+	<div class="all-articles-wrapper{{ if .wrapperEnd }} all-articles-wrapper-end {{- end }}">
+		{{ if .largeSubText -}}
+			{{ if eq (default "span" .largeSubTag) "h3" -}}
+				<h3>
+					{{ .largeSubText }}
+				</h3>
+			{{ else -}}
+				<span class="heading-6 all-articles-sub">
+					{{ .largeSubText }}
+				</span>
+			{{- end }}
+		{{- end }}
+		{{ partial "arrow/text.html" (dict
+			"link"     .link
+			"text"     (printf "<span class='heading-3'>%s</span>" .text)
+			"title"    .title
+			"small"    true
+			"rotation" 45
+		)}}
+	</div><!-- /Wrapper -->
+</div><!-- /Col -->
+<!-- All Articles - Small -->
+<div class="col-12 all-articles {{ if .border -}} all-articles-border {{- end }} all-articles-small">
+	<div class="all-articles-wrapper">
+		{{ if .smallSubText -}}
+			{{ if eq (default "h6" .smallSubTag) "span" -}}
+				<span class="all-articles-sub">
+					{{ .smallSubText }}
+				</span>
+			{{ else -}}
+				<h6 class="all-articles-sub">
+					{{ .smallSubText }}
+				</h6>
+			{{- end }}
+		{{- end }}
+		{{ partial "arrow/text.html" (dict
+			"link"     .link
+			"text"     (printf "<span class='heading-2'>%s</span>" .text)
+			"title"    .title
+			"small"    true
+			"rotation" 45
+		)}}
+	</div><!-- /Wrapper -->
+</div><!-- /Col -->
