@@ -27,9 +27,6 @@
     	- external:     If true, opens the link in a new tab with rel="noopener noreferrer".
     ===================== -->
 {{ $heading := .heading -}}
-{{ if not .imageDefault -}}
-	{{ warnf "No imageDefault provided to featured-card for: %s" $heading -}}
-{{- end }}
 <a href="{{ .href }}"
    class="card card-basic card-feature {{ if .fullWidth }} card-feature-full-width {{- end }} skew"
    title="Visit the {{ $heading }} page"
@@ -93,7 +90,7 @@
 		</div><!-- /Col -->
 		<div class="col-12 col-desk-1">
 			{{ partial "components/button.html" (dict
-				"text"  (printf "Explore %s" .buttonName)
+				"text"  .buttonName
 				"size"  "small"
 				"arrow" false
 				"class" "d-desk-none"
