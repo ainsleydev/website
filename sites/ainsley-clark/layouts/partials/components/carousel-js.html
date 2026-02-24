@@ -1,0 +1,107 @@
+<!-- =====================
+	Carousel JS
+		partial "components/carousel-js.html" (dict
+			"ctx"    .
+			"images" (slice
+				(dict
+					"image" "images/logos/my-logo.svg"
+					"alt"   "My Logo"
+				)
+			)
+		)
+		- ctx:    The context of the page.
+		- images: Slice of dicts with "image" (path) and "alt" (text) keys.
+
+	Note: Embla Carousel is loaded via an inline <script type="module"> so the
+	library is only fetched by the browser on pages that call this partial.
+	===================== -->
+{{ with .images }}
+<div class="logo-carousel">
+	<div class="embla" id="logo-carousel-embla">
+		<div class="embla__container">
+			{{ range . }}
+				<div class="embla__slide">
+					{{ partial "media/picture.html" (dict
+						"image" (or ($.ctx.Resources.GetMatch .image) (resources.GetMatch .image))
+						"alt"   .alt
+						"lazy"  false
+						"class" "logo-carousel__img"
+					)}}
+				</div>
+			{{ end }}
+		</div>
+	</div>
+</div>
+
+<style>
+	.logo-carousel {
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+		margin: clamp(40px, 8vw, 100px) 0;
+	}
+
+	.logo-carousel::before,
+	.logo-carousel::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: clamp(60px, 10vw, 120px);
+		z-index: 1;
+		pointer-events: none;
+	}
+
+	.logo-carousel::before {
+		left: 0;
+		background: linear-gradient(to right, #ffffff, transparent);
+	}
+
+	.logo-carousel::after {
+		right: 0;
+		background: linear-gradient(to left, #ffffff, transparent);
+	}
+
+	.embla {
+		overflow: hidden;
+	}
+
+	.embla__container {
+		display: flex;
+		align-items: center;
+	}
+
+	.embla__slide {
+		flex: 0 0 auto;
+		min-width: 0;
+		padding: 0 2rem;
+	}
+
+	.logo-carousel__img {
+		height: 36px;
+		width: auto;
+		display: block;
+		filter: brightness(0);
+		opacity: 0.65;
+		transition: opacity 200ms ease;
+	}
+
+	.logo-carousel__img:hover {
+		opacity: 1;
+	}
+</style>
+
+<script type="module">
+	import EmblaCarousel from 'https://esm.sh/embla-carousel@8.5.2'
+	import AutoScroll from 'https://esm.sh/embla-carousel-auto-scroll@8.5.2'
+
+	const node = document.getElementById('logo-carousel-embla')
+	if (node) {
+		EmblaCarousel(
+			node,
+			{ loop: true, dragFree: true, watchDrag: false },
+			[AutoScroll({ playOnInit: true, stopOnInteraction: false, speed: 1 })]
+		)
+	}
+</script>
+{{ end }}

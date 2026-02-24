@@ -46,10 +46,9 @@
 			</div><!-- /Row -->
 		</div><!-- Container -->
 		<!-- Carousel -->
-		{{ partial "components/carousel.html" (dict
+		{{ partial "components/carousel-js.html" (dict
 			"ctx" .
 			"images" .Params.gallery
-			"hasLinks" true
 		)}}
 	</section>
 	<!-- =====================
