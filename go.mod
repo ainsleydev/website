@@ -1,6 +1,6 @@
 module github.com/ainsleydev/website
 
-go 1.25
+go 1.24.5
 
 require (
 	github.com/ainsleyclark/errors v0.0.4
@@ -14,7 +14,7 @@ require (
 	github.com/logrusorgru/aurora v2.0.3+incompatible
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.9.4
-	github.com/slack-go/slack v0.18.0
+	github.com/slack-go/slack v0.17.3
 	github.com/stretchr/testify v1.11.1
 )
 

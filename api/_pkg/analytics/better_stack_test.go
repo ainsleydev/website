@@ -92,10 +92,11 @@ func TestBetterStackHook_Run(t *testing.T) {
 
 func TestBetterStackHook_SendLog(t *testing.T) {
 	tests := map[string]struct {
-		setupServer func(*httptest.Server)
-		url         string
-		entry       *logrus.Entry
-		wantErr     bool
+		setupServer  func(*httptest.Server)
+		url          string
+		useServerURL bool
+		entry        *logrus.Entry
+		wantErr      bool
 	}{
 		"Successful Log Send": {
 			setupServer: func(server *httptest.Server) {
@@ -103,19 +104,19 @@ func TestBetterStackHook_SendLog(t *testing.T) {
 					w.WriteHeader(http.StatusOK)
 				})
 			},
-			url:     betterStackInjestURL,
-			entry:   entry,
-			wantErr: false,
+			useServerURL: true,
+			entry:        entry,
+			wantErr:      false,
 		},
 		"Nil Entry": {
-			setupServer: nil,
-			url:         betterStackInjestURL,
-			entry:       nil,
-			wantErr:     true,
+			setupServer:  nil,
+			useServerURL: true,
+			entry:        nil,
+			wantErr:      true,
 		},
 		"Error in JSON Marshaling": {
-			setupServer: nil,
-			url:         betterStackInjestURL,
+			setupServer:  nil,
+			useServerURL: true,
 			entry: &logrus.Entry{
 				Data: logrus.Fields{"invalid": make(chan int)}, // Invalid field that causes marshaling error.
 			},
@@ -146,9 +147,14 @@ func TestBetterStackHook_SendLog(t *testing.T) {
 				test.setupServer(server)
 			}
 
+			hookURL := test.url
+			if test.useServerURL {
+				hookURL = server.URL
+			}
+
 			hook := &BetterStackHook{
 				client: server.Client(),
-				url:    test.url,
+				url:    hookURL,
 				config: &environment.Config{},
 			}
 
