@@ -3,11 +3,11 @@ import AutoScroll from 'embla-carousel-auto-scroll';
 
 /**
  * LogoCarousel initialises an auto-scrolling logo ticker on all
- * .logo-carousel__embla elements using Embla Carousel with the
+ * .logo-carousel-embla elements using Embla Carousel with the
  * AutoScroll plugin.
  */
 export class LogoCarousel {
-	public readonly selector = '.logo-carousel__embla';
+	public readonly selector = '.logo-carousel-embla';
 
 	constructor() {
 		this.init();

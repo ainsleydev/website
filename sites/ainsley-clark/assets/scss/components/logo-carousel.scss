@@ -4,7 +4,6 @@
 // -----------------------------------------------------------------------------
 
 .logo-carousel {
-	$self: &;
 	position: relative;
 	width: 100%;
 	overflow: hidden;
@@ -37,16 +36,16 @@
 	// Embla Carousel
 	// =========================================================================
 
-	&__embla {
+	&-embla {
 		overflow: hidden;
 	}
 
-	&__container {
+	&-container {
 		display: flex;
 		align-items: center;
 	}
 
-	&__slide {
+	&-slide {
 		flex: 0 0 auto;
 		min-width: 0;
 		padding: 0 2rem;
@@ -55,7 +54,7 @@
 	// Logo Image
 	// =========================================================================
 
-	&__img {
+	&-img {
 		height: 36px;
 		width: auto;
 		display: block;

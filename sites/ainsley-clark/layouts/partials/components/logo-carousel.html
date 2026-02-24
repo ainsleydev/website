@@ -1,6 +1,6 @@
 <!-- =====================
 	Logo Carousel
-		partial "components/carousel-js.html" (dict
+		partial "components/logo-carousel.html" (dict
 			"ctx"    .
 			"images" (slice
 				(dict
@@ -14,15 +14,15 @@
 	===================== -->
 {{ with .images }}
 <div class="logo-carousel">
-	<div class="logo-carousel__embla">
-		<div class="logo-carousel__container">
+	<div class="logo-carousel-embla">
+		<div class="logo-carousel-container">
 			{{ range . }}
-				<div class="logo-carousel__slide">
+				<div class="logo-carousel-slide">
 					{{ partial "media/picture.html" (dict
 						"image" (or ($.ctx.Resources.GetMatch .image) (resources.GetMatch .image))
 						"alt"   .alt
 						"lazy"  false
-						"class" "logo-carousel__img"
+						"class" "logo-carousel-img"
 					)}}
 				</div>
 			{{ end }}
