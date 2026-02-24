@@ -92,11 +92,11 @@ func TestBetterStackHook_Run(t *testing.T) {
 
 func TestBetterStackHook_SendLog(t *testing.T) {
 	tests := map[string]struct {
-		setupServer func(*httptest.Server)
-		url         string
+		setupServer  func(*httptest.Server)
+		url          string
 		useServerURL bool
-		entry       *logrus.Entry
-		wantErr     bool
+		entry        *logrus.Entry
+		wantErr      bool
 	}{
 		"Successful Log Send": {
 			setupServer: func(server *httptest.Server) {
