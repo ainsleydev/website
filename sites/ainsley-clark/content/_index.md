@@ -1,7 +1,9 @@
 ---
 title: Ainsley Clark
-heading: Shipping Go at scale.<br class="d-none d-desk-inline"/>Growing engineers.<br class="d-none d-desk-inline"/>Building communities that last.
+heading: Shipping Go at <span class="type-serif">scale*</span><br/>Growing engineers<br class="d-none d-tab-inline"/>Building communities that <u>last</u>
 lead: Senior/Lead Software Engineer at Just Eat Takeaway.com. GopherCon UK speaker. Chair of the Go Guild at JET and open-source contributor. Passionate about writing well-crafted Go, mentoring engineers, and building communities where Gophers thrive.
+styles:
+  - scss/pages/home.scss
 bio:
   image: images/bio.jpg
   title: Hi, I'm Ainsley.

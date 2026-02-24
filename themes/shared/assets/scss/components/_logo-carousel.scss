@@ -9,7 +9,7 @@
 	overflow: hidden;
 	margin-top: clamp(60px, 10vw, 100px);
 
-	// Gradient fade-out masks
+	// Gradients
 	// =========================================================================
 
 	&::before,
@@ -18,7 +18,7 @@
 		position: absolute;
 		top: 0;
 		bottom: 0;
-		width: clamp(60px, 10vw, 120px);
+		width: clamp(80px, 16vw, 160px);
 		z-index: 1;
 		pointer-events: none;
 	}

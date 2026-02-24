@@ -1,0 +1,27 @@
+// -----------------------------------------------------------------------------
+// _home.scss
+// This file contains all styles related to the home a-clark page.
+// -----------------------------------------------------------------------------
+
+body {
+}
+
+
+.home {
+
+	&-hero-rules {
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		&-wrapper {
+			position: relative;
+			width: 150px;
+
+			&:last-child  {
+				right: 75px;
+				transform: rotate(90deg) translateX(100%);
+			}
+		}
+	}
+}
