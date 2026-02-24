@@ -15,11 +15,23 @@ export class LogoCarousel {
 
 	private init(): void {
 		document.querySelectorAll<HTMLElement>(this.selector).forEach((node) => {
-			EmblaCarousel(
-				node,
-				{ loop: true, dragFree: true, watchDrag: false },
-				[AutoScroll({ playOnInit: true, stopOnInteraction: false, speed: 1 })],
-			);
+			EmblaCarousel(node,
+				{
+					loop: true,
+					dragFree: true,
+					watchDrag: false,
+					watchResize: true,
+					watchFocus: false,
+				}, [
+				AutoScroll({
+					playOnInit: true,
+					stopOnInteraction: false,
+					stopOnFocusIn: false,
+					stopOnMouseEnter: false,
+					speed: 1,
+					startDelay: 0,
+				}),
+			]);
 		});
 	}
 }

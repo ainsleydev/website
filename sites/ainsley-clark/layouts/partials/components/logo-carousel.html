@@ -13,32 +13,33 @@
 		- images: Slice of dicts with "image" (path) and "alt" (text) keys.
 	===================== -->
 {{ with .images }}
-<div class="logo-carousel">
-	<div class="logo-carousel-embla">
-		<div class="logo-carousel-container">
-			{{ range . }}
-				<div class="logo-carousel-slide">
-					{{ partial "media/picture.html" (dict
-						"image" (or ($.ctx.Resources.GetMatch .image) (resources.GetMatch .image))
-						"alt"   .alt
-						"lazy"  false
-						"class" "logo-carousel-img"
-					)}}
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="logo-carousel">
+					<div class="logo-carousel-embla">
+						<div class="logo-carousel-container">
+							{{ range . }}
+								<div class="logo-carousel-slide">
+									{{ partial "media/picture.html" (dict
+										"image" (or ($.ctx.Resources.GetMatch .image) (resources.GetMatch .image))
+										"alt"   .alt
+										"lazy"  false
+										"class" "logo-carousel-img"
+									)}}
+								</div>
+							{{ end }}
+						</div>
+					</div>
 				</div>
-			{{ end }}
-		</div>
-	</div>
-</div>
+			</div><!-- /Col -->
+		</div><!-- /Row -->
+	</div><!-- /Container -->
 {{ end }}
-<!-- Assets — emitted once per page regardless of how many times the partial is called -->
+<!-- Assets — Emitted once per page regardless of how many times the partial is called -->
 {{ if not ($.ctx.Store.Get "logoCarouselInit") }}
 	{{ $.ctx.Store.Set "logoCarouselInit" true }}
-	{{/* Stylesheet */}}
-	{{- $css := resources.Get "scss/components/logo-carousel.scss" | toCSS -}}
-	{{- if ne hugo.Environment "development" -}}{{- $css = $css | resources.Minify -}}{{- end -}}
-	<link rel="stylesheet" href="{{ ($css | resources.Fingerprint "sha512").RelPermalink }}">
-	{{/* Script */}}
-	{{- $js := resources.Get "js/components/logo-carousel.ts" | js.Build (dict "targetPath" "js/logo-carousel.js") -}}
-	{{- if ne hugo.Environment "development" -}}{{- $js = $js | resources.Minify -}}{{- end -}}
+	{{ $js := resources.Get "js/components/logo-carousel.ts" | js.Build (dict "targetPath" "js/logo-carousel.js") -}}
+	{{ if ne hugo.Environment "development" -}}{{- $js = $js | resources.Minify -}}{{- end -}}
 	<script defer src="{{ ($js | resources.Fingerprint "sha512").RelPermalink }}"></script>
 {{ end }}
