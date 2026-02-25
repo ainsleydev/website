@@ -20,10 +20,13 @@ const (
 	// AuthHeader is the header used for authentication via an
 	// API Key
 	AuthHeader = "X-API-Key"
-	// OriginURL is the URL of the site to compare against
-	// in production.
-	OriginURL = "https://ainsley.dev"
 )
+
+// OriginURLs is the list of allowed origins to compare against in production.
+var OriginURLs = []string{
+	"https://ainsley.dev",
+	"https://ainsleyclark.com",
+}
 
 // Auth validates API request and determines if the AuthHeader value is of equal
 // to the header send in the request.
@@ -40,7 +43,14 @@ func Auth(cfg *environment.Config) echo.MiddlewareFunc {
 			// Vercel comes back with a different URL in production for some reason.
 			// So a static variable needs to be used.
 			// TODO: See if there is a more graceful way of doing this.
-			if !strings.Contains(origin, OriginURL) || origin == "" {
+			allowed := false
+			for _, u := range OriginURLs {
+				if strings.Contains(origin, u) {
+					allowed = true
+					break
+				}
+			}
+			if !allowed || origin == "" {
 				return false, fmt.Errorf("bad origin: %s, with comparison: %s", origin, cfg.URL)
 			}
 			return auth == cfg.APIKey, nil
