@@ -53,5 +53,6 @@ codepen:
     theme: dark
 footer:
     title: 'Digital craftmanship<br class="d-mob-none"/><span class="d-none d-mob-inline">&nbsp;</span>sculpting<br class="d-none d-mob-inline"/>&nbsp;you as an<br class="d-mob-none"/><span class="d-none d-mob-inline">&nbsp;</span>industry leader.'
+    subText: 'ainsley.dev® is a registered company in England and Wales. Company Number 14550437. <br class="d-none d-desk-large-inline"/>The ainsley.dev® name and logo are registered trademarks of ainsley.dev LTD.'
 wording:
     pronoun: us

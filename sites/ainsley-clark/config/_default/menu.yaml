@@ -20,18 +20,26 @@ navMain:
         url: "/#contact"
         weight: 50
 footer:
-    -   identifier: home
-        name: Home
-        url: /
+    -   identifier: bio
+        name: Bio
+        url: "/#bio"
         weight: 10
+    -   identifier: media
+        name: Media
+        url: "/#media"
+        weight: 20
+    -   identifier: skills
+        name: Skills
+        url: "/#skills"
+        weight: 30
     -   identifier: insights
         name: Insights
         url: /insights/
-        weight: 20
+        weight: 40
     -   identifier: contact
         name: Say hello
-        url: /#contact
-        weight: 30
+        url: "/#contact"
+        weight: 50
 terms:
     -   identifier: terms-conditions
         name: Terms
