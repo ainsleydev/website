@@ -94,7 +94,7 @@ export const homeAnimation = (): void => {
 				duration: 2000,
 			},
 			'-=4000',
-		);
+		)
 
 	Scroll.onScroll((y: number) => {
 		const percent = (y / (height + offset - Elements.HTML.clientHeight)) * 100;

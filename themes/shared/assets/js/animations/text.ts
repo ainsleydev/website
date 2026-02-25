@@ -204,7 +204,18 @@ const hero = (): Playable => {
 				duration: 1000,
 			},
 			900,
-		);
+		)
+		// Appears on pages with logos (a-clark right now).
+		.add(
+			{
+				targets: document.querySelectorAll(".logo-carousel-slide"),
+				opacity: [0, 1],
+				easing: 'easeInQuad',
+				duration: 1000,
+				delay: anime.stagger(100),
+			},
+			900
+		)
 
 	const arrow = document.querySelector('.hero .arrow-hover');
 	if (arrow) {
