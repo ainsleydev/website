@@ -42,6 +42,7 @@ export class Animations {
 		this.playables.push(...up());
 		this.playables.push(...fade());
 		this.playables.push(carousel());
+		this.playables.push(logoCarousel());
 	}
 
 	/**
@@ -144,6 +145,7 @@ const hero = (): Playable => {
 	anime.set(heading.querySelectorAll('.word'), { opacity: 1 });
 	anime.set(heading.querySelectorAll('.char'), { opacity: 0 });
 	anime.set(heading.querySelectorAll('.hero .arrow-hover'), { opacity: 0 });
+
 	const timeline = anime
 		.timeline({
 			autoplay: false,
@@ -204,17 +206,6 @@ const hero = (): Playable => {
 				duration: 1000,
 			},
 			900,
-		)
-		// Appears on pages with logos (a-clark right now).
-		.add(
-			{
-				targets: document.querySelectorAll(".logo-carousel-slide"),
-				opacity: [0, 1],
-				easing: 'easeInQuad',
-				duration: 1000,
-				delay: anime.stagger(100),
-			},
-			900
 		)
 
 	const arrow = document.querySelector('.hero .arrow-hover');
@@ -404,6 +395,59 @@ const carousel = (): Playable => {
 	}
 
 	// Desktop
+	timeline
+		.add(
+			{
+				targets: items,
+				translateY: [250, 0],
+				easing: 'easeOutElastic',
+				duration: 2500,
+				delay: anime.stagger(120),
+			},
+			0,
+		)
+		.add(
+			{
+				targets: items,
+				opacity: [0, 1],
+				easing: 'easeInQuad',
+				duration: 1000,
+				delay: anime.stagger(100),
+			},
+			100,
+		);
+
+	return timeline.play;
+};
+
+/**
+ * Logo Carousel animation (a-clark homepage).
+ */
+const logoCarousel = (): Playable => {
+	const items = document.querySelectorAll('.logo-carousel-slide');
+	if (!items.length) {
+		return <() => void>{};
+	}
+
+	anime.set(items, { opacity: 0 });
+
+	const timeline = anime.timeline({
+		autoplay: false,
+	});
+
+	// Mobile (simple fade, no bounce)
+	if (window.innerWidth < 1024) {
+		timeline.add({
+			targets: items,
+			opacity: [0, 1],
+			easing: 'easeInQuad',
+			duration: 1000,
+			delay: anime.stagger(100),
+		});
+		return timeline.play;
+	}
+
+	// Desktop — separate translateY and opacity, matches carousel() pattern
 	timeline
 		.add(
 			{

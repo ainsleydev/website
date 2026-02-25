@@ -7,6 +7,7 @@
 	position: relative;
 	width: 100%;
 	overflow-x: clip;
+	isolation: isolate;
 	margin-top: clamp(60px, 10vw, 100px);
 
 	// Gradients
@@ -21,6 +22,11 @@
 		width: clamp(80px, 16vw, 160px);
 		z-index: 1;
 		pointer-events: none;
+
+		@include media-desk {
+			top: -100px;
+			bottom: -300px;
+		}
 	}
 
 	&::before {
@@ -37,7 +43,7 @@
 	// =========================================================================
 
 	&-embla {
-		overflow: hidden;
+		overflow-x: clip;
 	}
 
 	&-container {
