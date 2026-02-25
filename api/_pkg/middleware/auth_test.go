@@ -50,11 +50,23 @@ func TestAuth(t *testing.T) {
 			},
 			want: http.StatusOK,
 		},
-		"OK Production": {
+		"OK Production ainsley.dev": {
 			input: func(r *http.Request) {
 				t.Setenv(AuthHeader, "key")
 				r.Header.Set(AuthHeader, "key")
-				r.Header.Set("Origin", OriginURL)
+				r.Header.Set("Origin", OriginURLs[0])
+			},
+			config: environment.Config{
+				Env:    "production",
+				APIKey: "key",
+			},
+			want: http.StatusOK,
+		},
+		"OK Production ainsleyclark.com": {
+			input: func(r *http.Request) {
+				t.Setenv(AuthHeader, "key")
+				r.Header.Set(AuthHeader, "key")
+				r.Header.Set("Origin", OriginURLs[1])
 			},
 			config: environment.Config{
 				Env:    "production",
