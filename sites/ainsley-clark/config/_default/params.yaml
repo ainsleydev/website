@@ -49,7 +49,7 @@ codepen:
     theme: dark
 footer:
     title: 'Shipping Go at scale.<br class="d-none d-desk-inline"/>Growing engineers.<br class="d-none d-desk-inline"/>Building communities that last.'
-    subText: 'Engineer. Mentor. Gopher. Shipping Go at scale and growing the engineers around me. Based in London, UK.'
+    subText: 'All original content, code, and written works published on this site are the intellectual property of ainsley.dev LTD unless otherwise stated.'
 bio:
     image: images/bio.jpg
     title: "Hi, I'm Ainsley."
