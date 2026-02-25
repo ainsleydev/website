@@ -11,6 +11,12 @@ images:
     - /images/site/services.jpg
 url: https://ainsleyclark.com
 logo: https://ainsleyclark.com/images/logo.jpg
+schemaType: person
+person:
+    name: Ainsley Clark
+    givenName: Ainsley
+    familyName: Clark
+    jobTitle: "Designer & Developer"
 company:
     name: ainsley.dev LTD
     number: 14550437

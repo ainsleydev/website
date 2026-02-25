@@ -72,8 +72,12 @@
         {{ partial "opengraph/opengraph.html" . }}
 		<!-- Twitter -->
         {{ partial "opengraph/twitter.html" . }}
-		<!-- Schema - Organisation -->
-        {{ partial "schema/organisation.html" . }}
+		<!-- Schema - Organisation / Person -->
+        {{ if eq .Site.Params.schemaType "person" -}}
+        	{{ partial "schema/person.html" . }}
+        {{- else -}}
+        	{{ partial "schema/organisation.html" . }}
+        {{- end }}
 		<!-- Schema - Navigational -->
 		{{ partial "schema/navigational.html" (dict
 			"ctx" .

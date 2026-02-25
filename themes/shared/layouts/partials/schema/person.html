@@ -1,0 +1,23 @@
+<!-- =====================
+    Schema - Person
+    ===================== -->
+<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Person",
+		"@id": "{{ .Site.Params.url }}",
+		"url": "{{ .Site.Params.url }}",
+		"name": "{{ .Site.Params.person.name }}",
+		"givenName": "{{ .Site.Params.person.givenName }}",
+		"familyName": "{{ .Site.Params.person.familyName }}",
+		"jobTitle": "{{ .Site.Params.person.jobTitle }}",
+		"image": "{{ .Site.Params.logo }}",
+		"sameAs": [
+			{{ range $i, $v := slice .Site.Params.social.github .Site.Params.social.linkedin .Site.Params.social.twitter .Site.Params.social.dribbble -}}
+			{{ if $v -}}
+			{{ if $i }},{{ end }}"{{ $v }}"
+			{{- end }}
+			{{- end }}
+		]
+	}
+</script>
