@@ -8,6 +8,17 @@
 @import '../../../../../themes/shared/assets/scss/abstracts/variables';
 
 
+.hero-buttons {
+
+	@include media-mob-down {
+		flex-wrap: wrap;
+
+		.btn:first-child {
+			flex-basis: 100%;
+		}
+	}
+}
+
 .bio {
 
 	&-rule {
