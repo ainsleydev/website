@@ -1,0 +1,57 @@
+{{ define "main" }}
+	<!-- =====================
+		Media List
+			Aggregates every media type into a single archive. Append new
+			sections (e.g. podcasts) to the slice below as they are added.
+		===================== -->
+	{{ $media := where site.RegularPages "Section" "in" (slice "conferences") }}
+	<section class="hero hero-simple margin-title animate-fade">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-12 col-desk-10">
+					<!-- Title -->
+					{{ with .Params.heading -}}
+						<h1>
+							{{ . | safeHTML }}
+						</h1>
+					{{- else -}}
+						{{ warnf "No heading param provided to page: %s" .RelPermalink }}
+					{{- end }}
+					<!-- Lead -->
+					{{ with .Params.lead -}}
+						<p class="lead lead-max-width mb-0">
+							{{ . }}
+						</p>
+					{{- end }}
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+	<!-- =====================
+		Items
+		===================== -->
+	{{ $paginator := .Paginate $media.ByDate.Reverse 14 -}}
+	{{ if $paginator.Pages -}}
+		<section class="section section-padding section-padding-bottom animate-fade" id="pages" data-barba-prevent="all">
+			<div class="container">
+				<!-- Cards -->
+				<div class="row justify-content-center">
+					{{ range $paginator.Pages -}}
+						<div class="col-12 col-desk-10 card-col">
+							{{ .Render "card" }}
+						</div><!-- /Col -->
+					{{- end }}
+				</div><!-- /Row -->
+				<!-- Previous / Next -->
+				<div class="row justify-content-center">
+					<div class="col-12 col-desk-10">
+						{{ partial "components/pagination.html" (dict
+							"prev" $paginator.Prev
+							"next" $paginator.Next
+						)}}
+					</div><!-- /Col -->
+				</div><!-- /Row -->
+			</div><!-- /Container -->
+		</section>
+	{{- end }}
+{{ end }}

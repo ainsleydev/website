@@ -127,6 +127,16 @@
 					</div><!-- /Col -->
 					<!-- Pages -->
 					<div class="col-12 col-mob-9">
+						<div class="row no-gaps">
+							{{ partial "components/all-articles.html" (dict
+								"link" "/media/"
+								"text" "All media"
+								"title" "View all conference talks"
+								"largeSubText" "Latest Talks"
+								"smallSubText" "Latest Talks"
+								"border" true
+							)}}
+						</div><!-- /Row -->
 						<div class="conferences">
 							{{ range . }}
 								{{ .Render "card" }}
