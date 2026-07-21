@@ -15,6 +15,7 @@ import { ITransitionPage } from '@barba/core/dist/core/src/defs';
 
 const excludedPaths = [
 	{ path: 'insights', length: 2 },
+	{ path: 'conferences', length: 2 },
 	{ path: 'privacy', length: 1 },
 	{ path: 'terms', length: 1 },
 	{ path: 'cookies', length: 1 },
