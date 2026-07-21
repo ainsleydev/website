@@ -81,8 +81,8 @@
 			"has": [{"type": "host", "value": "ainsley\\.dev"}]
 		},
 		{
-			"source": "/media/",
-			"destination": "/conferences/",
+			"source": "/conferences/",
+			"destination": "/media/",
 			"permanent": true,
 			"has": [{"type": "host", "value": "ainsleyclark\\.com"}]
 		},

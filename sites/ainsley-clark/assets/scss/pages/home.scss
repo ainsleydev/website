@@ -31,8 +31,19 @@
 	@include media-mob {
 
 		.card:first-child {
-			border-top: var(--card-border);
 			margin: 0;
+		}
+	}
+}
+
+#media {
+
+	// The vertical label scrolls with the section below desktop, in line
+	// with the surrounding content.
+	@include media-desk-down {
+
+		[data-scroll-speed] {
+			transform: none !important;
 		}
 	}
 }

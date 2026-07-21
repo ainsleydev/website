@@ -1,7 +1,10 @@
 {{ define "main" }}
 	<!-- =====================
-		Conferences List
+		Media List
+			Aggregates every media type into a single archive. Append new
+			sections (e.g. podcasts) to the slice below as they are added.
 		===================== -->
+	{{ $media := where site.RegularPages "Section" "in" (slice "conferences") }}
 	<section class="hero hero-simple margin-title animate-fade">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -27,7 +30,7 @@
 	<!-- =====================
 		Items
 		===================== -->
-	{{ $paginator := .Paginate .Pages.ByDate.Reverse 14 -}}
+	{{ $paginator := .Paginate $media.ByDate.Reverse 14 -}}
 	{{ if $paginator.Pages -}}
 		<section class="section section-padding section-padding-bottom animate-fade" id="pages" data-barba-prevent="all">
 			<div class="container">
