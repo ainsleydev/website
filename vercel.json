@@ -4,7 +4,6 @@
 	"devCommand": "hugo server --source sites/${SITE:-ainsley-dev} --buildDrafts --watch --port $PORT",
 	"installCommand": "pnpm setup:vercel",
 	"outputDirectory": "public",
-	"public": false,
 	"regions": ["lhr1"],
 	"trailingSlash": true,
 	"git": {
