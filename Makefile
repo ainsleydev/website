@@ -18,6 +18,10 @@ serve: # Serve the application
 	npm run serve
 .PHONY: serve
 
+talk: # Scaffold a new conference talk: make talk NAME=my-conf-2026
+	hugo new --kind conference-bundle conferences/$(NAME) --source sites/ainsley-clark
+.PHONY: talk
+
 deploy-prod: # Deploy production to Vercel
 	vercel --prod
 .PHONY: deploy-prod

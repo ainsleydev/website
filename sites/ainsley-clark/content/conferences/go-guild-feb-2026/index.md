@@ -2,6 +2,7 @@
 heading: Go Guild - Sept 2024
 lead: Building Open Source Go Projects in Public with MelkeyDev. Learn how popular Go author, Melkey built go-blueprint live on twitch; with a community round up as always.
 weight: 9
+publishdate: 2024-09-01
 tags:
   - Open Source
   - Community

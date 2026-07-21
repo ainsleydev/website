@@ -1,0 +1,82 @@
+// -----------------------------------------------------------------------------
+// _conference.scss
+// This file contains all styles related to the conference single page.
+// -----------------------------------------------------------------------------
+
+@import '../abstracts/mixins';
+@import '../abstracts/variables';
+
+.conference {
+	// Meta
+	// =========================================================================
+
+	&-meta {
+		display: flex;
+		flex-direction: column;
+		margin-top: $margin;
+
+		&-title {
+			color: $black;
+			margin-bottom: 4px;
+			font-weight: 500;
+
+			a {
+				color: inherit;
+			}
+		}
+
+		small {
+			line-height: 1;
+			color: colour('paragraph');
+		}
+	}
+
+	// Actions
+	// =========================================================================
+
+	&-actions {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: $margin-small;
+		margin-bottom: $margin;
+	}
+
+	// Image
+	// =========================================================================
+
+	&-image {
+		margin-bottom: $margin;
+
+		img {
+			width: 100%;
+			height: auto;
+			border-radius: 6px;
+		}
+	}
+
+	// Sources
+	// =========================================================================
+
+	&-sources {
+		margin-top: $margin;
+		margin-bottom: $margin;
+
+		h2 {
+			margin-bottom: $margin-small;
+		}
+
+		.box-link {
+			margin-bottom: $margin-tiny;
+		}
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-tab {
+		&-meta {
+			margin-top: 0;
+		}
+	}
+}

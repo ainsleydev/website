@@ -1,0 +1,175 @@
+{{ define "main" }}
+	<!-- =====================
+		Conference Single
+		===================== -->
+	<section class="hero hero-simple hero-simple-padding-bottom"
+		data-cursor-white data-scroll-section>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-12 col-tab-10 col-desk-8 col-desk-large-7 d-flex flex-column order-desk-first">
+					<!-- =====================
+						Intro
+						===================== -->
+					<header class="insight-intro">
+						<!-- Crumbs -->
+						<!-- Hand rolled as the conferences section page is never rendered (no permalink). -->
+						<div class="insight-intro-crumbs">
+							<nav class="breadcrumbs mb-0" aria-label="breadcrumb">
+								<ul class="breadcrumbs-list"
+									itemscope itemtype="https://schema.org/BreadcrumbList">
+									<!-- Home -->
+									<li class="breadcrumbs-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+										<a class="breadcrumbs-link" href="/" itemprop="item">
+											<span itemprop="name">Home</span>
+											<meta itemprop="position" content="1" />
+										</a>
+									</li>
+									<!-- Media -->
+									<li class="breadcrumbs-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+										<a class="breadcrumbs-link" href="/#media" itemprop="item">
+											<span itemprop="name">Media</span>
+											<meta itemprop="position" content="2" />
+										</a>
+									</li>
+									<!-- Current -->
+									<li class="breadcrumbs-item breadcrumbs-active"
+										itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"
+										aria-current="page">
+										<a class="breadcrumbs-link" href="{{ .RelPermalink }}" itemprop="item">
+											<span itemprop="name">{{ .Params.heading }}</span>
+											<meta itemprop="position" content="3" />
+										</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+						<!-- Tags -->
+						{{ with .Params.tags }}
+							<div class="insight-intro-tags">
+								{{ range . -}}
+									<span class="tag">{{ . }}</span>
+								{{- end }}
+							</div>
+						{{- end }}
+					</header><!-- /Intro -->
+					<!-- =====================
+						Title
+						===================== -->
+					{{ with .Params.talkTitle | default .Params.heading -}}
+						<h1 class="heading-1 heading-1-small margin">
+							{{ . | safeHTML }}
+						</h1>
+					{{- else -}}
+						{{ warnf "No talkTitle or heading param provided to page: %s" .RelPermalink }}
+					{{- end }}
+					<!-- =====================
+						Lead
+						===================== -->
+					{{ with .Params.lead -}}
+						<p class="lead">
+							{{ . | safeHTML }}
+						</p>
+					{{- end }}
+					<!-- =====================
+						Meta
+						===================== -->
+					<div class="insight-meta">
+						{{ .Render "social" }}
+						<!-- Event -->
+						{{ with .Params.event }}
+							<div class="conference-meta">
+								{{ with .name -}}
+									<p class="conference-meta-title">
+										{{ with $.Params.event.url -}}
+											<a href="{{ . }}" target="_blank" rel="noopener noreferrer">
+												{{ $.Params.event.name }}
+											</a>
+										{{- else -}}
+											{{ . }}
+										{{- end }}
+									</p>
+								{{- end }}
+								<small>
+									{{ with .date }}{{ dateFormat "Jan 2, 2006" . }}{{ end }}
+									{{- with .location }} - {{ . }}{{ end }}
+								</small>
+							</div>
+						{{ end }}
+					</div>
+					<!-- =====================
+						Image
+						===================== -->
+					{{ with .Resources.GetMatch "images/featured.*" }}
+						<figure class="conference-image">
+							{{ partial "media/image.html" (dict
+								"image" .
+								"alt" (printf "%s - %s" $.Params.heading $.Site.Params.niceName)
+								"lazy" true
+							)}}
+						</figure>
+					{{ end }}
+					<!-- =====================
+						Actions
+						===================== -->
+					{{ if or .Params.slides .Params.video }}
+						<div class="conference-actions">
+							<!-- Slides -->
+							{{ with .Params.slides }}
+								{{ $file := $.Resources.GetMatch .path }}
+								{{ if $file -}}
+									{{ partial "components/button.html" (dict
+										"text" (.text | default "Download slides")
+										"link" $file.RelPermalink
+										"colour" "black"
+										"size" "small"
+										"arrow" true
+										"title" (printf "Download the slides for %s" $.Params.heading)
+										"attr" (printf "download=%s" .name)
+									)}}
+								{{- else -}}
+									{{ warnf "Slides file not found with path %s for page: %s" .path $.RelPermalink }}
+								{{- end }}
+							{{ end }}
+							<!-- Video -->
+							{{ with .Params.video }}
+								{{ partial "components/button.html" (dict
+									"text" "Watch talk"
+									"link" .
+									"colour" "white"
+									"size" "small"
+									"arrow" true
+									"title" (printf "Watch %s" $.Params.heading)
+									"attr" "target=_blank rel=noopener"
+								)}}
+							{{ end }}
+						</div>
+					{{ end }}
+					<!-- =====================
+						Content
+						===================== -->
+					{{ with .Content }}
+						<article class="richtext">
+							{{ . | replaceRE "/a>\n" "/a>" | safeHTML }}
+						</article>
+					{{ end }}
+					<!-- =====================
+						Sources
+						===================== -->
+					{{ with .Params.sources }}
+						<section class="conference-sources">
+							<h2 class="heading-4">Sources &amp; links</h2>
+							{{ range . }}
+								{{ partial "components/box-links.html" (dict
+									"link" .url
+									"heading" .title
+									"sub" .description
+									"title" (printf "Open %s" .title)
+								)}}
+							{{ end }}
+						</section>
+					{{ end }}
+				</div><!-- /Col -->
+			</div><!-- /Row -->
+		</div><!-- /Container -->
+	</section>
+{{ end }}
