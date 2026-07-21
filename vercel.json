@@ -81,6 +81,12 @@
 			"has": [{"type": "host", "value": "ainsley\\.dev"}]
 		},
 		{
+			"source": "/media/",
+			"destination": "/conferences/",
+			"permanent": true,
+			"has": [{"type": "host", "value": "ainsleyclark\\.com"}]
+		},
+		{
 			"source": ",/:path((?!compatible).*)",
 			"has": [
 				{

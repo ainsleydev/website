@@ -2,6 +2,7 @@
 title: GopherCon UK 2025 - Deploying Go Microservices in Minutes
 description: How Just Eat uses tooling to deploy Go micro-services in minutes, exploring how Go Kit helps engineers to deploy complex event-driven workflows with ease.
 heading: GopherCon UK 2025
+breadcrumbs: GopherCon UK 2025
 lead: How Just Eat uses tooling to deploy Go micro-services in minutes. This talk explores how Go Kit helps engineers to deploy complex event-driven workflows with ease.
 weight: 1
 publishdate: 2025-08-14

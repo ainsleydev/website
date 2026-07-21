@@ -5,7 +5,7 @@ navMain:
         weight: 10
     -   identifier: media
         name: Media
-        url: "/#media"
+        url: /conferences/
         weight: 20
     -   identifier: skills
         name: Skills
@@ -26,7 +26,7 @@ footer:
         weight: 10
     -   identifier: media
         name: Media
-        url: "/#media"
+        url: /conferences/
         weight: 20
     -   identifier: skills
         name: Skills
@@ -62,6 +62,10 @@ schema:
         name: Home
         url: /
         weight: 10
+    -   identifier: media
+        name: Media
+        url: /conferences/
+        weight: 15
     -   identifier: insights
         name: Insights
         url: /insights/

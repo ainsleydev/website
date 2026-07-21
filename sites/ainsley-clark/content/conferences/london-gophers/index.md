@@ -2,6 +2,7 @@
 title: London Gophers - Deploying Go Microservices
 description: Learn how Just Eat deploys Go microservices with well crafted tooling, making sophisticated event-driven workflows faster to ship and easier to maintain.
 heading: London Gophers
+breadcrumbs: London Gophers
 lead: Learn how Just Eat deploys Go microservices with well crafted tooling. Making sophisticated event-driven workflows faster to ship, easier to maintain & easier to run.
 weight: 2
 publishdate: 2025-02-19

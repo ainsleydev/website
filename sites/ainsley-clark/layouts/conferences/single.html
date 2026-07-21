@@ -12,36 +12,11 @@
 						===================== -->
 					<header class="insight-intro">
 						<!-- Crumbs -->
-						<!-- Hand rolled as the conferences section page is never rendered (no permalink). -->
 						<div class="insight-intro-crumbs">
-							<nav class="breadcrumbs mb-0" aria-label="breadcrumb">
-								<ul class="breadcrumbs-list"
-									itemscope itemtype="https://schema.org/BreadcrumbList">
-									<!-- Home -->
-									<li class="breadcrumbs-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-										<a class="breadcrumbs-link" href="/" itemprop="item">
-											<span itemprop="name">Home</span>
-											<meta itemprop="position" content="1" />
-										</a>
-									</li>
-									<!-- Media -->
-									<li class="breadcrumbs-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-										<a class="breadcrumbs-link" href="/#media" itemprop="item">
-											<span itemprop="name">Media</span>
-											<meta itemprop="position" content="2" />
-										</a>
-									</li>
-									<!-- Current -->
-									<li class="breadcrumbs-item breadcrumbs-active"
-										itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"
-										aria-current="page">
-										<a class="breadcrumbs-link" href="{{ .RelPermalink }}" itemprop="item">
-											<span itemprop="name">{{ .Params.heading }}</span>
-											<meta itemprop="position" content="3" />
-										</a>
-									</li>
-								</ul>
-							</nav>
+							{{ partial "components/breadcrumbs.html" (dict
+								"ctx"    .
+								"margin" false
+							)}}
 						</div>
 						<!-- Tags -->
 						{{ with .Params.tags }}

@@ -2,6 +2,7 @@
 title: How to Stay Passionate in Tech in the Age of AI
 description: How AI tooling is reshaping our sense of accomplishment as engineers, and nine practical ways to reclaim your passion and craft in this new era.
 heading: GopherCon UK 2026
+breadcrumbs: GopherCon UK 2026
 talkTitle: How to Stay Passionate in Tech in the Age of AI
 lead: The lines between human and AI labour are becoming increasingly blurred. This talk explores how AI tooling is quietly reshaping our sense of accomplishment as engineers, what the research says about effort, ownership and craft, and nine practical ways to reclaim your passion in this new era.
 weight: 1
