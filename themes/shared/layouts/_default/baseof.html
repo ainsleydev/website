@@ -84,7 +84,7 @@
 			"menus" .Site.Menus.schema
 		)}}
 		<!-- Schema - Articles -->
-        {{ if eq .Section "insights" -}}
+        {{ if or (eq .Section "insights") (eq .Section "conferences") -}}
         	{{ .Render "schema" }}
 		{{- end }}
 		<!-- Analytics -->
@@ -121,7 +121,7 @@
 		<!-- Content Wrapper -->
 		<div class="barba-container" data-barba="container" data-barba-namespace="{{ partial "util/_namespace.html" . }}">
 			<div class="content-wrapper" data-scroll-container
-					{{ if or (and (eq .Section "insights") .IsPage) (and (eq .Section "legal") .IsPage) (and (eq .Section "guidelines") .IsPage) -}} data-scroll-disable {{- end }}>
+					{{ if or (and (eq .Section "insights") .IsPage) (and (eq .Section "conferences") .IsPage) (and (eq .Section "legal") .IsPage) (and (eq .Section "guidelines") .IsPage) -}} data-scroll-disable {{- end }}>
 				<!-- Main Content -->
 				<main id="main" class="theme-{{ $colour }}" data-theme="{{ $colour }}">
                     {{- block "main" . -}} {{- end }}

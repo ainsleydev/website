@@ -1,8 +1,11 @@
 <!-- =====================
     Conferences Card
+    	Links to the conference single page when it renders, falling back
+    	to the external URL for talks that opt out with build.render: never.
     ===================== -->
+{{ $internal := ne .RelPermalink "" }}
 {{ partial "components/featured-card.html" (dict
-	"href"         .Params.externalURL
+	"href"         (cond $internal .RelPermalink .Params.externalURL)
 	"image"        (.Resources.GetMatch "images/featured.*")
 	"imageDefault" (.Resources.GetMatch "images/featured-small.*")
 	"heading"      .Params.heading
@@ -11,5 +14,5 @@
 	"buttonName"   .Params.buttonName
 	"fullWidth"    false
 	"numbers"      false
-	"external"     true
+	"external"     (not $internal)
 )}}

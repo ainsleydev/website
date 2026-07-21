@@ -57,6 +57,16 @@ hugo new --kind post-bundle insights/my-post
 hugo new --kind portfolio-bundle portfolio/client-name
 ```
 
+**Create a new conference talk (ainsleyclark.com)**
+
+```shell
+make talk NAME=my-conf-2026
+```
+
+Then add `images/featured.jpg` and `files/slides.pdf` to the bundle, fill in the event metadata and sources, and
+generate a QR code pointing to `https://ainsleyclark.com/conferences/my-conf-2026/`. The page stays in draft (excluded
+from production builds) until `draft: false` is set, typically a day before the talk.
+
 ## Open Source
 
 ainsley.dev permits the use of any HTML, SCSS and Javascript found within the repository for use with external projects.
