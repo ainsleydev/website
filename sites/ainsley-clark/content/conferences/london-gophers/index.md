@@ -4,6 +4,7 @@ description: Learn how Just Eat deploys Go microservices with well crafted tooli
 heading: London Gophers
 lead: Learn how Just Eat deploys Go microservices with well crafted tooling. Making sophisticated event-driven workflows faster to ship, easier to maintain & easier to run.
 weight: 2
+publishdate: 2025-06-18
 pageColour: white
 draft: false
 tags:

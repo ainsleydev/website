@@ -55,12 +55,12 @@
 					<!-- =====================
 						Title
 						===================== -->
-					{{ with .Params.heading -}}
+					{{ with .Params.talkTitle | default .Params.heading -}}
 						<h1 class="heading-1 heading-1-small margin">
 							{{ . | safeHTML }}
 						</h1>
 					{{- else -}}
-						{{ warnf "No heading param provided to page: %s" .RelPermalink }}
+						{{ warnf "No talkTitle or heading param provided to page: %s" .RelPermalink }}
 					{{- end }}
 					<!-- =====================
 						Lead
@@ -97,6 +97,18 @@
 						{{ end }}
 					</div>
 					<!-- =====================
+						Image
+						===================== -->
+					{{ with .Resources.GetMatch "images/featured.*" }}
+						<figure class="conference-image">
+							{{ partial "media/image.html" (dict
+								"image" .
+								"alt" (printf "%s - %s" $.Params.heading $.Site.Params.niceName)
+								"lazy" true
+							)}}
+						</figure>
+					{{ end }}
+					<!-- =====================
 						Actions
 						===================== -->
 					{{ if or .Params.slides .Params.video }}
@@ -131,18 +143,6 @@
 								)}}
 							{{ end }}
 						</div>
-					{{ end }}
-					<!-- =====================
-						Image
-						===================== -->
-					{{ with .Resources.GetMatch "images/featured.*" }}
-						<figure class="conference-image">
-							{{ partial "media/image.html" (dict
-								"image" .
-								"alt" (printf "%s - %s" $.Params.heading $.Site.Params.niceName)
-								"lazy" true
-							)}}
-						</figure>
 					{{ end }}
 					<!-- =====================
 						Content

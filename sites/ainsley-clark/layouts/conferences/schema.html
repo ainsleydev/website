@@ -6,7 +6,7 @@
 		{
 			"@context": "https://schema.org",
 			"@type": "Event",
-			"name": {{ $.Params.heading }},
+			"name": {{ $.Params.talkTitle | default $.Params.heading }},
 			"description": {{ $.Params.lead }},
 			{{ with .date -}}
 				"startDate": {{ dateFormat "2006-01-02" . }},
@@ -20,7 +20,7 @@
 			{{ with $.Params.video -}}
 				"recordedIn": {
 					"@type": "VideoObject",
-					"name": {{ $.Params.heading }},
+					"name": {{ $.Params.talkTitle | default $.Params.heading }},
 					"url": {{ . }}
 				},
 			{{- end }}

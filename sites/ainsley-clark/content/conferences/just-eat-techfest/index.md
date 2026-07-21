@@ -2,6 +2,7 @@
 heading: JET Tech Fest
 lead: A career change is daunting. Moving from hospitality into the tech industry was an uphill battle, but it led me to a field I genuinely love. If you’re trying to break into a new industry, this story may resonate.
 weight: 9
+publishdate: 2023-08-01
 tags:
   - Career
   - Soft Skills
