@@ -18,10 +18,10 @@ event:
   location: The Brewery, London
   url: https://www.gophercon.co.uk/
 video: https://www.youtube.com/watch?v=JnjKQZOsvcw
-# slides:
-#   path: files/slides.pdf
-#   name: gophercon-uk-2025-ainsley-clark.pdf
-#   text: Download slides
+slides:
+  path: files/slides.pdf
+  name: gophercon-uk-2025-ainsley-clark.pdf
+  text: Download slides
 # sources:
 #   - title: Go Kit
 #     url: https://github.com/go-kit/kit
