@@ -42,6 +42,19 @@
 		margin-bottom: $margin;
 	}
 
+	// Image
+	// =========================================================================
+
+	&-image {
+		margin-bottom: $margin;
+
+		img {
+			width: 100%;
+			height: auto;
+			border-radius: 6px;
+		}
+	}
+
 	// Sources
 	// =========================================================================
 
@@ -54,6 +67,15 @@
 
 		.box-link {
 			margin-bottom: $margin-tiny;
+		}
+	}
+
+	// Tablet
+	// =========================================================================
+
+	@include media-tab {
+		&-meta {
+			margin-top: 0;
 		}
 	}
 }

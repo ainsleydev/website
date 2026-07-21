@@ -133,6 +133,26 @@
 						</div>
 					{{ end }}
 					<!-- =====================
+						Image
+						===================== -->
+					{{ with .Resources.GetMatch "images/featured.*" }}
+						<figure class="conference-image">
+							{{ partial "media/image.html" (dict
+								"image" .
+								"alt" (printf "%s - %s" $.Params.heading $.Site.Params.niceName)
+								"lazy" true
+							)}}
+						</figure>
+					{{ end }}
+					<!-- =====================
+						Content
+						===================== -->
+					{{ with .Content }}
+						<article class="richtext">
+							{{ . | replaceRE "/a>\n" "/a>" | safeHTML }}
+						</article>
+					{{ end }}
+					<!-- =====================
 						Sources
 						===================== -->
 					{{ with .Params.sources }}
@@ -147,14 +167,6 @@
 								)}}
 							{{ end }}
 						</section>
-					{{ end }}
-					<!-- =====================
-						Content
-						===================== -->
-					{{ with .Content }}
-						<article class="richtext">
-							{{ . | replaceRE "/a>\n" "/a>" | safeHTML }}
-						</article>
 					{{ end }}
 				</div><!-- /Col -->
 			</div><!-- /Row -->
