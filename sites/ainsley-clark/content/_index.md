@@ -1,5 +1,5 @@
 ---
-title: Go Developer Advocate, Author, Speaker & Mentor
+title: Full Stack Engineer, Go Developer Advocate, Speaker & Mentor
 description: Ainsley Clark, Go Developer Advocate at JetBrains & founder of ainsley.dev with a passion for all things tech.
 heading: Shipping Go at <span class="type-serif">scale*</span><br/>Growing engineers,<br class="d-none d-tab-inline"/>Building communities that <u>last</u>
 lead: Go Developer Advocate at JetBrains, owner of ainsley.dev (web design & dev), conference speaker, mentor and open-source contributor. Passionate about writing well-crafted Go, mentoring the next generation and building communities where engineers thrive.
