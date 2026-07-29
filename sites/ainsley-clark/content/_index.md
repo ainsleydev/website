@@ -1,8 +1,8 @@
 ---
-title: Full Stack Engineer, Author, Speaker & Mentor
-description: Ainsley Clark, a full stack software engineer working at Just Eat Takeaway.com & founder of ainsley.dev with a passion for all things tech.
+title: Full Stack Engineer, Go Developer Advocate, Speaker & Mentor
+description: Ainsley Clark, Go Developer Advocate at JetBrains & founder of ainsley.dev with a passion for all things tech.
 heading: Shipping Go at <span class="type-serif">scale*</span><br/>Growing engineers,<br class="d-none d-tab-inline"/>Building communities that <u>last</u>
-lead: Senior software engineer at Just Eat Takeaway.com, owner of ainsley.dev (web design & dev), conference speaker, mentor and open-source contributor. Passionate about writing well-crafted Go, mentoring the next generation and building communities where engineers thrive.
+lead: Go Developer Advocate at JetBrains, owner of ainsley.dev (web design & dev), conference speaker, mentor and open-source contributor. Passionate about writing well-crafted Go, mentoring the next generation and building communities where engineers thrive.
 styles:
   - scss/pages/home.scss
 bio:
@@ -12,9 +12,9 @@ bio:
     <h3>Hi, I'm Ainsley</h3>
     <p>I've always been a bit of a geek at heart. It all started off with a pair of DJ decks as a kid which led me to a Music Technology degree, and somewhere along the way turned into a career building software. I can truly say that I love what I do and I'm always excited about all things tech.</p>
     <h4>Engineering</h4>
-    <p>Most of my time is spent writing Go at Just Eat Takeaway.com, leading platform architecture across teams and building tools and services that last.</p>
+    <p>Most of my time is spent writing Go as a Developer Advocate at JetBrains, working closely with the community and building tools and services that last.</p>
     <h4>Advocating</h4>
-    <p>Giving back matters to me, whether that's speaking at conferences, contributing to open source or contributing to the Just Eat Go Guild to raise engineering standards across teams.</p>
+    <p>Giving back matters to me, whether that's speaking at conferences, contributing to open source or running Go guilds and meetups to raise engineering standards across teams.</p>
     <h4>Mentoring</h4>
     <p>I've always loved investing in people and watching them grow through one-to-ones, code reviews and working on soft skills to help them thrive in their career.</p>
 skills:
