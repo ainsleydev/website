@@ -7,7 +7,7 @@ lead: This talk explores how AI tooling is quietly reshaping our sense of accomp
 weight: 1
 publishdate: 2026-07-21
 pageColour: white
-draft: true # Flip to false ~a day before the talk to publish.
+draft: false
 tags:
   - AI
   - Career
@@ -15,12 +15,12 @@ tags:
 buttonName: View Talk
 event:
   name: GopherCon UK
-  date: 2026-08-13 # TODO: Confirm conference date.
+  date: 2026-08-12
   location: The Brewery, London
   url: https://www.gophercon.co.uk/
 slides:
-  path: files/deck.key
-  name: how-to-stay-passionate-in-tech-ainsley-clark.key
+  path: files/slides.pdf
+  name: how-to-stay-passionate-in-tech-ainsley-clark.pdf
   text: Download slides
 sources:
   - title: 1. Breaking Engagement Apart
