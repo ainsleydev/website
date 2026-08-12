@@ -28,7 +28,7 @@ sources:
     description: The role of intrinsic and extrinsic motivation in engagement strategies.
   - title: 2. Self-Determination Theory
     url: https://selfdeterminationtheory.org/SDT/documents/2000_RyanDeci_SDT.pdf
-    description: Deci & Ryan, 2000.
+    description: Ryan & Deci, 2000. American Psychologist.
   - title: 3. The Measurement of Experienced Burnout
     url: https://doi.org/10.1002/job.4030020205
     description: Maslach & Jackson, 1981. Journal of Organizational Behavior.

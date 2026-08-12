@@ -9,8 +9,11 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	gap: 1rem;
 	width: 100%;
+	max-width: 100%;
 	padding: 1rem;
+	overflow: hidden;
 	border: 1px solid rgba($black, $alpha-standard);
 	background-color: $highlight-bg-colour;
 	border-radius: 4px;
@@ -35,7 +38,11 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		flex-grow: 2;
+		// Allow the text to shrink below its intrinsic width, otherwise long
+		// headings & descriptions push the arrow outside of the box.
+		flex: 1 1 auto;
+		min-width: 0;
+		max-width: 100%;
 	}
 
 	// Heading
@@ -43,7 +50,7 @@
 
 	&-heading {
 		display: block;
-		width: 80%;
+		max-width: 100%;
 		white-space: nowrap;
 		font-weight: bold;
 		line-height: 1.2;
@@ -56,10 +63,12 @@
 
 	&-sub {
 		display: block;
+		max-width: 100%;
 		margin-bottom: 4px;
 		font-weight: 500;
-		line-height: 1;
+		line-height: 1.2;
 		color: $copy-dark-bg;
+		overflow-wrap: break-word;
 	}
 
 	// Arrow
@@ -73,6 +82,7 @@
 		width: $arrow-size;
 		min-width: $arrow-size;
 		max-height: 30px;
+		flex-shrink: 0;
 
 		svg {
 			width: 100%;
