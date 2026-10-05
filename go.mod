@@ -10,7 +10,7 @@ require (
 	github.com/getsentry/sentry-go v0.49.0
 	github.com/google/uuid v1.6.0
 	github.com/joho/godotenv v1.5.1
-	github.com/labstack/echo/v4 v4.15.4
+	github.com/labstack/echo/v4 v4.16.0
 	github.com/logrusorgru/aurora v2.0.3+incompatible
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.10.2
