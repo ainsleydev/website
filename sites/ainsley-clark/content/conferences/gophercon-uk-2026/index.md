@@ -18,6 +18,7 @@ event:
   date: 2026-08-12
   location: The Brewery, London
   url: https://www.gophercon.co.uk/
+video: https://www.youtube.com/watch?v=PEWR8lIJ8fw
 slides:
   path: files/slides.pdf
   name: how-to-stay-passionate-in-tech-ainsley-clark.pdf
