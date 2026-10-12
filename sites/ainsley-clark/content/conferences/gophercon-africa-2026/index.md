@@ -5,9 +5,9 @@ heading: GopherCon Africa 2026
 talkTitle: "//go:embed: From Comment to Binary - Linker Internals, Tradeoffs and Production Patterns"
 lead: This talk follows a single //go:embed directive through go build, the compiler and the linker, then looks at what embedding costs you and how to test it.
 weight: 1
-publishdate: 2026-10-29
+publishdate: 2026-10-12
 pageColour: white
-draft: true # Flip to false ~a day before the talk to publish.
+draft: false
 tags:
   - Go
   - Compiler
