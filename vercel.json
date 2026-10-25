@@ -47,6 +47,16 @@
 					"value": "no-referrer-when-downgrade"
 				}
 			]
+		},
+		{
+			"source": "/:path(workshop-.*)",
+			"has": [{"type": "host", "value": "^showcase\\.ainsleyclark\\.com$"}],
+			"headers": [
+				{
+					"key": "X-Robots-Tag",
+					"value": "noindex, nofollow"
+				}
+			]
 		}
 	],
 	"redirects": [
@@ -85,6 +95,12 @@
 			"destination": "/media/",
 			"permanent": true,
 			"has": [{"type": "host", "value": "ainsleyclark\\.com"}]
+		},
+		{
+			"source": "/workshop-gophercon-africa-2026/",
+			"destination": "/gophercon-africa-2026/",
+			"statusCode": 301,
+			"has": [{"type": "host", "value": "^showcase\\.ainsleyclark\\.com$"}]
 		},
 		{
 			"source": ",/:path((?!compatible).*)",

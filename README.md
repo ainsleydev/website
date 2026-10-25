@@ -67,6 +67,21 @@ Then add `images/featured.jpg` and `files/slides.pdf` to the bundle, fill in the
 generate a QR code pointing to `https://ainsleyclark.com/conferences/my-conf-2026/`. The page stays in draft (excluded
 from production builds) until `draft: false` is set, typically a day before the talk.
 
+**Create a new workshop showcase (showcase.ainsleyclark.com)**
+
+```shell
+make showcase NAME=gophercon-africa-2026
+make showcase-sync SRC=path/to/workshop-sqlc-templ/showcase/workshop-gophercon-africa-2026 SLUG=gophercon-africa-2026 CONF=gophercon-africa-2026-workshop
+```
+
+The attendee sites themselves stay in the workshop repository (`showcase/`): Vercel fetches them into
+`sites/showcase/static/` with `bin/showcase-fetch.sh` before every showcase build (set `SHOWCASE_REPO_TOKEN` to a
+read-only fine-grained token there) and locally `make showcase-fetch` does the same over SSH. `make showcase-sync` stages
+a local build of them for preview, writes 1280×720 thumbnails and the featured/OG mosaics into the showcase bundle, and
+copies the mosaics into the matching conference bundle when `CONF` is given. Afterwards list every attendee under `sites:` in the bundle's `index.md` (GitHub login, curated site name and
+theme colour). Each Hugo site deploys from its own Vercel project, selected by the `SITE` env var: `ainsley-dev`,
+`ainsley-clark` or `showcase`.
+
 ## Open Source
 
 ainsley.dev permits the use of any HTML, SCSS and Javascript found within the repository for use with external projects.

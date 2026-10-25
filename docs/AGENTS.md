@@ -32,30 +32,29 @@ ainsley.dev is a professional portfolio and agency website showcasing digital cr
 ## Directory Structure
 
 ```
-/home/user/website/
-├── content/           # Hugo content (markdown files)
-│   ├── guidelines/   # Developer guidelines
-│   ├── insights/     # Blog posts
-│   ├── portfolio/    # Portfolio projects
-│   ├── services/     # Service pages
-│   └── about/        # About pages
-├── api/              # Go API backend
-│   ├── _pkg/         # API packages
-│   ├── _sdk/         # Generated SDK
-│   └── _mocks/       # Test mocks
-├── layouts/          # Hugo templates
-├── assets/           # Source files
-│   ├── js/           # TypeScript files
-│   ├── scss/         # Stylesheets
-│   └── images/       # Images
-├── config/           # Hugo configuration
-│   ├── _default/     # Base config
-│   ├── production/   # Production overrides
-│   └── staging/      # Staging overrides
-├── static/           # Static files (copied as-is)
-├── bin/              # Build scripts
-└── public/           # Generated output (git-ignored)
+website/
+├── sites/                       # One Hugo site per domain, selected on Vercel with SITE=<name>
+│   ├── ainsley-dev/             # ainsley.dev (dev port 3000)
+│   ├── ainsley-clark/           # ainsleyclark.com (dev port 3001)
+│   │   └── content/
+│   │       ├── conferences/     # Talks and workshops, aggregated under /media/
+│   │       └── insights/        # Blog posts
+│   └── showcase/                # showcase.ainsleyclark.com (dev port 3002)
+│       ├── content/<event>/     # One showcase bundle per workshop (make showcase)
+│       └── static/<repo>/       # Attendee sites, git-ignored, fetched by bin/showcase-fetch.sh at build time
+├── themes/shared/               # Layouts, SCSS, TypeScript and static assets shared by every site
+├── api/                         # Go API backend
+│   ├── _pkg/                    # API packages
+│   ├── _sdk/                    # Generated SDK
+│   └── _mocks/                  # Test mocks
+├── openapi/                     # OpenAPI specification
+├── bin/                         # Build, image and showcase sync scripts
+├── docs/                        # Source for the generated AGENTS.md
+└── public/                      # Vercel output (git-ignored)
 ```
+
+Every site has the same shape: `archetypes/`, `assets/`, `config/{_default,production,staging}/`, `content/`,
+`layouts/` and `static/`. Site `layouts/` and `assets/` override `themes/shared/`.
 
 ## Development Workflow
 
@@ -65,14 +64,16 @@ ainsley.dev is a professional portfolio and agency website showcasing digital cr
 # Install dependencies
 pnpm install
 
-# Local development server (runs both sites simultaneously with colors)
+# Local development server (runs all three sites simultaneously with colors)
 # - ainsley-dev on http://localhost:3000
 # - ainsley-clark on http://localhost:3001
+# - showcase on http://localhost:3002
 pnpm dev
 
 # Single site development
 pnpm dev:ainsley-dev   # ainsley-dev only
 pnpm dev:ainsley-clark # ainsley-clark only
+pnpm dev:showcase      # showcase.ainsleyclark.com on http://localhost:3002
 
 # Or use Vercel dev server
 vercel dev
@@ -87,6 +88,7 @@ pnpm build
 # Development build (single site)
 pnpm build:ainsley-dev
 pnpm build:ainsley-clark
+pnpm build:showcase         # showcase.ainsleyclark.com (run make showcase-fetch first)
 
 # Staging build (both sites, minified)
 pnpm build:staging
@@ -149,9 +151,10 @@ The Go API is located in `/api/_pkg/` and provides:
 ## Deployment
 
 ### Automatic Deployment
-- **Main branch** → Production (ainsley.dev)
+- **Main branch** → Production (ainsley.dev, ainsleyclark.com, showcase.ainsleyclark.com)
 - **Staging branch** → Staging (staging.ainsley.dev)
-- Handled automatically by Vercel on git push
+- Handled automatically by Vercel on git push. Each site is its own Vercel project on this repository,
+  selected with the `SITE` env var (`ainsley-dev`, `ainsley-clark` or `showcase`) read by `bin/build.sh`.
 
 ### Manual Deploy
 ```bash

@@ -1,0 +1,77 @@
+# Navigation points back at ainsleyclark.com; only the showcase lives on this site.
+navMain:
+    -   identifier: showcase
+        name: Showcase
+        url: /
+        weight: 10
+    -   identifier: bio
+        name: Bio
+        url: https://ainsleyclark.com/#bio
+        weight: 20
+    -   identifier: media
+        name: Media
+        url: https://ainsleyclark.com/media/
+        weight: 30
+    -   identifier: insights
+        name: Insights
+        url: https://ainsleyclark.com/insights/
+        weight: 40
+    -   identifier: contact
+        name: Say hello
+        url: https://ainsleyclark.com/#contact
+        weight: 50
+footer:
+    -   identifier: showcase
+        name: Showcase
+        url: /
+        weight: 10
+    -   identifier: bio
+        name: Bio
+        url: https://ainsleyclark.com/#bio
+        weight: 20
+    -   identifier: media
+        name: Media
+        url: https://ainsleyclark.com/media/
+        weight: 30
+    -   identifier: insights
+        name: Insights
+        url: https://ainsleyclark.com/insights/
+        weight: 40
+    -   identifier: contact
+        name: Say hello
+        url: https://ainsleyclark.com/#contact
+        weight: 50
+terms:
+    -   identifier: terms-conditions
+        name: Terms
+        url: https://ainsley.dev/terms/
+        weight: 0
+    -   identifier: privacy
+        name: Privacy
+        url: https://ainsley.dev/privacy/
+        weight: 10
+    -   identifier: cookies
+        name: Cookies
+        url: https://ainsley.dev/cookies/
+        weight: 20
+    -   identifier: guidelines
+        name: Guidelines
+        url: https://ainsley.dev/guidelines/
+        weight: 30
+schema:
+    -   identifier: home
+        name: Home
+        url: /
+        weight: 10
+    -   identifier: media
+        name: Media
+        url: https://ainsleyclark.com/media/
+        weight: 15
+    -   identifier: insights
+        name: Insights
+        url: https://ainsleyclark.com/insights/
+        weight: 20
+    -   identifier: contact
+        name: Say hello
+        url: https://ainsleyclark.com/contact/
+        weight: 30

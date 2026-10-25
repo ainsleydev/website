@@ -111,7 +111,7 @@
 					<!-- =====================
 						Actions
 						===================== -->
-					{{ if or .Params.slides .Params.video }}
+					{{ if or .Params.slides .Params.video .Params.links }}
 						<div class="conference-actions">
 							<!-- Slides -->
 							{{ with .Params.slides }}
@@ -140,6 +140,18 @@
 									"arrow" true
 									"title" (printf "Watch %s" $.Params.heading)
 									"attr" "target=_blank rel=noopener"
+								)}}
+							{{ end }}
+							<!-- Links -->
+							{{ range .Params.links }}
+								{{ partial "components/button.html" (dict
+									"text" .text
+									"link" .url
+									"colour" "white"
+									"size" "small"
+									"arrow" true
+									"title" (.title | default .text)
+									"attr" (cond (default false .newTab) "target=_blank rel=noopener" "")
 								)}}
 							{{ end }}
 						</div>

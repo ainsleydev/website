@@ -17,6 +17,10 @@ event:
   location: Venue, City
   url: https://example.com/
 # video: https://www.youtube.com/watch?v=xxxx
+# links:
+#   - text: View attendee sites
+#     url: https://showcase.ainsleyclark.com/{{ .Name }}/
+#     title: See what attendees built in the workshop
 slides:
   path: files/slides.pdf
   name: {{ .Name }}-ainsley-clark.pdf

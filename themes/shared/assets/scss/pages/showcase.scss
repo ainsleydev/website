@@ -1,0 +1,87 @@
+// -----------------------------------------------------------------------------
+// _showcase.scss
+// This file contains all styles related to the workshop showcase pages.
+// -----------------------------------------------------------------------------
+
+@import '../abstracts/mixins';
+@import '../abstracts/variables';
+
+.showcase {
+	$self: &;
+
+	// Meta
+	// =========================================================================
+
+	&-meta {
+		margin-top: $margin-small;
+		margin-bottom: 0;
+		font-size: 0.9rem;
+
+		a {
+			color: colour('foreground');
+		}
+	}
+
+	// Outro
+	// =========================================================================
+
+	&-outro .btn {
+		margin-top: $margin-small;
+	}
+}
+
+// Card
+// =============================================================================
+// The theme's card, as the ainsley.dev portfolio uses it. Only the 16:9 ratio,
+// the top-anchored screenshot and the GitHub link beneath differ.
+
+.card-showcase {
+	// The GitHub link beneath carries the card's bottom margin on mobile.
+	margin-bottom: 0;
+
+	.card-image-wrapper {
+		padding-top: 56.25%;
+	}
+
+	.card-image img {
+		object-position: top;
+	}
+
+	&-award {
+		margin-top: $margin-small;
+	}
+
+	&-github {
+		// Mirrors the header's menu toggle: small uppercase text with a tiny arrow.
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		margin-top: $margin-small;
+		margin-bottom: $card-margin-bottom;
+		color: colour('paragraph');
+		font-size: 0.75rem;
+		font-weight: 500;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		text-decoration: none;
+		transition: color 0.3s ease;
+
+		svg {
+			width: 12px;
+			height: 12px;
+			transition: transform 0.3s ease;
+		}
+
+		&:hover {
+			color: $white;
+
+			svg {
+				transform: translate(2px, -2px);
+			}
+		}
+
+		@include media-mob {
+			margin-bottom: 0;
+		}
+	}
+}

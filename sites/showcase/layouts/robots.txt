@@ -1,0 +1,8 @@
+Sitemap: {{ partial "util/_base-url.html" . }}/sitemap.xml
+User-agent: *
+{{ if hugo.IsProduction -}}
+{{ range where site.RegularPages "Type" "showcase" }}{{ with .Params.repo }}Disallow: /{{ . }}/
+{{ end }}{{ end }}
+{{- else -}}
+Disallow: /
+{{- end }}

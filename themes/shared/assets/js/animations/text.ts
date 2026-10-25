@@ -182,7 +182,11 @@ const hero = (): Playable => {
 		)
 		.add(
 			{
-				targets: wrapper.querySelector('.lead'),
+				// Anything marked .hero-animate-fade fades in alongside the lead.
+				targets: [
+					wrapper.querySelector('.lead'),
+					...Array.from(wrapper.querySelectorAll('.hero-animate-fade')),
+				].filter((el) => el !== null),
 				easing: 'easeOutQuad',
 				opacity: [0, 1],
 				duration: 1500,
@@ -206,7 +210,7 @@ const hero = (): Playable => {
 				duration: 1000,
 			},
 			900,
-		)
+		);
 
 	const arrow = document.querySelector('.hero .arrow-hover');
 	if (arrow) {

@@ -1,0 +1,55 @@
+identifier: a-clark
+name: Ainsley Clark
+niceName: ainsley clark
+description: Websites built by attendees of Ainsley Clark's full-stack Go workshops, one event at a time.
+titleSuffix: " | Ainsley Clark"
+images: []
+url: https://showcase.ainsleyclark.com
+logo: https://ainsleyclark.com/images/logo.jpg
+schemaType: person
+person:
+    name: Ainsley Clark
+    givenName: Ainsley
+    familyName: Clark
+    jobTitle: "Go Developer Advocate"
+company:
+    name: ainsley.dev LTD
+    number: 14550437
+    locality: London
+    country: UK
+    postalCode: WC2H 9JQ
+    address: ainsley.dev, 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ
+contact:
+    email: "hello@ainsley.dev"
+    phone:
+        link: +447507784206
+        pretty: +44 7507 784 206
+social:
+    github: https://github.com/ainsleyclark
+    linkedin: https://uk.linkedin.com/in/ainsleyclark/
+    twitter: https://twitter.com/ainsleydev/
+    dribbble: https://dribbble.com/ainsleydev/
+imagery:
+    webp: false
+    avif: false
+    container:
+        -   name: mob
+            size: 767
+        -   name: tab
+            size: 1023
+plausible:
+    enable: false
+    local: false
+    domain: showcase.ainsleyclark.com
+gtag:
+    enable: false
+    tag: KZFMRNJ
+codepen:
+    user: ainsleyclark
+    tab: result
+    theme: dark
+footer:
+    title: 'Workshops that end <br class="d-none d-desk-inline"/>with something shipped.'
+    subText: 'All original content, code, and written works published on this site are the intellectual property of ainsley.dev LTD unless otherwise stated.'
+wording:
+    pronoun: me
