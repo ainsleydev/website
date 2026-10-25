@@ -11,12 +11,6 @@
 			"dev": false
 		}
 	},
-	"functions": {
-		"api/**/*": {
-			"includeFiles": "**/*",
-			"memory": 256
-		}
-	},
 	"build": {
 		"env": {
 			"CGO_ENABLED": "0"
