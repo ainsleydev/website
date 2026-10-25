@@ -15,9 +15,13 @@ tags:
 buttonName: View Talk
 event:
   name: GopherCon Africa
-  date: 2026-10-30
+  date: 2026-10-17
   # location: Venue, City
   url: https://gophercon.africa/
+links:
+  - text: View workshop
+    url: /conferences/gophercon-africa-2026-workshop/
+    title: View the full-stack Go workshop with sqlc and templ
 # Uncomment once files/slides.pdf has been added.
 # slides:
 #   path: files/slides.pdf

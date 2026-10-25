@@ -1,0 +1,31 @@
+<!-- =====================
+    Showcase Strip
+    	partial "showcase/strip.html" $page
+    	Renders the theme's carousel as a film strip of a showcase page's
+    	sites: those flagged featured in front matter, or the first eight.
+    	Each tile opens the attendee's site in a new tab.
+    ===================== -->
+{{ $repo := .Params.repo }}
+{{ $sites := .Params.sites }}
+{{ $featured := slice }}
+{{ range $sites }}
+	{{ if .featured }}
+		{{ $featured = $featured | append . }}
+	{{ end }}
+{{ end }}
+{{ if not $featured }}
+	{{ $featured = first 8 $sites }}
+{{ end }}
+{{ $strip := slice }}
+{{ range $featured }}
+	{{ $strip = $strip | append (dict
+		"image" (printf "images/%s.jpg" (lower .user))
+		"alt" (printf "%s, built by %s" .name .user)
+		"link" (printf "/%s/%s/" $repo .user)
+	)}}
+{{ end }}
+{{ partial "components/carousel.html" (dict
+	"ctx" .
+	"images" $strip
+	"hasLinks" true
+)}}

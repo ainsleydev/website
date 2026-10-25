@@ -1,0 +1,16 @@
+<!-- =====================
+    Showcase Card
+    	One workshop showcase, listed on the home page.
+    ===================== -->
+{{ $featured := .Resources.GetMatch "images/featured.*" }}
+{{ partial "components/featured-card.html" (dict
+	"href"         .RelPermalink
+	"image"        $featured
+	"imageDefault" (.Resources.GetMatch "images/featured-small.*" | default $featured)
+	"heading"      .Params.heading
+	"lead"         (.Params.cardLead | default .Params.lead)
+	"buttonName"   .Params.buttonName
+	"fullWidth"    false
+	"numbers"      false
+	"external"     false
+)}}

@@ -22,6 +22,18 @@ talk: # Scaffold a new conference talk: make talk NAME=my-conf-2026
 	hugo new --kind conference-bundle conferences/$(NAME) --source sites/ainsley-clark
 .PHONY: talk
 
+showcase: # Scaffold a new workshop showcase page: make showcase NAME=gophercon-africa-2026
+	hugo new --kind showcase-bundle $(NAME) --source sites/showcase
+.PHONY: showcase
+
+showcase-fetch: # Fetch the attendee sites for the showcase from the workshop repository
+	./bin/showcase-fetch.sh
+.PHONY: showcase-fetch
+
+showcase-sync: # Sync a workshop showcase into sites/showcase: make showcase-sync SRC=path/to/showcase/workshop-x SLUG=event-slug [CONF=conference-bundle-slug]
+	./bin/showcase-sync.sh $(SRC) $(SLUG) $(CONF)
+.PHONY: showcase-sync
+
 deploy-prod: # Deploy production to Vercel
 	vercel --prod
 .PHONY: deploy-prod

@@ -1,0 +1,64 @@
+<!-- =====================
+    Card - Showcase
+    	partial "cards/showcase.html" (dict
+    		"title" "Night Safari"
+    		"sub" "@login"
+    		"permalink" "/workshop-repo/login/"
+    		"github" "https://github.com/login/workshop-repo"
+    		"image" (.Resources.GetMatch "images/login.jpg")
+    		"award" "Best Website"
+    		"lazy" true
+    	)
+    	- title:		The site's name, shown as the card title.
+    	- sub:			The eyebrow beneath the image, the author's GitHub handle.
+    	- permalink:	The attendee's site, opened in a new tab.
+    	- github:		The author's fork on GitHub, linked beneath the card.
+    	- image:		The 16:9 screenshot as a resource.
+    	- award:		Optional award, shown as a tag.
+    	- lazy:			If the image should be lazy loaded.
+    ===================== -->
+<!-- Card -->
+<a href="{{ .permalink }}" class="card card-showcase card-half-margin"
+	target="_blank" rel="noopener noreferrer"
+	title="Open {{ .title }} by {{ .sub }} in a new tab"
+	aria-label="Open {{ .title }} by {{ .sub }} in a new tab">
+	<!--- Wrapper -->
+	<div class="card-image-wrapper cursor-element skew"
+		data-scroll data-scroll-speed="0.3"
+		data-cursor-invert data-cursor-invert-black data-cursor-scale="4"
+		data-skew-transform-x="0.1" data-skew-transform-y="0.1">
+		<!-- Screenshot -->
+		{{ with .image -}}
+			<picture class="card-image margin">
+				{{ partial "media/picture.html" (dict
+					"image" .
+					"alt" (printf "%s, built by %s" $.title $.sub)
+					"lazy" $.lazy
+				)}}
+			</picture>
+		{{- end }}
+	</div><!--- /Wrapper -->
+	<!-- Text -->
+	<div class="card-text">
+		<!-- Sub -->
+		{{ with .sub -}}
+			<h3 class="heading-6">{{ . }}</h3>
+		{{- end }}
+		<!-- Title -->
+		{{ with .title -}}
+			<h4 class="heading-3 card-text-title">{{ . }}</h4>
+		{{- end }}
+		<!-- Award -->
+		{{ with .award -}}
+			{{ partial "components/tag.html" (dict "text" . "colour" "grey" "class" "card-showcase-award") }}
+		{{- end }}
+	</div>
+</a><!-- /Card -->
+<!-- GitHub -->
+{{ with .github -}}
+	<a class="card-showcase-github" href="{{ . }}" target="_blank" rel="noopener noreferrer"
+		title="View {{ $.sub }}'s repository on GitHub" aria-label="View {{ $.sub }}'s repository on GitHub">
+		<span>View the code</span>
+		{{ partial "svgs/arrow.html" (dict "rotation" 45 "colour" "white" "size" "small" "stroke" 1) }}
+	</a>
+{{- end }}

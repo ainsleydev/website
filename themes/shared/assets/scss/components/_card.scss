@@ -230,6 +230,11 @@
 			padding: 4rem 0;
 			justify-content: flex-end;
 
+			// The row has no gutters, so keep the title off the description.
+			&-title {
+				padding-right: $margin-large;
+			}
+
 			&-image {
 				display: block;
 				position: absolute;

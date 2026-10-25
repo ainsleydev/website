@@ -1,0 +1,9 @@
+# WebP/AVIF siblings are written by bin/image-optim.sh after the build, which
+# bin/build.sh skips for this site so attendee assets are served byte-for-byte.
+imagery:
+    webp: false
+    avif: false
+# Enable once showcase.ainsleyclark.com is added to Plausible.
+plausible:
+    enable: false
+    local: false

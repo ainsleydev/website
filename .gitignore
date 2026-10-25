@@ -72,3 +72,6 @@ hugo.linux
 
 # AI
 .claude/
+
+# Attendee sites for the showcase, fetched at build time by bin/showcase-fetch.sh
+sites/showcase/static/workshop-*/
