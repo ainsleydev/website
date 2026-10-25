@@ -18,11 +18,10 @@ event:
   date: 2026-10-17
   # location: Venue, City
   url: https://gophercon.africa/
-# Uncomment once files/slides.pdf has been added.
-# slides:
-#   path: files/slides.pdf
-#   name: gophercon-africa-2026-ainsley-clark.pdf
-#   text: Download slides
+slides:
+  path: files/slides.pdf
+  name: go-embed-from-comment-to-binary-ainsley-clark.pdf
+  text: Download slides
 sources:
   - title: 1. Mastering Embed in Go 1.16
     url: https://lakefs.io/blog/working-with-embed-in-go/
