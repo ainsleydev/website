@@ -97,6 +97,12 @@
 			"has": [{"type": "host", "value": "ainsleyclark\\.com"}]
 		},
 		{
+			"source": "/conferences/gophercon-africa-2026/",
+			"destination": "/conferences/gophercon-africa-2026-talk/",
+			"permanent": true,
+			"has": [{"type": "host", "value": "ainsleyclark\\.com"}]
+		},
+		{
 			"source": "/workshop-gophercon-africa-2026/",
 			"destination": "/gophercon-africa-2026/",
 			"statusCode": 301,
