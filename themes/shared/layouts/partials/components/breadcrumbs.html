@@ -3,9 +3,14 @@
     	partial "components/breadcrumbs.html" (dict
 			"ctx"   	.
 			"margin" 	false
+			"parent" 	(site.GetPage "/media")
+			"title" 	.Params.heading
 		)
     	- ctx: 		The current Hugo context
     	- margin: 	If margin should be outputted.
+    	- parent: 	Optional page to use as the parent instead of the ctx's ancestors,
+    				for sections that don't render, such as conferences under /media/.
+    	- title: 	Optional title for the current page, defaults to breadcrumbs or Title.
 	===================== -->
 <nav class="breadcrumbs {{ if and (isset . "margin") (not .margin) -}} mb-0 {{- end }}"
 	aria-label="breadcrumb">
@@ -43,8 +48,12 @@
 		{{- end }}
 
 		{{ $index := 2 }} <!-- Start index at 2 since Home is 1 -->
+		{{ $ancestors := .ctx.Ancestors.Reverse }}
+		{{ with .parent }}
+			{{ $ancestors = .Ancestors.Reverse | append . }}
+		{{ end }}
 		<!-- Ancestor Breadcrumbs -->
-		{{ range .ctx.Ancestors.Reverse }}
+		{{ range $ancestors }}
 			{{ if not (eq .RelPermalink "/") }}
 				{{ partial "breadcrumbs-item.html" (dict
 					"title" (partial "breadcrumbs-title.html" .)
@@ -57,7 +66,7 @@
 		{{ end }}
 		<!-- Current Page Breadcrumb -->
 		{{ partial "breadcrumbs-item.html" (dict
-			"title" (partial "breadcrumbs-title.html" .ctx)
+			"title" (.title | default (partial "breadcrumbs-title.html" .ctx))
 			"link" .ctx.RelPermalink
 			"index" $index
 			"current" true

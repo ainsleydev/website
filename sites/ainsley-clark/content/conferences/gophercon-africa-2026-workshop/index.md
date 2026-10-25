@@ -1,7 +1,7 @@
 ---
 title: Full-Stack Go Workshop at GopherCon Africa 2026
 description: A full-day workshop at GopherCon Africa 2026 in Nairobi on building domain-driven, full-stack Go apps with sqlc and templ, and the sites attendees shipped.
-heading: GopherCon Africa 2026 Workshop
+heading: GopherCon Africa 2026 - Workshop
 talkTitle: "Full-Stack Go: Domain-Driven Applications with sqlc and templ"
 lead: A full-day, intermediate workshop building a complete Go application, from data ingestion through a type-safe sqlc data layer to a server-rendered templ UI, finishing with a theming block where every attendee shipped their own site.
 weight: 1
@@ -19,14 +19,11 @@ event:
   date: 2026-10-15
   location: Nairobi, Kenya
   url: https://gophercon.africa/
-slides:
-  path: files/slides.pdf
-  name: full-stack-go-sqlc-templ-workshop-ainsley-clark.pdf
-  text: Download slides
 links:
   - text: View attendee sites
     url: https://showcase.ainsleyclark.com/gophercon-africa-2026/
     title: See every website built in the workshop
+    colour: black
 sources:
   - title: 1. sqlc
     url: https://sqlc.dev/
@@ -57,19 +54,6 @@ sources:
 Build a complete full-stack application in Go, from data ingestion through persistence to a server-rendered UI, purely in Go. This full-day workshop teaches you how to design maintainable full-stack applications that age well.
 
 We started from a working application built on a real public API: an animal-sightings site fed by GBIF records, stored in SQLite and enriched with Open-Meteo weather. From there we walked through five different architectures for the same feature (flat, layered, onion, hexagonal and feature-based) to see what domain-driven design actually buys you, then looked at how the app is built: a type-safe data layer with sqlc and a front-end written with templ. The build is a guided walkthrough of real, finished code, so the time goes on the decisions rather than the typing.
-
-## Agenda
-
-| Block | Minutes |
-| --- | --- |
-| Welcome and setup | 10 |
-| App intro | 20 |
-| Architecture and DDD practices | 50 |
-| Querying with sqlc | 40 |
-| Intro to templ | 40 |
-| Profiling | 20 |
-| Theming | 80 |
-| Wrapping up | 10 |
 
 ## What attendees built
 

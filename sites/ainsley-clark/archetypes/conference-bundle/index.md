@@ -21,6 +21,7 @@ event:
 #   - text: View attendee sites
 #     url: https://showcase.ainsleyclark.com/{{ .Name }}/
 #     title: See what attendees built in the workshop
+#     colour: black # Optional, defaults to white.
 slides:
   path: files/slides.pdf
   name: {{ .Name }}-ainsley-clark.pdf

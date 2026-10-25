@@ -1,7 +1,7 @@
 ---
 title: "//go:embed: From Comment to Binary"
 description: How //go:embed turns a comment into bytes in your binary, from the lexer to the linker, plus the tradeoffs and patterns for using it in production.
-heading: GopherCon Africa 2026
+heading: GopherCon Africa 2026 - Talk
 talkTitle: "//go:embed: From Comment to Binary - Linker Internals, Tradeoffs and Production Patterns"
 lead: This talk follows a single //go:embed directive through go build, the compiler and the linker, then looks at what embedding costs you and how to test it.
 weight: 1
@@ -18,10 +18,6 @@ event:
   date: 2026-10-17
   # location: Venue, City
   url: https://gophercon.africa/
-links:
-  - text: View workshop
-    url: /conferences/gophercon-africa-2026-workshop/
-    title: View the full-stack Go workshop with sqlc and templ
 # Uncomment once files/slides.pdf has been added.
 # slides:
 #   path: files/slides.pdf
